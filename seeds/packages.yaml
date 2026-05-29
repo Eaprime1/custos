@@ -1,0 +1,21 @@
+# packages.yaml — Concept Package Reference
+# List packages this concept requires or recommends.
+
+manager: auto
+
+required:
+  # Packages that must be installed for any quest to function.
+  # Keep this list short — only hard dependencies.
+  - git
+  - curl
+
+optional:
+  # Packages that enhance the experience but aren't required for core quests.
+  # Players can install these as quests unlock them.
+  - vim
+  - python
+  - openssh
+
+# Add new packages here as quests require them.
+# Group by arc if the list grows large.
+# ☯

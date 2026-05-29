@@ -1,0 +1,57 @@
+# prima.yaml — Concept Manifest
+# Fill this in when you fork the template.
+# Run: bash tools/scan_lexeme.sh to find unfilled placeholders.
+
+concept:
+  name: "My Prima Terminal"        # display name of this concept
+  slug: "my-prima-terminal"        # url-safe identifier, no spaces
+  version: "0.1.0"
+  tagline: "One line that says what this world is."
+  theme: "general"                 # e.g. unix, networking, coding, creative, survival
+
+author:
+  handle: ""                       # your handle / team name
+  contact: ""                      # optional — email, url, or @handle
+
+runtime:
+  platform: "termux"               # termux | linux | macos | any
+  min_android_api: 24              # Termux only — omit for other platforms
+  required_packages: []
+  optional_packages: []
+
+unexusi:
+  profile_version: "1.0"
+  spec: "unexusi/connect.yaml"
+
+quests:
+  start: "quests/000-thee-the-door.md"   # first quest — name the concept
+  format_spec: "quests/QUEST_SCHEMA.md"
+
+world:
+  lore: "world/lore.md"
+  factions: "world/factions.md"
+
+seeds:
+  bootstrap: "seeds/bootstrap.sh"
+  packages: "seeds/packages.yaml"
+
+intake:
+  door: "intake/README.md"
+  incoming: "intake/incoming.md"
+  triad: "intake/triad-thee-yod-ember.md"
+
+turns:
+  schema: "turns/TURN_SCHEMA.md"
+  log: "turns/log.md"
+
+prime:
+  state: ".prime"
+  check: "tools/prime_check.sh"
+
+tools:
+  thee: "tools/thee.sh"
+  yod: "tools/yod.sh"
+  ember: "tools/ember.sh"
+  prime_check: "tools/prime_check.sh"
+  scan_lexeme: "tools/scan_lexeme.sh"
+  ethics_check: "tools/ethics_check.md"

@@ -1,0 +1,85 @@
+# unexusi/connect.yaml — Unexusi Connection Spec
+# Defines how this prima terminal concept integrates with the Unexusi identity layer.
+
+spec_version: "1.0"
+
+# The Unexusi identity layer is the oxygen — the persistent layer that knows
+# who a player is across sessions, machines, and concepts.
+# This file tells Unexusi what this concept needs from that layer.
+
+concept:
+  slug: "my-prima-terminal"    # must match prima.yaml concept.slug
+  profile_schema: "1.0"
+
+# ---------------------------------------------------------------------------
+# Player Profile
+# What state does Unexusi track for a player in this concept?
+# ---------------------------------------------------------------------------
+profile:
+  # Core fields — always present
+  fields:
+    - name: player_handle
+      type: string
+      description: "The player's chosen name in this world."
+    - name: xp
+      type: integer
+      default: 0
+      description: "Accumulated experience points."
+    - name: level
+      type: integer
+      default: 1
+      description: "Current level derived from XP."
+    - name: quests_complete
+      type: list[string]
+      default: []
+      description: "List of completed quest IDs."
+    - name: quests_active
+      type: list[string]
+      default: ["example/001-awakening"]
+      description: "List of currently active quest IDs."
+    - name: joined_at
+      type: datetime
+      description: "When the player first connected to this concept."
+    - name: last_seen
+      type: datetime
+      description: "Last session timestamp."
+
+# ---------------------------------------------------------------------------
+# Session
+# What happens when a player opens a session in this concept?
+# ---------------------------------------------------------------------------
+session:
+  on_connect:
+    # Actions the Unexusi layer takes when a player session starts.
+    - action: load_profile
+    - action: display_active_quests
+    - action: show_motd                # message of the day / lore snippet
+  on_disconnect:
+    - action: save_profile
+    - action: record_last_seen
+
+# ---------------------------------------------------------------------------
+# XP and Leveling
+# ---------------------------------------------------------------------------
+progression:
+  xp_per_level:
+    # XP required to reach each level (cumulative from 0).
+    1: 0
+    2: 100
+    3: 250
+    4: 500
+    5: 1000
+    # Add more levels as the concept expands.
+
+# ---------------------------------------------------------------------------
+# BBS Access
+# Optional: if this concept exposes a BBS-style multi-user space.
+# ---------------------------------------------------------------------------
+bbs:
+  enabled: false
+  # When enabled, players in the same concept can see each other's handles,
+  # leave messages, and view a shared leaderboard.
+  features:
+    - leaderboard
+    - message_board
+    - shared_quest_log
