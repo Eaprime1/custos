@@ -9,7 +9,7 @@ content moving between iteration states, suit assignments,
 branch extractions, and vault designations.
 
 
-Naming convention: [entity]_moav_[prima-clock].json
+Naming convention: [entity]_moav_[event].json; each carrier must include its prima-clock stamp in the JSON payload.
 
 
 ## Existing Carriers
