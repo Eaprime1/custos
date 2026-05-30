@@ -14,7 +14,7 @@ identity:
   concept: "custos"
 
 paths:
-  repo: "~/custos"                  # where this repo lives on the device
+  repo: "~/pixel8/custos"           # where this repo lives on the device
   work: "~/pixel8"                  # active working directory
   legacy: "~/pixel8a"               # old Pinnacle — content being migrated out
   prima_env: "~/.prima-env"

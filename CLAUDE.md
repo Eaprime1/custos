@@ -38,11 +38,13 @@ bash tools/scan_lexeme.sh path/to/dir      # scan a specific subdirectory
 bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
 ```
 
-**Termux Claude Code install fix (if MODULE_NOT_FOUND):**
-```bash
-npm approve-scripts @anthropic-ai/claude-code
-npm install -g @anthropic-ai/claude-code
-```
+**Claude Code on Termux (Android):**
+Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
+
+Workarounds:
+- **Use the web session** — claude.ai/code connects to the repo remotely; this is the primary path for device-side AI work
+- **Use the Anthropic API directly** in Termux: `curl` or a Python script with the `anthropic` package
+- **SSH to a remote Linux box** from Termux and run Claude Code there (full support on linux-arm64)
 
 ## Architecture
 
