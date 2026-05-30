@@ -25,12 +25,12 @@ This is the negative mold. All repos emerge from branches here.
 
 | Directory | Purpose |
 |-----------|---------|
-| /vault | Origin molds — never directly edited |
-| /branch-tracker | Active development map |
-| /prima-clock | Custody event timestamp registry |
-| /moav | MOAV carrier packages (JSON) |
-| /returns | Stream returns from external agents |
-| /atelier | Nursery — concepts before they have names |
+| [/vault](./vault) | Origin molds — never directly edited |
+| [/branch-tracker](./branch-tracker) | Active development map |
+| [/prima-clock](./prima-clock) | Custody event timestamp registry |
+| [/moav](./moav) | MOAV carrier packages (JSON) |
+| [/returns](./returns) | Stream returns from external agents |
+| [/atelier](./atelier) | Nursery — concepts before they have names |
 
 
 ## Known Repo Map
