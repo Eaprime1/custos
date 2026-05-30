@@ -1,52 +1,86 @@
-# Prima Terminal — Template
+# custos
 
-A living template for building **prima terminal** concepts: RPG-style, quest-driven terminal environments where the journey through the command line is the point.
+*guardian of the work you do from here*
 
-## What Is a Prima Terminal?
+custos is a prima terminal concept for the Pixel 8 — a structured, story-driven command environment that tends work as it arrives, tracks it as it moves, and remembers it when it is done.
 
-A prima terminal is a **concept repo** — a seed-and-quest package that transforms a bare terminal session into a structured, story-driven experience. It defines a world, gives the user quests, and guides them through building real skills and real tools.
-
-It does **not** bundle a terminal emulator. The runtime (Termux, bash, zsh, whatever the platform provides) lives at the system layer. This repo is the concept riding on top of it.
+The word is Latin: guardian, keeper, watchman. This is the practice of keeping.
 
 ```
-[ Termux / system terminal ]   ← runtime engine (installed on device, not in this repo)
+[ Termux on Pixel 8 ]        ← the Podium — runtime engine
         ↕
-    [ Unexusi ]                ← identity + connection layer
+    [ Unexusi ]              ← identity + connection layer
         ↕
-[ Prima Terminal Concept ]     ← this repo: quests, seeds, guides, world
+    [ custos ]               ← this repo: the Field, the Flock, the Work
 ```
+
+## What custos is
+
+The terminal on the Pixel 8 is not a tool in this world. It is the Field — the place where all work passes through. Projects and repos are the Flock. The operator is the Shepherd. custos is the discipline: receive work, tend it, dispatch it, remember it.
+
+Work arrives from many sources — navigo, remote repos, commissions, ideas. All of it passes through the Field.
 
 ## Repo Structure
 
 ```
-prima.yaml          concept manifest — name, version, runtime requirements
-quests/             RPG-style quest definitions (real tasks, real outcomes)
-seeds/              bootstrap scripts, dotfiles, package lists
-guides/             lore-woven practical documentation
-world/              setting, lore, factions — the conceptual "place"
-unexusi/            connection spec for the Unexusi identity layer
+prima.yaml          concept manifest and source of truth
+quests/             RPG-style quest arcs — real tasks, real outcomes
+quests/missions/    open missions and bounties for any contributor
+world/              lore, factions, and the founding myth
+seeds/              bootstrap scripts and dotfiles for new devices
+device/             Pixel 8 device state — active work, manifests (pixel8 branch)
+guides/             practical documentation written as world-native content
+tools/              THEE / YOD / EMBER triad and state tools
+intake/             the door where fragments arrive before they have names
+turns/              session memory — append only
+unexusi/            connection spec for the identity layer
 ```
 
-## How to Fork This Template
+## Getting started on a new device
 
-1. Fork or use this repo as a GitHub template.
-2. Edit `prima.yaml` — give the concept its name, theme, and runtime requirements.
-3. Write the `world/` — who lives here, what this place is.
-4. Build out `quests/` — start with the awakening quest, then grow.
-5. Fill `seeds/` — dotfiles, packages, bootstrap scripts the concept needs.
-6. Write `guides/` — practical docs written as if they belong to the world.
-7. Define `unexusi/connect.yaml` — how users authenticate and carry their state.
+```bash
+# 1. Clone the repo
+git clone https://github.com/eaprime1/custos.git
+cd custos
 
-## Quest Design Philosophy
+# 2. Bootstrap the environment (idempotent)
+bash seeds/bootstrap.sh
 
-Quests are **real work with narrative framing**, not tutorials disguised as stories.
+# 3. Check the current prime state
+bash tools/prime_check.sh
 
-- A quest teaches a skill by requiring its actual use.
-- Completion has a verifiable outcome: a file exists, a script runs, a tool works.
-- Multiple members can contribute quests — the format is a contract, not a script.
+# 4. Check for any unfilled placeholders
+bash tools/scan_lexeme.sh
+```
 
-See `quests/QUEST_SCHEMA.md` for the full spec.
+## Workflow — Missions and Bounties
+
+custos uses GitHub Issues as an open mission board. Any contributor — human or AI — can claim a mission.
+
+- **Missions**: structured tasks with clear deliverables and completion checks
+- **Bounties**: open challenges where the approach is part of the work
+
+Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
+
+## Device branches
+
+Work on custos is organized by device:
+
+| Branch | Device | Role |
+|---|---|---|
+| `main` | any | concept foundation |
+| `pixel8` | Pixel 8 (Podium) | active device state, work-in-flight |
+
+The `pixel8` branch carries `device/` files that track what is active, installed, and in progress on the Pixel 8.
+
+## Multi-AI development
+
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Multiple members can fill in quests, guides, world lore, and seeds — the template structure is designed for collaborative expansion.
+See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
+
+---
+
+*THEE opens. YOD marks. EMBER warms. custos keeps.*

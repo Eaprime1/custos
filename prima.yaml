@@ -3,15 +3,15 @@
 # Run: bash tools/scan_lexeme.sh to find unfilled placeholders.
 
 concept:
-  name: "My Prima Terminal"        # display name of this concept
-  slug: "my-prima-terminal"        # url-safe identifier, no spaces
+  name: "custos"                   # display name of this concept
+  slug: "custos"                   # url-safe identifier, no spaces
   version: "0.1.0"
-  tagline: "One line that says what this world is."
-  theme: "general"                 # e.g. unix, networking, coding, creative, survival
+  tagline: "Guardian of the work you do from here."
+  theme: "guardian"                # shepherd, keeper, watchman of the Podium
 
 author:
-  handle: ""                       # your handle / team name
-  contact: ""                      # optional — email, url, or @handle
+  handle: "eaprime1"
+  contact: "eaprime@gmail.com"
 
 runtime:
   platform: "termux"               # termux | linux | macos | any

@@ -8,7 +8,7 @@ spec_version: "1.0"
 # This file tells Unexusi what this concept needs from that layer.
 
 concept:
-  slug: "my-prima-terminal"    # must match prima.yaml concept.slug
+  slug: "custos"               # must match prima.yaml concept.slug
   profile_schema: "1.0"
 
 # ---------------------------------------------------------------------------
