@@ -43,8 +43,7 @@ Post a bounty that a contributor you have never met could pick up and complete w
 
 ```bash
 # Verify a bounty issue exists in the open state
-# Check GitHub Issues UI — filter by label:bounty
-echo "Bounty posted when a GitHub Issue with label 'bounty' is open and public."
+gh issue list --state open --label "bounty" --limit 1 | grep -q .
 ```
 
 ## Reward
