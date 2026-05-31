@@ -42,13 +42,13 @@ packages:
 # Update at session boundaries.
 # ---------------------------------------------------------------------------
 sessions:
+sessions:
   - name: "custos repo"
-45:  - name: "custos repo"
-46:    path: "~/pixel8/custos"
-47:    branch: "pixel8"
-48:    status: "active"
+    path: "~/pixel8/custos"
     branch: "pixel8"
     status: "active"
+
+# 🃏
 
 # ---------------------------------------------------------------------------
 # Notes
