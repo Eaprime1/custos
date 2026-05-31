@@ -24,7 +24,7 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 - [x] Add CLAUDE.md with codebase guidance
 - [x] Create `.github/ISSUE_TEMPLATE/` for missions and bounties
 - [x] Create `quests/missions/` arc (first 3 quests)
-- [ ] Complete Quest 000 verification: `grep -q 'name: "My Prima Terminal"' prima.yaml || echo "complete"`
+- [ ] Complete Quest 000 verification: `! grep -q 'name: "My Prima Terminal"' prima.yaml && echo "complete"`
 - [ ] Write first turn log entry in `turns/log.md`
 - [ ] Advance `.prime` from 3 to 5
 
