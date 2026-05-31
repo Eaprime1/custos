@@ -42,9 +42,8 @@ Post a bounty that a contributor you have never met could pick up and complete w
 ## Completion Check
 
 ```bash
-# Verify a bounty issue exists in the open state
-# Check GitHub Issues UI — filter by label:bounty
-echo "Bounty posted when a GitHub Issue with label 'bounty' is open and public."
+# Query GitHub API for open issues with the bounty label
+curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"' && echo "complete"
 ```
 
 ## Reward
