@@ -25,4 +25,4 @@ for i in "${!PRIMES[@]}"; do
   fi
  done
 
- echo "State $CURRENT not in standard sequence — custom progression active."
+echo "State $CURRENT not in standard sequence — custom progression active."
