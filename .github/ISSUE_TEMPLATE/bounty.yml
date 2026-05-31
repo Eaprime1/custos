@@ -1,0 +1,51 @@
+name: Bounty
+description: An open challenge where the approach is part of the work. Post it, let it attract contributors.
+title: "[bounty] "
+labels: ["bounty", "open"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **A bounty is open-ended work.** The problem is defined but the approach is not. Contributors bring their own method and the Shepherd decides what lands. Claim by commenting `claiming this`.
+
+  - type: textarea
+    id: challenge
+    attributes:
+      label: The Challenge
+      description: What problem needs solving? What is currently broken, missing, or possible?
+      placeholder: "The Field lacks X. Whoever figures out Y gets the bounty."
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: What success looks like
+      description: How will you know a solution worked? Be as specific as you can without prescribing the approach.
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Anything the solution must not do, or must work within.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Background, related files, prior attempts, relevant lore.
+    validations:
+      required: false
+
+  - type: input
+    id: xp
+    attributes:
+      label: XP reward
+      description: Experience points on successful completion
+      placeholder: "200"
+    validations:
+      required: false

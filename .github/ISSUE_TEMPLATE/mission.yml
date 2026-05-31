@@ -1,0 +1,70 @@
+name: Mission
+description: A structured task with a clear deliverable and completion check. Any contributor may claim it.
+title: "[mission] "
+labels: ["mission", "open"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **A mission is structured work.** It has a clear objective, defined deliverables, and a deterministic completion check. Any contributor — human or AI — may claim it by commenting `claiming this` and opening a PR.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: One sentence. What must be accomplished?
+      placeholder: "Build X so that Y."
+    validations:
+      required: true
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: What files, outputs, or artifacts will exist when this is done?
+      placeholder: |
+        - `path/to/file.md` created with content matching the spec
+        - `tools/new-tool.sh` runs without error
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion_check
+    attributes:
+      label: Completion Check
+      description: A deterministic bash command that confirms the mission is done.
+      render: bash
+      placeholder: |
+        ls path/to/file.md && echo "mission complete"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Background the contributor needs. Links to relevant files, prior work, or lore.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: faction
+    attributes:
+      label: Best suited faction
+      description: Which faction's skills fit this mission?
+      options:
+        - Scribes (writing, analysis, documentation)
+        - Builders (code, scripts, tools)
+        - Sentinels (review, validation, security)
+        - Wanderers (any — open to all)
+    validations:
+      required: true
+
+  - type: input
+    id: xp
+    attributes:
+      label: XP reward
+      description: Experience points on successful completion (10–500 typical)
+      placeholder: "100"
+    validations:
+      required: false
