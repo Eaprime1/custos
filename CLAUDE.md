@@ -67,9 +67,8 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 - `factions.md` — Scribes, Builders, Sentinels, Wanderers, Unexusi
 - `the-the.md` — The founding myth of prima (do not edit)
 
-### Device Layer (`device/`)
-Tracks live device state.
-- Preferred location: device-specific branches (e.g. `pixel8`) for real-time updates
+### Device Layer (`device/`) — pixel8 branch only
+Tracks live device state. Not on `main`.
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
 
@@ -78,6 +77,33 @@ Tracks live device state.
 - `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
 - Labels: `mission`, `bounty`, `open` on GitHub Issues
 - Contributors claim by commenting `claiming this` and opening a PR
+
+### Convergence Hub Structure
+custos is the origin mold for a constellation of repos. Branches in this repo develop into separate repos via a formal lifecycle.
+
+**`branch-tracker/branches.md`** — Active development map: each branch has a suit, status, and destination repo.
+
+**`prima-clock/registry.md`** — Formal custody log. Every significant event gets a prima-clock stamp (`YYYYMMDDHHSS`). Always include the current prima-clock value when creating MOAV carriers or vault entries.
+
+**`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier must include its prima-clock stamp and a `chain_of_custody` field.
+
+**`vault/`** — Origin molds. Documents placed here have passed formal custody. Never directly edited — active work happens on Carbonite instances. `vault/spade-of-aces/` holds ♠️ pinnacle documents only.
+
+**`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When a concept is ready, custos routes it to the appropriate branch or repo.
+
+**`returns/`** — External agent stream returns. Each stream directory receives findings from the assigned AI model:
+- `stream-1-language/` — Gemini: Language/Fodere/Agnoscere
+- `stream-2-emotion/` — Gemini: Emotion Architecture
+- `stream-3-variables/` — ChatGPT: Variable Constant Violation
+- `stream-4-shepherd/` — ChatGPT: Shepherd Protocol
+- `stream-5-math/` — Copilot: Mathematical Backbone / prima-clock
+
+### Suit System
+Branches and documents carry suit designations:
+- ♠️ **Spade** — Pinnacle / vault items. Passed formal custody.
+- ♦️ **Diamond** — Active development. Working branches en route to destination repos.
+- ♣️ **Club** — Sessions / operations. Active working events.
+- ❤️ **Heart** — (reserved)
 
 ### Seeds (`seeds/`)
 `bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/`, creates `~/.prima-env`. Idempotent.
@@ -97,9 +123,14 @@ Session memory. Append only. One entry per meaningful session. Schema in `turns/
 ## Key Conventions
 
 **Branches:**
-- `main` — concept foundation (quests, world, tools, workflow)
+- `main` — concept foundation (quests, world, tools, workflow, convergence hub)
 - `pixel8` — Pixel 8 device layer (adds `device/` files, device-specific state)
 - All PRs from `pixel8` → `main` require Sentinel review (default: eaprime1)
+- Feature/concept branches: develop here, then dispatch to destination repo per `branch-tracker/branches.md`
+
+**prima-clock stamps:** Use `date '+%Y%m%d%H%M'` to generate. Include in MOAV carriers and prima-clock/registry.md entries.
+
+**MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Always include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody`.
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
