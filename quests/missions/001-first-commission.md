@@ -31,7 +31,7 @@ Post a mission or bounty on GitHub Issues and receive a completed contribution.
 
 1. Browse `quests/missions/` to understand the mission arc structure.
 2. Identify something small that needs doing in the custos repo — a lore gap, a missing tool, an unfilled placeholder.
-3. Go to [GitHub Issues](../../../issues/new/choose) and choose the **Mission** or **Bounty** template.
+3. Go to [GitHub Issues](../../../../issues/new/choose) and choose the **Mission** or **Bounty** template.
 4. Fill in the objective, deliverables, and completion check. Be specific.
 5. Submit the issue. It is now open to the Field.
 6. Claim it yourself, or wait for a contributor.
