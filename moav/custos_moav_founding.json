@@ -1,0 +1,35 @@
+{
+  "carrier_id": "custos_moav_founding",
+  "prima_clock": "202605271650",
+  "entity": "eaprime1/custos",
+  "suit": "♠️",
+  "iteration": "21 — Blackjack",
+  "event": "Custos founding — THE/UNEXUS convergence hub established",
+  "motion_state": "EXPANDING",
+  "chain_of_custody": "OPEN",
+  "repo_map": [
+    { "repo": "eaprime1/custos", "role": "Convergence hub" },
+    { "repo": "eaprime1/nullus", "role": "Pre-system void preparation" },
+    { "repo": "eaprime1/the", "role": "Main system active development" },
+    { "repo": "eaprime1/diamond-reservoir", "role": "Seed pressure system" },
+    { "repo": "eaprime1/prima-clock", "role": "Temporal anchor registry" },
+    { "repo": "eaprime1/121", "role": "Periodic table expansion" },
+    { "repo": "eaprime1/milkweed-vectors", "role": "Seeded vector templates" }
+  ],
+  "active_branches": [
+    { "branch": "milkweed-vectors", "suit": "♦️", "status": "Germ", "destination": "eaprime1/milkweed-vectors", "notes": "Photo anchors, beetle obs" },
+    { "branch": "photo-anchors", "suit": "♦️", "status": "1/3", "destination": "eaprime1/custos", "notes": "Protocol in dev" },
+    { "branch": "diamond-reservoir", "suit": "♦️", "status": "Germ", "destination": "eaprime1/diamond-reservoir", "notes": "Seed pressure system" },
+    { "branch": "prima-clock", "suit": "♦️", "status": "Germ", "destination": "eaprime1/prima-clock", "notes": "Temporal registry" },
+    { "branch": "121-architecture", "suit": "♦️", "status": "2/3", "destination": "eaprime1/121", "notes": "Periodic table expansion" }
+  ],
+  "external_agent_assignments": [
+    { "stream": "stream-1-language", "agent": "Gemini", "domain": "Language/Fodere/Agnoscere" },
+    { "stream": "stream-2-emotion", "agent": "Gemini", "domain": "Emotion Architecture" },
+    { "stream": "stream-3-variables", "agent": "ChatGPT", "domain": "Variable Constant Violation" },
+    { "stream": "stream-4-shepherd", "agent": "ChatGPT", "domain": "Shepherd Protocol" },
+    { "stream": "stream-5-math", "agent": "Copilot", "domain": "Mathematical Backbone / prima-clock" }
+  ],
+  "notes": "Origin mold established. Negative mold — all repos emerge from branches here.",
+  "symbol": "∰◊€π¿🌌∞"
+}
