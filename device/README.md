@@ -1,6 +1,8 @@
 # device/
 
-This directory tracks the physical device running custos. It lives on device-specific branches (e.g. `pixel8`) and is not part of the concept foundation on `main`.
+This directory tracks the physical device(s) running custos.
+
+Live device state should be maintained on device-specific branches (e.g. `pixel8`) rather than on `main` to keep the concept foundation branch portable.
 
 Each device has its own subdirectory or manifest file. The device layer answers: what is installed here, what is active, what has passed through.
 
