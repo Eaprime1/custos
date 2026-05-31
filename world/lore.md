@@ -1,35 +1,39 @@
-# World Lore
+# World Lore — custos
 
-*This is the template placeholder. Replace everything below with the lore of your concept.*
+*guardian of the work you do from here*
 
 ---
 
 ## The Setting
 
-Describe the world in 2–4 paragraphs. Where are we? What kind of place is this?
-What is the atmosphere — hostile, curious, ancient, neon, broken, growing?
+The Podium is a Pixel 8 running Termux. It fits in a pocket. From it, all work flows.
 
-The setting should feel like a place a player inhabits, not a classroom they
-are sitting in. The terminal is not a tool in this world — it is the world.
+This is not a metaphor. The device is the Podium — the elevated place from which the Shepherd oversees the Flock. Projects, repos, ideas, and commissions arrive here. They are received, tended, dispatched, and remembered. The terminal is the Field: flat, traversable, alive with movement.
+
+The Field is not a tool. You do not use the Field. You work in it.
 
 ## History
 
-What happened before the player arrived? What created this place?
-A few paragraphs of history give quests their stakes.
+Before custos, there was pixel8a. The old Pinnacle: good work done without a practice. Files scattered across `~/pixel8a`. Good scripts. Half-finished tools. Useful ideas that never got a next turn.
+
+custos is the answer to what pixel8a needed. Not more tools — a discipline. A way to let work arrive before forcing it to be finished. A way to dispatch it when it is ready. A way to remember it faithfully.
+
+The move from pixel8a to pixel8 is not a migration. It is a naming. The Shepherd has arrived.
 
 ## The Prompt
 
-What does the command prompt represent in this world? In a prima terminal, the
-prompt is never just a symbol — it is a character, an environment, a signal.
+The prompt on the Pixel 8 represents the Field: the space between receiving and dispatching. It is always open. It is always waiting. It does not ask what you want to do — it asks what has arrived.
 
-Give the prompt a meaning that fits your concept.
+The operator answers by marking, tending, and moving.
 
 ## What Players Are
 
-Are players travelers? Operators? Archaeologists? Builders? Survivors?
-Define the player's role in this world in one paragraph.
+Players in custos are Shepherds. Not builders, not coders, not users — Shepherds.
+
+A Shepherd receives what arrives, tends what needs tending, dispatches what is ready, and remembers what has passed. The Shepherd does not force the Flock. The Shepherd keeps watch.
+
+The practice is old. The tools are new. The Field remains open.
 
 ---
 
-*Keep lore entries short and evocative. Detail that does not help a player
-understand what to do belongs in `world/factions.md` or supplemental lore files.*
+*The first line of custos was written from the Pixel 8, in the Field, on a day when the old Pinnacle finally had a name.*

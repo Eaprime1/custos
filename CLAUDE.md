@@ -1,0 +1,116 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What This Repository Is
+
+**custos** is a prima terminal concept for the Pixel 8 — a guardian/shepherd environment for tending all work done from the device. It is not a software project with a build pipeline. There is no compilation, no test suite, no package manager. The deliverable is the content and structure: quests, world lore, shell tools, device state, and workflow configuration.
+
+```
+[ Termux on Pixel 8 ]        ← the Podium (runtime engine, not in this repo)
+        ↕
+    [ Unexusi ]              ← identity + connection layer (unexusi/connect.yaml)
+        ↕
+    [ custos ]               ← this repo: quests, world, tools, device state
+```
+
+**Concept identity:** name=`custos`, slug=`custos`, theme=`guardian`, author=`eaprime1`, platform=`termux`.  
+**Active branch for Pixel 8 device work:** `pixel8` (tracks `device/` files with live device state).
+
+## Shell Tools
+
+All tools run from the repo root.
+
+```bash
+# Intake triad — receive, mark, warm a fragment
+bash tools/thee.sh "your fragment"          # logs to intake/incoming.md, asks "The what?"
+bash tools/yod.sh "smallest true action"   # marks the first action
+bash tools/ember.sh "fragment"             # keeps a fragment alive until next turn
+
+# State inspection
+bash tools/prime_check.sh                  # reads .prime, reports current/next prime state
+
+# Authoring validation
+bash tools/scan_lexeme.sh                  # finds unfilled placeholders across .md/.sh/.yaml/.json
+bash tools/scan_lexeme.sh path/to/dir      # scan a specific subdirectory
+
+# Environment bootstrap (idempotent)
+bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
+```
+
+**Termux Claude Code install fix (if MODULE_NOT_FOUND):**
+```bash
+npm approve-scripts @anthropic-ai/claude-code
+npm install -g @anthropic-ai/claude-code
+```
+
+## Architecture
+
+### `prima.yaml` — Central Manifest
+Single source of truth. Declares concept name/slug/version, runtime requirements, and references every component by path. `concept.slug` must stay in sync with `unexusi/connect.yaml concept.slug`.
+
+### Quests (`quests/`)
+RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `quests/QUEST_SCHEMA.md`:
+- YAML front matter: `id`, `title`, `arc`, `sequence`, `xp`, `difficulty`, `estimated_time`, `requires`, `unlocks`, `tags`
+- Sections: Lore, Objective, Tasks, Completion Check, Reward, Hints
+- File naming: `quests/<arc>/<NNN>-slug.md`
+- Every Completion Check must be a deterministic bash command
+
+`quests/000-thee-the-door.md` is the initiation quest — blocks all others until `prima.yaml` is named and `world/lore.md` has content.
+
+`quests/missions/` is the workflow arc — quests for operating the mission/bounty commission system.
+
+### World (`world/`)
+- `lore.md` — The Podium (Pixel 8), the Field (terminal), the Flock (projects/repos), Shepherd (operator)
+- `factions.md` — Scribes, Builders, Sentinels, Wanderers, Unexusi
+- `the-the.md` — The founding myth of prima (do not edit)
+
+### Device Layer (`device/`) — pixel8 branch only
+Tracks live device state. Not on `main`.
+- `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
+- `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
+
+### Workflow System
+- `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
+- `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
+- Labels: `mission`, `bounty`, `open` on GitHub Issues
+- Contributors claim by commenting `claiming this` and opening a PR
+
+### Seeds (`seeds/`)
+`bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/`, creates `~/.prima-env`. Idempotent.
+
+### Unexusi Layer (`unexusi/connect.yaml`)
+Tracks player XP, level, quest completion, session timestamps across devices. Configures session lifecycle. `concept.slug: custos`.
+
+### THEE / YOD / EMBER Triad
+A listening practice for capturing fragments before they have names. Not a ticketing system.
+
+### Prime State (`.prime`, `tools/prime_check.sh`)
+Concept progression via prime numbers. Current: `3`. Advance only when a development phase completes. Template ships with `3`.
+
+### Turns (`turns/log.md`)
+Session memory. Append only. One entry per meaningful session. Schema in `turns/TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
+
+## Key Conventions
+
+**Branches:**
+- `main` — concept foundation (quests, world, tools, workflow)
+- `pixel8` — Pixel 8 device layer (adds `device/` files, device-specific state)
+- All PRs from `pixel8` → `main` require Sentinel review (default: eaprime1)
+
+**Commissioning AI models:**
+When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
+1. The mission/bounty issue URL or description
+2. Files to read first: `prima.yaml`, `CLAUDE.md`, relevant quest or guide
+3. The exact completion check command
+4. The PR template format (Intent, What Arrived, Resonance, Ethics Check)
+
+**Writing quests:** Every quest must have a deterministic `Completion Check` bash command. Quests teach by requiring real use of a skill. Arc dependencies should be minimal.
+
+**Lore tone:** Short, evocative. The terminal is the world, not a tool. Avoid classroom framing.
+
+**Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.json`.
+
+**Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
+
+**Development plan:** See `docs/custos-plan.md` for the phased roadmap and current status.
