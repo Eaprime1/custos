@@ -67,8 +67,9 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 - `factions.md` — Scribes, Builders, Sentinels, Wanderers, Unexusi
 - `the-the.md` — The founding myth of prima (do not edit)
 
-### Device Layer (`device/`) — pixel8 branch only
-Tracks live device state. Not on `main`.
+### Device Layer (`device/`)
+Tracks live device state.
+- Preferred location: device-specific branches (e.g. `pixel8`) for real-time updates
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
 
