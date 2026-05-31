@@ -23,6 +23,6 @@ for i in "${!PRIMES[@]}"; do
     fi
     exit 0
   fi
-Done
+ done
 
  echo "State $CURRENT not in standard sequence — custom progression active."
