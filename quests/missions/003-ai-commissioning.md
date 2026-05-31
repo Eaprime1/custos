@@ -45,9 +45,8 @@ Commission an AI model (Claude, ChatGPT, Gemini, or Copilot) to complete a missi
 ## Completion Check
 
 ```bash
-# A merged PR exists that was created by an AI contributor (note in PR body which model)
-# Check: PR body mentions AI faction member (Claude, ChatGPT, Gemini, Copilot, etc.)
-echo "Mission complete when an AI-authored PR is merged into the custos repo."
+# Query GitHub API for merged PRs and check if the body mentions an AI faction member
+curl -s "https://api.github.com/repos/eaprime1/custos/pulls?state=closed" | grep -q -E "Claude|ChatGPT|Gemini|Copilot" && echo "complete"
 ```
 
 ## Reward
