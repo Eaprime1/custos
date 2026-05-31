@@ -75,8 +75,11 @@ The `pixel8` branch carries `device/` files that track what is active, installed
 
 ## Multi-AI development
 
-custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
-# CUSTOS
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see world/factions.md). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
+
+---
+
+## THE/UNEXUS Convergence Hub
 
 
 ## THE/UNEXUS Convergence Hub
