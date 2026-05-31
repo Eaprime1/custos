@@ -46,7 +46,7 @@ Commission an AI model (Claude, ChatGPT, Gemini, or Copilot) to complete a missi
 
 ```bash
 # Query GitHub API for merged PRs and check if the body mentions an AI faction member
-curl -s "https://api.github.com/repos/eaprime1/custos/pulls?state=closed" | grep -q -E "Claude|ChatGPT|Gemini|Copilot" && echo "complete"
+curl -s "https://api.github.com/search/issues?q=repo:eaprime1/custos+is:pr+is:merged+Claude+OR+ChatGPT+OR+Gemini+OR+Copilot" | grep -q '"total_count": [1-9]' && echo "complete"
 ```
 
 ## Reward
