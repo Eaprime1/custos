@@ -40,9 +40,8 @@ Post a mission or bounty on GitHub Issues and receive a completed contribution.
 ## Completion Check
 
 ```bash
-# Verify at least one closed issue with 'mission' or 'bounty' label exists
-# (Check GitHub Issues UI — filter by label:mission or label:bounty, state:closed)
-echo "First commission complete when a mission or bounty issue is closed with a merged PR."
+# Query GitHub API for closed issues with mission or bounty labels
+curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=closed" | grep -q -E '"name": "mission"|"name": "bounty"' && echo "complete"
 ```
 
 ## Reward
