@@ -1,0 +1,56 @@
+# device/pixel8.yaml — Pixel 8 Device Manifest
+# Tracks the Pixel 8 as the primary Podium for custos.
+# Update as the device evolves.
+
+device:
+  name: "pixel8"
+  model: "Google Pixel 8"
+  role: "Podium"                    # primary device for custos work
+  platform: "termux"
+  android_api: 34
+
+identity:
+  handle: "eaprime1"
+  concept: "custos"
+
+paths:
+  repo: "~/pixel8/custos"           # where this repo lives on the device
+  work: "~/pixel8"                  # active working directory
+  legacy: "~/pixel8a"               # old Pinnacle — content being migrated out
+  prima_env: "~/.prima-env"
+
+reviewer:
+  role: "Sentinel"
+  note: "All PRs from this device branch require Sentinel review before merging to main."
+
+# ---------------------------------------------------------------------------
+# Installed packages
+# Update when packages are added or removed.
+# ---------------------------------------------------------------------------
+packages:
+  manager: "pkg"
+  installed:
+    - git
+    - curl
+    - nodejs
+    - python
+    # add packages as they are installed
+
+# ---------------------------------------------------------------------------
+# Active sessions
+# What is running or open on this device right now.
+# Update at session boundaries.
+# ---------------------------------------------------------------------------
+sessions:
+  - name: "custos repo"
+    path: "~/custos"
+    branch: "pixel8"
+    status: "active"
+
+# ---------------------------------------------------------------------------
+# Notes
+# ---------------------------------------------------------------------------
+notes: |
+  The Pixel 8 is the primary Podium. Work arrives here from navigo and other
+  sources. The pixel8 branch is the device's book of record. Migrate content
+  from ~/pixel8a to ~/pixel8 as it is organized. Log migrations in turns/log.md.
