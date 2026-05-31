@@ -24,7 +24,7 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 - [x] Add CLAUDE.md with codebase guidance
 - [x] Create `.github/ISSUE_TEMPLATE/` for missions and bounties
 - [x] Create `quests/missions/` arc (first 3 quests)
-- [ ] Complete Quest 000 verification: `grep -q 'name: "My Prima Terminal"' prima.yaml || echo "complete"`
+- [ ] Complete Quest 000 verification: `! grep -q 'name: "My Prima Terminal"' prima.yaml && echo "complete"`
 - [ ] Write first turn log entry in `turns/log.md`
 - [ ] Advance `.prime` from 3 to 5
 
@@ -34,7 +34,7 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 
 **Goal:** The Pixel 8 is a functional Podium. Bootstrap works. Claude Code runs in Termux.
 
-- [ ] Fix Claude Code Termux install (`npm approve-scripts @anthropic-ai/claude-code`)
+- [ ] Establish a workable Claude Code flow for Termux (web session, Anthropic API via curl/Python, or SSH to a supported Linux host)
 - [ ] Run `bash seeds/bootstrap.sh` on the Pixel 8
 - [ ] Verify `~/.prima-env` is created and correct
 - [ ] Create `pixel8` branch from main
