@@ -1,0 +1,46 @@
+name: Custos — Sovran Voice
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  custos-speaks:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Custos considers the flock
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+            const filesChanged = pr.changed_files || '?';
+            const body = [
+              '## 🌿 Custos — The Shepherd Considers',
+              '',
+              `*${filesChanged} file(s) entering the fold*`,
+              '',
+              '> *Custos* watches what enters. Every change is something new to keep,',
+              '> or a new way of keeping what is already here.',
+              '',
+              `@${author} brings something for the shepherd to consider.`,
+              '',
+              '**From the shepherd watch:**',
+              '- Does this protect what has been entrusted here?',
+              '- Who does this serve, and is the care appropriate?',
+              '- What must Custos know before welcoming this in?',
+              '- Does this add to the flock or strengthen the fold?',
+              '',
+              '---',
+              '*Custos · sovran shepherd · eaprime1 · ∰*'
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body
+            });
+
+# ∰🛠️🌿🔒-custos_sovran

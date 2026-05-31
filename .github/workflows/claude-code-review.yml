@@ -1,0 +1,34 @@
+# Custos — Code Review
+# Perspective: guardian, shepherd, protection of what is entrusted
+name: Custos — Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+
+jobs:
+  claude-review:
+    if: ${{ !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code Review
+        id: claude-review
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          additional_permissions: |
+            actions: read
+          allowed_bots: '*'
+
+# ∰🛠️🌿🔒-custos_canon
