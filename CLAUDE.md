@@ -38,11 +38,13 @@ bash tools/scan_lexeme.sh path/to/dir      # scan a specific subdirectory
 bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
 ```
 
-**Termux Claude Code install fix (if MODULE_NOT_FOUND):**
-```bash
-npm approve-scripts @anthropic-ai/claude-code
-npm install -g @anthropic-ai/claude-code
-```
+**Claude Code on Termux (Android):**
+Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
+
+Workarounds:
+- **Use the web session** — claude.ai/code connects to the repo remotely; this is the primary path for device-side AI work
+- **Use the Anthropic API directly** in Termux: `curl` or a Python script with the `anthropic` package
+- **SSH to a remote Linux box** from Termux and run Claude Code there (full support on linux-arm64)
 
 ## Architecture
 
@@ -65,8 +67,9 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 - `factions.md` — Scribes, Builders, Sentinels, Wanderers, Unexusi
 - `the-the.md` — The founding myth of prima (do not edit)
 
-### Device Layer (`device/`) — pixel8 branch only
-Tracks live device state. Not on `main`.
+### Device Layer (`device/`)
+Tracks live device state.
+- Preferred location: device-specific branches (e.g. `pixel8`) for real-time updates
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
 
