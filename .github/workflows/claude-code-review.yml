@@ -8,7 +8,7 @@ on:
 
 jobs:
   claude-review:
-    if: ${{ !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
+    if: ${{ github.event.pull_request.head.repo.fork == false && secrets.CLAUDE_CODE_OAUTH_TOKEN != '' && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
