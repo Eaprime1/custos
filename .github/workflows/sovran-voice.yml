@@ -8,6 +8,7 @@ jobs:
   custos-speaks:
     runs-on: ubuntu-latest
     permissions:
+      issues: write
       pull-requests: write
     steps:
       - name: Custos considers the flock
