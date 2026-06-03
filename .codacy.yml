@@ -1,6 +1,7 @@
 exclude_paths:
   - "intake/**"
   - "turns/**"
+  - "docs/**"
   - "unexusi/**"
   - "seeds/**"
   - "quests/**"
