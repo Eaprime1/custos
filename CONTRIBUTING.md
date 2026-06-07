@@ -17,6 +17,8 @@ Thank you for your interest in contributing.
 - Keep pull requests scoped to one logical change.
 - Update relevant documentation when behavior changes.
 - Ensure checks/tests pass before requesting review.
+- For final merge readiness, run **Custos — Final Review Gate** from Actions (manual trigger).
+- Review Codacy findings and resolve blocking issues before merge. See `docs/final-review-and-codacy.md`.
 
 ## Reporting Issues
 
