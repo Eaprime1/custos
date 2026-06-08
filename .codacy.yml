@@ -1,7 +1,12 @@
 exclude_paths:
+  - ".github/ISSUE_TEMPLATE/**"
+  - ".github/PULL_REQUEST_TEMPLATE.md"
   - "intake/**"
   - "turns/**"
   - "docs/**"
+  - "guides/**"
+  - "world/**"
+  - "templates/**"
   - "unexusi/**"
   - "seeds/**"
   - "quests/**"
