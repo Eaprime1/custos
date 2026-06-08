@@ -39,20 +39,26 @@ jobs:
       - name: Verify Codacy status on commit
         env:
           STRICT_MODE: ${{ inputs.strict_mode }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           SHA="$(git rev-parse HEAD)"
           API_URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${SHA}/check-runs?per_page=100"
+          # Use GITHUB_TOKEN to avoid unauthenticated API limits and private-repo 404 responses.
           RESPONSE="$(curl -fsSL \
             -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -u "x-access-token:${GITHUB_TOKEN}" \
             "$API_URL")"
 
-          echo "$RESPONSE" | python - "$STRICT_MODE" <<'PY'
+          # Keep parser input/source separate: script from heredoc, payload from env.
+          RESPONSE_JSON="$RESPONSE" python3 - "$STRICT_MODE" <<'PY'
           import json
+          import os
           import sys
 
           strict_mode = sys.argv[1].lower() == "true"
-          payload = json.load(sys.stdin)
+          payload = json.loads(os.environ["RESPONSE_JSON"])
           check_runs = payload.get("check_runs", [])
           codacy_runs = [run for run in check_runs if "codacy" in run.get("name", "").lower()]
 
