@@ -1,6 +1,6 @@
 ---
 id: missions/001-first-commission
-title: "First Commission"
+title: "First Commission 🃏"
 arc: missions
 sequence: 1
 xp: 100
