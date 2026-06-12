@@ -1,0 +1,45 @@
+name: Claude Code Review
+
+# Automatic Claude review on every pull request.
+# Requires the ANTHROPIC_API_KEY repository secret (or install the Claude
+# GitHub App via /install-github-app from Claude Code, which configures this).
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  claude-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code Review
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Review this pull request for the custos repo.
+
+            Context: custos is a prima terminal concept repo — mostly markdown
+            (quests, lore, guides), YAML manifests, and small shell tools.
+            Files under valuation/ and vault/ are custody artifacts carried
+            verbatim from their source sessions: do NOT suggest wording or
+            timestamp edits to them.
+
+            Focus on:
+            - Broken YAML, shell, or workflow syntax
+            - Internal links and paths that do not resolve
+            - Contradictions between documents (prima.yaml vs README, etc.)
+            - Accidental duplication or merge artifacts
+
+            Post concise inline comments only where action is genuinely needed.
+          claude_args: '--allowed-tools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"'
