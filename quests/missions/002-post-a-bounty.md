@@ -1,6 +1,6 @@
 ---
 id: missions/002-post-a-bounty
-title: "Post a Bounty"
+title: "Post a Bounty 🃏"
 arc: missions
 sequence: 2
 xp: 150
