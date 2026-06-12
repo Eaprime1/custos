@@ -1,6 +1,6 @@
 ---
 id: missions/003-ai-commissioning
-title: "Commission the Machine"
+title: "Commission the Machine 🃏"
 arc: missions
 sequence: 3
 xp: 200
