@@ -2,7 +2,7 @@
 # Artesian Scan — finds artesian/ folders and lists PDFs not yet logged at the Weir.
 set -euo pipefail
 
-ROOT="${1:-$HOME}"
+ROOT="${1:-.}"
 WEIR="queue/artesium-weir"
 
 if [[ ! -d "$WEIR" ]]; then
@@ -18,10 +18,10 @@ while IFS= read -r -d '' DIR; do
   while IFS= read -r -d '' PDF; do
     FOUND_ANY=1
     BASENAME=$(basename "$PDF")
-    SLUG=$(echo "${BASENAME%.[pP][dD][fF]}" \
+    SLUG=$(printf '%s' "${BASENAME%.[pP][dD][fF]}" \
       | tr '[:upper:]' '[:lower:]' \
       | tr -c 'a-z0-9' '-' \
-      | sed 's/-\+/-/g; s/^-//; s/-$//')
+      | sed 's/--*/-/g; s/^-//; s/-$//')
     if [[ -f "$WEIR/$SLUG.md" ]]; then
       echo "  [logged]  $PDF"
     else
