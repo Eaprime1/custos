@@ -1,4 +1,4 @@
-# The Deck Master
+# The Deck Master 🃏
 
 *keeper of the hand, guardian of the flow*
 
