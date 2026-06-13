@@ -35,14 +35,14 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 
 **Goal:** The Pixel 8 is a functional Podium. The convergence hub is routing work. The agent streams are live.
 
-- [ ] Write first turn log entry (`turns/log.md`) — mark the founding
+- [x] Write first turn log entry (`turns/log.md`) — mark the founding
 - [ ] Advance `.prime` from 3 to 5
 - [ ] Run `bash seeds/bootstrap.sh` on the Pixel 8 (at `~/pixel8/custos`)
 - [ ] Organize `~/pixel8a` content into `~/pixel8` on the device; log migration in `turns/log.md`
 - [ ] Populate `device/active.md` with real current work (replace placeholder entries)
-- [ ] Define the empty branches: `radix`, `mulberry`, `mandelbrot`, `main-to-radix`, `֍custos֎` — add each to `branch-tracker/branches.md` with suit/status/destination
+- [x] Define the empty branches: `radix`, `mulberry`, `mandelbrot`, `main-to-radix`, `֍custos֎` — add each to `branch-tracker/branches.md` with suit/status/destination
 - [ ] Open the external agent streams — commission first returns from Gemini, ChatGPT, Copilot into `returns/`
-- [ ] Log hub activation event in `prima-clock/registry.md`
+- [x] Log hub activation event in `prima-clock/registry.md`
 - [ ] Advance `.prime` to 7
 
 ---
