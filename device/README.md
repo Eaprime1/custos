@@ -12,6 +12,7 @@ Each device has its own subdirectory or manifest file. The device layer answers:
 |---|---|
 | `pixel8.yaml` | Pixel 8 device manifest — installed packages, key paths, active sessions |
 | `active.md` | Current work-in-flight on this device — projects, repos, open tasks |
+| `install-log.md` | Append-only history of what was installed, where, and how |
 
 ## Usage
 
@@ -21,7 +22,17 @@ cat device/active.md
 
 # Check the device manifest
 cat device/pixel8.yaml
+
+# Record something that was just installed
+bash tools/log_install.sh <item> <location> <method> [by] [notes]
 ```
+
+## Install Record
+
+`install-log.md` is the history; each device manifest's `packages.installed`
+list is the current-state snapshot. When Claude (or anyone) installs
+something for custos, log it with `tools/log_install.sh` and, if it changes
+the steady state for a device, add it to that device's manifest too.
 
 ## Migration from pixel8a
 
