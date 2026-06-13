@@ -97,6 +97,8 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 - `stream-3-variables/` — ChatGPT: Variable Constant Violation
 - `stream-4-shepherd/` — ChatGPT: Shepherd Protocol
 - `stream-5-math/` — Copilot: Mathematical Backbone / prima-clock
+- `stream-6-grok/` — Grok: Domain — TBD (assignment pending)
+- `stream-7-perplexity/` — Perplexity: Domain — TBD (assignment pending)
 
 ### Suit System
 Branches and documents carry suit designations:
