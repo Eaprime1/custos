@@ -1,4 +1,4 @@
-# Journey Schema
+# Journey Schema 🃏
 
 A journey is a closed conversation, crystallized. Where `turns/log.md` leaves a
 one-line mark per session, a journey is the fuller archive — written when a
