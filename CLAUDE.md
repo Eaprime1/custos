@@ -83,7 +83,7 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 
 **`branch-tracker/branches.md`** — Active development map: each branch has a suit, status, and destination repo.
 
-**`prima-clock/registry.md`** — Formal custody log. Every significant event gets a prima-clock stamp (`YYYYMMDDHHSS`). Always include the current prima-clock value when creating MOAV carriers or vault entries.
+**`prima-clock/registry.md`** — Formal custody log. Every significant event gets a prima-clock stamp (`YYYYMMDDHHMM`). Always include the current prima-clock value when creating MOAV carriers or vault entries.
 
 **`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier must include its prima-clock stamp and a `chain_of_custody` field.
 
