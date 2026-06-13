@@ -25,7 +25,9 @@ reviewer:
 
 # ---------------------------------------------------------------------------
 # Installed packages
-# Update when packages are added or removed.
+# Current-state snapshot. Update when packages are added or removed, and
+# log the install itself with: bash tools/log_install.sh (see
+# device/install-log.md for the history).
 # ---------------------------------------------------------------------------
 packages:
   manager: "pkg"
@@ -42,11 +44,10 @@ packages:
 # Update at session boundaries.
 # ---------------------------------------------------------------------------
 sessions:
-44:sessions:
-45:  - name: "custos repo"
-46:    path: "~/pixel8/custos"
-47:    branch: "pixel8"
-48:    status: "active"
+  - name: "custos repo"
+    path: "~/pixel8/custos"
+    branch: "pixel8"
+    status: "active"
 
 # ---------------------------------------------------------------------------
 # Notes
