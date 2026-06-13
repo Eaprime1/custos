@@ -62,6 +62,11 @@ custos uses GitHub Issues as an open mission board. Any contributor — human or
 
 Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
 
+## GitHub Pages note 🃏
+
+This repository is published as static content when Pages is used.
+Do not use Jekyll-specific workflows unless a real Jekyll site structure (`_config.yml`, layouts, includes, and content source) is intentionally added.
+
 ## Device branches
 
 Work on custos is organized by device:
