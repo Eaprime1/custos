@@ -32,4 +32,4 @@ To draw from the pool:
 
 | Page | Status | Source |
 |---|---|---|
-| *(none yet)* | | |
+| [cygwin-installation.md](cygwin-installation.md) | seep-artois | [vault/cygwin-installation.pdf](../vault/cygwin-installation.pdf) |
