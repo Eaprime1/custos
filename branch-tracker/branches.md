@@ -41,6 +41,16 @@ Branches developing into separate destination repos.
 
 ---
 
+## Journeys — Session Archives
+
+Branches that exist to crystallize a closed conversation into `valuation/`.
+
+| Branch | Suit | Status | Destination Repo | Notes |
+|--------|------|--------|-----------------|-------|
+| valuation/custos-genesis-journey | ♣️ (Ace candidate, Five Lakes) | 1/3 | eaprime1/custos — `valuation/` | First journey doc; scored 10/10 via Five Lakes rubric; pending Deck Master review |
+
+---
+
 ## Departed Branches
 
 | Branch | Departed | Destination | Prima-clock |
