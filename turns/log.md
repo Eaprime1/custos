@@ -33,3 +33,13 @@ contribution: card system formalized (♣️K main / ♣️Q radix / ♣️J Jac
 resonance:    expanding
 witnessed:    true
 ---
+
+---
+turn:         2026-06-13 07:16
+prime:        3
+entity:       eaprime1 + Claude
+intent:       close out the review session and leave a handoff for whoever picks this up next
+contribution: confirmed pixel8 branch clean and synced with main, corrected the stale Termux "fix" note in device/active.md to point at the permanent workaround docs, recorded open questions (Grok/Perplexity stream domains, ♠️A vault branch + founding MOAV, mandelbrot/mulberry purposes) in device/active.md so the next session starts from there instead of re-deriving context
+resonance:    settled
+witnessed:    true
+---
