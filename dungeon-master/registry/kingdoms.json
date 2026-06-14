@@ -1,0 +1,46 @@
+{
+  "kingdoms": [
+    {
+      "id": "custos",
+      "name": "Custos",
+      "role": "The Citadel — receives all returns, issues custody",
+      "repo": "eaprime1/custos",
+      "status": "active"
+    },
+    {
+      "id": "nullus",
+      "name": "Nullus",
+      "role": "Unclaimed territory — named in the world-state seed, not yet founded",
+      "repo": null,
+      "status": "unfounded"
+    },
+    {
+      "id": "the",
+      "name": "The",
+      "role": "Cards of Deck kingdom",
+      "repo": "eaprime1/the",
+      "status": "active"
+    },
+    {
+      "id": "diamond-reservoir",
+      "name": "Diamond Reservoir",
+      "role": "Seed pressure system",
+      "repo": "eaprime1/diamond-reservoir",
+      "status": "germ"
+    },
+    {
+      "id": "prima-clock",
+      "name": "Prima-Clock",
+      "role": "Temporal registry",
+      "repo": "eaprime1/prima-clock",
+      "status": "germ"
+    },
+    {
+      "id": "121",
+      "name": "121",
+      "role": "Periodic table expansion",
+      "repo": "eaprime1/121",
+      "status": "2/3"
+    }
+  ]
+}
