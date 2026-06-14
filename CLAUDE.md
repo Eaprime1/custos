@@ -71,6 +71,8 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 Tracks live device state. Not on `main`.
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
+- `install-log.md` — Append-only record of what was installed, where, and how. Use
+  `bash tools/log_install.sh <item> <location> <method> [by] [notes]` to add an entry.
 
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
