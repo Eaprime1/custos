@@ -90,5 +90,5 @@ seeds:        - When opening turns/CULTIVATION.md in a new conversation,
               - If a merge-triggered Action gets built (see
                 turns/CULTIVATION.md), a natural first job for it: append a
                 stub line to device/active.md noting "PR #N merged" so this
-                kind of manual bookkeeping happens automatically.
+                kind of manual bookkeeping happens automatically. 🃏
 ---
