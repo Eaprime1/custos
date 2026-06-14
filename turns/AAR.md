@@ -62,3 +62,33 @@ seeds:        - Treat the DeepSource ack cadence (brief one-liners while
                 (VSCode, ChatGPT/Gemini, design/cowork spaces) in
                 device/podiums.md per PODIUM_SCHEMA.md whenever one shows up.
 ---
+
+---
+turn_ref:     2026-06-14 01:30
+prime:        3
+worked:       Asking "what's still open across all PRs?" right before closing
+              a session turned out to be a good closing-time habit, not just
+              a one-off — it surfaced real unresolved design conflicts (Sovran
+              Shepherd vs. Deck Master, two competing suit systems) that were
+              sitting quietly across separate open PRs where no single PR
+              review would have caught the collision. Writing the catalog as
+              its own file (turns/CULTIVATION.md) rather than cramming it into
+              device/active.md kept active.md short while still giving the
+              next conversation one place to start.
+friction:     The conflicts found (Sovran vs. Deck Master, hub suits vs. Five
+              Lakes suits) can't actually be resolved by reading code alone —
+              they're naming/design decisions that need a person (or a
+              "Deck Master") to choose between them. Cataloging them is useful,
+              but the catalog will go stale if nothing reads it before the
+              next few PRs add a third competing system on top.
+seeds:        - When opening turns/CULTIVATION.md in a new conversation,
+                resolve or explicitly defer each item — don't just read it
+                and move on, or it becomes another unread backlog.
+              - Consider a lightweight "design conflict" label or section in
+                world/ for cases like Sovran vs. Deck Master, so future PRs
+                introducing a new named role/system check there first.
+              - If a merge-triggered Action gets built (see
+                turns/CULTIVATION.md), a natural first job for it: append a
+                stub line to device/active.md noting "PR #N merged" so this
+                kind of manual bookkeeping happens automatically. 🃏
+---
