@@ -101,10 +101,10 @@ Came up in conversation: can an Action fire specifically when a merge lands?
 Yes — two options, both straightforward additions when there's a concrete
 thing to automate:
 
-- `on: pull_request, types: [closed]`, guarded by
+- `on: pull_request` with `types: [closed]`, guarded by
   `if: github.event.pull_request.merged == true` — fires only on real merges,
   not on closed-without-merging.
-- `on: push, branches: [main]` — fires on anything landing on `main`,
+- `on: push` with `branches: [main]` — fires on anything landing on `main`,
   including a squash-merge (which is itself a push).
 
 Precedent already in the repo: `final-review.yml` (PR #15) uses
