@@ -23,7 +23,12 @@
 
 ## Recently Dispatched
 
-*(nothing yet — log completed work here)*
+- Added `turns/AAR.md` + "Reflect" step in `turns/CLOSING.md` (PR #24, merged into `main`)
+- Fixed corrupted `device/pixel8.yaml`; added `device/install-log.md` + `tools/log_install.sh` (PR #23, merged)
+- Processed `Cygwin_Installation.pdf` through the Artesium Weir → `seep-artois/cygwin-installation.md` (CLOSED)
+- Seeded `device/podiums.md` + `device/PODIUM_SCHEMA.md` — registry of known podiums (devices, conversations)
+- Wrote `turns/CLOSING.md` — session-closing checklist for code conversations
+- Wrote `turns/CULTIVATION.md` — pointer to open PR ideas worth continuing (PRs #12, #17, #18, #22) plus two process seeds (merge-triggered Actions, branch-deletion safety)
 
 ---
 
@@ -33,6 +38,15 @@
 
 ---
 
-*Updated: 2026-05-30*  
+## For the Next Conversation
+
+- Start at `turns/CULTIVATION.md` — it catalogs open PRs with unfinished
+  ideas (Deck Master vs. Sovran Shepherd, hub suits vs. Five Lakes suits,
+  Five Lakes Valuation files, Sovran sub-projects, a possibly-stale PR #18)
+  and two process seeds (merge-triggered Actions, branch deletion safety).
+
+---
+
+*Updated: 2026-06-14*  
 *Prime state: 3*  
-*Witnessed: true*
+*Witnessed: true* 🃏

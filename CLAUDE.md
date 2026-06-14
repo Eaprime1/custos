@@ -72,6 +72,8 @@ Tracks live device state.
 - Preferred location: device-specific branches (e.g. `pixel8`) for real-time updates
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
+- `install-log.md` — Append-only record of what was installed, where, and how. Use
+  `bash tools/log_install.sh <item> <location> <method> [by] [notes]` to add an entry.
 
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
