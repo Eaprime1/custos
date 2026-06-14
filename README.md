@@ -114,6 +114,8 @@ This is the negative mold. All repos emerge from branches here.
 | [/moav](./moav) | MOAV carrier packages (JSON) |
 | [/returns](./returns) | Stream returns from external agents |
 | [/atelier](./atelier) | Nursery — concepts before they have names |
+| [/queue](./queue) | Staging ground — chain of custody, including the Artesium Weir |
+| [/seep-artois](./seep-artois) | The pool — ready-to-develop pages, drawn one at a time |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
 
