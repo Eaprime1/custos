@@ -34,7 +34,11 @@ work survives the session that produced it.
    role or scope shifted; update `status` if it's going dormant.
 6. **Scan** — `bash tools/scan_lexeme.sh` — leave no unfilled placeholders.
 7. **Commit & push** — everything above lands in the repo. The conversation can
-   end now; the work doesn't.
+   end now; the work doesn't. If the work landed via PR, confirm its merge
+   status before calling the turn closed.
+8. **Reflect (optional)** — if this turn taught something about *how* turns
+   go, not just what they built, write a `turns/AAR.md` entry: what worked,
+   what was friction, what to carry forward as a seed.
 
 ## Rules
 
