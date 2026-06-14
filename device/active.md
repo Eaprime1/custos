@@ -23,7 +23,10 @@
 
 ## Recently Dispatched
 
-*(nothing yet — log completed work here)*
+- Fixed corrupted `device/pixel8.yaml`; added `device/install-log.md` + `tools/log_install.sh` (PR #23)
+- Processed `Cygwin_Installation.pdf` through the Artesium Weir → `seep-artois/cygwin-installation.md` (CLOSED)
+- Seeded `device/podiums.md` + `device/PODIUM_SCHEMA.md` — registry of known podiums (devices, conversations)
+- Wrote `turns/CLOSING.md` — session-closing checklist for code conversations
 
 ---
 
@@ -33,6 +36,6 @@
 
 ---
 
-*Updated: 2026-05-30*  
+*Updated: 2026-06-14*  
 *Prime state: 3*  
 *Witnessed: true*
