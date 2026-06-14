@@ -23,10 +23,11 @@
 
 ## Recently Dispatched
 
-- Fixed corrupted `device/pixel8.yaml`; added `device/install-log.md` + `tools/log_install.sh` (PR #23)
+- Fixed corrupted `device/pixel8.yaml`; added `device/install-log.md` + `tools/log_install.sh` (PR #23, merged)
 - Processed `Cygwin_Installation.pdf` through the Artesium Weir → `seep-artois/cygwin-installation.md` (CLOSED)
 - Seeded `device/podiums.md` + `device/PODIUM_SCHEMA.md` — registry of known podiums (devices, conversations)
 - Wrote `turns/CLOSING.md` — session-closing checklist for code conversations
+- Wrote `turns/AAR.md` — after-action review log (worked / friction / seeds) alongside the turn log
 
 ---
 
