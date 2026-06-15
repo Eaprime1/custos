@@ -1,0 +1,14 @@
+{
+  "events": [
+    {
+      "id": "0001",
+      "prima_clock": "202606140000",
+      "type": "founding",
+      "title": "The Third Aspect Arrives",
+      "chronicle": "dungeon-master/chronicles/202606140000_the-third-aspect-arrives.md",
+      "characters": ["custos", "fodere", "agnoscere"],
+      "kingdoms": ["custos"],
+      "branches": ["claude/custos-chronicle-foundation-econho"]
+    }
+  ]
+}
