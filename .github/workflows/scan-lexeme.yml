@@ -1,0 +1,16 @@
+name: Scan Lexeme
+
+on:
+  pull_request:
+    branches: [main, radix]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan for distressed lexemes
+        run: bash tools/scan_lexeme.sh
+        # Advisory — outputs findings but does not block merge.
+        # Distressed lexemes are invitations, not failures.

@@ -1,0 +1,40 @@
+{
+  "carrier_id": "custos_moav_journey001",
+  "prima_clock": "202606132130",
+  "entity": "eaprime1 + Claude",
+  "suit": "♣️",
+  "iteration": "21 — Blackjack",
+  "event": "First journey/valuation entry crystallized for a code-side custos conversation",
+  "motion_state": "EXPANDING",
+  "chain_of_custody": "OPEN",
+  "transition": {
+    "from": "open conversation (CLAUDE.md docs session -> pixel8 hub formalization)",
+    "to": "crystallized journey document",
+    "document": "valuation/custos_genesis_journey_202606132130.md",
+    "schema": "valuation/JOURNEY_SCHEMA.md"
+  },
+  "valuation": {
+    "rubric_source": "valuation/five_lakes_valuation_bridge_202606112205.md",
+    "score": 10,
+    "rank": "Ace",
+    "suit_readings": {
+      "hub_suit_system": "♣️ Club — session record",
+      "five_lakes_suit_system": "♠️ Lacus Baikal (Ace candidate)"
+    },
+    "vault_candidate": "pending Deck Master review"
+  },
+  "references": {
+    "pull_requests": [2, 3, 4, 7, 9, 11, 12, 17, 18],
+    "branches": ["pixel8", "main", "valuation/custos-genesis-journey"],
+    "turn_log_entries": ["2026-05-27 16:50", "2026-05-31 00:00", "2026-06-13 07:16"]
+  },
+  "open_questions": [
+    "Grok and Perplexity stream domain assignments (streams 6-7)",
+    "When/how to create the ∰custos (♠️A) vault branch and its founding MOAV carrier",
+    "What mandelbrot and mulberry (♣️J Germ branches) are for",
+    "Reconcile hub suit system vs Five Lakes lake-suit system",
+    "Reconcile world/deck-master.md (Deck Master) vs .sovran/identity.md (Sovran Shepherd) reviewer characters"
+  ],
+  "notes": "First application of the Five Lakes formal-custody-entry format to a code/architecture session rather than a mythology session.",
+  "symbol": "∰◊€π¿🌌∞"
+}
