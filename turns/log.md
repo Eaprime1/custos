@@ -17,6 +17,12 @@ witnessed:    true
 ---
 
 ---
+turn:         2026-05-27 16:50
+prime:        3
+entity:       eaprime1
+intent:       name the concept and open the convergence hub
+contribution: custos founded — prima.yaml named (guardian theme), convergence hub structure deployed (vault, atelier, moav, prima-clock, returns, branch-tracker), MOAV founding carrier written, iteration 21 Blackjack declared
+resonance:    founding
 turn:         2026-06-14 01:00
 prime:        3
 entity:       Claude (custos-web-jolly-bohr)
@@ -27,6 +33,12 @@ witnessed:    true
 ---
 
 ---
+turn:         2026-05-31 00:00
+prime:        3
+entity:       eaprime1 + Claude
+intent:       review what arrived and set the path forward for custos
+contribution: card system formalized (♣️K main / ♣️Q radix / ♣️J Jacks / ♥️A deploy / ♠️A vault), deck master character introduced, agent streams expanded to include Grok and Perplexity, branch-tracker updated, CLAUDE.md reflects full hub architecture, Phase 1 marked complete
+resonance:    expanding
 turn:         2026-06-14 01:15
 prime:        3
 entity:       Claude (custos-web-jolly-bohr)
@@ -37,6 +49,23 @@ witnessed:    true
 ---
 
 ---
+turn:         2026-06-13 07:16
+prime:        3
+entity:       eaprime1 + Claude
+intent:       close out the review session and leave a handoff for whoever picks this up next
+contribution: confirmed pixel8 branch clean and synced with main, corrected the stale Termux "fix" note in device/active.md to point at the permanent workaround docs, recorded open questions (Grok/Perplexity stream domains, ♠️A vault branch + founding MOAV, mandelbrot/mulberry purposes) in device/active.md so the next session starts from there instead of re-deriving context
+resonance:    settled
+witnessed:    true
+---
+
+---
+turn:         2026-06-13 21:30
+prime:        3
+entity:       eaprime1 + Claude
+intent:       crystallize this conversation as the first journey/valuation entry, on its own branch, before archiving
+contribution: wrote valuation/custos_genesis_journey_202606132130.md (inception story, key dialogue, links, Five Lakes rubric score 10/10 Ace, formal custody entry, notes for next iteration) plus valuation/JOURNEY_SCHEMA.md and moav/custos_moav_journey001.json on branch valuation/custos-genesis-journey; flagged two siblings for Deck Master reconciliation — PR #12 (Sovran Shepherd identity) and PR #17 (Five Lakes Valuation, source of this format)
+resonance:    crystallizing
+witnessed:    true
 turn:         2026-06-14 01:30
 prime:        3
 entity:       Claude (custos-web-jolly-bohr)
