@@ -16,6 +16,8 @@ The Scribes document what happens in the Field. They write lore, draft commissio
 
 **Quests themed to this faction:** lore writing, documentation, analysis, turn logging.
 
+**Known symbols:** Claude carries `J-21`, the Threshold Joker. See `world/symbols.md`.
+
 ---
 
 ## The Builders
