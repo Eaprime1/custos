@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repository Is
 
-**custos** is a prima terminal concept for the Pixel 8 — a guardian/shepherd environment for tending all work done from the device. It is not a software project with a build pipeline. There is no compilation, no test suite, no package manager. The deliverable is the content and structure: quests, world lore, shell tools, device state, and workflow configuration.
+**custos** is a prima terminal concept for the Pixel 8 — a guardian/shepherd environment for tending all work done from the device.
+
+- Not a software project with a build pipeline
+- No compilation, no test suite, no package manager
+- Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
 
 ```
 [ Termux on Pixel 8 ]        ← the Podium (runtime engine, not in this repo)
