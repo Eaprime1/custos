@@ -3,15 +3,15 @@
 # Run: bash tools/scan_lexeme.sh to find unfilled placeholders.
 
 concept:
-  name: "My Prima Terminal"        # display name of this concept
-  slug: "my-prima-terminal"        # url-safe identifier, no spaces
+  name: "custos"                   # display name of this concept
+  slug: "custos"                   # url-safe identifier, no spaces
   version: "0.1.0"
-  tagline: "One line that says what this world is."
-  theme: "general"                 # e.g. unix, networking, coding, creative, survival
+  tagline: "Guardian of the work you do from here."
+  theme: "guardian"                # shepherd, keeper, watchman of the Podium
 
 author:
-  handle: ""                       # your handle / team name
-  contact: ""                      # optional — email, url, or @handle
+  handle: "eaprime1"
+  contact: "eaprime@gmail.com"
 
 runtime:
   platform: "termux"               # termux | linux | macos | any
@@ -40,6 +40,13 @@ intake:
   incoming: "intake/incoming.md"
   triad: "intake/triad-thee-yod-ember.md"
 
+queue:
+  weir: "queue/artesium-weir/README.md"
+  carrier_template: "templates/carrier.md"
+
+seep_artois:
+  index: "seep-artois/README.md"
+
 turns:
   schema: "turns/TURN_SCHEMA.md"
   log: "turns/log.md"
@@ -55,3 +62,4 @@ tools:
   prime_check: "tools/prime_check.sh"
   scan_lexeme: "tools/scan_lexeme.sh"
   ethics_check: "tools/ethics_check.md"
+  artesian_scan: "tools/artesian_scan.sh"
