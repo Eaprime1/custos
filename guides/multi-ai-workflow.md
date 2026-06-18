@@ -34,7 +34,7 @@ Do not reuse `J-21` for Gemini, ChatGPT, or the Scribes as a whole. The mark bel
 
 ## Guide Usage
 
-When a workflow involves multiple contributors, link this guide from the relevant issue, PR, or turn log. If a new recurring presence needs its own mark, add it to `world/symbols.md` before reusing the mark in support content.
+When a workflow involves multiple contributors, link this guide from the relevant issue, PR, or turn log. If a new recurring presence needs its own mark, add it to [world/symbols.md](../world/symbols.md) before reusing the mark in support content.
 
 ---
 
