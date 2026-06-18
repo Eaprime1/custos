@@ -5,7 +5,7 @@
 If you discover a security issue, please report it privately using one of the following channels:
 
 - Email: `security@example.com` **(placeholder: replace with the project's real security contact)**
-- GitHub Security Advisories: `https://github.com/OWNER/REPO/security/advisories/new` **(placeholder: replace `OWNER/REPO` with this repository)**
+- GitHub Security Advisories: `https://github.com/Eaprime1/custos/security/advisories/new`
 Please include:
 
 - a description of the vulnerability
@@ -20,6 +20,6 @@ Maintainers will:
 1. acknowledge receipt as soon as possible
 2. assess severity and impact
 3. work on a fix and release plan
-4. communicate status updates when appropriate
+4. communicate status updates within 7 days of triage, and at each major milestone (fix ready, release published)
 
 Please do not publicly disclose security vulnerabilities until a fix is available.
