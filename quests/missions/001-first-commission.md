@@ -1,6 +1,6 @@
 ---
 id: missions/001-first-commission
-title: "First Commission"
+title: "First Commission 🃏"
 arc: missions
 sequence: 1
 xp: 100
@@ -42,6 +42,9 @@ Post a mission or bounty on GitHub Issues and receive a completed contribution.
 ```bash
 # Verify at least one closed issue with 'mission' or 'bounty' label exists,
 # via the GitHub API, falling back to gh only if curl finds nothing
+# Query GitHub API or use gh CLI to verify at least one closed issue with 'mission' or 'bounty' label exists
+(curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=closed" | grep -q -E '"name": "mission"|"name": "bounty"' || gh issue list --state closed --label "mission" --limit 1 | grep -q . || gh issue list --state closed --label "bounty" --limit 1 | grep -q .) && echo "complete"
+# Query GitHub API for closed issues with mission or bounty labels (with gh fallback)
 if curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=closed" | grep -q -E '"name": "mission"|"name": "bounty"'; then
   echo "complete"
 elif command -v gh >/dev/null 2>&1 && { gh issue list --state closed --label "mission" --limit 1 | grep -q . || gh issue list --state closed --label "bounty" --limit 1 | grep -q .; }; then

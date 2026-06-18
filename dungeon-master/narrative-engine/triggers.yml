@@ -1,0 +1,50 @@
+# Event → Chronicle trigger mapping (Placeholder / reference data)
+#
+# Status: Germ. This is reference data only — nothing reads or executes this
+# file yet. It carries forward the trigger table from the Master Plan
+# (Section IV) so the mapping exists in structured form before the idle
+# engine (a future GitHub Action) is wired up.
+#
+# Hold: per Master Plan Section IX, wait for the first GitHub Action test
+# before expanding this list.
+
+triggers:
+  - real_event: "Branch created"
+    chronicle_trigger: "Quest opens"
+    primary_character: "Fodere"
+
+  - real_event: "PR opened"
+    chronicle_trigger: "Expedition launched"
+    primary_character: "Jibber or Runyatr"
+
+  - real_event: "PR comment with new idea"
+    chronicle_trigger: "Seed discovered mid-expedition"
+    primary_character: "Agnoscere"
+
+  - real_event: "PR merged"
+    chronicle_trigger: "Expedition completes"
+    primary_character: "Jabber"
+
+  - real_event: "PR closed without merge"
+    chronicle_trigger: "Quest suspended (not abandoned — held)"
+    primary_character: "Custos"
+
+  - real_event: "Plank promoted"
+    chronicle_trigger: "Level event — Chronicle note"
+    primary_character: "Agnoscere"
+
+  - real_event: "Stream return received"
+    chronicle_trigger: "Scout returns from the field"
+    primary_character: "Named agent (Gemini = Eastern Archives, etc.)"
+
+  - real_event: "Branch → Repo extraction"
+    chronicle_trigger: "Kingdom separates from Citadel"
+    primary_character: "Monarch Eagle presides"
+
+  - real_event: "New repo created"
+    chronicle_trigger: "New region of the world"
+    primary_character: "Custos issues a founding seal"
+
+  - real_event: "Vault entry"
+    chronicle_trigger: "Origin mold sealed"
+    primary_character: "Custos + Sovereign designation"

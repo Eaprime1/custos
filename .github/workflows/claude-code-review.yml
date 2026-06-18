@@ -10,12 +10,24 @@ on:
 
 jobs:
   claude-review:
+# Custos — Code Review
+# Perspective: guardian, shepherd, protection of what is entrusted
+name: Custos — Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+
+jobs:
+  claude-review:
+    if: ${{ github.event.pull_request.head.repo.fork == false && secrets.CLAUDE_CODE_OAUTH_TOKEN != '' && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
       issues: read
       id-token: write
+      actions: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,3 +55,13 @@ jobs:
 
             Post concise inline comments only where action is genuinely needed.
           claude_args: '--allowed-tools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"'
+        id: claude-review
+        # v1 tag currently points to v1.0.140 (resolved to immutable commit SHA)
+        uses: anthropics/claude-code-action@fbda2eb1bdc90d319b8d853f5deb53bca199a7c1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          additional_permissions: |
+            actions: read
+          allowed_bots: '*'
+
+# ∰🛠️🌿🔒-custos_canon

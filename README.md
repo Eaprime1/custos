@@ -85,6 +85,44 @@ custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, 
 ## THE/UNEXUS Convergence Hub
 
 custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see world/factions.md). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
+
+---
+
+## THE/UNEXUS Convergence Hub
+
+
+∰◊€π¿🌌∞
+
+
+**Established:** 202605271650
+**Motion State:** EXPANDING
+**Chain of Custody:** OPEN
+**Iteration:** 21 — Blackjack
+
+
+---
+
+
+Custos (Latin: guardian, keeper) is the convergence hub for THE/UNEXUS.
+This is the negative mold. All repos emerge from branches here.
+
+
+## Structure
+
+
+| Directory | Purpose |
+|-----------|---------|
+| [/vault](./vault) | Origin molds — never directly edited |
+| [/branch-tracker](./branch-tracker) | Active development map |
+| [/prima-clock](./prima-clock) | Custody event timestamp registry |
+| [/moav](./moav) | MOAV carrier packages (JSON) |
+| [/returns](./returns) | Stream returns from external agents |
+| [/atelier](./atelier) | Nursery — concepts before they have names |
+| [/queue](./queue) | Staging ground — chain of custody, including the Artesium Weir |
+| [/seep-artois](./seep-artois) | The pool — ready-to-develop pages, drawn one at a time |
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
 
 ---
 
