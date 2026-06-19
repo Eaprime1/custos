@@ -10,8 +10,8 @@
   "transition": {
     "from": "Navigo/Custos session (claude.ai project)",
     "to": "custos/incoming/pre-nullus/",
-    "related_pull_request": 38,
-    "related_bounty_issue": 35
+    "pull_request": 38,
+    "bounty_issue": 35
   },
   "delivered": {
     "witness_copy": {
@@ -24,7 +24,7 @@
       "destination": "PR #38 comment thread"
     }
   },
-  "note": "This is the first time the incoming-queue convention (custos/incoming/pre-nullus/) is used. Since the pre-nullus event originated inside custos itself, intake is custos receiving from itself — a degenerate but valid case that establishes the pattern for future repos.",
+  "notes": "This is the first time the incoming-queue convention (custos/incoming/pre-nullus/) is used. Since the pre-nullus event originated inside custos itself, intake is custos receiving from itself — a degenerate but valid case that establishes the pattern for future repos.",
   "open_questions": [
     "Vault acceptance: witness copy awaits eaprime1 confirmation before moving to vault/witness-copies/",
     "Attribution (Ojas2095 / dannyward630): still open, contributor's call, untouched by this filing",
