@@ -55,7 +55,7 @@ entity:       eaprime1 + Claude
 intent:       close out the review session and leave a handoff for whoever picks this up next
 contribution: confirmed pixel8 branch clean and synced with main, corrected the stale Termux "fix" note in device/active.md to point at the permanent workaround docs, recorded open questions (Grok/Perplexity stream domains, ♠️A vault branch + founding MOAV, mandelbrot/mulberry purposes) in device/active.md so the next session starts from there instead of re-deriving context
 resonance:    settled
-witnessed:    true
+witnessed:    true 🃏
 ---
 
 ---
@@ -65,7 +65,10 @@ entity:       eaprime1 + Claude
 intent:       crystallize this conversation as the first journey/valuation entry, on its own branch, before archiving
 contribution: wrote valuation/custos_genesis_journey_202606132130.md (inception story, key dialogue, links, Five Lakes rubric score 10/10 Ace, formal custody entry, notes for next iteration) plus valuation/JOURNEY_SCHEMA.md and moav/custos_moav_journey001.json on branch valuation/custos-genesis-journey; flagged two siblings for Deck Master reconciliation — PR #12 (Sovran Shepherd identity) and PR #17 (Five Lakes Valuation, source of this format)
 resonance:    crystallizing
-witnessed:    true
+witnessed:    true 🃏
+---
+
+---
 turn:         2026-06-14 01:30
 prime:        3
 entity:       Claude (custos-web-jolly-bohr)
@@ -83,4 +86,14 @@ intent:       implement Phase 1 of the Custos Chronicle Master Plan — raise th
 contribution: created dungeon-master/ (narrative-engine, chronicles, quests, expeditions, pr-harvest, registry) per the Master Plan's repo structure; wrote chronicle-template.md (DM's approved format), world-state.json (Blackjack_21, chronicle_count: 1), characters.md and triggers.yml as placeholders carrying forward the Master Plan's roster and trigger table, and registry/{characters,kingdoms,events}.json for future queries; seeded Chronicle 0001 "The Third Aspect Arrives" documenting this spawn itself. No automation wired — structure only, per hold notes
 resonance:    gate built
 witnessed:    true 🃏
+---
+
+---
+turn:         2026-06-18 16:18
+prime:        3
+entity:       eaprime1 + Claude
+intent:       receive and review custos's first unsolicited external submission — PR #38, fulfilling bounty issue #35 (a symbol for Claude and a lexeme for the entities' interaction zone)
+contribution: checked PR #38 against the bounty's full spec — `J-21` (the Threshold Joker) reads distinct from Gemini's reserved icon, the `Lumenar` lexeme collides with none of Ka/Plexus/Resonance/Field/Pinnacle, world/symbols.md and guides/multi-ai-workflow.md land cleanly on current main; flagged a claim/author mismatch (issue claimed by Ojas2095, PR shipped by dannyward630) for the Shepherd's attribution call before reward; left a review on the PR; logged the milestone here and in prima-clock/registry.md
+resonance:    a door opened from outside, and what came through fit
+witnessed:    true
 ---

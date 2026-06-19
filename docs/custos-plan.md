@@ -66,7 +66,7 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 **Goal:** Multiple AI models are contributing to custos through the mission system.
 
 - [ ] Define per-model commission prompts (what to tell Claude vs GPT vs Gemini)
-- [ ] Document multi-model workflow in `guides/multi-ai-workflow.md`
+- [x] Document multi-model workflow in `guides/multi-ai-workflow.md`
 - [ ] Create `quests/scribes/` arc for Scribe faction missions (writing, docs, lore)
 - [ ] Create `quests/builders/` arc for Builder faction missions (tools, scripts)
 - [ ] Run a "round" — post 3 missions, commission 3 different models, review all PRs
