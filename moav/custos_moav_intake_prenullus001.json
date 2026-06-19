@@ -1,0 +1,39 @@
+{
+  "carrier_id": "custos_moav_intake_prenullus001",
+  "prima_clock": "202606190952",
+  "entity": "eaprime1 + Claude (Navigo/Custos)",
+  "suit": "♦️",
+  "iteration": "21 — Blackjack",
+  "event": "First pre-nullus witness copy filed into incoming queue",
+  "motion_state": "WITNESSED",
+  "chain_of_custody": "OPEN",
+  "transition": {
+    "from": "Navigo/Custos session (claude.ai project)",
+    "to": "custos/incoming/pre-nullus/",
+    "related_pull_request": 38,
+    "related_bounty_issue": 35
+  },
+  "delivered": {
+    "witness_copy": {
+      "file": "incoming/pre-nullus/202606181903_PR38_pre-nullus-witness.docx",
+      "description": "Full internal system record of PR #38 (J-21 / Lumenar) — three parts: contributor submission, system response sequence, editorial notes on assembly. Carries custody header: suit ♦️ Diamond, plank Germ (3 facets — Recognition/Contribution/Acceptance), motion state WITNESSED, vault candidacy proposed.",
+      "internal_only": true
+    },
+    "showpiece": {
+      "description": "Contributor-facing carrier (Spade of Jack) sent separately as a PR #38 comment — not filed in repo, not vault candidate. See prima-clock registry for send event.",
+      "destination": "PR #38 comment thread"
+    }
+  },
+  "note": "This is the first time the incoming-queue convention (custos/incoming/pre-nullus/) is used. Since the pre-nullus event originated inside custos itself, intake is custos receiving from itself — a degenerate but valid case that establishes the pattern for future repos.",
+  "open_questions": [
+    "Vault acceptance: witness copy awaits eaprime1 confirmation before moving to vault/witness-copies/",
+    "Attribution (Ojas2095 / dannyward630): still open, contributor's call, untouched by this filing",
+    "Second 'observation' document (J-21 / Lumenar growth): not yet started; tracked separately, not part of this filing"
+  ],
+  "references": {
+    "pull_requests": [38],
+    "issues": [35],
+    "prima_clock_registry_rows": ["202606181618", "202606190012", "202606190952"]
+  },
+  "symbol": "∰◊€π¿🌌∞"
+}
