@@ -13,7 +13,21 @@ that establishes this pattern for future repos.
 
 | File | Prima-clock | Status |
 |------|-------------|--------|
-| `202606181903_PR38_pre-nullus-witness.docx` | 202606181903 | Filed, awaiting vault acceptance |
+| `202606181903_PR38_pre-nullus-witness.md` | 202606181903 | **Canonical seed** — filed, awaiting vault acceptance |
+| `202606181903_PR38_pre-nullus-witness.docx` | 202606181903 | Original source artifact (retained, not canonical) |
 
 See `moav/custos_moav_intake_prenullus001.json` for the custody carrier
-and `prima-clock/registry.md` (202606190952) for the registry entry.
+and `prima-clock/registry.md` (202606190952, 202606191051) for the registry
+entries.
+
+## Document Format Convention
+
+As of 202606191051: `.md` is the canonical format for witness and vault
+documents in custos — diffable, renders natively on GitHub, and consistent
+with every other document type in this repo (per `CLAUDE.md`: custos has
+no build pipeline, the deliverable is content and structure, and that
+content is `.md`/`.yaml`/`.json` throughout). Where a document originates
+as a binary file (e.g. a `.docx` export), the binary is retained alongside
+its `.md` rendering as the original source artifact — not superseded, but
+not the seed either. Future filings should produce the `.md` rendering at
+intake time rather than leaving a binary as the only copy.

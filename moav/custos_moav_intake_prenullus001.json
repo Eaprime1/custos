@@ -15,8 +15,9 @@
   },
   "delivered": {
     "witness_copy": {
-      "file": "incoming/pre-nullus/202606181903_PR38_pre-nullus-witness.docx",
-      "description": "Full internal system record of PR #38 (J-21 / Lumenar) — three parts: contributor submission, system response sequence, editorial notes on assembly. Carries custody header: suit ♦️ Diamond, plank Germ (3 facets — Recognition/Contribution/Acceptance), motion state WITNESSED, vault candidacy proposed.",
+      "file": "incoming/pre-nullus/202606181903_PR38_pre-nullus-witness.md",
+      "source_artifact": "incoming/pre-nullus/202606181903_PR38_pre-nullus-witness.docx",
+      "description": "Full internal system record of PR #38 (J-21 / Lumenar) — three parts: contributor submission, system response sequence, editorial notes on assembly. Carries custody header: suit ♦️ Diamond, plank Germ (3 facets — Recognition/Contribution/Acceptance), motion state WITNESSED, vault candidacy proposed. `.md` is the canonical seed (decided 202606191051); the `.docx` is retained as the original source artifact.",
       "internal_only": true
     },
     "showpiece": {
@@ -30,10 +31,16 @@
     "Attribution (Ojas2095 / dannyward630): still open, contributor's call, untouched by this filing",
     "Second 'observation' document (J-21 / Lumenar growth): not yet started; tracked separately, not part of this filing"
   ],
+  "format_decision": {
+    "decided": "202606191051",
+    "canonical_format": "md",
+    "rationale": "Raised by eaprime1 on PR #40: is .docx the right format, or should .md be the seed? Decision: .md is canonical for all witness/vault documents going forward — diffable, renders natively on GitHub, consistent with the rest of the repo (CLAUDE.md frames custos as a content/structure repo with no build pipeline, content elsewhere is exclusively .md/.yaml/.json). Binary originals (.docx, etc.) are retained alongside as source artifacts, not superseded, but not the seed.",
+    "applies_to": "incoming/pre-nullus/202606181903_PR38_pre-nullus-witness.md (this filing) and all future witness/vault intake"
+  },
   "references": {
-    "pull_requests": [38],
+    "pull_requests": [38, 40],
     "issues": [35],
-    "prima_clock_registry_rows": ["202606181618", "202606190012", "202606190952"]
+    "prima_clock_registry_rows": ["202606181618", "202606190012", "202606190952", "202606191051"]
   },
   "symbol": "∰◊€π¿🌌∞"
 }
