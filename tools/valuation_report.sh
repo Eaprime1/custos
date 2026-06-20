@@ -22,13 +22,16 @@ suits, ranks, types = Counter(), Counter(), Counter()
 chips = 0
 total = 0
 
-with open(path, newline="", encoding="utf-8") as f:
+with open(path, newline="", encoding="utf-8-sig") as f:
     for row in csv.DictReader(f):
         total += 1
-        suits[row["card_suit"]] += 1
-        ranks[row["card_rank"]] += 1
-        types[row["file_type"]] += 1
-        chips += int(row["chip_value"] or 0)
+        suits[row.get("card_suit") or "TBD"] += 1
+        ranks[row.get("card_rank") or "TBD"] += 1
+        types[row.get("file_type") or "unknown"] += 1
+        try:
+            chips += int(row.get("chip_value") or 0)
+        except ValueError:
+            pass
 
 decks, remainder = divmod(total, 52)
 
