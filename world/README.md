@@ -11,6 +11,7 @@ makes the technical content mean something.
 | `lore.md` | The setting, history, and what players are |
 | `factions.md` | Groups and forces that populate the world |
 | `five-lakes.md` | The Five Lakes geography (document suit/valuation routing) and the Origin of Hope mythology |
+| `symbols.md` | Marks for recurring presences and the Lumenar lexeme |
 
 ## Expanding the World
 

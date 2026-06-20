@@ -45,6 +45,8 @@ Commission an AI model (Claude, ChatGPT, Gemini, or Copilot) to complete a missi
 ## Completion Check
 
 ```bash
+# Query GitHub API or use gh CLI to verify a merged PR exists with AI contributor mentioned in the body
+(curl -s "https://api.github.com/search/issues?q=repo:eaprime1/custos+is:pr+is:merged+Claude+OR+ChatGPT+OR+Gemini+OR+Copilot" | grep -q '"total_count": [1-9]' || (gh pr list --state merged --json body -q ".[].body" | grep -Ei "claude|chatgpt|gemini|copilot" | grep -q .)) && echo "complete"
 # Query GitHub API for merged PRs and check if the body mentions an AI faction member (with gh fallback)
 if curl -s "https://api.github.com/search/issues?q=repo:eaprime1/custos+is:pr+is:merged+Claude+OR+ChatGPT+OR+Gemini+OR+Copilot" | grep -q '"total_count": [1-9]'; then
   echo "complete"

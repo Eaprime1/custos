@@ -12,6 +12,9 @@ Each device has its own subdirectory or manifest file. The device layer answers:
 |---|---|
 | `pixel8.yaml` | Pixel 8 device manifest — installed packages, key paths, active sessions |
 | `active.md` | Current work-in-flight on this device — projects, repos, open tasks |
+| `install-log.md` | Append-only history of what was installed, where, and how |
+| `podiums.md` | Registry of known podiums — devices, IDEs, apps, conversations doing custos work |
+| `PODIUM_SCHEMA.md` | Schema/form for adding a podium to `podiums.md` |
 
 ## Usage
 
@@ -21,7 +24,25 @@ cat device/active.md
 
 # Check the device manifest
 cat device/pixel8.yaml
+
+# Record something that was just installed
+bash tools/log_install.sh <item> <location> <method> [by] [notes]
 ```
+
+## Install Record
+
+`install-log.md` is the history; each device manifest's `packages.installed`
+list is the current-state snapshot. When Claude (or anyone) installs
+something for custos, log it with `tools/log_install.sh` and, if it changes
+the steady state for a device, add it to that device's manifest too.
+
+## Podiums
+
+`podiums.md` is the cross-device, cross-conversation registry — every place
+(device, IDE, app, AI session) doing custos work gets a `podium_id`. This is
+how "which device and which team did this" stays answerable as work arrives
+from multiple podiums. It's a living form: give a location and add an entry
+following `PODIUM_SCHEMA.md`.
 
 ## Migration from pixel8a
 
