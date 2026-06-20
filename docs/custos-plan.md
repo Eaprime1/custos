@@ -12,7 +12,7 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 
 ---
 
-## Phase 1: Concept Establishment ← current
+## Phase 1: Concept Establishment ✓ COMPLETE
 
 **Goal:** custos has an identity, a world, and a functional door.
 
@@ -24,23 +24,25 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 - [x] Add CLAUDE.md with codebase guidance
 - [x] Create `.github/ISSUE_TEMPLATE/` for missions and bounties
 - [x] Create `quests/missions/` arc (first 3 quests)
-- [ ] Complete Quest 000 verification: `! grep -q 'name: "My Prima Terminal"' prima.yaml && echo "complete"`
+- [x] Establish convergence hub structure (atelier, vault, moav, prima-clock, returns, branch-tracker)
+- [x] Quest 000 verified: `prima.yaml` is named — door is open
 - [ ] Write first turn log entry in `turns/log.md`
 - [ ] Advance `.prime` from 3 to 5
 
 ---
 
-## Phase 2: Device Setup
+## Phase 2: Device + Hub Activation ← current
 
-**Goal:** The Pixel 8 is a functional Podium. Bootstrap works. Claude Code runs in Termux.
+**Goal:** The Pixel 8 is a functional Podium. The convergence hub is routing work. The agent streams are live.
 
-- [ ] Establish a workable Claude Code flow for Termux (web session, Anthropic API via curl/Python, or SSH to a supported Linux host)
-- [ ] Run `bash seeds/bootstrap.sh` on the Pixel 8
-- [ ] Verify `~/.prima-env` is created and correct
-- [ ] Create `pixel8` branch from main
-- [ ] Populate `device/active.md` with current real work
-- [ ] Organize `~/pixel8a` content into `~/pixel8` on the device
-- [ ] Commit migration log to `turns/log.md`
+- [x] Write first turn log entry (`turns/log.md`) — mark the founding
+- [ ] Advance `.prime` from 3 to 5
+- [ ] Run `bash seeds/bootstrap.sh` on the Pixel 8 (at `~/pixel8/custos`)
+- [ ] Organize `~/pixel8a` content into `~/pixel8` on the device; log migration in `turns/log.md`
+- [ ] Populate `device/active.md` with real current work (replace placeholder entries)
+- [x] Define the empty branches: `radix`, `mulberry`, `mandelbrot`, `main-to-radix`, `֍custos֎` — add each to `branch-tracker/branches.md` with suit/status/destination
+- [ ] Open the external agent streams — commission first returns from Gemini, ChatGPT, Copilot into `returns/`
+- [x] Log hub activation event in `prima-clock/registry.md`
 - [ ] Advance `.prime` to 7
 
 ---
@@ -64,7 +66,7 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 **Goal:** Multiple AI models are contributing to custos through the mission system.
 
 - [ ] Define per-model commission prompts (what to tell Claude vs GPT vs Gemini)
-- [ ] Document multi-model workflow in `guides/multi-ai-workflow.md`
+- [x] Document multi-model workflow in `guides/multi-ai-workflow.md`
 - [ ] Create `quests/scribes/` arc for Scribe faction missions (writing, docs, lore)
 - [ ] Create `quests/builders/` arc for Builder faction missions (tools, scripts)
 - [ ] Run a "round" — post 3 missions, commission 3 different models, review all PRs

@@ -1,0 +1,84 @@
+{
+  "characters": [
+    {
+      "id": "fodere",
+      "name": "Fodere",
+      "function": "Disturbs substrate to release signal",
+      "role": "The Disturber — finds anomalies, opens quests",
+      "domain": "Branch creation, PR open",
+      "status": "active"
+    },
+    {
+      "id": "runyatr",
+      "name": "Runyatr",
+      "function": "Follows trails, links concepts",
+      "role": "The Tracker — pursues threads across repos",
+      "domain": "Cross-repo connections",
+      "status": "active"
+    },
+    {
+      "id": "agnoscere",
+      "name": "Agnoscere",
+      "function": "Resolves identity ambiguity",
+      "role": "The Identifier — determines what something is",
+      "domain": "Plank promotion, naming",
+      "status": "active"
+    },
+    {
+      "id": "jibber",
+      "name": "Jibber",
+      "function": "Wide-cast exploration, Anti-Vector",
+      "role": "Wide-cast explorer — finds strange things",
+      "domain": "Research streams, Germ discovery",
+      "status": "active"
+    },
+    {
+      "id": "jabber",
+      "name": "Jabber",
+      "function": "Direction-finding, Vector-forming",
+      "role": "Direction finder — turns exploration into action",
+      "domain": "1/3 -> 2/3 transitions",
+      "status": "active"
+    },
+    {
+      "id": "custos",
+      "name": "Custos",
+      "function": "Receives all returns, issues custody",
+      "role": "Never leaves the Citadel. Receives. Stamps. Routes.",
+      "domain": "All stream returns",
+      "status": "active"
+    },
+    {
+      "id": "equus_prima",
+      "name": "Equus Prima",
+      "function": "Holds all equine potential unresolved",
+      "role": "The Seed-Bearer — carries unrealized potential",
+      "domain": "Pinnacle seeds",
+      "status": "active"
+    },
+    {
+      "id": "monarch_eagle",
+      "name": "Monarch Eagle",
+      "function": "Earned designation through demonstrated ability",
+      "role": "The Sovereign — marks what has become crystallized",
+      "domain": "Pinnacle events",
+      "status": "active"
+    },
+    {
+      "id": "jot",
+      "name": "Jot",
+      "function": "TBD — the Sniff moment, smallest unit",
+      "role": "Open slot",
+      "domain": "TBD",
+      "status": "open_slot"
+    },
+    {
+      "id": "jig",
+      "name": "Jig",
+      "function": "TBD — framework crystallization",
+      "role": "Open slot",
+      "domain": "TBD",
+      "status": "open_slot"
+    }
+  ]
+}

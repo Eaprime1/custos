@@ -80,9 +80,9 @@ The `pixel8` branch carries `device/` files that track what is active, installed
 
 ## Multi-AI development
 
-custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
-# CUSTOS
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see world/factions.md). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
 
+---
 
 ## THE/UNEXUS Convergence Hub
 
@@ -114,6 +114,8 @@ This is the negative mold. All repos emerge from branches here.
 | [/moav](./moav) | MOAV carrier packages (JSON) |
 | [/returns](./returns) | Stream returns from external agents |
 | [/atelier](./atelier) | Nursery — concepts before they have names |
+| [/queue](./queue) | Staging ground — chain of custody, including the Artesium Weir |
+| [/seep-artois](./seep-artois) | The pool — ready-to-develop pages, drawn one at a time |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
 
