@@ -9,7 +9,7 @@ circle, no seam. Custos's version wobbles by some Nth radian instead: a
 deliberate imperfection in the loop that keeps it from becoming a closed
 system devouring itself blindly. The wobble is the safety mechanism. It's
 also a trait or skill — something earned, not assumed. No one engages the
-full mobius loop without first earning the wobble: the prerequisite,
+full Möbius loop without first earning the wobble: the prerequisite,
 certification, or demonstrated knowledge that proves they know how to
 exit before they're allowed to enter.
 
@@ -29,7 +29,7 @@ distributed back out (a diaspora) to whoever or whatever takes them on.
 Raised in the same conversation as the Testing Lab seed
 (`atelier/testing-lab.md`), as a way of thinking about how custos holds
 itself accountable for its own automation as it grows — described as
-custos's nature: a loop, a mobius, but with the Nth-radian wobble instead
+custos's nature: a loop, a Möbius, but with the Nth-radian wobble instead
 of pure self-consumption. The framing offered was explicit: this is a
 safety mechanism *and* a skill to be earned, in that order — gate the
 loop behind the wobble, not the other way around.
