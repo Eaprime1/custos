@@ -26,5 +26,6 @@ why is grounded in the concept's world.
 | Guide | Covers |
 |---|---|
 | [Getting Started](getting-started.md) | First steps — clone, bootstrap, first quest |
+| [Multi-Entity Workflow](multi-ai-workflow.md) | Symbols, the Lumenar, and handoffs between contributors |
 
 Add guides here as you create them.
