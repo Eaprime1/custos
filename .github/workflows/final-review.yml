@@ -1,0 +1,86 @@
+name: Custos — Final Review Gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_ref:
+        description: "Branch, tag, or SHA to review (defaults to triggering ref)"
+        required: false
+        default: ""
+      strict_mode:
+        description: "Fail if Codacy check is missing"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  final-review:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: read
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Checkout target ref
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: ${{ inputs.target_ref || github.ref }}
+
+      - name: Run prime state check
+        run: bash tools/prime_check.sh
+
+      - name: Run lexeme scan
+        run: bash tools/scan_lexeme.sh
+
+      - name: Verify Codacy status on commit
+        env:
+          STRICT_MODE: ${{ inputs.strict_mode }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          SHA="$(git rev-parse HEAD)"
+          API_URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${SHA}/check-runs?per_page=100"
+          # Use GITHUB_TOKEN to avoid unauthenticated API limits and private-repo 404 responses.
+          RESPONSE="$(curl -fsSL \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -u "x-access-token:${GITHUB_TOKEN}" \
+            "$API_URL")"
+
+          # Keep parser input/source separate: script from heredoc, payload from env.
+          RESPONSE_JSON="$RESPONSE" python3 - "$STRICT_MODE" <<'PY'
+          import json
+          import os
+          import sys
+
+          strict_mode = sys.argv[1].lower() == "true"
+          payload = json.loads(os.environ["RESPONSE_JSON"])
+          check_runs = payload.get("check_runs", [])
+          codacy_runs = [run for run in check_runs if "codacy" in run.get("name", "").lower()]
+
+          if not codacy_runs:
+            if strict_mode:
+              raise SystemExit("Strict mode is enabled and no Codacy check run was found for this commit.")
+            print("No Codacy check run found; continuing because strict mode is disabled.")
+            raise SystemExit(0)
+
+          blocking = []
+          for run in codacy_runs:
+            conclusion = run.get("conclusion")
+            if conclusion not in {"success", "neutral", "skipped"}:
+              blocking.append((run.get("name", "Codacy"), conclusion or "in_progress"))
+
+          if blocking:
+            details = ", ".join(f"{name}={conclusion}" for name, conclusion in blocking)
+            raise SystemExit(f"Blocking Codacy result(s): {details}")
+
+          print("Codacy checks passed with non-blocking conclusions.")
+          PY
+
+      - name: Final review result
+        run: |
+          echo "Final review passed: prime check, lexeme scan, and Codacy gate are green."
