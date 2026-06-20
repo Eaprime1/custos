@@ -4,7 +4,7 @@
 
 ## The Idea
 
-Underwriters Laboratory listed, but not Underwriters Laboratory run. A
+Underwriters Laboratories listed, but not Underwriters Laboratories run. A
 testing lab for custos, inspired by the UL model of independent
 verification before something ships — but self-administered, because in
 the Navigo perspective we are already the ones creating and monitoring
