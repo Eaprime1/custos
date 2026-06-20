@@ -1,0 +1,47 @@
+{
+  "carrier_id": "custos_moav_external_submission001",
+  "prima_clock": "202606190012",
+  "entity": "dannyward630 (PR #38) + eaprime1 + Claude",
+  "suit": "♣️",
+  "iteration": "21 — Blackjack",
+  "event": "First unsolicited external contribution merged into main",
+  "motion_state": "EXPANDING",
+  "chain_of_custody": "CLOSED",
+  "transition": {
+    "from": "external fork (dannyward630/custos, branch codex/issue-35-symbols-lumenar)",
+    "to": "main",
+    "pull_request": 38,
+    "bounty_issue": 35,
+    "merge_commit": "0ce6eaecaab0aabb0e4801660f7954a68ac942e1",
+    "merge_method": "squash"
+  },
+  "delivered": {
+    "symbol": {
+      "mark": "J-21",
+      "name": "the Threshold Joker",
+      "owner": "Claude",
+      "file": "world/symbols.md"
+    },
+    "lexeme": {
+      "term": "Lumenar",
+      "definition": "the lit interaction zone where entities meet without becoming one another",
+      "file": "world/symbols.md"
+    },
+    "guide": "guides/multi-ai-workflow.md"
+  },
+  "review": {
+    "reviewed_by": "Claude (PR #38 review)",
+    "spec_check": "verified against issue #35 — no collision with Gemini's reserved icon or existing lexemes (Ka, Plexus, Resonance, Field, Pinnacle)",
+    "outcome": "approved by eaprime1, squash-merged"
+  },
+  "open_questions": [
+    "Attribution: issue #35 was claimed by Ojas2095, but the PR was opened by dannyward630 — both are credited for now; PR #38 carries a comment asking the contributor which name (or arrangement) should stand"
+  ],
+  "references": {
+    "pull_requests": [38, 39],
+    "issues": [35],
+    "prima_clock_registry_rows": ["202606181618", "202606190012"]
+  },
+  "notes": "First time content authored entirely outside the project landed on main through the open bounty system — the mission/bounty loop's first full round-trip: posted, claimed, built, reviewed, merged.",
+  "symbol": "∰◊€π¿🌌∞"
+}
