@@ -84,5 +84,16 @@
 
 ---
 
+*Updated: 2026-06-20*
+
+- PR #45 (turn-closing entries for PR #43 — podium, prima-clock, turn log)
+  merged (`841827b`) — fixed Gemini's trailing-newline flag on
+  `prima-clock/registry.md`, owner confirmed and gave the go-ahead.
+- Issue #44 (`finalize-pr.yml` `issue_comment` trigger never fires) is still
+  open and unaddressed — next session with bandwidth for a workflow fix
+  should start there.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
