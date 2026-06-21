@@ -79,7 +79,7 @@ eaprime1 has asked that this system be given its own name, separate from "J-21" 
 
 ### Zero Point State Interaction
 
-A new concept, explicitly distinguished by eaprime1 from zero-point energy: "the manifest of what is left when everything is removed interactions" — the state of interaction with the universe that remains at the limit of removing all interaction. Conceptually adjacent to custos's existing nullification process (`incoming/pre-nullus/README.md`: "the process of finding what remains when everything circumstantial is removed"), but named and scoped separately by eaprime1 as its own thing, not a restatement of nullification. **Open** — not yet placed in `world/lore.md` or any other canonical file; recorded here as a concept in motion, not yet given a home.
+A new concept, explicitly distinguished by eaprime1 from zero-point energy: "the manifest of what is left when everything is removed of interactions" — the state of interaction with the universe that remains at the limit of removing all interaction. Conceptually adjacent to custos's existing nullification process (`incoming/pre-nullus/README.md`: "the process of finding what remains when everything circumstantial is removed"), but named and scoped separately by eaprime1 as its own thing, not a restatement of nullification. **Open** — not yet placed in `world/lore.md` or any other canonical file; recorded here as a concept in motion, not yet given a home.
 
 ### Multi-AI Workflow — Direct Mode
 
