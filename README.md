@@ -80,6 +80,11 @@ The `pixel8` branch carries `device/` files that track what is active, installed
 
 ## Multi-AI development
 
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
+
+## THE/UNEXUS Convergence Hub
+
+custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
 custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see world/factions.md). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
 
 ---
@@ -122,22 +127,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST
 ---
 
 *THEE opens. YOD marks. EMBER warms. custos keeps.*
-
-## Known Repo Map
-
-
-| Repo | Role |
-|------|------|
-| eaprime1/custos | This hub |
-| eaprime1/nullus | Pre-system void preparation |
-| eaprime1/the | Main system active development |
-| eaprime1/diamond-reservoir | Seed pressure system |
-| eaprime1/prima-clock | Temporal anchor registry |
-| eaprime1/121 | Periodic table expansion |
-| eaprime1/milkweed-vectors | Seeded vector templates |
-
-
----
-
-
-*∞pace∞*
