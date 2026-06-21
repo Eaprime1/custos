@@ -67,3 +67,33 @@
 *Updated: 2026-06-14*  
 *Prime state: 3*  
 *Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-06-20*  
+## For the Next Conversation
+
+- PR #43 (atelier seeds `testing-lab.md` + `ouroboros-wobble.md`) merged into
+  `main` (`95cff0a`) — owner-approved after all three Gemini Code Assist
+  suggestions were resolved.
+- Issue #44 filed: `finalize-pr.yml` never fires on its declared
+  `issue_comment` trigger — two `@claude finalize` comments on PR #43 got no
+  response; Actions history shows only phantom `push`-triggered runs with
+  zero jobs. Needs a fresh diagnosis (possible stale workflow registration
+  or a branch-protection required-check tied to this workflow's name).
+
+---
+
+*Updated: 2026-06-20*
+
+- PR #45 (turn-closing entries for PR #43 — podium, prima-clock, turn log)
+  merged (`841827b`) — fixed Gemini's trailing-newline flag on
+  `prima-clock/registry.md`, owner confirmed and gave the go-ahead.
+- Issue #44 (`finalize-pr.yml` `issue_comment` trigger never fires) is still
+  open and unaddressed — next session with bandwidth for a workflow fix
+  should start there.
+
+---
+
+*Prime state: 3*  
+*Witnessed: true* 🃏

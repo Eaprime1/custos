@@ -97,3 +97,23 @@ contribution: checked PR #38 against the bounty's full spec — `J-21` (the Thre
 resonance:    a door opened from outside, and what came through fit
 witnessed:    true
 ---
+
+---
+turn:         2026-06-20 00:23
+prime:        3
+entity:       Claude (custos-web-pre-nullus)
+intent:       watch PR #43 (atelier seeds + finalize-pr.yml test harness) through to a close
+contribution: applied and resolved all three Gemini Code Assist suggestions (Möbius capitalization x2, Underwriters Laboratories pluralization), answered the owner's status question on which were ready vs. needing his action, merged PR #43 once he approved; discovered finalize-pr.yml never actually fires on issue_comment — every recorded run is a phantom push-triggered failure with zero jobs — and filed issue #44 (mission) to track the fix since the refusal-path/happy-path test the PR was built to carry never completed
+resonance:    merged clean, one real bug found on the way out
+witnessed:    true
+---
+
+---
+turn:         2026-06-20 00:37
+prime:        3
+entity:       Claude (custos-web-pre-nullus)
+intent:       close the turn that closed PR #43 — get PR #45 (podium/prima-clock/turn-log entries) through review and merged
+contribution: fixed the trailing-newline issue Gemini flagged on prima-clock/registry.md; owner resolved the rest of Gemini's recommendation and gave the go-ahead, merged PR #45 (`841827b`), unsubscribed once the webhook confirmed the merge
+resonance:    a session closing the session before it
+witnessed:    true
+---
