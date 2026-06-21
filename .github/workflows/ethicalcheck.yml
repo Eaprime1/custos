@@ -57,7 +57,7 @@ jobs:
       - name: Run APIsec API Security Scan
         id: apisec
         if: steps.secrets-check.outputs.configured == 'true'
-        uses: apisec-inc/apisec-run-scan@v1.0.7
+        uses: apisec-inc/apisec-run-scan@8f66ce948afb779712a1d57ecb0a528d7ded5a45 # v1.0.7
         with:
           apisec-username: ${{ secrets.APISEC_USERNAME }}
           apisec-password: ${{ secrets.APISEC_PASSWORD }}
