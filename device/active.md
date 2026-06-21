@@ -119,5 +119,19 @@
 
 ---
 
+*Updated: 2026-06-21 (later still)*
+
+- Ran a full mining pass across the repo for ideas/gaps/misses/workflow —
+  see `turns/MINING-202606212142.md`. Nothing critical found; it's all
+  backlog. Three items flagged as highest-leverage if a future session has
+  bandwidth: refresh `branch-tracker/branches.md` (3 weeks stale, lists
+  `mandelbrot`/`mulberry` as branches that don't currently exist), do the
+  PR #18 diff check (possibly superseded, never actually verified), and
+  get a Deck Master ruling on the Sovran-vs-Deck-Master and
+  hub-suits-vs-Five-Lakes-suits design conflicts before a third
+  competing system lands.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏

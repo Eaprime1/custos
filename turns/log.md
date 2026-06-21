@@ -157,3 +157,13 @@ contribution: verified all check runs except the already-diagnosed benign claude
 resonance:    closed, with one thread still hanging for the next session
 witnessed:    true
 ---
+
+---
+turn:         2026-06-21 21:42
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       mine the repo for ideas, gaps, misses, and process friction before this conversation archives
+contribution: audited atelier/ (5 unfinished concepts: concordance, wobbly-bench, ouroboros-wobble, testing-lab, holy-cow), device/active.md and turns/CULTIVATION.md's open questions, known misses (issue #44's remaining manual-verification gap, mandelbrot/mulberry branches tracked but not present), workflow gaps (unbuilt merge-triggered Action, pending Grok/Perplexity stream domains), turns/AAR.md's process friction, and stale state (branch-tracker/branches.md three weeks out of date); wrote the full inventory to turns/MINING-202606212142.md and pointed device/active.md at it; verdict: nothing critical, backlog only, three items flagged as highest-leverage for a future session
+resonance:    a map, not a fix
+witnessed:    true
+---
