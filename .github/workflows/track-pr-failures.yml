@@ -11,7 +11,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  manage-tracking-issue
+  manage-tracking-issue:
     runs-on: ubuntu-latest
     steps:
       - name: Check Workflow Status
