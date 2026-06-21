@@ -108,5 +108,16 @@
 
 ---
 
+*Updated: 2026-06-21 (later)*
+
+- PR #73 merged into `main` (`2ef5143`) on the owner's confirmation. Issue
+  #44's underlying bug (invalid `secrets` reference in `finalize-pr.yml`'s
+  job-level `if:`) is fixed on `main`. Remaining open item: manual
+  end-to-end verification that `@claude finalize` now actually fires the
+  `issue_comment` trigger on a live PR — next session with bandwidth
+  should pick this up before closing #44 itself.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
