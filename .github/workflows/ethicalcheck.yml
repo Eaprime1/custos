@@ -1,22 +1,29 @@
-# EthicalCheck — API Security Testing Workflow
+# APIsec Scan — API Security Testing Workflow
 # THE/UNEXUS / eaprime1 — Custos Branch
-# Prima-clock: 202606150227
-# Suit: ♣️ Club (active working copy)
-# Plank: 1/3 — starter template, configure before promoting
 #
-# BOUNDARY NOTE: This action transmits your OAS spec to APIsec external servers.
-# Appropriate for public API surfaces. Review APIsec terms before use on
-# internal or proprietary endpoints.
+# custos has no public API surface yet. This workflow is manual/scheduled
+# only — it never runs on push or pull_request — so it can't block PRs
+# before there's anything to scan. Enable it for real once a project is
+# registered with APIsec and the secrets below are set.
 #
-# Third-party action pinned to commit SHA per GitHub security best practices.
+# BOUNDARY NOTE: This action transmits scan results to APIsec external
+# servers. Appropriate for public API surfaces. Review APIsec terms before
+# use on internal or proprietary endpoints.
+#
+# Required secrets (set in repo Settings > Secrets > Actions) once a
+# project exists in APIsec:
+#   APISEC_USERNAME — APIsec account username
+#   APISEC_PASSWORD — APIsec account password
+#   APISEC_PROJECT  — name of the project registered in APIsec
+#
+# The previous reference to apisec-inc/ethicalcheck-action was retired
+# upstream; the active action is now apisec-inc/apisec-run-scan, which
+# uses a different input scheme (account credentials + project name
+# instead of an OAS URL + email).
 
 name: EthicalCheck-API-Security
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   schedule:
     - cron: '22 18 * * 5'
   workflow_dispatch:
@@ -26,7 +33,7 @@ permissions:
 
 jobs:
   api-security-scan:
-    name: EthicalCheck API Security Scan
+    name: APIsec API Security Scan
     runs-on: ubuntu-latest
 
     permissions:
@@ -37,33 +44,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run EthicalCheck API Security Scan
-        id: ethicalcheck
-        uses: apisec-inc/ethicalcheck-action@005fac321dd843682b1af6b72f30caaf9952c641
-        with:
-          # TODO: Replace with your actual OpenAPI/Swagger spec URL
-          # Options: OpenAPI URL, Swagger path, or public Postman collection URL
-          oas-url: ${{ secrets.API_SPEC_URL }}
-
-          # TODO: Replace with your actual notification email
-          # Store in GitHub Secrets, not plaintext
-          email: ${{ secrets.ETHICALCHECK_EMAIL }}
-
-          sarif-result-file: "ethicalcheck-results.sarif"
-
-      - name: Verify SARIF output exists
+      - name: Check required secrets are configured
+        id: secrets-check
         run: |
-          if [ ! -f "./ethicalcheck-results.sarif" ]; then
-            echo "WARNING: SARIF file not generated. Scan may have failed or found no endpoints."
-            echo "Check EthicalCheck output above for details."
-            # Not failing hard here — allows workflow to complete and report
+          if [ -z "${{ secrets.APISEC_USERNAME }}" ] || [ -z "${{ secrets.APISEC_PASSWORD }}" ] || [ -z "${{ secrets.APISEC_PROJECT }}" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping scan: APISEC_USERNAME, APISEC_PASSWORD, and/or APISEC_PROJECT secrets are not set."
           else
-            echo "SARIF file confirmed. Proceeding to upload."
+            echo "configured=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Run APIsec API Security Scan
+        id: apisec
+        if: steps.secrets-check.outputs.configured == 'true'
+        uses: apisec-inc/apisec-run-scan@v1.0.7
+        with:
+          apisec-username: ${{ secrets.APISEC_USERNAME }}
+          apisec-password: ${{ secrets.APISEC_PASSWORD }}
+          apisec-project: ${{ secrets.APISEC_PROJECT }}
+          sarif-result-file: "apisec-results.sarif"
 
       - name: Upload SARIF results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
-        if: always()
+        if: steps.secrets-check.outputs.configured == 'true' && always()
         with:
-          sarif_file: ./ethicalcheck-results.sarif
-          category: ethicalcheck-api-security
+          sarif_file: ./apisec-results.sarif
+          category: apisec-api-security
