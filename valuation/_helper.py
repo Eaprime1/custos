@@ -27,6 +27,14 @@ MIME_MAP = {
     "application/zip": "zip",
 }
 
+def sanitize_cell(value):
+    """Prefix values that would be interpreted as formulas by spreadsheet
+    apps (Excel/Sheets) when this CSV is opened, since titles originate
+    from Drive file metadata we don't control."""
+    if value and value[0] in ("=", "+", "-", "@"):
+        return "'" + value
+    return value
+
 def simplify(mime):
     if mime in MIME_MAP:
         return MIME_MAP[mime]
@@ -57,7 +65,7 @@ def main():
             continue
         ftype = simplify(mime)
         notes = "shortcut, not followed" if mime == "application/vnd.google-apps.shortcut" else ""
-        writer.writerow([title, ftype, folder_path, fid, mtime, "TBD", "TBD", "1", notes])
+        writer.writerow([sanitize_cell(title), ftype, folder_path, fid, mtime, "TBD", "TBD", "1", notes])
         file_count += 1
     sys.stderr.write(f"FILE_COUNT={file_count}\n")
     sys.stderr.write(f"FOLDER_COUNT={folder_count}\n")
