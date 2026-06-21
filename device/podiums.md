@@ -77,3 +77,24 @@ notes:           Subscribed to PR #43 webhook activity end to end: resolved
                  (`841827b`), unsubscribed clean. Ephemeral remote container,
                  same constraints as custos-web-jolly-bohr.
 ---
+
+---
+podium_id:       custos-web-youthful-goldberg
+name:            "Claude Code on the web — custos"
+type:            conversation
+platform:        claude-code-web
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: "session_019jhH4S2WRd8Egk3sNmUkgN"
+role:            "Fixed issue #44 (invalid secrets reference in job-level if: conditions) and watched PR #73 through to a close — branch claude/youthful-goldberg-3ank89"
+status:          dormant
+notes:           Subscribed to PR #73 webhook activity: diagnosed two
+                 recurring `claude-review` CI failures as the same benign,
+                 self-resolving GitHub Actions workflow-validation quirk
+                 (PR modifies claude-code-review.yml itself, so its content
+                 legitimately differs from main until merge); removed stray
+                 "Underwriters Laboratories" reference flagged by Codacy in
+                 atelier/testing-lab.md; watched DeepSource converge to
+                 Grade A across two commit ranges. Ephemeral remote
+                 container, same constraints as custos-web-jolly-bohr.
+---

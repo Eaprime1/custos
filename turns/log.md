@@ -137,3 +137,13 @@ contribution: reworded the two live references (UL-model framing, UL-style certi
 resonance:    a name removed, not replaced with a source it never had
 witnessed:    true
 ---
+
+---
+turn:         2026-06-21 21:32
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       watch PR #73 (fix for issue #44's invalid secrets reference) through to a close
+contribution: across two pushed commits, diagnosed two recurring `claude-review` CI failures as the same benign, self-resolving GitHub Actions OIDC workflow-validation quirk — confirmed expected because PR #73 itself rewrites `claude-code-review.yml`, so its content legitimately differs from `main` until merge; resolved Codacy's "Underwriters Laboratories" flag in `atelier/testing-lab.md`; watched DeepSource converge to Grade A across both commit ranges with zero failed analyzers; verified the draft→ready transition carried no auto-merge state to restore; seeded device/podiums.md with this session's entry
+resonance:    watching, not fixing what wasn't broken
+witnessed:    true
+---
