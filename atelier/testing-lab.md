@@ -4,8 +4,7 @@
 
 ## The Idea
 
-Underwriters Laboratories listed, but not Underwriters Laboratories run. A
-testing lab for custos, inspired by the UL model of independent
+A testing lab (like where stress test) for the project, inspired by the UL model of independent
 verification before something ships — but self-administered, because in
 the Navigo perspective we are already the ones creating and monitoring
 what we build. A full development testing process, scoped to what
