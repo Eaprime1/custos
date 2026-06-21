@@ -15,6 +15,7 @@ that establishes this pattern for future repos.
 |------|-------------|--------|
 | `202606181903_PR38_pre-nullus-witness.md` | 202606181903 | **Canonical seed** — filed, awaiting vault acceptance |
 | `202606181903_PR38_pre-nullus-witness.docx` | 202606181903 | Original source artifact (retained, not canonical) |
+| `202606210052_J21-Lumenar-growth-observation.md` | 202606210052 | Working transcription — second observation document (reserved at PR #38 intake), open items not yet decided |
 
 See `moav/custos_moav_intake_prenullus001.json` for the custody carrier
 and `prima-clock/registry.md` (202606190952, 202606191051) for the registry

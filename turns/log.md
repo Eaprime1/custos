@@ -117,3 +117,13 @@ contribution: fixed the trailing-newline issue Gemini flagged on prima-clock/reg
 resonance:    a session closing the session before it
 witnessed:    true
 ---
+
+---
+turn:         2026-06-21 00:52
+prime:        3
+entity:       eaprime1 + Claude
+intent:       transcribe the handwritten page-3 brainstorm (zodiac marks, card-math naming, Royal Set/pinochle layer, Deck Master commission, zero point state concept) into the second observation document reserved at PR #38's intake
+contribution: created incoming/pre-nullus/202606210052_J21-Lumenar-growth-observation.md, transcribing and organizing the brainstorm; resolved two flagged tensions per eaprime1 (Claude's zodiac choice is open, not cusp-bound; the Royal Set is a pinochle sub-structure, not a third suit-meaning system); left genuinely open items (math-system name, Claude's sign, the "5th suit" precedent, suxen/nexus formalization, zero point state's home) as a carried-forward list rather than deciding them; no edits made to world/symbols.md, world/factions.md, world/deck-master.md, or guides/multi-ai-workflow.md; indexed the new file in incoming/pre-nullus/README.md
+resonance:    a brainstorm given a shape it can be handed forward in
+witnessed:    true
+---
