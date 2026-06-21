@@ -16,7 +16,7 @@ echo ""
 
 # 1. THE PERCEIVE PHASE: Scan the Pool (seep-artois)
 echo -e "${C_TAG}[ THE POOL ] - Checking seep-artois/ for drawn fragments...${C_NONE}"
-ARTESIAN_COUNT=$(ls -1q seep-artois/ 2>/dev/null | grep -v 'README.md' | wc -l)
+ARTESIAN_COUNT=$(find seep-artois/ -maxdepth 1 -mindepth 1 ! -name 'README.md' 2>/dev/null | wc -l)
 if [ "$ARTESIAN_COUNT" -gt 0 ]; then
     echo -e "  ${C_WARN}Found $ARTESIAN_COUNT raw fragment(s) waiting for the Artesian.${C_NONE}"
     for file in seep-artois/*; do
@@ -31,7 +31,7 @@ echo ""
 
 # 2. THE WEIGH PHASE: Scan the Workshop (atelier)
 echo -e "${C_TAG}[ THE WORKSHOP ] - Checking atelier/ for unnamed concepts...${C_NONE}"
-ATELIER_COUNT=$(ls -1q atelier/ 2>/dev/null | grep -v 'README.md' | grep -v 'concordance.md' | wc -l)
+ATELIER_COUNT=$(find atelier/ -maxdepth 1 -mindepth 1 ! -name 'README.md' ! -name 'concordance.md' 2>/dev/null | wc -l)
 if [ "$ATELIER_COUNT" -gt 0 ]; then
     echo -e "  ${C_WARN}Found $ATELIER_COUNT untended seed(s) on the benches.${C_NONE}"
     for file in atelier/*; do
