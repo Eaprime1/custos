@@ -1,6 +1,6 @@
 ---
 id: missions/002-post-a-bounty
-title: "Post a Bounty"
+title: "Post a Bounty 🃏"
 arc: missions
 sequence: 2
 xp: 150
@@ -42,10 +42,16 @@ Post a bounty that a contributor you have never met could pick up and complete w
 ## Completion Check
 
 ```bash
-# Query GitHub API for open issues with the bounty label
-curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"' && echo "complete"
-# Verify a bounty issue exists in the open state
-gh issue list --state open --label "bounty" --limit 1 | grep -q .
+# Query GitHub API or use gh CLI to verify a bounty issue exists in the open state
+(curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"' || gh issue list --state open --label "bounty" --limit 1 | grep -q .) && echo "complete"
+# Query GitHub API for open issues with the bounty label (with gh fallback)
+if curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"'; then
+  echo "complete"
+elif command -v gh >/dev/null 2>&1 && gh issue list --state open --label "bounty" --limit 1 | grep -q .; then
+  echo "complete"
+else
+  exit 1
+fi
 ```
 
 ## Reward

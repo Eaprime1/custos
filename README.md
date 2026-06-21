@@ -62,6 +62,11 @@ custos uses GitHub Issues as an open mission board. Any contributor — human or
 
 Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
 
+## GitHub Pages note 🃏
+
+This repository is published as static content when Pages is used.
+Do not use Jekyll-specific workflows unless a real Jekyll site structure (`_config.yml`, layouts, includes, and content source) is intentionally added.
+
 ## Device branches
 
 Work on custos is organized by device:
@@ -75,9 +80,9 @@ The `pixel8` branch carries `device/` files that track what is active, installed
 
 ## Multi-AI development
 
-custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
-# CUSTOS
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see world/factions.md). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
 
+---
 
 ## THE/UNEXUS Convergence Hub
 
@@ -109,6 +114,8 @@ This is the negative mold. All repos emerge from branches here.
 | [/moav](./moav) | MOAV carrier packages (JSON) |
 | [/returns](./returns) | Stream returns from external agents |
 | [/atelier](./atelier) | Nursery — concepts before they have names |
+| [/queue](./queue) | Staging ground — chain of custody, including the Artesium Weir |
+| [/seep-artois](./seep-artois) | The pool — ready-to-develop pages, drawn one at a time |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
 

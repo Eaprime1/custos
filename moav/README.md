@@ -16,3 +16,5 @@ Naming convention: [entity]_moav_[event].json; each carrier must include its pri
 
 
 - custos_moav_founding.json — origin carrier, 202605271650
+- custos_moav_journey001.json — first journey/valuation carrier, 202606132130
+- custos_moav_external_submission001.json — first external contribution merged (PR #38), 202606190012
