@@ -18,7 +18,7 @@ if [ -z "$mission" ]; then
 fi
 
 repo="eaprime1/custos"
-query="repo:${repo}+is:pr+is:merged+Claude+OR+ChatGPT+OR+Gemini+OR+Copilot"
+query="repo:${repo}+is:pr+is:merged+${mission}"
 url="https://api.github.com/search/issues?q=${query}"
 
 auth_header=()
@@ -27,10 +27,17 @@ if [ -n "${GITHUB_TOKEN:-}" ]; then
 fi
 
 response="$(curl -s "${auth_header[@]}" "$url")"
-total_count="$(echo "$response" | jq -r '.total_count // 0')"
 
-if [ "$total_count" -gt 0 ]; then
-  echo "complete: mission '${mission}' has a merged PR mentioning an AI faction member"
+if echo "$response" | jq -e '.message' >/dev/null 2>&1; then
+  echo "error: GitHub API returned an error: $(echo "$response" | jq -r '.message')" >&2
+  exit 1
+fi
+
+matching_prs="$(echo "$response" | jq -r '.items[]? | select((.body // "") + (.title // "") | test("Claude|ChatGPT|Gemini|Copilot"; "i")) | .html_url')"
+
+if [ -n "$matching_prs" ]; then
+  echo "complete: mission '${mission}' has a merged PR mentioning an AI faction member:"
+  echo "$matching_prs"
   exit 0
 fi
 
