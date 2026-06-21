@@ -127,3 +127,13 @@ contribution: created incoming/pre-nullus/202606210052_J21-Lumenar-growth-observ
 resonance:    a brainstorm given a shape it can be handed forward in
 witnessed:    true
 ---
+
+---
+turn:         2026-06-21 21:00
+prime:        3
+entity:       Claude (PR #73)
+intent:       resolve Codacy's flag on "Underwriters Laboratories" in atelier/testing-lab.md
+contribution: reworded the two live references (UL-model framing, UL-style certification) to generic "certification/stress-testing" language; the flag traced to naming a real third-party organization in lore text without any reference/citation content backing that name in the repo, so the fix removes the name rather than add unsupported sourcing; left the historical mention in this log's 2026-06-20 00:23 entry untouched per the append-only rule; verified via repo-wide grep and a clean tools/scan_lexeme.sh run
+resonance:    a name removed, not replaced with a source it never had
+witnessed:    true
+---
