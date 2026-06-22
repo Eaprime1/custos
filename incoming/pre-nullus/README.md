@@ -16,8 +16,7 @@ that establishes this pattern for future repos.
 | `202606181903_PR38_pre-nullus-witness.md` | 202606181903 | **Canonical seed** — filed, awaiting vault acceptance |
 | `202606181903_PR38_pre-nullus-witness.docx` | 202606181903 | Original source artifact (retained, not canonical) |
 | `202606210052_J21-Lumenar-growth-observation.md` | 202606210052 | Working transcription — second observation document (reserved at PR #38 intake), open items not yet decided |
-| `202606220000_PR38_welcome-to-the-field.md` | 202606220000 | **The welcome dispatch** — repaired from a raw duplicated export filed at the repo root via PR #88; the "House of Confusion" passage withheld pending eaprime1's decision (see PART II/IV); a card-math framing discrepancy against `world/symbols.md` flagged, not resolved |
-| `202606220650_PR38-growth-update.md` | 202606220650 | **The growth update** — the second document the welcome witness-copy promised, addressed to `@dannyward630`/`@Ojas2095`; content-only, no real names beyond GitHub handles already public on PR #38; not yet posted as a PR comment |
+| `202606220650_PR38-growth-update.md` | 202606220650 | **The growth update** — the second document the welcome witness-copy promised, addressed to `@dannyward630`/`@Ojas2095`; content-only, no real names beyond GitHub handles already public on PR #38; posted as a comment on PR #38 |
 
 See `moav/custos_moav_intake_prenullus001.json` for the custody carrier
 and `prima-clock/registry.md` (202606190952, 202606191051) for the registry
