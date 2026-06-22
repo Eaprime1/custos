@@ -127,3 +127,23 @@ contribution: created incoming/pre-nullus/202606210052_J21-Lumenar-growth-observ
 resonance:    a brainstorm given a shape it can be handed forward in
 witnessed:    true
 ---
+
+---
+turn:         2026-06-21 21:00
+prime:        3
+entity:       Claude (PR #73)
+intent:       resolve Codacy's flag on "Underwriters Laboratories" in atelier/testing-lab.md
+contribution: reworded the two live references (UL-model framing, UL-style certification) to generic "certification/stress-testing" language; the flag traced to naming a real third-party organization in lore text without any reference/citation content backing that name in the repo, so the fix removes the name rather than add unsupported sourcing; left the historical mention in this log's 2026-06-20 00:23 entry untouched per the append-only rule; verified via repo-wide grep and a clean tools/scan_lexeme.sh run
+resonance:    a name removed, not replaced with a source it never had
+witnessed:    true
+---
+
+---
+turn:         2026-06-21 21:32
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       watch PR #73 (fix for issue #44's invalid secrets reference) through to a close
+contribution: across two pushed commits, diagnosed two recurring `claude-review` CI failures as the same benign, self-resolving GitHub Actions OIDC workflow-validation quirk — confirmed expected because PR #73 itself rewrites `claude-code-review.yml`, so its content legitimately differs from `main` until merge; resolved Codacy's "Underwriters Laboratories" flag in `atelier/testing-lab.md`; watched DeepSource converge to Grade A across both commit ranges with zero failed analyzers; verified the draft→ready transition carried no auto-merge state to restore; seeded device/podiums.md with this session's entry
+resonance:    watching, not fixing what wasn't broken
+witnessed:    true
+---

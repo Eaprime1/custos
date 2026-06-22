@@ -95,5 +95,18 @@
 
 ---
 
+*Updated: 2026-06-21*
+
+- PR #73 (fix for issue #44 — invalid `secrets` reference in job-level
+  `if:` conditions) is open, not yet merged, `mergeable_state: unstable`.
+  Recurring `claude-review` CI failures on this PR are expected and benign
+  — the PR itself rewrites `claude-code-review.yml`, so GitHub's
+  workflow-validation check will keep failing on this branch until it
+  merges into `main`. DeepSource is Grade A. Issue #44's original ask
+  (manual end-to-end verification that `@claude finalize` now fires on a
+  live PR) is still flagged as needed post-merge.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
