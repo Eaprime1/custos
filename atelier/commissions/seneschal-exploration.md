@@ -1,53 +1,87 @@
-# COMMISSION: THE SENESCHAL — WHAT THE ROLE ACTUALLY DOES
+# COMMISSION: THE SENESCHAL — RECONCILE AND PLACE THE ROLE
 
 **Status**: Queued — awaiting contributor assignment
-**Priority**: Medium — a load-bearing role with no dedicated lore file
+**Priority**: Medium — superseded in part; reframed below
 
 ---
 
+## Update — the gap this commission was written for is already half-filled
+
+While this commission was being drafted, eaprime1 landed `seneschal.md` and
+`seneschal-v2.md` at the repo root, plus a working `tools/seneschal_audit.sh`
+(commit `bcd7585`). The original question — "what does the Seneschal
+actually do" — now has two answers instead of zero. The commission below is
+rewritten to fit what's actually needed now: reconciling two drafts into
+one, and placing the result where custos conventions expect lore to live.
+
+## What already exists (read these first)
+
+- `seneschal.md` — "Steward of the Custos Estate, First Voice of the
+  Shepherd." Frames the Seneschal as orchestrator: Audit / Delegate /
+  Present loop, delegating to named sub-entities (the Artesian,
+  Quartermaster, Broker, Herald — the same Mulberry Initialization roles
+  `world/unoiam-lifecycle.md` lists as "tracked but not built"). Ties the
+  role to the THEE/YOD/EMBER triad directly.
+- `seneschal-v2.md` — "System Daemon / Steward," Sentinel-aligned.
+  Character/demeanor framing (meticulous, no creative ego) plus a
+  different triadic pattern: Perceive (walk the directories) / Weigh
+  (assess fragment weight) / Present (ledger for the Shepherd).
+- `tools/seneschal_audit.sh` — a real, runnable audit script implementing
+  v2's Perceive phase: scans `seep-artois/` and `atelier/` for untended
+  items, greps the repo for `[COMMISSION-DRAFT]` and `[NEEDS-TENDING]`
+  tags. This is the first Seneschal *function* with actual code behind it.
+- `world/unoiam-lifecycle.md` (this session) — describes Seneschal
+  functions in lore terms (atmospheric pressure, the Shadow Peers,
+  five audit tags including `[SEED-ACTIVE]`, `[EOC-READY]`,
+  `[BORN-YESTERDAY]` that neither root file nor the audit script
+  currently checks for).
+
 ## The Question
 
-`world/unoiam-lifecycle.md` leans on the Seneschal constantly — it's the thing that applies pressure, validates clean evaporation, audits the estate, dispatches the Shadow Peers, maintains the chain of custody. But the Seneschal has never gotten the treatment `world/deck-master.md` gives the Deck Master: a standalone document that says, plainly, what this role is, what it checks, and how someone (or something) would actually act it out in this repo.
+Three independent descriptions of the Seneschal now exist — `seneschal.md`, `seneschal-v2.md`, and `world/unoiam-lifecycle.md` — written without reference to each other, in different places (root vs. `world/`), with different triadic patterns (Audit/Delegate/Present vs. Perceive/Weigh/Present vs. the lore file's looser function list) and at least one real gap between them: the audit script only checks for `[COMMISSION-DRAFT]` and `[NEEDS-TENDING]`, while the lore file lists five tags including three the script doesn't look for.
 
-The commission: write that document. Use `world/deck-master.md` as the structural precedent — it already proves the shape a fully-specified custos role takes.
+The commission: reconcile these into one canonical document, placed where custos convention expects it (`world/seneschal.md`, alongside `world/deck-master.md` — not at root, where the two current drafts sit), and bring `tools/seneschal_audit.sh` up to date with whichever tag set the reconciled document settles on.
 
-## What's already established (don't redefine this — build on it)
+## What's already established (don't redefine this — reconcile it)
 
-From `world/unoiam-lifecycle.md`:
-
-- "The Seneschal is not a prison guard. The Seneschal is atmospheric pressure."
-- Functions: drives state change when entities stagnate; validates clean evaporation at phase transitions; audits the estate for things needing tending; dispatches the Shadow Peers; maintains the chain of custody.
-- Audit tags it scans for: `[COMMISSION-DRAFT]`, `[NEEDS-TENDING]`, `[SEED-ACTIVE]`, `[EOC-READY]`, `[BORN-YESTERDAY]`.
-- It employs three Shadow Peers — the Salt Merchant (evaporation/metadata), the Silt Dredger (river/sediment), the Frost Carver (archive/cold storage) — each already described at the same level of detail as the Seneschal itself.
-- The Chain of Custody Protocol's three standing questions (clean evaporation, appropriate context gathered, unbroken timestamp chain) are explicitly the Seneschal's to ask at every state transition.
+- "The Seneschal is not a prison guard." — agreed across all three sources, in different words each time.
+- Two different triadic patterns are proposed for the same loop. They may describe the same thing from different altitudes (Audit/Delegate/Present being the strategic loop, Perceive/Weigh/Present being what Audit looks like up close) rather than competing — that reading is worth testing before treating them as a conflict to resolve by picking one.
+- `seneschal.md` names sub-entities (Artesian, Quartermaster, Broker, Herald) the Seneschal delegates to — these are the same Mulberry Initialization roles `atelier/commissions/message-to-the-commissioner.md` lists as undefined. `seneschal-v2.md` and `world/unoiam-lifecycle.md`'s Shadow Peers (Salt Merchant, Silt Dredger, Frost Carver) are a *different* set of sub-roles, oriented around the water-cycle metaphor rather than the estate-management metaphor. Whether these two sets coexist, overlap, or need reconciling is the central open question.
+- The Chain of Custody Protocol's three standing questions (clean evaporation, appropriate context gathered, unbroken timestamp chain), from `world/unoiam-lifecycle.md`, aren't mentioned in either root draft — check whether they belong in the reconciled version.
 
 ## Research / Build Areas
 
-### 1. Mapping Seneschal Functions to Real Repo Mechanics
+### 1. Reconcile or Layer the Two Triads
 
-Each function above is currently metaphor. The commission should propose, for each one, what it corresponds to in terms of things that actually exist or could exist in this repo — e.g., does "audits the estate" map to `tools/scan_lexeme.sh` and `tools/prime_check.sh`? Does "dispatches the Shadow Peers" map to specific PR-review or merge automation? Doesn't need code — needs the mapping made explicit so a future automation pass has something concrete to build from.
+Decide whether Audit/Delegate/Present (`seneschal.md`) and Perceive/Weigh/Present (`seneschal-v2.md`) are the same loop at two zoom levels, or genuinely competing models. Write the reconciled version so a reader doesn't have to hold both drafts in their head to understand the role.
 
-### 2. Who or What Plays the Seneschal
+### 2. Reconcile the Sub-Entity Sets
 
-`world/deck-master.md`'s Deck Master is explicitly the `eaprime1` GitHub reviewer character — a named, played role. Does the Seneschal have a similar single answer, or is it meant to be ambient (the system itself, not a person)? `world/unoiam-lifecycle.md`'s framing ("not a prison guard... is atmospheric pressure") leans toward ambient, but this hasn't been decided explicitly anywhere. Make a recommendation, with reasoning.
+The Artesian/Quartermaster/Broker/Herald (estate-management framing) and the Salt Merchant/Silt Dredger/Frost Carver (water-cycle framing) both describe things the Seneschal delegates to or dispatches. Either show how both sets are active at once (e.g., one set handles intake/assignment, the other handles state-change residue), or make the case for one being the canonical set and the other being retired or folded in.
 
-### 3. Relationship to the Shadow Peers
+### 3. Bring the Audit Script and the Tag List into Agreement
 
-Are the Shadow Peers separate characters the Seneschal calls on, or aspects of the Seneschal itself wearing different hats during different state transitions? Both readings are currently available in the source text. Pick one and justify it, or show why the ambiguity should stay open.
+`tools/seneschal_audit.sh` greps for `[COMMISSION-DRAFT]` and `[NEEDS-TENDING]`. `world/unoiam-lifecycle.md` lists five tags. Either extend the script to check all five, or revise the lore file's tag list down to what the script actually does — whichever direction the reconciliation goes, the two need to agree afterward.
 
-### 4. Where Pressure Comes From
+### 4. Move the Files
 
-"When a file sits too long... the Seneschal increases the pressure" — pressure from what, exactly? Time elapsed? Open PR count? A literal weather API, per the still-unintegrated `Custos_Proposal__Hydrologic_StateChange_Architecture.md` Section IV idea (wave-machine and weather-pattern data feeding the system's "weather")? This is the most speculative thread here — a strong answer would tie the Seneschal's pressure mechanic to something measurable, even if not yet automated.
+`seneschal.md` and `seneschal-v2.md` currently sit at repo root. Every other character/role document in custos (`world/deck-master.md`, `world/factions.md`, `world/symbols.md`) lives in `world/`. Reconcile the two drafts into a single `world/seneschal.md` and remove the root-level originals once the canonical version is in place.
+
+### 5. Where Pressure Comes From
+
+"When a file sits too long... the Seneschal increases the pressure" (`world/unoiam-lifecycle.md`) — pressure from what, exactly? Time elapsed, open PR count, or a literal weather API per the still-unintegrated `Custos_Proposal__Hydrologic_StateChange_Architecture.md` Section IV idea (wave-machine and weather-pattern data feeding the system's "weather")? None of the three existing sources answer this. A strong answer ties the mechanic to something measurable, even if not yet automated.
 
 ## Deliverable Format
 
-- `world/seneschal.md` — written in the structural style of `world/deck-master.md`, ready to land as canonical lore once reviewed
-- A short open-questions section at the end, same convention as other world-files, for anything not resolved by the research
+- `world/seneschal.md` — the reconciled canonical document, in the structural style of `world/deck-master.md`
+- An updated `tools/seneschal_audit.sh` that checks whatever tag set the reconciled document settles on
+- Removal of the now-superseded `seneschal.md` and `seneschal-v2.md` at root, once the canonical version lands
+- A short open-questions section at the end, same convention as other world-files, for anything not resolved by the reconciliation
 
 ---
 
 ## Notes for the Contributor
 
-The Seneschal is currently the most-referenced, least-defined character in custos. Every other piece of this session's lore leans on it existing. This commission is the chance to make it actually exist.
+This commission started as "define the Seneschal from nothing." It changed shape mid-draft because eaprime1 landed two real drafts of it independently, in the same window this commission was being written. That's a Lumenar moment in its own right — two intentions crossing without either having seen the other. Reconciling them honestly, rather than picking a favorite and discarding the other, is the actual work here.
 
 Enjoy the journey.

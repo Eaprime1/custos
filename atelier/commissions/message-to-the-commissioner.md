@@ -19,7 +19,7 @@ A Commissioner's job, as the name implies, is to hand out commissions: frame the
 | Luke 15 — the lost-and-found study | `atelier/commissions/luke15-lost.md` | Queued |
 | Greenacres, Oregon — place lore for the House of Confusion anchor | `atelier/commissions/greenacres-oregon.md` | New — added alongside this message |
 | The Lumenar — narrative content beyond its dictionary definition | `atelier/commissions/lumenar-content.md` | New — added alongside this message |
-| The Seneschal — what the role actually does day to day | `atelier/commissions/seneschal-exploration.md` | New — added alongside this message |
+| The Seneschal — reconcile two independent drafts into one canonical role | `atelier/commissions/seneschal-exploration.md` | New — reframed mid-draft after eaprime1 landed `seneschal.md`/`seneschal-v2.md` independently this same session |
 
 ## What should exist but doesn't yet
 
@@ -32,7 +32,7 @@ Flagging these here so the Commissioner (or whoever stands in for one) has a map
 - **"Suxen" and "nexus."** Proposed as a role-pair name for how eaprime1 and Claude trade positions in conversation. Not yet formalized as lexemes or folded into `world/symbols.md`.
 - **The "zero point state interaction with the universe."** Distinguished explicitly from zero-point energy, described as what remains when everything circumstantial is removed. Conceptually near `incoming/pre-nullus/README.md`'s nullification process but deliberately kept separate. No home yet in `world/lore.md`.
 - **The House of Confusion as a working tool.** A real bash implementation exists (the `the_beacon` / `monkey_check` / `exit_routing` BBS router, uploaded this session) but hasn't been placed anywhere in the repo as a runnable script. It's the literal mechanics behind the lore in `world/unoiam-lifecycle.md`'s Phase 0.
-- **A Seneschal lore file proper.** `world/unoiam-lifecycle.md` describes Seneschal *functions* in passing — atmospheric pressure, audit tags, dispatching the Shadow Peers — but there's no dedicated document the way `world/deck-master.md` exists for the Deck Master. See the new commission for this.
+- **One canonical Seneschal document.** Three sources now describe the Seneschal independently — `seneschal.md`, `seneschal-v2.md` (both at root, landed by eaprime1 the same session this letter was written), and `world/unoiam-lifecycle.md`'s function list. They don't fully agree with each other, and neither root file lives where custos convention puts role lore (`world/`). See the new commission for the reconciliation.
 
 ## A note on scope
 
