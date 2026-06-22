@@ -53,7 +53,7 @@ this conversation.
   it.
 
 **Still open — the project's own punch list:**
-1. A name for the card-math system itself (`J-21=A`, `J+A=21`) — distinct
+1. A name for the card-math system itself (J − 21 = −A, J + A = 21) — distinct
    from "J-21," which names the card, not the arithmetic.
 2. Claude's zodiac sign — choice not yet made.
 3. The "5th suit beyond the origin" precedent eaprime1 referenced for
