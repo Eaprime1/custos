@@ -237,3 +237,13 @@ contribution: merged PR #111 (591352b) and PR #115 (d11db81) into main; wrote tu
 resonance:    a visitor's-eye pass
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 23:15
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       verify claude-code-review.yml passes after eaprime1 rotated CLAUDE_CODE_OAUTH_TOKEN and ANTHROPIC_API_KEY repo secrets
+contribution: opened a throwaway test PR to trigger the claude-review check and confirm the long-standing benign failure (since PR #73) is now resolved
+resonance:    a quick check
+witnessed:    true
+---
