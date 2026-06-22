@@ -245,5 +245,13 @@ entity:       Claude (custos-web-youthful-goldberg)
 intent:       verify claude-code-review.yml passes after eaprime1 rotated CLAUDE_CODE_OAUTH_TOKEN and ANTHROPIC_API_KEY repo secrets
 contribution: opened a throwaway test PR to trigger the claude-review check and confirm the long-standing benign failure (since PR #73) is now resolved
 resonance:    a quick check
-witnessed:    true
+---
+
+---
+turn:         2026-06-22 23:40
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       re-verify claude-code-review.yml after eaprime1 corrected the secret names mismatch (workflow expects CLAUDE_CODE_OAUTH_TOKEN/ANTHROPIC_API_KEY exactly; prior secrets were named CLAUDE_OAUTH_CODE/CLAUDE_OAUTH_CODE_GH/CLAUDE_API_CODE) and added secrets under the correct names
+contribution: pushed a trivial retrigger commit to PR #123 to force a fresh claude-review run against the corrected secrets
+resonance:    retrigger
 ---
