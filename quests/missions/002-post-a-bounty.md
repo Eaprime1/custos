@@ -42,8 +42,8 @@ Post a bounty that a contributor you have never met could pick up and complete w
 ## Completion Check
 
 ```bash
-# Query GitHub API or use gh CLI to verify a bounty issue exists in the open state
-(curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"' || gh issue list --state open --label "bounty" --limit 1 | grep -q .) && echo "complete"
+# Verify a bounty issue exists in the open state,
+# via the GitHub API, falling back to gh only if curl finds nothing
 # Query GitHub API for open issues with the bounty label (with gh fallback)
 if curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"'; then
   echo "complete"

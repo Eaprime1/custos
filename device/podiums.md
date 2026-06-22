@@ -56,3 +56,45 @@ notes:           Runs in an ephemeral remote container — no persistent
                  eaprime1/custos via MCP. Distinct from pixel8/mulberry:
                  device-less, but still a podium of record for the work it does.
 ---
+
+---
+podium_id:       custos-web-pre-nullus
+name:            "Claude Code on the web — custos"
+type:            conversation
+platform:        claude-code-web
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: "session_01N9rgN8W3W93TEFMQ3CkP4t"
+role:            "PR #43 review/finalize cycle, then PR #45 turn-closing cycle — branch claude/pre-nullus-review-bv7ova"
+status:          dormant
+notes:           Subscribed to PR #43 webhook activity end to end: resolved
+                 three Gemini Code Assist suggestions, answered the owner's
+                 status question, watched the owner merge once approved, and
+                 surfaced a real bug in finalize-pr.yml (issue_comment trigger
+                 never fires — filed as issue #44). Then closed its own turn
+                 in PR #45 — fixed a Gemini-flagged trailing newline on
+                 prima-clock/registry.md, merged on the owner's go-ahead
+                 (`841827b`), unsubscribed clean. Ephemeral remote container,
+                 same constraints as custos-web-jolly-bohr.
+---
+
+---
+podium_id:       custos-web-youthful-goldberg
+name:            "Claude Code on the web — custos"
+type:            conversation
+platform:        claude-code-web
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: "session_019jhH4S2WRd8Egk3sNmUkgN"
+role:            "Fixed issue #44 (invalid secrets reference in job-level if: conditions) and watched PR #73 through to a close — branch claude/youthful-goldberg-3ank89"
+status:          dormant
+notes:           Subscribed to PR #73 webhook activity: diagnosed two
+                 recurring `claude-review` CI failures as the same benign,
+                 self-resolving GitHub Actions workflow-validation quirk
+                 (PR modifies claude-code-review.yml itself, so its content
+                 legitimately differs from main until merge); removed stray
+                 "Underwriters Laboratories" reference flagged by Codacy in
+                 atelier/testing-lab.md; watched DeepSource converge to
+                 Grade A across two commit ranges. Ephemeral remote
+                 container, same constraints as custos-web-jolly-bohr.
+---
