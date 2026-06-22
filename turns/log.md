@@ -207,3 +207,33 @@ contribution: merged PR #74 (squash, 4e9af32) closing out the prior session's wo
 resonance:    sent, not just written
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 11:30
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       close out PR #86 — finish sending the growth update to PR #38's contributors
+contribution: verified PR #86's live state (DeepSource Grade A, Codacy clean, only the pre-existing benign claude-review secrets-gap red) after eaprime1 marked it ready for review; merged PR #86 (squash, 31846c9) into main
+resonance:    closed clean
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 22:55
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       finalize PR #111 (custos concept identity + workflow system foundation, branch mulberry) and PR #115 (J-21 canon math + contributor-outreach drafts) on eaprime1's "@claude finalize" / "@claude PR finalize, including the PR story" requests
+contribution: verified both branches merge cleanly on current main with no conflicts; ran tools/scan_lexeme.sh against each PR's actual changed files and found zero new distressed lexemes (all flagged hits were pre-existing, unrelated content); filled in each PR's Intent/What Arrived/Resonance/Ethics Check template and posted a PR-story comment on each
+resonance:    two doors latched
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 23:02
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       merge PR #111 and PR #115, then run the deep-dive review eaprime1 asked for, framed around the repo "now has visitors" and getting it "ready for company," and start a build list leaning toward interactivity over more lore
+contribution: merged PR #111 (591352b) and PR #115 (d11db81) into main; wrote turns/DEEP-DIVE-202606222302.md surveying the repo as a visitor would meet it — found root-directory clutter (duplicate seneschal.md/seneschal-v2.md drafts, two loose gemini-code-*.md files belonging in .gemini/, two large unindexed binaries) and, most visible, a static-gh-pages.yml workflow that deploys the entire raw repo as GitHub Pages content on every push to main with no landing page; catalogued what already runs today (THEE/YOD/EMBER triad, prime_check, scan_lexeme, seeds/bootstrap.sh) against what's still pure narrative scaffold (dungeon-master/ explicitly unwired, most of atelier/, the .agents/.codex/.sovran AI-tool identity files with no confirmed end-to-end use); wrote an 8-item priority build list; pointed device/active.md at the new file
+resonance:    a visitor's-eye pass
+witnessed:    true
+---

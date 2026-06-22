@@ -199,5 +199,25 @@
 
 ---
 
+*Updated: 2026-06-22 23:02*
+
+- PR #111 (mulberry — custos identity + workflow system foundation) and
+  PR #115 (J-21 canon math + contributor-outreach drafts) merged into
+  `main` (`591352b`, `d11db81`).
+- Ran the deep-dive review eaprime1 asked for, framed around the repo
+  "now has visitors" / getting it "ready for company" — see
+  `turns/DEEP-DIVE-202606222302.md`. Key findings: root-directory clutter
+  (`seneschal.md`/`seneschal-v2.md` duplicate draft, two loose
+  `gemini-code-*.md` files that belong in `.gemini/`, two large binaries),
+  and a GitHub Pages workflow (`static-gh-pages.yml`) that silently
+  deploys the entire raw repo on every push to `main` with no landing
+  page — the highest-visibility "not ready for company" item found.
+  Build list (8 items, priority order) leans toward making things
+  interactive rather than more lore, per eaprime1's stated preference.
+- **Start the next session at `turns/DEEP-DIVE-202606222302.md`** for the
+  full findings and build list.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
