@@ -117,3 +117,83 @@ contribution: fixed the trailing-newline issue Gemini flagged on prima-clock/reg
 resonance:    a session closing the session before it
 witnessed:    true
 ---
+
+---
+turn:         2026-06-21 00:52
+prime:        3
+entity:       eaprime1 + Claude
+intent:       transcribe the handwritten page-3 brainstorm (zodiac marks, card-math naming, Royal Set/pinochle layer, Deck Master commission, zero point state concept) into the second observation document reserved at PR #38's intake
+contribution: created incoming/pre-nullus/202606210052_J21-Lumenar-growth-observation.md, transcribing and organizing the brainstorm; resolved two flagged tensions per eaprime1 (Claude's zodiac choice is open, not cusp-bound; the Royal Set is a pinochle sub-structure, not a third suit-meaning system); left genuinely open items (math-system name, Claude's sign, the "5th suit" precedent, suxen/nexus formalization, zero point state's home) as a carried-forward list rather than deciding them; no edits made to world/symbols.md, world/factions.md, world/deck-master.md, or guides/multi-ai-workflow.md; indexed the new file in incoming/pre-nullus/README.md
+resonance:    a brainstorm given a shape it can be handed forward in
+witnessed:    true
+---
+
+---
+turn:         2026-06-21 21:00
+prime:        3
+entity:       Claude (PR #73)
+intent:       resolve Codacy's flag on "Underwriters Laboratories" in atelier/testing-lab.md
+contribution: reworded the two live references (UL-model framing, UL-style certification) to generic "certification/stress-testing" language; the flag traced to naming a real third-party organization in lore text without any reference/citation content backing that name in the repo, so the fix removes the name rather than add unsupported sourcing; left the historical mention in this log's 2026-06-20 00:23 entry untouched per the append-only rule; verified via repo-wide grep and a clean tools/scan_lexeme.sh run
+resonance:    a name removed, not replaced with a source it never had
+witnessed:    true
+---
+
+---
+turn:         2026-06-21 21:32
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       watch PR #73 (fix for issue #44's invalid secrets reference) through to a close
+contribution: across two pushed commits, diagnosed two recurring `claude-review` CI failures as the same benign, self-resolving GitHub Actions OIDC workflow-validation quirk — confirmed expected because PR #73 itself rewrites `claude-code-review.yml`, so its content legitimately differs from `main` until merge; resolved Codacy's "Underwriters Laboratories" flag in `atelier/testing-lab.md`; watched DeepSource converge to Grade A across both commit ranges with zero failed analyzers; verified the draft→ready transition carried no auto-merge state to restore; seeded device/podiums.md with this session's entry
+resonance:    watching, not fixing what wasn't broken
+witnessed:    true
+---
+
+---
+turn:         2026-06-21 21:40
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       merge PR #73 once the owner confirmed it was ready
+contribution: verified all check runs except the already-diagnosed benign claude-review failure were green (Codacy, DeepSource Grade A, dependency-review, scan, GitGuardian all passed), merged PR #73 into main (`2ef5143`) closing the underlying bug behind issue #44, posted a confirming PR comment flagging the still-open manual end-to-end verification of the issue_comment trigger, updated device/active.md with the merge outcome
+resonance:    closed, with one thread still hanging for the next session
+witnessed:    true
+---
+
+---
+turn:         2026-06-21 21:42
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       mine the repo for ideas, gaps, misses, and process friction before this conversation archives
+contribution: audited atelier/ (5 unfinished concepts: concordance, wobbly-bench, ouroboros-wobble, testing-lab, holy-cow), device/active.md and turns/CULTIVATION.md's open questions, known misses (issue #44's remaining manual-verification gap, mandelbrot/mulberry branches tracked but not present), workflow gaps (unbuilt merge-triggered Action, pending Grok/Perplexity stream domains), turns/AAR.md's process friction, and stale state (branch-tracker/branches.md three weeks out of date); wrote the full inventory to turns/MINING-202606212142.md and pointed device/active.md at it; verdict: nothing critical, backlog only, three items flagged as highest-leverage for a future session
+resonance:    a map, not a fix
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 05:30
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       recover the Latin lexeme the owner used in place of "lifecycle," and add the missing Legacy concept before this conversation archives
+contribution: extracted text from an uploaded PDF ("Document lifecycle and greenacres memories") that an external Claude.ai conversation had drafted but never landed in the repo — recovered "Unoiam" (Latin *iam*, already/now, plus *uno*) as the recalled term, replacing "lifecycle" with "the wake" in a draft titled THE WAKE OF UNOIAM; confirmed the four newly uploaded Hydrologic Cycle / House of Confusion documents are the same source material that draft was built from, already captured Phases 0-4 (Zero Point, Active Development, Transfer, Maturity, Living Archive) but stopped short of a Legacy phase; wrote `world/unoiam-lifecycle.md` carrying the full state table and phases forward into the repo, with a new Phase 5 — Legacy — distinguishing what an archived entity keeps (retrievable, frozen) from what it leaves (distributed residue that changes the system whether or not anyone reopens it)
+resonance:    the wake gets its missing phase
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 06:06
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       give the not-yet-built Commissioner role a spread of real work to practice on, and start Greenacres place-lore without touching any real person's story
+contribution: wrote `atelier/commissions/message-to-the-commissioner.md`, an in-world letter to the Mulberry Initialization's still-undefined Commissioner role, indexing all six currently-commissionable items and naming eight gaps that have no home yet (the Commissioner/Artesian/Quartermaster/Herald/Broker roles themselves, the Ka-Coin/Five Lakes economics, `beasis`, the unnamed J-21 card-math, suxen/nexus, the zero point state interaction, the House of Confusion bash router as an unplaced tool, and a dedicated Seneschal lore file); added three new commissions to fill the named gaps — `greenacres-oregon.md` (real Coos Bay-area geography/weather/built-landscape research, explicitly scoped to exclude any real person's biography), `lumenar-content.md` (worked examples and a field guide for the Lumenar, which has a precise dictionary entry but no lived examples), and `seneschal-exploration.md` (a `world/deck-master.md`-style treatment of the Seneschal, the most-referenced, least-defined character introduced this session)
+resonance:    a spread wide enough to choose from
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 06:50
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       fulfill the "second document" promise from PR #38's welcome witness-copy, and leave a clean state-of-repo handoff for the next session
+contribution: wrote incoming/pre-nullus/202606220650_PR38-growth-update.md — content-only, no real names beyond the GitHub handles already public on PR #38 (@dannyward630, @Ojas2095), per eaprime1's explicit instruction; checked issue #35's comment thread and confirmed @Ojas2095 is the only other account tied to the contribution, flagging (not confirming) that as the likely match for "Danny Weir"; wrote turns/STATE-OF-REPO-202606220650.md cataloging this session's work, all carried-forward open items from the mining pass, five bounded quick wins, and three bigger open threads (House of Confusion router placement, Ka-Coin/Five Lakes scoring, the conversion-interaction idea, beasis's missing seed file); pointed device/active.md at it for the next session
+resonance:    the seam answered, the next door propped open
+witnessed:    true
+---

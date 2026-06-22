@@ -95,5 +95,109 @@
 
 ---
 
+*Updated: 2026-06-21*
+
+- PR #73 (fix for issue #44 — invalid `secrets` reference in job-level
+  `if:` conditions) is open, not yet merged, `mergeable_state: unstable`.
+  Recurring `claude-review` CI failures on this PR are expected and benign
+  — the PR itself rewrites `claude-code-review.yml`, so GitHub's
+  workflow-validation check will keep failing on this branch until it
+  merges into `main`. DeepSource is Grade A. Issue #44's original ask
+  (manual end-to-end verification that `@claude finalize` now fires on a
+  live PR) is still flagged as needed post-merge.
+
+---
+
+*Updated: 2026-06-21 (later)*
+
+- PR #73 merged into `main` (`2ef5143`) on the owner's confirmation. Issue
+  #44's underlying bug (invalid `secrets` reference in `finalize-pr.yml`'s
+  job-level `if:`) is fixed on `main`. Remaining open item: manual
+  end-to-end verification that `@claude finalize` now actually fires the
+  `issue_comment` trigger on a live PR — next session with bandwidth
+  should pick this up before closing #44 itself.
+
+---
+
+*Updated: 2026-06-21 (later still)*
+
+- Ran a full mining pass across the repo for ideas/gaps/misses/workflow —
+  see `turns/MINING-202606212142.md`. Nothing critical found; it's all
+  backlog. Three items flagged as highest-leverage if a future session has
+  bandwidth: refresh `branch-tracker/branches.md` (3 weeks stale, lists
+  `mandelbrot`/`mulberry` as branches that don't currently exist), do the
+  PR #18 diff check (possibly superseded, never actually verified), and
+  get a Deck Master ruling on the Sovran-vs-Deck-Master and
+  hub-suits-vs-Five-Lakes-suits design conflicts before a third
+  competing system lands.
+
+---
+
+*Updated: 2026-06-22*
+
+- Five files arrived this session (4 Hydrologic Cycle / House of Confusion
+  lore docs + 1 PDF transcript of an external Claude.ai conversation,
+  "Document lifecycle and greenacres memories"). The PDF held the answer to
+  a term the owner couldn't recall — **Unoiam** (Latin *iam*, already/now,
+  plus *uno*) — coined there to replace "lifecycle," since custos entities
+  don't terminate, they change state. The PDF's draft (THE WAKE OF UNOIAM)
+  had never actually landed in the repo; the four lore docs are its source
+  material. Wrote `world/unoiam-lifecycle.md` to seed it properly, carrying
+  the state table and Phases 0-4 forward and adding the Phase 5 the
+  original draft was missing: **Legacy** — what an entity leaves distributed
+  across the system (turn-log entries, adopted conventions, borrowed names)
+  as distinct from what Living Archive keeps retrievable in one place.
+  Tracked but not built: the Five Lakes Rubric's Ka-Coin economic layer and
+  the Commissioner/Artesian/Quartermaster/Herald/Broker roles referenced in
+  the Mulberry Initialization — not picked up this session, noted for
+  whoever picks up `world/unoiam-lifecycle.md` next. The House of Confusion
+  welcome piece for the owner's friend (the unsolicited-contribution thread
+  from the same PDF) was not actioned — it involves a real, named,
+  identifiable private person, and the owner stepped back before deciding
+  where it lives in the chain of custody. Leaving that for the owner to
+  pick back up explicitly.
+
+---
+
+*Updated: 2026-06-22 (later)*
+
+- Wrote `atelier/commissions/message-to-the-commissioner.md` — an in-world
+  letter to the Mulberry Initialization's still-undefined Commissioner
+  role, indexing every currently-commissionable item in the repo and
+  naming the gaps that have no home yet. Added three commissions to fill
+  the named gaps: `atelier/commissions/greenacres-oregon.md` (real
+  Coos Bay-area place research for the House of Confusion anchor — scoped
+  explicitly to exclude any real person's biography),
+  `atelier/commissions/lumenar-content.md` (the Lumenar has a precise
+  dictionary entry in `world/symbols.md` but no worked examples — this
+  asks for those), and `atelier/commissions/seneschal-exploration.md`
+  (asks for a `world/deck-master.md`-style treatment of the Seneschal,
+  which `world/unoiam-lifecycle.md` leans on constantly but never
+  actually defines as a standalone role). Six commissions now sit in
+  `atelier/commissions/` total — a real spread for whoever ends up
+  acting as Commissioner, human or AI, to choose from.
+
+---
+
+*Updated: 2026-06-22 (later still)*
+
+- Wrote `incoming/pre-nullus/202606220650_PR38-growth-update.md` — the
+  second document the "Welcome to the Field" witness-copy on PR #38
+  promised, fulfilling that promise with content-only updates (Lumenar
+  commission, J-21's still-unnamed card math, the Commissioner letter,
+  the Seneschal reconciliation) and no real names beyond the GitHub
+  handles already public on the PR (`@dannyward630`, `@Ojas2095`).
+  Flagged but unconfirmed: whether "Danny Weir" (a name eaprime1 knows
+  personally) maps to `@Ojas2095` — inferred by elimination, not verified.
+- Wrote `turns/STATE-OF-REPO-202606220650.md` for the next session to
+  start cold from — recaps this session, lists what's still open, and
+  adds five quick wins plus three bigger open threads (House of
+  Confusion router placement, Ka-Coin/Five Lakes scoring, the
+  conversion-interaction idea, `beasis`'s missing seed file).
+- **Start the next session at `turns/STATE-OF-REPO-202606220650.md`**,
+  not by re-deriving context.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
