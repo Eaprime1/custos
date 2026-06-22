@@ -12,7 +12,11 @@ on:
 
 jobs:
   claude-review:
-    if: ${{ github.event.pull_request.head.repo.fork == false && secrets.CLAUDE_CODE_OAUTH_TOKEN != '' && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
+    # `secrets` is not a recognized named-value inside a job-level `if:` —
+    # GitHub Actions rejects the whole expression at parse time when it's
+    # included here (visible as phantom 0-job "push" failures for this
+    # workflow on every commit, regardless of branch).
+    if: ${{ github.event.pull_request.head.repo.fork == false && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read

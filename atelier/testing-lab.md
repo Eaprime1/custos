@@ -4,9 +4,9 @@
 
 ## The Idea
 
-Underwriters Laboratories listed, but not Underwriters Laboratories run. A
-testing lab for custos, inspired by the UL model of independent
-verification before something ships — but self-administered, because in
+Certified, but not run by the certifying body. A
+testing lab for custos, inspired by independent stress-testing models
+for certification before something ships — but self-administered, because in
 the Navigo perspective we are already the ones creating and monitoring
 what we build. A full development testing process, scoped to what
 actually makes sense to test in-house rather than imported wholesale from
@@ -31,7 +31,7 @@ evidence that the lab needs to exist — not a hypothetical future need.
 ## Where it sits
 
 Self-administered, Navigo-perspective testing — not a recreation of
-external UL-style certification. We hold our own accountability here
+external certification-style stress testing. We hold our own accountability here
 (the same shepherd-accountability custos already does for everything
 that enters). Per `atelier/README.md`, this starts as a nursery entry:
 unnamed, unscoped, routed out to a proper home once a working pattern
