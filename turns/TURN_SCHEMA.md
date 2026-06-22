@@ -21,6 +21,9 @@ witnessed:    true
 - One turn per meaningful session boundary
 - `witnessed: true` is not decoration — it is the record
 
+See `turns/CLOSING.md` for the full session-closing checklist — writing this
+entry is one step of it.
+
 ## Reading the Log
 
 The turn log is not a changelog. It is a living memory.

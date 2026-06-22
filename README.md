@@ -62,6 +62,11 @@ custos uses GitHub Issues as an open mission board. Any contributor — human or
 
 Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
 
+## GitHub Pages note 🃏
+
+This repository is published as static content when Pages is used.
+Do not use Jekyll-specific workflows unless a real Jekyll site structure (`_config.yml`, layouts, includes, and content source) is intentionally added.
+
 ## Device branches
 
 Work on custos is organized by device:
@@ -75,7 +80,11 @@ The `pixel8` branch carries `device/` files that track what is active, installed
 
 ## Multi-AI development
 
-custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see world/factions.md). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
+
+## THE/UNEXUS Convergence Hub
+
+custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
 
 ---
 
@@ -109,28 +118,11 @@ This is the negative mold. All repos emerge from branches here.
 | [/moav](./moav) | MOAV carrier packages (JSON) |
 | [/returns](./returns) | Stream returns from external agents |
 | [/atelier](./atelier) | Nursery — concepts before they have names |
+| [/queue](./queue) | Staging ground — chain of custody, including the Artesium Weir |
+| [/seep-artois](./seep-artois) | The pool — ready-to-develop pages, drawn one at a time |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
 
 ---
 
 *THEE opens. YOD marks. EMBER warms. custos keeps.*
-
-## Known Repo Map
-
-
-| Repo | Role |
-|------|------|
-| eaprime1/custos | This hub |
-| eaprime1/nullus | Pre-system void preparation |
-| eaprime1/the | Main system active development |
-| eaprime1/diamond-reservoir | Seed pressure system |
-| eaprime1/prima-clock | Temporal anchor registry |
-| eaprime1/121 | Periodic table expansion |
-| eaprime1/milkweed-vectors | Seeded vector templates |
-
-
----
-
-
-*∞pace∞*

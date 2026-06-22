@@ -1,0 +1,20 @@
+# CODEOWNERS — custos convergence hub
+#
+# The Deck Master reviews all branch lifecycle transitions and hub structure changes.
+# The Shepherd (eaprime1) holds the Deck Master role.
+#
+# Deck Master reviews required for:
+#   - vault/ entries (♠️ custody)
+#   - moav/ carriers (formal transitions)
+#   - prima-clock/ registry (custody log)
+#   - branch-tracker/ (card assignments)
+#   - world/ (lore changes)
+#   - All PRs to main from device branches
+
+*                           @eaprime1
+vault/                      @eaprime1
+moav/                       @eaprime1
+prima-clock/                @eaprime1
+branch-tracker/             @eaprime1
+world/                      @eaprime1
+device/                     @eaprime1
