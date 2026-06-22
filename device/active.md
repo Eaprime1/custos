@@ -133,5 +133,31 @@
 
 ---
 
+*Updated: 2026-06-22*
+
+- Five files arrived this session (4 Hydrologic Cycle / House of Confusion
+  lore docs + 1 PDF transcript of an external Claude.ai conversation,
+  "Document lifecycle and greenacres memories"). The PDF held the answer to
+  a term the owner couldn't recall — **Unoiam** (Latin *iam*, already/now,
+  plus *uno*) — coined there to replace "lifecycle," since custos entities
+  don't terminate, they change state. The PDF's draft (THE WAKE OF UNOIAM)
+  had never actually landed in the repo; the four lore docs are its source
+  material. Wrote `world/unoiam-lifecycle.md` to seed it properly, carrying
+  the state table and Phases 0-4 forward and adding the Phase 5 the
+  original draft was missing: **Legacy** — what an entity leaves distributed
+  across the system (turn-log entries, adopted conventions, borrowed names)
+  as distinct from what Living Archive keeps retrievable in one place.
+  Tracked but not built: the Five Lakes Rubric's Ka-Coin economic layer and
+  the Commissioner/Artesian/Quartermaster/Herald/Broker roles referenced in
+  the Mulberry Initialization — not picked up this session, noted for
+  whoever picks up `world/unoiam-lifecycle.md` next. The House of Confusion
+  welcome piece for the owner's friend (the unsolicited-contribution thread
+  from the same PDF) was not actioned — it involves a real, named,
+  identifiable private person, and the owner stepped back before deciding
+  where it lives in the chain of custody. Leaving that for the owner to
+  pick back up explicitly.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏

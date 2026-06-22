@@ -167,3 +167,13 @@ contribution: audited atelier/ (5 unfinished concepts: concordance, wobbly-bench
 resonance:    a map, not a fix
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 05:30
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       recover the Latin lexeme the owner used in place of "lifecycle," and add the missing Legacy concept before this conversation archives
+contribution: extracted text from an uploaded PDF ("Document lifecycle and greenacres memories") that an external Claude.ai conversation had drafted but never landed in the repo — recovered "Unoiam" (Latin *iam*, already/now, plus *uno*) as the recalled term, replacing "lifecycle" with "the wake" in a draft titled THE WAKE OF UNOIAM; confirmed the four newly uploaded Hydrologic Cycle / House of Confusion documents are the same source material that draft was built from, already captured Phases 0-4 (Zero Point, Active Development, Transfer, Maturity, Living Archive) but stopped short of a Legacy phase; wrote `world/unoiam-lifecycle.md` carrying the full state table and phases forward into the repo, with a new Phase 5 — Legacy — distinguishing what an archived entity keeps (retrievable, frozen) from what it leaves (distributed residue that changes the system whether or not anyone reopens it)
+resonance:    the wake gets its missing phase
+witnessed:    true
+---
