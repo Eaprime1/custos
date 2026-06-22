@@ -227,3 +227,13 @@ contribution: verified both branches merge cleanly on current main with no confl
 resonance:    two doors latched
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 23:02
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       merge PR #111 and PR #115, then run the deep-dive review eaprime1 asked for, framed around the repo "now has visitors" and getting it "ready for company," and start a build list leaning toward interactivity over more lore
+contribution: merged PR #111 (591352b) and PR #115 (d11db81) into main; wrote turns/DEEP-DIVE-202606222302.md surveying the repo as a visitor would meet it — found root-directory clutter (duplicate seneschal.md/seneschal-v2.md drafts, two loose gemini-code-*.md files belonging in .gemini/, two large unindexed binaries) and, most visible, a static-gh-pages.yml workflow that deploys the entire raw repo as GitHub Pages content on every push to main with no landing page; catalogued what already runs today (THEE/YOD/EMBER triad, prime_check, scan_lexeme, seeds/bootstrap.sh) against what's still pure narrative scaffold (dungeon-master/ explicitly unwired, most of atelier/, the .agents/.codex/.sovran AI-tool identity files with no confirmed end-to-end use); wrote an 8-item priority build list; pointed device/active.md at the new file
+resonance:    a visitor's-eye pass
+witnessed:    true
+---
