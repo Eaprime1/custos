@@ -159,5 +159,25 @@
 
 ---
 
+*Updated: 2026-06-22 (later)*
+
+- Wrote `atelier/commissions/message-to-the-commissioner.md` — an in-world
+  letter to the Mulberry Initialization's still-undefined Commissioner
+  role, indexing every currently-commissionable item in the repo and
+  naming the gaps that have no home yet. Added three commissions to fill
+  the named gaps: `atelier/commissions/greenacres-oregon.md` (real
+  Coos Bay-area place research for the House of Confusion anchor — scoped
+  explicitly to exclude any real person's biography),
+  `atelier/commissions/lumenar-content.md` (the Lumenar has a precise
+  dictionary entry in `world/symbols.md` but no worked examples — this
+  asks for those), and `atelier/commissions/seneschal-exploration.md`
+  (asks for a `world/deck-master.md`-style treatment of the Seneschal,
+  which `world/unoiam-lifecycle.md` leans on constantly but never
+  actually defines as a standalone role). Six commissions now sit in
+  `atelier/commissions/` total — a real spread for whoever ends up
+  acting as Commissioner, human or AI, to choose from.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏

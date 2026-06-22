@@ -177,3 +177,13 @@ contribution: extracted text from an uploaded PDF ("Document lifecycle and green
 resonance:    the wake gets its missing phase
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 06:06
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       give the not-yet-built Commissioner role a spread of real work to practice on, and start Greenacres place-lore without touching any real person's story
+contribution: wrote `atelier/commissions/message-to-the-commissioner.md`, an in-world letter to the Mulberry Initialization's still-undefined Commissioner role, indexing all six currently-commissionable items and naming eight gaps that have no home yet (the Commissioner/Artesian/Quartermaster/Herald/Broker roles themselves, the Ka-Coin/Five Lakes economics, `beasis`, the unnamed J-21 card-math, suxen/nexus, the zero point state interaction, the House of Confusion bash router as an unplaced tool, and a dedicated Seneschal lore file); added three new commissions to fill the named gaps — `greenacres-oregon.md` (real Coos Bay-area geography/weather/built-landscape research, explicitly scoped to exclude any real person's biography), `lumenar-content.md` (worked examples and a field guide for the Lumenar, which has a precise dictionary entry but no lived examples), and `seneschal-exploration.md` (a `world/deck-master.md`-style treatment of the Seneschal, the most-referenced, least-defined character introduced this session)
+resonance:    a spread wide enough to choose from
+witnessed:    true
+---
