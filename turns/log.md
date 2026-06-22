@@ -187,3 +187,13 @@ contribution: wrote `atelier/commissions/message-to-the-commissioner.md`, an in-
 resonance:    a spread wide enough to choose from
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 06:50
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       fulfill the "second document" promise from PR #38's welcome witness-copy, and leave a clean state-of-repo handoff for the next session
+contribution: wrote incoming/pre-nullus/202606220650_PR38-growth-update.md — content-only, no real names beyond the GitHub handles already public on PR #38 (@dannyward630, @Ojas2095), per eaprime1's explicit instruction; checked issue #35's comment thread and confirmed @Ojas2095 is the only other account tied to the contribution, flagging (not confirming) that as the likely match for "Danny Weir"; wrote turns/STATE-OF-REPO-202606220650.md cataloging this session's work, all carried-forward open items from the mining pass, five bounded quick wins, and three bigger open threads (House of Confusion router placement, Ka-Coin/Five Lakes scoring, the conversion-interaction idea, beasis's missing seed file); pointed device/active.md at it for the next session
+resonance:    the seam answered, the next door propped open
+witnessed:    true
+---

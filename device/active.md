@@ -179,5 +179,25 @@
 
 ---
 
+*Updated: 2026-06-22 (later still)*
+
+- Wrote `incoming/pre-nullus/202606220650_PR38-growth-update.md` — the
+  second document the "Welcome to the Field" witness-copy on PR #38
+  promised, fulfilling that promise with content-only updates (Lumenar
+  commission, J-21's still-unnamed card math, the Commissioner letter,
+  the Seneschal reconciliation) and no real names beyond the GitHub
+  handles already public on the PR (`@dannyward630`, `@Ojas2095`).
+  Flagged but unconfirmed: whether "Danny Weir" (a name eaprime1 knows
+  personally) maps to `@Ojas2095` — inferred by elimination, not verified.
+- Wrote `turns/STATE-OF-REPO-202606220650.md` for the next session to
+  start cold from — recaps this session, lists what's still open, and
+  adds five quick wins plus three bigger open threads (House of
+  Confusion router placement, Ka-Coin/Five Lakes scoring, the
+  conversion-interaction idea, `beasis`'s missing seed file).
+- **Start the next session at `turns/STATE-OF-REPO-202606220650.md`**,
+  not by re-deriving context.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
