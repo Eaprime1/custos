@@ -1,63 +1,24 @@
-# Ouroboros, the Nth-Radian Wobble, and the Commission Creator — atelier seed
+# Ouroboros Wobble
 
-*nursery entry, filed 202606200005 — nothing here is finished*
+## The Loop That Doesn't Close
 
-## The Idea
+A pattern observed in collaborative review: a loop between collaborators that doesn't quite close, with a deliberate "wobble" as the safety/skill mechanism.
 
-A loop that doesn't quite close. The ouroboros eats itself — a perfect
-circle, no seam. Custos's version wobbles by some Nth radian instead: a
-deliberate imperfection in the loop that keeps it from becoming a closed
-system devouring itself blindly. The wobble is the safety mechanism. It's
-also a trait or skill — something earned, not assumed. No one engages the
-full Möbius loop without first earning the wobble: the prerequisite,
-certification, or demonstrated knowledge that proves they know how to
-exit before they're allowed to enter.
+## Lived Example
 
-The wobble itself isn't fixed. As whoever holds it grows more capable,
-the wobble shrinks — fewer radians of correction needed to get back out.
-Skill earned reduces the friction of using the skill.
+**Drifted lexeme(s):** [To be filled by eaprime1 after reviewing old conversation transcripts]
 
-A second, related idea surfaced alongside it: a **commission creator** —
-a system for generating commissions, where "commission" is the general
-word for missions, bounties, quests, adventures, or whatever shape the
-work takes. Requests come in, the commission creator shapes them into the
-right type of commission, and these converge at one point before being
-distributed back out (a diaspora) to whoever or whatever takes them on.
+**Original meaning:** [Original meaning of the drifted word(s)]
 
-## Why now
+**Current (drifted) meaning:** [Current meaning after cumulative drift]
 
-Raised in the same conversation as the Testing Lab seed
-(`atelier/testing-lab.md`), as a way of thinking about how custos holds
-itself accountable for its own automation as it grows — described as
-custos's nature: a loop, a Möbius, but with the Nth-radian wobble instead
-of pure self-consumption. The framing offered was explicit: this is a
-safety mechanism *and* a skill to be earned, in that order — gate the
-loop behind the wobble, not the other way around.
+## Wobble Mechanism Proposal
 
-## Open threads (not yet decided)
+To flag when a word's meaning is shifting during a polish pass, before it lands silently:
 
-- **What "engaging the loop" actually means in custos.** Recursive
-  automation? Self-modifying workflows? A specific feature, or a design
-  principle applied across several? Not yet pinned to anything concrete.
-- **How the wobble is earned.** What does the prerequisite/cert/knowledge
-  check look like in practice — a quest, a review, a demonstrated track
-  record? `quests/` already has a dependency system (`requires`/
-  `unlocks`) that might be the natural home for this once it's concrete.
-- **Commission creator vs. existing templates.** `.github/ISSUE_TEMPLATE/
-  mission.yml` and `bounty.yml` already cover two commission types by
-  hand. Is the commission creator a generalization of these two into one
-  system, or a new layer that sits above them and decides which template
-  applies?
-- **Convergence point and diaspora.** Where commissions converge before
-  distribution isn't named yet — possibly related to the Testing Lab
-  (a place things pass through before going out), possibly its own
-  separate location.
-- **Relationship to the Testing Lab.** Both seeds came from the same
-  conversation and both describe places things converge before moving on.
-  Worth checking, once either has a working pattern, whether they're the
-  same convergence point wearing two names or genuinely separate.
+1. **Lexeme drift tracker**: Maintain a lightweight concordance (`atelier/concordance.md`) that records each collaborator's usage of key terms per review pass. If a term's definition or context shifts by more than a configurable threshold (e.g., cosine similarity < 0.9 in embedding space, or a simple human-flagged delta), flag it.
+2. **Pass annotation**: During each "polish and proceed" pass, annotate any term whose usage feels slightly off from its prior definition. This can be a comment or a diff in the concordance.
+3. **Cumulative drift alert**: After N passes (e.g., 3), if a term has been flagged in more than half of them, surface a warning: "This word may have drifted. Review its original definition."
+4. **Manual override**: Allow collaborators to explicitly reset a term's definition if the drift is intentional (e.g., a new shared understanding).
 
----
-
-*Filed by Claude, prima-clock 202606200005. Not commissioned, not scoped,
-not ready — that's the point of atelier. Enjoy the journey.*
+This mechanism leans on `atelier/concordance.md` once that's live (see the linked mission issue).
