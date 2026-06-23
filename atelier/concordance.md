@@ -31,6 +31,31 @@ to-do document.
 When it has a working pattern — even a rough one — it routes out of
 atelier toward whatever becomes its Hodie-type home.
 
+## First case for the methods side (filed 202606230135)
+
+A live example of the "methods and processes" half of the scope question
+above, before the concordance itself exists: `claude-code-action` accepts
+both `claude_code_oauth_token` (subscription billing) and `anthropic_api_key`
+(pay-per-use API credit billing) on the same step. When both are set, the
+API key silently wins and gets billed — there's no warning, and the two
+auth paths produce visually identical setup logs right up until the SDK
+call itself fails. eaprime1 changed the API key several times trying to
+fix a "Credit balance is too low" error before the actual pattern
+(api_key takes precedence over oauth_token when both are present) was
+traced through a full job log. That's exactly the kind of process
+knowledge this concordance was proposed to hold — costly to rediscover,
+cheap to write down once. First candidate entry once this file becomes a
+real concordance: **"claude-code-action auth precedence"** → api_key over
+oauth_token, fixed for `claude-code-review.yml` by commenting out the
+api_key input (see that workflow's git history, commit titled "Switch
+claude-code-review to OAuth-only billing").
+
+A second pending entry, not yet nameable: a small set of lexemes that
+drifted in meaning across many "polish and proceed" review passes — see
+`atelier/ouroboros-wobble.md`'s "Lived example" section. The terms
+themselves still need to be supplied by eaprime1 from prior conversation
+transcripts before they can be entered here.
+
 ## Open threads (not yet decided)
 
 - **Scope of the first pass.** Lexemes only (Lumenar, Hodie, Atelier, Ka,

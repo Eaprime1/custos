@@ -219,5 +219,34 @@
 
 ---
 
+*Updated: 2026-06-23 01:35*
+
+- Fixed `claude-code-review.yml`: it was failing on every PR with
+  "Credit balance is too low" because `anthropic_api_key` silently takes
+  precedence over `claude_code_oauth_token` when both are set — the
+  ANTHROPIC_API_KEY console account is out of credit. Commented out
+  `anthropic_api_key` (left as a note, not deleted) so it runs on OAuth
+  subscription billing until the account is funded again. Pushed to
+  `claude/youthful-goldberg-3ank89`. No retroactive action taken on PRs
+  that hit this earlier — `claude-code-review` is advisory-only (never
+  gated a merge), and `finalize-pr.yml` was never affected (OAuth-only
+  from the start).
+- Filed `atelier/partner-perspective.md` (eaprime1's framing, quoted
+  directly) and wrote a "Lived example" into both `atelier/
+  ouroboros-wobble.md` (the Mobius word-drift across many "polish and
+  proceed" passes — actual drifted word(s) still need eaprime1 to supply
+  from old transcripts) and `atelier/concordance.md` (the billing
+  auth-precedence lesson as its first methods/process entry).
+- **Open items for next session:** 4 GitHub issues filed (see issue
+  list) — auth-precedence audit across other workflows, promoting
+  `concordance.md` out of atelier into a real working file, naming the
+  drifted lexeme(s) once eaprime1 has them, and developing the partner-
+  perspective seed. `send_later` (self-scheduled PR check-ins) is **not**
+  an available tool in this environment — flagged honestly rather than
+  assumed; would need to be a platform/harness feature, not something
+  buildable from inside this repo.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏

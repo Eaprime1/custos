@@ -34,6 +34,23 @@ of pure self-consumption. The framing offered was explicit: this is a
 safety mechanism *and* a skill to be earned, in that order — gate the
 loop behind the wobble, not the other way around.
 
+## Lived example (filed 202606230135)
+
+eaprime1 named a concrete instance of this loop, months into running it
+without noticing: a small set of commonly-invoked words drifted in
+meaning over many "polish and proceed" passes between collaborators —
+each pass nudging a word toward a near-synonym, each nudge individually
+reasonable, the cumulative drift invisible until eaprime1 went back
+through old conversation transcripts and the meaning had moved. Nobody
+was wrong in any single pass; the loop just never closed back on its
+starting point. This is the wobble's first named real case — not a
+hypothetical "recursive automation" risk, a documented word-meaning
+risk that already happened. See `atelier/concordance.md` for the
+proposed catch mechanism, and `atelier/partner-perspective.md` for the
+session this surfaced in. The actual drifted word(s) still need to be
+named — eaprime1 has them in prior conversation transcripts; this file
+is the placeholder for that naming, not the naming itself.
+
 ## Open threads (not yet decided)
 
 - **What "engaging the loop" actually means in custos.** Recursive
