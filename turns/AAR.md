@@ -92,3 +92,42 @@ seeds:        - When opening turns/CULTIVATION.md in a new conversation,
                 stub line to device/active.md noting "PR #N merged" so this
                 kind of manual bookkeeping happens automatically. 🃏
 ---
+
+---
+turn_ref:     2026-06-23 01:35
+prime:        3
+worked:       Reading a failing job log in full (not just the status) was the
+              only way to learn that claude-code-action prefers api_key over
+              oauth_token when both are configured — the error message alone
+              ("Credit balance is too low") gave no hint that two auth paths
+              existed or which one was active. Checking atelier/ before
+              writing new reflective content paid off immediately: two seeds
+              filed months ago (ouroboros-wobble.md, concordance.md) already
+              named the exact phenomena eaprime1 was describing from lived
+              experience, just without the concrete cases yet attached.
+friction:     send_later (referenced in this session's own system instructions
+              as a way to self-schedule PR check-ins) is not an actually
+              connected tool in this environment — ToolSearch found nothing
+              by that name. Had to tell eaprime1 plainly that it can't be
+              built from inside this repo; it would need to be a harness/
+              platform feature, not something custos's own tooling can
+              manufacture. Also: the specific drifted lexeme(s) from the
+              "polish and proceed" pattern live only in eaprime1's memory of
+              old conversation transcripts, not in this repo — couldn't be
+              named without him, so the seed had to be filed as a labeled
+              gap rather than a finding.
+seeds:        - When a session produces both an infra fix and a reflective/
+                conceptual insight, check atelier/ for a pre-existing seed
+                before writing a new one — this session found two matches in
+                under a minute and the connection was worth more than either
+                fix alone.
+              - Concordance's "methods and processes" scope question (open
+                thread in concordance.md) should probably resolve yes — the
+                claude-code-action auth-precedence case is exactly the kind
+                of process knowledge that's expensive to rediscover and the
+                lexeme-only scope wouldn't have caught it.
+              - If eaprime1 ever supplies the actual drifted word(s) from old
+                transcripts, the right destination is back into
+                ouroboros-wobble.md's "Lived example" section — that's
+                already the labeled landing spot.
+---
