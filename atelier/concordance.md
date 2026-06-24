@@ -50,6 +50,29 @@ oauth_token, fixed for `claude-code-review.yml` by commenting out the
 api_key input (see that workflow's git history, commit titled "Switch
 claude-code-review to OAuth-only billing").
 
+eaprime1 flagged (PR #142, 202606242) that this exact class of gotcha will
+recur across every repo that adopts `claude-code-action` — not just this
+one — so the note is written here to be lifted wholesale into any other
+repo's own concordance/CLAUDE.md, not just custos's. Two distinct gotchas
+identified so far, both diagnosed by reading the actual job log rather than
+trusting the workflow YAML or the surface error message:
+
+1. **Auth precedence.** `anthropic_api_key` silently overrides
+   `claude_code_oauth_token` when both inputs are set on the same step —
+   pick one billing path per workflow, comment out (don't just leave
+   blank) the one you're not using.
+2. **Self-modifying-workflow OIDC validation.** When a PR's diff includes
+   changes to the *workflow file `claude-code-action` itself runs from*
+   (e.g. a PR fixing `claude-code-review.yml`), the `pull_request`-trigger
+   run's OIDC→app-token exchange fails with `401 Workflow validation
+   failed: ... must exist and have identical content to the version on the
+   repository's default branch`. This is GitHub refusing to let a PR grant
+   itself elevated CI permissions via its own workflow edit — a security
+   measure, not a bug. The check is guaranteed to fail on every commit to
+   that PR regardless of the fix's correctness, and clears on its own once
+   the PR merges into the base branch. No workaround needed beyond
+   recognizing the pattern and not chasing it as a real failure.
+
 A second pending entry, not yet nameable: a small set of lexemes that
 drifted in meaning across many "polish and proceed" review passes — see
 `atelier/ouroboros-wobble.md`'s "Lived example" section. The terms
