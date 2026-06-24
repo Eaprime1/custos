@@ -3,8 +3,11 @@
 name: Custos — Code Review
 
 # Automatic Claude review on every pull request.
-# Requires the ANTHROPIC_API_KEY repository secret (or install the Claude
-# GitHub App via /install-github-app from Claude Code, which configures this).
+# Uses the CLAUDE_CODE_OAUTH_TOKEN repository secret (subscription-based auth,
+# same as finalize-pr.yml). ANTHROPIC_API_KEY is intentionally not passed here:
+# that key bills against a separate pay-per-token credit balance, and this repo
+# has hit "Credit balance is too low" failures on it before. Note the secret
+# still exists in repo secrets for whenever API-key billing is wanted again.
 
 on:
   pull_request:
@@ -36,7 +39,6 @@ jobs:
         uses: anthropics/claude-code-action@fbda2eb1bdc90d319b8d853f5deb53bca199a7c1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           additional_permissions: |
             actions: read
           allowed_bots: '*'
