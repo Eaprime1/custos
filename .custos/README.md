@@ -60,8 +60,8 @@ far has been through forked PRs and issue comments, not an invite.
 Tracking what each contributor PR still needs before it's actually landed,
 not just merged:
 
-| PR | State | Next stage |
-|----|-------|------------|
+| PR / Issue | State | Next stage |
+|------------|-------|------------|
 | #131 | merged | done |
 | #132 | closed (redundant) | done |
 | #133 | open, approved | Shepherd merge decision; if merged, PR #133's own body names the concrete follow-up — a second PR adding a `partner_state:` block (`charge_received`, `friction_named`, `next_stance`) to `turns/AAR.md` |
