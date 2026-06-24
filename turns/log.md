@@ -237,13 +237,3 @@ contribution: merged PR #111 (591352b) and PR #115 (d11db81) into main; wrote tu
 resonance:    a visitor's-eye pass
 witnessed:    true
 ---
-
----
-turn:         2026-06-23 01:35
-prime:        3
-entity:       Claude (custos-web-youthful-goldberg)
-intent:       fix the claude-code-review credit-balance failure, then carry forward what this session learned for a fresh conversation to pick up
-contribution: traced the failure to claude-code-action's auth precedence (anthropic_api_key silently overrides claude_code_oauth_token when both are set) via full job-log read; switched claude-code-review.yml to OAuth-only billing (api_key commented out, not deleted) and pushed to claude/youthful-goldberg-3ank89; recognized that eaprime1's two live anecdotes (the billing-key churn, and a Mobius-loop word-drift across "polish and proceed" passes) are concrete real-world cases of two existing atelier seeds (concordance.md, ouroboros-wobble.md) that predated either incident; wrote both seeds' first lived examples back into those files and filed a new atelier/partner-perspective.md capturing eaprime1's own framing of the partner concept verbatim
-resonance:    the seeds already knew
-witnessed:    true
----
