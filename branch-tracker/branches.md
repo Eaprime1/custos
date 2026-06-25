@@ -24,6 +24,7 @@ The working hierarchy of the convergence hub. Flow direction:
 | ♥️A | `֍custos֎` | Deploy branch | Active | Outward-facing; receives from radix |
 | ♠️A | `∰custos` | Vault pinnacle | Pending | Not yet created — highest custody |
 | 🔐J | `master` | Save point | TBD | Protected; restore anchor |
+| Pandora | `pandora/primal-seed` | Container branch — collects per-stream germ responses to the Primal Seed document (origin: a Claude Projects conversation) | Germ | First cross-conversation alignment handshake; see `pandora/README.md` |
 
 ---
 
