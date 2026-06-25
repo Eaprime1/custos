@@ -125,8 +125,20 @@ A listening practice for capturing fragments before they have names. Not a ticke
 ### Prime State (`.prime`, `tools/prime_check.sh`)
 Concept progression via prime numbers. Current: `3`. Advance only when a development phase completes. Template ships with `3`.
 
-### Turns (`turns/log.md`)
-Session memory. Append only. One entry per meaningful session. Schema in `turns/TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
+### Turns (`turns/`)
+Session memory, append only. Four files, distinct purposes:
+- `log.md` — *what* a turn built. One entry per meaningful session. Schema in `TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
+- `CLOSING.md` — the checklist for ending a session: review what happened, file loose ends in `queue/artesium-weir/`, append to `log.md`, update `device/active.md`, run `scan_lexeme.sh`, commit/push, optionally write an AAR. Run this whenever asked to "wrap up", "finalize", or "close out."
+- `AAR.md` — *how* the turn went (process/friction/seeds), not what it produced. Same append-only spirit as `log.md`, different lens. Not every turn needs one.
+- `CULTIVATION.md` — cross-PR catalog of open design conflicts surfaced at closing time (e.g. competing naming systems introduced in separate PRs). Resolve or explicitly defer each entry when read; don't let it become an unread backlog.
+
+### Queue (`queue/`)
+Staging ground for what has crossed in from outside but hasn't found its place yet — nothing here is finished. `queue/artesium-weir/` is the filter between raw inbound material (e.g. a PDF export of a GitHub PR thread) and formal chain of custody; see `queue/artesium-weir/README.md` for the routine. Per-item subfolders (e.g. `queue/artesium-<contributor>/`) hold in-flight artifacts until the Weir routes them onward — close them out via the `turns/CLOSING.md` checklist rather than leaving them mid-flow.
+
+### Review Gates
+- **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
+- **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
+- **CI**: `.github/workflows/` runs `scan-lexeme.yml` (placeholder scan), `final-review.yml` / `finalize-pr.yml` (the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md), `claude-code-review.yml`, `dependency-review.yml`, and `sovran-voice.yml`. Resolve Codacy findings before merge — see `docs/final-review-and-codacy.md`.
 
 ## Key Conventions
 
@@ -156,3 +168,11 @@ When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, alway
 **Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
 
 **Development plan:** See `docs/custos-plan.md` for the phased roadmap and current status.
+
+## Known Stray Content (untracked, not part of the concept)
+
+These currently sit in the working tree but are not part of custos and should not be assumed to be in scope, referenced in lore, or committed without first checking with the Shepherd:
+
+- `airavata-custos/` — an unrelated Apache Airavata "Custos" project (Go IAM service + Next.js web app, its own nested `.git`). Name collision only; do not merge its content with this repo's `custos` concept.
+- `seneschal/scanner/New folder/` — empty, undocumented. Likely an in-progress drop that hasn't been named or routed through `queue/` yet.
+- `queue/artesium-<contributor>/` item folders — in-flight Weir material (e.g. a PDF export of a contributor's PR thread). Route through `queue/artesium-weir/README.md` and close out via `turns/CLOSING.md` rather than leaving indefinitely.
