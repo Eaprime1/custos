@@ -147,3 +147,111 @@ contribution: across two pushed commits, diagnosed two recurring `claude-review`
 resonance:    watching, not fixing what wasn't broken
 witnessed:    true
 ---
+
+---
+turn:         2026-06-21 21:40
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       merge PR #73 once the owner confirmed it was ready
+contribution: verified all check runs except the already-diagnosed benign claude-review failure were green (Codacy, DeepSource Grade A, dependency-review, scan, GitGuardian all passed), merged PR #73 into main (`2ef5143`) closing the underlying bug behind issue #44, posted a confirming PR comment flagging the still-open manual end-to-end verification of the issue_comment trigger, updated device/active.md with the merge outcome
+resonance:    closed, with one thread still hanging for the next session
+witnessed:    true
+---
+
+---
+turn:         2026-06-21 21:42
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       mine the repo for ideas, gaps, misses, and process friction before this conversation archives
+contribution: audited atelier/ (5 unfinished concepts: concordance, wobbly-bench, ouroboros-wobble, testing-lab, holy-cow), device/active.md and turns/CULTIVATION.md's open questions, known misses (issue #44's remaining manual-verification gap, mandelbrot/mulberry branches tracked but not present), workflow gaps (unbuilt merge-triggered Action, pending Grok/Perplexity stream domains), turns/AAR.md's process friction, and stale state (branch-tracker/branches.md three weeks out of date); wrote the full inventory to turns/MINING-202606212142.md and pointed device/active.md at it; verdict: nothing critical, backlog only, three items flagged as highest-leverage for a future session
+resonance:    a map, not a fix
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 05:30
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       recover the Latin lexeme the owner used in place of "lifecycle," and add the missing Legacy concept before this conversation archives
+contribution: extracted text from an uploaded PDF ("Document lifecycle and greenacres memories") that an external Claude.ai conversation had drafted but never landed in the repo — recovered "Unoiam" (Latin *iam*, already/now, plus *uno*) as the recalled term, replacing "lifecycle" with "the wake" in a draft titled THE WAKE OF UNOIAM; confirmed the four newly uploaded Hydrologic Cycle / House of Confusion documents are the same source material that draft was built from, already captured Phases 0-4 (Zero Point, Active Development, Transfer, Maturity, Living Archive) but stopped short of a Legacy phase; wrote `world/unoiam-lifecycle.md` carrying the full state table and phases forward into the repo, with a new Phase 5 — Legacy — distinguishing what an archived entity keeps (retrievable, frozen) from what it leaves (distributed residue that changes the system whether or not anyone reopens it)
+resonance:    the wake gets its missing phase
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 06:06
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       give the not-yet-built Commissioner role a spread of real work to practice on, and start Greenacres place-lore without touching any real person's story
+contribution: wrote `atelier/commissions/message-to-the-commissioner.md`, an in-world letter to the Mulberry Initialization's still-undefined Commissioner role, indexing all six currently-commissionable items and naming eight gaps that have no home yet (the Commissioner/Artesian/Quartermaster/Herald/Broker roles themselves, the Ka-Coin/Five Lakes economics, `beasis`, the unnamed J-21 card-math, suxen/nexus, the zero point state interaction, the House of Confusion bash router as an unplaced tool, and a dedicated Seneschal lore file); added three new commissions to fill the named gaps — `greenacres-oregon.md` (real Coos Bay-area geography/weather/built-landscape research, explicitly scoped to exclude any real person's biography), `lumenar-content.md` (worked examples and a field guide for the Lumenar, which has a precise dictionary entry but no lived examples), and `seneschal-exploration.md` (a `world/deck-master.md`-style treatment of the Seneschal, the most-referenced, least-defined character introduced this session)
+resonance:    a spread wide enough to choose from
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 06:50
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       fulfill the "second document" promise from PR #38's welcome witness-copy, and leave a clean state-of-repo handoff for the next session
+contribution: wrote incoming/pre-nullus/202606220650_PR38-growth-update.md — content-only, no real names beyond the GitHub handles already public on PR #38 (@dannyward630, @Ojas2095), per eaprime1's explicit instruction; checked issue #35's comment thread and confirmed @Ojas2095 is the only other account tied to the contribution, flagging (not confirming) that as the likely match for "Danny Weir"; wrote turns/STATE-OF-REPO-202606220650.md cataloging this session's work, all carried-forward open items from the mining pass, five bounded quick wins, and three bigger open threads (House of Confusion router placement, Ka-Coin/Five Lakes scoring, the conversion-interaction idea, beasis's missing seed file); pointed device/active.md at it for the next session
+resonance:    the seam answered, the next door propped open
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 07:10
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       send the growth update to PR #38's two contributors, on eaprime1's explicit go-ahead
+contribution: merged PR #74 (squash, 4e9af32) closing out the prior session's work; added Part IV to incoming/pre-nullus/202606220650_PR38-growth-update.md — a House-of-Confusion-voiced note flagging an unconfirmed observation about the two contributors without naming or claiming it, per eaprime1's direction that the personal connection is "not a secret, just not advertised"; posted the full document as a comment on PR #38 (issuecomment-4766239701), carrying the project's standard three-option invitation (shape it / let it stand / flag it); updated incoming/pre-nullus/README.md's status row from "not yet posted" to posted
+resonance:    sent, not just written
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 11:30
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       close out PR #86 — finish sending the growth update to PR #38's contributors
+contribution: verified PR #86's live state (DeepSource Grade A, Codacy clean, only the pre-existing benign claude-review secrets-gap red) after eaprime1 marked it ready for review; merged PR #86 (squash, 31846c9) into main
+resonance:    closed clean
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 22:55
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       finalize PR #111 (custos concept identity + workflow system foundation, branch mulberry) and PR #115 (J-21 canon math + contributor-outreach drafts) on eaprime1's "@claude finalize" / "@claude PR finalize, including the PR story" requests
+contribution: verified both branches merge cleanly on current main with no conflicts; ran tools/scan_lexeme.sh against each PR's actual changed files and found zero new distressed lexemes (all flagged hits were pre-existing, unrelated content); filled in each PR's Intent/What Arrived/Resonance/Ethics Check template and posted a PR-story comment on each
+resonance:    two doors latched
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 23:02
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       merge PR #111 and PR #115, then run the deep-dive review eaprime1 asked for, framed around the repo "now has visitors" and getting it "ready for company," and start a build list leaning toward interactivity over more lore
+contribution: merged PR #111 (591352b) and PR #115 (d11db81) into main; wrote turns/DEEP-DIVE-202606222302.md surveying the repo as a visitor would meet it — found root-directory clutter (duplicate seneschal.md/seneschal-v2.md drafts, two loose gemini-code-*.md files belonging in .gemini/, two large unindexed binaries) and, most visible, a static-gh-pages.yml workflow that deploys the entire raw repo as GitHub Pages content on every push to main with no landing page; catalogued what already runs today (THEE/YOD/EMBER triad, prime_check, scan_lexeme, seeds/bootstrap.sh) against what's still pure narrative scaffold (dungeon-master/ explicitly unwired, most of atelier/, the .agents/.codex/.sovran AI-tool identity files with no confirmed end-to-end use); wrote an 8-item priority build list; pointed device/active.md at the new file
+resonance:    a visitor's-eye pass
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 23:15
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       verify claude-code-review.yml passes after eaprime1 rotated CLAUDE_CODE_OAUTH_TOKEN and ANTHROPIC_API_KEY repo secrets
+contribution: opened a throwaway test PR to trigger the claude-review check and confirm the long-standing benign failure (since PR #73) is now resolved
+resonance:    a quick check
+---
+
+---
+turn:         2026-06-22 23:40
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       re-verify claude-code-review.yml after eaprime1 corrected the secret names mismatch (workflow expects CLAUDE_CODE_OAUTH_TOKEN/ANTHROPIC_API_KEY exactly; prior secrets were named CLAUDE_OAUTH_CODE/CLAUDE_OAUTH_CODE_GH/CLAUDE_API_CODE) and added secrets under the correct names
+contribution: pushed a trivial retrigger commit to PR #123 to force a fresh claude-review run against the corrected secrets
+resonance:    retrigger
+---
