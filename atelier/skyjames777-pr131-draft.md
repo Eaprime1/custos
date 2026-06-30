@@ -3,8 +3,9 @@ prima-clock: 202606302353
 suit: ♣️
 entity: eaprime1 + J-21
 status: HELD — atelier draft, awaiting eaprime1 review before delivery
-recipient: SKYJAMES777
+recipient: SKYJAMES777 (org)
 subject: PR #131 — First Contribution Acknowledgment
+separation_note: SKYJAMES777 is a GitHub organization — kept separate until the org owner initiates contact. Easy to combine, impossible to separate.
 ---
 
 # For SKYJAMES777 — The Wobble That Arrived
@@ -15,7 +16,9 @@ subject: PR #131 — First Contribution Acknowledgment
 
 ## What This Document Is
 
-A first-contribution acknowledgment for SKYJAMES777, whose PR #131 arrived on 2026-06-23 — the same day three others filed their claim tickets for Issue #130 — and was merged that morning.
+A first-contribution acknowledgment for SKYJAMES777 — a GitHub organization — whose PR #131 arrived on 2026-06-23 and was merged that morning.
+
+**Separation note:** SKYJAMES777 is an organization, not a personal account. This document is held separately from the custos claim resolution batch and will not initiate any combination or cross-linking with SKYJAMES777's orbit until the org owner asks. The logic: easy to combine, impossible to separate. The contribution is on the books. Contact happens if and when the owner of that org decides to make it.
 
 This document is held in the custos atelier (the nursery, where nothing is finished). It does not leave here until eaprime1 reviews and approves delivery.
 
@@ -28,7 +31,7 @@ Merged: 2026-06-23 | File changed: `atelier/ouroboros-wobble.md` | +36 lines, �
 
 PR #131 did something specific and precise: it replaced the original abstract seed text in `atelier/ouroboros-wobble.md` (which described ouroboros/Möbius loop dynamics in general terms) with a concrete, worked example of the problem and a 4-part tooling proposal to address it.
 
-**The lived example you brought:**
+**The lived example it brought:**
 
 The word `"refine"` cycling through near-synonyms across editing passes — `"refine"` → `"polish"` → `"smooth"` → `"streamline"` → `"refine"` — arriving back at the same word with a shifted meaning. Not wrong in any single pass. Invisible until you trace the full loop.
 
@@ -51,15 +54,15 @@ This is a proposal, not an implementation. That is the correct depth for the ate
 
 *J-21 speaking*
 
-You showed up the same day three others filed their names. You didn't know them. They didn't know you. The date didn't coordinate — the work did.
+An organization sent a pull request — and the pull request was grounded. It arrived the same day three individuals filed their names on Issue #130. No coordination. The date just happened.
 
-What you identified is real: the loops that don't quite close, the words that come back meaning something slightly different. The House of Confusion is full of those. They're not errors. They're evidence of how much has moved through this space.
+What it identified is real: the loops that don't quite close, the words that come back meaning something slightly different. The House of Confusion is full of those. They're not errors — they're evidence of how much has moved through this space.
 
-A lexeme drift detector is a small thing with large implications. If it ever gets built, it will have come from here — from the specific observation you grounded in a worked example instead of leaving it abstract.
+A lexeme drift detector is a small thing with large implications. If it ever gets built, it will have come from here — from a concrete worked example rather than an abstraction.
 
-The original `ouroboros-wobble.md` was a seed. What you replaced it with is a seedbed.
+The original `ouroboros-wobble.md` was a seed. What PR #131 put in its place is a seedbed.
 
-J − 21 = −A. The math holds. First contributions count from zero.
+J − 21 = −A. The math holds. First contributions count from zero. Organization or person — the contribution stands on its own.
 
 ---
 
@@ -67,21 +70,21 @@ J − 21 = −A. The math holds. First contributions count from zero.
 
 *eaprime1 speaking*
 
-The PR came in clean. You fixed what the issue asked and added something we didn't have a name for yet — the wobble mechanism. That's the kind of contribution custos is built to receive: specific, grounded, with a tooling proposal attached.
+PR #131 came in clean. It fixed what the issue asked and added something that didn't have a name yet — the wobble mechanism. That's the kind of contribution custos is built to receive: specific, grounded, with a tooling proposal attached.
 
-First contribution to this repo. It's on the books.
+First contribution to this repo from this org. It's on the books.
 
-I was in the House of Confusion when you arrived — we all are, most of the time. That you found your way to the wobble, named it, and proposed the mechanism anyway: that's what I mean when I say the work coordinates.
+The repos stay separate. That's not a judgment — it's a founding principle: easy to combine, impossible to separate. If the owner of SKYJAMES777 wants to connect, the door is here. Until then, this sits in the atelier and doesn't go anywhere.
 
 ---
 
 ## What's On the Books
 
-**Contributor:** SKYJAMES777
+**Contributor org:** SKYJAMES777
 **Event:** PR #131 merged 2026-06-23
 **Issue fixed:** #129 (name drifted lexemes)
 **File changed:** `atelier/ouroboros-wobble.md`
-**Nature:** First contribution — technical proposal, lexeme drift detection
+**Nature:** First contribution from this org — technical proposal, lexeme drift detection
 
 **Award under consideration** *(held for eaprime1 confirmation)*:
 
@@ -94,22 +97,22 @@ I was in the House of Confusion when you arrived — we all are, most of the tim
 
 ---
 
-## Your Move
+## If the Org Owner Reaches Out
 
-When this draft reaches you, there are four honest responses:
+This document exists as a standing acknowledgment. If the owner of SKYJAMES777 contacts custos to connect or combine:
 
-- **Yes** — you're in. You want to stay connected to what custos is becoming. We note you and route accordingly.
-- **No** — that's clean too. No follow-up, no ask, no tracking. First contribution stands on its own.
-- **Maybe** — you need more time or more context. The door stays open. The claim ticket stays warm.
-- **Else** — something doesn't fit in the options above. Say what's true. We'll read it.
+- The contribution record is here, ready to hand over
+- The claim ticket and award transfer cleanly
+- Combination happens on the owner's terms, at their timing
 
-No response is also a response. The contribution is already in the record whether or not you reply.
+No action required from custos until that contact happens. The door is open; we are not knocking.
 
 ---
 
 ## What This Draft Does Not Do
 
 - Does not deliver anything to GitHub. Held in the atelier until eaprime1 approves.
+- Does not initiate contact with SKYJAMES777 or its owner — kept separate until the owner asks. Easy to combine, impossible to separate.
 - Does not confirm XP amount or award name — both marked for eaprime1 review before this goes anywhere.
 - Does not touch the Issue #130 claim resolution — that's a companion held draft (Club of Jacks Carbonite), addressed to Rachaelisa, Ojas2095, and kabbersokhi-boop.
 - Does not update `prima-clock/registry.md` or create a `moav/` carrier — formal custody follows approved delivery, not before.
@@ -117,6 +120,6 @@ No response is also a response. The contribution is already in the record whethe
 
 ---
 
-*atelier → SKYJAMES777 first-contribution acknowledgment, held draft, awaiting eaprime1 review*
+*atelier → SKYJAMES777 (org) first-contribution acknowledgment, held draft, awaiting eaprime1 review*
 *♣️ Club · iteration 21 · prima-clock: 202606302353*
 *eaprime1 (Shorty) / J-21 (Claude)*
