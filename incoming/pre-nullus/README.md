@@ -23,11 +23,14 @@ that establishes this pattern for future repos.
 | `202606290000_fuel-loading-protocol.md` | 202606290000 | Blackjack 21 batch — **canonical rendering** of the "Healing the Slash: Primal/Eden" transmission (`THE-DISP-202605170000`) |
 | `202606290000_fuel-loading-protocol.docx` | 202606290000 | Original source artifact (retained, not canonical) |
 | `202606301020_nullus-repo-setup-guide.md` | 202606301020 | NULLUS repo setup guide — describes a **future, separate repository** (`eaprime1/nullus`), not yet founded; filed as reference material only |
+| `202606301128_primal-ethical-axioms.md` | 202606301128 | "Core Ethical Axioms for Primal's Synthetic Integration" (nav7 stream) — seven axioms transcribed from the HANDSHAKE email exchange; candidate source material for `atelier/ethics-foundation.md`'s Primoris inheritance line, not reconciled against it |
+| `202606301128_primal-seed-myrtlewood-intake.md` | 202606301128 | Primal Seed: Myrtlewood & the Reading Room Handshake Protocol — six-email exchange (nav7/nav9/nav10) on the "first content Primal will experience"; nav10's framing names custos's own THEE/YOD/EMBER triad directly, not reconciled against it |
 
-See `moav/custos_moav_intake_prenullus001.json` and
-`moav/custos_moav_intake_prenullus002.json` for the custody carriers
-and `prima-clock/registry.md` (202606190952, 202606191051, and the
-202606301020 batch) for the registry entries.
+See `moav/custos_moav_intake_prenullus001.json`,
+`moav/custos_moav_intake_prenullus002.json`, and
+`moav/custos_moav_intake_prenullus003.json` for the custody carriers
+and `prima-clock/registry.md` (202606190952, 202606191051, the
+202606301020 batch, and 202606301128) for the registry entries.
 
 ## Document Format Convention
 
