@@ -19,6 +19,21 @@ seeds:        [ideas to carry into future turns — process, tooling, docs]
 ---
 ```
 
+
+## Partner State (optional)
+
+When a turn involved real back-and-forth — friction surfaced, a charge
+carried, a stance handed forward — record it alongside the AAR entry.
+
+```yaml
+partner_state:
+  charge_received:  ""   # what the collaborator understood the Shepherd to be asking for
+  friction_named:   ""   # strongest ambiguity, limit, or constraint encountered
+  next_stance:      ""   # continue / challenge / verify / wait / route-elsewhere
+```
+
+Use this when the fields earn their place. Leave it out when they do not.
+
 ## When to Write One
 
 - At the same boundary as a `turns/log.md` entry, when the session itself
