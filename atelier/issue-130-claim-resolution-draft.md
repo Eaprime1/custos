@@ -26,7 +26,7 @@ seed into something concrete`):
   they left an unanswered comment on the merged PR asking whether there's a
   bounty/reward settlement step to follow.
 
-The issue is closed (completed, by Eaprime1, 2026-06-26). The claim thread is
+The issue is closed (completed, by eaprime1, 2026-06-26). The claim thread is
 not. This document proposes closing it properly: explain what happened, award
 what's owed, and extend an invite — instead of leaving it as a quiet gap.
 
