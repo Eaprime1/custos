@@ -167,9 +167,7 @@ eaprime1 approves*. None of these have been posted.
 - Does not update `prima-clock/registry.md` or create a `moav/` carrier —
   those are formal-custody actions appropriate once eaprime1 approves
   sending, not before.
-- Does not address SKYJAMES777 (PR #131) — that's a different gap (missing
-  first-contribution acknowledgment, not a claim/award question) and is left
-  for a separate document so it doesn't get folded into this one by accident.
+- Does not deliver to SKYJAMES777 (PR #131). Named here for the record: SKYJAMES777 submitted PR #131 (merged 2026-06-23), which fixed Issue #129 by rewriting `atelier/ouroboros-wobble.md` with a concrete Wobble Mechanism Proposal — lexeme drift detector, concordance integration, pre-commit hook, `[wobble: <word>]` annotation syntax. First contribution to this repo, arriving the same day these three claimants filed. Addressed in a companion held draft.
 
 ---
 

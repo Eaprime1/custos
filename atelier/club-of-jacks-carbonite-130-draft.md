@@ -161,7 +161,7 @@ Reply on the GitHub thread where you found this. Or don't. The record exists eit
 - Does not touch the dannyward630/Ojas2095 Stone Tankard invitation — that one stays exactly where it is, untouched.
 - Does not assign a Sparstone gem class — per the hold note's explicit prohibition on pre-defining the taxonomy.
 - Does not update `prima-clock/registry.md` or create a `moav/` carrier — formal custody follows approved delivery, not before.
-- Does not address SKYJAMES777 (PR #131) — that's a separate gap filed separately.
+- Does not deliver to SKYJAMES777 (PR #131). Named here for the record: SKYJAMES777 submitted PR #131 (merged 2026-06-23), which fixed Issue #129 by rewriting `atelier/ouroboros-wobble.md` with a concrete Wobble Mechanism Proposal — a 4-part lexeme drift detection system: `bin/drift-detect` script, concordance integration, pre-commit hook, and `[wobble: <word>]` annotation syntax. First contribution to this repo, arriving the same day the three claimants above filed. That work is on the books and addressed in a companion held draft.
 
 ---
 
