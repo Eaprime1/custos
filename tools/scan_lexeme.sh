@@ -27,10 +27,12 @@ for PATTERN in "${PATTERNS[@]}"; do
   if [[ "$PATTERN" = "My Prima Terminal" ]]; then
     EXTRA_OPTS+=(--exclude="000-thee-the-door.md")
   fi
-  MATCHES=$(grep -rFin -- "$PATTERN" "$ROOT" \
+  MATCHES=$(grep -rFin \
     --include="*.md" --include="*.sh" --include="*.yaml" --include="*.json" \
     "${EXTRA_OPTS[@]}" \
-    --exclude-dir=".git" 2>/dev/null || true)
+    --exclude-dir=".git" \
+    -- "$PATTERN" "$ROOT" \
+    2>/dev/null || true)
   if [[ -n "$MATCHES" ]]; then
     echo "  [$PATTERN]"
     echo "$MATCHES" | sed 's/^/    /'
