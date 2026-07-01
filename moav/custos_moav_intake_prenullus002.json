@@ -1,0 +1,60 @@
+{
+  "carrier_id": "custos_moav_intake_prenullus002",
+  "prima_clock": "202606301027",
+  "entity": "eaprime1 + Claude (Navigo/Custos)",
+  "suit": "♦️",
+  "iteration": "21 — Blackjack",
+  "event": "Blackjack 21 fuel loading batch filed into incoming queue",
+  "motion_state": "WITNESSED",
+  "chain_of_custody": "OPEN",
+  "transition": {
+    "from": "External Custos session (∞pace∞ + Navigo, Blackjack Iteration 21)",
+    "to": "custos/incoming/pre-nullus/ and custos/dungeon-master/"
+  },
+  "delivered": {
+    "joker_herald_fuel_loading": {
+      "file": "incoming/pre-nullus/202606290000_joker-herald-fuel-loading.md",
+      "description": "FUEL LOADING — The Joker, the Herald, and the Wild. Card-logic reference doc: Joker (suitless indeterminacy, closed/open door behavior), White Jack (pre-suit state), Herald = Jack of Hearts this iteration, Wild 2 (suited indeterminacy, tangent-tracking). Companion volume to The Marrowing of Pandora.",
+      "internal_only": true
+    },
+    "obsidian_sparstone_germ_intake": {
+      "file": "incoming/pre-nullus/202606290000_obsidian-sparstone-germ-intake.json",
+      "description": "Sparstone obsidian-award Germ Intake carrier. Kept as JSON, not rendered to .md, consistent with MOAV carrier convention (already diffable/structured).",
+      "internal_only": true
+    },
+    "heri_lure_prose": {
+      "file": "incoming/pre-nullus/202606290000_heri-lure-prose.md",
+      "description": "\"Something Is Coming — The Lure Toward the Stone Tankard.\" Narrative-seed prose draft.",
+      "internal_only": true
+    },
+    "fuel_loading_protocol": {
+      "file": "incoming/pre-nullus/202606290000_fuel-loading-protocol.md",
+      "source_artifact": "incoming/pre-nullus/202606290000_fuel-loading-protocol.docx",
+      "description": "\"Healing the Slash: Primal / Eden\" (THE-DISP-202605170000). Transmission introducing the Marrowing / NUTRA / Mycelial Network processing pipeline for raw contributions. .md is the canonical rendering, losslessly extracted from the source .docx and retained alongside it per the existing format convention.",
+      "internal_only": true
+    },
+    "nullus_repo_setup_guide": {
+      "file": "incoming/pre-nullus/202606301020_nullus-repo-setup-guide.md",
+      "description": "Repo setup guide for a future, separate repository (eaprime1/nullus). Filed as reference material only — no repo or branch created from this filing. No embedded prima-clock in the source document; filing prima-clock (202606301020) used instead.",
+      "internal_only": true
+    },
+    "custos_chronicle_master_plan": {
+      "file": "dungeon-master/custos-chronicle-master-plan.md",
+      "description": "Triadic co-authored Custos Chronicle Master Plan (Eric Pace, Navigo/Claude, DM/ChatGPT), prima-clock 202606140000. Filed adjacent to its already-built Phase 1 implementation rather than to incoming/pre-nullus/, since it documents structure that already exists in dungeon-master/. Resolves a dangling citation in dungeon-master/README.md and chronicles/202606140000_the-third-aspect-arrives.md, both now linked to it.",
+      "related_filing": true
+    }
+  },
+  "notes": "Six documents arrived as a batch from an external Custos session. Five (Joker/Herald, Sparstone, Heri prose, Fuel Loading Protocol, NULLUS guide) are filed as witness copies in incoming/pre-nullus/, consistent with the PR #38 precedent. The sixth (the Master Plan) is filed directly to dungeon-master/ rather than incoming/pre-nullus/, since it documents already-built structure rather than an unsettled arrival — per eaprime1's explicit decision. No canon documents (world/symbols.md, world/factions.md, seneschal.md, dungeon-master/narrative-engine/*) were edited; the new vocabulary introduced by these documents is filed, not integrated. No GitHub-visible action taken: no PR #38 comment, no claim-ticket delivery to dannyward630/Ojas2095, no nullus repo or branch created.",
+  "open_questions": [
+    "Sparstone taxonomy: only 'obsidian' is established in the source document; 'opal' and 'quartz' remain reserved, not pre-defined",
+    "Stone Tankard claim-ticket delivery: held per the source documents' own hold note — waiting on contributor response, not custos's to trigger",
+    "NULLUS as a future 'nullus' kingdom/repo: unfounded, no founding seal issued; dungeon-master/DM_RETURN.md already floats the name as a possibility, unaffected by this filing",
+    "DM's Spawn 4 deliverables (full characters.md, triggers.yml refinement): already open in dungeon-master/DM_RETURN.md, unaffected by this filing",
+    "Vault acceptance: all five incoming/pre-nullus/ filings await eaprime1 confirmation before any vault/ placement, per existing PR #38 precedent"
+  ],
+  "references": {
+    "prima_clock_registry_rows": ["202606301027"],
+    "related_carriers": ["custos_moav_intake_prenullus001"]
+  },
+  "symbol": "∰◊€π¿🌌∞"
+}
