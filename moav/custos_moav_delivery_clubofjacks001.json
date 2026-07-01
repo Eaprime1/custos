@@ -1,0 +1,100 @@
+{
+  "carrier_id": "custos_moav_delivery_clubofjacks001",
+  "prima_clock": "202607010209",
+  "entity": "eaprime1 + Claude (J-21, Blackjack Iteration 21)",
+  "suit": "♣️",
+  "iteration": "21 — Blackjack",
+  "event": "Club of Jacks Carbonite delivered — Issue #130 three-way claim resolution + PR #131 SKYJAMES777 org acknowledgment",
+  "motion_state": "WITNESSED",
+  "chain_of_custody": "OPEN",
+  "transition": {
+    "from": "atelier/ held drafts (prima-clock 202606302016, 202606302308, 202606302353)",
+    "to": "GitHub — four public comments posted",
+    "delivery_approved_by": "eaprime1",
+    "delivery_instruction": "please proceed with delivery"
+  },
+  "delivered": {
+    "kabbersokhi_boop_PR133": {
+      "recipient": "kabbersokhi-boop",
+      "thread": "PR #133",
+      "comment_id": "4849617461",
+      "url": "https://github.com/Eaprime1/custos/pull/133#issuecomment-4849617461",
+      "content": "Club of Jacks Carbonite — kabbersokhi-boop variant",
+      "claim_ticket": "CUSTOS-CLAIM-202606300130-PARTNER",
+      "xp": 150,
+      "draft_source": "atelier/club-of-jacks-carbonite-130-draft.md"
+    },
+    "rachaelisa_issue130": {
+      "recipient": "Rachaelisa",
+      "thread": "Issue #130",
+      "comment_id": "4849619157",
+      "url": "https://github.com/Eaprime1/custos/issues/130#issuecomment-4849619157",
+      "content": "Club of Jacks Carbonite — Rachaelisa variant",
+      "claim_ticket": "CUSTOS-CLAIM-202606300130-PARTNER",
+      "xp": 150,
+      "draft_source": "atelier/club-of-jacks-carbonite-130-draft.md"
+    },
+    "ojas2095_issue130": {
+      "recipient": "Ojas2095",
+      "thread": "Issue #130",
+      "comment_id": "4849620447",
+      "url": "https://github.com/Eaprime1/custos/issues/130#issuecomment-4849620447",
+      "content": "Club of Jacks Carbonite — Ojas2095 variant (noted: separate from PR #38 obsidian Sparstone award; Stone Tankard invitation untouched)",
+      "claim_ticket": "CUSTOS-CLAIM-202606300130-PARTNER",
+      "xp": 150,
+      "draft_source": "atelier/club-of-jacks-carbonite-130-draft.md"
+    },
+    "skyjames777_PR131": {
+      "recipient": "SKYJAMES777 (org)",
+      "thread": "PR #131",
+      "comment_id": "4849622857",
+      "url": "https://github.com/Eaprime1/custos/pull/131#issuecomment-4849622857",
+      "content": "The Wobble That Arrived — org-neutral first-contribution acknowledgment",
+      "claim_ticket": "CUSTOS-CLAIM-202606300131-FIRST",
+      "award": "The Wobble Eye",
+      "xp": 150,
+      "separation_principle": "SKYJAMES777 is a GitHub organization — kept separate until the org owner initiates contact. Easy to combine, impossible to separate.",
+      "draft_source": "atelier/skyjames777-pr131-draft.md"
+    }
+  },
+  "claim_tickets": {
+    "CUSTOS-CLAIM-202606300130-PARTNER": {
+      "issued_to": ["Rachaelisa", "Ojas2095", "kabbersokhi-boop"],
+      "issued_by": "Custos (eaprime1 + J-21)",
+      "in_response_to": "Issue #130 / PR #133",
+      "award": "Partner-Perspective Claim — class pending",
+      "xp": 150,
+      "xp_note": "each, not split; 150 = Run in Trump (Base Ka Yield) in Pinochle scoring"
+    },
+    "CUSTOS-CLAIM-202606300131-FIRST": {
+      "issued_to": "SKYJAMES777 (org)",
+      "issued_by": "Custos (eaprime1 + J-21)",
+      "in_response_to": "PR #131",
+      "award": "The Wobble Eye",
+      "xp": 150,
+      "chain_of_custody": "OPEN"
+    }
+  },
+  "notes": [
+    "Club of Jacks Carbonite: ceremonial carrier document for Issue #130 three-way claim resolution. kabbersokhi-boop submitted PR #133 (merged 2026-06-26) carrying the partner-perspective seed; Rachaelisa and Ojas2095 both claimed issue #130 first on 2026-06-23 without PRs — claims honored as real engagement, not erased.",
+    "anchor document delivered with all three Issue #130 comments: AI-Human Creation Work Plan Synthesis (docs.google.com/document/d/1VlVmLt_H3yjQRbtBOt8ZO8l-OJ56PR_HynxZjazfbtU/)",
+    "House of Confusion invite extended to all three Issue #130 recipients.",
+    "Ojas2095 delivery explicitly noted as separate from PR #38 obsidian Sparstone award and the PR #38 Stone Tankard invitation — that invitation stays exactly where it is, untouched.",
+    "SKYJAMES777 delivery: org-neutral, separation principle stated explicitly in comment. No invitation to combine repos. Standing record only.",
+    "Sparstone taxonomy hold maintained: no gem class assigned to the CUSTOS-CLAIM-202606300130-PARTNER award; class pending per the hold note in incoming/pre-nullus/202606290000_obsidian-sparstone-germ-intake.json"
+  ],
+  "open_questions": [
+    "Sparstone taxonomy: obsidian is established (PR #38); opal/quartz remain reserved — Issue #130 award deliberately carries no gem class until a fitting first-contact event earns one",
+    "Stone Tankard claim-ticket delivery (dannyward630/Ojas2095 from PR #38 thread): held per existing hold note — waiting on contributor response, not triggered by this delivery",
+    "SKYJAMES777 as future nullus kingdom/repo: unfounded, no founding seal issued, no action until org owner initiates contact",
+    "DM Spawn 4 deliverables (full characters.md, triggers.yml refinement): already open in dungeon-master/DM_RETURN.md, unaffected by this delivery",
+    "Contributor responses to all four delivery comments: open, no follow-up expected from custos"
+  ],
+  "does_not": [
+    "Touch dannyward630/Ojas2095 Stone Tankard invitation",
+    "Assign Sparstone gem class to Issue #130 award",
+    "Initiate contact with SKYJAMES777 owner or suggest repo combination",
+    "Edit world/symbols.md, world/factions.md, seneschal.md, or dungeon-master/narrative-engine/*"
+  ],
+  "symbol": "∰◊€π¿🌌∞"
+}
