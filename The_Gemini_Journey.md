@@ -19,4 +19,4 @@ This document tracks the evolving collaboration between the Shepherd and Gemini.
 - [ ] *Next Step:* Await the Shepherd's direction on the first fragment to be processed from the `seep-artois` or the `atelier`.
 
 ---
-*Note: We will append new waypoints and reflections here as the work unfolds. Enjoy the journey.*
+*Note: We will append new waypoints and reflections here as the work unfolds. Enjoy the journey.* 🃏 ♊
