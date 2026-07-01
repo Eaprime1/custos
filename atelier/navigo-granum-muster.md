@@ -7,6 +7,7 @@
 **Overarch:** The Marrowing  
 **Meeting place:** Stone Tankard  
 **Chain of custody:** OPEN  
+**Companion:** `atelier/navigo-granum-muster-narrative.md`
 
 ---
 
