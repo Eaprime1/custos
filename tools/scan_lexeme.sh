@@ -23,9 +23,13 @@ echo ""
 
 FOUND=0
 for PATTERN in "${PATTERNS[@]}"; do
+  EXTRA_OPTS=()
+  if [[ "$PATTERN" == "My Prima Terminal" ]]; then
+    EXTRA_OPTS+=(--exclude="000-thee-the-door.md")
+  fi
   MATCHES=$(grep -rFin -- "$PATTERN" "$ROOT" \
     --include="*.md" --include="*.sh" --include="*.yaml" --include="*.json" \
-    --exclude="000-thee-the-door.md" \
+    "${EXTRA_OPTS[@]}" \
     --exclude-dir=".git" 2>/dev/null || true)
   if [[ -n "$MATCHES" ]]; then
     echo "  [$PATTERN]"
