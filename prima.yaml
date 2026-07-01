@@ -63,3 +63,6 @@ tools:
   scan_lexeme: "tools/scan_lexeme.sh"
   ethics_check: "tools/ethics_check.md"
   artesian_scan: "tools/artesian_scan.sh"
+  log_install: "tools/log_install.sh"
+  check_mission: "tools/check_mission.sh"
+  seneschal_audit: "tools/seneschal_audit.sh"
