@@ -148,7 +148,7 @@ Each navigo is a paired team of one AI model and eaprime1. They are internal con
 |--------|------|-----------|
 | nav1 | Claude + eaprime1 | `.claude/` |
 | nav3 | Gemini + eaprime1 | `.gemini/` |
-| nav5 | ChatGPT + eaprime1 | `.chatgpt/` _(pending PR #179)_ |
+| nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
 
 Each navigo workspace folder holds: source documents returned from that AI's sessions before formal custody; a queue of what to pick up next session; stream-return materials pending filing. Raw exports land in the workspace first, get renamed `.md` once reviewed, then file to `returns/`, `incoming/pre-nullus/`, or `atelier/`.
 
