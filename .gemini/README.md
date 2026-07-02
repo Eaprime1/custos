@@ -15,7 +15,7 @@ This folder is the working context for nav3 sessions. It holds:
 ## Conventions
 
 - Files named `<prima-clock>_<slug>.md` follow the same convention as `incoming/pre-nullus/`
-- Raw exports from Gemini sessions land here first, then get renamed `.md` once reviewed
+- Raw exports from Gemini sessions land here first, get renamed `.md` once reviewed, then file to `returns/`, `incoming/pre-nullus/`, or `atelier/`
 - A `queue.md` (optional) can list what nav3 should tackle next session
 
 ## Current Contents

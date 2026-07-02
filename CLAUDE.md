@@ -81,7 +81,8 @@ Tracks live device state. Not on `main`.
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
 - `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
-- Labels: `mission`, `bounty`, `open` on GitHub Issues
+- `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
+- Labels: `mission`, `bounty`, `upgrade`, `open` on GitHub Issues
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
