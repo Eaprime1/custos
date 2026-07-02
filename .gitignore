@@ -1,0 +1,2 @@
+# Gemini CLI writes this to project roots; ignore so it doesn't land as nav3 content
+.gemini/settings.json
