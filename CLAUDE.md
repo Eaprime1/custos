@@ -140,6 +140,17 @@ Session memory. Append only. One entry per meaningful session. Schema in `turns/
 
 **MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Always include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody`.
 
+**Navigo model — AI+eaprime1 teams:**
+Each navigo is a paired team of one AI model and eaprime1. They are internal contributors with the same accountability as external contributors; the Shepherd can redirect any navigo.
+
+| Navigo | Team | Workspace |
+|--------|------|-----------|
+| nav1 | Claude + eaprime1 | `.claude/` |
+| nav3 | Gemini + eaprime1 | `.gemini/` |
+| nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
+
+Each navigo workspace folder holds: source documents returned from that AI's sessions before formal custody; a queue of what to pick up next session; stream-return materials pending filing. Raw exports land in the workspace first, get renamed `.md` once reviewed, then file to `returns/`, `incoming/pre-nullus/`, or `atelier/`.
+
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
 1. The mission/bounty issue URL or description
