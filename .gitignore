@@ -1,2 +1,4 @@
 # Gemini CLI writes this to project roots; ignore so it doesn't land as nav3 content
 .gemini/settings.json
+# nav3 queue file — session-specific, not for custody
+.gemini/queue.md
