@@ -1,0 +1,75 @@
+name: Upgrade
+description: Improve something that already exists. A contributor sharpens, deepens, or extends content or tools that are already in the Field.
+title: "[upgrade] "
+labels: ["upgrade", "open"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **An upgrade improves existing work.** The thing exists — you make it better. Sharper writing, a stronger tool, a richer piece of lore, a tighter schema. Claim by commenting `claiming this` and opening a PR. The Shepherd decides what lands.
+
+  - type: textarea
+    id: target
+    attributes:
+      label: What to upgrade
+      description: Which file, tool, or document? Link or path preferred.
+      placeholder: "`world/lore.md` — the Flock section is sparse"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current state
+      description: What's weak, missing, or improvable about it right now?
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_state
+    attributes:
+      label: Desired state
+      description: What should it look like when the upgrade lands? Be specific enough to recognize success without prescribing the approach.
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion_check
+    attributes:
+      label: Completion Check
+      description: A deterministic bash command that confirms the upgrade is done (even if it's just `grep` or `ls`).
+      render: bash
+      placeholder: |
+        grep -c "." world/lore.md | awk '$1 > 30 {print "upgrade complete"}'
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Background the contributor needs. Related files, prior sessions, relevant lore or canon.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: faction
+    attributes:
+      label: Best suited faction
+      description: Which faction's skills fit this upgrade?
+      options:
+        - Scribes (writing, analysis, documentation)
+        - Builders (code, scripts, tools)
+        - Sentinels (review, validation, security)
+        - Wanderers (any — open to all)
+    validations:
+      required: true
+
+  - type: input
+    id: xp
+    attributes:
+      label: XP reward
+      description: Experience points on successful completion (10–500 typical)
+      placeholder: "75"
+    validations:
+      required: false
