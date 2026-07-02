@@ -1,7 +1,7 @@
 # threshold-crossing
 
 **prima-clock:** 202607022251  
-**suit:** ♣️  
+**suit:** ♦️  
 **status:** atelier seed — no name yet  
 **source:** eaprime1 (Shepherd's voice), nav1 session  
 **related:** [issue #187 — Name the threshold-crossing lexeme](https://github.com/eaprime1/custos/issues/187)
