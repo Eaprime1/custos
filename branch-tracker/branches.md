@@ -41,6 +41,16 @@ Branches developing into separate destination repos.
 
 ---
 
+## Navigo Branches — Internal Team Contributions
+
+Branches developed by navigo teams (navN = AI model + eaprime1). Internal contributors; same accountability as external, Shepherd can redirect.
+
+| Branch | Navigo | Suit | Status | Notes |
+|--------|--------|------|--------|-------|
+| `navigo5/granum-anchor-review` | nav5 (ChatGPT+eaprime1) | ♦️ | Granum | Anchor-review seed bundle; 3 atelier files; PR #179 open |
+
+---
+
 ## Journeys — Session Archives
 
 Branches that exist to crystallize a closed conversation into `valuation/`.
