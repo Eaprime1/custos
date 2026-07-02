@@ -237,3 +237,63 @@ contribution: merged PR #111 (591352b) and PR #115 (d11db81) into main; wrote tu
 resonance:    a visitor's-eye pass
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 23:15
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       verify claude-code-review.yml passes after eaprime1 rotated CLAUDE_CODE_OAUTH_TOKEN and ANTHROPIC_API_KEY repo secrets
+contribution: opened a throwaway test PR to trigger the claude-review check and confirm the long-standing benign failure (since PR #73) is now resolved
+resonance:    a quick check
+---
+
+---
+turn:         2026-06-22 23:40
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       re-verify claude-code-review.yml after eaprime1 corrected the secret names mismatch (workflow expects CLAUDE_CODE_OAUTH_TOKEN/ANTHROPIC_API_KEY exactly; prior secrets were named CLAUDE_OAUTH_CODE/CLAUDE_OAUTH_CODE_GH/CLAUDE_API_CODE) and added secrets under the correct names
+contribution: pushed a trivial retrigger commit to PR #123 to force a fresh claude-review run against the corrected secrets
+resonance:    retrigger
+---
+
+# Append to turns/log.md
+
+---
+
+turn:         2026-06-29 00:00
+prime:        3
+entity:       Claude (Sonnet 4.6 · J-21 · Blackjack session)
+intent:       open iteration 21 (Blackjack); action PR #133 follow-ups;
+              fix claude-review workflow; draft Rachaelisa response;
+              build PR journey tracker; establish ethics foundation;
+              set up PayPal sponsor; begin Shadow Awareness Navigation Framework
+contribution: confirmed PR #133 merged Jun 26 (partner-perspective,
+              kabbersokhi-boop). Diagnosed claude-review workflow — YAML
+              correctly configured (API key already commented, OAuth active);
+              failure is stale CLAUDE_CODE_OAUTH_TOKEN secret, not code.
+              Drafted Rachaelisa response for issue #130. Built .custos/pipeline.md
+              as submission journey tracker with #133 full journey captured.
+              Wrote two PR branches: PR A (partner_state schema fields →
+              turns/AAR.md), PR B (ethics-foundation.md + SANF ethics — the
+              constitutional layer for the oversight branch). Wrote FUNDING.yml
+              with PayPal eaprime1. Requirements.txt read: Sphinx doc stack,
+              proot-distro, roman-numerals, beautifulsoup4 identified as
+              Blackjack upgrade additions. File has duplicate entries — dedup
+              flagged. PR #38 recalled: J-21 (Threshold Joker) is Claude's
+              symbol; the Lumenar is where oversight operates. Ethics foundation
+              established: three oversight questions, partner principle,
+              constitution before construction rule.
+resonance:    constitutional
+witnessed:    true
+
+---
+
+---
+turn:         2026-07-02 08:01
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       review PR #179 (nav5 granum bundle), merge PR #180 (scan_lexeme fix), clear stale CI noise, check contributors, seed Shepherd Considers concept, and leave a handoff document for the next session
+contribution: merged PR #180 (scan_lexeme false-positive fix + prima.yaml tools additions); reviewed PR #179 — surfaced 8 findings (txt files in wrong locations, missing custody rows, PR body mismatch); closed stale CI issues #181-183 (rate-limit artifacts from PR #180, not code problems); confirmed Ojas2095's June 18 bounty claim on issue #35 has no follow-through (stale, no PR, no reply); named the navigo model (nav1=Claude+eaprime1, nav3=Gemini+eaprime1, nav5=ChatGPT+eaprime1) and proposed .chatgpt/ dot folder as nav5 workspace; seeded Shepherd Considers concept (interactive doc review tool: list, preview, [v]iewed/[s]kip/[n]ote flow); wrote atelier/shepherd/next-conversation-plan.md as session handoff (PR #184); ran seneschal audit: 1 pool fragment (seep-artois/cygwin-installation.md), 16 workshop items, no live operational flags
+resonance:    carried
+witnessed:    true
+---

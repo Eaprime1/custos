@@ -18,7 +18,7 @@ of each adventure arc, readable as a document, preservable as a growing book.
 > *"The Chronicle Page is not fiction added to the repo. It is the narrative
 > form of real system motion."* — DM
 
-Full design: `custos-chronicle-master-plan`, prima-clock 202606140000.
+Full design: [`custos-chronicle-master-plan.md`](./custos-chronicle-master-plan.md), prima-clock 202606140000.
 
 ## Structure
 

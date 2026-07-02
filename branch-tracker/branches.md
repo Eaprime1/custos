@@ -38,7 +38,16 @@ Branches developing into separate destination repos.
 | diamond-reservoir | ♦️ | Germ | eaprime1/diamond-reservoir | Seed pressure system |
 | prima-clock | ♦️ | Germ | eaprime1/prima-clock | Temporal registry |
 | 121-architecture | ♦️ | 2/3 | eaprime1/121 | Periodic table expansion |
-| valuation | ♣️ | 1/3 | eaprime1/custos | Five Lakes Valuation System — bridge doc landed, ledger crawl in progress |
+
+---
+
+## Navigo Branches — Internal Team Contributions
+
+Branches developed by navigo teams (navN = AI model + eaprime1). Internal contributors; same accountability as external, Shepherd can redirect.
+
+| Branch | Navigo | Suit | Status | Notes |
+|--------|--------|------|--------|-------|
+| `navigo5/granum-anchor-review` | nav5 (ChatGPT+eaprime1) | ♦️ | Granum | Anchor-review seed bundle; 3 atelier files; PR #179 open |
 
 ---
 
