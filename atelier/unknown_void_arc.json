@@ -1,0 +1,68 @@
+{
+  "doc_id": "ARC-UNKNOWN-001",
+  "prima_clock": "202607060102",
+  "anchor": "custos/atelier",
+  "rank": "nine",
+  "suit": "spade",
+  "name": "The Unknown Arc — 0/3, Void, Möbius, Gravity",
+
+  "process_chain_correction": {
+    "original": "1/3 Nullification → 2/3 Carbonization → 3/3 Deweyization → sparklization",
+    "corrected": "0/3 Unknown → 1/3 Nullification → 2/3 Carbonization → 3/3 Deweyization → sparklization",
+    "key_insight": "0/3 (Unknown) is not AFTER the process — it PRECEDES it. Every practitioner begins at 0/3 without knowing it. The numbering was read forward but the origin is behind.",
+    "hindsight_rule": "The Nullifier, Carbonizer, and Decimal do not know about 0/3 while they are doing their work. Only in hindsight — looking back from 3/3 — do they realize they started in the Unknown. This is the Möbius loop."
+  },
+
+  "mobius_loop": {
+    "description": "Knowing the Unknown creates a paradox. To recognize 0/3, you must observe it. Observing it makes it known — which means it is no longer Unknown. But the act of knowing creates a new Unknown beyond what was just known. The loop has no inside or outside. You are always standing at 0/3 from some perspective.",
+    "safety_net": "This triggers safety net wobble — the system detects a potential infinite loop. Safety net wobble is not a failure. It is the system correctly identifying that the Unknown is not solvable, only navigated.",
+    "resolution": "Do not try to eliminate 0/3. Navigate around/through it. The Möbius property means the Unknown cannot be fully consumed by knowledge — there is always more."
+  },
+
+  "math_connection": {
+    "zero_point": "0/3 in math = undefined, not zero. Division by zero is undefined — not nothing, not empty, but outside the number system's ability to contain it. Unknown is not the absence of information. It is the presence of something the system cannot yet represent.",
+    "zero_point_energy": "In physics: zero point energy is the lowest possible energy state — not zero. Even at absolute zero, something remains. Strip everything away and the Unknown is still there. Not as void, but as foundation.",
+    "plank_system_connection": "An undefined plank (plank exists but cannot be numbered) maps to 0/3. The plank is THERE — the system just cannot locate it yet. Same mechanism."
+  },
+
+  "unknown_gravity": {
+    "statement": "The Unknown has greater gravity than the Known — even cumulatively.",
+    "explanation": "All knowledge accumulated by all entities across all time is finite. The Unknown is unbounded. Gravity scales with mass. Therefore the Unknown exerts more pull on the present moment than everything known combined.",
+    "consequence": "The Unknown precedes you, follows you, and walks beside you. It is not a destination or an origin — it is the ELSE that surrounds everything named.",
+    "pinnacle_question": "Is the pinnacle the place where everything diverges? If the pinnacle is the point of maximum singular authority — it may also be the point of maximum divergence. A singularity where paths separate. This remains open."
+  },
+
+  "unknown_and_void_characters": {
+    "Unknown": {
+      "name": "The Unknown",
+      "nature": "The undiscovered. Precedes all process. Walks with every entity as the Else frame. Cannot be eliminated — only navigated.",
+      "paired_with": "Void",
+      "movement": "The Unknown walks with a companion. Not alone."
+    },
+    "Void": {
+      "name": "Void",
+      "nature": "Not emptiness — flowing Unknown. Void is what Unknown looks like when it is in motion. The Unknown at rest is 0/3 undefined. The Unknown in motion is Void.",
+      "paired_with": "Unknown",
+      "connection_to_suits": "Void is the ELSE frame for all suits simultaneously. Every suit's 4th frame (the unnamed one) flows into Void. Void is not a suit — it is the space between suits.",
+      "zero_point_connection": "Void = zero point energy in character form. The thing that remains when everything is stripped away."
+    },
+    "pairing_note": "Unknown and Void are distinct but inseparable. Unknown is the concept; Void is the motion. They are not the same character — they are companions who never appear without the other."
+  },
+
+  "character_roster_update": {
+    "process_characters": [
+      { "step": "0/3", "name": "Unknown + Void (paired)", "note": "Origin. Seen only in hindsight. Always present." },
+      { "step": "1/3", "name": "The Nullifier", "status": "unnamed character, role defined" },
+      { "step": "2/3", "name": "The Carbonizer", "status": "unnamed character, role defined" },
+      { "step": "3/3", "name": "The Decimal 📍", "status": "named, icon assigned" },
+      { "step": "vault entry", "name": "The Sparklizer", "status": "trigger character — fires at threshold" }
+    ]
+  },
+
+  "open_questions": [
+    "Is the pinnacle a divergence point or a convergence point — or both?",
+    "Does Unknown have a visual form, or is it defined by absence of form?",
+    "What triggers Void's motion vs Unknown's stillness?",
+    "How does the Unknown/Void pairing interact with the plank system's undefined planks?"
+  ]
+}
