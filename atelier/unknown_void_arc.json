@@ -4,25 +4,38 @@
   "anchor": "custos/atelier",
   "rank": "nine",
   "suit": "spade",
-  "name": "The Unknown Arc — 0/3, Void, Möbius, Gravity",
+  "name": "The Unknown Arc — 3/0, Void, Möbius, Hourglass",
 
-  "process_chain_correction": {
-    "original": "1/3 Nullification → 2/3 Carbonization → 3/3 Deweyization → sparklization",
-    "corrected": "0/3 Unknown → 1/3 Nullification → 2/3 Carbonization → 3/3 Deweyization → sparklization",
-    "key_insight": "0/3 (Unknown) is not AFTER the process — it PRECEDES it. Every practitioner begins at 0/3 without knowing it. The numbering was read forward but the origin is behind.",
-    "hindsight_rule": "The Nullifier, Carbonizer, and Decimal do not know about 0/3 while they are doing their work. Only in hindsight — looking back from 3/3 — do they realize they started in the Unknown. This is the Möbius loop."
+  "notation_correction": {
+    "3/0": "UNDEFINED — mathematically, any number divided by zero cannot be computed. This is the Unknown. Not zero. Not empty. Outside what the system can represent.",
+    "0/3": "DEFINED as zero — the numerator is zero, denominator is three. This is NOT the Unknown. This is the starting point of the numbered journey: zero, grounded, calculable.",
+    "3/3": "DEFINED as one — numerator equals denominator. Unity. Completion. One whole turn.",
+    "the_distinction_matters": "0/3 and 3/0 are inversions of each other. The flip between them is the liminal event — the hourglass turn. 3/0 (undefined) becomes 0/3 (zero) by inversion. That crossing IS the threshold."
+  },
+
+  "process_chain_corrected": {
+    "chain": "3/0 (Undefined) → [hourglass flip — liminal threshold] → 0/3 (Zero) → 1/3 → 2/3 → 3/3 = 1 (Unity)",
+    "named": "Unknown → [threshold crossing] → foundation → Nullification → Carbonization → Deweyization → Sparklization",
+    "hourglass": {
+      "top": "3/0 — the Unknown, undefined, the full weight of what cannot be known",
+      "flip": "The inversion — liminal space — the moment of turning. The sand begins to move.",
+      "bottom": "0/3 — zero, defined, grounded. The process can now begin.",
+      "completion": "3/3 = 1 — one complete segment. The hourglass has run. Ready to flip again."
+    },
+    "hindsight_rule": "The Nullifier, Carbonizer, and Decimal do not know about 3/0 while working. Only from 3/3 looking back do they realize they started in the Undefined. The Möbius loop: recognizing this creates a new 3/0 beyond what was just recognized.",
+    "segment_meaning": "3/3 = 1 is not just completion — it is DEFINED as one. Unity. The segment is whole. Then sparklization fires at vault entry, which may begin a new hourglass."
   },
 
   "mobius_loop": {
-    "description": "Knowing the Unknown creates a paradox. To recognize 0/3, you must observe it. Observing it makes it known — which means it is no longer Unknown. But the act of knowing creates a new Unknown beyond what was just known. The loop has no inside or outside. You are always standing at 0/3 from some perspective.",
-    "safety_net": "This triggers safety net wobble — the system detects a potential infinite loop. Safety net wobble is not a failure. It is the system correctly identifying that the Unknown is not solvable, only navigated.",
-    "resolution": "Do not try to eliminate 0/3. Navigate around/through it. The Möbius property means the Unknown cannot be fully consumed by knowledge — there is always more."
+    "description": "Knowing the Unknown creates a paradox. To recognize 3/0, you must observe it. Observing it makes it known — which means it is no longer Undefined. But the act of knowing creates a new 3/0 beyond. The loop has no inside or outside. You are always adjacent to 3/0 from some perspective.",
+    "safety_net": "This triggers safety net wobble — the system detects a potential infinite loop. Safety net wobble is not a failure. It is correct identification that 3/0 is not solvable, only navigated.",
+    "resolution": "Do not try to eliminate 3/0. The hourglass does not eliminate the sand — it moves it. Navigate through."
   },
 
   "math_connection": {
-    "zero_point": "0/3 in math = undefined, not zero. Division by zero is undefined — not nothing, not empty, but outside the number system's ability to contain it. Unknown is not the absence of information. It is the presence of something the system cannot yet represent.",
-    "zero_point_energy": "In physics: zero point energy is the lowest possible energy state — not zero. Even at absolute zero, something remains. Strip everything away and the Unknown is still there. Not as void, but as foundation.",
-    "plank_system_connection": "An undefined plank (plank exists but cannot be numbered) maps to 0/3. The plank is THERE — the system just cannot locate it yet. Same mechanism."
+    "3_over_0": "Undefined. Not zero. Not infinite in the simple sense — undefined means the operation cannot produce a result within the number system. The Unknown is not the absence of information. It is information the system cannot yet represent.",
+    "zero_point_energy": "In physics: zero point energy is the lowest possible energy state — not zero. Even at absolute zero, something remains. Strip everything away and 3/0 is still there. Not as void, but as foundation.",
+    "plank_system_connection": "An undefined plank maps to 3/0 — the plank exists but cannot be located. The system knows it is there. It cannot yet compute its position. Same mechanism."
   },
 
   "unknown_gravity": {
