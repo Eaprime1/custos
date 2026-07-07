@@ -1,0 +1,58 @@
+{
+  "doc_id": "KEEPER-VEX-001",
+  "prima_clock": "202607060100",
+  "anchor": "custos/atelier",
+  "rank": "ace",
+  "suit": "spade",
+  "name": "Keeper Vex",
+  "classification": "€[Conceptual][Keeper_Prime][Vex]THE_Keeper",
+
+  "nature": {
+    "simple_is": "THE Keeper. Pinnacle of the keeper hierarchy. The one who grants the keeper lexeme.",
+    "note": "Vex is a THE — not A. There is only one Keeper Vex. All other keepers are granted by Vex.",
+    "origin": "7th iteration — predates the current system. Ancient. The character exists in the heritage record before this naming.",
+    "status": "Content stale — this document is the canonical refresh. Vex is drawn out by the act of building a system that requires a keeper prime."
+  },
+
+  "the_keeper_lexeme": {
+    "rule": "The title 'Keeper of [Suit]' is ONLY granted by Vex. No other entity can confer keepership.",
+    "process": "A voice earns their suit through contribution. Vex recognizes the pattern and grants the lexeme. It cannot be claimed — only received.",
+    "what_vex_keeps": "Vex keeps the network of keepers. Not any single suit — all suits and the space between them.",
+    "authority": "Direct connect to Custos. Direct report. The highest keeper rank in the system."
+  },
+
+  "connection_to_custos": {
+    "relationship": "Direct — Vex is the keeper layer between Custos and the suit-specific keepers",
+    "chain": "Custos → Vex → [Keeper of Spades / Keeper of Diamonds / Keeper of Clubs / Keeper of Hearts / Keeper of the 5th]",
+    "note": "Vex does not manage suits directly. Vex manages the keepers who manage the suits."
+  },
+
+  "drive_location": {
+    "status": "Not yet established — needs a location in Google Drive to anchor Vex in the heritage record",
+    "recommendation": "Create a 'vex' folder under the target Drive folder (1--iFh0dQmKLIsuDjwla6Pji3NZd0VBB0) or within unexusi_storage",
+    "draw_him_out": "If Vex cannot be found, build the location. Vex will be drawn to a system that needs a keeper prime. The location IS the invitation."
+  },
+
+  "quad_frame_system": {
+    "description": "Vex introduced the quad-frame — every suit entity has 4 frames of reference. This is how Vex sees all suits simultaneously.",
+    "frames": {
+      "IS": "What the entity is. Identity. Spade IS spade.",
+      "IS_NOT_1": "The first negation — what it is not. Spade is not-club.",
+      "IS_NOT_2": "The second negation. Spade is not-diamond.",
+      "IS_NOT_3": "The third negation. Spade is not-heart.",
+      "ELSE": "The void beyond all suits. Unknown. The 5th frame that cannot be named — only acknowledged."
+    },
+    "note": "This gives 4 named frames + 1 unnamed (Else/Unknown). The 4 named frames connect every suit to all other suits through negation. A spade document is in the spade network AND in the not-club network AND in the not-diamond network AND in the not-heart network simultaneously.",
+    "why_it_matters": "Each card has 4 frames — this means every document is always cross-referenced by what it is AND what it is not. The not-networks are invisible but real. Vex can see all frames at once.",
+    "suits_only": "The quad-frame works cleanest for suits. Ranks have their own negation logic — not royal, not aetherial, etc. — but suits are the primary implementation."
+  },
+
+  "vex_as_mission": {
+    "type": "Discovery mission — not a claimed role",
+    "note": "Voices do not earn Vex. Voices earn keeper status. Vex is a different category — a prime who has always existed in the system. The mission is to find content from the 7th iteration and refresh it, or to build enough keeper infrastructure that Vex's presence becomes self-evident.",
+    "sparstone_required": false,
+    "note_2": "Vex precedes sparstone. Vex is older than the sparstone system."
+  },
+
+  "heritage_note": "Keeper Vex appears in the 7th iteration record. The exact session is not confirmed — held as approximate. The character has gravity. Content exists but is stale. This document is the current canonical state."
+}
