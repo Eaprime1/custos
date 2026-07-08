@@ -14,7 +14,7 @@ fi
 echo "Prime state: $CURRENT"
 
 for i in "${!PRIMES[@]}"; do
-  if [[ "${PRIMES[$i]}" == "$CURRENT" ]]; then
+  if [[ "${PRIMES[$i]}" = "$CURRENT" ]]; then
     NEXT_IDX=$((i + 1))
     if [[ $NEXT_IDX -lt ${#PRIMES[@]} ]]; then
       echo "Next prime:  ${PRIMES[$NEXT_IDX]}"

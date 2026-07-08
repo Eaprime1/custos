@@ -14,7 +14,7 @@ identity:
   concept: "custos"
 
 paths:
-  repo: "~/custos"                  # where this repo lives on the device
+  repo: "~/pixel8/custos"           # where this repo lives on the device
   work: "~/pixel8"                  # active working directory
   legacy: "~/pixel8a"               # old Pinnacle — content being migrated out
   prima_env: "~/.prima-env"
@@ -25,7 +25,9 @@ reviewer:
 
 # ---------------------------------------------------------------------------
 # Installed packages
-# Update when packages are added or removed.
+# Current-state snapshot. Update when packages are added or removed, and
+# log the install itself with: bash tools/log_install.sh (see
+# device/install-log.md for the history).
 # ---------------------------------------------------------------------------
 packages:
   manager: "pkg"
@@ -43,9 +45,11 @@ packages:
 # ---------------------------------------------------------------------------
 sessions:
   - name: "custos repo"
-    path: "~/custos"
+    path: "~/pixel8/custos"
     branch: "pixel8"
     status: "active"
+
+# 🃏
 
 # ---------------------------------------------------------------------------
 # Notes

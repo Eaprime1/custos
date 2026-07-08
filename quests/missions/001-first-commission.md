@@ -1,6 +1,6 @@
 ---
 id: missions/001-first-commission
-title: "First Commission"
+title: "First Commission 🃏"
 arc: missions
 sequence: 1
 xp: 100
@@ -31,7 +31,7 @@ Post a mission or bounty on GitHub Issues and receive a completed contribution.
 
 1. Browse `quests/missions/` to understand the mission arc structure.
 2. Identify something small that needs doing in the custos repo — a lore gap, a missing tool, an unfilled placeholder.
-3. Go to [GitHub Issues](../../issues/new/choose) and choose the **Mission** or **Bounty** template.
+3. Go to [GitHub Issues](https://github.com/eaprime1/custos/issues/new/choose) and choose the **Mission** or **Bounty** template.
 4. Fill in the objective, deliverables, and completion check. Be specific.
 5. Submit the issue. It is now open to the Field.
 6. Claim it yourself, or wait for a contributor.
@@ -40,8 +40,16 @@ Post a mission or bounty on GitHub Issues and receive a completed contribution.
 ## Completion Check
 
 ```bash
-# Verify at least one closed issue with 'mission' or 'bounty' label exists
-gh issue list --state closed --label "mission" --limit 1 | grep -q . || gh issue list --state closed --label "bounty" --limit 1 | grep -q .
+# Verify at least one closed issue with 'mission' or 'bounty' label exists,
+# via the GitHub API, falling back to gh only if curl finds nothing
+# Query GitHub API for closed issues with mission or bounty labels (with gh fallback)
+if command -v curl >/dev/null 2>&1 && curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=closed" | grep -q -E '"name": "mission"|"name": "bounty"'; then
+  echo "complete"
+elif command -v gh >/dev/null 2>&1 && { gh issue list --state closed --label "mission" --limit 1 | grep -q . || gh issue list --state closed --label "bounty" --limit 1 | grep -q .; }; then
+  echo "complete"
+else
+  exit 1
+fi
 ```
 
 ## Reward

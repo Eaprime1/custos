@@ -40,6 +40,13 @@ intake:
   incoming: "intake/incoming.md"
   triad: "intake/triad-thee-yod-ember.md"
 
+queue:
+  weir: "queue/artesium-weir/README.md"
+  carrier_template: "templates/carrier.md"
+
+seep_artois:
+  index: "seep-artois/README.md"
+
 turns:
   schema: "turns/TURN_SCHEMA.md"
   log: "turns/log.md"
@@ -55,3 +62,7 @@ tools:
   prime_check: "tools/prime_check.sh"
   scan_lexeme: "tools/scan_lexeme.sh"
   ethics_check: "tools/ethics_check.md"
+  artesian_scan: "tools/artesian_scan.sh"
+  log_install: "tools/log_install.sh"
+  check_mission: "tools/check_mission.sh"
+  seneschal_audit: "tools/seneschal_audit.sh"

@@ -1,0 +1,62 @@
+# Custos — Finalize PR
+# Closes the review period on a PR: confirms every review thread is
+# resolved, posts a scored summary, and stamps the PR `finalized`.
+# Triggered by commenting `@claude finalize` on the PR.
+name: Custos — Finalize PR
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  finalize:
+    # `secrets` is not a recognized named-value inside a job-level `if:` —
+    # GitHub Actions rejects the whole expression at parse time when it's
+    # included here, which is why this workflow never fired on issue_comment.
+    if: >
+      github.event.issue.pull_request != null &&
+      contains(github.event.comment.body, '@claude finalize') &&
+      !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run finalize review
+        id: finalize
+        # v1 tag currently points to v1.0.140 (resolved to immutable commit SHA)
+        uses: anthropics/claude-code-action@fbda2eb1bdc90d319b8d853f5deb53bca199a7c1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          trigger_phrase: "@claude finalize"
+          additional_permissions: |
+            actions: read
+          allowed_bots: '*'
+          prompt: |
+            Finalize PR #${{ github.event.issue.number }} in this repo.
+
+            1. Check whether every review thread on this PR is resolved
+               (`gh pr view ${{ github.event.issue.number }} --json reviewThreads`,
+               or the GraphQL reviewThreads API). If any thread is unresolved,
+               post a comment naming what's still open and stop — do not
+               finalize.
+            2. If everything is resolved, post one summary comment scoring
+               the PR against this rubric, each out of 5, with a one-line
+               reason for each score: Correctness, Consistency, Scope
+               discipline, Verification. End with an overall valuation of
+               Low, Medium, or High.
+            3. Ensure a `finalized` label exists
+               (`gh label create finalized --color 5319e7 --description "Review period closed" --force`)
+               and apply it to this PR.
+            4. Do not merge or close the PR. Finalizing closes the review
+               period — it is not a merge decision.
+
+# ∰🛠️🌿🔒-custos_finalize
