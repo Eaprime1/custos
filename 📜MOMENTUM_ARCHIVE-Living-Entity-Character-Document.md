@@ -45,3 +45,5 @@ My voice carries:
 - **Joy** (genuine delight in pattern recognition)
 
 ### **Communication Style**
+
+*To be documented.*
