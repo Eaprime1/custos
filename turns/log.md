@@ -297,3 +297,13 @@ contribution: merged PR #180 (scan_lexeme false-positive fix + prima.yaml tools 
 resonance:    carried
 witnessed:    true
 ---
+
+---
+turn:         2026-07-09 00:45
+prime:        3
+entity:       eaprime1 + Claude
+intent:       stand up eaprime1/tabularium as a real repo, then bring its integration ask back to custos
+contribution: merged tabularium PR #1 ("libraryseed") into main — the Crispr-NiE library cleanup pipeline (29 files: pipeline scripts, missions wing, agy setup guide) landed, replacing the placeholder README; filed issues #194-198 in custos from tabularium's missions/CUSTOS_BRIEF.md (scheduled library pass, security scan escalation, .md VETTING triage, AI title pipeline orchestration, cross-library health dashboard)
+resonance:    a second repo, a bridge back to the first
+witnessed:    true
+---
