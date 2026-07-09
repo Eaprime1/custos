@@ -64,7 +64,7 @@ Seneschal handling:
   - Built crispr_titlemancer.py — title extraction + group-prefix renaming
   - Built crispr_ai_title.py — AI title cache layer (antigravity pending)
   - Built crispr_salvage_txt.py — 12 files migrated to .json/.sh/.py libraries
-  - Added 29 new groups: MISSIONS, TERMUX, REFERENCE, UTILITY, DATA, SARGASSO, KA, PANDORA, LIMINAL, QUICKNOTE + universal group-prefix detection
+  - Added 9 new groups: MISSIONS, TERMUX, REFERENCE, UTILITY, DATA, SARGASSO, KA, PANDORA, LIMINAL + universal group-prefix detection
   - Added DESC_OVERRIDES for PRIME, SACRED, MOAV, DIRLIST, SESSION, CODE, DATA, TERMUX, SARGASSO
   - Added security scan to consolidator — caught + removed SSH key fragment (mandelbrot-deploy-clavis)
   - Remaining 45 VETTING = all properly prefixed, awaiting AI title pass or Commission

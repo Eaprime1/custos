@@ -74,7 +74,7 @@ The key insight: **make the groups list self-referential.**
 `detect_group()` now checks if any stem starts with `{group}_` before running pattern matching.
 When Titlemancer coins a new `missions_` or `reference_` prefix, the consolidator recognizes it automatically — no manual sync needed.
 
-Added 9 new groups in one pass: MISSIONS, TERMUX, REFERENCE, UTILITY, DATA, SARGASSO, KA, PANDORA, LIMINAL, QUICKNOTE.
+Added 9 new groups in one pass: MISSIONS, TERMUX, REFERENCE, UTILITY, DATA, SARGASSO, KA, PANDORA, LIMINAL.
 
 VETTING: **142 → 46**
 
