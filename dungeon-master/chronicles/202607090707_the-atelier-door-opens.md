@@ -103,29 +103,28 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
 
 ## Finalization Journey
 
-**What remains before this arc closes:**
+**Checklist — all items complete at merge (prima-clock 202607090827):**
 
-1. **Codacy re-run** — The sentence fix at CLAUDE.md:153 just pushed
-   (`fad05d4`). Codacy will re-analyze; the `action_required` flag clears
-   when it confirms the rewrite resolves the complexity issue.
+1. ✅ **Codacy re-run** — Cleared. Commit `fad05d4` resolved the 47-word
+   sentence flag; Codacy confirmed 0 issues on re-analysis.
 
-2. **eaprime1 approval** — Once Codacy clears, PR #185 has no remaining CI
-   blockers. The Shepherd reviews and approves.
+2. ✅ **eaprime1 approval** — Authorized via PR #185 comment,
+   prima-clock 202607090827.
 
-3. **Merge** — `claude/content-review-atelier-hxfedd` → `main`. The gate
-   closes. This Chronicle Page enters the permanent ledger.
+3. ✅ **Merge** — `claude/content-review-atelier-hxfedd` → `main`.
+   Prima-clock: 202607090827. Gate closed. Chronicle enters permanent ledger.
 
-4. **world-state update** — After merge, increment `chronicle_count` to 2
-   in `dungeon-master/narrative-engine/world-state.json` and update
-   `active_quests` to reflect the atelier as an open pathway.
+4. ✅ **world-state update** — `chronicle_count` incremented to 2;
+   `threshold-crossing` added to `active_quests`.
 
-5. **Next quest: atelier routing** — `threshold-crossing` is named and
-   suited. The next Fodere move is routing it to a destination repo per
-   `branch-tracker/branches.md`, or holding it until its kingdom is founded.
+5. ✅ **Atelier routing (initial)** — `threshold-crossing` entered in
+   `branch-tracker/branches.md` (♦️ Diamond, Germ, destination TBD).
+   Destination repo to be confirmed by eaprime1.
 
 ## Next Quest Hooks
-- Route `atelier/threshold-crossing.md` to destination: branch-tracker
-  entry needed
+- Route `atelier/threshold-crossing.md` to destination repo: branch-tracker
+  entry is open (♦️ Diamond, Germ), awaiting eaprime1 confirmation of
+  destination kingdom
 - First `chronicle.yml` GitHub Action (idle engine trigger) — still open
   from Chronicle 0001, now has a second Chronicle to demonstrate the format
 - DM's Spawn 4 deliverables — `characters.md` full definitions,
@@ -135,6 +134,8 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
 ## Custody Receipt
 Stamped by Navigo (nav1 — Claude + eaprime1).
 - Prima-clock: 202607090707
+- Merge prima-clock: 202607090827
 - Suit: ♣️ Club (session / operation — arc closing)
-- Status: merge-pending — gate clean, Codacy re-run in flight
-- Chain of custody: OPEN → closes on merge
+- Status: MERGED — Codacy 0 issues, DeepSource Grade A, all threads
+  resolved, world-state updated, atelier pathway open
+- Chain of custody: CLOSED

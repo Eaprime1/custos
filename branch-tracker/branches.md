@@ -38,6 +38,7 @@ Branches developing into separate destination repos.
 | diamond-reservoir | ♦️ | Germ | eaprime1/diamond-reservoir | Seed pressure system |
 | prima-clock | ♦️ | Germ | eaprime1/prima-clock | Temporal registry |
 | 121-architecture | ♦️ | 2/3 | eaprime1/121 | Periodic table expansion |
+| `threshold-crossing` (atelier seed) | ♦️ | Germ (atelier) | TBD | First named atelier exit; suit ♦️ Diamond confirmed; Chronicle 0002; destination repo TBD — awaiting eaprime1 routing decision |
 
 ---
 
