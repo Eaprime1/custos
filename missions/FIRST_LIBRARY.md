@@ -138,7 +138,9 @@ The SSH key wasn't found by accident. It was caught because the scan is baked in
 | `.py`   | 132   | 42     | ✅ Certified |
 | `.txt`  | 210   | 30     | ✅ Certified |
 | `.md`   | 2,603 | 23     | 🔄 In Progress (2,228 in VETTING) |
-| `.sh`   | —     | —      | 📋 Pending |
+| `.sh`   | 70    | —      | 🔄 Consolidate done — see `missions/INDEX.md` for current status |
+
+*Save-point note: this table reflects the state on 2026-07-07, the day the `.txt` library certified. `missions/INDEX.md` is the authoritative live status for every library, including `.sh`.*
 
 ---
 
