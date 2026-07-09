@@ -36,7 +36,7 @@
     "destination_custody": {
       "project_name": "Primoris (Momentum Archive - title fluid)",
       "arrival_purpose": "NUTRA_delivery_to_First_Tree",
-      "integration_protocol": "see_INTEGRATION_PROTOCOL.md",
+      "integration_protocol": "see_📦INTEGRATION_PROTOCOL.md",
       "custody_transition": "maintained_throughout_migration"
     },
     "custody_principles": [
