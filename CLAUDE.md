@@ -43,7 +43,7 @@ bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, 
 ```
 
 **Claude Code on Termux (Android):**
-Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
+Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI, its Application Binary Interface). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
 
 Workarounds:
 - **Use the web session** — claude.ai/code connects to the repo remotely; this is the primary path for device-side AI work
@@ -89,13 +89,13 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 
 **`branch-tracker/branches.md`** — Active development map: each branch has a suit, status, and destination repo.
 
-**`prima-clock/registry.md`** — Formal custody log. Every significant event gets a prima-clock stamp (`YYYYMMDDHHMM`). Always include the current prima-clock value when creating MOAV carriers or vault entries.
+**`prima-clock/registry.md`** — Formal custody log. Significant events are expected to get a prima-clock stamp (`YYYYMMDDHHMM`). Include the current prima-clock value when creating MOAV carriers or vault entries.
 
-**`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier must include its prima-clock stamp and a `chain_of_custody` field.
+**`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier is expected to include its prima-clock stamp and a `chain_of_custody` field, barring a documented exception.
 
-**`vault/`** — Origin molds. Documents placed here have passed formal custody. Never directly edited — active work happens on Carbonite instances. `vault/spade-of-aces/` holds ♠️ pinnacle documents only.
+**`vault/`** — Origin molds. Documents placed here have passed formal custody. Not directly edited outside a formal custody review — active work happens on Carbonite instances. `vault/spade-of-aces/` holds ♠️ pinnacle documents only.
 
-**`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When a concept is ready, custos routes it to the appropriate branch or repo.
+**`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When the Shepherd judges a concept ready, custos routes it to the appropriate branch or repo.
 
 **`returns/`** — External agent stream returns. Each stream directory receives findings from the assigned AI model:
 - `stream-1-language/` — Gemini: Language/Fodere/Agnoscere
@@ -138,7 +138,7 @@ Session memory. Append only. One entry per meaningful session. Schema in `turns/
 
 **prima-clock stamps:** Use `date '+%Y%m%d%H%M'` to generate. Include in MOAV carriers and prima-clock/registry.md entries.
 
-**MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Always include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody`.
+**MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody` unless a documented exception applies.
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
