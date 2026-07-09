@@ -81,7 +81,8 @@ Tracks live device state. Not on `main`.
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
 - `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
-- Labels: `mission`, `bounty`, `open` on GitHub Issues
+- `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
+- Labels: `mission`, `bounty`, `upgrade`, `open` on GitHub Issues
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
@@ -139,6 +140,22 @@ Session memory. Append only. One entry per meaningful session. Schema in `turns/
 **prima-clock stamps:** Use `date '+%Y%m%d%H%M'` to generate. Include in MOAV carriers and prima-clock/registry.md entries.
 
 **MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Always include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody`.
+
+**Navigo model — AI+eaprime1 teams:**
+Each navigo is a paired team of one AI model and eaprime1. They are internal contributors with the same accountability as external contributors; the Shepherd can redirect any navigo.
+
+| Navigo | Team | Workspace |
+|--------|------|-----------|
+| nav1 | Claude + eaprime1 | `.claude/` |
+| nav3 | Gemini + eaprime1 | `.gemini/` |
+| nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
+
+Each navigo workspace folder holds three types of content:
+- Source documents returned from that AI's sessions, before formal custody
+- A queue of what to pick up next session
+- Stream-return materials pending filing
+
+Raw exports land in the workspace first, get renamed `.md` once reviewed, then file to `returns/`, `incoming/pre-nullus/`, or `atelier/`.
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
