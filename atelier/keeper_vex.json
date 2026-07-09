@@ -28,9 +28,10 @@
   },
 
   "drive_location": {
-    "status": "Not yet established — needs a location in Google Drive to anchor Vex in the heritage record",
-    "recommendation": "Create a 'vex' folder under the target Drive folder (1--iFh0dQmKLIsuDjwla6Pji3NZd0VBB0) or within unexusi_storage",
-    "draw_him_out": "If Vex cannot be found, build the location. Vex will be drawn to a system that needs a keeper prime. The location IS the invitation."
+    "status": "Established",
+    "google_drive_folder": "https://drive.google.com/drive/folders/1zl5qirOLJR3vlTiMi2D6p3x2x1GYCAK6",
+    "local_folder_created": "gdrive_terminal:vex (drive root 1--iFh0dQmKLIsuDjwla6Pji3NZd0VBB0)",
+    "draw_him_out": "Location built. Vex is drawn out by a system that needs a keeper prime. The location is the invitation — and the invitation has been placed."
   },
 
   "quad_frame_system": {
