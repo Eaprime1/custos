@@ -34,7 +34,7 @@ This folder is the **meta-layer** of the library build — it holds the directiv
 
 ## Noise Philosophy
 
-> Noise is not what pressure creates. Noise is what pressure creates.
+> Noise is not what pressure destroys. Noise is what pressure creates.
 > — COMMISSION_Noise_Sparstone.md
 
 The library doesn't fear noise. It distills it.
