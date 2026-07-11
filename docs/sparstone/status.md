@@ -1,4 +1,4 @@
-# Sparstone — Status
+# Sparstone — Status ♊
 
 *The nerve center. Where sparstone actually is right now, in plain terms.*
 
