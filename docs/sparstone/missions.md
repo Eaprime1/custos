@@ -9,8 +9,11 @@ The only sparstone ever awarded was **not** issued against a pre-written
 mission template. It was recognized after the fact, from an unprompted
 contribution:
 
-1. `dannyward630` and `Ojas2095` opened PR #38 against Bounty Issue #35
-   (J-21 symbol + Lumenar lexeme) — arriving unprompted, landing clean.
+1. `dannyward630` authored PR #38 (all three commits) against Bounty Issue
+   #35 (J-21 symbol + Lumenar lexeme); `Ojas2095` claimed the issue. Both
+   arrived unprompted, landing clean. Per the intake ticket itself, joint
+   credit against the award is held "until or unless one of you says
+   otherwise" — the provenance is deliberately not fully resolved.
 2. Custos recognized the pattern (fast, unprompted, no slow crystallization —
    the obsidian resonance) and issued a claim ticket
    (`CUSTOS-CLAIM-202606290000-OBSIDIAN`, 150 xp) via
@@ -49,11 +52,11 @@ mission shape (the deliverable is infrastructure other missions will later
 run on), and it is explicitly germ-stage.
 
 ### Narrative/resonance mission
-Suggested by the outside gap-analysis of this material (see `story/` for the
-source): a "NotebookLM resonance mission" — reviewing or extending Radix
-content for coherence with the Custos glossary. Not present in the original
-session handoff; flagged here as an idea under consideration, not a
-confirmed direction.
+Suggested by an outside gap-analysis document that is *not* filed under
+`story/` (see `story/README.md` → "Not filed here" for why): a "NotebookLM
+resonance mission" — reviewing or extending Radix content for coherence with
+the Custos glossary. Not present in the original session handoff; flagged
+here as an idea under consideration, not a confirmed direction.
 
 ## What's missing before any of these can run for real
 
@@ -61,8 +64,9 @@ confirmed direction.
    type — none exist yet, per `status.md`.
 2. The manual-share-grant workflow behind the marble (what actually happens
    when a mission is completed and a marble is presented).
-3. A second confirmed contributor to pilot a mission against — obsidian's
-   precedent was retroactive recognition, not a mission someone opted into.
+3. A willing pilot from the two already-confirmed contributors — obsidian's
+   precedent was retroactive recognition, not a mission either of them opted
+   into. The gap is a mission to run, not a new contributor to find.
 
 ## Related pages
 

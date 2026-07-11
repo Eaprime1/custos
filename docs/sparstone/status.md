@@ -3,9 +3,8 @@
 *The nerve center. Where sparstone actually is right now, in plain terms.*
 
 Hand-maintained for now. Upgrade path: a script that regenerates this table from
-`branch-tracker/branches.md`, `moav/custos_moav_sparstone_handoff.json`, and
-`incoming/pre-nullus/*sparstone*.json` directly, so this file can never drift from
-the source JSON.
+`moav/custos_moav_sparstone_handoff.json` and `incoming/pre-nullus/*sparstone*.json`
+directly, so this file can never drift from the source JSON.
 
 ---
 
@@ -34,7 +33,11 @@ Per the germ intake hold-note: **do not pre-define the full taxonomy.** Opal and
 quartz stay unassigned until their own first-contact events earn them. New types
 are earned, not invented ahead of time.
 
-## Branch-tracker planks (as of 202607051456)
+## Handoff planks (as of 202607051456)
+
+*These come from the `branch_tracker` array inside the moav handoff JSON, not
+from `branch-tracker/branches.md` — that file (last updated 202605310000) does
+not yet carry these branch names. Reconciling the two is itself an open item.*
 
 | Branch | Plank | Suit | Note |
 |---|---|---|---|
@@ -46,7 +49,7 @@ are earned, not invented ahead of time.
 | `donation_links_in_content` | germ | ♦️ | Selective (not blanket) inclusion of donation links in created content. Scope of "selective" not yet defined. |
 | `idle_game_as_mission` | 1/3 | ♦️ | Building the idle-game *is* a mission, not something pre-built. |
 | `pr_reviewer_tiering` | 2/3 | ♣️ | Reviewer pipeline proposed; workflow YAML not yet reviewed for real cost. |
-| `domos_folders` | 2/3 | ♣️ | Per-contributor Drive folders created; location held until ready to reveal. |
+| `domos_folders` | 2/3 | ♣️ | Decision made to create per-contributor Drive folders; per the handoff's own `next_actions`, they have not actually been created yet. Location will be held until ready to reveal. |
 | `nullis_sparklization_order` | germ | ♦️ | Deliberately unresolved — do not invent the sequence. |
 
 ## Open decisions blocking advancement
@@ -54,15 +57,15 @@ are earned, not invented ahead of time.
 1. Concrete manual-share-grant workflow behind the marble.
 2. Findability policy for the path to Custos (soft filter vs. gated).
 3. Confirm Radix's role relative to Navigo.
-4. First sparstone-earning mission for a *second* contributor (only obsidian has ever been awarded).
+4. A defined, pilotable sparstone-earning mission — the two confirmed contributors (`dannyward630`, `Ojas2095`) already hold obsidian; the gap is a mission to pilot, not a new contributor to find.
 
 ## What this status file is not
 
 It is not the Primal Weaver Dashboard (lunar-phase writing constraints, O-E-G
 tracker, BBS terminal UI) sketched in the navigo3 session material. That's a real
-idea with a real design sketch — see `story.md` — but it's a later upgrade, not
+idea with a real design sketch — see `story/navigo3-primal-weaver-dashboard.md` — but it's a later upgrade, not
 the nerve center itself. This file is the simple version: it works without being built.
 
 ---
-*Last synced by hand: 202607111550. Source: `branch-tracker/branches.md`,
-`moav/custos_moav_sparstone_handoff.json`, `incoming/pre-nullus/202606290000_obsidian-sparstone-germ-intake.json`.*
+*Last synced by hand: 202607111550. Source: `moav/custos_moav_sparstone_handoff.json`,
+`incoming/pre-nullus/202606290000_obsidian-sparstone-germ-intake.json`.*

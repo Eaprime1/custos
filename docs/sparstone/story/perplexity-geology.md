@@ -25,4 +25,15 @@ Linguists often resist calling **sparstone** a native general word for "crystal"
 
 Linguists say: "This word did exist, but it mostly meant specific mineral stuff, not all crystals." Hobbyists say: "It's a cool old-looking word, so let's use it more broadly for crystal." Both views make sense, but they are solving different problems. [en.wikipedia]
 
-*(Original Perplexity response offered a follow-up: a compact timeline of how* spar*,* sparstone*, and* crystal *diverged in English. Not yet requested/produced — flagged here in case a future session wants to pull that thread.)*
+*(Original Perplexity response offered a follow-up: a compact timeline of how *spar*, *sparstone*, and *crystal* diverged in English. Not yet requested/produced — flagged here in case a future session wants to pull that thread.)*
+
+---
+
+*Editorial flag (added 202607111600, not part of the original response): a PR
+review raised that this response's opening may conflate two distinct terms —
+"sparstone" and "sparite." Mindat's usage reserves "sparite" specifically for
+coarse crystalline calcite cement in limestone; historical "sparstone" is
+tied more broadly to spar-family minerals (gypsum, chalk) rather than that
+specific carbonate texture. That correction has not been independently
+verified here — flagging it rather than silently editing the verbatim
+response above, per this directory's filing policy.*

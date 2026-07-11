@@ -25,7 +25,7 @@ their voices into each other.
 | `navigo3-weaving-lexicon.md` | Project Weaving & Sparstone Lexicon (navigo-authored synthesis) | Three-lens linguistic refinement, the lunar-alignment mission dashboard, and the marble mechanism workflow sketch. |
 | `navigo3-primal-weaver-dashboard.md` | Primal Weaver Dashboard sketch | A BBS-terminal-style UI concept for a writing-constraint tool keyed to lunar phase and the Organism-Environment-Generativity matrix. |
 
-All four arrived together in one pasted document on 202607110322–202607111550
+All four arrived together in one pasted document on 202607100322–202607111550
 and were filed to this directory on 202607110639. Later saved versions of
 Sparstone.md (the ones still being gathered) get their own new dated files
 here — never edits to the files above.

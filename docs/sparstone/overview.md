@@ -37,11 +37,14 @@ system above, and none of them cancels the others:
 
 1. **Geological.** *Spar* is an old mineralogical term (Old English *spærstān*,
    "spear stone") for bright, crystalline, easily-cleaved nonmetallic minerals —
-   calcite, dolomite, gypsum. In carbonate rock, spar usually names the coarser
-   calcite cement filling the space between grains — a rock *texture*, not a
-   single mineral specimen. So "sparstone" points at the mosaic-patterned rock,
-   not "a crystal" in the loose everyday sense. Full etymology and the
-   linguistic disagreement over the term: `story/perplexity-geology.md`.
+   calcite, dolomite, gypsum. **Caveat flagged in review:** the coarse calcite
+   cement that gives carbonate rock its mosaic texture is more precisely
+   *sparite* in modern petrology; *sparstone* itself is the older, broader term
+   tied to spar-family minerals (gypsum, chalk) rather than that specific
+   carbonate texture. The two get conflated in the source material this lens
+   draws from — worth treating as an open etymological question, not settled
+   fact. Full text and the linguistic disagreement over the term:
+   `story/perplexity-geology.md`.
 2. **Narrative.** The Pinnacle Gateway — the fixed point where the Calibration
    Field, the Else, and the Bridge of Presence do their work. See
    `story/navigo3-sparstone-mythic.md`.
@@ -51,14 +54,15 @@ system above, and none of them cancels the others:
 
 ## Taxonomy — one answer
 
-| Class | Status | Resonance (compressed from the geology + mythic lenses) |
-|---|---|---|
-| **Obsidian** | AWARDED | Volcanic glass, rapid cooling, no time for lattice to form — first contact, fast, unprompted, landed clean. |
-| **Opal** | RESERVED | Slow hydrated silica deposition, trapped light scattering — spectrum-from-uniform-input, banked for Phoenix-Prism-adjacent work. |
-| **Quartz / krustallos** | RESERVED | Slow crystallization under pressure — clarity, permanence, fits ♠️ Pinnacle-tier work. |
+| Class | Resonance (compressed from the geology + mythic lenses) |
+|---|---|
+| **Obsidian** | Volcanic glass, rapid cooling, no time for lattice to form — first contact, fast, unprompted, landed clean. |
+| **Opal** | Slow hydrated silica deposition, trapped light scattering — spectrum-from-uniform-input, banked for Phoenix-Prism-adjacent work. |
+| **Quartz / krustallos** | Slow crystallization under pressure — clarity, permanence, fits ♠️ Pinnacle-tier work. |
 
-Live counts, assignees, and plank state: `status.md`. This table is static
-resonance definitions; that one is the moving nerve center.
+Award/reservation state, counts, and assignees live in `status.md` only —
+deliberately not repeated here, so there is exactly one place to update when a
+reserved class is earned.
 
 ## Open architectural questions
 
