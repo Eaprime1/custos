@@ -42,6 +42,8 @@ are earned, not invented ahead of time.
 | `spectrum_marble_mechanism` | 1/3 | ♦️ | Manual-share-grant workflow behind the marble not yet designed concretely. |
 | `radix_role` | 1/3 | ♦️ | Radix as NotebookLM-specific pinnacle — not yet confirmed by Eric. |
 | `path_vs_access_reframe` | 2/3 | ♦️ | Open decision: is findability-by-the-curious a feature, or should the path itself be gated? |
+| `bounty_scraper_leverage` | germ | ♦️ | Explored whether automated bounty-scraping accounts could be leveraged without financial cost. Undeveloped. |
+| `donation_links_in_content` | germ | ♦️ | Selective (not blanket) inclusion of donation links in created content. Scope of "selective" not yet defined. |
 | `idle_game_as_mission` | 1/3 | ♦️ | Building the idle-game *is* a mission, not something pre-built. |
 | `pr_reviewer_tiering` | 2/3 | ♣️ | Reviewer pipeline proposed; workflow YAML not yet reviewed for real cost. |
 | `domos_folders` | 2/3 | ♣️ | Per-contributor Drive folders created; location held until ready to reveal. |
