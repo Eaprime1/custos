@@ -16,7 +16,7 @@
     },
     "to": {
       "repo": "eaprime1/tabularium",
-      "commit": "5ceafd8",
+      "commit": "5ceafd82720e1bf595d40b9f06ca67b2076def79",
       "path": "incoming/concept-grain.pdf",
       "carrier": "incoming/concept-grain.carrier.json"
     },
