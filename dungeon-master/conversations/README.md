@@ -15,4 +15,4 @@ conversation produced: the thread, the motion, the seeds, and where they went.
 
 | File | Title | Entities | Suit | Prima-clock | Status |
 |------|-------|----------|------|-------------|--------|
-| (none yet — first arc pending) | — | — | — | — | — |
+| [202607090827_closing-arc-opening-method.md](202607090827_closing-arc-opening-method.md) | Closing the Arc, Opening the Method | eaprime1 + Claude (nav1) | ♦️ | 202607090827 | OPEN-routing-pending |
