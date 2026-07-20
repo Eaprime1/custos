@@ -107,5 +107,5 @@ pattern-tracing-to-origin tooling gets built from this fragment until:
 ---
 
 *atelier draft — nursery seed only. Terms named, tension named, nothing
-operational built.*
+operational built. ♊*
 *origin: intake/incoming.md fragment, received 2026-07-20*
