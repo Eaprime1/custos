@@ -47,7 +47,7 @@ Post a mission or bounty on GitHub Issues and receive a completed contribution.
 # Query GitHub API for closed issues with mission or bounty labels (with gh fallback)
 if curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=closed" | grep -q -E '"name": "mission"|"name": "bounty"'; then
   echo "complete"
-elif command -v gh >/dev/null 2>&1 && { gh issue list --state closed --label "mission" --limit 1 | grep -q . || gh issue list --state closed --label "bounty" --limit 1 | grep -q .; }; then
+elif command -v gh >/dev/null 2>&1 && { gh issue list --state closed --label "mission" --limit 1 2>/dev/null | grep -q . || gh issue list --state closed --label "bounty" --limit 1 2>/dev/null | grep -q .; }; then
   echo "complete"
 else
   exit 1
