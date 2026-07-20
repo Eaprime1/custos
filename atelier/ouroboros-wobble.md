@@ -2,6 +2,8 @@
 
 *nursery entry, filed 202606200005 — nothing here is finished*
 
+(A second, unrelated concept — lexeme/semantic drift in collaborative editing — was filed under this same name and timestamp by a parallel branch. It now lives at [`atelier/lexeme-drift.md`](./lexeme-drift.md).)
+
 ## The Idea
 
 A loop that doesn't quite close. The ouroboros eats itself — a perfect

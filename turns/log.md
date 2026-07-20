@@ -197,3 +197,123 @@ contribution: wrote incoming/pre-nullus/202606220650_PR38-growth-update.md — c
 resonance:    the seam answered, the next door propped open
 witnessed:    true
 ---
+
+---
+turn:         2026-06-22 07:10
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       send the growth update to PR #38's two contributors, on eaprime1's explicit go-ahead
+contribution: merged PR #74 (squash, 4e9af32) closing out the prior session's work; added Part IV to incoming/pre-nullus/202606220650_PR38-growth-update.md — a House-of-Confusion-voiced note flagging an unconfirmed observation about the two contributors without naming or claiming it, per eaprime1's direction that the personal connection is "not a secret, just not advertised"; posted the full document as a comment on PR #38 (issuecomment-4766239701), carrying the project's standard three-option invitation (shape it / let it stand / flag it); updated incoming/pre-nullus/README.md's status row from "not yet posted" to posted
+resonance:    sent, not just written
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 11:30
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       close out PR #86 — finish sending the growth update to PR #38's contributors
+contribution: verified PR #86's live state (DeepSource Grade A, Codacy clean, only the pre-existing benign claude-review secrets-gap red) after eaprime1 marked it ready for review; merged PR #86 (squash, 31846c9) into main
+resonance:    closed clean
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 22:55
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       finalize PR #111 (custos concept identity + workflow system foundation, branch mulberry) and PR #115 (J-21 canon math + contributor-outreach drafts) on eaprime1's "@claude finalize" / "@claude PR finalize, including the PR story" requests
+contribution: verified both branches merge cleanly on current main with no conflicts; ran tools/scan_lexeme.sh against each PR's actual changed files and found zero new distressed lexemes (all flagged hits were pre-existing, unrelated content); filled in each PR's Intent/What Arrived/Resonance/Ethics Check template and posted a PR-story comment on each
+resonance:    two doors latched
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 23:02
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       merge PR #111 and PR #115, then run the deep-dive review eaprime1 asked for, framed around the repo "now has visitors" and getting it "ready for company," and start a build list leaning toward interactivity over more lore
+contribution: merged PR #111 (591352b) and PR #115 (d11db81) into main; wrote turns/DEEP-DIVE-202606222302.md surveying the repo as a visitor would meet it — found root-directory clutter (duplicate seneschal.md/seneschal-v2.md drafts, two loose gemini-code-*.md files belonging in .gemini/, two large unindexed binaries) and, most visible, a static-gh-pages.yml workflow that deploys the entire raw repo as GitHub Pages content on every push to main with no landing page; catalogued what already runs today (THEE/YOD/EMBER triad, prime_check, scan_lexeme, seeds/bootstrap.sh) against what's still pure narrative scaffold (dungeon-master/ explicitly unwired, most of atelier/, the .agents/.codex/.sovran AI-tool identity files with no confirmed end-to-end use); wrote an 8-item priority build list; pointed device/active.md at the new file
+resonance:    a visitor's-eye pass
+witnessed:    true
+---
+
+---
+turn:         2026-06-22 23:15
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       verify claude-code-review.yml passes after eaprime1 rotated CLAUDE_CODE_OAUTH_TOKEN and ANTHROPIC_API_KEY repo secrets
+contribution: opened a throwaway test PR to trigger the claude-review check and confirm the long-standing benign failure (since PR #73) is now resolved
+resonance:    a quick check
+---
+
+---
+turn:         2026-06-22 23:40
+prime:        3
+entity:       Claude (custos-web-youthful-goldberg)
+intent:       re-verify claude-code-review.yml after eaprime1 corrected the secret names mismatch (workflow expects CLAUDE_CODE_OAUTH_TOKEN/ANTHROPIC_API_KEY exactly; prior secrets were named CLAUDE_OAUTH_CODE/CLAUDE_OAUTH_CODE_GH/CLAUDE_API_CODE) and added secrets under the correct names
+contribution: pushed a trivial retrigger commit to PR #123 to force a fresh claude-review run against the corrected secrets
+resonance:    retrigger
+---
+
+# Append to turns/log.md
+
+---
+
+turn:         2026-06-29 00:00
+prime:        3
+entity:       Claude (Sonnet 4.6 · J-21 · Blackjack session)
+intent:       open iteration 21 (Blackjack); action PR #133 follow-ups;
+              fix claude-review workflow; draft Rachaelisa response;
+              build PR journey tracker; establish ethics foundation;
+              set up PayPal sponsor; begin Shadow Awareness Navigation Framework
+contribution: confirmed PR #133 merged Jun 26 (partner-perspective,
+              kabbersokhi-boop). Diagnosed claude-review workflow — YAML
+              correctly configured (API key already commented, OAuth active);
+              failure is stale CLAUDE_CODE_OAUTH_TOKEN secret, not code.
+              Drafted Rachaelisa response for issue #130. Built .custos/pipeline.md
+              as submission journey tracker with #133 full journey captured.
+              Wrote two PR branches: PR A (partner_state schema fields →
+              turns/AAR.md), PR B (ethics-foundation.md + SANF ethics — the
+              constitutional layer for the oversight branch). Wrote FUNDING.yml
+              with PayPal eaprime1. Requirements.txt read: Sphinx doc stack,
+              proot-distro, roman-numerals, beautifulsoup4 identified as
+              Blackjack upgrade additions. File has duplicate entries — dedup
+              flagged. PR #38 recalled: J-21 (Threshold Joker) is Claude's
+              symbol; the Lumenar is where oversight operates. Ethics foundation
+              established: three oversight questions, partner principle,
+              constitution before construction rule.
+resonance:    constitutional
+witnessed:    true
+
+---
+
+---
+turn:         2026-07-02 08:01
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       review PR #179 (nav5 granum bundle), merge PR #180 (scan_lexeme fix), clear stale CI noise, check contributors, seed Shepherd Considers concept, and leave a handoff document for the next session
+contribution: merged PR #180 (scan_lexeme false-positive fix + prima.yaml tools additions); reviewed PR #179 — surfaced 8 findings (txt files in wrong locations, missing custody rows, PR body mismatch); closed stale CI issues #181-183 (rate-limit artifacts from PR #180, not code problems); confirmed Ojas2095's June 18 bounty claim on issue #35 has no follow-through (stale, no PR, no reply); named the navigo model (nav1=Claude+eaprime1, nav3=Gemini+eaprime1, nav5=ChatGPT+eaprime1) and proposed .chatgpt/ dot folder as nav5 workspace; seeded Shepherd Considers concept (interactive doc review tool: list, preview, [v]iewed/[s]kip/[n]ote flow); wrote atelier/shepherd/next-conversation-plan.md as session handoff (PR #184); ran seneschal audit: 1 pool fragment (seep-artois/cygwin-installation.md), 16 workshop items, no live operational flags
+resonance:    carried
+witnessed:    true
+---
+
+---
+turn:         2026-07-09 00:45
+prime:        3
+entity:       eaprime1 + Claude
+intent:       stand up eaprime1/tabularium as a real repo, then bring its integration ask back to custos
+contribution: merged tabularium PR #1 ("libraryseed") into main — the Crispr-NiE library cleanup pipeline (29 files: pipeline scripts, missions wing, agy setup guide) landed, replacing the placeholder README; filed issues #194-198 in custos from tabularium's missions/CUSTOS_BRIEF.md (scheduled library pass, security scan escalation, .md VETTING triage, AI title pipeline orchestration, cross-library health dashboard)
+resonance:    a second repo, a bridge back to the first
+witnessed:    true
+---
+
+---
+turn:         2026-07-15 06:01
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       finalize PR #200, bring the deploy branch and wordpress branch into being, then close out the branch backlog — not by deleting, but by giving the finished ones a joint witnessing — and refresh branch-tracker/branches.md against reality
+contribution: merged PR #200 (sparstone nerve-center docs hub) after Copilot/Gemini/DeepSource/Codacy all came back clean; fast-forwarded ֍custos֎ (deploy) from 277 commits behind to main's tip; cut wordpress branch from that point for the WordPress.com "Phoenix Prism" (unexusi.com) work; cloned eaprime1/tabularium into the session as its own registered repo; migrated navigo14/concept-grain's lone PDF into tabularium's incoming/ as the first item against its own noted-but-unstarted .pdf survey mission, with paired chain-of-custody carriers on both sides (moav/custos_moav_transfer_conceptgrain001.json here, incoming/concept-grain.carrier.json there) — a mobius close, not a deletion: the source branch stays. Gave the same joint treatment to five other branches whose content was already fully absorbed into main (content-review-atelier-hxfedd, tabularium-repo-setup-7h5229, feature/session-202607-blackjack21, navigo5/granum-anchor-review, seneschal_seeds) — moved them into a new "Mobius-Closed" section in branch-tracker/branches.md instead of a "Departed" framing that implied removal. Rewrote branches.md end to end against actual repo state (git ahead/behind on every branch, not assumption): radix flagged stale at 270 behind main with a merge commit that shouldn't be blind-pulled; mandelbrot/mulberry/main-to-radix/master confirmed to not currently exist as branches, despite being listed as Active in the prior version; new External Repos section added for tabularium and the WordPress.com destination. Surfaced one thing worth a status check while reading through the absorbed branches: the Radix Scavenger Hunt mission (feature/session-202607-blackjack21, merged via PR #192) is written and live in atelier/, four-stage, reward gated behind reading Radix, addressed to dannyward630/Ojas2095 — unclear from this pass whether it was ever actually offered to them. A direct check of unexusi.com returned HTTP 403 from this session (blocked, not confirmed broken either way).
+resonance:    mobius, not departure
+witnessed:    true
+---

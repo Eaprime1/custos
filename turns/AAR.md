@@ -19,6 +19,21 @@ seeds:        [ideas to carry into future turns — process, tooling, docs]
 ---
 ```
 
+
+## Partner State (optional)
+
+When a turn involved real back-and-forth — friction surfaced, a charge
+carried, a stance handed forward — record it alongside the AAR entry.
+
+```yaml
+partner_state:
+  charge_received:  ""   # what the collaborator understood the Shepherd to be asking for
+  friction_named:   ""   # strongest ambiguity, limit, or constraint encountered
+  next_stance:      ""   # continue / challenge / verify / wait / route-elsewhere
+```
+
+Use this when the fields earn their place. Leave it out when they do not.
+
 ## When to Write One
 
 - At the same boundary as a `turns/log.md` entry, when the session itself
@@ -91,4 +106,89 @@ seeds:        - When opening turns/CULTIVATION.md in a new conversation,
                 turns/CULTIVATION.md), a natural first job for it: append a
                 stub line to device/active.md noting "PR #N merged" so this
                 kind of manual bookkeeping happens automatically. 🃏
+---
+
+---
+turn_ref:     2026-06-23 01:35
+prime:        3
+worked:       Reading a failing job log in full (not just the status) was the
+              only way to learn that claude-code-action prefers api_key over
+              oauth_token when both are configured — the error message alone
+              ("Credit balance is too low") gave no hint that two auth paths
+              existed or which one was active. Checking atelier/ before
+              writing new reflective content paid off immediately: two seeds
+              filed months ago (ouroboros-wobble.md, concordance.md) already
+              named the exact phenomena eaprime1 was describing from lived
+              experience, just without the concrete cases yet attached.
+friction:     send_later (referenced in this session's own system instructions
+              as a way to self-schedule PR check-ins) is not an actually
+              connected tool in this environment — ToolSearch found nothing
+              by that name. Had to tell eaprime1 plainly that it can't be
+              built from inside this repo; it would need to be a harness/
+              platform feature, not something custos's own tooling can
+              manufacture. Also: the specific drifted lexeme(s) from the
+              "polish and proceed" pattern live only in eaprime1's memory of
+              old conversation transcripts, not in this repo — couldn't be
+              named without him, so the seed had to be filed as a labeled
+              gap rather than a finding.
+seeds:        - When a session produces both an infra fix and a reflective/
+                conceptual insight, check atelier/ for a pre-existing seed
+                before writing a new one — this session found two matches in
+                under a minute and the connection was worth more than either
+                fix alone.
+              - Concordance's "methods and processes" scope question (open
+                thread in concordance.md) should probably resolve yes — the
+                claude-code-action auth-precedence case is exactly the kind
+                of process knowledge that's expensive to rediscover and the
+                lexeme-only scope wouldn't have caught it.
+              - If eaprime1 ever supplies the actual drifted word(s) from old
+                transcripts, the right destination is back into
+                ouroboros-wobble.md's "Lived example" section — that's
+                already the labeled landing spot.
+---
+
+# Append to turns/AAR.md
+
+---
+turn_ref:     2026-06-29 00:00
+prime:        3
+worked:       Reading .sovran/identity.md and .custos/README.md before any
+              task list gave the session its orientation — the constitutional
+              before the operational. The ethics-foundation.md wrote quickly
+              because PR #133 had already proved the three oversight questions
+              in practice; the document was naming what happened, not inventing
+              what should happen. J-21 / Lumenar connection from PR #38 arrived
+              without being forced — six commits separated the symbol from the
+              doctrine it would anchor. That's the kind of structural coherence
+              that doesn't get designed; it gets noticed. Pipeline.md as a
+              custody ledger (not a Kanban board) kept the tracking inside
+              the repo's own idiom — append-only, human-readable, no external
+              tool dependency.
+friction:     Local custos clone location still unknown — all work produced
+              into a staging area at ~/pixel8a/custos-staged/ rather than
+              directly into the repo. Ripgrep symlink fix requires a session
+              restart to take effect (applied mid-session, not picked up).
+              turns/AAR.md partner_state addition written as a separate
+              instruction file rather than a direct edit because the clone
+              wasn't reachable.
+seeds:        - Once local clone is located or re-cloned, record the path
+                in device/active.md so it's never re-derived.
+              - Rotate CLAUDE_CODE_OAUTH_TOKEN secret immediately — this is
+                blocking live PR reviews. Command: gh secret set
+                CLAUDE_CODE_OAUTH_TOKEN --repo eaprime1/custos
+              - requirements.txt dedup: pip freeze > requirements.txt from
+                inside the correct venv removes the duplicate block.
+              - Shadow Awareness Navigation Framework: ETHICS is written.
+                Next session decision: name the destination repo and add it
+                to branch-tracker/branches.md.
+              - roman-numerals package on device — worth noting if iteration
+                numbering in outputs moves toward formal Roman notation.
+partner_state:
+  charge_received:  "open a full Blackjack session; act on pending threads;
+                    begin the oversight layer — ethics, tracking, sponsorship"
+  friction_named:   "local clone unreachable; working from GitHub raw content
+                    only; Glob/ripgrep needs session restart to function"
+  next_stance:      "continue — all PRs staged, workflow fix identified,
+                    Shepherd needs to: rotate secret, push branches, send
+                    Rachaelisa response, decide SANF repo name"
 ---

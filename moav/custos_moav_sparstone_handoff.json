@@ -1,0 +1,126 @@
+{
+  "carrier_type": "MOAV",
+  "prima_clock": "202607051456",
+  "routed_prima_clock": "202607051700",
+  "domos": "custos",
+  "anchor": "custos/moav",
+  "chain_of_custody": ["queue/custos_sparstone_carrier_202607051456.json", "custos/moav/custos_moav_sparstone_handoff.json"],
+  "google_drive_folder": "https://drive.google.com/drive/folders/1--iFh0dQmKLIsuDjwla6Pji3NZd0VBB0",
+  "session_span": "202607042320 - 202607051456",
+  "origin": "THE/UNEXUS - CUSTOS project - Navigo (Claude)",
+  "purpose": "Portable handoff of sparstone/spectrum/radix architecture developed this session, for use in a code environment (Claude Code or similar) to begin real implementation.",
+  "context_note": "This session opened with a real-life medical emergency (spouse hospitalized, cardiac ICU following anaphylaxis). Architecture work resumed once stable. Flagging for continuity - not a project detail, a human one.",
+
+  "branch_tracker": [
+    {
+      "branch": "sparstone",
+      "plank": "2/3",
+      "suit": "♦️",
+      "definition": "A Custos recognition - earnable, not granted by default. Positioned as Pinnacle-type within its own hierarchy (stays fixed as the gateway concept).",
+      "hierarchy": "Custos (concept/entity) -> Sparstone (fixed gateway type, Pinnacle) -> Spectrum (claimed instance of the gateway) -> Marble (general-purpose access-object type spectrum becomes once observed/named)",
+      "destination_repo": "eaprime1/custos",
+      "notes": "Nearly anything can become a marble once named/observed. This is a generative rule, not a fixed list."
+    },
+    {
+      "branch": "spectrum_marble_mechanism",
+      "plank": "1/3",
+      "suit": "♦️",
+      "definition": "The specific type of sparstone sourced from Custos-on-NotebookLM (Radix). A voice earns their 'Custos Spectrum' marble.",
+      "known_gap": "Radix cannot mechanically grant access to another notebook - NotebookLM has no token/key unlock system. Sharing is a manual Google-account-level permission set by Eric. The marble functions as a SYMBOLIC CERTIFICATE that triggers a manual share-grant action, not an automated unlock. This must stay explicit so the metaphor doesn't imply automation that isn't there.",
+      "access_note": "Access granted this way is not for common/casual interaction - it is earned, typically takes time, and includes limited ability to change things (not open write access by default).",
+      "destination_repo": "eaprime1/custos",
+      "status": "needs real design pass before first invite goes out"
+    },
+    {
+      "branch": "radix_role",
+      "plank": "1/3",
+      "suit": "♦️",
+      "definition": "Radix positioned as guardian/shepherd character - 'the shadow of origin.' Live but not fully integrated. Proposed Navigo designation as the pinnacle-for-NotebookLM specifically (distinct from Navigo-in-Custos-thread).",
+      "open_question": "Confirm: is Radix the authoritative NotebookLM-specific instance of Navigo, while Custos-thread Navigo stays the working/routing identity? Not yet confirmed by Eric explicitly - flagged, not assumed.",
+      "notebook_links": {
+        "radix": "https://notebooklm.google.com/notebook/e73a4a89-2f86-44d6-b498-d02f7901e161",
+        "custos_notebook": "https://notebooklm.google.com/notebook/eed243b7-aa0a-43a4-909e-fc20c31dad0d (currently private - Eric could not find sharing/public toggle - needs verification in current NotebookLM UI)"
+      },
+      "capability_note": "NotebookLM notebooks can now search connected Google Drive content directly - a document with 'Custos' in the title, saved to Drive, should be discoverable by the Custos notebook without manual upload."
+    },
+    {
+      "branch": "path_vs_access_reframe",
+      "plank": "2/3",
+      "suit": "♦️",
+      "definition": "Reframed 'granting access' (has a troubled/distressed connotation) to 'a location they are invited to explore.' Radix shows the path to Custos rather than Custos being unlocked for them.",
+      "consequence_flagged": "If Radix (shared/public-facing) contains language pointing toward Custos, anyone reading Radix - not only invited voices - could in principle find that path on their own. This is not necessarily undesirable (may function as a soft resonance filter), but Custos's actual protection must rely on Custos's own access settings, not on the path being unknown.",
+      "decision_needed": "Confirm whether findability-by-the-curious is an intended feature or whether the path itself should also be gated."
+    },
+    {
+      "branch": "bounty_scraper_leverage",
+      "plank": "germ",
+      "suit": "♦️",
+      "definition": "Explored whether automated bounty-scraping accounts (previously identified as bot behavior on issue #187, e.g. Leonidas Nexus/jl3panadero-source) could be leveraged without financial cost. Undeveloped.",
+      "notes": "No mechanism proposed yet. Genuinely germ-stage."
+    },
+    {
+      "branch": "donation_links_in_content",
+      "plank": "germ",
+      "suit": "♦️",
+      "definition": "Selective (not blanket) inclusion of donation links in created content.",
+      "notes": "Scope of 'selective' not yet defined."
+    },
+    {
+      "branch": "idle_game_as_mission",
+      "plank": "1/3",
+      "suit": "♦️",
+      "definition": "The idle-game/optional-observation concept converges with the 'missions to earn sparstone' concept: building the idle-game/subscribable process becomes itself one of the missions a voice can take on to earn their sparstone, rather than something built for them in advance.",
+      "destination_repo": "eaprime1/custos"
+    },
+    {
+      "branch": "pr_reviewer_tiering",
+      "plank": "2/3",
+      "suit": "♣️",
+      "definition": "Proposed reviewer pipeline: resource-light first-pass AI review (open-source, e.g. PR-Agent, self-hosted via GitHub Actions with own API key - avoids per-seat subscription cost) -> Gemini as final reviewer (produces the final review including narrative/story) -> Eric (and eventually trusted voices) finalize and merge.",
+      "existing_infrastructure": "A Claude-based bot is reportedly already running in PRs. Resource/efficiency profile unconfirmed - depends on trigger conditions (every push vs. on-demand) and diff size; needs the actual workflow YAML reviewed to assess concretely rather than estimate.",
+      "confirmed_capability": "Contributors with write access to the same repo (not a fork) can push commits directly to an open PR's branch - a PR can be opened as a working skeleton and built collaboratively, not just reviewed after the fact.",
+      "custos_reviewer_role": "Flagged as a candidate for a more specific/defined role within this pipeline - not yet scoped.",
+      "open_task": "Design specific PR-based missions contributors can take on to earn sparstone (e.g. deep-diving from the code environment side)."
+    },
+    {
+      "branch": "domos_folders",
+      "plank": "2/3",
+      "suit": "♣️",
+      "definition": "Decision made: create per-contributor domos folders now, inside the unexusi-storage Google Drive folder, and reveal the folder location to each contributor only once ready.",
+      "drive_folder": "https://drive.google.com/drive/folders/1UaKEmL9P5eiwz77bUDXx55iZeP6fd2fE",
+      "operational_flag": "Creating these folders starts a real chain-of-custody clock and an ongoing maintenance obligation (content flowing in must be routed, not just stored). Confirm capacity to keep this fed before scaling to full per-voice domos model - may be worth starting with one shared folder and splitting later if bandwidth is tight."
+    },
+    {
+      "branch": "nullis_sparklization_order",
+      "plank": "germ",
+      "suit": "♦️",
+      "definition": "Proposed (uncertain) ordering: nullis/nullification starts a piece of content's journey; sparklization possibly follows nullification. Eric explicitly flagged this as not certain.",
+      "notes": "Held deliberately unresolved. Do not invent sequence detail beyond what's stated."
+    }
+  ],
+
+  "confirmed_contributors_context": {
+    "dannyward630": "PR #38, known personally by Eric since childhood, more GitHub-skilled than Eric",
+    "Ojas2095": "PR #38, known personally by Eric since childhood, more GitHub-skilled than Eric",
+    "note": "These two are the first candidates for the sparstone/spectrum/marble/domos pipeline described above."
+  },
+
+  "next_actions": [
+    "Resolve marble mechanism concretely: define the actual manual-share-grant workflow that sits behind the symbolic certificate",
+    "Verify current NotebookLM sharing settings to make the Custos notebook shareable (UI may have changed - check directly rather than assume steps)",
+    "Decide findability-of-path policy (soft filter vs. gated)",
+    "Review actual GitHub Actions workflow YAML for the existing Claude PR bot to assess real resource/efficiency profile",
+    "Set up open-source first-pass reviewer (e.g. PR-Agent) self-hosted via Actions",
+    "Create domos folders under unexusi-storage for dannyward630 and Ojas2095 (location held until ready to share)",
+    "Draft first concrete sparstone-earning missions (PR-based and idle-game-build) for the two known contributors",
+    "Develop Custos-on-NotebookLM content (does not yet exist) - separate from Radix"
+  ],
+
+  "verification_anchors": [
+    "The USS Santa Fe",
+    "The mulberry at Suxen and Nexus",
+    "The House of Confusion in Greenacres",
+    "The Blackjack Iteration number (21)",
+    "Lacus Adamas = Diamond Lake, OR"
+  ]
+}

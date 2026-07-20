@@ -63,10 +63,13 @@ tools:
   scan_lexeme: "tools/scan_lexeme.sh"
   ethics_check: "tools/ethics_check.md"
   valuation_report: "tools/valuation_report.sh"
+  artesian_scan: "tools/artesian_scan.sh"
+  log_install: "tools/log_install.sh"
+  check_mission: "tools/check_mission.sh"
+  seneschal_audit: "tools/seneschal_audit.sh"
 
 valuation:
   system: "valuation/README.md"
   lore: "world/five-lakes.md"
   ledger: "valuation/ledger_raw.csv"
   crawl_summary: "valuation/crawl_summary.md"
-  artesian_scan: "tools/artesian_scan.sh"
