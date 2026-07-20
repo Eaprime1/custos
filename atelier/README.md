@@ -19,6 +19,7 @@ Nothing in the Atelier is finished. That is the point.
 | Operation Holy Cow | `operations/` | Scoping phase | Conversation 2026-06-03 |
 | Commissions | `commissions/` | Queued for contributors | — |
 | Praevium | `praevium.md` | Proposed — awaiting Shepherd ratification | Bounty #187 |
+| Portable JSON Legacy Library | `portable_json_legacy_seed.json` | Architecture pending — hold until Primal launch | Session 202603070004 |
 
 ### The Convergence Note
 

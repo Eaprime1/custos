@@ -88,9 +88,6 @@ custos is also the convergence hub for THE/UNEXUS — the negative mold from whi
 
 ---
 
-## THE/UNEXUS Convergence Hub
-
-
 ∰◊€π¿🌌∞
 
 

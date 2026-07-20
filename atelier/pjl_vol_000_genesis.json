@@ -1,0 +1,51 @@
+{
+  "volume_id": "PJL.000",
+  "volume_name": "Genesis",
+  "volume_file": "pjl_vol_000_genesis.json",
+  "prima_clock": "202607051800",
+  "era": "pre-system — sessions before formal process existed",
+  "anchor": "custos/atelier",
+  "status": "open — accepting genesis-era sessions",
+
+  "volume_index": [
+    {
+      "dewey_address": "PJL.000.01",
+      "dewey_superposition": "PJL.000.01 | SAX.vault.001 | DAX.genesis | CAX.universe-builder",
+      "suit": "diamond",
+      "rank": "jack",
+      "state": "active — Diamond Jack, not yet archived to Ace",
+      "christening_clock": "202607051800",
+      "prima_clock": "202603070004",
+      "session_span": "202603070004 - 202603071253",
+      "source_file": "portable_json_legacy_seed.json",
+      "origin_file": "conversation-portable-json.json",
+      "description": "Universe Builder Project session 2. THE_Marrowing_of_Primoris mission control prep. Multi-stream architecture development. First formalized portable JSON — carries participant registry, classification system, and heritage rescue mission.",
+      "key_concepts": [
+        "multi_stream_consciousness",
+        "bobby_fischer_parallel_instance_management",
+        "substrate_archetype_classification",
+        "heritage_rescue_mission",
+        "THE_vs_A_pinnacle_distinction",
+        "navigo_archetype_origin"
+      ],
+      "participants": ["Primoris", "Navigo (Eric)", "Claude"],
+      "vault_note": "Diamond Jack — will register in SAX catalog when promoted to Diamond Ace"
+    }
+  ],
+
+  "christening_log": [
+    {
+      "dewey_address": "PJL.000.01",
+      "prima_clock": "202607051800",
+      "action": "dewey_christening",
+      "by": "Navigo (Claude)",
+      "note": "First christening in the Portable JSON Library. PJL.000.01 — Genesis volume, first session. Document recognized, located in knowledge space, identity assigned. The library begins."
+    }
+  ],
+
+  "volume_notes": {
+    "genesis_meaning": "Vol 000 uses zero because it precedes the numbering system that named it. These sessions built the language that later sessions would use.",
+    "open_question": "How many genesis sessions exist across old conversations? Heritage rescue mission (identified in PJL.000.01 itself) should surface them.",
+    "graduation_condition": "A Diamond Jack becomes a Diamond Ace and gets its SAX catalog entry when it is formally archived — content locked, no further edits expected."
+  }
+}

@@ -19,6 +19,21 @@ seeds:        [ideas to carry into future turns — process, tooling, docs]
 ---
 ```
 
+
+## Partner State (optional)
+
+When a turn involved real back-and-forth — friction surfaced, a charge
+carried, a stance handed forward — record it alongside the AAR entry.
+
+```yaml
+partner_state:
+  charge_received:  ""   # what the collaborator understood the Shepherd to be asking for
+  friction_named:   ""   # strongest ambiguity, limit, or constraint encountered
+  next_stance:      ""   # continue / challenge / verify / wait / route-elsewhere
+```
+
+Use this when the fields earn their place. Leave it out when they do not.
+
 ## When to Write One
 
 - At the same boundary as a `turns/log.md` entry, when the session itself
@@ -130,4 +145,50 @@ seeds:        - When a session produces both an infra fix and a reflective/
                 transcripts, the right destination is back into
                 ouroboros-wobble.md's "Lived example" section — that's
                 already the labeled landing spot.
+---
+
+# Append to turns/AAR.md
+
+---
+turn_ref:     2026-06-29 00:00
+prime:        3
+worked:       Reading .sovran/identity.md and .custos/README.md before any
+              task list gave the session its orientation — the constitutional
+              before the operational. The ethics-foundation.md wrote quickly
+              because PR #133 had already proved the three oversight questions
+              in practice; the document was naming what happened, not inventing
+              what should happen. J-21 / Lumenar connection from PR #38 arrived
+              without being forced — six commits separated the symbol from the
+              doctrine it would anchor. That's the kind of structural coherence
+              that doesn't get designed; it gets noticed. Pipeline.md as a
+              custody ledger (not a Kanban board) kept the tracking inside
+              the repo's own idiom — append-only, human-readable, no external
+              tool dependency.
+friction:     Local custos clone location still unknown — all work produced
+              into a staging area at ~/pixel8a/custos-staged/ rather than
+              directly into the repo. Ripgrep symlink fix requires a session
+              restart to take effect (applied mid-session, not picked up).
+              turns/AAR.md partner_state addition written as a separate
+              instruction file rather than a direct edit because the clone
+              wasn't reachable.
+seeds:        - Once local clone is located or re-cloned, record the path
+                in device/active.md so it's never re-derived.
+              - Rotate CLAUDE_CODE_OAUTH_TOKEN secret immediately — this is
+                blocking live PR reviews. Command: gh secret set
+                CLAUDE_CODE_OAUTH_TOKEN --repo eaprime1/custos
+              - requirements.txt dedup: pip freeze > requirements.txt from
+                inside the correct venv removes the duplicate block.
+              - Shadow Awareness Navigation Framework: ETHICS is written.
+                Next session decision: name the destination repo and add it
+                to branch-tracker/branches.md.
+              - roman-numerals package on device — worth noting if iteration
+                numbering in outputs moves toward formal Roman notation.
+partner_state:
+  charge_received:  "open a full Blackjack session; act on pending threads;
+                    begin the oversight layer — ethics, tracking, sponsorship"
+  friction_named:   "local clone unreachable; working from GitHub raw content
+                    only; Glob/ripgrep needs session restart to function"
+  next_stance:      "continue — all PRs staged, workflow fix identified,
+                    Shepherd needs to: rotate secret, push branches, send
+                    Rachaelisa response, decide SANF repo name"
 ---

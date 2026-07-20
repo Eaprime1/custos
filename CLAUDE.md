@@ -43,7 +43,7 @@ bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, 
 ```
 
 **Claude Code on Termux (Android):**
-Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
+Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI, its Application Binary Interface). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
 
 Workarounds:
 - **Use the web session** — claude.ai/code connects to the repo remotely; this is the primary path for device-side AI work
@@ -81,7 +81,8 @@ Tracks live device state. Not on `main`.
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
 - `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
-- Labels: `mission`, `bounty`, `open` on GitHub Issues
+- `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
+- Labels: `mission`, `bounty`, `upgrade`, `open` on GitHub Issues
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
@@ -89,13 +90,13 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 
 **`branch-tracker/branches.md`** — Active development map: each branch has a suit, status, and destination repo.
 
-**`prima-clock/registry.md`** — Formal custody log. Every significant event gets a prima-clock stamp (`YYYYMMDDHHMM`). Always include the current prima-clock value when creating MOAV carriers or vault entries.
+**`prima-clock/registry.md`** — Formal custody log. Significant events are expected to get a prima-clock stamp (`YYYYMMDDHHMM`). Include the current prima-clock value when creating MOAV carriers or vault entries.
 
-**`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier must include its prima-clock stamp and a `chain_of_custody` field.
+**`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier is expected to include its prima-clock stamp and a `chain_of_custody` field, barring a documented exception.
 
-**`vault/`** — Origin molds. Documents placed here have passed formal custody. Never directly edited — active work happens on Carbonite instances. `vault/spade-of-aces/` holds ♠️ pinnacle documents only.
+**`vault/`** — Origin molds. Documents placed here have passed formal custody. Not directly edited outside a formal custody review — active work happens on Carbonite instances. `vault/spade-of-aces/` holds ♠️ pinnacle documents only.
 
-**`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When a concept is ready, custos routes it to the appropriate branch or repo.
+**`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When the Shepherd judges a concept ready, custos routes it to the appropriate branch or repo.
 
 **`returns/`** — External agent stream returns. Each stream directory receives findings from the assigned AI model:
 - `stream-1-language/` — Gemini: Language/Fodere/Agnoscere
@@ -138,7 +139,23 @@ Session memory. Append only. One entry per meaningful session. Schema in `turns/
 
 **prima-clock stamps:** Use `date '+%Y%m%d%H%M'` to generate. Include in MOAV carriers and prima-clock/registry.md entries.
 
-**MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Always include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody`.
+**MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody` unless a documented exception applies.
+
+**Navigo model — AI+eaprime1 teams:**
+Each navigo is a paired team of one AI model and eaprime1. They are internal contributors with the same accountability as external contributors; the Shepherd can redirect any navigo.
+
+| Navigo | Team | Workspace |
+|--------|------|-----------|
+| nav1 | Claude + eaprime1 | `.claude/` |
+| nav3 | Gemini + eaprime1 | `.gemini/` |
+| nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
+
+Each navigo workspace folder holds three types of content:
+- Source documents returned from that AI's sessions, before formal custody
+- A queue of what to pick up next session
+- Stream-return materials pending filing
+
+Raw exports land in the workspace first, get renamed `.md` once reviewed, then file to `returns/`, `incoming/pre-nullus/`, or `atelier/`.
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
