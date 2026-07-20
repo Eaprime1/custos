@@ -31,6 +31,11 @@ See `moav/custos_moav_intake_prenullus001.json`,
 `moav/custos_moav_intake_prenullus003.json` for the custody carriers
 and `prima-clock/registry.md` (202606190952, 202606191051, the
 202606301020 batch, and 202606301128) for the registry entries.
+| `202606220650_PR38-growth-update.md` | 202606220650 | **The growth update** — the second document the welcome witness-copy promised, addressed to `@dannyward630`/`@Ojas2095`; content-only, no real names beyond GitHub handles already public on PR #38; not yet posted as a PR comment |
+
+See `moav/custos_moav_intake_prenullus001.json` for the custody carrier
+and `prima-clock/registry.md` (202606190952, 202606191051) for the registry
+entries.
 
 ## Document Format Convention
 

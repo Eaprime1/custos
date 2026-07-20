@@ -8,6 +8,8 @@ name: Custos — Code Review
 # that key bills against a separate pay-per-token credit balance, and this repo
 # has hit "Credit balance is too low" failures on it before. Note the secret
 # still exists in repo secrets for whenever API-key billing is wanted again.
+# Requires the ANTHROPIC_API_KEY repository secret (or install the Claude
+# GitHub App via /install-github-app from Claude Code, which configures this).
 
 on:
   pull_request:
@@ -42,6 +44,7 @@ jobs:
           # anthropic_api_key disabled — pay-per-use credit balance is empty.
           # Re-enable once console.anthropic.com account is funded:
           # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           additional_permissions: |
             actions: read
           allowed_bots: '*'
