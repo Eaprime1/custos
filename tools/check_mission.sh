@@ -25,9 +25,14 @@ auth_header=()
 if [ -n "${GITHUB_TOKEN:-}" ]; then
   auth_header=(-H "Authorization: Bearer ${GITHUB_TOKEN}")
 fi
-
 response="$(curl -s "${auth_header[@]}" "$url")"
 
+if [ -z "$response" ]; then
+  echo "error: failed to fetch response from GitHub API" >&2
+  exit 1
+fi
+
+if echo "$response" | jq -e '.message' >/dev/null 2>&1; then
 if echo "$response" | jq -e '.message' >/dev/null 2>&1; then
   echo "error: GitHub API returned an error: $(echo "$response" | jq -r '.message')" >&2
   exit 1
