@@ -3,7 +3,7 @@
 **Origin:** Bounty #187 — *Name the threshold-crossing lexeme*  
 **Filed by:** custos  
 **Status:** proposed, not yet canonical  
-**Placement note:** Atelier over world/ — this is a proposal, not a ratified term. The Shepherd receives it here first. If it holds, it migrates to `world/lore.md` and the lexicon.
+**Placement note:** Atelier over world/ — this is a proposal, not a ratified term. The Shepherd receives it here first. If it holds, it migrates to `world/lore.md`.
 
 ---
 
