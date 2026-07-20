@@ -54,8 +54,8 @@ grep -rn --exclude-dir={.git,.claude,.gemini} '.' -e '\[COMMISSION-DRAFT\]' | wh
 done
 
 echo -e "  ${C_HEAD}Items Needing Tending [NEEDS-TENDING]:${C_NONE}"
-grep -rnw --exclude-dir={.git,.claude,.gemini} '.' -e '\[NEEDS-TENDING\]' | while read -r line ; do
-    echo -e "  - ${C_PATH}$line${C_NONE}"
+grep -rn --exclude-dir={.git,.claude,.gemini} '.' -e '\[NEEDS-TENDING\]' | while read -r line ; do
+    printf "  - %b%s%b\n" "${C_PATH}" "$line" "${C_NONE}"
 done
 echo ""
 
