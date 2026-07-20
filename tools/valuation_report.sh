@@ -23,7 +23,8 @@ chips = 0
 total = 0
 
 with open(path, newline="", encoding="utf-8-sig") as f:
-    for row in csv.DictReader(f):
+    fieldnames = ["file_name", "file_type", "folder_path", "file_id", "modified_time", "card_suit", "card_rank", "chip_value", "notes"]
+    for row in csv.DictReader(f, fieldnames=fieldnames):
         total += 1
         suits[row.get("card_suit") or "TBD"] += 1
         ranks[row.get("card_rank") or "TBD"] += 1
