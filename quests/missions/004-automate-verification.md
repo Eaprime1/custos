@@ -32,7 +32,7 @@ Verify mission completion using the centralized script at `tools/check_mission.s
 ## Completion Check
 
 ```bash
-test -x tools/check_mission.sh && bash tools/check_mission.sh ai-commissioning
+test -f tools/check_mission.sh && bash tools/check_mission.sh ai-commissioning
 ```
 
 ## Reward
