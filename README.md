@@ -90,6 +90,9 @@ custos is also the convergence hub for THE/UNEXUS — the negative mold from whi
 
 ## THE/UNEXUS Convergence Hub
 
+custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
+
+---
 
 ∰◊€π¿🌌∞
 

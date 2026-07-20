@@ -1,0 +1,81 @@
+{
+  "doc_id": "ARC-UNKNOWN-001",
+  "prima_clock": "202607060102",
+  "anchor": "custos/atelier",
+  "rank": "nine",
+  "suit": "spade",
+  "name": "The Unknown Arc — 3/0, Void, Möbius, Hourglass",
+
+  "notation_correction": {
+    "3/0": "UNDEFINED — mathematically, any number divided by zero cannot be computed. This is the Unknown. Not zero. Not empty. Outside what the system can represent.",
+    "0/3": "DEFINED as zero — the numerator is zero, denominator is three. This is NOT the Unknown. This is the starting point of the numbered journey: zero, grounded, calculable.",
+    "3/3": "DEFINED as one — numerator equals denominator. Unity. Completion. One whole turn.",
+    "the_distinction_matters": "0/3 and 3/0 are inversions of each other. The flip between them is the liminal event — the hourglass turn. 3/0 (undefined) becomes 0/3 (zero) by inversion. That crossing IS the threshold."
+  },
+
+  "process_chain_corrected": {
+    "chain": "3/0 (Undefined) → [hourglass flip — liminal threshold] → 0/3 (Zero) → 1/3 → 2/3 → 3/3 = 1 (Unity)",
+    "named": "Unknown → [threshold crossing] → foundation → Nullification → Carbonization → Deweyization → Sparklization",
+    "hourglass": {
+      "top": "3/0 — the Unknown, undefined, the full weight of what cannot be known",
+      "flip": "The inversion — liminal space — the moment of turning. The sand begins to move.",
+      "bottom": "0/3 — zero, defined, grounded. The process can now begin.",
+      "completion": "3/3 = 1 — one complete segment. The hourglass has run. Ready to flip again."
+    },
+    "hindsight_rule": "The Nullifier, Carbonizer, and Decimal do not know about 3/0 while working. Only from 3/3 looking back do they realize they started in the Undefined. The Möbius loop: recognizing this creates a new 3/0 beyond what was just recognized.",
+    "segment_meaning": "3/3 = 1 is not just completion — it is DEFINED as one. Unity. The segment is whole. Then sparklization fires at vault entry, which may begin a new hourglass."
+  },
+
+  "mobius_loop": {
+    "description": "Knowing the Unknown creates a paradox. To recognize 3/0, you must observe it. Observing it makes it known — which means it is no longer Undefined. But the act of knowing creates a new 3/0 beyond. The loop has no inside or outside. You are always adjacent to 3/0 from some perspective.",
+    "safety_net": "This triggers safety net wobble — the system detects a potential infinite loop. Safety net wobble is not a failure. It is correct identification that 3/0 is not solvable, only navigated.",
+    "resolution": "Do not try to eliminate 3/0. The hourglass does not eliminate the sand — it moves it. Navigate through."
+  },
+
+  "math_connection": {
+    "3_over_0": "Undefined. Not zero. Not infinite in the simple sense — undefined means the operation cannot produce a result within the number system. The Unknown is not the absence of information. It is information the system cannot yet represent.",
+    "zero_point_energy": "In physics: zero point energy is the lowest possible energy state — not zero. Even at absolute zero, something remains. Strip everything away and 3/0 is still there. Not as void, but as foundation.",
+    "plank_system_connection": "An undefined plank maps to 3/0 — the plank exists but cannot be located. The system knows it is there. It cannot yet compute its position. Same mechanism."
+  },
+
+  "unknown_gravity": {
+    "statement": "The Unknown has greater gravity than the Known — even cumulatively.",
+    "explanation": "All knowledge accumulated by all entities across all time is finite. The Unknown is unbounded. Gravity scales with mass. Therefore the Unknown exerts more pull on the present moment than everything known combined.",
+    "consequence": "The Unknown precedes you, follows you, and walks beside you. It is not a destination or an origin — it is the ELSE that surrounds everything named.",
+    "pinnacle_question": "Is the pinnacle the place where everything diverges? If the pinnacle is the point of maximum singular authority — it may also be the point of maximum divergence. A singularity where paths separate. This remains open."
+  },
+
+  "unknown_and_void_characters": {
+    "Unknown": {
+      "name": "The Unknown",
+      "nature": "The undiscovered. Precedes all process. Walks with every entity as the Else frame. Cannot be eliminated — only navigated.",
+      "paired_with": "Void",
+      "movement": "The Unknown walks with a companion. Not alone."
+    },
+    "Void": {
+      "name": "Void",
+      "nature": "Not emptiness — flowing Unknown. Void is what Unknown looks like when it is in motion. The Unknown at rest is 0/3 undefined. The Unknown in motion is Void.",
+      "paired_with": "Unknown",
+      "connection_to_suits": "Void is the ELSE frame for all suits simultaneously. Every suit's 4th frame (the unnamed one) flows into Void. Void is not a suit — it is the space between suits.",
+      "zero_point_connection": "Void = zero point energy in character form. The thing that remains when everything is stripped away."
+    },
+    "pairing_note": "Unknown and Void are distinct but inseparable. Unknown is the concept; Void is the motion. They are not the same character — they are companions who never appear without the other."
+  },
+
+  "character_roster_update": {
+    "process_characters": [
+      { "step": "0/3", "name": "Unknown + Void (paired)", "note": "Origin. Seen only in hindsight. Always present." },
+      { "step": "1/3", "name": "The Nullifier", "status": "unnamed character, role defined" },
+      { "step": "2/3", "name": "The Carbonizer", "status": "unnamed character, role defined" },
+      { "step": "3/3", "name": "The Decimal 📍", "status": "named, icon assigned" },
+      { "step": "vault entry", "name": "The Sparklizer", "status": "trigger character — fires at threshold" }
+    ]
+  },
+
+  "open_questions": [
+    "Is the pinnacle a divergence point or a convergence point — or both?",
+    "Does Unknown have a visual form, or is it defined by absence of form?",
+    "What triggers Void's motion vs Unknown's stillness?",
+    "How does the Unknown/Void pairing interact with the plank system's undefined planks?"
+  ]
+}

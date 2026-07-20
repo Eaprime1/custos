@@ -47,7 +47,7 @@ Post a bounty that a contributor you have never met could pick up and complete w
 # Verify a bounty issue exists in the open state,
 # via the GitHub API, falling back to gh only if curl finds nothing
 # Query GitHub API for open issues with the bounty label (with gh fallback)
-if curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"'; then
+if command -v curl >/dev/null 2>&1 && curl -s "https://api.github.com/repos/eaprime1/custos/issues?state=open&labels=bounty" | grep -q '"name": "bounty"'; then
   echo "complete"
 elif command -v gh >/dev/null 2>&1 && gh issue list --state open --label "bounty" --limit 1 2>/dev/null | grep -q .; then
   echo "complete"
