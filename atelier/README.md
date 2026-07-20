@@ -18,6 +18,7 @@ Nothing in the Atelier is finished. That is the point.
 | Sheep Agent System | `sheep/` | Design spec ready | Conversation 2026-06-02/03 |
 | Operation Holy Cow | `operations/` | Scoping phase | Conversation 2026-06-03 |
 | Commissions | `commissions/` | Queued for contributors | — |
+| Praevium | `praevium.md` | Proposed — awaiting Shepherd ratification | Bounty #187 |
 
 ### The Convergence Note
 
