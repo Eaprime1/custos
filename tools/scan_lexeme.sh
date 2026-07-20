@@ -30,6 +30,7 @@ for PATTERN in "${PATTERNS[@]}"; do
   MATCHES=$(grep -rFin \
     --include="*.md" --include="*.sh" --include="*.yaml" --include="*.json" \
     ${EXTRA_OPTS[@]+"${EXTRA_OPTS[@]}"} \
+    --include="*.md" --include="*.sh" --include="*.yaml" --include="*.json" \
     --exclude-dir=".git" \
     -- "$PATTERN" "$ROOT" \
     2>/dev/null || true)
