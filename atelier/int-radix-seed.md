@@ -42,7 +42,7 @@ it; this is a proposal sitting next to it, not a change to it.
 ## 2. The fractional-state model
 
 - Whole = 3/3 = 1.
-- Half (1/2) and quarter (1/4) states sit inside what the fragment calls
+- Half (1/2), third (1/3), and quarter (1/4) states sit inside what the fragment calls
   "the 31 cents flat of ONE" — still inside safe range.
 - Beyond half or quarter, the fragment names it "potentially dangerous," or
   at minimum something to be extra careful around.
