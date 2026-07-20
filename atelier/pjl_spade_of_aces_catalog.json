@@ -1,0 +1,37 @@
+{
+  "catalog_id": "SAX",
+  "catalog_name": "Spade of Aces — Vault Register",
+  "prima_clock": "202607051800",
+  "anchor": "custos/atelier",
+  "description": "The vault catalog. Every document that reaches Ace rank — regardless of its own suit — is listed here. This is the register, not the document. The document lives in its volume; this catalog holds its address and identity.",
+
+  "catalog_note": "A Diamond Ace is still Diamond. A Club Ace is still Club. Suit is permanent identity. This catalog is the Spade overlay — the vault register that can point to any suit's Ace.",
+
+  "entries": [
+    {
+      "dewey_address": "PJL.000.01",
+      "dewey_superposition": "PJL.000.01 | SAX.vault.001 | DAX.genesis | CAX.universe-builder",
+      "sax_ref": "SAX.vault.001",
+      "suit": "diamond",
+      "rank": "jack",
+      "state": "Diamond Jack — not yet Ace. Pre-registered. SAX entry created at christening; will activate on archival.",
+      "christening_clock": "202607051800",
+      "prima_clock": "202603070004",
+      "volume": "PJL.000 — Genesis",
+      "volume_file": "pjl_vol_000_genesis.json",
+      "description": "Universe Builder Project session 2. Origin of Navigo archetype, multi-stream consciousness architecture, substrate/archetype classification system.",
+      "activation_condition": "Promoted to Diamond Ace when content is locked and formally archived",
+      "activated": false
+    }
+  ],
+
+  "catalog_structure": {
+    "sax_ref_format": "SAX.vault.[seq]",
+    "seq_note": "Sequential across all suits — not per-suit. The vault sees all suits as one register.",
+    "dewey_collapse": "When a document is retrieved for a specific purpose, the superposition collapses: the relevant secondary address becomes primary for that interaction. The document's identity (primary Dewey) is unchanged.",
+    "activation_states": {
+      "pre_registered": "Christened but still Jack — catalog entry exists, not yet activated",
+      "activated": "Diamond Ace (or suit Ace) — content locked, catalog entry live"
+    }
+  }
+}

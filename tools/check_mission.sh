@@ -27,6 +27,12 @@ if [ -n "${GITHUB_TOKEN:-}" ]; then
 fi
 response="$(curl -s "${auth_header[@]}" "$url")"
 
+response="$(curl -s ${auth_header[@]+"${auth_header[@]}"} "$url")"
+if [ -z "$response" ]; then
+  echo "error: empty response from GitHub API" >&2
+  exit 1
+fi
+
 if [ -z "$response" ]; then
   echo "error: failed to fetch response from GitHub API" >&2
   exit 1

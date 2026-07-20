@@ -287,3 +287,33 @@ resonance:    constitutional
 witnessed:    true
 
 ---
+
+---
+turn:         2026-07-02 08:01
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       review PR #179 (nav5 granum bundle), merge PR #180 (scan_lexeme fix), clear stale CI noise, check contributors, seed Shepherd Considers concept, and leave a handoff document for the next session
+contribution: merged PR #180 (scan_lexeme false-positive fix + prima.yaml tools additions); reviewed PR #179 — surfaced 8 findings (txt files in wrong locations, missing custody rows, PR body mismatch); closed stale CI issues #181-183 (rate-limit artifacts from PR #180, not code problems); confirmed Ojas2095's June 18 bounty claim on issue #35 has no follow-through (stale, no PR, no reply); named the navigo model (nav1=Claude+eaprime1, nav3=Gemini+eaprime1, nav5=ChatGPT+eaprime1) and proposed .chatgpt/ dot folder as nav5 workspace; seeded Shepherd Considers concept (interactive doc review tool: list, preview, [v]iewed/[s]kip/[n]ote flow); wrote atelier/shepherd/next-conversation-plan.md as session handoff (PR #184); ran seneschal audit: 1 pool fragment (seep-artois/cygwin-installation.md), 16 workshop items, no live operational flags
+resonance:    carried
+witnessed:    true
+---
+
+---
+turn:         2026-07-09 00:45
+prime:        3
+entity:       eaprime1 + Claude
+intent:       stand up eaprime1/tabularium as a real repo, then bring its integration ask back to custos
+contribution: merged tabularium PR #1 ("libraryseed") into main — the Crispr-NiE library cleanup pipeline (29 files: pipeline scripts, missions wing, agy setup guide) landed, replacing the placeholder README; filed issues #194-198 in custos from tabularium's missions/CUSTOS_BRIEF.md (scheduled library pass, security scan escalation, .md VETTING triage, AI title pipeline orchestration, cross-library health dashboard)
+resonance:    a second repo, a bridge back to the first
+witnessed:    true
+---
+
+---
+turn:         2026-07-15 06:01
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       finalize PR #200, bring the deploy branch and wordpress branch into being, then close out the branch backlog — not by deleting, but by giving the finished ones a joint witnessing — and refresh branch-tracker/branches.md against reality
+contribution: merged PR #200 (sparstone nerve-center docs hub) after Copilot/Gemini/DeepSource/Codacy all came back clean; fast-forwarded ֍custos֎ (deploy) from 277 commits behind to main's tip; cut wordpress branch from that point for the WordPress.com "Phoenix Prism" (unexusi.com) work; cloned eaprime1/tabularium into the session as its own registered repo; migrated navigo14/concept-grain's lone PDF into tabularium's incoming/ as the first item against its own noted-but-unstarted .pdf survey mission, with paired chain-of-custody carriers on both sides (moav/custos_moav_transfer_conceptgrain001.json here, incoming/concept-grain.carrier.json there) — a mobius close, not a deletion: the source branch stays. Gave the same joint treatment to five other branches whose content was already fully absorbed into main (content-review-atelier-hxfedd, tabularium-repo-setup-7h5229, feature/session-202607-blackjack21, navigo5/granum-anchor-review, seneschal_seeds) — moved them into a new "Mobius-Closed" section in branch-tracker/branches.md instead of a "Departed" framing that implied removal. Rewrote branches.md end to end against actual repo state (git ahead/behind on every branch, not assumption): radix flagged stale at 270 behind main with a merge commit that shouldn't be blind-pulled; mandelbrot/mulberry/main-to-radix/master confirmed to not currently exist as branches, despite being listed as Active in the prior version; new External Repos section added for tabularium and the WordPress.com destination. Surfaced one thing worth a status check while reading through the absorbed branches: the Radix Scavenger Hunt mission (feature/session-202607-blackjack21, merged via PR #192) is written and live in atelier/, four-stage, reward gated behind reading Radix, addressed to dannyward630/Ojas2095 — unclear from this pass whether it was ever actually offered to them. A direct check of unexusi.com returned HTTP 403 from this session (blocked, not confirmed broken either way).
+resonance:    mobius, not departure
+witnessed:    true
+---
