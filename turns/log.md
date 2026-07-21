@@ -317,3 +317,13 @@ contribution: merged PR #200 (sparstone nerve-center docs hub) after Copilot/Gem
 resonance:    mobius, not departure
 witnessed:    true
 ---
+
+---
+turn:         2026-07-20 03:07
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       receive a rough, lost-in-the-workshop fragment about an "INT" prefix, a fractional-state model, and a request for a conversation-partner wellbeing-watch habit, and give it a proper turn through the THEE/YOD/EMBER intake practice
+contribution: logged the fragment via tools/thee.sh into intake/incoming.md, filled its "the what" and "yod mark" fields, and wrote atelier/int-radix-seed.md distilling the fragment into three named pieces: the proposed INT radix term (joins THEE/YOD/EMBER as a signal that a decision point is approaching, glossed against the Latin integer root), a fractional-state model (whole/half/third/quarter) for tracking how far a conversation or concept has spread from origin, and the wellbeing-watch request — which was named but deliberately not built, since it lands directly on atelier/ethics-foundation.md's "refuses to surveil" and "constitution before construction" commitments and the shadow-awareness-navigation-framework-ethics.md precedent (an AI may name what it observes in a session, not retain it or model the person across sessions). Added the seed to atelier/README.md's concept table with status "terms named, ethics tension flagged, nothing operational built."
+resonance:    named, not built
+witnessed:    true 🃏 ♊
+---
