@@ -1,4 +1,5 @@
 def process_data(data):
+    return list(data)
     import gc
     result = []
     for chunk in data:
