@@ -19,6 +19,8 @@ Nothing in the Atelier is finished. That is the point.
 | Operation Holy Cow | `operations/` | Scoping phase | Conversation 2026-06-03 |
 | Commissions | `commissions/` | Queued for contributors | — |
 | Portable JSON Legacy Library | `portable_json_legacy_seed.json` | Architecture pending — hold until Primal launch | Session 202603070004 |
+| INT Radix | `int-radix-seed.md` | Terms named, ethics tension flagged — nothing operational built | intake/incoming.md fragment, 2026-07-20 |
+| Bit Germ Dust (contributor on-ramp) | `bit-germ-dust-contributor-onramp.md` | Idea captured, generation mechanism not scoped | hodie session, Conversation 1 of the hodie series |
 
 ### The Convergence Note
 
