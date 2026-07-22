@@ -1,6 +1,6 @@
 # Void-maker — nursery seed
 
-**Origin:** Observed during Bounty #35/#187 moderation cycle  
+**Origin:** Observed during Bounty #187 moderation cycle  
 **Filed by:** nav1  
 **Status:** named, not yet defined  
 **Placement note:** Atelier — inverse of praevium. Needs Shepherd decision before it enters lore.
@@ -14,6 +14,8 @@ A void-maker is a contributor who plants a flag on unworn ground — who marks a
 The void-maker is not malicious. They are often enthusiastic. But enthusiasm without contact produces a void in the shape of a contribution: the space is taken, the question is raised, and nothing has actually arrived.
 
 Praevium names what a real arrival feels like — the path already worn, the territory already known. The void-maker names its inverse: the path they drew on fresh ground that no one has walked yet, including them.
+
+*Disambiguation: "void" here names the gap a contributor leaves — the unfilled shape of a claim. This is not the Void character from `unknown_void_arc.json`, who is flowing Unknown in motion. The lore character Void is a presence; the gap a void-maker leaves is an absence. Same word, different registers.*
 
 ---
 
