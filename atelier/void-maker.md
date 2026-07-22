@@ -15,7 +15,7 @@ The void-maker is not malicious. They are often enthusiastic. But enthusiasm wit
 
 Praevium names what a real arrival feels like — the path already worn, the territory already known. The void-maker names its inverse: the path they drew on fresh ground that no one has walked yet, including them.
 
-*Disambiguation: "void" here names the gap a contributor leaves — the unfilled shape of a claim. This is not the Void character from `unknown_void_arc.json`, who is flowing Unknown in motion. The lore character Void is a presence; the gap a void-maker leaves is an absence. Same word, different registers.*
+*Disambiguation: "void" here names the gap a contributor leaves — the unfilled shape of a claim. This is not the Void character from `unknown_void_arc.json`, who is a known entity — flowing Unknown in motion, named and defined in the arc. The Unknown precedes everything; Void is what it looks like moving. The gap a void-maker leaves is neither — it is just absence. Same word, three different registers.*
 
 ---
 
