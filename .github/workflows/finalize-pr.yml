@@ -104,10 +104,10 @@ jobs:
             }
 
             // ── 4. CI check runs on head commit ────────────────────────────────
-            const { data: checksData } = await github.rest.checks.listForRef({
+            const allChecksRaw = await github.paginate(github.rest.checks.listForRef, {
               owner, repo, ref: pr.head.sha, per_page: 100,
             });
-            const allChecks = checksData.check_runs.filter(c => {
+            const allChecks = allChecksRaw.filter(c => {
               const n = c.name.toLowerCase();
               return !n.includes('finalize') && !n.includes('readiness');
             });

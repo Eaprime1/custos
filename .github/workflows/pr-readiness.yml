@@ -82,10 +82,10 @@ jobs:
             }
 
             // ── CI check runs ──────────────────────────────────────────────────
-            const { data: checksData } = await github.rest.checks.listForRef({
+            const allChecksRaw = await github.paginate(github.rest.checks.listForRef, {
               owner, repo, ref: pr.head.sha, per_page: 100,
             });
-            const allChecks = checksData.check_runs.filter(c =>
+            const allChecks = allChecksRaw.filter(c =>
               !c.name.toLowerCase().includes('finalize') &&
               !c.name.toLowerCase().includes('readiness')
             );
