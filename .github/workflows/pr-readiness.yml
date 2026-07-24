@@ -17,13 +17,21 @@ jobs:
   readiness:
     if: |
       github.event.issue.pull_request != null &&
-      contains(github.event.comment.body, '@claude check') &&
-      !contains(github.event.comment.body, '@claude finalize') &&
       contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Gate — check trigger phrase
+        id: gate
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: |
+          if echo "$COMMENT_BODY" | grep -qF '@claude check' && ! echo "$COMMENT_BODY" | grep -qF '@claude finalize'; then
+            echo "triggered=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Check PR readiness
+        if: steps.gate.outputs.triggered == 'true'
         uses: actions/github-script@v7
         with:
           script: |
