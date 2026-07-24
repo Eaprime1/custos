@@ -18,8 +18,7 @@ jobs:
     if: |
       github.event.issue.pull_request != null &&
       contains(github.event.comment.body, '@claude check') &&
-      !contains(github.event.comment.body, '@claude finalize') &&
-      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+      !contains(github.event.comment.body, '@claude finalize')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -41,8 +40,7 @@ jobs:
             // ── Template sections ──────────────────────────────────────────────
             const body = pr.body || '';
             const parseSection = (label) => {
-              const safe = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-              const re = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
+              const re = new RegExp(`##\\s+${label}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
               const m  = body.match(re);
               if (!m) return null;
               const txt = m[1].replace(/<!--[\s\S]*?-->/g, '').trim();
@@ -57,7 +55,7 @@ jobs:
             const ethicsLines = ethicsMatch
               ? ethicsMatch[1].split('\n').filter(l => /^\s*-\s*\[/.test(l))
               : [];
-            const ethicsDone  = ethicsLines.filter(l => /\[x\]/i.test(l)).length;
+            const ethicsDone  = ethicsLines.filter(l => l.includes('[x]')).length;
             const ethicsTotal = ethicsLines.length;
 
             // ── Review threads ─────────────────────────────────────────────────
@@ -145,7 +143,7 @@ jobs:
               : `Resolve the ⛔ items above, then run \`@claude check\` again. When all gates are green, \`@claude finalize\` will proceed.`;
 
             // Upsert: update existing readiness comment if present
-            const existingComments = await github.paginate(github.rest.issues.listComments, {
+            const { data: existingComments } = await github.rest.issues.listComments({
               owner, repo, issue_number: prNum, per_page: 100,
             });
             const existingReadiness = existingComments.find(c =>
