@@ -1,10 +1,10 @@
 # PR Journey: #240 — fix: workflow correctness — regex escape, checkbox case, pagination, auth gate, remove @mention
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202607240557  
+**prima-clock:** 202607240600  
 **Branch:** `claude/nifty-franklin-fxwp3r` → `main`  
 **Author:** @Eaprime1  
-**State:** FINALIZED (auto)  
+**State:** FINALIZED  
 
 ## Intent
 
@@ -28,7 +28,7 @@ Four workflow files updated on `.github/workflows/`:
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202607240400 | @Eaprime1 |
-| Auto-Finalized | 202607240557 | github-actions[bot] |
+| Finalized | 202607240600 | @Eaprime1 |
 
 ## CI Record
 
@@ -62,7 +62,7 @@ Four workflow files updated on `.github/workflows/`:
 | Dimension | Score | Note |
 |---|---|---|
 | Correctness | 5/5 | 16 CI check(s) — all passed |
-| Consistency | 5/5 | Description complete · ethics 3/3 |
+| Consistency | 5/5 | Template complete · ethics 3/3 |
 | Scope | 5/5 | 4 file(s) changed |
 | Verification | 5/5 | 16 check run(s) completed |
 | **Valuation** | **High** | 20/20 |
@@ -73,7 +73,11 @@ Four workflow files updated on `.github/workflows/`:
 - ✅ Changes are additive fixes only — no behavior removed, only bugs closed
 - ✅ Auth gate narrows `@claude check` to authorized contributors; does not block the shepherd's own finalize flow
 
+## What Door Does This Open?
+
+*Not recorded.*
+
 ---
-**prima-clock:** 202607240557  
+**prima-clock:** 202607240600  
 **witnessed:** true  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
