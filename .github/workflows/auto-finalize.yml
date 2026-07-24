@@ -39,7 +39,8 @@ jobs:
             const AGE_MS = 60 * 60 * 1000;
 
             const parseSection = (body, label) => {
-              const re = new RegExp(`##\\s+${label}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
+              const safe = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const re = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
               const m  = body.match(re);
               if (!m) return null;
               const txt = m[1].replace(/<!--[\s\S]*?-->/g, '').trim();
@@ -83,13 +84,13 @@ jobs:
               const intent      = parseSection(body, 'Intent');
               const whatArrived = parseSection(body, 'What Arrived');
               const resonance   = parseSection(body, 'Resonance');
-              const whatDoor    = parseSection(body, 'What Door Does This Open');
+              const whatDoor    = parseSection(body, 'What Door Does This Open?');
 
               const ethicsMatch = body.match(/##\s+Ethics Check\s*\n([\s\S]*?)(?=\n##\s|$)/);
               const ethicsLines = ethicsMatch
                 ? ethicsMatch[1].split('\n').filter(l => /^\s*-\s*\[/.test(l))
                 : [];
-              const ethicsDone  = ethicsLines.filter(l => l.includes('[x]')).length;
+              const ethicsDone  = ethicsLines.filter(l => /\[x\]/i.test(l)).length;
               const ethicsTotal = ethicsLines.length;
 
               if (!intent || !whatArrived || !resonance) continue;
@@ -110,9 +111,10 @@ jobs:
               const { data: checksData } = await github.rest.checks.listForRef({
                 owner, repo, ref: pr.head.sha, per_page: 100,
               });
-              const allChecks = checksData.check_runs.filter(c =>
-                !c.name.toLowerCase().includes('finalize')
-              );
+              const allChecks = checksData.check_runs.filter(c => {
+                const n = c.name.toLowerCase();
+                return !n.includes('finalize') && !n.includes('readiness');
+              });
               const failing = allChecks.filter(c =>
                 c.status === 'completed' &&
                 !['success', 'neutral', 'skipped'].includes(c.conclusion)
