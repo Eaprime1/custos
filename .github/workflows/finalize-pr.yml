@@ -1,62 +1,368 @@
 # Custos — Finalize PR
-# Closes the review period on a PR: confirms every review thread is
-# resolved, posts a scored summary, and stamps the PR `finalized`.
-# Triggered by commenting `@claude finalize` on the PR.
+#
+# Comment `@claude finalize` on any PR to seal it.
+# Gates: template sections filled · threads resolved · CI green
+# On pass: posts rubric + valuation · applies `finalized` label · commits PR Journey doc
+#
+# Journey doc lands in pr-journeys/ on the base branch immediately at finalize time.
+# It is a record OF the PR, not content of the PR.
+# If branch protection blocks Actions from committing to main, enable
+# "Allow GitHub Actions to bypass required pull requests" in Settings → Branches.
+#
+# Allowed to trigger: OWNER / MEMBER / COLLABORATOR / github-actions[bot]
 name: Custos — Finalize PR
 
 on:
   issue_comment:
     types: [created]
 
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
 jobs:
   finalize:
-    # `secrets` is not a recognized named-value inside a job-level `if:` —
-    # GitHub Actions rejects the whole expression at parse time when it's
-    # included here, which is why this workflow never fired on issue_comment.
-    if: >
+    if: |
       github.event.issue.pull_request != null &&
       contains(github.event.comment.body, '@claude finalize') &&
-      !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor)
+      (
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association) ||
+        github.event.comment.user.login == 'github-actions[bot]'
+      )
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-      issues: write
-      id-token: write
-      actions: read
+    timeout-minutes: 10
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Finalize PR
+        uses: actions/github-script@v7
         with:
-          fetch-depth: 1
+          script: |
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const prNum = context.issue.number;
+            const actor = context.actor;
 
-      - name: Run finalize review
-        id: finalize
-        # v1 tag currently points to v1.0.140 (resolved to immutable commit SHA)
-        uses: anthropics/claude-code-action@fbda2eb1bdc90d319b8d853f5deb53bca199a7c1
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          trigger_phrase: "@claude finalize"
-          additional_permissions: |
-            actions: read
-          allowed_bots: '*'
-          prompt: |
-            Finalize PR #${{ github.event.issue.number }} in this repo.
+            // Repo identity
+            const IDENTITY = '🌿 Custos — the shepherd closes the fold';
+            const SYMBOL   = '∰🌿';
 
-            1. Check whether every review thread on this PR is resolved
-               (`gh pr view ${{ github.event.issue.number }} --json reviewThreads`,
-               or the GraphQL reviewThreads API). If any thread is unresolved,
-               post a comment naming what's still open and stop — do not
-               finalize.
-            2. If everything is resolved, post one summary comment scoring
-               the PR against this rubric, each out of 5, with a one-line
-               reason for each score: Correctness, Consistency, Scope
-               discipline, Verification. End with an overall valuation of
-               Low, Medium, or High.
-            3. Ensure a `finalized` label exists
-               (`gh label create finalized --color 5319e7 --description "Review period closed" --force`)
-               and apply it to this PR.
-            4. Do not merge or close the PR. Finalizing closes the review
-               period — it is not a merge decision.
+            // ── 1. PR details ──────────────────────────────────────────────────
+            const { data: pr } = await github.rest.pulls.get({
+              owner, repo, pull_number: prNum,
+            });
 
-# ∰🛠️🌿🔒-custos_finalize
+            // ── 2. Template section check ──────────────────────────────────────
+            const body = pr.body || '';
+
+            const parseSection = (label) => {
+              const re = new RegExp(`##\\s+${label}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
+              const m  = body.match(re);
+              if (!m) return null;
+              const txt = m[1].replace(/<!--[\s\S]*?-->/g, '').trim();
+              return txt.length > 3 ? txt : null;
+            };
+
+            const intent      = parseSection('Intent');
+            const whatArrived = parseSection('What Arrived');
+            const resonance   = parseSection('Resonance');
+            const whatDoor    = parseSection('What Door Does This Open');
+
+            const ethicsMatch = body.match(/##\s+Ethics Check\s*\n([\s\S]*?)(?=\n##\s|$)/);
+            const ethicsLines = ethicsMatch
+              ? ethicsMatch[1].split('\n').filter(l => /^\s*-\s*\[/.test(l))
+              : [];
+            const ethicsDone  = ethicsLines.filter(l => l.includes('[x]')).length;
+            const ethicsTotal = ethicsLines.length;
+
+            const templateGaps = [];
+            if (!intent)      templateGaps.push('**Intent** is empty');
+            if (!whatArrived) templateGaps.push('**What Arrived** is empty');
+            if (!resonance)   templateGaps.push('**Resonance** is empty');
+
+            // ── 3. Review threads (GraphQL, paginated) ─────────────────────────
+            const THREAD_Q = `query($owner:String!,$repo:String!,$pr:Int!,$after:String){
+              repository(owner:$owner,name:$repo){
+                pullRequest(number:$pr){
+                  reviewThreads(first:100,after:$after){
+                    nodes{isResolved}
+                    pageInfo{hasNextPage endCursor}
+                  }
+                }
+              }
+            }`;
+            let unresolved = 0;
+            let afterCursor = null;
+            while (true) {
+              const r = await github.graphql(THREAD_Q, {
+                owner, repo, pr: prNum, after: afterCursor,
+              });
+              const rt = r.repository.pullRequest.reviewThreads;
+              unresolved += rt.nodes.filter(n => !n.isResolved).length;
+              if (!rt.pageInfo.hasNextPage) break;
+              afterCursor = rt.pageInfo.endCursor;
+            }
+
+            // ── 4. CI check runs on head commit ────────────────────────────────
+            const { data: checksData } = await github.rest.checks.listForRef({
+              owner, repo, ref: pr.head.sha, per_page: 100,
+            });
+            const allChecks = checksData.check_runs.filter(c =>
+              !c.name.toLowerCase().includes('finalize')
+            );
+            const failing = allChecks.filter(c =>
+              c.status === 'completed' &&
+              !['success', 'neutral', 'skipped'].includes(c.conclusion)
+            );
+            const pending = allChecks.filter(c => c.status !== 'completed');
+
+            // ── 5. DeepSource (detected via app slug or check name) ────────────
+            const dsChecks  = allChecks.filter(c =>
+              (c.app && (c.app.slug || '').toLowerCase().includes('deepsource')) ||
+              c.name.toLowerCase().includes('deepsource')
+            );
+            const dsPassed  = dsChecks.filter(c => c.conclusion === 'success');
+            const dsFailed  = dsChecks.filter(c => c.conclusion === 'failure');
+            const dsSkipped = dsChecks.filter(c => c.conclusion === 'skipped');
+
+            // ── 6. Gate evaluation ─────────────────────────────────────────────
+            const blockers = [
+              ...templateGaps,
+              ...(unresolved > 0 ? [`${unresolved} unresolved review thread(s)`] : []),
+              ...(failing.length  > 0 ? [`Failing CI: ${failing.map(c => `\`${c.name}\``).join(', ')}`] : []),
+              ...(pending.length  > 0 ? [`Pending CI: ${pending.map(c => `\`${c.name}\``).join(', ')}`] : []),
+            ];
+
+            if (blockers.length > 0) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum,
+                body: [
+                  `## 🌿 Finalization — not yet sealed`,
+                  '',
+                  'Address the following before finalizing:',
+                  '',
+                  ...blockers.map(b => `- ⛔ ${b}`),
+                  '',
+                  'When resolved, comment `@claude finalize` again.',
+                  '',
+                  '---',
+                  `*${IDENTITY} · ${SYMBOL}*`,
+                ].join('\n'),
+              });
+              return;
+            }
+
+            // ── 7. File count for rubric ───────────────────────────────────────
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: prNum, per_page: 100,
+            });
+            const fc = files.length;
+
+            // ── 8. Auto-score rubric ───────────────────────────────────────────
+            const scores = {
+              Correctness:  allChecks.length > 0 ? 5 : 4,
+              Consistency:  (intent && whatArrived && resonance)
+                              ? (ethicsTotal > 0 && ethicsDone === ethicsTotal ? 5 : 4)
+                              : 3,
+              Scope:        fc <= 5 ? 5 : fc <= 15 ? 4 : fc <= 30 ? 3 : fc <= 50 ? 2 : 1,
+              Verification: allChecks.length >= 5 ? 5 : allChecks.length >= 3 ? 4
+                              : allChecks.length >= 1 ? 3 : 2,
+            };
+            const notes = {
+              Correctness:  `${allChecks.length} CI check(s) — all passed`,
+              Consistency:  `Template complete · ethics ${ethicsDone}/${ethicsTotal}`,
+              Scope:        `${fc} file(s) changed`,
+              Verification: `${allChecks.length} check run(s) completed`,
+            };
+            const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+            const valuation  = totalScore >= 18 ? 'High' : totalScore >= 14 ? 'Medium' : 'Low';
+
+            // ── 9. prima-clock ─────────────────────────────────────────────────
+            const now = new Date();
+            const p   = n => String(n).padStart(2, '0');
+            const primaClock = `${now.getUTCFullYear()}${p(now.getUTCMonth()+1)}${p(now.getUTCDate())}${p(now.getUTCHours())}${p(now.getUTCMinutes())}`;
+
+            // ── 10. Apply `finalized` label ────────────────────────────────────
+            try {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: prNum, labels: ['finalized'] });
+            } catch {
+              try {
+                await github.rest.issues.createLabel({ owner, repo, name: 'finalized', color: '5319e7', description: 'Review period closed' });
+                await github.rest.issues.addLabels({ owner, repo, issue_number: prNum, labels: ['finalized'] });
+              } catch (e2) { core.warning(`Label: ${e2.message}`); }
+            }
+
+            // ── 11. Finalization comment ───────────────────────────────────────
+            const rubricRows = Object.entries(scores)
+              .map(([k, v]) => `| ${k} | ${v}/5 | ${notes[k]} |`);
+
+            const ciRows = allChecks.map(c => {
+              const icon = { success:'✅', skipped:'⏭', neutral:'➖' }[c.conclusion] || '⛔';
+              return `| ${c.name} | ${icon} |`;
+            });
+
+            const dsBlock = dsChecks.length > 0 ? [
+              '',
+              '### DeepSource',
+              '',
+              `**Passed:** ${dsPassed.length} · **Failed:** ${dsFailed.length}` +
+                (dsSkipped.length > 0 ? ` · **Skipped:** ${dsSkipped.map(c => c.name).join(', ')}` : ''),
+              '',
+            ] : [];
+
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: prNum,
+              body: [
+                `## ✅ Finalized — sealed ${primaClock}`,
+                '',
+                `> *${IDENTITY}*`,
+                '',
+                `**PR:** #${prNum} — ${pr.title}`,
+                `**Branch:** \`${pr.head.ref}\` → \`${pr.base.ref}\``,
+                `**Files:** ${fc} (+${pr.additions}/−${pr.deletions})`,
+                '',
+                '### Rubric',
+                '',
+                '| Dimension | Score | Note |',
+                '|---|---|---|',
+                ...rubricRows,
+                `| **Valuation** | **${valuation}** | ${totalScore}/20 |`,
+                '',
+                '### CI Record',
+                '',
+                '| Check | Result |',
+                '|---|---|',
+                ...ciRows,
+                ...dsBlock,
+                '### Resonance',
+                '',
+                `*${resonance}*`,
+                '',
+                '---',
+                `**prima-clock:** ${primaClock} · **sealed by:** @${actor}`,
+                `*${SYMBOL}*`,
+              ].join('\n'),
+            });
+
+            // ── 12. Commit PR Journey document ─────────────────────────────────
+            const slug = pr.title
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-|-$/g, '')
+              .slice(0, 40);
+            const journeyPath = `pr-journeys/${primaClock.slice(0, 6)}_PR${prNum}_${slug}.md`;
+
+            const ethicsRows = ethicsLines.length > 0
+              ? ethicsLines.map(l => {
+                  const checked = /\[x\]/i.test(l) ? '✅' : '☐';
+                  const text = l.replace(/^\s*-\s*\[[x ]\]\s*/i, '').trim();
+                  return `- ${checked} ${text}`;
+                }).join('\n')
+              : '*No ethics checklist found.*';
+
+            const dsSection = dsChecks.length > 0
+              ? [
+                  '## DeepSource Record',
+                  '',
+                  `**Passed:** ${dsPassed.length}  `,
+                  `**Failed:** ${dsFailed.length}  `,
+                  `**Skipped:** ${dsSkipped.length > 0 ? dsSkipped.map(c => c.name).join(', ') : 'none'}`,
+                  '',
+                ].join('\n')
+              : '## DeepSource Record\n\n*Not configured for this repo.*\n';
+
+            const prOpenedClock = (() => {
+              const d = new Date(pr.created_at);
+              const pp = n => String(n).padStart(2, '0');
+              return `${d.getUTCFullYear()}${pp(d.getUTCMonth()+1)}${pp(d.getUTCDate())}${pp(d.getUTCHours())}${pp(d.getUTCMinutes())}`;
+            })();
+
+            const journeyContent = [
+              `# PR Journey: #${prNum} — ${pr.title}`,
+              '',
+              `**Repository:** ${owner}/${repo}  `,
+              `**prima-clock:** ${primaClock}  `,
+              `**Branch:** \`${pr.head.ref}\` → \`${pr.base.ref}\`  `,
+              `**Author:** @${pr.user.login}  `,
+              `**State:** FINALIZED  `,
+              '',
+              '## Intent',
+              '',
+              intent || '*Not recorded.*',
+              '',
+              '## What Arrived',
+              '',
+              whatArrived || '*Not recorded.*',
+              '',
+              '## Resonance',
+              '',
+              `*${resonance || '—'}*`,
+              '',
+              '## The Arc',
+              '',
+              '| Event | prima-clock | Actor |',
+              '|---|---|---|',
+              `| Opened | ${prOpenedClock} | @${pr.user.login} |`,
+              `| Finalized | ${primaClock} | @${actor} |`,
+              '',
+              '## CI Record',
+              '',
+              '| Check | Result |',
+              '|---|---|',
+              ...allChecks.map(c => {
+                const icon = { success:'✅', skipped:'⏭', neutral:'➖' }[c.conclusion] || '⛔';
+                return `| ${c.name} | ${icon} |`;
+              }),
+              '',
+              dsSection,
+              '## Review Scores',
+              '',
+              '| Dimension | Score | Note |',
+              '|---|---|---|',
+              ...rubricRows,
+              `| **Valuation** | **${valuation}** | ${totalScore}/20 |`,
+              '',
+              '## Ethics Check',
+              '',
+              ethicsRows,
+              '',
+              '## What Door Does This Open?',
+              '',
+              whatDoor || '*Not recorded.*',
+              '',
+              '---',
+              `**prima-clock:** ${primaClock}  `,
+              `**witnessed:** true  `,
+              `*${IDENTITY} · ${SYMBOL}*`,
+            ].join('\n');
+
+            try {
+              let existingSha;
+              try {
+                const { data: existing } = await github.rest.repos.getContent({
+                  owner, repo, path: journeyPath, ref: pr.base.ref,
+                });
+                existingSha = existing.sha;
+              } catch { /* new file */ }
+
+              await github.rest.repos.createOrUpdateFileContents({
+                owner, repo,
+                path: journeyPath,
+                message: `journey: PR #${prNum} finalized [prima-clock ${primaClock}]`,
+                content: Buffer.from(journeyContent).toString('base64'),
+                branch: pr.base.ref,
+                ...(existingSha ? { sha: existingSha } : {}),
+              });
+
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum,
+                body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.base.ref}/${journeyPath})\n\n*The record now lives in the system.*`,
+              });
+            } catch (e) {
+              core.warning(`Journey doc commit failed: ${e.message}`);
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum,
+                body: `⚠️ PR finalized and labeled, but the journey document could not be committed: ${e.message}\n\nEnable "Allow GitHub Actions to bypass required pull requests" in branch protection settings if needed.`,
+              });
+            }
+
+# ∰🛠️🌿🔒-custos_finalize_v2
