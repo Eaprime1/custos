@@ -31,7 +31,6 @@ jobs:
         github.event.sender.type == 'User' &&
         github.event.sender.login != 'dependabot[bot]' &&
         github.event.sender.login != 'renovate[bot]' &&
-        startsWith(github.event.comment.body || github.event.review.body || '', '@gemini-cli') &&
         contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association || github.event.review.author_association || '')
       )
     runs-on: 'ubuntu-latest'
@@ -43,8 +42,21 @@ jobs:
       command: '${{ steps.parse.outputs.command }}'
       additional_context: '${{ steps.parse.outputs.additional_context }}'
     steps:
+      - name: 'Gate — check trigger phrase'
+        id: 'gate'
+        env:
+          EVENT_NAME: '${{ github.event_name }}'
+          COMMENT_BODY: '${{ github.event.comment.body || github.event.review.body || '' }}'
+        run: |-
+          if [[ "${EVENT_NAME}" == "pull_request" || "${EVENT_NAME}" == "issues" ]]; then
+            echo "triggered=true" >> "$GITHUB_OUTPUT"
+          elif echo "$COMMENT_BODY" | grep -qF '@gemini-cli'; then
+            echo "triggered=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 'Parse command'
         id: 'parse'
+        if: steps.gate.outputs.triggered == 'true'
         env:
           EVENT_NAME: '${{ github.event_name }}'
           COMMENT_BODY: '${{ github.event.comment.body || github.event.review.body || '' }}'
@@ -81,7 +93,7 @@ jobs:
           fi
 
           echo "command=${COMMAND}" >> "$GITHUB_OUTPUT"
-          OUTPUT_DELIMITER="CUSTOS_OUTPUT_$(head -c 32 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 16)"
+          OUTPUT_DELIMITER="CUSTOS_OUTPUT_${GITHUB_RUN_ID}_${GITHUB_SHA:0:8}"
           SAFE_CONTEXT="${CONTEXT//${OUTPUT_DELIMITER}/}"
           {
             echo "additional_context<<${OUTPUT_DELIMITER}"
