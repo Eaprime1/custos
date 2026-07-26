@@ -1,0 +1,10 @@
+version = 1
+
+[[analyzers]]
+name = "secrets"
+enabled = true
+
+  [analyzers.meta]
+  # GitHub Actions workflow files only reference secrets by name via ${{ secrets.VAR }}.
+  # GitHub masks secret values at runtime; workflow files never contain actual secret values.
+  exclude_patterns = [".github/workflows/**"]
