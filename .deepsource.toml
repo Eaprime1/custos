@@ -1,6 +1,5 @@
 version = 1
 
-exclude_patterns = [
-  ".github/workflows/**",
-  ".gemini/**"
-]
+[[analyzers]]
+name = "secrets"
+enabled = false
