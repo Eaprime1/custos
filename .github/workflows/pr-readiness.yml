@@ -1,0 +1,195 @@
+# Custos — PR Readiness Check
+#
+# Comment `@claude check` on any PR to see a readiness report.
+# Reports status of all gates without finalizing anything.
+# Safe to run multiple times. Use before `@claude finalize`.
+name: Custos — PR Readiness Check
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  readiness:
+    if: |
+      github.event.issue.pull_request != null &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Gate — check trigger phrase
+        id: gate
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: |
+          if echo "$COMMENT_BODY" | grep -qF '@claude check' && ! echo "$COMMENT_BODY" | grep -qF '@claude finalize'; then
+            echo "triggered=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check PR readiness
+        if: steps.gate.outputs.triggered == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const prNum = context.issue.number;
+
+            const SYMBOL = '∰🌿';
+
+            // ── PR details ─────────────────────────────────────────────────────
+            const { data: pr } = await github.rest.pulls.get({
+              owner, repo, pull_number: prNum,
+            });
+
+            // ── Template sections ──────────────────────────────────────────────
+            const body = pr.body || '';
+            const parseSection = (label) => {
+              const safe = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const re = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
+              const m  = body.match(re);
+              if (!m) return null;
+              const txt = m[1].replace(/<!--[\s\S]*?-->/g, '').trim();
+              return txt.length > 3 ? txt : null;
+            };
+
+            const intent      = parseSection('Intent');
+            const whatArrived = parseSection('What Arrived');
+            const resonance   = parseSection('Resonance');
+
+            const ethicsMatch = body.match(/##\s+Ethics Check\s*\n([\s\S]*?)(?=\n##\s|$)/);
+            const ethicsLines = ethicsMatch
+              ? ethicsMatch[1].split('\n').filter(l => /^\s*-\s*\[/.test(l))
+              : [];
+            const ethicsDone  = ethicsLines.filter(l => /\[x\]/i.test(l)).length;
+            const ethicsTotal = ethicsLines.length;
+
+            // ── Review threads ─────────────────────────────────────────────────
+            const THREAD_Q = `query($owner:String!,$repo:String!,$pr:Int!,$after:String){
+              repository(owner:$owner,name:$repo){
+                pullRequest(number:$pr){
+                  reviewThreads(first:100,after:$after){
+                    nodes{isResolved}
+                    pageInfo{hasNextPage endCursor}
+                  }
+                }
+              }
+            }`;
+            let unresolved = 0;
+            let afterCursor = null;
+            while (true) {
+              const r = await github.graphql(THREAD_Q, { owner, repo, pr: prNum, after: afterCursor });
+              const rt = r.repository.pullRequest.reviewThreads;
+              unresolved += rt.nodes.filter(n => !n.isResolved).length;
+              if (!rt.pageInfo.hasNextPage) break;
+              afterCursor = rt.pageInfo.endCursor;
+            }
+
+            // ── CI check runs ──────────────────────────────────────────────────
+            const allChecksRaw = await github.paginate(github.rest.checks.listForRef, {
+              owner, repo, ref: pr.head.sha, per_page: 100,
+            });
+            const allChecks = allChecksRaw.filter(c =>
+              !c.name.toLowerCase().includes('finalize') &&
+              !c.name.toLowerCase().includes('readiness')
+            );
+            const passing = allChecks.filter(c => ['success','neutral','skipped'].includes(c.conclusion));
+            const failing = allChecks.filter(c =>
+              c.status === 'completed' && !['success','neutral','skipped'].includes(c.conclusion)
+            );
+            const pending = allChecks.filter(c => c.status !== 'completed');
+
+            // ── DeepSource ────────────────────────────────────────────────────
+            const dsChecks  = allChecks.filter(c =>
+              (c.app && (c.app.slug || '').toLowerCase().includes('deepsource')) ||
+              c.name.toLowerCase().includes('deepsource')
+            );
+            const dsPassed  = dsChecks.filter(c => c.conclusion === 'success');
+            const dsFailed  = dsChecks.filter(c => c.conclusion === 'failure');
+            const dsSkipped = dsChecks.filter(c => c.conclusion === 'skipped');
+
+            // ── Build readiness report ─────────────────────────────────────────
+            const gate = (ok, label) => `| ${ok ? '✅' : '⛔'} | ${label} |`;
+            const templateOk  = !!(intent && whatArrived && resonance);
+            const threadsOk   = unresolved === 0;
+            const ciOk        = failing.length === 0 && pending.length === 0;
+            const allGreen    = templateOk && threadsOk && ciOk;
+
+            const gateTable = [
+              gate(!!intent,           `Intent section ${intent ? 'filled' : '**empty**'}`),
+              gate(!!whatArrived,      `What Arrived section ${whatArrived ? 'filled' : '**empty**'}`),
+              gate(!!resonance,        `Resonance section ${resonance ? 'filled' : '**empty**'}`),
+              gate(ethicsTotal > 0 && ethicsDone === ethicsTotal,
+                   `Ethics check ${ethicsDone}/${ethicsTotal} complete`),
+              gate(threadsOk,          `Review threads — ${unresolved === 0 ? 'all resolved' : `${unresolved} unresolved`}`),
+              gate(failing.length === 0, `CI — ${failing.length === 0 ? `${passing.length} passing` : `${failing.length} failing`}`),
+              gate(pending.length === 0, `CI — ${pending.length === 0 ? 'all complete' : `${pending.length} pending`}`),
+            ];
+
+            const ciDetail = allChecks.map(c => {
+              const icon = { success:'✅', skipped:'⏭', neutral:'➖' }[c.conclusion]
+                || (c.status !== 'completed' ? '⏳' : '⛔');
+              return `| ${c.name} | ${icon} |`;
+            });
+
+            const dsBlock = dsChecks.length > 0 ? [
+              '',
+              '### DeepSource',
+              `Passed ${dsPassed.length} · Failed ${dsFailed.length}` +
+                (dsSkipped.length > 0 ? ` · Skipped: ${dsSkipped.map(c => c.name).join(', ')}` : ''),
+              '',
+            ] : [];
+
+            const prLabel = allGreen
+              ? `## 🌿 Ready to finalize`
+              : `## 🌿 Not yet ready`;
+
+            const hint = allGreen
+              ? `All gates are green. Comment \`@claude finalize\` to seal this PR and generate the journey document.`
+              : `Resolve the ⛔ items above, then run \`@claude check\` again. When all gates are green, \`@claude finalize\` will proceed.`;
+
+            // Upsert: update existing readiness comment if present
+            const existingComments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNum, per_page: 100,
+            });
+            const existingReadiness = existingComments.find(c =>
+              c.user.login === 'github-actions[bot]' &&
+              c.body.includes('PR Readiness')
+            );
+
+            const commentBody = [
+              prLabel,
+              '',
+              hint,
+              '',
+              '### Gates',
+              '',
+              '| | Gate |',
+              '|---|---|',
+              ...gateTable,
+              '',
+              '### CI Checks',
+              '',
+              '| Check | Result |',
+              '|---|---|',
+              ...ciDetail,
+              ...dsBlock,
+              '---',
+              `*🌿 Custos PR Readiness · ${SYMBOL}*`,
+            ].join('\n');
+
+            if (existingReadiness) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existingReadiness.id, body: commentBody,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum, body: commentBody,
+              });
+            }
+
+# ∰🛠️🌿-custos_readiness

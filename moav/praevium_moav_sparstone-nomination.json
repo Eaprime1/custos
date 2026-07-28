@@ -1,0 +1,28 @@
+{
+  "prima_clock": "202607212328",
+  "entity": "praevium",
+  "suit": "♠️",
+  "iteration": 1,
+  "event": "sparstone-nomination",
+  "description": "Praevium lexeme nominated for vault/spade-of-aces/ elevation. Deliverable created in nav1 custody (Claude + eaprime1) as the formal response to Bounty #187. Proposed, not yet ratified — awaiting Shepherd decision. If ratified: migrates to world/lore.md, enters custos lexicon, filed to vault/spade-of-aces/praevium.md.",
+  "chain_of_custody": [
+    {
+      "prima_clock": "202607200911",
+      "event": "created",
+      "custodian": "nav1",
+      "location": "atelier/praevium.md",
+      "note": "Bounty #187 deliverable. Full lexeme with definition, vocab collision check, symbol anchor, open question for Shepherd."
+    },
+    {
+      "prima_clock": "202607212328",
+      "event": "sparstone-nominated",
+      "custodian": "nav1",
+      "location": "moav/praevium_moav_sparstone-nomination.json",
+      "note": "Jack contributor package issued. Primal teaser filed. Praevium nominated for Shepherd ratification and vault elevation."
+    }
+  ],
+  "pending_shepherd_decision": "Does praevium name the moment of crossing, the state after crossing, or the territory itself?",
+  "ratification_path": "Shepherd accepts → world/lore.md → vault/spade-of-aces/praevium.md",
+  "bounty_ref": "https://github.com/Eaprime1/custos/issues/187",
+  "pr_ref": "https://github.com/Eaprime1/custos/pull/220"
+}
