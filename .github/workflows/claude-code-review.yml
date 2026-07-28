@@ -8,8 +8,6 @@ name: Custos — Code Review
 # that key bills against a separate pay-per-token credit balance, and this repo
 # has hit "Credit balance is too low" failures on it before. Note the secret
 # still exists in repo secrets for whenever API-key billing is wanted again.
-# Requires the ANTHROPIC_API_KEY repository secret (or install the Claude
-# GitHub App via /install-github-app from Claude Code, which configures this).
 
 on:
   pull_request:
@@ -39,12 +37,36 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Detect self-modified review workflow
+        id: workflow-change
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              per_page: 100,
+            });
+            const workflowChanged = files.some(
+              (file) => file.filename === '.github/workflows/claude-code-review.yml'
+            );
+            core.setOutput('self_modified', workflowChanged ? 'true' : 'false');
+            if (workflowChanged) {
+              core.notice(
+                'Skipping Claude review because this PR changes .github/workflows/claude-code-review.yml and GitHub blocks OIDC app-token exchange for self-modifying workflow reviews.'
+              );
+            }
+
       - name: Run Claude Code Review
         id: claude-review
+        if: ${{ steps.workflow-change.outputs.self_modified != 'true' }}
         # v1 tag currently points to v1.0.140 (resolved to immutable commit SHA)
         uses: anthropics/claude-code-action@fbda2eb1bdc90d319b8d853f5deb53bca199a7c1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # anthropic_api_key disabled — pay-per-use credit balance is empty.
+          # Re-enable once console.anthropic.com account is funded:
           # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           additional_permissions: |
             actions: read
