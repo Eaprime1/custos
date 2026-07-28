@@ -21,7 +21,6 @@ concurrency:
 
 jobs:
   claude-review:
-    if: ${{ github.event.pull_request.head.repo.fork == false && secrets.CLAUDE_CODE_OAUTH_TOKEN != '' && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
     # `secrets` is not a recognized named-value inside a job-level `if:` —
     # GitHub Actions rejects the whole expression at parse time when it's
     # included here (visible as phantom 0-job "push" failures for this
@@ -49,10 +48,6 @@ jobs:
           # anthropic_api_key disabled — pay-per-use credit balance is empty.
           # Re-enable once console.anthropic.com account is funded:
           # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          additional_permissions: |
-            actions: read
-          allowed_bots: '*'
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           additional_permissions: |
             actions: read
           allowed_bots: '*'

@@ -23,7 +23,6 @@ The working hierarchy of the convergence hub. Flow direction:
 | ♣️J | `main-to-radix` | Update path: main → radix | **Not created** | No such branch currently exists. `radix`'s staleness (above) suggests this path, if it ever existed, isn't running. |
 | ♥️A | `֍custos֎` | Deploy branch | Active — **just updated** | Fast-forwarded to `main` tip `551cb8a` on 202607150601 (was 277 commits behind, 0 unique content of its own). Deploy is current as of this pass. |
 | ♠️A | `∰custos` | Vault pinnacle | Pending | Not yet created — highest custody |
-| 🔐J | `master` | Save point | TBD | Protected; restore anchor |
 | Pandora | `pandora/primal-seed` | Container branch — collects per-stream germ responses to the Primal Seed document (origin: a Claude Projects conversation) | Germ | First cross-conversation alignment handshake; see `pandora/README.md` |
 | 🔐J | `master` | Save point | **Not created** | No branch by this name currently exists. Protected-branch role, if still intended, needs re-establishing or this row retired. |
 
