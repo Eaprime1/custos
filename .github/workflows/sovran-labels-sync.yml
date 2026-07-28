@@ -1,0 +1,125 @@
+# Custos — Sovran Labels Sync
+#
+# Creates or updates the Sovran label schema on this repo.
+# Trigger options:
+#   - Comment `@claude sync-labels` on any issue or PR
+#   - Push that touches .github/sovran-labels.yml (on main only)
+#   - Manual dispatch from the Actions tab
+#
+# Labels defined in: .github/sovran-labels.yml
+# For cross-repo sync, run this workflow in each target repo
+# or set up a GitHub App with write access to multiple repos.
+name: Custos — Sovran Labels Sync
+
+on:
+  issue_comment:
+    types: [created]
+  push:
+    branches: [main]
+    paths:
+      - .github/sovran-labels.yml
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  sync-labels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Gate — comment trigger
+        id: gate
+        if: github.event_name == 'issue_comment'
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          ASSOCIATION: ${{ github.event.comment.author_association }}
+        run: |
+          if echo "$COMMENT_BODY" | grep -qF '@claude sync-labels'; then
+            case "$ASSOCIATION" in
+              OWNER|MEMBER|COLLABORATOR) echo "triggered=true" >> "$GITHUB_OUTPUT" ;;
+            esac
+          fi
+
+      - name: Always trigger on push or dispatch
+        id: passthrough
+        if: github.event_name != 'issue_comment'
+        run: echo "triggered=true" >> "$GITHUB_OUTPUT"
+
+      - name: Apply Sovran label schema
+        if: steps.gate.outputs.triggered == 'true' || steps.passthrough.outputs.triggered == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const SYMBOL = '∰🌿';
+
+            // Label definitions — mirrors .github/sovran-labels.yml
+            const LABELS = [
+              { name: 'concordance',    color: '0075ca', description: 'PR has a compiled concordance report'                      },
+              { name: 'icon-assigned',  color: 'e4e669', description: 'PR introduces or assigns a project icon'                    },
+              { name: 'glossary-update',color: 'd93f0b', description: 'PR updates the glossary, dictionary, or lexeme registry'    },
+              { name: 'bbs-active',     color: '0052cc', description: 'BBS node is active — PR is in live dialogue'                },
+              { name: 'sovran',         color: '5319e7', description: 'Sovran system contribution'                                },
+              { name: 'held',           color: 'b60205', description: 'Held — addressed in a separate conversation or decision'    },
+              { name: 'witnessed',      color: '0e8a16', description: 'Witnessed and recorded in the prima custody chain'          },
+              { name: 'finalized',      color: '5319e7', description: 'Review period closed — PR Journey committed'                },
+            ];
+
+            const results = { created: [], updated: [], unchanged: [] };
+
+            for (const label of LABELS) {
+              try {
+                const { data: existing } = await github.rest.issues.getLabel({
+                  owner, repo, name: label.name,
+                });
+                if (existing.color !== label.color || existing.description !== label.description) {
+                  await github.rest.issues.updateLabel({
+                    owner, repo, name: label.name,
+                    color: label.color, description: label.description,
+                  });
+                  results.updated.push(label.name);
+                } else {
+                  results.unchanged.push(label.name);
+                }
+              } catch (e) {
+                if (e.status === 404) {
+                  await github.rest.issues.createLabel({
+                    owner, repo, name: label.name,
+                    color: label.color, description: label.description,
+                  });
+                  results.created.push(label.name);
+                } else {
+                  core.warning(`${label.name}: ${e.message}`);
+                }
+              }
+            }
+
+            const summary = [
+              `Created: ${results.created.length > 0 ? results.created.join(', ') : 'none'}`,
+              `Updated: ${results.updated.length > 0 ? results.updated.join(', ') : 'none'}`,
+              `Unchanged: ${results.unchanged.length}`,
+            ].join(' · ');
+
+            core.info(`Sovran label sync complete — ${summary}`);
+
+            // Post result comment if triggered by issue_comment
+            if (context.eventName === 'issue_comment') {
+              const body = [
+                `## 🌿 Sovran Labels — Synced`,
+                '',
+                summary,
+                '',
+                '---',
+                `*Custos label sync · ${SYMBOL}*`,
+              ].join('\n');
+              await github.rest.issues.createComment({
+                owner, repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+
+# ∰🛠️🌿-custos_sovran_labels_v1
