@@ -2,6 +2,7 @@
 # Perspective: guardian, shepherd, protection of what is entrusted
 name: Custos — Code Review
 
+
 # Automatic Claude review on every pull request.
 # Uses the CLAUDE_CODE_OAUTH_TOKEN repository secret (subscription-based auth,
 # same as finalize-pr.yml). ANTHROPIC_API_KEY is intentionally not passed here:
