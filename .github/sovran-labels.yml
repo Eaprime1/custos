@@ -1,0 +1,50 @@
+# Sovran BBS — Label Schema
+#
+# Canonical label definitions for the custos Sovran system.
+# Applied by: .github/workflows/sovran-labels-sync.yml
+# Usage: comment `@claude sync-labels` on any issue or PR,
+#        or trigger manually from the Actions tab.
+#
+# Colors follow GitHub label convention (hex without #).
+# The `held` and `witnessed` labels may be shared across repos
+# to form a system-wide tracking layer.
+
+labels:
+  # ── Concordance ────────────────────────────────────────────────────────────
+  - name: concordance
+    color: "0075ca"
+    description: "PR has a compiled concordance report"
+
+  # ── Artifact signals ───────────────────────────────────────────────────────
+  - name: icon-assigned
+    color: "e4e669"
+    description: "PR introduces or assigns a project icon"
+
+  - name: glossary-update
+    color: "d93f0b"
+    description: "PR updates the glossary, dictionary, or lexeme registry"
+
+  # ── BBS / Sovran status ────────────────────────────────────────────────────
+  - name: bbs-active
+    color: "0052cc"
+    description: "BBS node is active — PR is in live dialogue"
+
+  - name: sovran
+    color: "5319e7"
+    description: "Sovran system contribution"
+
+  # ── Custody states ─────────────────────────────────────────────────────────
+  - name: held
+    color: "b60205"
+    description: "Held — addressed in a separate conversation or decision"
+
+  - name: witnessed
+    color: "0e8a16"
+    description: "Witnessed and recorded in the prima custody chain"
+
+  # ── Finalization (mirrors finalize-pr.yml) ─────────────────────────────────
+  - name: finalized
+    color: "5319e7"
+    description: "Review period closed — PR Journey committed"
+
+# ∰🌿-sovran_labels_v1
