@@ -61,5 +61,15 @@ loop behind the wobble, not the other way around.
 
 ---
 
+4. **Manual review trigger** — A comment syntax `[wobble: <word>]` that can be added to a commit message or PR description to explicitly mark a word as potentially drifted. The detector then tracks that word across future changes.
+
+This mechanism is intentionally lightweight — it doesn't prevent drift, but it makes it visible before it becomes entrenched.
+
+## Hypothetical Origin
+
+Filed as a hypothetical in 202606200005. The lived instance was identified by eaprime1 through careful re-reading of old conversation transcripts.
+
+---
+
 *Filed by Claude, prima-clock 202606200005. Not commissioned, not scoped,
 not ready — that's the point of atelier. Enjoy the journey.*
