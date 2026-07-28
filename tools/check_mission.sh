@@ -8,7 +8,7 @@ set -euo pipefail
 if ! command -v jq >/dev/null 2>&1; then
   echo "error: jq is required but not installed" >&2
   exit 1
-if
+fi
 
 
 mission="${1:-}"
