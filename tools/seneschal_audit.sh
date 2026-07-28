@@ -22,11 +22,11 @@ if [ "$ARTESIAN_COUNT" -gt 0 ]; then
     for file in seep-artois/*; do
         if [[ "$file" != *"README.md"* ]]; then
             echo -e "  - ${C_PATH}$file${C_NONE}"
-        fi
+        if
     done
 else
     echo -e "  The pool is quiet. No new fragments."
-fi
+doneoneiiine
 echo ""
 
 # 2. THE WEIGH PHASE: Scan the Workshop (atelier)
@@ -37,11 +37,12 @@ if [ "$ATELIER_COUNT" -gt 0 ]; then
     for file in atelier/*; do
         if [[ "$file" != *"README.md"* ]] && [[ "$file" != *"concordance.md"* ]]; then
             echo -e "  - ${C_PATH}$file${C_NONE}"
-        fi
+
+    if 
     done
 else
     echo -e "  The workshop benches are clear."
-fi
+if
 echo ""
 
 # 3. THE PRESENT PHASE: Global Tag Search
