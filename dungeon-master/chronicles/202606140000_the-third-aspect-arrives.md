@@ -10,7 +10,6 @@ The Third Aspect Arrives
 
 ## Real System Event
 The Custos Chronicle Master Plan ([`custos-chronicle-master-plan.md`](../custos-chronicle-master-plan.md),
-The Custos Chronicle Master Plan (`custos-chronicle-master-plan`,
 prima-clock 202606140000) was issued — a triadic co-authored document
 (Eric Pace, Navigo/Claude, DM/ChatGPT) establishing the Custos Chronicle as
 the idle narrative engine for `eaprime1/custos`. On branch
@@ -66,7 +65,6 @@ Third Aspect Arrives.
 
 ## Plank Movement
 - [`custos-chronicle-master-plan`](../custos-chronicle-master-plan.md): 1/3 (ready for code spawn) → Phase 1
-- `custos-chronicle-master-plan`: 1/3 (ready for code spawn) → Phase 1
   delivered — structure exists. The plank itself remains at 1/3 pending
   DM's full character definitions, the first GitHub Action test, and the
   `@Agnoscere identify` wild card, per the Master Plan's hold notes
