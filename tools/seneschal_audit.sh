@@ -54,13 +54,13 @@ echo -e "${C_TAG}[ THE FIELD ] - Scanning for active operational tags...${C_NONE
 
 # Look for specific markers across the repo
 echo -e "  ${C_HEAD}Draft Commissions [COMMISSION-DRAFT]:${C_NONE}"
-grep -rnw --exclude-dir={.git,.claude,.gemini} '.' -e '\[COMMISSION-DRAFT\]' | while read -r line ; do
-    echo -e "  - ${C_PATH}$line${C_NONE}"
+grep -rn --exclude-dir={.git,.claude,.gemini} '.' -e '\[COMMISSION-DRAFT\]' | while read -r line ; do
+    printf "  - %b%s%b\n" "${C_PATH}" "$line" "${C_NONE}"
 done
 
 echo -e "  ${C_HEAD}Items Needing Tending [NEEDS-TENDING]:${C_NONE}"
-grep -rnw --exclude-dir={.git,.claude,.gemini} '.' -e '\[NEEDS-TENDING\]' | while read -r line ; do
-    echo -e "  - ${C_PATH}$line${C_NONE}"
+grep -rn --exclude-dir={.git,.claude,.gemini} '.' -e '\[NEEDS-TENDING\]' | while read -r line ; do
+    printf "  - %b%s%b\n" "${C_PATH}" "$line" "${C_NONE}"
 done
 echo ""
 

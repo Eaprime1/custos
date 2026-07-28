@@ -38,6 +38,7 @@ Branches developing into separate destination repos.
 | diamond-reservoir | ♦️ | Germ | eaprime1/diamond-reservoir | Seed pressure system |
 | prima-clock | ♦️ | Germ | eaprime1/prima-clock | Temporal registry |
 | 121-architecture | ♦️ | 2/3 | eaprime1/121 | Periodic table expansion |
+| valuation | ♣️ | 1/3 | eaprime1/custos | Five Lakes Valuation System — bridge doc landed, ledger crawl in progress |
 | `threshold-crossing` (atelier seed) | ♦️ | Germ (atelier) | TBD | First named atelier exit; suit ♦️ Diamond confirmed; Chronicle 0002; destination repo TBD — awaiting eaprime1 routing decision |
 | `wordpress` | ♦️ | Germ | WordPress.com — www.unexusi.com ("Phoenix Prism") | Branched from updated `֍custos֎`/`main` at `551cb8a` on 202607150601, per eaprime1 direction. No content yet. WordPress.com MCP connector available in-session but not yet authorized. |
 
