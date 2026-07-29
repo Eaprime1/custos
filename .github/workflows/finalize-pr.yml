@@ -23,8 +23,13 @@ permissions:
 
 jobs:
   finalize:
-    if: |
+    # `secrets` is not a recognized named-value inside a job-level `if:` —
+    # GitHub Actions rejects the whole expression at parse time when it's
+    # included here, which is why this workflow never fired on issue_comment.
+    if: >
       github.event.issue.pull_request != null &&
+      contains(github.event.comment.body, '@claude finalize') &&
+      !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) &&
       (
         contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association) ||
         github.event.comment.user.login == 'github-actions[bot]'
