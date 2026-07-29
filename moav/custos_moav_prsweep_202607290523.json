@@ -1,0 +1,47 @@
+{
+  "moav_version": "1.0",
+  "prima_clock": "202607290523",
+  "entity": "custos",
+  "event": "pr_sweep_session",
+  "suit": "♣️",
+  "iteration": "Blackjack 21",
+  "motion_state": "CLEARING",
+  "chain_of_custody": "OPEN",
+  "maker": "eaprime1 + Claude (nav1 · custos-pr-review-4ewast)",
+  "session_range": {
+    "open": "202607290200",
+    "close": "202607290523"
+  },
+  "summary": "Full PR sweep across eaprime1/custos. Nine open PRs resolved: seven merged, six closed (squash-merge duplicates, broken code, blank-only, zero-delta). Auto-delete head branches enabled mid-session. Zero open PRs on custos at session close.",
+  "prs_merged": [
+    {"number": 247, "title": "INT-radix fragment intake + prima-clock + dungeon-master arc", "branch": "claude/trusting-allen-gfdbmt", "method": "squash"},
+    {"number": 252, "title": "Valuation tools hardening (two-loop CSV fix)", "branch": "seneschal_seeds", "method": "squash"},
+    {"number": 246, "title": "pandora branch, CLAUDE.md expansion, Five Lakes wiring", "branch": "pandora/primal-seed", "method": "squash"},
+    {"number": 279, "title": "Audit/valuation hardening (repo-root guard, DictReader)", "branch": "Eaprime1-patch-1", "method": "squash"},
+    {"number": 281, "title": "void-maker concept + claude-review OIDC self-mod guard", "branch": "claude/custos-repo-setup-xq2h99", "method": "squash"},
+    {"number": 282, "title": "nav3/nav5 workspaces + Sovran BBS system", "branch": "claude/nifty-franklin-fxwp3r", "method": "squash"},
+    {"number": 284, "title": "Session turn log (202607290249)", "branch": "claude/custos-pr-review-4ewast", "method": "squash"},
+    {"number": 286, "title": "The Science and Phenomenology of Tickling — document add", "branch": "245-pr-244-has-failing-checks-red-x", "method": "squash"},
+    {"number": 290, "title": "AI project planning PDFs (Navigo, Creation Work Plan)", "branch": "pandora/primal-seed", "method": "squash"}
+  ],
+  "prs_closed": [
+    {"number": 244, "reason": "chain PR — base branch never had open PR to main"},
+    {"number": 277, "reason": "squash-merge duplicate of #252 (seneschal_seeds)"},
+    {"number": 278, "reason": "broken code — accidental if statements on navigo14/concept-grain"},
+    {"number": 280, "reason": "blank-only changes"},
+    {"number": 283, "reason": "squash-merge duplicate of #247 (claude/trusting-allen-gfdbmt)"},
+    {"number": 287, "reason": "squash-merge duplicate of #279 (Eaprime1-patch-1)"},
+    {"number": 288, "reason": "zero files vs main — all content already landed via #279"}
+  ],
+  "infrastructure_changes": [
+    "GitHub Settings → Auto-delete head branches: ENABLED (eaprime1, mid-session)"
+  ],
+  "files_produced": [
+    "turns/log.md (entry 202607290249)",
+    "valuation/nav1_journey_202607290523.md",
+    "moav/custos_moav_prsweep_202607290523.json"
+  ],
+  "destination_repo": "eaprime1/custos",
+  "vault_candidate": false,
+  "notes": "Squash-merge duplicate PR pattern permanently closed by auto-delete setting. Codacy 0s cached-result pattern documented: started_at == completed_at = safe to merge when all other CI green and diff clean. navigo14/concept-grain branch still needs repair before new PR. Branch deletion blocked via git protocol (403) — merged branches must be cleaned via GitHub UI."
+}
