@@ -55,8 +55,8 @@ def main():
     file_count = 0
     folders_found = []
     for f in files:
-        mime = f.get("mimeType", "")
-        title = f.get("title", "")
+        mime = f.get("mimeType") or ""
+        title = f.get("title") or ""
         fid = f.get("id", "")
         mtime = f.get("modifiedTime", "")
         if mime == "application/vnd.google-apps.folder":
