@@ -338,3 +338,14 @@ contribution: closed 5 dead PRs (custos #244 chain-PR superseded, #277/#283 squa
 resonance:    cleared
 witnessed:    true
 ---
+
+---
+turn:         2026-07-29 05:59
+prima-clock:  202607290559
+prime:        3
+entity:       eaprime1 + Claude (nav1 · custos-pr-sweep-journey-202607)
+intent:       archive the closed-without-merge PRs from the sweep as pr-journeys/ stubs; write the session journey + MOAV carrier; finalize and merge PR #291
+contribution: seven pr-journeys/ stubs created (PRs #244/#277/#278/#280/#283/#287/#288) — establishing "close = create stub" as the archival rule for swept PRs; valuation/nav1_journey_202607290523.md (Blackjack 21, score 10/10 Ace, prima-clock 202607290523) and moav/custos_moav_prsweep_202607290523.json committed on branch claude/pr-sweep-journey-202607; PR #291 finalized and merged into main; also merged PRs #279 (audit/valuation hardening) and #287/#288/#283 closed as squash-merge duplicates
+resonance:    witnessed
+witnessed:    true
+---
