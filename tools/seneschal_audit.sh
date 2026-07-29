@@ -9,6 +9,11 @@ C_WARN='\033[1;33m'   # Yellow
 C_PATH='\033[0;32m'   # Green
 C_NONE='\033[0m'      # Reset
 
+if [[ ! -d "seep-artois" || ! -d "atelier" ]]; then
+  echo "Error: Run this script from the repository root." >&2
+  exit 1
+fi
+
 echo -e "${C_HEAD}========================================${C_NONE}"
 echo -e "${C_HEAD}  THE SENESCHAL : ESTATE AUDIT LEDGER   ${C_NONE}"
 echo -e "${C_HEAD}========================================${C_NONE}"
