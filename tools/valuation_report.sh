@@ -32,7 +32,20 @@ with open(path, newline="", encoding="utf-8-sig") as f:
             header_skipped = True
             continue
     fieldnames = ["file_name", "file_type", "folder_path", "file_id", "modified_time", "card_suit", "card_rank", "chip_value", "notes"]
-    for row in csv.DictReader(f, fieldnames=fieldnames):
+    for row in reader:
+        if not row:
+            continue
+        if not header_skipped and (row[0].lower() in ("title", "filename", "file_name") or (len(row) > 7 and row[7].lower() == "chip_value")):
+            header_skipped = True
+            continue
+        total += 1
+        suits[row[5] if len(row) > 5 and row[5] else "TBD"] += 1
+        ranks[row[6] if len(row) > 6 and row[6] else "TBD"] += 1
+        types[row[1] if len(row) > 1 and row[1] else "unknown"] += 1
+        try:
+            chips += int(row[7]) if len(row) > 7 and row[7] else 0
+        except ValueError:
+            pass
         total += 1
         suits[row[5] if len(row) > 5 and row[5] else "TBD"] += 1
         ranks[row[6] if len(row) > 6 and row[6] else "TBD"] += 1
