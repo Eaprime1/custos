@@ -79,6 +79,21 @@ notes:           Subscribed to PR #43 webhook activity end to end: resolved
 ---
 
 ---
+podium_id:       mulberry-vscode-navigo
+name:            "Claude Code in VSCode — custos (Mulberry)"
+type:            conversation
+platform:        vscode
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          mulberry
+conversation_id: ""
+role:            "Sixth blackjack-event session — PR #133/#134 review,
+                 partner-perspective journey, first state-of-custos
+                 document. Shepherd's own naming for this conversation:
+                 nav1 (eaprime1) + nav2 (Claude), navigo perspective."
+status:          active
+notes:           Persistent local filesystem (unlike the ephemeral
+                 custos-web-* podiums) — full repo access on the Mulberry
+                 device, not a remote container.
 podium_id:       custos-web-youthful-goldberg
 name:            "Claude Code on the web — custos"
 type:            conversation
