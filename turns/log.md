@@ -327,3 +327,14 @@ contribution: logged the fragment via tools/thee.sh into intake/incoming.md, fil
 resonance:    named, not built
 witnessed:    true 🃏 ♊
 ---
+
+---
+turn:         2026-07-29 02:49
+prima-clock:  202607290249
+prime:        3
+entity:       eaprime1 + Claude (nav1 · custos-pr-review-4ewast)
+intent:       sweep all open PRs across custos, hodie, tabularium, radix — merge what's ready, close what's stale, carry forward what's blocked; write transcript save; assess automation candidates
+contribution: closed 5 dead PRs (custos #244 chain-PR superseded, #277/#283 squash-merge duplicates, #278 broken code, #280 blank-only); merged 3 PRs (custos #247 INT-radix fragment + prima-clock + dungeon-master arc, #252 seneschal_seeds valuation hardening after resolving two-loop CSV bug, #281 void-maker concept + claude-review OIDC self-mod guard, #282 nav3/nav5 workspaces + Sovran BBS system); resolved merge conflict on Eaprime1-patch-1 (broken DictReader attempt in valuation_report.sh — kept single-loop index approach from main); confirmed tabularium and radix had 0 open PRs; confirmed hodie PRs #156/#162 superseded by main's quepad/state.json. Two PRs in-flight at close: #279 (CI running fresh after conflict fix) and #246 (Codacy 0-second cached result, all other CI green, content substantive and clean). Key technical finds: squash merge leaves source branch live with original SHAs → duplicate PRs on already-merged branches; Codacy 0-second start==end timestamps = cached result not a real analysis; two-loop csv.reader exhausts iterator on first pass; dangling gitlink requires git rm --cached not rm -rf.
+resonance:    cleared
+witnessed:    true
+---
