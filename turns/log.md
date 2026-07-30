@@ -360,3 +360,14 @@ contribution: PR #292 merged into main — archivist.yml (merge-triggered net th
 resonance:    recursive
 witnessed:    true
 ---
+
+---
+turn:         2026-07-30 03:44
+prima-clock:  202607300344
+prime:        3
+entity:       eaprime1 + Claude (nav1 · custos-pr-review-4ewast)
+intent:       clear PRs #295/#296, update deployed branch chain (main → radix → ֍custos֎), add Jekyll/Pages, create wordpress branch
+contribution: confirmed PRs #295 and #296 correctly closed — no content lost (#295 turns/log already on main, #296 all content already landed via #282); added _config.yml to main (Jekyll excludes for airavata-custos, queue, intake, incoming, seeds, tools); updated Jekyll workflow trigger from main to ֍custos֎ (deployed branch); merged PR #294 Jekyll workflow, closed #293 duplicate; fast-forwarded radix (106 commits behind → main tip b5a4a40), ֍custos֎ (111 behind → main tip), and wordpress branch — all now at parity with main; archivist auto-created PR #294 journey stub
+resonance:    current
+witnessed:    true
+---
