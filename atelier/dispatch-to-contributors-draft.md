@@ -22,8 +22,7 @@ The card-math has been updated to the project's current canon —
 Delivery: split approach — formal sections as a PR #38 comment (PRs
 receive comments after merge, contributors get notified), the coffee-haven
 invitation as a separate personal message. Coffee-haven framing is now
-incorporated in "One More Thing" below. Ready to send pending Shepherd
-sign-off on delivery.
+incorporated in "One More Thing" below. Sent — see header for comment IDs.
 
 ---
 
