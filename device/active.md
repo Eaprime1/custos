@@ -219,5 +219,24 @@
 
 ---
 
+*Updated: 2026-07-31 00:00*
+
+- **Contributor dispatch sent** — two PR #38 comments posted to dannyward630 + Ojas2095:
+  formal dispatch (issuecomment-5140537454) and coffee-haven personal aside
+  (issuecomment-5140539261). Record held in
+  `atelier/dispatch-to-contributors-draft.md`.
+- **J-21 card-math canon** locked in `world/symbols.md`: `J − 21 = −A`
+  (threshold-side reading of the ordinary `J + A = 21`).
+- **5 stale CI issues closed**: #228, #229, #230, #242, #274 (Dependabot/scan
+  artifacts, not real code issues).
+- **PR #297** open on branch `claude/external-submission-setup-lwxspi` — finalization
+  in progress; all CI green, DeepSource Grade A both runs.
+- **Pending**: contributor response from dannyward630/Ojas2095 (engage/witness/flag).
+- **Next track**: Track 2 — Repo cleanup PR (document `dungeon-master/` and
+  `sparstone/` in CLAUDE.md; file root emoji documents through intake; close
+  issues #201 and #202).
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
