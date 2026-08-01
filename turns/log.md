@@ -371,3 +371,14 @@ contribution: confirmed PRs #295 and #296 correctly closed — no content lost (
 resonance:    current
 witnessed:    true
 ---
+
+---
+turn:         2026-07-31 00:00
+prima-clock:  202607310000
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       deliver contributor dispatch to dannyward630 + Ojas2095 post-PR #38 merge; establish J-21 card-math canon; set up Slack #custos channel; close 5 stale CI issues
+contribution: posted two PR #38 comments — formal dispatch (issuecomment-5140537454) covering Threshold Joker math (J − 21 = −A) and Lumenar terminus development, plus coffee-haven personal aside (issuecomment-5140539261) as House of Confusion invitation; updated world/symbols.md with J-21 card-math canon as canonical equation; created atelier/dispatch-to-contributors-draft.md as nursery delivery record; fixed stale pre-send status in dispatch draft (commit a6a8da3) after claude-review bot flagged contradiction with delivered header; closed 5 stale CI issues (#228, #229, #230, #242, #274) — all Dependabot/scan artifacts; dispatched session-close message to #custos Slack; PR #297 created and carried to full green (two commits, DeepSource Grade A both runs, all GitHub Actions passed); resolved open claude-review thread on PR #297 prior to finalization
+resonance:    delivered
+witnessed:    true
+---

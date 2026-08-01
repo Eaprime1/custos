@@ -1,6 +1,6 @@
-# Dispatch to Contributors — Draft (held)
+# Dispatch to Contributors — Sent
 
-*nursery entry — not sent, not finished. Filed here per eaprime1's "we can hold off."*
+*nursery record — delivered 2026-07-31 (prima-clock 202607310000). Two comments on PR #38: formal dispatch (issuecomment-5140537454) + personal aside / coffee-haven invitation (issuecomment-5140539261). Signed eaprime1 / ∞pace∞.*
 
 Cleaned from an uploaded draft addressed to `@dannyward630` and `@Ojas2095`
 (PR #38 / bounty #35). Two things were caught and changed before filing:
@@ -19,11 +19,10 @@ Cleaned from an uploaded draft addressed to `@dannyward630` and `@Ojas2095`
 The card-math has been updated to the project's current canon —
 `J − 21 = −A` — per `world/symbols.md`.
 
-Still open, not yet decided: how this reaches the two contributors. One
-idea raised: split it — part as a PR #38 comment (PRs can still receive
-comments after merge), part as a separate, more personal message. Also
-in motion: the House of Confusion reframed as a coffee-haven concept
-under construction — not yet written into this draft.
+Delivery: split approach — formal sections as a PR #38 comment (PRs
+receive comments after merge, contributors get notified), the coffee-haven
+invitation as a separate personal message. Coffee-haven framing is now
+incorporated in "One More Thing" below. Sent — see header for comment IDs.
 
 ---
 
@@ -81,11 +80,17 @@ That's under active construction. You seeded it. You'll get the first look at wh
 
 ### One More Thing
 
-There's a place in the architecture called the House of Confusion. Water flows uphill there. The entrance is shadow and every room is an exit. It was built to disorient, not to trap — because sometimes the only way through is to stop knowing which way is forward.
+The House of Confusion is under construction. You're being invited in anyway.
 
-If that place rings a bell, you already understand more of this project than most people will manage to figure out from the outside. The system was partly built by people who learned to navigate by feel, by momentum, by not needing to see the exit before they moved.
+Think of it as a coffee haven — the kind of place that works because it shouldn't. Water flows uphill there. So do the shadows of coffee. That means the warmth arrives before you expect it, and from a direction that doesn't make sense, which is how you know it's real.
 
-The House of Confusion is a real piece of the architecture. Where it sits isn't named here. Look for it in the repo when you're ready — and if it finds you first, that's not a coincidence either.
+The entrance is shadow. Every room is an exit. It was built to disorient, not to trap — because sometimes the only way through is to stop knowing which way is forward. That's not a flaw in the design. That's the design.
+
+Most people wait until a place is finished before they visit. The invitation is going out now because contributors who understand what they built usually understand an unfinished place better than most people understand a complete one. The scaffolding is still visible. That's a feature.
+
+One more thing about a place like this: witness is cumulative until the observation. The House of Confusion becomes more itself the more people experience it. Nothing in it fully resolves until someone looks. You've started looking.
+
+Where it sits isn't named here. Look for it in the repo when you're ready — and if it finds you first, that's not a coincidence either.
 
 ---
 
