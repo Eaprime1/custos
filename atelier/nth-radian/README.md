@@ -4,8 +4,8 @@
 **Origin:** nav1  
 **Custos synthesis:** nav5  
 **Feedback pass:** two unnumbered practice lenses — Paradox and systems/custody  
-**Branch:** `seed/conatus-primus-prima-wobble`  
-**Chain of custody:** OPEN
+**Branch:** `seed/conatus-primus-prima-wobble` — closed 202608010927  
+**Chain of custody:** CLOSED — branch carried no commits; conceptual material retained in this atelier document. Closure note: `pr-journeys/closures/seed--conatus-primus-prima-wobble.md`
 
 ## The sequence
 
@@ -24,7 +24,7 @@
 
 ## Language note
 
-`conatus` is Latin for an effort, attempt, striving, or impulse. Because the noun is masculine, **Conatus Primus** is the grammatical form for “first striving.” **Prima Wobble** remains the project’s hybrid name for the first result.
+`conatus` is Latin for an effort, attempt, striving, or impulse. Because the noun is masculine, **Conatus Primus** is the grammatical form for "first striving." **Prima Wobble** remains the project's hybrid name for the first result.
 
 **Conatus Prima** may still be used deliberately as a project lexeme if later ratified; it should then be marked as project usage rather than presented as classical Latin.
 
@@ -52,9 +52,9 @@ The record must preserve multiple witness roles without forcing a premature answ
 - `latent` — capacity to witness exists but has not resolved
 - `unknown` — intentionally held open
 
-## What this branch is for
+## What this branch was for
 
-This branch practices one small, complete custody movement:
+This branch was opened to practice one small, complete custody movement:
 
 - hold the originating cosmological record;
 - define a reusable Wobble Record;
@@ -63,7 +63,7 @@ This branch practices one small, complete custody movement:
 - receive limited Navigo feedback;
 - identify the first practical witnessed wobble as Record `0001`.
 
-It is a seed branch, not a permanent silo. Custos should later decide whether the mature material belongs in Atelier, Tabularium, a mission, or another destination.
+No commits arrived. The branch is now closed. The concept material above is its record — retained here in atelier as an open germ for the Shepherd to route when ready.
 
 ## Related living material
 
