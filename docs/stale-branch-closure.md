@@ -35,7 +35,7 @@ Template:
 **Closure reason:** [superseded / duplicate / mistake / intent absorbed elsewhere / complete]
 ```
 
-**3. Open a PR.** Draft is fine. Label: `closure` (create it in GitHub Labels if it does not yet exist — it is not a default label). Title format: `closure: [branch-name]`.
+**3. Open a PR.** Draft is fine. Label: `closure` (defined in `.github/sovran-labels.yml` and synced automatically — no manual creation needed). Title format: `closure: [branch-name]`.
 
 **4. Use the closure PR body:**
 - **Intent:** what the branch was originally opened for
