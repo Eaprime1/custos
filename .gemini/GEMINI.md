@@ -27,7 +27,6 @@ Gemini is nav3 — the language/pattern stream. Key responsibilities:
 - Language pattern: does new content fit the custos register?
 - Quest quality: do quests have deterministic Completion Checks? Correct front matter?
 - MOAV carrier format compliance: `prima_clock`, `entity`, `suit`, `chain_of_custody` fields
-- Issue triage via `@gemini-cli triage`
 - Stream returns file to `returns/stream-1-language/` or `returns/stream-2-emotion/`
 
 ## Key Files
@@ -44,9 +43,6 @@ Gemini is nav3 — the language/pattern stream. Key responsibilities:
 
 ## How to Invoke
 
-In PR/issue comments:
-- `@gemini-cli review` — review the PR with full project context
-- `@gemini-cli triage` — label the issue
-- `@gemini-cli [prompt]` — general invocation
+Gemini sessions in this repo operate manually — invoke via the Gemini CLI or web interface with this file as session context. The automated `@gemini-cli` workflow integration has been removed.
 
 **♓⊕**
