@@ -1,0 +1,527 @@
+<title>custos — has guests</title>
+<style>
+:root {
+  --ink: #1F1C17;
+  --paper: #F0EBE0;
+  --lantern: #BF8020;
+  --lantern-bright: #D49430;
+  --lantern-dim: rgba(191,128,32,0.13);
+  --lantern-glow: rgba(191,128,32,0.07);
+  --slate: #68809A;
+  --threshold: #E4DDD0;
+  --muted: #8C8070;
+  --surface: #EAE3D6;
+  --border: rgba(31,28,23,0.11);
+  --font-d: "Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --font-b: "Optima",Candara,"Segoe UI",system-ui,sans-serif;
+  --font-m: "JetBrains Mono","Fira Code","SF Mono","Cascadia Code","Courier New",monospace;
+  --ease: 200ms ease;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #E6E0D4; --paper: #161310; --lantern: #CC9438; --lantern-bright: #DDA84A;
+    --lantern-dim: rgba(204,148,56,0.11); --lantern-glow: rgba(204,148,56,0.06);
+    --slate: #7A8FA2; --threshold: #1E1B14; --muted: #6A6050; --surface: #1A1710;
+    --border: rgba(230,224,212,0.09);
+  }
+}
+:root[data-theme="light"] {
+  --ink: #1F1C17; --paper: #F0EBE0; --lantern: #BF8020; --lantern-bright: #D49430;
+  --lantern-dim: rgba(191,128,32,0.13); --lantern-glow: rgba(191,128,32,0.07);
+  --slate: #68809A; --threshold: #E4DDD0; --muted: #8C8070; --surface: #EAE3D6;
+  --border: rgba(31,28,23,0.11);
+}
+:root[data-theme="dark"] {
+  --ink: #E6E0D4; --paper: #161310; --lantern: #CC9438; --lantern-bright: #DDA84A;
+  --lantern-dim: rgba(204,148,56,0.11); --lantern-glow: rgba(204,148,56,0.06);
+  --slate: #7A8FA2; --threshold: #1E1B14; --muted: #6A6050; --surface: #1A1710;
+  --border: rgba(230,224,212,0.09);
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.72;
+  min-height: 100vh;
+  padding: 0;
+  transition: background var(--ease), color var(--ease);
+}
+
+/* ── CONSTELLATION NAV ──────────────────────── */
+.constellation {
+  background: var(--threshold);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.prism-label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
+}
+.prism-label span { margin-right: 0.35rem; }
+.const-link {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.15rem 0.6rem;
+  border-radius: 100px;
+  transition: color var(--ease), background var(--ease);
+  flex-shrink: 0;
+}
+.const-link:hover { color: var(--lantern); background: var(--lantern-glow); }
+.const-link.current {
+  color: var(--ink);
+  background: var(--lantern-glow);
+  border: 1px solid color-mix(in srgb, var(--lantern) 35%, transparent);
+  font-weight: 600;
+}
+.const-sep { color: var(--border); margin: 0 0.15rem; flex-shrink: 0; }
+
+.page { max-width: 680px; margin: 0 auto; padding: 0 1.5rem 7rem; }
+
+/* ── THRESHOLD ─────────────────────────────── */
+.threshold {
+  padding: 5rem 0 4.5rem;
+  text-align: center;
+  position: relative;
+}
+.threshold::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, var(--lantern), transparent);
+  margin: 2.75rem auto 0;
+}
+@keyframes breathe {
+  0%,100% { opacity: .3; transform: scale(1); }
+  50%      { opacity: .58; transform: scale(1.05); }
+}
+.name-wrap { position: relative; display: inline-block; }
+.name-halo {
+  position: absolute; inset: -2rem -3rem;
+  background: radial-gradient(ellipse at center, var(--lantern-dim) 0%, transparent 68%);
+  pointer-events: none;
+  animation: breathe 5s ease-in-out infinite;
+}
+.name {
+  font-family: var(--font-d);
+  font-size: clamp(3.2rem, 11vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--ink);
+  position: relative;
+}
+.name-rule {
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--lantern), transparent);
+  margin-top: 0.3rem;
+  opacity: .75;
+}
+.has-guests {
+  font-family: var(--font-d);
+  font-size: clamp(1.05rem, 3.2vw, 1.5rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--slate);
+  margin-top: 0.85rem;
+  letter-spacing: 0.01em;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.has-guests::after {
+  content: '▌'; color: var(--lantern);
+  animation: blink 1.2s step-end infinite;
+  font-style: normal; margin-left: 2px; font-size: .9em;
+}
+.has-guests.settled::after { animation: none; opacity: 0; }
+.sub-line {
+  font-size: 0.78rem; color: var(--muted);
+  letter-spacing: 0.11em; text-transform: uppercase; margin-top: 1.6rem;
+}
+
+/* ── SECTIONS ───────────────────────────────── */
+.section {
+  margin: 3rem 0; padding: 2.25rem 2.5rem;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 1px;
+  transition: border-color var(--ease);
+}
+.section:hover { border-color: color-mix(in srgb, var(--lantern) 35%, transparent); }
+.eyebrow { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.1rem; }
+.rune {
+  font-size: 1.2rem; color: var(--lantern); line-height: 1; flex-shrink: 0;
+  text-shadow: 0 0 8px var(--lantern-dim);
+}
+.eyebrow-label {
+  font-size: 0.72rem; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--muted); font-weight: 600;
+}
+.section h2 {
+  font-family: var(--font-d); font-size: 1.45rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.9rem; line-height: 1.3; text-wrap: balance;
+}
+.section p { font-size: 0.95rem; color: var(--ink); opacity: 0.83; margin-bottom: 0.65rem; }
+.section p:last-child { margin-bottom: 0; }
+
+/* ── STACK ──────────────────────────────────── */
+.stack { margin-top: 1.25rem; }
+.stack-row {
+  display: flex; align-items: baseline; gap: 1rem;
+  padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem;
+}
+.stack-row:last-child { border-bottom: none; }
+.sk { min-width: 110px; flex-shrink: 0; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.07em; text-transform: uppercase; }
+.sv { color: var(--ink); }
+
+/* ── CARDS ──────────────────────────────────── */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 0.9rem; margin-top: 1.5rem; }
+.card {
+  padding: 1.1rem 1.2rem; background: var(--threshold);
+  border: 1px solid var(--border); border-radius: 1px;
+  transition: border-color var(--ease), background var(--ease); cursor: default;
+}
+.card:hover { border-color: var(--lantern); background: var(--lantern-glow); }
+.card-glyph { font-size: 1.35rem; margin-bottom: 0.45rem; display: block; }
+.card h3 { font-family: var(--font-d); font-size: 0.95rem; font-weight: 400; margin-bottom: 0.3rem; color: var(--ink); }
+.card p { font-size: 0.8rem; color: var(--muted); margin: 0; opacity: 1; line-height: 1.5; }
+
+/* ── TAGS ───────────────────────────────────── */
+.tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.25rem; }
+.tag {
+  font-size: 0.73rem; padding: 0.2rem 0.65rem; border: 1px solid var(--border);
+  border-radius: 100px; color: var(--muted); letter-spacing: 0.04em;
+  transition: border-color var(--ease), color var(--ease); cursor: default;
+}
+.tag:hover { border-color: var(--lantern); color: var(--lantern); }
+
+/* ── CMD BLOCK ──────────────────────────────── */
+.cmd {
+  font-family: var(--font-m); font-size: 0.8rem; background: var(--threshold);
+  border-left: 2px solid var(--lantern); padding: 0.7rem 1rem;
+  margin: 1rem 0; color: var(--ink); overflow-x: auto;
+  border-radius: 0 1px 1px 0; line-height: 1.6;
+}
+.cmd .p { color: var(--lantern); user-select: none; }
+
+/* ── DETAILS ────────────────────────────────── */
+details { border: 1px solid var(--border); border-radius: 1px; margin: 0.65rem 0; transition: border-color var(--ease); }
+details:hover { border-color: color-mix(in srgb, var(--lantern) 40%, transparent); }
+details summary {
+  padding: 0.8rem 1rem; cursor: pointer; font-size: 0.9rem; color: var(--ink);
+  display: flex; align-items: center; gap: 0.55rem; list-style: none; user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: '▸'; color: var(--lantern); font-size: 0.7rem;
+  transition: transform var(--ease); flex-shrink: 0;
+}
+details[open] summary::before { transform: rotate(90deg); }
+.db {
+  padding: 0.75rem 1rem 0.85rem; font-size: 0.875rem; color: var(--ink);
+  opacity: 0.8; border-top: 1px solid var(--border); line-height: 1.65;
+}
+.db code { font-family: var(--font-m); font-size: 0.8em; background: var(--threshold); padding: .1em .4em; border-radius: 2px; }
+
+/* ── NAVIGO TABLE ───────────────────────────── */
+.nav-wrap { overflow-x: auto; margin-top: 1.1rem; }
+.nav-t { width: 100%; border-collapse: collapse; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.nav-t th {
+  text-align: left; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); padding: 0.45rem 1.5rem 0.45rem 0; border-bottom: 1px solid var(--border);
+  white-space: nowrap; font-weight: 600;
+}
+.nav-t td { padding: 0.55rem 1.5rem 0.55rem 0; border-bottom: 1px solid var(--border); color: var(--ink); vertical-align: top; }
+.nav-t tr:last-child td { border-bottom: none; }
+.nav-t code { font-family: var(--font-m); font-size: 0.82em; background: var(--threshold); padding: .1em .35em; border-radius: 2px; }
+
+/* ── DIVIDER ────────────────────────────────── */
+.div { height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); margin: 2rem 0; }
+
+/* ── CONSTELLATION LINKS in FOOTER ─────────── */
+.const-grid {
+  display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.1rem;
+}
+.const-card {
+  flex: 1; min-width: 140px;
+  padding: 0.85rem 1.1rem;
+  background: var(--threshold); border: 1px solid var(--border); border-radius: 1px;
+  text-decoration: none; color: var(--ink);
+  transition: border-color var(--ease), background var(--ease);
+  display: block;
+}
+.const-card:hover { border-color: var(--lantern); background: var(--lantern-glow); }
+.const-card-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+.const-card-name { font-family: var(--font-d); font-size: 1rem; font-weight: 400; }
+.const-card-desc { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+.const-card.current-repo { border-color: color-mix(in srgb, var(--lantern) 40%, transparent); }
+.const-card.current-repo .const-card-label::after { content: ' · here'; }
+
+/* ── FOOTER ─────────────────────────────────── */
+.footer {
+  text-align: center; padding-top: 3rem; font-size: 0.8rem;
+  color: var(--muted); border-top: 1px solid var(--border); margin-top: 1.5rem;
+}
+.footer a { color: var(--lantern); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.fold-line {
+  font-family: var(--font-d); font-style: italic; font-size: 1rem;
+  color: var(--muted); margin-top: 1.5rem; opacity: 0.7; letter-spacing: 0.02em;
+}
+
+/* ── SCROLL REVEAL ──────────────────────────── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .name-halo { animation: none; opacity: 0.4; }
+  .has-guests::after { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition: none !important; }
+}
+@media (max-width: 500px) {
+  .page { padding: 0 1rem 5rem; }
+  .threshold { padding: 3rem 0 2.5rem; }
+  .section { padding: 1.5rem 1.6rem; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .sk { min-width: 90px; }
+  .const-grid { flex-direction: column; }
+}
+:focus-visible { outline: 2px solid var(--lantern); outline-offset: 3px; border-radius: 2px; }
+</style>
+
+<!-- CONSTELLATION NAV STRIP -->
+<nav class="constellation" aria-label="Phoenix prism constellation">
+  <span class="prism-label"><span>🐦‍🔥</span> Phoenix prism</span>
+  <a class="const-link current" href="#" aria-current="page">custos</a>
+  <span class="const-sep" aria-hidden="true">·</span>
+  <a class="const-link" href="https://github.com/eaprime1/tabularium" target="_blank" rel="noopener">tabularium</a>
+</nav>
+
+<div class="page">
+
+  <!-- THRESHOLD -->
+  <header class="threshold">
+    <div class="name-wrap">
+      <div class="name-halo" aria-hidden="true"></div>
+      <div class="name">custos</div>
+      <div class="name-rule"></div>
+    </div>
+    <div class="has-guests" id="hg">has guests</div>
+    <div class="sub-line">prima terminal · convergence hub · guardian</div>
+  </header>
+
+  <!-- THE FIELD -->
+  <section class="section reveal">
+    <div class="eyebrow">
+      <span class="rune">ᚠ</span>
+      <span class="eyebrow-label">The Field</span>
+    </div>
+    <h2>What custos tends</h2>
+    <p>custos is a prima terminal — a guardian environment for tending all work in the field. It shepherds quests, world lore, shell tools, device state, and workflow configuration through formal custody and into the constellation of repos that make up the greater work.</p>
+    <p>Not a software project. No build pipeline. The deliverable is <em>content and structure</em> — the order that makes other things possible.</p>
+
+    <div class="stack">
+      <div class="stack-row"><span class="sk">Identity</span><span class="sv">guardian · shepherd · convergence hub</span></div>
+      <div class="stack-row"><span class="sk">Author</span><span class="sv">eaprime1</span></div>
+      <div class="stack-row"><span class="sk">Runtime</span><span class="sv">Termux (the Podium)</span></div>
+      <div class="stack-row"><span class="sk">Prime</span><span class="sv">3 · active phase</span></div>
+    </div>
+  </section>
+
+  <!-- THE SHAPE -->
+  <section class="section reveal">
+    <div class="eyebrow">
+      <span class="rune">ᚨ</span>
+      <span class="eyebrow-label">The Shape</span>
+    </div>
+    <h2>How the workshop is organized</h2>
+    <p>custos is the origin mold for a constellation of repos. Branches develop here and dispatch to destination repos through a formal lifecycle.</p>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card-glyph">⚔️</span>
+        <h3>Quests</h3>
+        <p>RPG-style tasks in arcs. Every quest has a deterministic bash completion check.</p>
+      </div>
+      <div class="card">
+        <span class="card-glyph">🌍</span>
+        <h3>World</h3>
+        <p>Lore, factions, founding myth. The terminal is the world, not a tool.</p>
+      </div>
+      <div class="card">
+        <span class="card-glyph">🛠️</span>
+        <h3>Tools</h3>
+        <p>Shell tools for intake, state inspection, and authoring validation.</p>
+      </div>
+      <div class="card">
+        <span class="card-glyph">🏛️</span>
+        <h3>Vault</h3>
+        <p>Origin molds that have passed formal custody. Pinnacles only.</p>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">atelier</span>
+      <span class="tag">moav carriers</span>
+      <span class="tag">prima-clock</span>
+      <span class="tag">branch-tracker</span>
+      <span class="tag">returns/</span>
+      <span class="tag">queue/</span>
+      <span class="tag">turns/</span>
+    </div>
+  </section>
+
+  <!-- THE GATE -->
+  <section class="section reveal">
+    <div class="eyebrow">
+      <span class="rune">ᚷ</span>
+      <span class="eyebrow-label">The Gate</span>
+    </div>
+    <h2>How to engage</h2>
+    <p>Contributors enter through GitHub Issues. Three types of work are commissioned. Claim one by commenting <code style="font-family:var(--font-m);font-size:.85em;background:var(--threshold);padding:.1em .35em;border-radius:2px;">claiming this</code> and opening a PR.</p>
+
+    <details>
+      <summary><strong>Mission</strong> — clear deliverable, bash completion check</summary>
+      <div class="db">
+        A mission has a defined outcome and an exact shell command to verify it. The Shepherd sets the target. The contributor chooses the path. Reviewers: eaprime1 (Shepherd / Deck Master).
+      </div>
+    </details>
+    <details>
+      <summary><strong>Bounty</strong> — problem defined, approach open</summary>
+      <div class="db">
+        The problem is named. The path is yours to propose. Bounties invite creative engagement with open questions in the custos world. The Shepherd reserves the right to redirect.
+      </div>
+    </details>
+    <details>
+      <summary><strong>Upgrade</strong> — target exists, contributor sharpens it</summary>
+      <div class="db">
+        A specific existing file or system is the target. The Shepherd has identified it for extension or refinement. Upgrades are the most constrained form of contribution — and the sharpest practice.
+      </div>
+    </details>
+
+    <div class="cmd">
+      <span class="p"># </span>Completion check (run before every PR)<br>
+      bash tools/scan_lexeme.sh &amp;&amp; bash tools/prime_check.sh
+    </div>
+
+    <p>Every PR follows the same template: <strong>Intent · What Arrived · Resonance · Ethics Check</strong>.</p>
+  </section>
+
+  <!-- NAVIGO TEAMS -->
+  <section class="section reveal">
+    <div class="eyebrow">
+      <span class="rune">ᚱ</span>
+      <span class="eyebrow-label">The Navigators</span>
+    </div>
+    <h2>Navigo teams</h2>
+    <p>Each navigo is a paired team of one AI model and eaprime1. Internal contributors held to the same standard as external ones. The Shepherd can redirect any navigo.</p>
+
+    <div class="nav-wrap">
+      <table class="nav-t">
+        <thead>
+          <tr><th>Navigo</th><th>Team</th><th>Workspace</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>nav1</td><td>Claude + eaprime1</td><td><code>.claude/</code></td></tr>
+          <tr><td>nav3</td><td>Gemini + eaprime1</td><td><code>.gemini/</code></td></tr>
+          <tr><td>nav5</td><td>ChatGPT + eaprime1</td><td><code>.chatgpt/</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ROOTS -->
+  <section class="section reveal">
+    <div class="eyebrow">
+      <span class="rune">ᛟ</span>
+      <span class="eyebrow-label">Roots</span>
+    </div>
+    <h2>Mission · Vision · Purpose</h2>
+
+    <details open>
+      <summary><strong>Mission</strong> — what custos does now</summary>
+      <div class="db">
+        Tend the work in the field. Receive fragments before they have names. Shepherd them through formal custody into the constellation of repos that make up the greater work.
+      </div>
+    </details>
+    <details>
+      <summary><strong>Vision</strong> — what custos is becoming</summary>
+      <div class="db">
+        The visible, accessible face of a workshop constellation. When the House of Confusion BBS is ready, custos will hand off the gathering role and remain the structural ground — the fold from which all other work emerged.
+      </div>
+    </details>
+    <details>
+      <summary><strong>Purpose</strong> — why this order matters</summary>
+      <div class="db">
+        Enough order to be understood. Enough structure that what happens here is legible to those who arrive later — whether they're contributors, navigators, or guests who stayed and became something more.
+      </div>
+    </details>
+
+    <div class="div"></div>
+    <p style="font-size:.875rem;color:var(--muted);">Currently part of <strong style="color:var(--ink);">Phoenix 🐦‍🔥 prism</strong>. custos holds the gathering space until the House of Confusion BBS is ready.</p>
+  </section>
+
+  <!-- CONSTELLATION SECTION -->
+  <section class="section reveal">
+    <div class="eyebrow">
+      <span class="rune">ᚢ</span>
+      <span class="eyebrow-label">Constellation</span>
+    </div>
+    <h2>The other repos</h2>
+    <p>custos is the origin mold. These are the repos it has dispatched or currently tends.</p>
+
+    <div class="const-grid">
+      <a class="const-card current-repo" href="https://github.com/eaprime1/custos" target="_blank" rel="noopener">
+        <div class="const-card-label">origin mold</div>
+        <div class="const-card-name">custos</div>
+        <div class="const-card-desc">guardian · convergence hub</div>
+      </a>
+      <a class="const-card" href="https://github.com/eaprime1/tabularium" target="_blank" rel="noopener">
+        <div class="const-card-label">dispatched</div>
+        <div class="const-card-name">tabularium</div>
+        <div class="const-card-desc">the ledger · record-keeping layer</div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer reveal">
+    <p>custos · eaprime1 · prima-terminal</p>
+    <p style="margin-top:.5rem;">
+      <a href="https://github.com/eaprime1/custos" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/eaprime1/custos/issues" target="_blank" rel="noopener">Issues</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/eaprime1/custos/discussions" target="_blank" rel="noopener">Discussions</a>
+    </p>
+    <div class="fold-line">The fold is open.</div>
+  </footer>
+
+</div>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Cursor blink settles after 3s
+setTimeout(() => {
+  const el = document.getElementById('hg');
+  if (el) el.classList.add('settled');
+}, 3000);
+</script>
