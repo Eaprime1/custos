@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>custos — has guests</title>
-  <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>custos — has guests</title>
 <style>
 :root {
   --ink: #1F1C17;
@@ -15,7 +14,7 @@
   --lantern-glow: rgba(191,128,32,0.07);
   --slate: #68809A;
   --threshold: #E4DDD0;
-  --muted: #8C8070;
+  --muted: #675A46;
   --surface: #EAE3D6;
   --border: rgba(31,28,23,0.11);
   --font-d: "Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
@@ -27,20 +26,20 @@
   :root {
     --ink: #E6E0D4; --paper: #161310; --lantern: #CC9438; --lantern-bright: #DDA84A;
     --lantern-dim: rgba(204,148,56,0.11); --lantern-glow: rgba(204,148,56,0.06);
-    --slate: #7A8FA2; --threshold: #1E1B14; --muted: #6A6050; --surface: #1A1710;
+    --slate: #7A8FA2; --threshold: #1E1B14; --muted: #9B8E78; --surface: #1A1710;
     --border: rgba(230,224,212,0.09);
   }
 }
 :root[data-theme="light"] {
   --ink: #1F1C17; --paper: #F0EBE0; --lantern: #BF8020; --lantern-bright: #D49430;
   --lantern-dim: rgba(191,128,32,0.13); --lantern-glow: rgba(191,128,32,0.07);
-  --slate: #68809A; --threshold: #E4DDD0; --muted: #8C8070; --surface: #EAE3D6;
+  --slate: #68809A; --threshold: #E4DDD0; --muted: #675A46; --surface: #EAE3D6;
   --border: rgba(31,28,23,0.11);
 }
 :root[data-theme="dark"] {
   --ink: #E6E0D4; --paper: #161310; --lantern: #CC9438; --lantern-bright: #DDA84A;
   --lantern-dim: rgba(204,148,56,0.11); --lantern-glow: rgba(204,148,56,0.06);
-  --slate: #7A8FA2; --threshold: #1E1B14; --muted: #6A6050; --surface: #1A1710;
+  --slate: #7A8FA2; --threshold: #1E1B14; --muted: #9B8E78; --surface: #1A1710;
   --border: rgba(230,224,212,0.09);
 }
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -286,13 +285,13 @@ details[open] summary::before { transform: rotate(90deg); }
 }
 
 /* ── SCROLL REVEAL ──────────────────────────── */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+.js-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.js-ready .reveal.visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .name-halo { animation: none; opacity: 0.4; }
   .has-guests::after { animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js-ready .reveal { opacity: 1; transform: none; transition: none; }
   * { transition: none !important; }
 }
 @media (max-width: 500px) {
@@ -305,6 +304,8 @@ details[open] summary::before { transform: rotate(90deg); }
 }
 :focus-visible { outline: 2px solid var(--lantern); outline-offset: 3px; border-radius: 2px; }
 </style>
+</head>
+<body>
 
 <!-- CONSTELLATION NAV STRIP -->
 <nav class="constellation" aria-label="Phoenix prism constellation">
@@ -320,7 +321,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <header class="threshold">
     <div class="name-wrap">
       <div class="name-halo" aria-hidden="true"></div>
-      <div class="name">custos</div>
+      <h1 class="name">custos</h1>
       <div class="name-rule"></div>
     </div>
     <div class="has-guests" id="hg">has guests</div>
@@ -481,7 +482,7 @@ details[open] summary::before { transform: rotate(90deg); }
   <!-- CONSTELLATION SECTION -->
   <section class="section reveal">
     <div class="eyebrow">
-      <span class="rune">ᚢ</span>
+      <span class="rune">◆</span>
       <span class="eyebrow-label">Constellation</span>
     </div>
     <h2>The other repos</h2>
@@ -516,6 +517,7 @@ details[open] summary::before { transform: rotate(90deg); }
 </div>
 
 <script>
+document.documentElement.classList.add('js-ready');
 // Scroll reveal
 const obs = new IntersectionObserver(
   entries => entries.forEach(e => {
@@ -531,3 +533,5 @@ setTimeout(() => {
   if (el) el.classList.add('settled');
 }, 3000);
 </script>
+</body>
+</html>

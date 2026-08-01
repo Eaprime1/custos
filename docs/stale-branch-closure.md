@@ -17,7 +17,7 @@ A branch is stale when:
 
 **1. Identify intent.** Check `git log`, the PR history, or the branch name itself. Even "mistake" or "experiment" is a valid intent. Name it.
 
-**2. Add a closure note.** Create one file on the stale branch:
+**2. Add a closure note.** If the branch has uncommitted or unwanted diffs that should not land on main, run `git reset --hard origin/main` before proceeding — only the closure note should arrive on main, not the branch's prior unfinished work. Then create one file on the stale branch:
 
 ```
 pr-journeys/closures/BRANCHNAME.md
@@ -35,7 +35,7 @@ Template:
 **Closure reason:** [superseded / duplicate / mistake / intent absorbed elsewhere / complete]
 ```
 
-**3. Open a PR.** Draft is fine. Label: `closure`. Title format: `closure: [branch-name]`.
+**3. Open a PR.** Draft is fine. Label: `closure` (create it in GitHub Labels if it does not yet exist — it is not a default label). Title format: `closure: [branch-name]`.
 
 **4. Use the closure PR body:**
 - **Intent:** what the branch was originally opened for
@@ -43,9 +43,9 @@ Template:
 - **Resonance:** one word
 - **Ethics check:** none / all clear
 
-**5. Review gate.** Shepherd review only. Deck Master review is not required unless the closure touches `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, or `device/`.
+**5. Review gate.** Shepherd review required. Deck Master review is also required when the closure touches `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, or `device/`, or when the closure represents a significant lifecycle transition (per `world/deck-master.md`). Deck Master and Shepherd are currently held by the same person (eaprime1); both roles still require acknowledgment.
 
-**6. Merge.** Squash merge preferred. The closure note lands on main. The archivist captures the stub automatically.
+**6. Merge.** Use a **merge commit** (not squash). Squashing collapses the branch history, which defeats the lineage preservation that makes this procedure meaningful. The closure note lands on main. The archivist captures the stub automatically.
 
 **7. Delete the branch.** After merge, delete the branch. The commit graph preserves the lineage.
 
