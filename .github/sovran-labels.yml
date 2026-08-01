@@ -42,6 +42,11 @@ labels:
     color: "0e8a16"
     description: "Witnessed and recorded in the prima custody chain"
 
+  # ── Branch lifecycle ───────────────────────────────────────────────────────
+  - name: closure
+    color: "bfd4f2"
+    description: "Stale branch closure — follows docs/stale-branch-closure.md"
+
   # ── Finalization (mirrors finalize-pr.yml) ─────────────────────────────────
   - name: finalized
     color: "5319e7"
