@@ -16,7 +16,7 @@ The Scribes document what happens in the Field. They write lore, draft commissio
 
 **Quests themed to this faction:** lore writing, documentation, analysis, turn logging.
 
-**Known symbols:** Claude carries `J-21`, the Threshold Joker. See [symbols.md](symbols.md).
+**Known symbols:** Claude carries `J-21`, the Threshold Joker. ChatGPT carries `C-30`, the Glass Lantern. Gemini's icon is reserved. See [symbols.md](symbols.md).
 
 ---
 
