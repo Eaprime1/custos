@@ -238,5 +238,31 @@
 
 ---
 
+*Updated: 2026-08-22 08:00*
+
+- **New podium**: `pixel8a-unexusi` (Termux/PRoot, `~/unexusi/`) registered
+  in `device/podiums.md` — a fresh working environment distinct from the
+  existing `pixel8` podium.
+- **pixelator governance pipeline ported**: full `.claude` config + 13
+  `.github` workflows carried from custos to `eaprime1/pixelator`
+  (CODEOWNERS and claude-code-review prompt adapted for pixelator's actual
+  Python/Termux shape). Verified green via test PR #5.
+- **pixelator branch cleanup**: 11 stale branches triaged, 6 deleted
+  (dead/superseded), 5 resurrected as PRs #6-#10 — all merged, including a
+  real terraform.yml bug fix found along the way.
+- **First Legatum filed**: `atelier/legatum/202608220000_pixelator-legacy-
+  infusion.md` — new document form for conversations that span repos and
+  are seeding a future Legacy system. Concept + template at
+  `atelier/legatum/README.md`.
+- **Seed Weir opened**: `queue/seed-weir/README.md` — new lightweight
+  tracking system for process/skill ideas, modeled on `queue/artesium-
+  weir/`. 3 seeds logged OPEN: branch-triage pattern, automated JSON-
+  validity CI check, `docs/stale-branch-closure.md` not yet ported to
+  pixelator.
+- **Next track**: none forced — the three Seed Weir entries are the
+  natural next-pickup candidates whenever the Shepherd wants them worked.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏

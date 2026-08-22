@@ -113,3 +113,27 @@ notes:           Subscribed to PR #73 webhook activity: diagnosed two
                  Grade A across two commit ranges. Ephemeral remote
                  container, same constraints as custos-web-jolly-bohr.
 ---
+
+---
+podium_id:       pixel8a-unexusi
+name:            "Pixel 8a (Termux + PRoot Debian)"
+type:            device
+platform:        termux
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: ""
+role:            "Pinnacle non-repo working device — clones repos fresh into
+                 ~/unexusi/ (Termux home, reachable from PRoot at
+                 /data/data/com.termux/files/home/unexusi/) rather than
+                 working against scattered prior clones. First work: ported
+                 custos's .claude config and full .github governance
+                 pipeline onto eaprime1/pixelator, then triaged and closed
+                 10 stale pixelator branches (5 deleted, 5 resurrected as
+                 PRs #6-#10, all merged)."
+status:          active
+notes:           Debian GNU/Linux 13 (Trixie), aarch64, glibc 2.43 patched
+                 in for Antigravity CLI. Distinct from the `pixel8` podium
+                 above — different clone path (~/unexusi vs ~/pixel8),
+                 fresh PRoot environment. custos cloned at
+                 ~/unexusi/custos; pixelator at ~/unexusi/pixelator.
+---
