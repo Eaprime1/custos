@@ -120,7 +120,10 @@ Branches and documents carry suit designations:
 ### Seeds (`seeds/`)
 `bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/`, creates `~/.prima-env`. Idempotent.
 
-`env_setup.sh` detects which location (`mulberry`/`pixel8`/`codespaces`) the current machine is. It sources the matching `.locations/<name>/config.sh` — see `.locations/README.md`. Ported/adapted from hodie's `.scripts/env_setup.sh`. Static topology only (paths, active branch, whether `device/` is reachable) — not live device state, which stays in `device/` on the `pixel8` branch as before.
+`env_setup.sh` detects the current location (`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
+- Ported/adapted from hodie's `.scripts/env_setup.sh`.
+- Static topology only: paths, active branch, whether `device/` is reachable.
+- Not live device state — that stays in `device/` on the `pixel8` branch as before.
 
 ### Unexusi Layer (`unexusi/connect.yaml`)
 Tracks player XP, level, quest completion, session timestamps across devices. Configures session lifecycle. `concept.slug: custos`.
