@@ -34,7 +34,12 @@ while IFS= read -r FILE; do
   [[ -z "$FILE" ]] && continue
   [[ -f "$FILE" ]] || continue  # file may have been deleted later in the same diff range
 
-  LINE=$(grep -m1 "Prima-clock:" "$FILE" 2>/dev/null || true)
+  # Case-insensitive: real usage is roughly evenly split between "Prima-clock:"
+  # (header-line style) and "**prima-clock:**" (bold, lowercase, footer style
+  # common in pr-journeys/) -- confirmed against actual repo content, not
+  # assumed. A case-sensitive match here would silently miss the majority
+  # of already-compliant files.
+  LINE=$(grep -m1 -i "Prima-clock:" "$FILE" 2>/dev/null || true)
 
   if [[ -z "$LINE" ]]; then
     echo "  ⚠️  MISSING  $FILE"
