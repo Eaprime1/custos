@@ -26,7 +26,7 @@ what custos actually needs.
 
 1. `source seeds/env_setup.sh` detects the current location.
 2. Location-specific config loads from `.locations/<name>/config.sh`.
-3. Scripts read `$LOCATION_NAME`, `$LOCATION_ROLE`, and `$ACTIVE_BRANCH` to adapt behavior — in particular, to know whether `device/` is even reachable from here (only checked out on the `pixel8` branch).
+3. Scripts read `$LOCATION_NAME`, `$LOCATION_ROLE`, `$ACTIVE_BRANCH`, `$DEVICE_FOLDER_REACHABLE`, and `$CLAUDE_CODE_NATIVE` to adapt behavior — in particular, `$DEVICE_FOLDER_REACHABLE` indicates whether `device/` is checked out in the working tree (only true on the `pixel8` branch), and `$CLAUDE_CODE_NATIVE` whether the full Claude Code CLI is available without workarounds.
 4. If the host isn't recognized, `env_setup.sh` exports safe defaults (`LOCATION_ROLE=unknown`, `CUSTOS_PATH` set to the repo root) and reports `unknown` in the output — no matching `.locations/<name>/config.sh` is required for this case.
 
 ## Paths
@@ -35,3 +35,8 @@ what custos actually needs.
 (`/home/sauron/unexusi/custos`). `pixel8` and `codespaces` paths are
 best-guess defaults (`$HOME/custos`, `/workspaces/custos`) — correct in
 `.locations/<name>/config.sh` if eaprime1's actual setup differs.
+
+If mulberry's clone path changes, update both `.locations/mulberry/config.sh`
+**and** the detection check in `seeds/env_setup.sh`
+(`elif [[ -d "$HOME/unexusi/custos" ]]`) — the config file alone won't fix
+detection, since that's what decides `ENV_NAME` before any config is loaded.

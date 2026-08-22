@@ -33,6 +33,7 @@ if [[ -f "$LOCATION_CONFIG" ]]; then
 else
     export LOCATION_NAME="$ENV_NAME"
     export LOCATION_ROLE="unknown"
+    export LOCATION_DEVICE="unknown"
     export CUSTOS_PATH="$REPO_ROOT"
     export CLAUDE_CODE_NATIVE=true
 fi
