@@ -10,10 +10,11 @@ export LOCATION_DEVICE="mobile"
 # against eaprime1's actual setup; unlike mulberry's path this isn't verified.
 export CUSTOS_PATH="$HOME/custos"
 
-# The one location where device/ (live device state) is actually reachable —
-# per CLAUDE.md, that folder only exists on the pixel8 branch.
-export ACTIVE_BRANCH="pixel8"
-export DEVICE_FOLDER_REACHABLE=true
+# The one location where device/ (live device state) is normally reachable —
+# per CLAUDE.md, that folder only exists on the pixel8 branch. Expected to be
+# checked out here -- but ACTIVE_BRANCH and DEVICE_FOLDER_REACHABLE are
+# checkout state, not location constants, so they're derived live in
+# seeds/env_setup.sh instead of hardcoded here.
 
 # See CLAUDE.md "Claude Code on Termux (Android)" — no native linux-arm64-android
 # binary. Use the web session, the Anthropic API directly, or SSH to a remote box.

@@ -10,9 +10,9 @@ export LOCATION_DEVICE="laptop"
 export CUSTOS_PATH="$HOME/unexusi/custos"
 
 # custos's own convention: device/ (live state) only exists on the pixel8
-# branch, not main. On this location we're on main by default.
-export ACTIVE_BRANCH="main"
-export DEVICE_FOLDER_REACHABLE=false
+# branch, not main. Expected to be on main here -- but ACTIVE_BRANCH and
+# DEVICE_FOLDER_REACHABLE are checkout state, not location constants, so
+# they're derived live in seeds/env_setup.sh instead of hardcoded here.
 
 # Full Claude Code CLI works natively here — no Termux ARM64 workaround needed.
 export CLAUDE_CODE_NATIVE=true
