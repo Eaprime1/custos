@@ -192,3 +192,45 @@ partner_state:
                     Shepherd needs to: rotate secret, push branches, send
                     Rachaelisa response, decide SANF repo name"
 ---
+
+---
+turn_ref:     2026-08-22 08:00
+prime:        3
+worked:       Reading the existing protocol before building anything new.
+              Asked to "finish the conversation," the instinct is to invent
+              a closing ritual from scratch — but custos already had
+              `guides/conversation-finalization-protocol.md` fully built,
+              plus two real Conversation Arc examples to model against.
+              Reading one in full (`202607200307_int-radix-fragment-
+              received.md`) before writing anything gave the new Legatum
+              document its shape for free. Same pattern held for the Seed
+              Weir: `queue/artesium-weir/` already solved "raw thing
+              crosses in, gets filtered, splits into permanent record +
+              working pool" — the seed-tracking system just needed the
+              same shape pointed at a different kind of raw material.
+              Branch triage (check ahead-of-main commits and redundancy
+              before deleting) turned a blunt "delete everything stale"
+              instinct into 6 real deletions and 5 real saves.
+friction:     A silent merge-artifact bug: two independent, non-conflicting-
+              looking diffs to the same JSON file combined into invalid
+              JSON with no conflict markers — GitHub's merge check reported
+              CLEAN, but the file didn't parse. Caught only because
+              `python -c "import json; json.load(...)"` was run manually;
+              nothing in the pipeline would have caught it automatically.
+              Then a bot literally reapplied the *original* broken
+              suggestion text over the fix mid-review, requiring a second
+              corrective merge. Also: 11 pixelator branches were hard-
+              deleted with `git push origin --delete` before this session
+              discovered `docs/stale-branch-closure.md`'s merge-based
+              closure convention exists in custos — the procedure wasn't
+              violated on purpose, it just wasn't known yet, and wasn't
+              ported to pixelator regardless.
+seeds:        See `queue/seed-weir/README.md` for the full entries —
+              branch-triage-before-closing pattern, automated JSON/YAML-
+              validity CI check, and porting `docs/stale-branch-closure.md`
+              to repos that carry custos's governance pipeline. Also: the
+              Seed Weir itself will need a periodic "harvest" pass once
+              entries accumulate (OPEN → PLANTED/COMPOSTED review), same
+              reasoning as why `docs/stale-branch-closure.md` exists —
+              named in the approved plan, not built this turn.
+---
