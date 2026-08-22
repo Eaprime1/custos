@@ -1,4 +1,5 @@
 # Location Configurations
+Prima-clock: 202608220704
 
 Static topology reference — not live device state. Each entry says where
 custos lives on a given machine and what's true about working from there.

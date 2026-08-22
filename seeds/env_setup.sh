@@ -42,7 +42,7 @@ fi
 # mulberry) would make a location-derived value wrong. Derive both from the
 # actual git checkout and filesystem instead of trusting per-location
 # defaults; this overrides whatever (if anything) the sourced config set.
-export ACTIVE_BRANCH="$(git -C "$REPO_ROOT" branch --show-current 2>/dev/null || echo unknown)"
+export ACTIVE_BRANCH="$(git -C "$REPO_ROOT" symbolic-ref --short HEAD 2>/dev/null || echo unknown)"
 if [[ -d "$REPO_ROOT/device" ]]; then
     export DEVICE_FOLDER_REACHABLE=true
 else
