@@ -18,7 +18,7 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 # not silently load mulberry's machine-specific config.
 if [[ "${PREFIX:-}" = *com.termux* ]]; then
     ENV_NAME="pixel8"
-elif [[ -n "${CODESPACES:-}" ]] || [[ -d "/workspaces" ]]; then
+elif [[ -n "${CODESPACES:-}" ]]; then
     ENV_NAME="codespaces"
 elif [[ -d "$HOME/unexusi/custos" ]]; then
     ENV_NAME="mulberry"
