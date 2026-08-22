@@ -1,0 +1,27 @@
+name: Prima Witness
+
+on:
+  pull_request:
+    branches: [main, radix]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan new files for Prima-clock provenance stamp
+        continue-on-error: true
+        env:
+          GH_BASE_REF: ${{ github.base_ref }}
+        run: bash tools/scan_provenance.sh "origin/$GH_BASE_REF"
+        # Advisory — outputs findings but does not block merge, same as
+        # scan-lexeme.yml. `continue-on-error: true` is what actually makes
+        # that true: without it, any non-zero exit from the script (e.g. a
+        # bug, or `set -e` tripping on something unexpected) would fail this
+        # step and show a red X on the PR regardless of the script's own
+        # intent. No state is persisted and nothing is committed back to the
+        # branch; every run is a fresh git-diff-based check against the PR
+        # base, so there's nothing to grow or go stale.
