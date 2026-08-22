@@ -27,6 +27,7 @@ what custos actually needs.
 1. `source seeds/env_setup.sh` detects the current location.
 2. Location-specific config loads from `.locations/<name>/config.sh`.
 3. Scripts read `$LOCATION_NAME`, `$LOCATION_ROLE`, and `$ACTIVE_BRANCH` to adapt behavior — in particular, to know whether `device/` is even reachable from here (only checked out on the `pixel8` branch).
+4. If the host isn't recognized, `env_setup.sh` exports safe defaults (`LOCATION_ROLE=unknown`, `CUSTOS_PATH` set to the repo root) and reports `unknown` in the output — no matching `.locations/<name>/config.sh` is required for this case.
 
 ## Paths
 
