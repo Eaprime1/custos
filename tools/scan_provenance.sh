@@ -42,8 +42,12 @@ while IFS= read -r FILE; do
     continue
   fi
 
-  # Extract all 12-digit runs on the line; the last one is the current stamp.
-  STAMP=$(grep -oE '[0-9]{12}' <<<"$LINE" | tail -n1)
+  # Extract all standalone 12-digit runs on the line (word boundaries keep this
+  # from matching the first 12 digits of a longer, e.g. 17-digit hodie-style,
+  # stamp); the last one is the current stamp. `|| true` keeps a no-match
+  # non-fatal under `set -o pipefail` so it falls through to the MALFORMED
+  # branch below instead of aborting the script.
+  STAMP=$(grep -oE '\b[0-9]{12}\b' <<<"$LINE" | tail -n1 || true)
 
   if [[ -z "$STAMP" ]]; then
     echo "  ⚠️  MALFORMED  $FILE  (Prima-clock line present but no 12-digit stamp found)"
@@ -54,7 +58,7 @@ while IFS= read -r FILE; do
   Y="${STAMP:0:4}"; MO="${STAMP:4:2}"; D="${STAMP:6:2}"
   H="${STAMP:8:2}"; MI="${STAMP:10:2}"
 
-  if date -d "${Y}-${MO}-${D} ${H}:${MI}" >/dev/null 2>&1; then
+  if date -d "${Y}-${MO}-${D} ${H}:${MI}" >/dev/null 2>&1 || date -j -f "%Y%m%d%H%M" "$STAMP" >/dev/null 2>&1; then
     echo "  ✅  $FILE  (Prima-clock: ${STAMP})"
     COMPLIANT=$((COMPLIANT + 1))
   else
