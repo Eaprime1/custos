@@ -92,3 +92,10 @@ https://claude.ai/code/session_01GKbsncu8wnRtsiJvTgoeaK
 **prima-clock:** 202608220647  
 **witnessed:** true  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
+
+---
+
+*Additive note (prima-clock 202608220931, not part of the sealed record
+above): `pr-journeys/202608_PR309_prima-witness-review-fixes.md` covers
+this same PR's reviewer-finding disposition table in more detail than
+this auto-generated summary does.*

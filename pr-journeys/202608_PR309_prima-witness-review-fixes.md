@@ -4,7 +4,7 @@
 **prima-clock:** 202608220539
 **Branch:** `claude/port-prima-witness-ci` → `main`
 **Author:** @Eaprime1 (nav1 — Claude + eaprime1)
-**State:** OPEN — review round complete, awaiting eaprime1 merge decision
+**State:** MERGED — `2e8d9ed` (2026-08-22T06:53:04Z), finalized/sealed by the `finalize-pr.yml` bot before merge (rubric 20/20, "High")
 
 ## Intent
 
@@ -12,6 +12,12 @@ Port hodie's `footer-witness.yml` provenance-scan idea into custos, adapted to
 custos's own `Prima-clock:` stamp format and made advisory-only/stateless
 (see the PR body for the full adaptation rationale). This journey covers the
 second commit on the PR: fixing what reviewers found on the first one.
+
+*Note:* `pr-journeys/202608_PR309_add-prima-witness-ci-provenance-stamp-sc.md`
+is the `finalize-pr.yml` bot's own auto-generated record of this same PR
+(rubric, CI record, template sections), committed straight to `main` at
+seal time. This doc covers the same PR from the other angle — the
+reviewer-finding disposition table the bot's summary doesn't include.
 
 ## What Arrived — Reviewer Findings and Disposition
 
