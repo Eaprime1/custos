@@ -140,7 +140,15 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 ### Review Gates
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
 - **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
-- **CI**: `.github/workflows/` runs `scan-lexeme.yml` (placeholder scan), `prima-witness.yml` (Prima-clock provenance scan on newly-added `.md` files — advisory, ported/adapted from hodie's stricter `footer-witness.yml`; unlike hodie's version, it's stateless — no bot commits, no accumulating state file), `final-review.yml` / `finalize-pr.yml` (the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md), `claude-code-review.yml`, `dependency-review.yml`, and `sovran-voice.yml`. Resolve Codacy findings before merge — see `docs/final-review-and-codacy.md`.
+- **CI**: `.github/workflows/` runs:
+  - `scan-lexeme.yml` — placeholder scan
+  - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
+  - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
+  - `claude-code-review.yml`
+  - `dependency-review.yml`
+  - `sovran-voice.yml`
+
+  Resolve Codacy findings before merge — see `docs/final-review-and-codacy.md`.
 
 ## Key Conventions
 
