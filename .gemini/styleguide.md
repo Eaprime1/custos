@@ -15,7 +15,7 @@ transitions are documented. The prima-clock is how events are timestamped (`YYYY
 1. **Security** — credential exposure, bash injection (unquoted variables in scripts),
    hardcoded absolute paths (`/home/<username>/` → use `$HOME`)
 2. **Placeholder hygiene** — flag any `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`,
-   `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` in `.md`, `.sh`, `.yaml`, `.json`
+   `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` in `.md`, `.sh`, `.yaml`, `.yml`, `.json`
 3. **Quest format** — every quest needs: YAML front matter with all required fields,
    deterministic Completion Check bash command (exits 0 on success), all required sections
 4. **MOAV carrier format** — JSON, must include: `prima_clock`, `entity`, `suit`, `iteration`,

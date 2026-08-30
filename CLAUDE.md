@@ -197,7 +197,7 @@ When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, alway
 
 **Lore tone:** Short, evocative. The terminal is the world, not a tool. Avoid classroom framing.
 
-**Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.json`.
+**Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
 
 **Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
 

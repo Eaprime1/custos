@@ -65,6 +65,7 @@ jobs:
               { name: 'sovran',         color: '5319e7', description: 'Sovran system contribution'                                },
               { name: 'held',           color: 'b60205', description: 'Held — addressed in a separate conversation or decision'    },
               { name: 'witnessed',      color: '0e8a16', description: 'Witnessed and recorded in the prima custody chain'          },
+              { name: 'closure',        color: 'bfd4f2', description: 'Stale branch closure — follows docs/stale-branch-closure.md' },
               { name: 'finalized',      color: '5319e7', description: 'Review period closed — PR Journey committed'                },
             ];
 
