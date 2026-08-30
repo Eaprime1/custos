@@ -1,0 +1,19 @@
+# Repo Hygiene required-document manifest.
+# One path per line, relative to repo root. Blank lines and lines starting
+# with # are ignored. Read by tools/repo_hygiene_check.sh.
+#
+# This is custos's own governance baseline — the set of documents any repo
+# carrying custos's .github pipeline is expected to have. Edit this list as
+# the baseline evolves; the checker just reads whatever is here.
+
+README.md
+CLAUDE.md
+LICENSE.md
+.gitignore
+.prime
+.github/CODEOWNERS
+.github/PULL_REQUEST_TEMPLATE.md
+.github/sovran-labels.yml
+tools/scan_lexeme.sh
+tools/prime_check.sh
+docs/stale-branch-closure.md
