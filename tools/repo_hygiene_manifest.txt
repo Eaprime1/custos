@@ -16,4 +16,6 @@ LICENSE.md
 .github/sovran-labels.yml
 tools/scan_lexeme.sh
 tools/prime_check.sh
+tools/validate_json_yaml.sh
+.github/workflows/validate-json-yaml.yml
 docs/stale-branch-closure.md
