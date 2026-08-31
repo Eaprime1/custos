@@ -5,8 +5,8 @@
 # class this exists to catch). Catches silent merge-artifact corruption
 # (duplicate keys, unclosed arrays, bad indentation) that produces no
 # conflict markers but breaks the file — the exact bug behind pixelator
-# PR #2's identity.json/ecc-tools.json corruption. See
-# atelier/legatum/202608220000_pixelator-legacy-infusion.md.
+# PR #2's identity.json/ecc-tools.json corruption (see that repo's PR #2
+# for the original incident; ported from custos, see custos PR #312).
 #
 # Unlike scan_lexeme.sh (advisory), this is a real correctness check —
 # invalid JSON/YAML is unambiguously broken, so this script exits nonzero
@@ -69,7 +69,13 @@ yaml_files = sorted(
     p for p in find_files(root, (".yaml", ".yml")) if exclude_pattern not in p
 )
 if yaml_files:
-    import yaml
+    try:
+        import yaml
+    except ImportError:
+        print("ERROR: PyYAML is not installed, so YAML files cannot be checked.")
+        print("This is a missing dependency, not a broken YAML file.")
+        print('Install it first: python3 -m pip install pyyaml')
+        sys.exit(2)
 
     class UniqueKeyLoader(yaml.SafeLoader):
         pass
