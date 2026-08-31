@@ -28,6 +28,14 @@ either waits on it or proceeds without it, explicitly, rather than quietly
 absorbing an unbounded amount of new work. This is what keeps final review
 from becoming its own unbounded project.
 
+**Required output: a Final Review record, written while the PR is still
+open.** Filed at `pr-journeys/final-reviews/` — see that folder's
+`README.md`. This exists because the full review substance (every
+finding, every disposition) isn't captured anywhere durable until the
+Finalize stage's dressed-up journey, and by the time a PR is archived
+past that point, the original GitHub content is no longer conveniently
+reachable. Write the record during Final Review, not after.
+
 ### 2. Finalize — dress it up
 
 Once final review is done, finalize is where the PR "puts on its report
@@ -73,7 +81,8 @@ journey — see `atelier/legatum/README.md`.
 | System | Relationship |
 |---|---|
 | `guides/reviewer-as-contributor.md` | The disposition-reply practice that happens during Final Review |
-| `pr-journeys/` | Where Finalize's output lands |
+| `pr-journeys/final-reviews/` | Where Final Review's output lands, written while the PR is still open |
+| `pr-journeys/` | Where Finalize's dressed-up output lands, after merge |
 | `missions/` | Where Final Review spins off work too big for the PR itself |
 | `guides/conversation-finalization-protocol.md` | The conversation-side sibling of this same distillation discipline |
 | `atelier/legatum/` | For PRs/sessions whose story is bigger than one repo |
