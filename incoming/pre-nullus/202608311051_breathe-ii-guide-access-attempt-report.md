@@ -27,7 +27,7 @@ My fetch tool only accepts a URL if that exact URL previously appeared in a sear
 
 I ran roughly a dozen web searches trying to surface these specific pages (and the raw content) as indexed result links so they would become fetchable. None of the searches returned any page from this repository other than the root; search engines returned only unrelated "custos"/"artesian"/"navigo"/"breathe" results (Apache Airavata Custos, artesian wells, Navigo transit cards, breathing apps, etc.). The `Eaprime1/custos` sub-pages appear not to be independently indexed, so I could not get a fetchable URL for them.
 
-**Important distinction:** This is a *tool access limitation*, not evidence that the files are missing. I received no 404 and no "repository is private" signal — the repo is confirmed public and the `guides/` and `.artesian` directories are confirmed to exist in the root listing. I simply could not open them with the tools available.
+**Important distinction:** This is a *tool access limitation*, not evidence that the files are missing, and it is also not evidence that they exist — the fetch tool rejected every deep-path request *before* it reached GitHub (see Details, below), so no signal of any kind (404 or otherwise) was ever returned by the server. The repo is confirmed public and the `guides/` and `.artesian` directories are confirmed to exist in the root listing; individual-file presence was undetermined by this report alone. (See the Final Review note appended below for confirmation from a checkout that does have access.)
 
 **3. What the root README does establish (verified context).**
 From the successfully fetched `README.md`:
@@ -61,5 +61,26 @@ Staged next steps to actually obtain the content, in order of likely effectivene
 ## Caveats
 - **No content about preturn, the two open missions, the interim claim process, or Breathe I has been verified.** Anything I might have written on those points would be invented, so I have deliberately reported nothing about their substance.
 - The failure to open the files is a **tool/whitelist limitation**, not confirmation that the files are absent. Evidence points the other way: the repo is confirmed public, and both `guides/` and `.artesian` are confirmed present in the root directory listing. I did not receive a 404 or a private-repo error for the file itself — I received an access-control rejection from my own fetch tool before any request reached GitHub.
-- All verified statements above come solely from the root `README.md` of `Eaprime1/custos`, captured during this session. README content is authored by the repo owner and is not independently corroborated; treat the "world-native" descriptions (factions, THE/UNEXUS, Convergence Hub, etc.) as the project’s self-description rather than externally validated fact.
+- Most verified statements above come from the root `README.md` of `Eaprime1/custos`, captured during this session; the repository ID, commit/star/fork counts, and open issue/PR counts in Key Finding 1 came from the repository's root page metadata, not the README's prose. README content is authored by the repo owner and is not independently corroborated; treat the "world-native" descriptions (factions, THE/UNEXUS, Convergence Hub, etc.) as the project’s self-description rather than externally validated fact.
 - Repository state (open issues, the specific contents of `.artesian/`, whether exactly two missions are currently open) can change over time; even the README snapshot reflects only the moment it was fetched in this session.
+
+## Final Review Note (addressed during PR #314's review)
+
+Filed from a checkout with direct repository access, confirming what
+this report could only leave undetermined:
+
+- `guides/breathe-ii.md` and `.artesian/README.md` both exist with real,
+  substantive content — the report's core inference (tool limitation, not
+  missing files) was correct.
+- Both Copilot review findings on this report are addressed above: the
+  "no 404" line now states plainly that no signal of any kind reached the
+  server, and the Caveats section now separates README-prose facts from
+  repository-page metadata.
+- `guides/breathe-ii.md` gained an "If Your Tool Can't Fetch These Files"
+  section directly because of this report — it names the allow-list
+  failure mode and asks whoever's relaying the guide to paste content
+  directly when a navigo's tool hits the same wall. Logged at
+  `queue/seed-weir/README.md`.
+- Filed to `incoming/pre-nullus/` — an unsolicited external-agent report,
+  no settled navigo workspace to route it through, per `CLAUDE.md`'s
+  routing convention (Copilot's finding on this PR).
