@@ -41,6 +41,36 @@ comes up next.
    mark names as-is, versus translating the whole cluster consistently.
    Not decided here — that's the mission.
 
+## What It Should Feel Like
+
+Not a visible bolt-on. Per eaprime1: this is an expansion of a
+foundational concept, meant to work as "a beautiful and unnoticeable
+automation queue and data and guidance" — infrastructure that operates
+quietly underneath claims and reviews, not a system contributors have to
+think about to use correctly. The mark itself should mostly be invisible
+until someone goes looking for it.
+
+## Interim Policy — Breathe II (before this mission is built)
+
+Real work is claiming missions now, before this system exists. Rather
+than block on it:
+
+- **If prepending is possible** (the claimant can edit the mission
+  document directly), prepend a short claim block: who, when, which
+  turn. No fixed schema yet — keep it minimal and consistent with
+  whatever the next claim does.
+- **If prepending isn't possible**, file a claim-carrier document instead
+  — see `.artesian/claim-carrier-template.md`.
+- **Validation doesn't exist yet, so claims are acted on as if fully
+  validated.** This is a deliberate, temporary trust default, not an
+  oversight — noted here so it reads as a decision when this mission
+  eventually gets built, not a gap nobody noticed.
+- **Keep notes.** Anything that comes up while claiming — friction,
+  ambiguity, a near-miss — goes in the claim-carrier's notes field or a
+  reply here. The real validation system should be built from what
+  actually happened during Breathe II, not designed in the abstract
+  before any claims exist.
+
 ## Why This Belongs on `.artesian`, Not a Dot-Folder
 
 This isn't one navigo's perspective — it's infrastructure every navigo
