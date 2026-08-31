@@ -28,5 +28,6 @@ why is grounded in the concept's world.
 | [Getting Started](getting-started.md) | First steps — clone, bootstrap, first quest |
 | [Multi-Entity Workflow](multi-ai-workflow.md) | Symbols, the Lumenar, and handoffs between contributors |
 | [Reviewers Are Contributors](reviewer-as-contributor.md) | Treating every PR reviewer — human, AI, or bot — as a contributing entity; the disposition-reply practice |
+| [The PR Lifecycle](pr-lifecycle.md) | Final Review, Finalize, Merge — three stages, scope limits, and why a PR is a type of conversation |
 
 Add guides here as you create them.
