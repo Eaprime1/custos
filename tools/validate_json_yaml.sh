@@ -25,7 +25,18 @@ trap 'rm -f "$FILE_LIST"' EXIT
 
 find "$ROOT" -type f -name "*.json" -not -path "*/.git/*" -print0 > "$FILE_LIST"
 while IFS= read -r -d '' FILE; do
-  ERR=$(python3 -c "import json, sys; json.load(open(sys.argv[1]))" "$FILE" 2>&1) || {
+  ERR=$(python3 -c '
+import json, sys
+def reject_duplicates(pairs):
+    out = {}
+    for k, v in pairs:
+        if k in out:
+            raise ValueError(f"duplicate key: {k!r}")
+        out[k] = v
+    return out
+with open(sys.argv[1], "r", encoding="utf-8") as f:
+    json.load(f, object_pairs_hook=reject_duplicates)
+' "$FILE" 2>&1) || {
     echo "[INVALID JSON] $FILE"
     echo "$ERR" | sed 's/^/    /'
     FAILED=1
@@ -42,7 +53,29 @@ find "$ROOT" \( -name "*.yaml" -o -name "*.yml" \) -type f \
   -not -path "*/.claude/homunculus/instincts/inherited/*" \
   -print0 > "$FILE_LIST"
 while IFS= read -r -d '' FILE; do
-  ERR=$(python3 -c "import yaml, sys; list(yaml.safe_load_all(open(sys.argv[1])))" "$FILE" 2>&1) || {
+  ERR=$(python3 -c '
+import sys, yaml
+class UniqueKeyLoader(yaml.SafeLoader):
+    pass
+def unique_mapping(loader, node, deep=False):
+    mapping = {}
+    pairs = loader.construct_pairs(node, deep=deep)
+    for (key, value), (key_node, _) in zip(pairs, node.value):
+        if key in mapping:
+            raise yaml.constructor.ConstructorError(
+                "while constructing a mapping",
+                node.start_mark,
+                f"found duplicate key ({key!r})",
+                key_node.start_mark,
+            )
+        mapping[key] = value
+    return mapping
+UniqueKeyLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping
+)
+with open(sys.argv[1], "r", encoding="utf-8") as f:
+    list(yaml.load_all(f, Loader=UniqueKeyLoader))
+' "$FILE" 2>&1) || {
     echo "[INVALID YAML] $FILE"
     echo "$ERR" | sed 's/^/    /'
     FAILED=1
