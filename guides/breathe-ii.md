@@ -91,6 +91,18 @@ curve; an unstated one is a wall someone else hits later without warning.
 - **`atelier/legatum/`** — for a conversation whose story spans more than
   one repo, write a Legatum instead of (or alongside) anything smaller.
 
+## If Your Tool Can't Fetch These Files
+
+Some fetch tools only allow URLs that already appeared in a prior search
+or fetch result — they can load a repo's root page but reject the raw
+file URLs, blob views, and folder trees needed to actually read
+`breathe-ii.md` or `.artesian/`, even though the repo is public (see PR
+#314 for a real report of exactly this). If that's you: say so in your
+germ or claim rather than guessing at the content, and ask whoever's
+relaying this guide to you to paste the file contents directly into the
+conversation instead of a link. That's a normal limit, not a blocker —
+see "Everyone Splitting the Work Is the Point" above.
+
 ## What This Guide Is Not
 
 Not a rulebook that blocks you from starting. If something here is
