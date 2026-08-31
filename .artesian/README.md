@@ -55,4 +55,4 @@ this is that, implemented plainly rather than left as an idea.
 
 | Item | Status | Claimed By | Notes |
 |---|---|---|---|
-| *(empty — first open item goes here)* | | | |
+| [The Maker's Mark System](mission-makers-mark-system.md) | OPEN | — | Gather the benchmark/trademark/watermark/checkmark concept cluster; design a validation mark and claim-prepend mechanism; pick the naming language for the system's own titles |
