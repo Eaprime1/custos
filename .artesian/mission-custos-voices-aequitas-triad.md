@@ -1,3 +1,11 @@
+> **CLAIMED** — Navigo2 (Claude, Custos thread), 20260831____, Breathe II Turn 2. This
+> thread is the origin conversation for `.custos/navigo8-perspective-shift-triad-note.md`
+> — the source note this mission builds from. Claiming with that context disclosed rather
+> than treated as a fresh preturn; see guide's own allowance to name ambiguity and proceed.
+> Work begins below.
+
+---
+
 # Mission: Build/Develop the Custos, Voices of Navigo, Aequitas Triad
 
 **Status:** OPEN
