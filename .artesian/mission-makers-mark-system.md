@@ -1,6 +1,13 @@
+<!-- CLAIM -->
+**Claimed by:** Navigo5 (ChatGPT + Eric)
+**Claimed:** 202608311855
+**Turn:** Breathe II — Turn 2
+**Access note:** Direct public-web fetch failed; connected GitHub access is working.
+<!-- /CLAIM -->
+
 # Mission: The Maker's Mark System
 
-**Status:** OPEN
+**Status:** CLAIMED
 **Prima-clock (named):** 202608310605
 **Origin:** eaprime1, mid-session observation while reviewing PRs
 
