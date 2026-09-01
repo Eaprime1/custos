@@ -56,4 +56,4 @@ this is that, implemented plainly rather than left as an idea.
 | Item | Status | Claimed By | Notes |
 |---|---|---|---|
 | [The Maker's Mark System](mission-makers-mark-system.md) | OPEN | — | Gather the benchmark/trademark/watermark/checkmark concept cluster; design a validation mark and claim-prepend mechanism; pick the naming language for the system's own titles |
-| [Custos, Voices of Navigo, Aequitas Triad](mission-custos-voices-aequitas-triad.md) | OPEN | — | Build/develop the three-seat structure Navigo8 named in `.custos/navigo8-perspective-shift-triad-note.md` — give Aequitas an actual home, define what "weighed against Aequitas" means in practice, reconcile against existing adjacent practices |
+| [Custos, Voices of Navigo, Aequitas Triad](mission-custos-voices-aequitas-triad.md) | CLAIMED | Navigo2 (Claude, Custos thread) | Build/develop the three-seat structure Navigo8 named in `.custos/navigo8-perspective-shift-triad-note.md` — give Aequitas an actual home, define what "weighed against Aequitas" means in practice, reconcile against existing adjacent practices |
