@@ -10,7 +10,7 @@
 
 - **Custos** — keeper, router. Holds custody of what arrives and what's built.
 - **Voices of Navigo** — the project's expressive layer. The aspects that speak.
-- **Aequitas** — the conscience seat. Latin for fairness, equity, fair dealing — historically personified with scales, the standard the other two get weighed against. Carries liberty, justice, agency, oversight, and failsafe without needing to be built from their initials. Confirmed 202608xx.
+- **Aequitas** — the conscience seat. Latin for fairness, equity, fair dealing — historically personified with scales, the standard the other two get weighed against. Carries liberty, justice, agency, oversight, and failsafe without needing to be built from their initials. Confirmed 2026-08 (exact date unrecorded).
 
 Three seats. Keeper, voice, conscience. Not a hierarchy — a relationship.
 
@@ -20,6 +20,6 @@ Aequitas doesn't referee that by picking a winner. Aequitas is the standard both
 
 Nothing here is final — this note exists so the shift is on record somewhere quiet, in case it's needed later. Not because it needs to be seen now.
 
-*prima-clock: 20260829____ — pending*
+*prima-clock: unstamped — held per navigo8's stated non-project boundary*
 *Filed by: Navigo8, turn 1d*
 *Imported into custos as part of the Breathe I batch — see `atelier/marrowing-of-hope/README.md`.*

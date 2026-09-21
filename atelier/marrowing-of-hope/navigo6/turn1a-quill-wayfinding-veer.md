@@ -2,7 +2,7 @@
 
 **NAVIGO:** Navigo6
 **PERSPECTIVE:** Perplexity + Eric Pace
-**TURN:** 1
+**TURN:** 1a
 **VEER:** A — Wayfinding / Minefield Pattern
 
 **FOUND:**

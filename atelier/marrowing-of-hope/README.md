@@ -2,7 +2,7 @@
 
 **Overarch:** The Marrowing of Hope
 **Origin:** `brainstorming_20260828.pdf` — 22 numbered items + "Else," triaged in
-`the_marrowing_of_hope_dev_reference_202608281.md` (five clusters, see
+`the_marrowing_of_hope_dev_reference_20260828.md` (five clusters, see
 `pandora/README.md` for the container concept this round-robin extends)
 **Round:** Breathe I, turn 1 — a multi-navigo round-robin: separate
 terminals/conversations (ChatGPT, Perplexity, Gemini, Grok, Google Drive
