@@ -66,6 +66,15 @@ body:
       required: true
 
   - type: input
+    id: required_access
+    attributes:
+      label: Required access
+      description: "Badges a contributor needs to execute this effectively. Leave blank if none. List badge tokens — e.g. `notebook:radix`, `drive:breathe-ii`."
+      placeholder: "notebook:radix, drive:breathe-ii"
+    validations:
+      required: false
+
+  - type: input
     id: xp
     attributes:
       label: XP reward
