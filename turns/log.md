@@ -415,3 +415,14 @@ contribution: confirmed claude-review success on be05005 (all checks green, all 
 resonance:    landed
 witnessed:    true
 ---
+
+---
+turn:         2026-09-21 07:13
+prima-clock:  202609210713
+prime:        3
+entity:       eaprime1 + Claude (nav1 · Sonnet 4.6)
+intent:       build the navigo access badge system and Act II setup infrastructure
+contribution: nav1 navigo profile created (.claude/navigo-profile.md) with badge schema for all navigo workspaces and six badge tokens (notebook:radix, notebook:custos-spectrum, drive:custos-root, drive:breathe-ii, drive:breathe-ii-act-i, drive:breathe-ii-act-ii); required_access field added to all three issue templates (mission.yml, bounty.yml, upgrade.yml); Polaris→Iceberg Act II setup guide written (guides/polaris-iceberg.md) — fixed coordinates table, two in-flight missions documented, five-step sequence for setup conversations; guides/README.md index updated; claude-code-review.yml updated to skip draft PRs (runs only after ready_for_review)
+resonance:    oriented
+witnessed:    true
+---
