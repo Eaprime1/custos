@@ -77,7 +77,7 @@ a Pandora germ: honest, unpolished, close to verbatim.
 Some inbox actions have no downside — they can be done at any time without
 consequence. These belong in a dedicated operation, not the preturn:
 
-- **cc-automated label filter**: `Label_162` exists with zero messages. Needs one
+- **cc-automated label filter**: `Label_162` exists with zero messages. It needs one
   Gmail filter to route CC agent daily briefs to it — pending creation (issue #328).
   One-step, reversible.
 - **Unroll.me**: 1,770 senders, archives at-will in batches. No loss.

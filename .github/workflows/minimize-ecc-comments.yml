@@ -26,7 +26,7 @@ jobs:
             // ECC Tools embeds the commit SHA in each comment's HTML marker:
             // <!-- ecc-tools:pr-audit:ECC Tools / <check>:<sha> -->
             // Extract it so we only minimize comments from OLDER commits,
-            // not the other 3 comments ECC Tools posts for this same commit.
+            // not the other three comments ECC Tools posts for this same commit.
             const shaMatch = newBody.match(/ecc-tools:pr-audit:[^:]+:([0-9a-f]{40})/);
             const currentSha = shaMatch ? shaMatch[1] : null;
 
