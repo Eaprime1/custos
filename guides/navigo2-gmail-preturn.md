@@ -25,8 +25,8 @@ on its first day?*
 The inbox is not a message store. It is a pressure field.
 
 Unread count is not backlog. It is accumulated activation demand — each
-unread a small claim on attention, a micro-deadline, a guilt node. For a
-an operator who feels it as weight, this is not clutter. It is gravity. Measurable,
+unread a small claim on attention, a micro-deadline, a guilt node. For an
+operator who feels it as weight, this is not clutter. It is gravity. Measurable,
 typed, mappable gravity.
 
 The inbox is also a diagnostic oracle: *what it contains tells you who the
