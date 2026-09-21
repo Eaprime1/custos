@@ -40,7 +40,7 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 - [ ] Run `bash seeds/bootstrap.sh` on the Pixel 8 (at `~/pixel8/custos`)
 - [ ] Organize `~/pixel8a` content into `~/pixel8` on the device; log migration in `turns/log.md`
 - [ ] Populate `device/active.md` with real current work (replace placeholder entries)
-- [x] Define the empty branches: `radix`, `mulberry`, `mandelbrot`, `main-to-radix`, `֍custos֎` — add each to `branch-tracker/branches.md` with suit/status/destination
+- [x] Define the empty branches: `radix`, `mulberry`, `mandelbrot`, `main-to-radix`, `⸜custos⸝` — add each to `branch-tracker/branches.md` with suit/status/destination
 - [ ] Open the external agent streams — commission first returns from Gemini, ChatGPT, Copilot into `returns/`
 - [x] Log hub activation event in `prima-clock/registry.md`
 - [ ] Advance `.prime` to 7
@@ -71,6 +71,20 @@ The repo is the concept. The device branches (`pixel8`, future: `navigo`) are th
 - [ ] Create `quests/builders/` arc for Builder faction missions (tools, scripts)
 - [ ] Run a "round" — post 3 missions, commission 3 different models, review all PRs
 - [ ] Advance `.prime` to 13
+- [ ] **Define the XDA concept entity – multi‑stream with sub‑streams**
+
+### XDA Concept Entity – Multi‑Stream with Sub‑Streams
+
+The XDA (eXternal Data Agent) entity is a first‑class stream that can host multiple logical sub‑streams. Each sub‑stream represents an independent data channel (e.g., logs, telemetry, AI responses) but shares the same transport and lifecycle as its parent XDA. This design enables:
+
+1. **Isolation** – Sub‑streams can be paused, throttled, or terminated without affecting siblings.
+2. **Aggregation** – The parent XDA can aggregate status, errors, and metrics across all sub‑streams for unified monitoring.
+3. **Dynamic Composition** – New sub‑streams can be spawned on‑demand by missions or AI agents, allowing flexible pipelines.
+
+Implementation notes for the repo:
+- Add a `returns/xda/` directory to hold JSON payloads for each sub‑stream.
+- Extend `tools/scan_lexeme.sh` to recognise `xda:*` prefixes.
+- Update the multi‑AI workflow guide with a section on how agents should publish to a specific sub‑stream (e.g., `xda:logs`, `xda:metrics`).
 
 ---
 
