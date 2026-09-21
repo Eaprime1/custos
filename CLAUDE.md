@@ -102,6 +102,8 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 
 **`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When the Shepherd judges a concept ready, custos routes it to the appropriate branch or repo.
 
+**`.shadow-well/`** — Shadow artesian. Raw, unlocated material that has not yet been named, claimed, or routed through any custody process — the `nowhere` counterpart to `.artesian/`'s `now_here`. Holds fragments, seeds, and shadow versions of ideas before they enter `atelier/` or the formal mission board. See `.shadow-well/README.md` for the `now_here ↔ nowhere` polarity and routing rules.
+
 **`returns/`** — External agent stream returns. Each stream directory receives findings from the assigned AI model:
 - `stream-1-language/` — Gemini: Language/Fodere/Agnoscere
 - `stream-2-emotion/` — Gemini: Emotion Architecture

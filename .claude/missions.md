@@ -25,7 +25,7 @@ can verify plan availability should contribute something each day —
 push development, create issues, file seeds. If tokens can't be verified,
 fall back to issue creation and documentation only.  
 **Where:** Pattern lives in `.claude/` (nav1 perspective); will generalize
-to `.gemini/`, `.chatgpt/`, `.codex/` once validated.
+to `.gemini/`, `.chatgpt/` once validated.
 
 ### Gmail as Trigger and Mission Delivery Layer
 **Status:** OPEN → see GitHub issue #328  
