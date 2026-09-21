@@ -5,6 +5,7 @@ Every session leaves a mark. Append to `turns/log.md`.
 ```
 ---
 turn:         YYYY-MM-DD HH:MM
+prima-clock:  YYYYMMDDHHMM  (device local time; generate with: date '+%Y%m%d%H%M')
 prime:        [current prime state: 3 / 5 / 7 / 11 / 13 / 17 / 19 / 23]
 entity:       [who/what contributed: handle, Claude, ChatGPT, bot name]
 intent:       [one sentence — what this turn set out to do]
