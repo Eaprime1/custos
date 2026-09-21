@@ -28,9 +28,8 @@ for PATTERN in "${PATTERNS[@]}"; do
     EXTRA_OPTS+=(--exclude="000-thee-the-door.md")
   fi
   MATCHES=$(grep -rFin \
-    --include="*.md" --include="*.sh" --include="*.yaml" --include="*.json" \
+    --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" \
     ${EXTRA_OPTS[@]+"${EXTRA_OPTS[@]}"} \
-    --include="*.md" --include="*.sh" --include="*.yaml" --include="*.json" \
     --exclude-dir=".git" \
     -- "$PATTERN" "$ROOT" \
     2>/dev/null || true)
