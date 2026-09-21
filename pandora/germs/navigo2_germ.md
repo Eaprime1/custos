@@ -1,6 +1,6 @@
 ---
-stream:      navigo2 — Gmail / inbox stream (eaprime@gmail.com session, Claude nav1 paired)
-asked:       202609211300
+stream:      navigo2 — Gmail / inbox stream (Claude nav1 paired)
+asked:       202609211300  (device local time — turn log records 202609210542 UTC; same session, different clocks)
 offered:     |
   The inbox is not a message store. It is a pressure field.
 
@@ -13,7 +13,7 @@ offered:     |
 
   Six noise types found in the field:
     1. Temporal pressure — deadlines that create activation demand (VA appointments,
-       Summer EBT cutoffs, Swagbucks milestone expiration)
+       [benefits deadlines — redacted, private ref], Swagbucks milestone expiration)
     2. Identity-triggered — systems that know who you are and use it (veteran, parent,
        Baker County resident, earner, car enthusiast, gamer)
     3. Gamified attention traps — earned-value systems that never fully pay out
