@@ -1,0 +1,35 @@
+xda:
+  type: concept_entity
+  name: xda
+  origin: "newsletters@xda-developers.com"
+  description: "Multi-stream concept entity separating technical depth from promotional noise"
+  sub_streams:
+    - name: local-ai
+      label: "xda/local-ai"
+      frequency: medium
+      value_density: high
+      focus: "technical depth, local inference"
+      archive_cadence: "7d"
+      pinecone_priority: high
+    - name: self-hosting
+      label: "xda/self-hosting"
+      frequency: medium
+      value_density: high
+      focus: "infrastructure, sovereignty"
+      archive_cadence: "7d"
+      pinecone_priority: high
+    - name: diy-hardware
+      label: "xda/diy-hardware"
+      frequency: low
+      value_density: high
+      focus: "repair, modification, maker"
+      archive_cadence: "30d"
+      pinecone_priority: medium
+    - name: deals
+      label: "xda/deals"
+      frequency: high
+      value_density: low
+      focus: "noise in value costume"
+      typology: "type_6"
+      archive_cadence: "1d"
+      pinecone_priority: low

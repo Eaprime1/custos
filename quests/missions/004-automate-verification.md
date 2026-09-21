@@ -8,7 +8,8 @@ difficulty: apprentice
 estimated_time: "30m"
 requires:
   - missions/003-ai-commissioning
-unlocks: []
+unlocks:
+  - missions/005-xda-stream-routing
 tags:
   - workflow
   - tooling

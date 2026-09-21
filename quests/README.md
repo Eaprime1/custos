@@ -24,6 +24,7 @@ quests/
 
 | Arc | Description | Quest Count |
 |---|---|---|
-| example | Template starter arc — replace with your first real arc | 1 |
+| `example` | Template starter arc — ships with the template | 1 |
+| `missions` | Operational commissions and stream routing arcs | 5 |
 
 Update this table as arcs are added.

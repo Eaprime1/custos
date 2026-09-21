@@ -12,6 +12,8 @@ makes the technical content mean something.
 | `factions.md` | Groups and forces that populate the world |
 | `five-lakes.md` | The Five Lakes geography (document suit/valuation routing) and the Origin of Hope mythology |
 | `symbols.md` | Marks for recurring presences and the Lumenar lexeme |
+| `xda.md` | XDA concept entity overview and sub-stream specification |
+| `entities/xda.md` | Detailed multi-stream concept entity definition, routing, and Pinecone priorities |
 
 ## Expanding the World
 
