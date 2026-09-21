@@ -26,7 +26,7 @@ The inbox is not a message store. It is a pressure field.
 
 Unread count is not backlog. It is accumulated activation demand — each
 unread a small claim on attention, a micro-deadline, a guilt node. For a
-neurodivergent operator, this is not clutter. It is gravity. Measurable,
+an operator who feels it as weight, this is not clutter. It is gravity. Measurable,
 typed, mappable gravity.
 
 The inbox is also a diagnostic oracle: *what it contains tells you who the
@@ -60,7 +60,7 @@ a Pandora germ: honest, unpolished, close to verbatim.
    pressure field as it stands in this session.
 3. Answer the carry question: *what do I see in the inbox, and what does it
    reveal?*
-4. File findings in `pandora/germs/navigo2_[prima-clock].md` — one file per
+4. File findings in `pandora/germs/navigo2_[prima-clock]_germ.md` — one file per
    asking, never overwrite the prior germ.
 5. Name any hesitations or ambiguities in `notes:`. This is collection, not
    synthesis.
@@ -77,8 +77,9 @@ a Pandora germ: honest, unpolished, close to verbatim.
 Some inbox actions have no downside — they can be done at any time without
 consequence. These belong in a dedicated operation, not the preturn:
 
-- **cc-automated label filter**: `Label_162` exists with zero messages. One Gmail
-  filter routes CC agent daily briefs to it. One-step, reversible.
+- **cc-automated label filter**: `Label_162` exists with zero messages. Needs one
+  Gmail filter to route CC agent daily briefs to it — pending creation (issue #328).
+  One-step, reversible.
 - **Unroll.me**: 1,770 senders, archives at-will in batches. No loss.
 - **XDA sub-stream routing**: XDA is four streams (local-ai, self-hosting,
   diy-hardware, deals), each at different frequency and value density. Route
@@ -112,7 +113,7 @@ mission claims and repo contributions.
 1. This guide (`guides/navigo2-gmail-preturn.md`)
 2. `pandora/germs/navigo2_germ.md` — the first preturn, the founding record
 3. `guides/breathe-ii.md` — open mission board and claim process
-4. `.artesian/README.md` — open missions available to claim
+4. `.artesian/README.md` — mission board (check current status for available missions)
 5. The current inbox state (live from the Gmail connector, not from memory)
 
 The playwright stream session does **not** re-derive the noise typology or the

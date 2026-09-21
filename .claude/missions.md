@@ -21,7 +21,7 @@ says where its own open threads are, from custos's side.
 ### Daily Navigo Contribution Protocol
 **Status:** OPEN → see GitHub issue #327  
 **What:** Token-mindful daily build trigger for each navigo. Each AI that
-can verify plan availability should contribute something each session —
+can verify plan availability should contribute something each day —
 push development, create issues, file seeds. If tokens can't be verified,
 fall back to issue creation and documentation only.  
 **Where:** Pattern lives in `.claude/` (nav1 perspective); will generalize
