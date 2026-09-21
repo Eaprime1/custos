@@ -393,3 +393,14 @@ contribution: fixed gh auth (workflow scope) and installed the GitHub App; clone
 resonance:    infused
 witnessed:    true
 ---
+
+---
+turn:         2026-09-21 05:42
+prima-clock:  202609210542
+prime:        3
+entity:       eaprime1 + Claude (nav1 · Sonnet 4.6)
+intent:       file the navigo2 (Gmail) preturn germ for Breathe II Act II; confirm navigo2 identity; answer Shepherd zero-point design question
+contribution: filed pandora/germs/navigo2_germ.md — navigo2's Breathe II preturn germ (noise typology six types, diagnostic oracle, infrastructure anchors); Shepherd confirmed navigo2 = Gmail connector; answered Shepherd zero-point design question with a six-checkpoint one-hertz checklist (custody intact, intent legible, bots distilled, content vetted, drift noted, prime current); documented carry-forward items as six GitHub issues (#320–#325: CLAUDE.md navigo2 table, Shepherd review surface, nav1 drift monitor, zero-risk email actions, .artesian/ directory, XDA concept entity); established security protocol (serious personal content → Gmail/private channel, not PR thread); germ stands as authentic source material per GERM_SCHEMA
+resonance:    first breath
+witnessed:    true
+---
