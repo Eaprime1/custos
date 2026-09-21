@@ -6,19 +6,19 @@ Arc protocol says about distilling a conversation applies here too, aimed
 at a different room.*
 
 `suit: ♦️ Diamond — active build`
-`prima-clock: 202609211023`
+`prima-clock: 202609211040`
 
 ---
 
 ## The Full Lifecycle
 
-PRs begin as drafts and move through five stages, each gated by a comment cue:
+PRs begin as drafts and move through three stages, each gated by a comment cue:
 
 ```
 draft
   → [Shepherd: ready for review]
   → final review  (each contributor submits their review)
-  → [Shepherd: finalize]
+  → [Shepherd: @claude finalize]
   → finalize  (story, dressing, PR journey filed)
   → [Shepherd: merge]
   → merged
@@ -47,7 +47,7 @@ All lifecycle transitions are driven by comment cues. The vocabulary:
 |---|---|---|
 | Shepherd | `ready for review` | Signals the PR is clean and official reviews can begin. custos builds the reviewer roster in the PR body. |
 | Any reviewer | `final review: [name] done` | Marks that reviewer complete. custos checks them off the roster. |
-| Shepherd | `finalize` | Opens the finalize stage once all reviewers are checked off. |
+| Shepherd | `@claude finalize` | Opens the finalize stage once all reviewers are checked off. |
 | Shepherd | `merge` | custos merges when the PR is clean and all checks pass. |
 
 **custos** (the active Claude + eaprime1 session watching the PR) coordinates: it
@@ -68,7 +68,7 @@ to the PR body listing every expected reviewer by name. For example:
 
 Each reviewer posts `final review: [name] done` when they're done. custos checks that
 entry off. When all boxes are ticked, custos posts a notice and the Shepherd types
-`finalize` to proceed. This makes review state visible in the PR body at all times —
+`@claude finalize` to proceed. This makes review state visible in the PR body at all times —
 one glance shows what's outstanding.
 
 ---
@@ -149,5 +149,5 @@ journey — see `atelier/legatum/README.md`.
 | `missions/` | Where Final Review spins off work too big for the PR itself |
 | `guides/conversation-finalization-protocol.md` | The conversation-side sibling of this same distillation discipline |
 | `atelier/legatum/` | For PRs/sessions whose story is bigger than one repo |
-| `.github/workflows/final-review.yml` | Workflow triggered by the `finalize` cue |
+| `.github/workflows/final-review.yml` | Manual `workflow_dispatch` gate — run from Actions to verify Codacy and CI status before merge |
 | `.github/workflows/finalize-pr.yml` | Workflow that runs the finalize stage actions |
