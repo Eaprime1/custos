@@ -18,4 +18,19 @@ says where its own open threads are, from custos's side.
 
 ## Active Missions
 
-*(empty — first mission goes here)*
+### Daily Navigo Contribution Protocol
+**Status:** OPEN → see GitHub issue #327  
+**What:** Token-mindful daily build trigger for each navigo. Each AI that
+can verify plan availability should contribute something each session —
+push development, create issues, file seeds. If tokens can't be verified,
+fall back to issue creation and documentation only.  
+**Where:** Pattern lives in `.claude/` (nav1 perspective); will generalize
+to `.gemini/`, `.chatgpt/`, `.codex/` once validated.
+
+### Gmail as Trigger and Mission Delivery Layer
+**Status:** OPEN → see GitHub issue #328  
+**What:** Gmail triggers (native, Zapier, IFTTT) as a delivery mechanism
+for navigo missions and daily build actions. Sets the pattern for multi-AI
+trigger architecture across the constellation.  
+**Where:** `guides/navigo2-gmail-preturn.md` is the preturn foundation.
+Playwright stream conversation handles Turn 2.

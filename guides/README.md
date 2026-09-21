@@ -30,5 +30,6 @@ why is grounded in the concept's world.
 | [Reviewers Are Contributors](reviewer-as-contributor.md) | Treating every PR reviewer — human, AI, or bot — as a contributing entity; the disposition-reply practice |
 | [The PR Lifecycle](pr-lifecycle.md) | Final Review, Finalize, Merge — three stages, scope limits, and why a PR is a type of conversation |
 | [Breathe II](breathe-ii.md) | The multi-navigo round-robin's second round — preturn/germs, picking and claiming a mission, the interim no-validation-yet policy |
+| [Navigo2 Gmail Preturn](navigo2-gmail-preturn.md) | How to enter a Gmail turn: the inbox-as-pressure-field thesis, six noise types, preturn ritual, zero-risk operations, playwright stream entry |
 
 Add guides here as you create them.
