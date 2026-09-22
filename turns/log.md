@@ -437,3 +437,14 @@ contribution: PR #334 merged (83dab97) — guides/pr-lifecycle.md now on main wi
 resonance:    sealed
 witnessed:    true
 ---
+
+---
+turn:         2026-09-22 16:28
+prima-clock:  202609221628
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       open Act II setup session; execute the naught/maw/nullus handoff from PR #337
+contribution: naught CLAUDE.md committed (Eaprime1/naught#2, template CLAUDE.md held in docs/origin/); no-erasure review posted on Copilot scaffold Eaprime1/naught#1 (intake overwrite vs tools/thee.sh, skip-ahead re-entry not modeled, instructions-file duplication, Maw position); nullus CLAUDE.md drafted at 1/3 plank (Eaprime1/nullus#3); maw held; constellation snapshot + seams written to turns/STATE-OF-CONSTELLATION-202609221628.md
+resonance:    oriented
+witnessed:    true
+---
