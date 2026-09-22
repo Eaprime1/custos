@@ -52,8 +52,8 @@ gap-filling starts from what is actually there. Not a to-do list someone already
    not zero". The two don't contradict each other, but they haven't been joined yet.
 4. **Zero space repo.** naught hands off to a "Zero space repo" that has no name.
    `eternal_naught_space` is the likely candidate.
-5. **naught#1 intake overwrite.** The THEE/YOD/EMBER intake spec is replaced, but
-   `tools/thee.sh` still appends old-format fragments to `intake/incoming.md`.
+5. **naught#1 intake overwrite.** Resolved in naught#1 `fe4ca76` (see review
+   notes below).
 6. **Skip-ahead re-entry** (`zero_polar_(any_level)`) is a hard rule in the naught
    CLAUDE.md, but the naught schema doesn't model it yet.
 7. **#337 root placement.** Custos root is already crowded. The Act II documents may
@@ -73,6 +73,39 @@ The folders are nested in this order:
 `setup` holds the handoff, the naught drafts, The Planck-Prime Manifestation Engine,
 The forbidden fruit, The wolven of primal, and the `compass system/` and
 `radix-notebook/` folders.
+
+## naught#1 review notes — 202609221628
+
+Three open Copilot-reviewer threads on the Copilot scaffold PR, worked at
+eaprime1's request. Fix pushed to the PR branch as `fe4ca76`.
+
+| Thread | Finding | Outcome |
+|---|---|---|
+| `schema/naught_intake.json` | Schema forced a lossy rewrite of the Custos `GERM_INTAKE` carrier. `additionalProperties: false` rejected `carrier_type`, `germ_intake_form`, `card_rank`, `destination_repo` and `polar_state`, and the URI pattern on `source` rejected free-text Custos sources | ✅ Fixed and resolved. The root is now `oneOf` carrier / bare form, and carrier fields pass through unchanged |
+| `intake/README.md` | `tools/thee.sh` still writes THEE fragments into an `incoming.md` that had been turned into a custody register | ✅ Fixed and resolved. `incoming.md` restored byte-identical to `main`, and the README documents both flows |
+| `README.md` | The root `CLAUDE.md` still gives prima-template guidance | ⏸ Open, pointing to naught#2, which holds the replacement. Resolves when #2 merges |
+
+**What held strict:** `naught_state` lineage, `transit_type: gas_transfer`,
+`closing_status: HOLDING`.
+
+**Verification:**
+- `jsonschema` accepts the Draft 2020-12 schema.
+- The PR's own example passes.
+- The real obsidian Sparstone carrier fails as-is, and only on its missing
+  `naught_state`. That's expected, because it hasn't entered naught yet.
+- The same carrier after gas transfer (`naught_state` added, transit/closing
+  status set) passes with every carrier field kept.
+- Lineage and `gas_transfer` violations are still rejected.
+- `tools/validate_json_yaml.sh` passes.
+
+**Still open from my earlier review:**
+- Skip-ahead re-entry (`zero_polar_(any_level)`) is not modelled. A returning
+  item can only come back as `unknown` with prior `naught_known`.
+- Copilot instructions vs CLAUDE.md duplication, and the Maw position.
+
+These are owner decisions.
+
+**Order to merge:** naught#2 (CLAUDE.md) with or before naught#1.
 
 ---
 
