@@ -8,9 +8,9 @@ The word is Latin: guardian, keeper, watchman. This is the practice of keeping.
 
 ```
 [ Termux on Pixel 8 ]        ← the Podium — runtime engine
-        ↕
+        ↑
     [ Unexusi ]              ← identity + connection layer
-        ↕
+        ↑
     [ custos ]               ← this repo: the Field, the Flock, the Work
 ```
 
@@ -34,6 +34,7 @@ tools/              THEE / YOD / EMBER triad and state tools
 intake/             the door where fragments arrive before they have names
 turns/              session memory — append only
 unexusi/            connection spec for the identity layer
+returns/            streams of external agent output (including XDA sub‑streams)
 ```
 
 ## Getting started on a new device
@@ -62,7 +63,7 @@ custos uses GitHub Issues as an open mission board. Any contributor — human or
 
 Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
 
-## GitHub Pages note 🃏
+## GitHub Pages note 🏪
 
 This repository is published as static content when Pages is used.
 Do not use Jekyll-specific workflows unless a real Jekyll site structure (`_config.yml`, layouts, includes, and content source) is intentionally added.
@@ -74,44 +75,25 @@ Work on custos is organized by device:
 | Branch | Device | Role |
 |---|---|---|
 | `main` | any | concept foundation |
-| `pixel8` | Pixel 8 (Podium) | active device state, work-in-flight |
+| `pixel8` | Pixel 8 (Podium) | active device state, work‑in‑flight |
 
 The `pixel8` branch carries `device/` files that track what is active, installed, and in progress on the Pixel 8.
 
-## Multi-AI development
+## Multi‑AI development
 
 custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
 
-## THE/UNEXUS Convergence Hub
+### XDA Concept Entity – Multi‑Stream with Sub‑Streams
 
-custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
-
----
+The XDA (eXternal Data Agent) entity provides a parent stream that can host independent sub‑streams (e.g., `xda:logs`, `xda:metrics`). Sub‑streams share lifecycle with the parent but can be managed individually, enabling isolation, aggregation, and dynamic composition of data channels. Agents should publish JSON payloads to `returns/xda/<sub‑stream>.json` and reference the sub‑stream name in their mission descriptions.
 
 ## THE/UNEXUS Convergence Hub
 
-custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
+custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch‑tracker, prima‑clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
 
 ---
-
-∰◊€π¿🌌∞
-
-
-**Established:** 202605271650
-**Motion State:** EXPANDING
-**Chain of Custody:** OPEN
-**Iteration:** 21 — Blackjack
-
-
----
-
-
-Custos (Latin: guardian, keeper) is the convergence hub for THE/UNEXUS.
-This is the negative mold. All repos emerge from branches here.
-
 
 ## Structure
-
 
 | Directory | Purpose |
 |-----------|---------|
@@ -119,10 +101,10 @@ This is the negative mold. All repos emerge from branches here.
 | [/branch-tracker](./branch-tracker) | Active development map |
 | [/prima-clock](./prima-clock) | Custody event timestamp registry |
 | [/moav](./moav) | MOAV carrier packages (JSON) |
-| [/returns](./returns) | Stream returns from external agents |
+| [/returns](./returns) | Stream returns from external agents (including XDA sub‑streams) |
 | [/atelier](./atelier) | Nursery — concepts before they have names |
 | [/queue](./queue) | Staging ground — chain of custody, including the Artesium Weir |
-| [/seep-artois](./seep-artois) | The pool — ready-to-develop pages, drawn one at a time |
+| [/seep-artois](./seep-artois) | The pool — ready‑to‑develop pages, drawn one at a time |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
 
