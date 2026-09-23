@@ -1,0 +1,111 @@
+# Custos — Witness PR
+#
+# Comment `witnessed` on a PR (the word at the start of the comment) to be
+# recorded as a witness. Anyone may witness; each person is recorded once,
+# with the prima-clock of their comment and a link to it. The list lives in
+# the PR description between the witness markers and replaces the template's
+# `**witnessed:** false` line.
+#
+# `@claude finalize` seals the list (see finalize-pr.yml). After sealing, new
+# `witnessed` comments are not recorded; the commenter gets a short note.
+name: Custos — Witness PR
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+concurrency:
+  # One update at a time per PR so simultaneous witnesses don't overwrite
+  # each other's edit to the description.
+  group: witness-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  witness:
+    if: >
+      github.event.issue.pull_request != null &&
+      github.event.comment.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record witness
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            const comment = context.payload.comment;
+            // Trigger: the comment starts with the word "witnessed".
+            if (!/^\s*witnessed\b/i.test(comment.body || '')) {
+              core.info('Not a witness comment.');
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const prNum = context.issue.number;
+            const login = comment.user.login;
+
+            const START = '<!-- witnesses:start -->';
+            const END   = '<!-- witnesses:end -->';
+            const SEALED = '<!-- witnesses:sealed -->';
+
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNum });
+            const body = pr.body || '';
+
+            const react = (content) => github.rest.reactions.createForIssueComment({
+              owner, repo, comment_id: comment.id, content,
+            });
+
+            if (body.includes(SEALED)) {
+              await react('confused');
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum,
+                body: `@${login} — witnessing on this PR was sealed at finalize, so this witness was not added. The comment itself stays on the record.`,
+              });
+              return;
+            }
+
+            // prima-clock of the comment (UTC).
+            const d = new Date(comment.created_at);
+            const p = n => String(n).padStart(2, '0');
+            const clock = `${d.getUTCFullYear()}${p(d.getUTCMonth()+1)}${p(d.getUTCDate())}${p(d.getUTCHours())}${p(d.getUTCMinutes())}`;
+
+            // Existing witness entries: lines "- @login · clock · [comment](url)".
+            let entries = [];
+            const s = body.indexOf(START), e = body.indexOf(END);
+            if (s !== -1 && e > s) {
+              entries = body.slice(s + START.length, e).split('\n')
+                .filter(l => /^\s*-\s*@/.test(l)).map(l => l.trim());
+            }
+            const already = entries.some(l => l.toLowerCase().startsWith(`- @${login.toLowerCase()} `));
+            if (already) {
+              await react('eyes');
+              core.info(`@${login} is already a witness.`);
+              return;
+            }
+            entries.push(`- @${login} · ${clock} · [comment](${comment.html_url})`);
+
+            const n = entries.length;
+            const block = [
+              START,
+              `**witnessed:** true — ${n} witness${n === 1 ? '' : 'es'}`,
+              '',
+              ...entries,
+              END,
+            ].join('\n');
+
+            let newBody;
+            if (s !== -1 && e > s) {
+              newBody = body.slice(0, s) + block + body.slice(e + END.length);
+            } else if (/\*\*witnessed:\*\*[^\n]*/.test(body)) {
+              newBody = body.replace(/\*\*witnessed:\*\*[^\n]*/, block);
+            } else {
+              newBody = `${body.trimEnd()}\n\n${block}\n`;
+            }
+
+            await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: newBody });
+            await react('+1');
+            core.info(`Recorded @${login} as witness ${n} at ${clock}.`);

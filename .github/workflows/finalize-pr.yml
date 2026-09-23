@@ -2,7 +2,8 @@
 #
 # Comment `@claude finalize` on any PR to seal it.
 # Gates: template sections filled · threads resolved · CI green
-# On pass: posts rubric + valuation · applies `finalized` label · commits PR Journey doc
+# On pass: seals the witness list (witness-pr.yml) · posts rubric + valuation ·
+#          applies `finalized` label · commits PR Journey doc
 #
 # Journey doc lands in pr-journeys/ on the base branch immediately at finalize time.
 # It is a record OF the PR, not content of the PR.
@@ -204,6 +205,45 @@ jobs:
             const p   = n => String(n).padStart(2, '0');
             const primaClock = `${now.getUTCFullYear()}${p(now.getUTCMonth()+1)}${p(now.getUTCDate())}${p(now.getUTCHours())}${p(now.getUTCMinutes())}`;
 
+            // ── 9b. Seal the witnesses (see witness-pr.yml) ───────────────────
+            // Witnesses are recorded by `witnessed` comments. Finalizing seals the
+            // list; the sealer is recorded as a witness if not already listed.
+            const W_START = '<!-- witnesses:start -->';
+            const W_END   = '<!-- witnesses:end -->';
+            const W_SEALED = '<!-- witnesses:sealed -->';
+            let witnessEntries = [];
+            {
+              const ws = body.indexOf(W_START), we = body.indexOf(W_END);
+              if (ws !== -1 && we > ws) {
+                witnessEntries = body.slice(ws + W_START.length, we).split('\n')
+                  .filter(l => /^\s*-\s*@/.test(l)).map(l => l.trim());
+              }
+              if (!witnessEntries.some(l => l.toLowerCase().startsWith(`- @${actor.toLowerCase()} `))) {
+                witnessEntries.push(`- @${actor} · ${primaClock} · sealed at finalize`);
+              }
+              const wn = witnessEntries.length;
+              const sealedBlock = [
+                W_START,
+                W_SEALED,
+                `**witnessed:** true — ${wn} witness${wn === 1 ? '' : 'es'} · sealed ${primaClock} by @${actor}`,
+                '',
+                ...witnessEntries,
+                W_END,
+              ].join('\n');
+              let sealedBody;
+              if (ws !== -1 && we > ws) {
+                sealedBody = body.slice(0, ws) + sealedBlock + body.slice(we + W_END.length);
+              } else if (/\*\*witnessed:\*\*[^\n]*/.test(body)) {
+                sealedBody = body.replace(/\*\*witnessed:\*\*[^\n]*/, sealedBlock);
+              } else {
+                sealedBody = `${body.trimEnd()}\n\n${sealedBlock}\n`;
+              }
+              try {
+                await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: sealedBody });
+              } catch (e) { core.warning(`Witness seal: ${e.message}`); }
+            }
+            const witnessLines = witnessEntries.map(l => l.replace(/^\s*-\s*/, '- '));
+
             // ── 10. Apply `finalized` label ────────────────────────────────────
             try {
               await github.rest.issues.addLabels({ owner, repo, issue_number: prNum, labels: ['finalized'] });
@@ -259,6 +299,10 @@ jobs:
                 '### Resonance',
                 '',
                 `*${resonance}*`,
+                '',
+                '### Witnesses (sealed)',
+                '',
+                ...witnessLines,
                 '',
                 '---',
                 `**prima-clock:** ${primaClock} · **sealed by:** @${actor}`,
@@ -352,9 +396,13 @@ jobs:
               '',
               whatDoor || '*Not recorded.*',
               '',
+              '## Witnesses',
+              '',
+              ...witnessLines,
+              '',
               '---',
               `**prima-clock:** ${primaClock}  `,
-              `**witnessed:** true  `,
+              `**witnessed:** true — ${witnessLines.length} witness${witnessLines.length === 1 ? '' : 'es'}, sealed by @${actor}  `,
               `*${IDENTITY} · ${SYMBOL}*`,
             ].join('\n');
 
