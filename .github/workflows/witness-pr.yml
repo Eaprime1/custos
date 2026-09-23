@@ -26,9 +26,13 @@ concurrency:
 
 jobs:
   witness:
+    # Cheap pre-filter so ordinary comments don't start a runner. contains()
+    # is case-insensitive; the script below does the exact start-of-comment
+    # check (leading whitespace allowed).
     if: >
       github.event.issue.pull_request != null &&
-      github.event.comment.user.type != 'Bot'
+      github.event.comment.user.type != 'Bot' &&
+      contains(github.event.comment.body, 'witnessed')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
