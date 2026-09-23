@@ -1,71 +1,77 @@
-name: Minimize outdated ECC Tools comments
+name: Minimize ECC Tools comments
+
+# ecc-tools[bot] posts its PR audits as comments, several per push, because it
+# cannot publish check runs. This folds each one away (minimized as outdated,
+# still expandable) the moment it lands, so the PR conversation stays readable.
+#
+# - issue_comment: each ECC comment starts one short run that minimizes that
+#   comment. Comments from anyone else skip the job before a runner starts.
+# - workflow_dispatch: sweep an existing PR and minimize every ECC comment on it.
+#
+# issue_comment workflows run from the default branch, so this takes effect
+# once merged to main.
 
 on:
   issue_comment:
     types: [created]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request number to sweep
+        required: true
+        type: number
+
+permissions:
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: minimize-ecc-${{ github.event.issue.number || inputs.pr_number }}-${{ github.event.comment.id || 'sweep' }}
 
 jobs:
-  minimize-old-ecc-comments:
-    # Only run on PR comments from ecc-tools[bot]
+  minimize:
     if: >
-      github.event.issue.pull_request != null &&
-      github.event.comment.user.login == 'ecc-tools[bot]'
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.issue.pull_request != null &&
+       github.event.comment.user.login == 'ecc-tools[bot]')
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    timeout-minutes: 5
     steps:
-      - name: Minimize outdated ECC Tools comments
+      - name: Minimize ECC Tools comments
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const newCommentId = context.payload.comment.id;
-            const newBody = context.payload.comment.body || '';
-            const prNumber = context.payload.issue.number;
+            const minimize = async (nodeId) => {
+              await github.graphql(`
+                mutation($id: ID!) {
+                  minimizeComment(input: {subjectId: $id, classifier: OUTDATED}) {
+                    minimizedComment { isMinimized }
+                  }
+                }
+              `, { id: nodeId });
+            };
 
-            // ECC Tools embeds the commit SHA in each comment's HTML marker:
-            // <!-- ecc-tools:pr-audit:ECC Tools / <check>:<sha> -->
-            // Extract it so we only minimize comments from OLDER commits,
-            // not the other three comments ECC Tools posts for this same commit.
-            const shaMatch = newBody.match(/ecc-tools:pr-audit:[^:]+:([0-9a-f]{40})/);
-            const currentSha = shaMatch ? shaMatch[1] : null;
-
-            if (!currentSha) {
-              core.info('No SHA found in ECC Tools comment — skipping.');
+            if (context.eventName === 'issue_comment') {
+              await minimize(context.payload.comment.node_id);
+              core.info(`Minimized ECC Tools comment ${context.payload.comment.id}.`);
               return;
             }
 
-            const comments = await github.paginate(
-              github.rest.issues.listComments,
-              {
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: prNumber,
-                per_page: 100,
-              }
-            );
-
-            const toMinimize = comments.filter(c => {
-              if (c.id === newCommentId) return false;
-              if (c.user.login !== 'ecc-tools[bot]') return false;
-              const m = (c.body || '').match(/ecc-tools:pr-audit:[^:]+:([0-9a-f]{40})/);
-              const sha = m ? m[1] : null;
-              return sha && sha !== currentSha;
+            const prNumber = Number(context.payload.inputs.pr_number);
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              per_page: 100,
             });
-
-            for (const comment of toMinimize) {
+            const ecc = comments.filter(c => c.user && c.user.login === 'ecc-tools[bot]');
+            let done = 0;
+            for (const c of ecc) {
               try {
-                await github.graphql(`
-                  mutation($id: ID!) {
-                    minimizeComment(input: {subjectId: $id, classifier: OUTDATED}) {
-                      minimizedComment { isMinimized }
-                    }
-                  }
-                `, { id: comment.node_id });
-                core.info(`Minimized comment ${comment.id} (SHA: ${comment.body.match(/ecc-tools:pr-audit:[^:]+:([0-9a-f]{40})/)?.[1]})`);
+                await minimize(c.node_id);
+                done++;
               } catch (err) {
-                core.warning(`Could not minimize comment ${comment.id}: ${err.message}`);
+                core.warning(`Could not minimize comment ${c.id}: ${err.message}`);
               }
             }
-
-            core.info(`Done — minimized ${toMinimize.length} outdated ECC Tools comment(s).`);
+            core.info(`Minimized ${done} of ${ecc.length} ECC Tools comment(s) on #${prNumber}.`);
