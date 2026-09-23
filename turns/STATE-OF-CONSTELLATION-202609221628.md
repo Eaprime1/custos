@@ -21,9 +21,9 @@ Prima-clock: 202609221628
 
 | # | Handoff item | Status |
 |---|---|---|
-| 1 | Commit CLAUDE.md to naught | ✅ Eaprime1/naught#2 (draft). Template CLAUDE.md kept at `docs/origin/` |
-| 2 | Review Copilot PR on naught for erasure | ✅ Review posted on Eaprime1/naught#1: 4 flags (details below) |
-| 3 | Scaffold schema / intake / transit / outbound / open-questions | ✅ Already built by Copilot in Eaprime1/naught#1, not duplicated |
+| 1 | Commit CLAUDE.md to naught | ✅ Merged, Eaprime1/naught#2 (`e606129`), with three review corrections. Template CLAUDE.md kept at `docs/origin/` |
+| 2 | Review Copilot PR on naught for erasure | ✅ Review posted on Eaprime1/naught#1: 4 flags, 2 fixed (details below) |
+| 3 | Scaffold schema / intake / transit / outbound / open-questions | ✅ Merged, Eaprime1/naught#1 (`24420fd`) |
 | 4 | Draft CLAUDE.md for nullus | ✅ Eaprime1/nullus#3 (draft, 1/3 plank) |
 | 5 | Hold on maw | ⏸ Held. See the note on maw below |
 
@@ -32,7 +32,7 @@ Prima-clock: 202609221628
 | Repo | State | Notes |
 |---|---|---|
 | custos | active hub, prime 3 | #337 open (clean). Four external bounty PRs on #325 (XDA entity) open: #331, #333, #335, #336 |
-| naught | template + 2 PRs | #1 Copilot scaffold (24 commits, 120 comments, checks green); #2 CLAUDE.md |
+| naught | scaffold + CLAUDE.md merged | #1 and #2 merged. #3 (the source `.docx` files) is open. `prima.yaml` still unfilled |
 | nullus | real canon, GERMINATION_PHASE | Charter, glossary, architecture, core/, protocols/, integration/. `prima.yaml` still unfilled |
 | maw | cosmology docs merged | `maw/PRIMAL_COSMOLOGY.md`, particles/events/registry/sacred_pools/mobius_rings. Root README still the prima template |
 | eternal_naught_space | README only | "The infinite dark of nothing". **Is this the Zero space repo?** Unconfirmed |
@@ -64,6 +64,11 @@ Prima-clock: 202609221628
    conversion table, and no damping equation for a usurped right angle recovering to
    90°. The declination/Polaris triangle is a known thread and hasn't been formalized
    yet.
+9. **ECC Tools noise** (flagged by eaprime1). `ecc-tools[bot]` posts six audit
+   comments on every push. That came to about 60 across this session's PRs, and
+   none of them could be acted on. It can't publish check runs ("Check publication was
+   denied"), so they land as comments. There are two owner-side fixes: uninstall
+   the app or scope it down, or grant it **Checks: read and write**.
 
 ## Drive map (Act II)
 
@@ -85,7 +90,7 @@ eaprime1's request. Fix pushed to the PR branch as `fe4ca76`.
 |---|---|---|
 | `schema/naught_intake.json` | Schema forced a lossy rewrite of the Custos `GERM_INTAKE` carrier. `additionalProperties: false` rejected `carrier_type`, `germ_intake_form`, `card_rank`, `destination_repo` and `polar_state`, and the URI pattern on `source` rejected free-text Custos sources | ✅ Fixed and resolved. The root is now `oneOf` carrier / bare form, and carrier fields pass through unchanged |
 | `intake/README.md` | `tools/thee.sh` still writes THEE fragments into an `incoming.md` that had been turned into a custody register | ✅ Fixed and resolved. `incoming.md` restored byte-identical to `main`, and the README documents both flows |
-| `README.md` | The root `CLAUDE.md` still gives prima-template guidance | ⏸ Open, pointing to naught#2, which holds the replacement. Resolves when #2 merges |
+| `README.md` | The root `CLAUDE.md` still gives prima-template guidance | ✅ Resolved by naught#2 |
 
 **What held strict:** `naught_state` lineage, `transit_type: gas_transfer`,
 `closing_status: HOLDING`.
@@ -107,7 +112,13 @@ eaprime1's request. Fix pushed to the PR branch as `fe4ca76`.
 
 These are owner decisions.
 
-**Order to merge:** naught#2 (CLAUDE.md) with or before naught#1.
+**Outcome:** naught#1 was sealed with `@claude finalize` and merged as `24420fd`.
+naught#2 was sealed and merged as `e606129`. It carries three corrections: the
+review workflow now reads `secrets.CLAUDE_CODE_OAUTH_TOKEN` after the secret was
+renamed, the data-model example is a record that validates, and the Maw
+ordering is marked provisional. The first `claude-review` on a later naught PR
+is the first real test of the renamed secret. claude-code-action skips workflow
+files that differ from `main`, so it could not be tested inside #2 itself.
 
 ---
 
