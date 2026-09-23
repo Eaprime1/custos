@@ -16,10 +16,10 @@ Thank you for your interest in contributing.
 
 This is the most common way a well-built PR goes nowhere. Two different kinds of work live in this repo, and they belong in different places:
 
-1. **Concept / lore / routing-definition entities** → `world/` (e.g. `world/entities/<name>.md`, `world/<name>.md`), with configuration under `quests/` (e.g. `quests/routing_maps.yaml`) and a matching quest file under `quests/missions/`.
-2. **Actual application/software code** → `src/` — only when the issue describes real runtime behavior the codebase executes, not a naming, definition, or taxonomy problem.
+1. **Concept / lore / routing-definition entities** → `world/` (e.g. `world/<name>.md`).
+2. **Executable shell/tooling behavior** → `tools/` (or other issue-specified runtime path) only when the issue describes real behavior the codebase executes, not a naming, definition, or taxonomy problem.
 
-If an issue is defining what something *is* — a concept, a category, a routing split, a naming distinction — it belongs in `world/`, not `src/`, even when the language sounds technical ("routing," "priority," "sub-streams"). Test: would a `.md` definition file or a `.ts`/`.py` runtime file actually resolve the "Problem" stated in the issue? That answer tells you where the PR belongs.
+If an issue is defining what something *is* — a concept, a category, a routing split, a naming distinction — it belongs in `world/`, not `tools/`, even when the language sounds technical ("routing," "priority," "sub-streams"). Test: would a `.md` definition file or a `.sh` runtime file actually resolve the "Problem" stated in the issue? That answer tells you where the PR belongs.
 
 ## Pull Request Guidelines
 
@@ -40,7 +40,7 @@ If an issue is defining what something *is* — a concept, a category, a routing
 ## For Automated and Bounty-Platform Contributors
 
 - Check for existing open PRs on the issue first. Multiple submissions on one issue (especially `bounty`-labeled ones) are expected and are triaged together, not auto-rejected — but a submission that ignores an existing PR and starts from scratch is less likely to land than one that builds on it or explains a divergence.
-- State your reasoning for content location (`world/` vs `src/`) in the PR description. One sentence is enough, and it's the fastest signal for review.
+- State your reasoning for content location (`world/` vs `tools/`) in the PR description. One sentence is enough, and it's the fastest signal for review.
 - If the issue text is genuinely ambiguous about content type, say so in the PR instead of guessing silently.
 
 ## Reporting Issues
