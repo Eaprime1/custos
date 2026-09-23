@@ -78,7 +78,7 @@ jobs:
 
             const parseSection = (label) => {
               const safe = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-              const re = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
+              const re = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|\\n-{3,}[ \\t]*(?:\\n|$)|$)`);
               const m  = body.match(re);
               if (!m) return null;
               // Drop comments and any trailing horizontal rule (the template puts
@@ -213,35 +213,72 @@ jobs:
             const W_START = '<!-- witnesses:start -->';
             const W_END   = '<!-- witnesses:end -->';
             const W_SEALED = '<!-- witnesses:sealed -->';
+            // Bot-authored record of the seal, written into the finalization
+            // comment below. witness-pr.yml reads it to stop recording.
+            const SEAL_RECORD = '<!-- witnesses:seal-record';
             let witnessEntries = [];
+            let sealer = actor, sealClock = primaClock;
             {
-              const ws = body.indexOf(W_START), we = body.indexOf(W_END);
-              if (ws !== -1 && we > ws) {
-                witnessEntries = body.slice(ws + W_START.length, we).split('\n')
-                  .filter(l => /^\s*-\s*@/.test(l)).map(l => l.trim());
+              // Witnesses come from `witnessed` comments, never from the
+              // (author-editable) PR description.
+              const all = await github.paginate(github.rest.issues.listComments, {
+                owner, repo, issue_number: prNum, per_page: 100,
+              });
+              const byTime = (a, b) => a.created_at.localeCompare(b.created_at) || a.id - b.id;
+              // A repeat finalize keeps the first seal: same cutoff, same sealer.
+              const prior = all.filter(c => c.user && c.user.login === 'github-actions[bot]'
+                && (c.body || '').includes(SEAL_RECORD)).sort(byTime)[0];
+              let cutoff = context.payload.comment.created_at;
+              if (prior) {
+                cutoff = prior.created_at;
+                const m = prior.body.match(/<!-- witnesses:seal-record by=([A-Za-z0-9-]+(?:\[bot\])?) at=(\d{12}) -->/);
+                if (m) { sealer = m[1]; sealClock = m[2]; }
               }
-              if (!witnessEntries.some(l => l.toLowerCase().startsWith(`- @${actor.toLowerCase()} `))) {
-                witnessEntries.push(`- @${actor} · ${primaClock} · sealed at finalize`);
+              const clockOf = iso => {
+                const d = new Date(iso);
+                return `${d.getUTCFullYear()}${p(d.getUTCMonth()+1)}${p(d.getUTCDate())}${p(d.getUTCHours())}${p(d.getUTCMinutes())}`;
+              };
+              const first = new Map();
+              for (const c of [...all].sort(byTime)) {
+                if (c.created_at > cutoff) break;
+                if (!c.user || c.user.type === 'Bot') continue;
+                if (!/^\s*witnessed\b/i.test(c.body || '')) continue;
+                const k = c.user.login.toLowerCase();
+                if (!first.has(k)) first.set(k, c);
+              }
+              witnessEntries = [...first.values()].map(c =>
+                `- @${c.user.login} · ${clockOf(c.created_at)} · [comment](${c.html_url})`);
+              if (!first.has(sealer.toLowerCase())) {
+                witnessEntries.push(`- @${sealer} · ${sealClock} · sealed at finalize`);
               }
               const wn = witnessEntries.length;
               const sealedBlock = [
                 W_START,
                 W_SEALED,
-                `**witnessed:** true — ${wn} witness${wn === 1 ? '' : 'es'} · sealed ${primaClock} by @${actor}`,
+                `**witnessed:** true — ${wn} witness${wn === 1 ? '' : 'es'} · sealed ${sealClock} by @${sealer}`,
                 '',
                 ...witnessEntries,
                 W_END,
               ].join('\n');
-              let sealedBody;
-              if (ws !== -1 && we > ws) {
-                sealedBody = body.slice(0, ws) + sealedBlock + body.slice(we + W_END.length);
-              } else if (/\*\*witnessed:\*\*[^\n]*/.test(body)) {
-                sealedBody = body.replace(/\*\*witnessed:\*\*[^\n]*/, sealedBlock);
-              } else {
-                sealedBody = `${body.trimEnd()}\n\n${sealedBlock}\n`;
-              }
+              const LINE = /^\*\*witnessed:\*\*[^\n]*$/m;
+              const applySeal = (cur) => {
+                const ws = cur.indexOf(W_START), we = cur.indexOf(W_END);
+                if (ws !== -1 && we > ws) return cur.slice(0, ws) + sealedBlock + cur.slice(we + W_END.length);
+                if (LINE.test(cur)) return cur.replace(LINE, sealedBlock);
+                return `${cur.trimEnd()}\n\n${sealedBlock}\n`;
+              };
               try {
-                await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: sealedBody });
+                await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: applySeal(body) });
+                // A witness run that read the description just before the seal
+                // could write it back unsealed; check a few times and re-apply.
+                for (let i = 0; i < 3; i++) {
+                  await new Promise(r => setTimeout(r, 5000));
+                  const { data: cur } = await github.rest.pulls.get({ owner, repo, pull_number: prNum });
+                  const curBody = cur.body || '';
+                  if (curBody.includes(sealedBlock)) continue;
+                  core.info('Seal missing from the description; re-applying.');
+                  await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: applySeal(curBody) });
+                }
               } catch (e) { core.warning(`Witness seal: ${e.message}`); }
             }
             const witnessLines = witnessEntries.map(l => l.replace(/^\s*-\s*/, '- '));
@@ -309,6 +346,7 @@ jobs:
                 '---',
                 `**prima-clock:** ${primaClock} · **sealed by:** @${actor}`,
                 `*${SYMBOL}*`,
+                `<!-- witnesses:seal-record by=${sealer} at=${sealClock} -->`,
               ].join('\n'),
             });
 
@@ -404,7 +442,7 @@ jobs:
               '',
               '---',
               `**prima-clock:** ${primaClock}  `,
-              `**witnessed:** true — ${witnessLines.length} witness${witnessLines.length === 1 ? '' : 'es'}, sealed by @${actor}  `,
+              `**witnessed:** true — ${witnessLines.length} witness${witnessLines.length === 1 ? '' : 'es'}, sealed ${sealClock} by @${sealer}  `,
               `*${IDENTITY} · ${SYMBOL}*`,
             ].join('\n');
 
