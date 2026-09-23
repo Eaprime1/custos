@@ -81,7 +81,9 @@ jobs:
               const re = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
               const m  = body.match(re);
               if (!m) return null;
-              const txt = m[1].replace(/<!--[\s\S]*?-->/g, '').trim();
+              // Drop comments and any trailing horizontal rule (the template puts
+              // `---` between Resonance and Ethics Check).
+              const txt = m[1].replace(/<!--[\s\S]*?-->/g, '').replace(/\n\s*-{3,}\s*$/, '').trim();
               return txt.length > 3 ? txt : null;
             };
 
