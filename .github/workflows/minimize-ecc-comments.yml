@@ -66,8 +66,12 @@ jobs:
                 pull_number: prNumber,
               });
             } catch (err) {
-              core.setFailed(`#${prNumber} is not a pull request in this repository.`);
-              return;
+              if (err.status === 404) {
+                core.setFailed(`#${prNumber} is not a pull request in this repository.`);
+                return;
+              }
+              // Rate limits, permissions, transient errors: report as they are.
+              throw err;
             }
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner: context.repo.owner,
@@ -86,3 +90,6 @@ jobs:
               }
             }
             core.info(`Minimized ${done} of ${ecc.length} ECC Tools comment(s) on #${prNumber}.`);
+            if (done < ecc.length) {
+              core.setFailed(`${ecc.length - done} ECC Tools comment(s) on #${prNumber} could not be minimized; see warnings above.`);
+            }
