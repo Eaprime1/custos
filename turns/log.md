@@ -472,25 +472,6 @@ witnessed:    true
 ---
 
 ---
-turn:         2026-09-26 22:45
-prima-clock:  202609262245
-prime:        3
-entity:       eaprime1 + Claude (nav1)
-intent:       carry Act II setup from the naught/maw/nullus handoff through to finish; seal every open PR and close the session with its journey
-contribution: 14 PRs merged across naught, nullus, maw, custos and radix.
-              - ECC comment folding in all five repos.
-              - Witnessing recorded by comment and sealed at finalize (custos#339).
-              - The Latin workflow glossary (custos#359) plus a conversation-seed adaptation.
-              - `ultima Probatio` as a finalize trigger in custos and radix; it sealed radix#42 on first use.
-              - check_mission.sh parses again (#340).
-              - Valuation ledger gaps settled from Drive, not invented (#341).
-              - Prima witness and the `---` parser fix ported to radix (#42).
-              Closing record: valuation/nav1-act-ii-setup_journey_202609262245.md.
-resonance:    sealed in Latin
-witnessed:    true
----
-
----
 turn:         2026-09-26 16:09
 prima-clock:  202609261609
 prime:        3
@@ -510,6 +491,17 @@ witnessed:    true
 ---
 
 ---
+turn:         2026-09-26 16:17
+prima-clock:  202609261617
+prime:        3
+entity:       Claude (nav1 · Sonnet 5) — navigo2 stream
+intent:       run the scheduled email-mining routine — sample inbox/sent/labels, surface novel ideas, answer whether mining+management should be one system or several
+contribution: filed second navigo2 preturn germ (`pandora/germs/navigo2_202609261617_germ.md`); confirmed the cc-automated (Label_162) and XDA sub-stream zero-risk fixes from the first germ are still open five days on; surfaced eaprime1's request as an independent re-derivation of the existing `duplicatus` pattern aimed at email, with candidate template-repeater senders named; flagged real unassisted Sentinel-faction behavior (watchduty.org forwards, KPTV wildfire photo licensing) with no tooling yet; named a repeating mileage-reimbursement caregiving workflow with no template; recorded a "Prime/Archive System" Gmail label naming echo predating this repo's Prime state; answered the routine-count question by pointing to the three gears (preturn/zero-risk-ops/playwright) navigo2 already has rather than proposing new structure; updated `device/active.md`
+resonance:    reconnaissance
+witnessed:    true
+---
+
+---
 turn:         2026-09-26 21:30
 prima-clock:  202609262130
 prime:        3
@@ -524,5 +516,24 @@ contribution: Four PRs merged, each sealed High 20/20:
               Merges are now confirmed in conversation, not by PR comment.
               Closing record: valuation/navigo-claude_issue-system-and-review-flow_journey_202609262130.md.
 resonance:    guarded
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 22:45
+prima-clock:  202609262245
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       carry Act II setup from the naught/maw/nullus handoff through to finish; seal every open PR and close the session with its journey
+contribution: 14 PRs merged across naught, nullus, maw, custos and radix.
+              - ECC comment folding in all five repos.
+              - Witnessing recorded by comment and sealed at finalize (custos#339).
+              - The Latin workflow glossary (custos#359) plus a conversation-seed adaptation.
+              - `ultima Probatio` as a finalize trigger in custos and radix; it sealed radix#42 on first use.
+              - check_mission.sh parses again (#340).
+              - Valuation ledger gaps settled from Drive, not invented (#341).
+              - Prima witness and the `---` parser fix ported to radix (#42).
+              Closing record: valuation/nav1-act-ii-setup_journey_202609262245.md.
+resonance:    sealed in Latin
 witnessed:    true
 ---
