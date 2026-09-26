@@ -54,6 +54,7 @@ The shadow well is the waiting state between them.
 ## Routing
 
 The trigger is **the Shepherd names it**, nothing else. Once named:
+
 - still developing → `atelier/`
 - ready to be claimed → `.artesian/`
 - a word worth keeping → `world/concordance.md`
