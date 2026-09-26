@@ -35,8 +35,8 @@
 
 | Thread | Where | Next action |
 |--------|-------|-------------|
-| Daily Navigo Contribution Protocol | `.claude/missions.md` + issue #327 | Validate the token-mindful trigger pattern for nav1, then generalize to nav3/nav5 |
-| Gmail trigger architecture | `.claude/missions.md` + issue #328 | nav2 Playwright stream Turn 2 |
+| Daily Navigo Contribution Protocol | `.claude/missions.md` (issue #327 closed `not_planned`) | Revisit protocol design — issue closed, mission still open |
+| Gmail trigger architecture | `.claude/missions.md` (issue #328 closed `not_planned`) | Revisit Gmail trigger approach — issue closed, mission still open |
 | Skills / tools / plugins / routines audit | Shepherd's request this session | Full pass: what's installed vs. what's being used; identify anything running that shouldn't be |
 | Queue/seed-weir harvest | `queue/seed-weir/README.md` | Periodic OPEN→PLANTED/COMPOSTED review |
 | Breathe II: Sovereign Charter reconciliation | `atelier/marrowing-of-hope/navigo7/` | Read all four documents together (factions.md, ethics-foundation.md, Aequitas, Charter) |
@@ -76,6 +76,6 @@ making this the *first* thing next session, not a sidebar.
 - nav3's open question (`.gemini/202609210359_nav3-act2-preturn.md`): "What specific Act II
   infrastructure gap or shift plot should Navigo 3 prepare the stage for next?" — Shepherd
   answers, not nav1.
-- antigravity/navigo21: named but undefined. The name is held only here and in `.gemini/`.
+- antigravity/navigo21: named but undefined. Held in `.gemini/` preturn, AAR, registry, Breathe II opening, and missions. Shepherd defines what it is.
 - Gemini workflows paused. Don't patch around; wait for navigo21 transition.
 - No active watches. No scheduled wakeups. Main is clean. Rest well.

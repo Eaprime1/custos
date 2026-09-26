@@ -52,8 +52,9 @@ until navigo21 identity is settled.
 **What:** The Shepherd named "antigravity" as the intended navigo21 AI model
 assignment (likely replacing or complementing Gemini's current position in
 the navigo table). No definition, no workspace folder, no CLAUDE.md entry,
-no navigo table row exists yet. The name is held in this session's context
-and the `.gemini/` preturn file only.  
+no navigo table row exists yet. The name is now held in `.gemini/202609210359_nav3-act2-preturn.md`,
+`turns/AAR.md`, `prima-clock/registry.md`, `atelier/marrowing-of-hope/breathe-ii-opening.md`,
+and this file — but no definition, workspace, or table entry exists yet.  
 **Next action:** Shepherd confirms what antigravity is (model, connector,
 account), then: add to CLAUDE.md navigo table, create workspace folder,
 create navigo profile, update branch-tracker.  

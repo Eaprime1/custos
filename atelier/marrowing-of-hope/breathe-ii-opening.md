@@ -55,9 +55,9 @@ The batch arrived as witness copies. Breathe II is the first reconciliation pass
 ## Infrastructure Gaps (to close before or during Breathe II)
 
 - **nav3 GitHub access** — nav3 cannot directly observe PR state, check runs, or file to
-  the repo from a Gemini session. Resolved by reconnecting GitHub repo access in the
-  Gemini session settings. Until then, nav3 contributes via PDF export → `.gemini/` →
-  nav1 files.
+  the repo from a Gemini session. The option to reconnect GitHub repo access was not
+  locatable in Gemini session settings; access gap remains unresolved. nav3 contributes
+  via PDF export → `.gemini/` → nav1 files until this is closed.
 
 - **antigravity / navigo21** — named by the Shepherd as the intended next AI model
   assignment (potentially replacing or complementing Gemini's current workflow absence).

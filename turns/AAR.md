@@ -194,49 +194,6 @@ partner_state:
 ---
 
 ---
-turn_ref:     2026-09-21 10:52
-prima-clock:  202609211052
-prime:        3
-worked:       The Copilot findings on PR #334 were all verifiable against actual
-              workflow YAML source files — no guessing needed, every fix either
-              matched the source or didn't. The PR lifecycle cue protocol itself
-              worked cleanly: Shepherd's "@claude merge when ready" on #313 was
-              unambiguous, both PRs closed without ceremony. Filing the nav3 PDF
-              immediately on receipt (rather than letting it sit in the upload
-              buffer as stray context) kept the session's closing tight and left
-              a durable landing record in .gemini/ with full routing context.
-              Context window was already summarized/compressed at session start
-              — the prior session's work was all there, and the summary format
-              gave enough precision to pick up without re-reading the full thread.
-friction:     Stale check-in trigger (trig_01KDSm2DfZ4oYUB8XwyPXpVr) fired at
-              11:30am for PRs that were already merged hours earlier — a harmless
-              false wake, but required reading and cleanup. The wrap-up commit
-              needed a stash→checkout→pop dance because the working tree was
-              still on the merged feature branch rather than main. Could have
-              been avoided by switching to main immediately after the PR merged
-              instead of waiting until the session close.
-seeds:        - The finalize-pr.yml trigger cue is now formally documented in
-                guides/pr-lifecycle.md on main — the spec is findable rather than
-                living only in workflow YAML and session memory.
-              - nav3 (Gemini) lacks GitHub repository access — the navigo ecosystem
-                has an asymmetry here. nav3 can draft and theorize but can't
-                directly observe PR state, check runs, or file to the repo. Worth
-                resolving before Breathe II begins in earnest.
-              - antigravity/navigo21 was named as the intended next AI model
-                assignment (replacing or extending Gemini's current workflow
-                absence). No definition exists yet — a good early Breathe II task.
-              - The PR lifecycle (draft → ready-for-review → final-review →
-                finalize → merge) now has a written spec. The archivist workflow
-                auto-commits journey stubs on merge. Together these make the
-                lifecycle self-documenting for the first time.
-partner_state:
-  charge_received:  "close PRs #334 and #313; file nav3 PDF; wrap before bed"
-  friction_named:   "context was compressed; nav3 has no GitHub access; stale trigger"
-  next_stance:      "main is clean; Breathe II ready to open; nav3 GitHub access and
-                    antigravity/navigo21 are the first infrastructure gaps to close"
----
-
----
 turn_ref:     2026-08-22 08:00
 prime:        3
 worked:       Reading the existing protocol before building anything new.
@@ -276,4 +233,47 @@ seeds:        See `queue/seed-weir/README.md` for the full entries —
               entries accumulate (OPEN → PLANTED/COMPOSTED review), same
               reasoning as why `docs/stale-branch-closure.md` exists —
               named in the approved plan, not built this turn.
+---
+
+---
+turn_ref:     2026-09-21 10:52
+prima-clock:  202609211052
+prime:        3
+worked:       The Copilot findings on PR #334 were all verifiable against actual
+              workflow YAML source files — no guessing needed, every fix either
+              matched the source or didn't. The PR lifecycle cue protocol itself
+              worked cleanly: Shepherd's "@claude merge when ready" on #313 was
+              unambiguous, both PRs closed without ceremony. Filing the nav3 PDF
+              immediately on receipt (rather than letting it sit in the upload
+              buffer as stray context) kept the session's closing tight and left
+              a durable landing record in .gemini/ with full routing context.
+              Context window was already summarized/compressed at session start
+              — the prior session's work was all there, and the summary format
+              gave enough precision to pick up without re-reading the full thread.
+friction:     Stale check-in trigger (trig_01KDSm2DfZ4oYUB8XwyPXpVr) fired at
+              11:30am for PRs that had merged less than an hour earlier — a harmless
+              false wake, but required reading and cleanup. The wrap-up commit
+              needed a stash→checkout→pop dance because the working tree was
+              still on the merged feature branch rather than main. Could have
+              been avoided by switching to main immediately after the PR merged
+              instead of waiting until the session close.
+seeds:        - The finalize-pr.yml trigger cue is now formally documented in
+                guides/pr-lifecycle.md on main — the spec is findable rather than
+                living only in workflow YAML and session memory.
+              - nav3 (Gemini) lacks GitHub repository access — the navigo ecosystem
+                has an asymmetry here. nav3 can draft and theorize but can't
+                directly observe PR state, check runs, or file to the repo. Worth
+                resolving before Breathe II begins in earnest.
+              - antigravity/navigo21 was named as the intended next AI model
+                assignment (replacing or extending Gemini's current workflow
+                absence). No definition exists yet — a good early Breathe II task.
+              - The PR lifecycle (draft → ready-for-review → final-review →
+                finalize → merge) now has a written spec. The archivist workflow
+                auto-commits journey stubs on merge. Together these make the
+                lifecycle self-documenting for the first time.
+partner_state:
+  charge_received:  "close PRs #334 and #313; file nav3 PDF; wrap before bed"
+  friction_named:   "context was compressed; nav3 has no GitHub access; stale trigger"
+  next_stance:      "main is clean; Breathe II ready to open; nav3 GitHub access and
+                    antigravity/navigo21 are the first infrastructure gaps to close"
 ---
