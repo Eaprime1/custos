@@ -5,6 +5,7 @@
 set -euo pipefail
 
 DIR="${1:-atelier}"
+DIR="${DIR%/}"
 LOG="atelier/shepherd/review-log.md"
 
 if [[ ! -d "$DIR" ]]; then
