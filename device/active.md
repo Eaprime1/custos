@@ -285,8 +285,8 @@
   - the prima witness in radix.
 - ECC Tools is suspended by the owner; the fold workflows are idle.
 - Open owner questions are listed in the journey's "Notes for Next
-  Iteration". Process seeds are in `queue/seed-weir/README.md` (8 rows dated
-  202609262245).
+  Iteration". Process seeds are the last 8 rows of `queue/seed-weir/README.md`:
+  7 OPEN, and 1 COMPOSTED because it was already settled.
 
 *Prime state: 3*
 *Witnessed: true* 🃏

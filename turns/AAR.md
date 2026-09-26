@@ -299,7 +299,7 @@ friction:     - My GitHub comments post as the owner's account, so a trigger
                 out mid-session.
               - Many notification wakes were pure bot churn (DeepSource
                 progress edits).
-seeds:        See queue/seed-weir/README.md, rows dated 202609262245.
+seeds:        See the last 8 rows of queue/seed-weir/README.md (7 OPEN, 1 COMPOSTED).
 partner_state:
   charge_received:  "bring this conversation to close … complete final documents
                     … looking for missed ideas and inception content"
