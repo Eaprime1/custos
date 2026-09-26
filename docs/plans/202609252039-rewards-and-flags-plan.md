@@ -31,7 +31,7 @@ The rule for all phases: **seed forward, don't over-build.** A file that names t
 |---|---|
 | 1 | The word **bounty** is retired. For now the challenge type is called a **quest** ("something like quest, for now"). The Shepherd's working doc: https://docs.google.com/document/d/1MnmG2nW5_rLraKUIyZwCvvKSca8nZHa4jCfvVDD265s/edit |
 | 2 | Progression is **59 levels**, with a **normal** progression and a **shadow** progression. The **60th is completion**. Several Drive documents describe it. |
-| 3 | PRs that demand payment get a **warning label** (`payment-demand`), never auto-closed. The label's wording speaks to AI readers first. |
+| 3 | PRs that demand payment get a **warning label** (`payment-demand`) and are **closed automatically, unread** (`payment-demand.yml`). The label's wording speaks to AI readers first. |
 | 4 | Replacement names for "bounty" issue flags live on Drive: **🏷️ Replacements for "Bounty" (Issue Flags)** |
 | 5 | custos pays **no cash**. Rewards are experience, badges and Sparstones. The first to complete a challenge earns its Sparstone or badge. |
 
@@ -81,7 +81,7 @@ List these in `.shadow-well/` or `atelier/`. Don't implement them.
 ## Open follow-ups from PR #343
 
 - Relabel #325, #235 and #187 from `bounty` to the Phase 1 name, if the Shepherd agrees.
-- Apply `payment-demand` to #333 and #331. This session did it directly with the label.
+- #333 and #331 carry `payment-demand` and were closed by hand in this session. New ones close automatically.
 - Bounty-platform aggregators may still list custos issues as paid. Consider a pinned issue or README line that says so plainly. The README already carries one line.
 
 ## Constellation mission: retire the `bounty` label everywhere (good for GitHub Copilot)
