@@ -15,7 +15,10 @@ The working record is [`crawl_progress_state.md`](crawl_progress_state.md).
 At its last update:
 
 - The root folder was crawled: 4 files, 7 subfolders, 1 shortcut.
-- The 8 top-level folders queued for recursion have not been walked.
+- None of the queued top-level entries has been walked. The counts disagree:
+  the root line says 7 subfolders and 1 shortcut, and "Total folders
+  encountered" says 7, but the pending list has 8 entries. Which entry is
+  the shortcut isn't recorded, so this is left open.
 - `crawl_progress_state.md` reports 4 file rows written. Those rows are not
   in this repository's `ledger_raw.csv`, which currently holds only its
   header row.
@@ -51,4 +54,6 @@ Update the *Where the crawl stands* section with the final counts:
 - the file-type breakdown;
 - deck math: complete 52-card decks and the remainder.
 
-`bash tools/valuation_report.sh` prints all three from the ledger.
+`bash tools/valuation_report.sh` prints the file total, the file-type
+breakdown and the deck math from the ledger. The ledger holds files only,
+so the folder total comes from the crawl record, not from the report.
