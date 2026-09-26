@@ -273,7 +273,10 @@ jobs:
                 return `${cur.trimEnd()}\n\n${sealedBlock}\n`;
               };
               try {
-                await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: applySeal(body) });
+                // Re-read the description right before sealing so edits made while
+                // finalize ran (step 1 read it ~30 s ago) aren't overwritten.
+                const { data: prForSeal } = await github.rest.pulls.get({ owner, repo, pull_number: prNum });
+                await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: applySeal(prForSeal.body || '') });
                 // A witness run that read the description just before the seal
                 // could write it back unsealed; check a few times and re-apply.
                 for (let i = 0; i < 3; i++) {
