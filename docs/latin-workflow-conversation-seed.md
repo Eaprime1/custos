@@ -1,6 +1,6 @@
 # Latin Workflow — Conversation Seed
 
-**Prima-clock:** 202609262250
+**Prima-clock:** 202609262244
 **Suit:** ♣️ Club, working copy
 **Adapted from:** [`latin-workflow-glossary.md`](latin-workflow-glossary.md), which covers PRs
 
@@ -43,8 +43,8 @@ SUPREMA LUSTRATIO — the brief for high command: a summary someone else can
   act on without this conversation.
 NOVISSIMUM — the rear guard. Close loose ends: file seeds and open questions,
   update state docs, leave nothing mid-flow. Say what's carried forward.
-ULTIMA PROBATIO — the seal. Write the closing record (journey, turn log),
-  confirm everything landed, then stop. After this, nothing in this
+ULTIMA PROBATIO — the seal. Write the closing record (the turn log; a journey
+  too if the session was substantial), confirm everything landed, then stop. After this, nothing in this
   conversation changes; new work opens a new conversation.
 
 If a call is unclear, or I use a word that isn't one of these, say how you're
@@ -65,7 +65,7 @@ reading it before acting.
 | **Lustratio** | Presentation polish | Tidy the record and the reading path | Clean descriptions and documents, folded noise |
 | **Suprema Lustratio** | Release notes, executive brief | A hand-off brief | A summary that works without the conversation |
 | **Novissimum** | Rear-guard cleanup | Loose ends filed | Seeds, open questions and state docs updated (`turns/CLOSING.md` steps 2–5) |
-| **Ultima Probatio** | Final sign-off; frozen | The conversation is sealed | Journey, turn log and AAR written; merges confirmed (`turns/CLOSING.md` steps 3, 7, 8) |
+| **Ultima Probatio** | Final sign-off; frozen | The conversation is sealed | Turn log written and merges confirmed (`turns/CLOSING.md` steps 3, 7). A journey only if the session is substantial enough for its own custody entry (`valuation/JOURNEY_SCHEMA.md`). An AAR if the turn taught something (optional step 8) |
 
 ## Adapting to the podium
 

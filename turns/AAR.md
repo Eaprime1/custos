@@ -279,7 +279,8 @@ partner_state:
 ---
 
 ---
-turn:         2026-09-26 22:45 (Act II setup, nav1)
+turn_ref:     2026-09-26 22:45
+prime:        3
 worked:       Settling a data gap from its source (the Drive listing) rather
               than from the notes: both #341 gaps closed with facts. Testing
               every trigger change against the owner's real comments, not
