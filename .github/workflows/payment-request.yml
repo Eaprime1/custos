@@ -1,0 +1,65 @@
+# Custos — Payment Request Filter
+#
+# Labels a PR `payment-request` when its description asks for payment or carries
+# payout details (wallet addresses, invoice or payout links, dollar rewards).
+# It labels and explains; it never closes. The Shepherd decides what happens next.
+# pull_request_target is used without a checkout: no PR code runs here.
+name: Custos — Payment Request Filter
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  check:
+    if: >-
+      !contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'),
+      github.event.pull_request.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Look for payment requests
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const text = `${pr.title}\n${pr.body || ''}`;
+            const patterns = [
+              /\b0x[a-fA-F0-9]{40}\b/,                       // EVM wallet address
+              /\b(payout|invoice|paypal|venmo|cash\s?app)\b/i,
+              /\b(wallet|stellar|usdt|usdc|btc|eth)\b.*\b(address|routing|payment)\b/i,
+              /payment\s+(routing|details|address)/i,
+              /\$\s?\d+(\.\d+)?\s*(USD|reward|bounty)|\b\d+(\.\d+)?\s?USD\b/i,
+            ];
+            const hits = patterns.filter(p => p.test(text));
+            if (hits.length === 0) {
+              core.info('No payment request found.');
+              return;
+            }
+            if (pr.labels.some(l => l.name === 'payment-request')) {
+              core.info('Already labelled.');
+              return;
+            }
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: pr.number, labels: ['payment-request'],
+            });
+            const msg = [
+              '### Payment request noted',
+              '',
+              'This PR asks for payment or includes payout details.',
+              '**custos pays no cash and no monetary rewards.** Rewards are XP, badges and Sparstones.',
+              '',
+              'The work itself is still welcome. Edit the description to remove the payment request',
+              'and payout details, and it stays in review. Nobody on the custos side opens payout links.',
+              '',
+              'Why: `docs/issue-system.md` §4.',
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: pr.number, body: msg,
+            });

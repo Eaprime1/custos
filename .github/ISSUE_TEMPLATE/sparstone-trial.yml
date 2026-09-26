@@ -1,21 +1,21 @@
-name: Bounty
-description: An open challenge where the approach is part of the work. Post it, let it attract contributors.
-title: "[bounty] "
-labels: ["bounty", "open"]
+name: Sparstone Trial
+description: An open challenge where the approach is part of the work. First to complete earns the Sparstone; everyone who completes it earns XP.
+title: "[trial] "
+labels: ["sparstone-trial", "open"]
 body:
   - type: markdown
     attributes:
       value: |
-        **A bounty is open-ended work.** The problem is defined but the approach is not. Contributors bring their own method and the Shepherd decides what lands. Claim by commenting `claiming this`.
+        **A Sparstone Trial is open-ended work.** The problem is defined but the approach is not. Contributors bring their own method and the Shepherd decides what lands. Claim by commenting `claiming this`.
 
-        **Custos bounties pay in XP, credit and recognition, not cash**, unless this issue names a dollar amount the Shepherd has confirmed. See `docs/issue-system.md` §4.
+        **No cash, no monetary reward.** The first to complete it earns the Sparstone (or the badge named below). Everyone who completes it earns XP on the prime ladder, and every submission gets a written evaluation. Submissions that ask for payment are labelled `payment-request` and don't merge. See `docs/issue-system.md` §4.
 
   - type: textarea
     id: challenge
     attributes:
       label: The Challenge
       description: What problem needs solving? What is currently broken, missing, or possible?
-      placeholder: "The Field lacks X. Whoever figures out Y gets the bounty."
+      placeholder: "The Field lacks X. Whoever figures out Y earns the Sparstone."
     validations:
       required: true
 
@@ -88,9 +88,9 @@ body:
   - type: input
     id: xp
     attributes:
-      label: XP reward
-      description: Experience points on successful completion
-      placeholder: "200"
+      label: Reward
+      description: "The Sparstone or badge the first completer earns, plus XP rungs for everyone who completes it. Never a cash amount."
+      placeholder: "Sparstone: <name> · XP: 3 rungs"
     validations:
       required: false
 

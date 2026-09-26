@@ -61,7 +61,9 @@ custos uses GitHub Issues as an open mission board. Any contributor — human or
 - **Missions**: structured tasks with clear deliverables and completion checks
 - **Bounties**: open challenges where the approach is part of the work
 
-Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
+Browse [open issues](../../issues) and look for `mission` or `sparstone-trial` labels.
+custos has no bounties and pays no cash. Rewards are XP, badges and Sparstones.
+Why: see `docs/issue-system.md` §4. Missions also appear as quests in `quests/missions/` for use inside the terminal.
 
 ## GitHub Pages note 🃏
 

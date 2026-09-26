@@ -68,7 +68,7 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 
 `quests/000-thee-the-door.md` is the initiation quest — blocks all others until `prima.yaml` is named and `world/lore.md` has content.
 
-`quests/missions/` is the workflow arc — quests for operating the mission/bounty commission system.
+`quests/missions/` is the workflow arc — quests for operating the mission and Sparstone Trial commission system.
 
 ### Missions (`missions/`)
 The operational wing for the Tabularium library pipeline (`eaprime1/tabularium`).
@@ -78,7 +78,7 @@ brief), `INDEX.md` (per-library status), `FIRST_LIBRARY.md`, `WORKFLOWS.md`,
 
 ### Issue System
 `docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim
-lifecycle, what a custos bounty pays, the Bot Brief every mission carries for automated
+lifecycle, the no-cash reward system, the Bot Brief every mission carries for automated
 submitters, the lexeme-development fallback when a mission can't be done, and the final
 "does it make sense?" review. `.github/sovran-labels.yml` defines the labels, and
 `sovran-labels-sync.yml` applies them.
@@ -97,11 +97,12 @@ Tracks live device state. Not on `main`.
 
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
-- `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
+- `.github/ISSUE_TEMPLATE/sparstone-trial.yml` — Open challenge (problem defined, approach open).
+  It replaced the old `bounty` type; first completer earns the Sparstone
 - `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
 - `.github/ISSUE_TEMPLATE/lexeme.yml` — Lexeme development (ground an undefined term in a
   citable source); also the fallback for any mission that can't be done as written
-- Labels: type (`mission`, `bounty`, `upgrade`, `lexeme`), state (`open`, `claimed`,
+- Labels: type (`mission`, `sparstone-trial`, `upgrade`, `lexeme`), state (`open`, `claimed`,
   `submitted`, `needs-shepherd`), modifiers (`bot-friendly`, `anchor-review`). The full
   manual is `docs/issue-system.md`
 - Contributors claim by commenting `claiming this` and opening a PR
@@ -211,7 +212,7 @@ Raw exports land in the workspace first, get renamed `.md` once reviewed, then f
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
-1. The mission/bounty issue URL or description
+1. The mission or Sparstone Trial issue URL or description
 2. Files to read first: `prima.yaml`, `CLAUDE.md`, relevant quest or guide
 3. The exact completion check command
 4. The PR template format (Intent, What Arrived, Resonance, Ethics Check)
@@ -219,6 +220,14 @@ When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, alway
 **Writing quests:** Every quest must have a deterministic `Completion Check` bash command. Quests teach by requiring real use of a skill. Arc dependencies should be minimal.
 
 **Lore tone:** Short, evocative. The terminal is the world, not a tool. Avoid classroom framing.
+
+**No bounties, no cash.** custos retired the word "bounty" and pays no monetary rewards.
+Rewards are XP on the prime ladder, badges and Sparstones.
+Pay links in a PR are a safety risk here, because anyone can click one by accident.
+A submission that asks for payment gets the `payment-request` label and is not merged as-is.
+An AI contributor facing a payment question can skip the task or ask in the thread.
+It can also build the work without any payment request. New ideas are welcome.
+The reasoning is in `docs/issue-system.md` §4.
 
 **Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
 

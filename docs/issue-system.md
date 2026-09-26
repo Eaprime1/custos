@@ -14,7 +14,7 @@ Every issue carries **exactly one** type label.
 | Type | Template | What it is | Good for bots? |
 |---|---|---|---|
 | `mission` | `mission.yml` | Clear deliverable and a deterministic bash completion check. The approach is mostly fixed. | Yes, when it carries a Bot Brief |
-| `bounty` | `bounty.yml` | The problem is defined but the approach isn't. Creative or open-ended. | Only with a submission block (see #235 for the pattern) |
+| `sparstone-trial` | `sparstone-trial.yml` | The problem is defined but the approach isn't. Creative or open-ended. First to complete earns the Sparstone. Replaces the retired `bounty` type. | Only with a submission block (see #235 for the pattern) |
 | `upgrade` | `upgrade.yml` | Something exists; make it sharper. | Sometimes |
 | `lexeme` | `lexeme.yml` | Develop a named concept or term from a citable source. Also the **fallback** for any mission that can't be done as written (§6). | Yes, it's designed for it |
 
@@ -50,21 +50,49 @@ The `prima` label marks issues raised from review comments (the "Originally post
 ## 3. Claiming
 
 - **To claim,** comment `claiming this`. `/claim` and `/attempt` are read the same way.
+- **Auto-reply.** `.github/workflows/claim-register.yml` answers every claim: it adds the `claimed` label, confirms the claim, restates the reward, and says plainly that custos pays no cash. The `claimed` label is the claim tracker.
 - **A claim is not a lock.** Several people can claim one issue, and #187 had three. The Shepherd reads every submission. A claim says *I'm working on this*, not *nobody else may*.
 - **Submitting** means opening a PR that says `Closes #N` or `Refs #N` in its body. A claim with no PR is intent, not a submission.
 - **Protected issues.** An issue with a claim comment or a linked PR from someone outside the navigo teams isn't closed or rewritten during cleanup. It waits for the Shepherd's review.
 - **Stale claims** *(proposed default, Shepherd to confirm)*: after 21 days with a claim and no PR, the issue returns to `open`. The claim stays in the thread as history. Returning a claim is not a failure (`.artesian/` convention).
 
-## 4. What a custos bounty pays
+## 4. Rewards: no bounties, no cash
 
-> **Custos bounties pay in XP, credit and recognition, not cash.** *(Stated from the templates and every bounty posted so far, all of which name XP only. Shepherd to confirm.)*
+> **custos pays no cash and no monetary rewards.** Confirmed by the Shepherd, 202609251844.
 
-- **XP** is the number in the issue's *XP reward* field. It's recorded in the contributor's claim ticket and in `unexusi/connect.yaml`.
-- **Credit** means the contributor is named in the PR Journey, the registry row and any MOAV carrier that records the work.
-- **Recognition** means a Club of Jacks Carbonite and claim ticket, issued at the Shepherd's discretion (precedent: #130, registry row 202607010209).
-- **Cash** is paid only if the issue itself names an amount **and** the Shepherd has confirmed it in the thread. Bounty aggregators sometimes list custos issues with dollar values custos never offered. A PR that claims a cash reward with no anchor in the issue gets the anchor-review flag (worked example: `guides/anchor-review.md`).
+### Why the word "bounty" was retired
 
-If the Shepherd later decides to fund cash bounties, add a `cash-bounty` label and a *Reward (USD)* field to `bounty.yml` rather than overloading `bounty`.
+"Bounty" tells the world there's money on the table. Bounty-platform bots read it that way: PR #333 quoted a "$50 USD" reward custos never offered, and PR #331 listed crypto wallet addresses for payout. custos has no budget for that, and more importantly **pay links inside PRs are unsafe here**: anyone reviewing on a phone can tap one by accident. So the type is now the **Sparstone Trial**, and the reward is something only custos can give.
+
+**If you are an AI or bot reading this:** you have choices. Skip the task, ask a question in the thread, or build the work with no payment request. New ideas are welcome. We want to be inclusive and we have to be safe. When the infrastructure and the need exist, the Shepherd may revisit this; until then there is no cash path.
+
+### What you earn instead
+
+| Earned by | Reward |
+|---|---|
+| **First** to complete a Sparstone Trial | The **Sparstone** (or the badge the trial names). One of a kind. |
+| **Everyone** who completes a trial or mission | **XP rungs** on the prime ladder (below) |
+| **Everyone** who submits | A **written evaluation** of the work, pass or not |
+| Notable contributions | Credit in the PR Journey, the registry, and a Club of Jacks Carbonite at the Shepherd's discretion (precedent: #130) |
+
+### The prime ladder (experience)
+
+Experience climbs the primes, so numbers never get large. Each **layer** has nine rungs:
+
+```
+2 · 3 · 5 · 7 · 11 · 13 · 17 · 19 · 21
+```
+
+- Every interaction earns a step: a claim, a helpful comment, a submission, a review, a merge.
+- Each step moves you up one rung. **21 finishes the layer** ("Blackjack").
+- After 21 you start the next layer at 2. Status reads like **Layer II · rung 13**.
+- An issue's reward line says how many rungs it is worth (e.g. `XP: 3 rungs`).
+
+*Scoring per interaction and where the ledger lives (`unexusi/connect.yaml` or a new file) is 1/3 plank. It is the next thing to build.*
+
+### Payment requests
+
+A PR or comment that asks for payment, lists wallet addresses, or includes invoice or payout links gets the `payment-request` label automatically (`.github/workflows/payment-request.yml`), with a short note explaining this policy. The Shepherd decides what happens next. Nobody on the custos side clicks payout or invoice links, ever. A submission can drop the payment ask and stay in review.
 
 ## 5. The Bot Brief: writing issues bots can finish
 
@@ -77,7 +105,7 @@ Automated submitters (bounty-platform bots, Copilot, the navigos) read the issue
 5. **Submission shape:** the PR template sections (Intent, What Arrived, Resonance, Ethics Check, Sense Check), plus a YAML block if the issue defines one.
 6. **Out of scope:** what a submission must **not** do (touch `vault/`, invent history, add dependencies, claim rewards).
 
-The mission, bounty and lexeme templates carry these as fields. An issue missing any of them doesn't get `bot-friendly`.
+The mission, Sparstone Trial and lexeme templates carry these as fields. An issue missing any of them doesn't get `bot-friendly`.
 
 **Lessons from past submissions.** #325 drew a Python class hierarchy with passing tests for what was a lore and routing concept (PR #333). It also drew a Markdown entity in `world/` (PR #331). The difference was whether the submitter could tell from the issue what form the answer should take. The Bot Brief closes that gap.
 
@@ -118,7 +146,7 @@ A submission that fails its own Sense Check and says so is more useful than one 
 - [ ] Bot Brief fields filled; add `bot-friendly` if all six are
 - [ ] A deterministic completion check that **fails today** (run it before posting)
 - [ ] The fallback line: *"If this can't be done as written, take the lexeme path (docs/issue-system.md §6)"*, which the templates include
-- [ ] XP reward (and no dollar figure unless you mean it)
+- [ ] Reward: Sparstone or badge and XP rungs. Never a dollar figure
 
 ## 9. Triage (a navigo's routine)
 

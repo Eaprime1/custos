@@ -58,9 +58,13 @@ labels:
     color: "1d76db"
     description: "Structured work: clear deliverable + deterministic completion check"
 
-  - name: bounty
+  - name: sparstone-trial
     color: "fbca04"
-    description: "Open challenge: problem defined, approach open. Pays XP + credit, not cash"
+    description: "Open challenge. First to complete earns the Sparstone; all completers earn XP. No cash"
+
+  - name: payment-request
+    color: "000000"
+    description: "Submission asks for payment. custos pays no cash; not merged as-is. No links clicked"
 
   - name: upgrade
     color: "3358ce"
