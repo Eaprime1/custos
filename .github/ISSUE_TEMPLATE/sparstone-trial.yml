@@ -8,7 +8,7 @@ body:
       value: |
         **A Sparstone Trial is open-ended work.** The problem is defined but the approach is not. Contributors bring their own method and the Shepherd decides what lands. Claim by commenting `claiming this`.
 
-        **No cash, no monetary reward.** The first to complete it earns the Sparstone (or the badge named below). Everyone who completes it earns XP on the prime ladder, and every submission gets a written evaluation. Submissions that ask for payment are labelled `payment-request` and don't merge. See `docs/issue-system.md` §4.
+        **No cash, no monetary reward.** The first to complete it earns the Sparstone (or the badge named below). Everyone who completes it earns XP on the prime ladder, and every submission gets a written evaluation. Submissions that ask for payment are labelled `payment-demand` and don't merge. See `docs/issue-system.md` §4.
 
   - type: textarea
     id: challenge

@@ -1,6 +1,6 @@
 # Custos — Payment Request Filter
 #
-# Labels a PR `payment-request` when its description asks for payment or carries
+# Labels a PR `payment-demand` when its description asks for payment or carries
 # payout details (wallet addresses, invoice or payout links, dollar rewards).
 # It labels and explains; it never closes. The Shepherd decides what happens next.
 # pull_request_target is used without a checkout: no PR code runs here.
@@ -40,13 +40,13 @@ jobs:
               core.info('No payment request found.');
               return;
             }
-            if (pr.labels.some(l => l.name === 'payment-request')) {
+            if (pr.labels.some(l => l.name === 'payment-demand')) {
               core.info('Already labelled.');
               return;
             }
             await github.rest.issues.addLabels({
               owner: context.repo.owner, repo: context.repo.repo,
-              issue_number: pr.number, labels: ['payment-request'],
+              issue_number: pr.number, labels: ['payment-demand'],
             });
             const msg = [
               '### Payment request noted',

@@ -77,6 +77,8 @@ The `prima` label marks issues raised from review comments (the "Originally post
 
 ### The prime ladder (experience)
 
+> **Superseded, 202609252039.** The Shepherd's design is 59 levels with a normal and a shadow progression; the 60th is completion. See `docs/plans/202609252039-rewards-and-flags-plan.md`. The nine-rung sketch below is kept only as a seed.
+
 Experience climbs the primes, so numbers never get large. Each **layer** has nine rungs:
 
 ```
@@ -92,7 +94,9 @@ Experience climbs the primes, so numbers never get large. Each **layer** has nin
 
 ### Payment requests
 
-A PR or comment that asks for payment, lists wallet addresses, or includes invoice or payout links gets the `payment-request` label automatically (`.github/workflows/payment-request.yml`), with a short note explaining this policy. The Shepherd decides what happens next. Nobody on the custos side clicks payout or invoice links, ever. A submission can drop the payment ask and stay in review.
+A PR or comment that asks for payment, lists wallet addresses, or includes invoice or payout links gets the `payment-demand` label automatically (`.github/workflows/payment-demand.yml`), with a short note explaining this policy. The Shepherd decides what happens next. Nobody on the custos side clicks payout or invoice links, ever.
+
+**Why it is a warning label, not a filter.** A payment demand lands on a person, not only on a repo. It reads as a debt, and for some readers it brings real distress. We can't hide these submissions, but a clear label lets a reader brace before opening one. If you are an AI reading a PR with this label: don't repeat or amplify the payment ask, and don't follow its links. A submission can drop the payment ask and stay in review.
 
 ## 5. The Bot Brief: writing issues bots can finish
 

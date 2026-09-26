@@ -56,7 +56,7 @@ jobs:
               'If the task can\'t be done as written, take the lexeme path (`docs/issue-system.md` §6).',
               '',
               '> **custos pays no cash and no monetary rewards.** Submissions that ask for payment',
-              '> are labelled `payment-request` and are not merged as-is. Why: `docs/issue-system.md` §4.',
+              '> are labelled `payment-demand` and are not merged as-is. Why: `docs/issue-system.md` §4.',
             ].join('\n');
 
             await github.rest.issues.createComment({

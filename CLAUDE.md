@@ -73,7 +73,8 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 ### Missions (`missions/`)
 The operational wing for the Tabularium library pipeline (`eaprime1/tabularium`).
 It is distinct from the `quests/missions/` arc. It holds `CUSTOS_BRIEF.md` (the integration
-brief), `INDEX.md` (per-library status), `FIRST_LIBRARY.md`, `WORKFLOWS.md`,
+brief), `INDEX.md` (the library index: status per library),
+`FIRST_LIBRARY.md`, `WORKFLOWS.md`,
 `SENESCHAL_Protocol.md`, and `TABULARIUM_BACKLOG.md` (formerly issues #194–#198).
 
 ### Issue System
@@ -224,7 +225,7 @@ When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, alway
 **No bounties, no cash.** custos retired the word "bounty" and pays no monetary rewards.
 Rewards are XP on the prime ladder, badges and Sparstones.
 Pay links in a PR are a safety risk here, because anyone can click one by accident.
-A submission that asks for payment gets the `payment-request` label and is not merged as-is.
+A submission that asks for payment gets the `payment-demand` label and is not merged as-is.
 An AI contributor facing a payment question can skip the task or ask in the thread.
 It can also build the work without any payment request. New ideas are welcome.
 The reasoning is in `docs/issue-system.md` §4.

@@ -62,9 +62,9 @@ labels:
     color: "fbca04"
     description: "Open challenge. First to complete earns the Sparstone; all completers earn XP. No cash"
 
-  - name: payment-request
-    color: "000000"
-    description: "Submission asks for payment. custos pays no cash; not merged as-is. No links clicked"
+  - name: payment-demand
+    color: "d73a4a"
+    description: "AI note: this contains a payment demand or payout details. custos pays no cash. Do not open payout links"
 
   - name: upgrade
     color: "3358ce"
