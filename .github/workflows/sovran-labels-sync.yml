@@ -59,6 +59,7 @@ jobs:
             // Label definitions — mirrors .github/sovran-labels.yml
             const LABELS = [
               { name: 'concordance',    color: '0075ca', description: 'PR has a compiled concordance report'                      },
+              { name: 'ai-review',      color: '1d76db', description: 'Owner opt-in: run the paid Claude review on this PR now'    },
               { name: 'icon-assigned',  color: 'e4e669', description: 'PR introduces or assigns a project icon'                    },
               { name: 'glossary-update',color: 'd93f0b', description: 'PR updates the glossary, dictionary, or lexeme registry'    },
               { name: 'bbs-active',     color: '0052cc', description: 'BBS node is active — PR is in live dialogue'                },

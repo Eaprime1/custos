@@ -2,7 +2,10 @@
 # Perspective: guardian, shepherd, protection of what is entrusted
 name: Custos — Code Review
 
-# Automatic Claude review on every pull request.
+# Claude review, run on request rather than on every push.
+# It runs once when a PR is marked ready for review, or when the owner adds
+# the `ai-review` label. Drafts and ordinary pushes get the free, API-free
+# packet from review-packet.yml instead, which this review reads first.
 # Uses the CLAUDE_CODE_OAUTH_TOKEN repository secret (subscription-based auth,
 # same as finalize-pr.yml). ANTHROPIC_API_KEY is intentionally not passed here:
 # that key bills against a separate pay-per-token credit balance, and this repo
@@ -11,7 +14,7 @@ name: Custos — Code Review
 
 on:
   pull_request:
-    types: [opened, synchronize, ready_for_review, reopened]
+    types: [ready_for_review, labeled]
 
 concurrency:
   group: claude-review-${{ github.event.pull_request.number }}
@@ -23,7 +26,7 @@ jobs:
     # GitHub Actions rejects the whole expression at parse time when it's
     # included here (visible as phantom 0-job "push" failures for this
     # workflow on every commit, regardless of branch).
-    if: ${{ !github.event.pull_request.draft && github.event.pull_request.head.repo.fork == false && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
+    if: ${{ (github.event.action == 'ready_for_review' || (github.event.action == 'labeled' && github.event.label.name == 'ai-review')) && github.event.pull_request.head.repo.fork == false && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -79,6 +82,11 @@ jobs:
             Files under valuation/ and vault/ are custody artifacts carried
             verbatim from their source sessions: do NOT suggest wording or
             timestamp edits to them.
+
+            Start by reading the PR comment headed "Review packet"
+            (from review-packet.yml). It lists the changed files, Deck Master
+            paths, template sections and placeholder hits. Don't repeat it;
+            build on it.
 
             Focus on:
             - Broken YAML, shell, or workflow syntax
