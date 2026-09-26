@@ -199,7 +199,7 @@ Each navigo is a paired team of one AI model and eaprime1. They are internal con
 | Navigo | Team | Workspace |
 |--------|------|-----------|
 | nav1 | Claude + eaprime1 | `.claude/` |
-| navigo2 | Gmail connector (Claude-paired) + eaprime1 | no workspace folder yet — germs file to `pandora/germs/`; entry guide `guides/navigo2-gmail-preturn.md` |
+| navigo2 | Gmail + eaprime1 | none yet — see `guides/navigo2-gmail-preturn.md` |
 | nav3 | Gemini + eaprime1 | `.gemini/` |
 | nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
 

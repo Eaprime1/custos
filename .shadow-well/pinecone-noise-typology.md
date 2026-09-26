@@ -10,4 +10,5 @@ Seed: embed each thread with a noise-type vector in Pinecone (active account con
 the germ). The pressure field becomes queryable by weight, frequency and identity-trigger
 type, not just sorted.
 
-The semantic layer already exists. The content layer doesn't yet. Nothing is built from this until the Shepherd names it.
+The semantic layer already exists. The content layer doesn't yet.
+Nothing is built from this until the Shepherd names it.
