@@ -1,5 +1,7 @@
 # Review Surface
 
+`prima-clock: 202609251844`
+
 *What the review bots noticed, in one plain sentence each, and whether it matters.*
 
 Append only. One `##` entry per PR. No JSON, no tables of findings, no code blocks. If every flag was noise, say so in one line. Implements Shepherd zero-point 3 (issue #321).

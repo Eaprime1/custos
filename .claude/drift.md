@@ -1,5 +1,7 @@
 # Drift — nav1
 
+`prima-clock: 202609251844`
+
 *Where nav1 went somewhere the Shepherd didn't point. Not a confession log; a navigation aid.*
 
 Append only. Implements Shepherd zero-point 5: "Did any navigo do something that would surprise the Shepherd, and was it documented?" (issue #322)
