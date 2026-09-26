@@ -52,3 +52,8 @@ before sign-off.
 - The codes are not yet labels or PR-title prefixes. Enforcing a title
   prefix on every PR is a separate owner decision (a Judicium), not part of
   this glossary.
+- **Conversations:** the same calls, adapted to steering a session with a
+  navigo, are in
+  [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md).
+  It includes a seed block to paste in when starting a conversation.
+- **radix:** `ultima Probatio` finalizes there too (radix#41).

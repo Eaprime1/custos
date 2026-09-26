@@ -266,3 +266,27 @@
 
 *Prime state: 3*  
 *Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-09-26*
+## For the Next Conversation
+
+- Act II setup is closed and sealed. Its journey is
+  `valuation/nav1-act-ii-setup_journey_202609262245.md`.
+- All 14 PRs from the session are merged: naught #1–#4, nullus #3–#4, maw #2,
+  custos #337/#339/#340/#341/#359, radix #41/#42. No watches or scheduled
+  check-ins remain.
+- New on `main`:
+  - witnessing by comment, sealed at finalize (custos);
+  - `ultima Probatio` finalizes, in custos and radix;
+  - the Latin workflow glossary, plus its conversation seed
+    (`docs/latin-workflow-conversation-seed.md`);
+  - the prima witness in radix.
+- ECC Tools is suspended by the owner; the fold workflows are idle.
+- Open owner questions are listed in the journey's "Notes for Next
+  Iteration". Process seeds are in `queue/seed-weir/README.md` (8 rows dated
+  202609262245).
+
+*Prime state: 3*
+*Witnessed: true* 🃏
