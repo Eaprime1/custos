@@ -1,7 +1,8 @@
 # Custos — Witness PR
 #
-# Comment `witnessed`, `witness`, `First Witness` or `Prima Witness` on a PR
-# (at the start of the comment, any capitals) to be recorded as a witness. Anyone may witness; each person is recorded once,
+# Comment `witnessed` or `witness` on a PR, optionally prefixed by `First` or
+# `Prima` (e.g. `First Witness`, `Prima Witnessed`), at the start of the
+# comment and in any capitals, to be recorded as a witness. Anyone may witness; each person is recorded once,
 # with the prima-clock of their comment and a link to it. The comments are the
 # record; the list shown in the PR description between the witness markers is
 # rebuilt from them on each run and replaces the template's
