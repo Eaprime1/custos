@@ -251,7 +251,7 @@ jobs:
               for (const c of [...all].sort(byTime)) {
                 if (c.created_at > cutoff) break;
                 if (!c.user || c.user.type === 'Bot') continue;
-                if (!/^\s*witnessed\b/i.test(c.body || '')) continue;
+                if (!/^\s*(?:(?:first|prima)\s+)?witness(?:ed)?(?![\w-])/i.test(c.body || '')) continue;
                 const k = c.user.login.toLowerCase();
                 if (!first.has(k)) first.set(k, c);
               }
