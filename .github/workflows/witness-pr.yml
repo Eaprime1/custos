@@ -43,7 +43,7 @@ jobs:
         with:
           script: |
             const comment = context.payload.comment;
-            // Trigger: the comment starts with the word "witnessed".
+            // Trigger: the comment starts with [First|Prima] witness[ed].
             if (!/^\s*(?:(?:first|prima)\s+)?witness(?:ed)?(?![\w-])/i.test(comment.body || '')) {
               core.info('Not a witness comment.');
               return;
