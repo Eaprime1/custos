@@ -277,3 +277,35 @@ partner_state:
   next_stance:      "main is clean; Breathe II ready to open; nav3 GitHub access and
                     antigravity/navigo21 are the first infrastructure gaps to close"
 ---
+
+---
+turn_ref:     2026-09-26 22:45
+prime:        3
+worked:       Settling a data gap from its source (the Drive listing) rather
+              than from the notes: both #341 gaps closed with facts. Testing
+              every trigger change against the owner's real comments, not
+              invented ones. Copilot's radix#42 finding (a second parser in
+              auto-finalize.yml) was caught before the seal. Check-in routines
+              kept four PRs watched across two usage resets.
+friction:     - My GitHub comments post as the owner's account, so a trigger
+                phrase in my own comment fired a workflow. One refused
+                finalize; the owner's Recensio comment also sealed #339 by
+                accident. Now guarded: the gate needs a phrase or a Latin call,
+                not two loose words.
+              - After the #340 merge, the permission check blocked read-only
+                commands until the owner confirmed the merge was his. That was
+                correct to pause on, but it cost a round-trip.
+              - codereviewbot's free tier (3 reviews / 4 h across all repos) ran
+                out mid-session.
+              - Many notification wakes were pure bot churn (DeepSource
+                progress edits).
+seeds:        See the last 8 rows of queue/seed-weir/README.md (7 OPEN, 1 COMPOSTED).
+partner_state:
+  charge_received:  "bring this conversation to close … complete final documents
+                    … looking for missed ideas and inception content"
+  friction_named:   "trigger phrases in my own comments; the post-merge permission
+                    pause; bot rate limits"
+  next_stance:      "all 14 PRs merged, no watches or check-ins left; the next PRs
+                    are new work; the Latin calls now steer both PRs and
+                    conversations"
+---
