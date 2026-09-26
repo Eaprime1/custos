@@ -49,8 +49,13 @@ jobs:
         id: gate
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
+        # The job-level if above only pre-filters. Here the comment must say
+        # "@claude finalize" as a phrase (any whitespace between, including a
+        # line break), so a comment that merely mentions both words elsewhere
+        # doesn't seal the PR — as "@claude ultima Recensio … to finalize"
+        # did on #339 (202609260235).
         run: |
-          if echo "$COMMENT_BODY" | grep -qF '@claude' && echo "$COMMENT_BODY" | grep -qF 'finalize'; then
+          if printf '%s' "$COMMENT_BODY" | tr '\n' ' ' | grep -qiE '@claude[[:space:]]+finalize([^[:alnum:]_]|$)'; then
             echo "triggered=true" >> "$GITHUB_OUTPUT"
           fi
 
