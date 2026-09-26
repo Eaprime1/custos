@@ -2,7 +2,8 @@
 #
 # Labels a PR `payment-demand` when its description asks for payment or carries
 # payout details (wallet addresses, invoice or payout links, dollar rewards).
-# It labels and explains; it never closes. The Shepherd decides what happens next.
+# It labels, explains and closes the PR. Its content is not reviewed or reused.
+# Closing triggers no other workflow here (archivist.yml runs on merged PRs only).
 # pull_request_target is used without a checkout: no PR code runs here.
 name: Custos — Payment Request Filter
 
@@ -49,17 +50,21 @@ jobs:
               issue_number: pr.number, labels: ['payment-demand'],
             });
             const msg = [
-              '### Payment request noted',
+              '### Closed: payment demand',
               '',
-              'This PR asks for payment or includes payout details.',
+              'This PR asks for payment or includes payout details, so it was closed automatically.',
               '**custos pays no cash and no monetary rewards.** Rewards are XP, badges and Sparstones.',
               '',
-              'The work itself is still welcome. Edit the description to remove the payment request',
-              'and payout details, and it stays in review. Nobody on the custos side opens payout links.',
+              'The PR was not reviewed, and its content will not be used. Nobody on the custos side',
+              'opens payout links. You are welcome to open a new PR with no payment request.',
               '',
               'Why: `docs/issue-system.md` §4.',
             ].join('\n');
             await github.rest.issues.createComment({
               owner: context.repo.owner, repo: context.repo.repo,
               issue_number: pr.number, body: msg,
+            });
+            await github.rest.pulls.update({
+              owner: context.repo.owner, repo: context.repo.repo,
+              pull_number: pr.number, state: 'closed',
             });

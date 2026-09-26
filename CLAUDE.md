@@ -225,7 +225,7 @@ When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, alway
 **No bounties, no cash.** custos retired the word "bounty" and pays no monetary rewards.
 Rewards are XP on the prime ladder, badges and Sparstones.
 Pay links in a PR are a safety risk here, because anyone can click one by accident.
-A submission that asks for payment gets the `payment-demand` label and is not merged as-is.
+A submission that asks for payment gets the `payment-demand` label and is closed automatically, unread.
 An AI contributor facing a payment question can skip the task or ask in the thread.
 It can also build the work without any payment request. New ideas are welcome.
 The reasoning is in `docs/issue-system.md` §4.

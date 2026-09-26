@@ -83,3 +83,16 @@ List these in `.shadow-well/` or `atelier/`. Don't implement them.
 - Relabel #325, #235 and #187 from `bounty` to the Phase 1 name, if the Shepherd agrees.
 - Apply `payment-demand` to #333 and #331. This session did it directly with the label.
 - Bounty-platform aggregators may still list custos issues as paid. Consider a pinned issue or README line that says so plainly. The README already carries one line.
+
+## Constellation mission: retire the `bounty` label everywhere (good for GitHub Copilot)
+
+Added 202609252039. The Shepherd wants the `bounty` label gone from every repo, not just custos.
+
+- **Scope:** every repo under `eaprime1` that has a `bounty` label, or `bounty` wording in issue templates.
+- **Per repo:**
+  1. Relabel any open issue tagged `bounty` to `claimed` if it has claims, otherwise to the Phase 1 name.
+  2. Delete the `bounty` label.
+  3. Rename or retire any `bounty.yml` issue template.
+  4. Copy the `payment-demand` label and `.github/workflows/payment-demand.yml` from custos.
+- **Completion check (per repo):** `gh label list | grep -c '^bounty'` prints `0`.
+- **Note:** custos itself still has the `bounty` label defined in GitHub, with no issues using it after 202609252039. Delete it in Settings → Labels, or as step 2 of this mission.
