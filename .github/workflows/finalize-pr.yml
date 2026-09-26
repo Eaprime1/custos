@@ -1,6 +1,6 @@
 # Custos — Finalize PR
 #
-# Comment `@claude finalize` on any PR to seal it.
+# Comment `@claude finalize` (or `ultima Probatio` with `@claude`) on any PR to seal it.
 # Gates: template sections filled · threads resolved · CI green
 # On pass: seals the witness list (witness-pr.yml) · posts rubric + valuation ·
 #          applies `finalized` label · commits PR Journey doc
@@ -36,7 +36,7 @@ jobs:
     if: >
       github.event.issue.pull_request != null &&
       contains(github.event.comment.body, '@claude') &&
-      contains(github.event.comment.body, 'finalize') &&
+      (contains(github.event.comment.body, 'finalize') || contains(github.event.comment.body, 'probatio')) &&
       !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) &&
       (
         contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association) ||
@@ -51,11 +51,15 @@ jobs:
           COMMENT_BODY: ${{ github.event.comment.body }}
         # The job-level if above only pre-filters. Here the comment must say
         # "@claude finalize" as a phrase (any whitespace between, including a
-        # line break), so a comment that merely mentions both words elsewhere
-        # doesn't seal the PR — as "@claude ultima Recensio … to finalize"
-        # did on #339 (202609260235).
+        # line break), or mention @claude and say "ultima Probatio": the final
+        # sign-off in the Latin workflow glossary. A comment that merely
+        # mentions both words elsewhere doesn't seal the PR — as "@claude
+        # ultima Recensio … to finalize" did on #339 (202609260235).
         run: |
-          if printf '%s' "$COMMENT_BODY" | tr '\n' ' ' | grep -qiE '@claude[[:space:]]+finalize([^[:alnum:]_]|$)'; then
+          body=$(printf '%s' "$COMMENT_BODY" | tr '\n' ' ')
+          if printf '%s' "$body" | grep -qiE '@claude[[:space:]]+finalize([^[:alnum:]_]|$)' ||
+             { printf '%s' "$body" | grep -qiF '@claude' &&
+               printf '%s' "$body" | grep -qiE '(^|[^[:alnum:]_])ultima[[:space:]]+probatio([^[:alnum:]_]|$)'; }; then
             echo "triggered=true" >> "$GITHUB_OUTPUT"
           fi
 
