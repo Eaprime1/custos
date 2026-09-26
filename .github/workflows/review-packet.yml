@@ -1,0 +1,141 @@
+# Custos — Review Packet
+#
+# The API-free review step. It runs on every PR, drafts included, and costs
+# no model usage. It gathers what a reviewer needs into one comment, which it
+# updates in place on each push:
+#   - changed files, grouped by area, with lines added and removed
+#   - paths that need Deck Master review (vault/, moav/, prima-clock/,
+#     branch-tracker/, world/, device/)
+#   - workflow files touched
+#   - PR template sections present or missing
+#   - issues the PR closes
+#   - new .md files without a prima-clock stamp
+#   - placeholder words in added lines (the same list as tools/scan_lexeme.sh)
+#
+# The paid review (claude-code-review.yml) reads this packet first. It runs
+# once when a PR opens as non-draft or is marked ready for review, and again
+# only when the owner adds the `ai-review` label.
+#
+# Safety: pull_request_target with NO checkout. PR code is never executed;
+# only the GitHub API's file list and patches are read.
+name: Custos — Review Packet
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+
+concurrency:
+  group: review-packet-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  packet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Gather and post the review packet
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const MARKER = '<!-- custos-review-packet -->';
+            const pr = context.payload.pull_request;
+            const { owner, repo } = context.repo;
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: pr.number, per_page: 100,
+            });
+
+            // Group changed files by top-level area.
+            const areas = {};
+            for (const f of files) {
+              const top = f.filename.includes('/') ? f.filename.split('/')[0] + '/' : '(root)';
+              (areas[top] = areas[top] || []).push(f);
+            }
+
+            const DECK = ['vault/', 'moav/', 'prima-clock/', 'branch-tracker/', 'world/', 'device/'];
+            const deckHits = files.filter(f => DECK.some(p => f.filename.startsWith(p)));
+            const wfHits = files.filter(f => f.filename.startsWith('.github/workflows/'));
+
+            // New .md files without a prima-clock stamp (YYYYMMDDHHMM) in added lines.
+            const STAMP = /\b20\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])([01]\d|2[0-3])[0-5]\d\b/;
+            const added = f => (f.patch || '').split('\n')
+              .filter(l => l.startsWith('+') && !l.startsWith('+++'))
+              .map(l => l.slice(1));
+            const unstamped = files.filter(f =>
+              f.status === 'added' && f.filename.endsWith('.md') &&
+              !added(f).some(l => STAMP.test(l)));
+
+            // Placeholder words in added lines, mirroring tools/scan_lexeme.sh.
+            const LEX = ['TODO', 'FIXME', 'BROKEN', 'placeholder', 'REPLACE', 'TBD', '???', 'UNKNOWN', 'My Prima Terminal'];
+            const EXT = /\.(md|sh|ya?ml|json)$/;
+            const lexHits = [];
+            for (const f of files.filter(x => EXT.test(x.filename))) {
+              for (const l of added(f)) {
+                const hit = LEX.find(w => l.toLowerCase().includes(w.toLowerCase()));
+                const entry = `\`${f.filename}\`: ${hit}`;
+                if (hit && !lexHits.includes(entry)) lexHits.push(entry);
+              }
+            }
+
+            // PR template sections.
+            const body = pr.body || '';
+            const SECTIONS = ['Intent', 'What Arrived', 'Resonance', 'Ethics Check', 'Sense Check'];
+            const has = s => new RegExp('^#{1,3}\\s*' + s + '\\b', 'im').test(body);
+            const closes = [...body.matchAll(/\b(?:closes|fixes|resolves|refs)\s+#(\d+)/gi)].map(m => '#' + m[1]);
+
+            const yes = '✅', no = '⬜';
+            const list = (arr, max = 15) => arr.length
+              ? arr.slice(0, max).join('\n') + (arr.length > max ? `\n- …and ${arr.length - max} more` : '')
+              : '- none';
+
+            const lines = [
+              MARKER,
+              '### Review packet',
+              '',
+              `No-API summary for commit \`${pr.head.sha.slice(0, 7)}\`. It updates on every push. ` +
+              (pr.draft
+                ? 'This PR is a **draft**, so the paid Claude review will not run yet.'
+                : 'The paid Claude review runs once when a PR opens ready or is marked ready. To re-run it, add the `ai-review` label.'),
+              '',
+              `**Size:** ${files.length} files, +${pr.additions} / -${pr.deletions}`,
+              '',
+              '**Files by area**',
+              ...Object.keys(areas).sort().map(a =>
+                `- \`${a}\`: ${areas[a].length} (${areas[a].map(f => f.status === 'removed' ? 'd' : f.status[0]).join('')})`),
+              '',
+              '**Needs Deck Master review**',
+              list(deckHits.map(f => `- \`${f.filename}\``)),
+              '',
+              '**Workflow files touched**',
+              list(wfHits.map(f => `- \`${f.filename}\``)),
+              '',
+              '**PR template sections**',
+              SECTIONS.map(s => `${has(s) ? yes : no} ${s}`).join(' · '),
+              '',
+              `**Closes / refs:** ${closes.length ? closes.join(', ') : 'none'}`,
+              '',
+              '**New .md files without a prima-clock stamp** (advisory)',
+              list(unstamped.map(f => `- \`${f.filename}\``)),
+              '',
+              '**Placeholder words in added lines** (advisory; templates may use them on purpose)',
+              list(lexHits.map(h => '- ' + h)),
+              '',
+              '<sub>File status letters: a = added, m = modified, r = renamed, d = removed. ' +
+              'Generated by `.github/workflows/review-packet.yml`. No model was called.</sub>',
+            ];
+            const text = lines.join('\n');
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: pr.number, per_page: 100,
+            });
+            const mine = comments.find(c => c.user?.type === 'Bot' && (c.body || '').startsWith(MARKER));
+            if (mine) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body: text });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: pr.number, body: text });
+            }
