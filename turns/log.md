@@ -470,3 +470,41 @@ contribution: PR #343 green and clean: claim-register now drops `open` when it a
 resonance:    rested
 witnessed:    true
 ---
+
+---
+turn:         2026-09-26 22:45
+prima-clock:  202609262245
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       carry Act II setup from the naught/maw/nullus handoff through to finish; seal every open PR and close the session with its journey
+contribution: 14 PRs merged across naught, nullus, maw, custos and radix.
+              - ECC comment folding in all five repos.
+              - Witnessing recorded by comment and sealed at finalize (custos#339).
+              - The Latin workflow glossary (custos#359) plus a conversation-seed adaptation.
+              - `ultima Probatio` as a finalize trigger in custos and radix; it sealed radix#42 on first use.
+              - check_mission.sh parses again (#340).
+              - Valuation ledger gaps settled from Drive, not invented (#341).
+              - Prima witness and the `---` parser fix ported to radix (#42).
+              Closing record: valuation/nav1-act-ii-setup_journey_202609262245.md.
+resonance:    sealed in Latin
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 16:09
+prima-clock:  202609261609
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       open the session after the days away; re-orient to what changed on main
+contribution: Main moved while this branch waited:
+              - #339, #340, #341, #357, #359, #360 and #361 merged.
+              - docs/latin-workflow-glossary.md (#359) is now the canonical home
+                for the Latin cues, which settles one open seed from PR #356's AAR.
+              - #356 was marked ready for review; #343 is still a draft.
+              - Open drafts from others: #354 and #355 (Perplexity), #358 (navigo2).
+              Both of this session's PRs had fallen into conflict with main,
+              in append-only files only (turns/, .claude/missions.md,
+              prima-clock/registry.md). Resolved by keeping both sides.
+resonance:    returning
+witnessed:    true
+---

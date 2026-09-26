@@ -41,3 +41,28 @@ Playwright stream conversation handles Turn 2.
 **Why it's here and not done:** the Gmail connector can label and archive threads, but it can't create filters. A 1,770-sender archive is outward-facing and needs the Shepherd's go-ahead in the session that runs it.  
 **Done when:** `grep "cc-automated\|Unroll.me" turns/log.md` shows the operation logged.  
 **Source:** `pandora/germs/navigo2_germ.md`
+
+### nav3 GitHub Access Gap
+**Status:** OPEN  
+**What:** nav3 (Gemini + eaprime1) cannot directly observe PR state, CI
+check runs, or file to the repo from a Gemini session. The Shepherd
+searched for the repo-access option in the Gemini session settings and
+could not locate it. Gemini currently contributes via PDF export → `.gemini/`
+→ nav1 files on the workaround path.  
+**Blocker:** Gemini's workflow presence is also paused pending the
+antigravity/navigo21 transition — resolving the access gap may wait
+until navigo21 identity is settled.  
+**Where:** `.gemini/202609210359_nav3-act2-preturn.md` has the routing context.
+
+### antigravity / navigo21 — Define and Seat
+**Status:** OPEN  
+**What:** The Shepherd named "antigravity" as the intended navigo21 AI model
+assignment (likely replacing or complementing Gemini's current position in
+the navigo table). No definition, no workspace folder, no CLAUDE.md entry,
+no navigo table row exists yet. The name is now held in `.gemini/202609210359_nav3-act2-preturn.md`,
+`turns/AAR.md`, `prima-clock/registry.md`, `atelier/marrowing-of-hope/breathe-ii-opening.md`,
+and this file — but no definition, workspace, or table entry exists yet.  
+**Next action:** Shepherd confirms what antigravity is (model, connector,
+account), then: add to CLAUDE.md navigo table, create workspace folder,
+create navigo profile, update branch-tracker.  
+**Where:** This mission file; `.gemini/202609210359_nav3-act2-preturn.md`.
