@@ -448,3 +448,25 @@ contribution: naught CLAUDE.md merged (Eaprime1/naught#2, e606129 — template C
 resonance:    oriented
 witnessed:    true
 ---
+
+---
+turn:         2026-09-25 18:44
+prima-clock:  202609251844
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       clear every issue without an outside claim or submission; set up the issue system (labels, claims, bounty terms, bot-ready missions, lexeme fallback, final sense check)
+contribution: 20 unclaimed issues triaged; #325/#235/#187 left for the Shepherd (outside claims and submissions). Built: world/concordance.md (#128), world/polarity.md + three .shadow-well entries (#330), tools/shepherd_considers.sh (#186), guides/anchor-review.md + anchor-review label (#188), turns/review-surface.md (#321), .claude/drift.md (#322), navigo2 row in the CLAUDE.md table (#320), missions/ in README + CLAUDE.md (#202), registry exception for the root custody files (#201). Confirmed already done: #127, #324. Consolidated: #194–#198 and #204 → missions/TABULARIUM_BACKLOG.md; #323/#327/#328 → .claude/missions.md. Issue system: docs/issue-system.md, lexeme.yml template, Bot Brief fields in the mission/bounty templates, fallback + sense-check lines in all templates, Sense Check in the PR template, atelier/lexemes/, ten labels in sovran-labels.yml. Pinnacle Drive folder surveyed (marrowing_of_hope, shadow_exchange/maw); nothing pulled in this turn
+resonance:    cleared
+witnessed:    false
+---
+
+---
+turn:         2026-09-26 01:28
+prima-clock:  202609260128
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       close the day: finish PR #343, review Perplexity's first two draft PRs, build a review step that needs no API
+contribution: PR #343 green and clean: claim-register now drops `open` when it adds `claimed`, and the stale plan line on auto-close is fixed; PR #356 opened as a draft: review-packet.yml gathers each PR's content with no model call, and claude-code-review.yml now runs only on ready-for-review or the `ai-review` label; review receipts posted on #354 and #355 (navigo naming, a nav4 slot for Perplexity, one home for the Latin cue terms); AAR with seeds is in #356; hourly check-ins off to save usage, and the PR watch stays on
+resonance:    rested
+witnessed:    true
+---

@@ -1,0 +1,72 @@
+# Custos — Claim Register
+#
+# Answers every claim comment on an issue (`claiming this`, `/claim`, `/attempt`).
+# It adds the `claimed` label and posts a confirmation with the reward terms.
+# The `claimed` label is the claim tracker. See docs/issue-system.md §3–4.
+name: Custos — Claim Register
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  register:
+    if: >-
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Register the claim
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.comment.body || '';
+            if (!/^\s*(claiming this|\/claim|\/attempt)\b/im.test(body)) {
+              core.info('Not a claim comment.');
+              return;
+            }
+            const issue = context.payload.issue;
+            const who = context.payload.comment.user.login;
+            const labels = issue.labels.map(l => l.name);
+            const isTrial = labels.includes('sparstone-trial') || labels.includes('bounty');
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, labels: ['claimed'],
+            });
+            // State labels are one at a time (docs/issue-system.md §2).
+            if (labels.includes('open')) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number, name: 'open',
+              }).catch(e => core.info(`Could not remove 'open': ${e.message}`));
+            }
+
+            const reward = isTrial
+              ? '- **First to complete** earns the Sparstone (or the badge the trial names).\n' +
+                '- **Everyone who completes it** earns XP rungs on the prime ladder.\n'
+              : '- **Completing it** earns XP rungs on the prime ladder.\n';
+
+            const msg = [
+              `### Claim registered: @${who}`,
+              '',
+              `You're on #${issue.number}: **${issue.title}**. Claims aren't locks, so others may work on it too.`,
+              '',
+              '**Rewards**',
+              reward + '- **Every submission** gets a written evaluation.',
+              '',
+              '**Next step:** open a PR that says `Closes #' + issue.number + '`. Answer the Sense Check in the PR template.',
+              'If the task can\'t be done as written, take the lexeme path (`docs/issue-system.md` §6).',
+              '',
+              '> **custos pays no cash and no monetary rewards.** Submissions that ask for payment',
+              '> are labelled `payment-demand` and closed automatically, unread. Why: `docs/issue-system.md` §4.',
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, body: msg,
+            });

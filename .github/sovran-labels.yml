@@ -52,4 +52,52 @@ labels:
     color: "5319e7"
     description: "Review period closed — PR Journey committed"
 
+  # ── Issue system (docs/issue-system.md) ───────────────────────────────────
+  # Type — exactly one per issue
+  - name: mission
+    color: "1d76db"
+    description: "Structured work: clear deliverable + deterministic completion check"
+
+  - name: sparstone-trial
+    color: "fbca04"
+    description: "Open challenge. First to complete earns the Sparstone; all completers earn XP. No cash"
+
+  - name: payment-demand
+    color: "d73a4a"
+    description: "AI note: this contains a payment demand or payout details. custos pays no cash. Do not open payout links"
+
+  - name: upgrade
+    color: "3358ce"
+    description: "Sharpen or extend something that already exists"
+
+  - name: lexeme
+    color: "c5def5"
+    description: "Develop a named concept or term from a citable source (the fallback path)"
+
+  # State — one at a time, moves left to right
+  - name: open
+    color: "0e8a16"
+    description: "Available — no claim yet"
+
+  - name: claimed
+    color: "fef2c0"
+    description: "Someone commented a claim; work in progress"
+
+  - name: submitted
+    color: "bfdadc"
+    description: "A PR or submission is linked and waiting on the Shepherd"
+
+  - name: needs-shepherd
+    color: "e99695"
+    description: "Blocked on a Shepherd decision, device access, or an outside system"
+
+  # Modifiers
+  - name: bot-friendly
+    color: "5319e7"
+    description: "Carries a Bot Brief; automated submissions welcome"
+
+  - name: anchor-review
+    color: "d93f0b"
+    description: "[ANCHOR REVIEW NEEDED] — a lore or custody claim lacks an anchor (guides/anchor-review.md)"
+
 # ∰🌿-sovran_labels_v1

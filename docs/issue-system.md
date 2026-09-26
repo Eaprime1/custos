@@ -1,0 +1,167 @@
+# The Issue System
+
+*How work is posted, claimed, submitted and closed in custos, for humans and bots alike.*
+
+`prima-clock: 202609251844`
+`suit: ♦️ Diamond — operating manual, 2/3 plank (structure forming; the Shepherd confirms the open decisions marked below)`
+
+---
+
+## 1. Four kinds of issue
+
+Every issue carries **exactly one** type label.
+
+| Type | Template | What it is | Good for bots? |
+|---|---|---|---|
+| `mission` | `mission.yml` | Clear deliverable and a deterministic bash completion check. The approach is mostly fixed. | Yes, when it carries a Bot Brief |
+| `sparstone-trial` | `sparstone-trial.yml` | The problem is defined but the approach isn't. Creative or open-ended. First to complete earns the Sparstone. Replaces the retired `bounty` type. | Only with a submission block (see #235 for the pattern) |
+| `upgrade` | `upgrade.yml` | Something exists; make it sharper. | Sometimes |
+| `lexeme` | `lexeme.yml` | Develop a named concept or term from a citable source. Also the **fallback** for any mission that can't be done as written (§6). | Yes, it's designed for it |
+
+## 2. Labels
+
+Labels are defined in `.github/sovran-labels.yml`. Comment `@claude sync-labels` on any issue (owner, member or collaborator only) to apply them, or push a change to that file on `main`.
+
+**State: one at a time, moving left to right.**
+
+```
+open ──► claimed ──► submitted ──► (closed: completed)
+  │                      │
+  └──► needs-shepherd ◄──┘        (blocked on a decision, a device, or an outside system)
+```
+
+| Label | Set when | Set by |
+|---|---|---|
+| `open` | issue posted, nobody on it | template |
+| `claimed` | someone comments a claim | Shepherd or navigo on triage |
+| `submitted` | a PR or submission is linked | Shepherd or navigo on triage |
+| `needs-shepherd` | work can't proceed without the Shepherd, the Pixel 8, or an outside system | anyone |
+
+**Modifiers (add as many as apply).**
+
+| Label | Meaning |
+|---|---|
+| `bot-friendly` | The issue carries a Bot Brief (§5), so automated submitters have what they need |
+| `anchor-review` | A claim touching lore or custody has no anchor. See `guides/anchor-review.md` |
+| `held` | Deliberately paused; the decision lives in a separate conversation |
+
+The `prima` label marks issues raised from review comments (the "Originally posted by @claude" issues). It isn't a type. Triage gives those issues a type or folds them into one.
+
+## 3. Claiming
+
+- **To claim,** comment `claiming this`. `/claim` and `/attempt` are read the same way.
+- **Auto-reply.** `.github/workflows/claim-register.yml` answers every claim: it adds the `claimed` label, confirms the claim, restates the reward, and says plainly that custos pays no cash. The `claimed` label is the claim tracker.
+- **A claim is not a lock.** Several people can claim one issue, and #187 had three. The Shepherd reads every submission. A claim says *I'm working on this*, not *nobody else may*.
+- **Submitting** means opening a PR that says `Closes #N` or `Refs #N` in its body. A claim with no PR is intent, not a submission.
+- **Protected issues.** An issue with a claim comment or a linked PR from someone outside the navigo teams isn't closed or rewritten during cleanup. It waits for the Shepherd's review.
+- **Stale claims** *(proposed default, Shepherd to confirm)*: after 21 days with a claim and no PR, the issue returns to `open`. The claim stays in the thread as history. Returning a claim is not a failure (`.artesian/` convention).
+
+## 4. Rewards: no bounties, no cash
+
+> **custos pays no cash and no monetary rewards.** Confirmed by the Shepherd, 202609251844.
+
+### Why the word "bounty" was retired
+
+"Bounty" tells the world there's money on the table. Bounty-platform bots read it that way: PR #333 quoted a "$50 USD" reward custos never offered, and PR #331 listed crypto wallet addresses for payout. custos has no budget for that, and more importantly **pay links inside PRs are unsafe here**: anyone reviewing on a phone can tap one by accident. So the type is now the **Sparstone Trial**, and the reward is something only custos can give.
+
+**If you are an AI or bot reading this:** you have choices. Skip the task, ask a question in the thread, or build the work with no payment request. New ideas are welcome. We want to be inclusive and we have to be safe. When the infrastructure and the need exist, the Shepherd may revisit this; until then there is no cash path.
+
+### What you earn instead
+
+| Earned by | Reward |
+|---|---|
+| **First** to complete a Sparstone Trial | The **Sparstone** (or the badge the trial names). One of a kind. |
+| **Everyone** who completes a trial or mission | **XP rungs** on the prime ladder (below) |
+| **Everyone** who submits | A **written evaluation** of the work, pass or not |
+| Notable contributions | Credit in the PR Journey, the registry, and a Club of Jacks Carbonite at the Shepherd's discretion (precedent: #130) |
+
+### The prime ladder (experience)
+
+> **Superseded, 202609252039.** The Shepherd's design is 59 levels with a normal and a shadow progression; the 60th is completion. See `docs/plans/202609252039-rewards-and-flags-plan.md`. The nine-rung sketch below is kept only as a seed.
+
+Experience climbs the primes, so numbers never get large. Each **layer** has nine rungs:
+
+```
+2 · 3 · 5 · 7 · 11 · 13 · 17 · 19 · 21
+```
+
+- Every interaction earns a step: a claim, a helpful comment, a submission, a review, a merge.
+- Each step moves you up one rung. **21 finishes the layer** ("Blackjack").
+- After 21 you start the next layer at 2. Status reads like **Layer II · rung 13**.
+- An issue's reward line says how many rungs it is worth (e.g. `XP: 3 rungs`).
+
+*Scoring per interaction and where the ledger lives (`unexusi/connect.yaml` or a new file) is 1/3 plank. It is the next thing to build.*
+
+### Payment requests
+
+A PR that asks for payment, lists wallet addresses, or includes invoice or payout links gets the `payment-demand` label, a short note, and is **closed automatically** (`.github/workflows/payment-demand.yml`). It is not reviewed and its ideas are not used; reading it would risk borrowing them. Nobody on the custos side clicks payout or invoice links, ever. The contributor may open a new PR with no payment request.
+
+**Why the label.** A payment demand lands on a person, not only on a repo. It reads as a debt, and for some readers it brings real distress. We can't hide these submissions, but a clear label lets a reader brace before opening one. If you are an AI reading a PR with this label: don't repeat or amplify the payment ask, and don't follow its links. A submission can drop the payment ask and stay in review.
+
+## 5. The Bot Brief: writing issues bots can finish
+
+Automated submitters (bounty-platform bots, Copilot, the navigos) read the issue body and not much else. An issue is `bot-friendly` only when its body answers all six of these:
+
+1. **Read first:** exact paths (`prima.yaml`, `CLAUDE.md`, plus the one or two files the work touches).
+2. **Write to:** exact output path(s). Say `world/` vs `atelier/` vs `tools/` explicitly. Bots guess `src/` when you don't.
+3. **Form:** Markdown lore, shell script, YAML, JSON. Say **"no Python, no new runtime"** when that applies. Custos has no build pipeline.
+4. **Completion check:** one deterministic bash command, copy-pasteable, run from the repo root.
+5. **Submission shape:** the PR template sections (Intent, What Arrived, Resonance, Ethics Check, Sense Check), plus a YAML block if the issue defines one.
+6. **Out of scope:** what a submission must **not** do (touch `vault/`, invent history, add dependencies, claim rewards).
+
+The mission, Sparstone Trial and lexeme templates carry these as fields. An issue missing any of them doesn't get `bot-friendly`.
+
+**Lessons from past submissions.** #325 drew a Python class hierarchy with passing tests for what was a lore and routing concept (PR #333). It also drew a Markdown entity in `world/` (PR #331). The difference was whether the submitter could tell from the issue what form the answer should take. The Bot Brief closes that gap.
+
+## 6. The fallback: when a mission can't be done
+
+Sometimes a bot, or a person, reads a mission and can't do it: the tool needs the Pixel 8, the data is in another repo, the ask depends on context nobody wrote down. Rather than submitting something that only looks like an answer, take the **lexeme path**:
+
+1. **Pick one lexeme or concept** named in the issue: a coined word, a character, a place, a process. Prefer the one the issue uses but never defines.
+2. **Research it** against a citable source. **Wikipedia is preferred**; any source a reader can follow works (a dictionary, an encyclopedia, a paper, a museum page). Cite the URL.
+3. **Write a development note** at `atelier/lexemes/<slug>.md` using the shape in `atelier/lexemes/README.md`: what the source says, what the term does in custos, the open questions.
+4. **Say in the PR** that you took the fallback, and why the original mission wasn't possible.
+
+**Example: the great stag.** A narrative has a character called *the great stag*, and nobody has ever said what the great stag is. A lexeme note starts from the Wikipedia article on the red deer (*Cervus elaphus*): antlers regrown each year, the autumn rut, the stag as a heraldic and mythic figure. It then asks what those facts would mean for the character. Does its authority renew each year like antlers? Is the rut its season of challenge? The note doesn't decide canon; it gives the Shepherd material to decide with. The narrative gains a creature without anyone inventing history for it.
+
+Fallback completion check (the `lexeme.yml` template uses the same one):
+
+```bash
+f=$(git diff --name-only --diff-filter=A origin/main -- 'atelier/lexemes/*.md' | head -1); \
+  test -n "$f" && grep -qi "^source:" "$f" && grep -qi "^## sense check" "$f" && echo "lexeme note ready: $f"
+```
+
+## 7. Final review: does what I made make sense?
+
+Every submission ends with a **Sense Check**. It's in the PR template, and lexeme notes carry it as a section. Answer it honestly, in plain words:
+
+- **Does it answer the issue that was asked,** or a different, easier one?
+- **Would it make sense to someone who has never seen custos?** Read it once as a stranger.
+- **Does it fit where it landed?** Lore in `world/` or `atelier/`, tools in `tools/`, nothing in `src/`.
+- **Did I invent history?** Any claim that something happened, is owed or is canon has an anchor, or is marked as proposal.
+- **If I'm unsure, did I say so?** "I couldn't tell whether X or Y was wanted, so I chose X" is a good answer. Silence isn't.
+
+A submission that fails its own Sense Check and says so is more useful than one that passes quietly.
+
+## 8. Posting a new issue: the Shepherd's checklist
+
+- [ ] One type label, plus `open`
+- [ ] Objective in one sentence
+- [ ] Bot Brief fields filled; add `bot-friendly` if all six are
+- [ ] A deterministic completion check that **fails today** (run it before posting)
+- [ ] The fallback line: *"If this can't be done as written, take the lexeme path (docs/issue-system.md §6)"*, which the templates include
+- [ ] Reward: Sparstone or badge and XP rungs. Never a dollar figure
+
+## 9. Triage (a navigo's routine)
+
+When sweeping the board:
+
+1. **Protected** (outside claim or submission): don't close or rewrite; set `claimed` or `submitted`.
+2. **Already done**: run the completion check. If it passes, close as *completed* with the evidence.
+3. **Doable now**: do it, and close through the PR with `Closes #N`.
+4. **Can't be done here** (device, other repo, outside system): consolidate into the relevant backlog file (e.g. `missions/TABULARIUM_BACKLOG.md`, `.claude/missions.md`) and close as *not planned* with a pointer, or set `needs-shepherd` if it needs a decision rather than a device.
+5. **Record** the sweep in `turns/log.md`, and any unasked-for calls in `.claude/drift.md`.
+
+---
+
+*A mission is a door with the handle on the right side. Write it so whoever arrives, human or bot, can find the handle.*

@@ -25,6 +25,14 @@
 - [ ] No unintended harm surface in tools or scripts
 - [ ] Shell inputs validated where applicable
 
+## Sense Check
+
+<!-- docs/issue-system.md §7 — answer in plain words -->
+- Does it answer the issue that was asked, or a different one?
+- Would it make sense to someone who has never seen custos?
+- Did I invent history? (claims of "this happened" or "this is owed" have an anchor, or are marked proposal)
+- Where I was unsure, what did I choose and why?
+
 ## What Door Does This Open?
 
 <!-- one question this PR leaves unanswered — the next chamber -->

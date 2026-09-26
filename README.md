@@ -26,6 +26,7 @@ Work arrives from many sources — navigo, remote repos, commissions, ideas. All
 prima.yaml          concept manifest and source of truth
 quests/             RPG-style quest arcs — real tasks, real outcomes
 quests/missions/    open missions and bounties for any contributor
+missions/           Tabularium library operations — save points, workflows, Seneschal log
 world/              lore, factions, and the founding myth
 seeds/              bootstrap scripts and dotfiles for new devices
 device/             Pixel 8 device state — active work, manifests (pixel8 branch)
@@ -60,7 +61,9 @@ custos uses GitHub Issues as an open mission board. Any contributor — human or
 - **Missions**: structured tasks with clear deliverables and completion checks
 - **Bounties**: open challenges where the approach is part of the work
 
-Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
+Browse [open issues](../../issues) and look for `mission` or `sparstone-trial` labels.
+custos has no bounties and pays no cash. Rewards are XP, badges and Sparstones.
+Why: see `docs/issue-system.md` §4. Missions also appear as quests in `quests/missions/` for use inside the terminal.
 
 ## GitHub Pages note 🃏
 

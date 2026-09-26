@@ -1,30 +1,21 @@
-name: Mission
-description: A structured task with a clear deliverable and completion check. Any contributor may claim it.
-title: "[mission] "
-labels: ["mission", "open"]
+name: Sparstone Trial
+description: An open challenge where the approach is part of the work. First to complete earns the Sparstone; everyone who completes it earns XP.
+title: "[trial] "
+labels: ["sparstone-trial", "open"]
 body:
   - type: markdown
     attributes:
       value: |
-        **A mission is structured work.** It has a clear objective, defined deliverables, and a deterministic completion check. Any contributor — human or AI — may claim it by commenting `claiming this` and opening a PR.
+        **A Sparstone Trial is open-ended work.** The problem is defined but the approach is not. Contributors bring their own method and the Shepherd decides what lands. Claim by commenting `claiming this`.
+
+        **No cash, no monetary reward.** The first to complete it earns the Sparstone (or the badge named below). Everyone who completes it earns XP on the prime ladder, and every submission gets a written evaluation. Submissions that ask for payment are labelled `payment-demand` and don't merge. See `docs/issue-system.md` §4.
 
   - type: textarea
-    id: objective
+    id: challenge
     attributes:
-      label: Objective
-      description: One sentence. What must be accomplished?
-      placeholder: "Build X so that Y."
-    validations:
-      required: true
-
-  - type: textarea
-    id: deliverables
-    attributes:
-      label: Deliverables
-      description: What files, outputs, or artifacts will exist when this is done?
-      placeholder: |
-        - `path/to/file.md` created with content matching the spec
-        - `tools/new-tool.sh` runs without error
+      label: The Challenge
+      description: What problem needs solving? What is currently broken, missing, or possible?
+      placeholder: "The Field lacks X. Whoever figures out Y earns the Sparstone."
     validations:
       required: true
 
@@ -62,36 +53,28 @@ body:
       required: false
 
   - type: textarea
-    id: completion_check
+    id: success
     attributes:
-      label: Completion Check
-      description: A deterministic bash command that confirms the mission is done.
-      render: bash
-      placeholder: |
-        ls path/to/file.md && echo "mission complete"
+      label: What success looks like
+      description: How will you know a solution worked? Be as specific as you can without prescribing the approach.
     validations:
       required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Anything the solution must not do, or must work within.
+    validations:
+      required: false
 
   - type: textarea
     id: context
     attributes:
       label: Context
-      description: Background the contributor needs. Links to relevant files, prior work, or lore.
+      description: Background, related files, prior attempts, relevant lore.
     validations:
       required: false
-
-  - type: dropdown
-    id: faction
-    attributes:
-      label: Best suited faction
-      description: Which faction's skills fit this mission?
-      options:
-        - Scribes (writing, analysis, documentation)
-        - Builders (code, scripts, tools)
-        - Sentinels (review, validation, security)
-        - Wanderers (any — open to all)
-    validations:
-      required: true
 
   - type: input
     id: required_access
@@ -105,9 +88,9 @@ body:
   - type: input
     id: xp
     attributes:
-      label: XP reward
-      description: Experience points on successful completion (10–500 typical)
-      placeholder: "100"
+      label: Reward
+      description: "The Sparstone or badge the first completer earns, plus XP rungs for everyone who completes it. Never a cash amount."
+      placeholder: "Sparstone: <name> · XP: 3 rungs"
     validations:
       required: false
 
