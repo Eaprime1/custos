@@ -70,6 +70,12 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 
 `quests/missions/` is the workflow arc — quests for operating the mission/bounty commission system.
 
+### Missions (`missions/`)
+Operational wing for the Tabularium library pipeline (`eaprime1/tabularium`), distinct from the `quests/missions/` arc. Holds `CUSTOS_BRIEF.md` (the integration brief), `INDEX.md` (per-library status), `FIRST_LIBRARY.md`, `WORKFLOWS.md`, `SENESCHAL_Protocol.md`, and `TABULARIUM_BACKLOG.md` (the consolidated integration backlog, formerly issues #194–#198).
+
+### Issue System
+`docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim lifecycle, what a custos bounty pays, the Bot Brief every mission carries for automated submitters, the lexeme-development fallback when a mission can't be done, and the final "does it make sense?" review. Labels are defined in `.github/sovran-labels.yml` and synced by `sovran-labels-sync.yml`.
+
 ### World (`world/`)
 - `lore.md` — The Podium (Pixel 8), the Field (terminal), the Flock (projects/repos), Shepherd (operator)
 - `factions.md` — Scribes, Builders, Sentinels, Wanderers, Unexusi
@@ -86,7 +92,8 @@ Tracks live device state. Not on `main`.
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
 - `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
 - `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
-- Labels: `mission`, `bounty`, `upgrade`, `open` on GitHub Issues
+- `.github/ISSUE_TEMPLATE/lexeme.yml` — Lexeme development (ground an undefined term in a citable source); also the fallback for any mission that can't be done as written
+- Labels: type (`mission`, `bounty`, `upgrade`, `lexeme`), state (`open` → `claimed` → `submitted`, or `needs-shepherd`), modifiers (`bot-friendly`, `anchor-review`). Full manual in `docs/issue-system.md`
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
@@ -138,11 +145,14 @@ A listening practice for capturing fragments before they have names. Not a ticke
 Concept progression via prime numbers. Current: `3`. Advance only when a development phase completes. Template ships with `3`.
 
 ### Turns (`turns/`)
-Session memory, append only. Four files, distinct purposes:
+Session memory, append only. Five files, distinct purposes:
 - `log.md` — *what* a turn built. One entry per meaningful session. Schema in `TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
 - `CLOSING.md` — the checklist for ending a session: review what happened, file loose ends in `queue/artesium-weir/`, append to `log.md`, update `device/active.md`, run `scan_lexeme.sh`, commit/push, optionally write an AAR. Run this whenever asked to "wrap up", "finalize", or "close out."
 - `AAR.md` — *how* the turn went (process/friction/seeds), not what it produced. Same append-only spirit as `log.md`, different lens. Not every turn needs one.
 - `CULTIVATION.md` — cross-PR catalog of open design conflicts surfaced at closing time (e.g. competing naming systems introduced in separate PRs). Resolve or explicitly defer each entry when read; don't let it become an unread backlog.
+- `review-surface.md` — what review bots flagged on each PR, one plain sentence per flag, actionable or noise.
+
+nav1 keeps `.claude/drift.md` alongside: an append-only record of calls it made that the Shepherd didn't direct.
 
 ### Queue (`queue/`)
 Staging ground for what has crossed in from outside but hasn't found its place yet — nothing here is finished. `queue/artesium-weir/` is the filter between raw inbound material (e.g. a PDF export of a GitHub PR thread) and formal chain of custody; see `queue/artesium-weir/README.md` for the routine. Per-item subfolders (e.g. `queue/artesium-<contributor>/`) hold in-flight artifacts until the Weir routes them onward — close them out via the `turns/CLOSING.md` checklist rather than leaving them mid-flow.
@@ -178,6 +188,7 @@ Each navigo is a paired team of one AI model and eaprime1. They are internal con
 | Navigo | Team | Workspace |
 |--------|------|-----------|
 | nav1 | Claude + eaprime1 | `.claude/` |
+| navigo2 | Gmail connector (Claude-paired) + eaprime1 | no workspace folder yet — germs file to `pandora/germs/`; entry guide `guides/navigo2-gmail-preturn.md` |
 | nav3 | Gemini + eaprime1 | `.gemini/` |
 | nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
 

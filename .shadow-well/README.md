@@ -47,6 +47,27 @@ The shadow well is the waiting state between them.
 
 ---
 
+## Form (decided 202609251844, issue #330)
+
+**Near-formless on purpose.** An entry is one `.md` file with a prima-clock line and the word `nowhere`. There's no schema beyond that. Formlessness is the point, but an unstamped fragment can't be found again.
+
+## Routing
+
+The trigger is **the Shepherd names it**, nothing else. Once named:
+- still developing → `atelier/`
+- ready to be claimed → `.artesian/`
+- a word worth keeping → `world/concordance.md`
+
+The axis itself lives in world lore: `world/polarity.md`.
+
+## Entries
+
+- `shadow-spring.md` — the shadow spring as a named concept
+- `pinecone-noise-typology.md` — Pinecone semantic layer for noise-typology tagging
+- `gmail-vetting-layer.md` — Gmail as the personal vetting layer
+
+---
+
 ## Seeds Currently Held
 
 *(drop fragments here — one line or a few, no schema required)*

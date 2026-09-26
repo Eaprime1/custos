@@ -29,6 +29,39 @@ body:
       required: true
 
   - type: textarea
+    id: read_first
+    attributes:
+      label: Read first
+      description: "Bot Brief 1 — exact paths a contributor (or bot) must read. Always include prima.yaml and CLAUDE.md."
+      value: |
+        - `prima.yaml`
+        - `CLAUDE.md`
+        - `docs/issue-system.md`
+    validations:
+      required: true
+
+  - type: textarea
+    id: write_to
+    attributes:
+      label: Write to
+      description: "Bot Brief 2 & 3 — exact output path(s) and form. Say world/ vs atelier/ vs tools/ explicitly; say 'no Python, no new runtime' when that applies."
+      placeholder: "`atelier/<slug>.md` — Markdown, lore tone. No Python, no new runtime."
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: "Bot Brief 6 — what a submission must NOT do."
+      value: |
+        - Don't edit `vault/` or `world/the-the.md`
+        - Don't invent history or claim rewards not named here
+        - Don't add dependencies or a build step
+    validations:
+      required: false
+
+  - type: textarea
     id: completion_check
     attributes:
       label: Completion Check
@@ -77,3 +110,11 @@ body:
       placeholder: "100"
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **If this can't be done as written:** take the lexeme path. Pick one term or concept named above, research it (Wikipedia preferred; any citable source), and file a note in `atelier/lexemes/`. See `docs/issue-system.md` §6.
+
+        **Before you submit:** answer the Sense Check in the PR template. Does what you made answer this issue, and would it make sense to a stranger?

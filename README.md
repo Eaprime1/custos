@@ -26,6 +26,7 @@ Work arrives from many sources — navigo, remote repos, commissions, ideas. All
 prima.yaml          concept manifest and source of truth
 quests/             RPG-style quest arcs — real tasks, real outcomes
 quests/missions/    open missions and bounties for any contributor
+missions/           Tabularium library operations — save points, workflows, Seneschal log
 world/              lore, factions, and the founding myth
 seeds/              bootstrap scripts and dotfiles for new devices
 device/             Pixel 8 device state — active work, manifests (pixel8 branch)
