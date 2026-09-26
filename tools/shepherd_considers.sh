@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shepherd_considers — walk a directory's .md files one at a time.
-# For each: a preview, then [v]iewed / [s]kip / [n]ote / [q]uit.
-# Viewed and noted files are appended to atelier/shepherd/review-log.md.
+# For each file it shows a preview, then asks: [v]iewed, [s]kip, [n]ote or [q]uit.
+# The tool appends viewed and noted files to atelier/shepherd/review-log.md.
 set -euo pipefail
 
 DIR="${1:-atelier}"
