@@ -1,0 +1,138 @@
+# Custos — Witness PR
+#
+# Comment `witnessed` on a PR (the word at the start of the comment) to be
+# recorded as a witness. Anyone may witness; each person is recorded once,
+# with the prima-clock of their comment and a link to it. The comments are the
+# record; the list shown in the PR description between the witness markers is
+# rebuilt from them on each run and replaces the template's
+# `**witnessed:** false` line.
+#
+# `@claude finalize` seals the list (see finalize-pr.yml). After sealing, new
+# `witnessed` comments are not recorded; the commenter gets a short note.
+name: Custos — Witness PR
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+concurrency:
+  # One update at a time per PR. GitHub keeps only the newest queued run in a
+  # group, which is safe here: each run rebuilds the whole list from comments.
+  group: witness-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  witness:
+    # Cheap pre-filter so ordinary comments don't start a runner. contains()
+    # is case-insensitive; the script below does the exact start-of-comment
+    # check (leading whitespace allowed).
+    if: >
+      github.event.issue.pull_request != null &&
+      github.event.comment.user.type != 'Bot' &&
+      contains(github.event.comment.body, 'witnessed')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record witness
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            const comment = context.payload.comment;
+            // Trigger: the comment starts with the word "witnessed".
+            if (!/^\s*witnessed\b/i.test(comment.body || '')) {
+              core.info('Not a witness comment.');
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const prNum = context.issue.number;
+            const login = comment.user.login;
+
+            const START = '<!-- witnesses:start -->';
+            const END   = '<!-- witnesses:end -->';
+            const SEALED = '<!-- witnesses:sealed -->';
+            // Written by finalize-pr.yml into its (bot-authored) finalization comment.
+            const SEAL_RECORD = '<!-- witnesses:seal-record';
+
+            const react = (content) => github.rest.reactions.createForIssueComment({
+              owner, repo, comment_id: comment.id, content,
+            });
+
+            // The witness list is rebuilt from the PR's comments every run; the
+            // PR description is only where it's displayed, never where it's read
+            // from. So a hand-edited description can't add witnesses, and if
+            // GitHub drops a queued run in a burst, the next run still sees
+            // every `witnessed` comment.
+            const all = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNum, per_page: 100,
+            });
+            if (!all.some(c => c.id === comment.id)) all.push(comment);
+
+            const sealed = all.some(c => c.user && c.user.login === 'github-actions[bot]'
+              && (c.body || '').includes(SEAL_RECORD));
+            if (sealed) {
+              await react('confused');
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum,
+                body: `@${login} — witnessing on this PR was sealed at finalize, so this witness was not added. The comment itself stays on the record.`,
+              });
+              return;
+            }
+
+            const p = n => String(n).padStart(2, '0');
+            const clockOf = iso => {
+              const d = new Date(iso);
+              return `${d.getUTCFullYear()}${p(d.getUTCMonth()+1)}${p(d.getUTCDate())}${p(d.getUTCHours())}${p(d.getUTCMinutes())}`;
+            };
+
+            // Earliest `witnessed` comment per person, in comment order.
+            const first = new Map();
+            for (const c of [...all].sort((a, b) => a.created_at.localeCompare(b.created_at) || a.id - b.id)) {
+              if (!c.user || c.user.type === 'Bot') continue;
+              if (!/^\s*witnessed\b/i.test(c.body || '')) continue;
+              const k = c.user.login.toLowerCase();
+              if (!first.has(k)) first.set(k, c);
+            }
+            const isNew = (first.get(login.toLowerCase()) || {}).id === comment.id;
+            const entries = [...first.values()].map(c =>
+              `- @${c.user.login} · ${clockOf(c.created_at)} · [comment](${c.html_url})`);
+
+            const n = entries.length;
+            const block = [
+              START,
+              `**witnessed:** true — ${n} witness${n === 1 ? '' : 'es'}`,
+              '',
+              ...entries,
+              END,
+            ].join('\n');
+
+            // Read the description as late as possible, and never write over a
+            // seal that finalize has just applied.
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNum });
+            const body = pr.body || '';
+            if (body.includes(SEALED)) {
+              core.info('Description already sealed by finalize; leaving it as is.');
+              await react('confused');
+              return;
+            }
+            const s = body.indexOf(START), e = body.indexOf(END);
+            const LINE = /^\*\*witnessed:\*\*[^\n]*$/m;
+            let newBody;
+            if (s !== -1 && e > s) {
+              newBody = body.slice(0, s) + block + body.slice(e + END.length);
+            } else if (LINE.test(body)) {
+              newBody = body.replace(LINE, block);
+            } else {
+              newBody = `${body.trimEnd()}\n\n${block}\n`;
+            }
+
+            if (newBody !== body) {
+              await github.rest.pulls.update({ owner, repo, pull_number: prNum, body: newBody });
+            }
+            await react(isNew ? '+1' : 'eyes');
+            core.info(isNew ? `Recorded @${login}; ${n} witness(es).` : `@${login} is already a witness.`);
