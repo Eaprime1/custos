@@ -12,7 +12,12 @@ if [[ ! -d "$DIR" ]]; then
   exit 1
 fi
 
-mapfile -t FILES < <(find "$DIR" -maxdepth 1 -type f -name '*.md' | sort)
+shopt -s nullglob
+FILES=()
+for candidate in "$DIR"/*.md; do
+  if [[ -f "$candidate" ]]; then FILES+=("$candidate"); fi
+done
+shopt -u nullglob
 
 if [[ ${#FILES[@]} -eq 0 ]]; then
   echo "Nothing to consider in $DIR — no .md files."
@@ -39,14 +44,16 @@ for f in "${FILES[@]}"; do
     read -r -p "[v]iewed / [s]kip / [n]ote / [q]uit > " choice || choice="q"
     case "$choice" in
       v|V)
-        printf -- "- %s · \`%s\` · viewed\n" "$(date '+%Y%m%d%H%M')" "$f" >> "$LOG"
+        stamp=$(date '+%Y%m%d%H%M')
+        printf -- "- %s · \`%s\` · viewed\n" "$stamp" "$f" >> "$LOG"
         VIEWED=$((VIEWED + 1)); break ;;
       s|S)
         SKIPPED=$((SKIPPED + 1)); break ;;
       n|N)
         read -r -p "note > " note || note=""
         note="${note//$'\n'/ }"
-        printf -- "- %s · \`%s\` · noted · %s\n" "$(date '+%Y%m%d%H%M')" "$f" "$note" >> "$LOG"
+        stamp=$(date '+%Y%m%d%H%M')
+        printf -- "- %s · \`%s\` · noted · %s\n" "$stamp" "$f" "$note" >> "$LOG"
         NOTED=$((NOTED + 1)); break ;;
       q|Q)
         echo ""
