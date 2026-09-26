@@ -264,5 +264,26 @@
 
 ---
 
+*Updated: 2026-09-26 16:17*
+
+- **Second navigo2 preturn filed**: `pandora/germs/navigo2_202609261617_germ.md`,
+  fired by a scheduled email-mining routine. Confirms two zero-risk fixes
+  from the first germ (202609211300) are still open five days later
+  (cc-automated `Label_162` filter, XDA four-sub-stream routing) — these
+  should become their own operation rather than a third germ repeating the
+  finding. Also surfaces: eaprime1 independently re-derived the `duplicatus`
+  Carbonite pattern aimed at email (candidates: Instacart/MoneyLion/Bridge
+  Money/Virtual Vocations template-repeaters, not XDA); real Sentinel-faction
+  behavior already happening unassisted (watchduty.org fire-camera forwards,
+  KPTV photo licensing during the Huntington OR fire activity); a repeating
+  caregiving mileage-reimbursement email with no template (3+ instances to
+  `mileage@gobhi.org`); and a pre-existing "Prime/Archive System" Gmail label
+  tree that predates this repo's own Prime state (naming echo, no action
+  taken). Answered eaprime1's one-system-vs-three-routines question: stays
+  one stream entity (navigo2) with three existing gears — preturn,
+  zero-risk operations, playwright stream — rather than new infrastructure.
+
+---
+
 *Prime state: 3*  
 *Witnessed: true* 🃏
