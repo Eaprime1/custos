@@ -3,8 +3,8 @@
 name: Custos — Code Review
 
 # Claude review, run on request rather than on every push.
-# It runs once when a PR is marked ready for review, or when the owner adds
-# the `ai-review` label. Drafts and ordinary pushes get the free, API-free
+# It runs once when a PR opens as non-draft or is marked ready for review,
+# and again only when the owner adds the `ai-review` label. Drafts and ordinary pushes get the free, API-free
 # packet from review-packet.yml instead, which this review reads first.
 # Uses the CLAUDE_CODE_OAUTH_TOKEN repository secret (subscription-based auth,
 # same as finalize-pr.yml). ANTHROPIC_API_KEY is intentionally not passed here:
@@ -14,7 +14,7 @@ name: Custos — Code Review
 
 on:
   pull_request:
-    types: [ready_for_review, labeled]
+    types: [opened, ready_for_review, labeled]
 
 concurrency:
   group: claude-review-${{ github.event.pull_request.number }}
@@ -26,7 +26,7 @@ jobs:
     # GitHub Actions rejects the whole expression at parse time when it's
     # included here (visible as phantom 0-job "push" failures for this
     # workflow on every commit, regardless of branch).
-    if: ${{ (github.event.action == 'ready_for_review' || (github.event.action == 'labeled' && github.event.label.name == 'ai-review')) && github.event.pull_request.head.repo.fork == false && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
+    if: ${{ ((github.event.action == 'opened' && !github.event.pull_request.draft) || github.event.action == 'ready_for_review' || (github.event.action == 'labeled' && github.event.label.name == 'ai-review')) && github.event.pull_request.head.repo.fork == false && !contains(fromJSON('["Copilot","copilot[bot]","github-actions[bot]","dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read

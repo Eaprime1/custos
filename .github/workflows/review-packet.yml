@@ -13,8 +13,8 @@
 #   - placeholder words in added lines (the same list as tools/scan_lexeme.sh)
 #
 # The paid review (claude-code-review.yml) reads this packet first. It runs
-# only when the PR is marked ready for review, or when the owner adds the
-# `ai-review` label.
+# once when a PR opens as non-draft or is marked ready for review, and again
+# only when the owner adds the `ai-review` label.
 #
 # Safety: pull_request_target with NO checkout. PR code is never executed;
 # only the GitHub API's file list and patches are read.
@@ -77,7 +77,8 @@ jobs:
             for (const f of files.filter(x => EXT.test(x.filename))) {
               for (const l of added(f)) {
                 const hit = LEX.find(w => l.toLowerCase().includes(w.toLowerCase()));
-                if (hit) lexHits.push(`\`${f.filename}\`: ${hit}`);
+                const entry = `\`${f.filename}\`: ${hit}`;
+                if (hit && !lexHits.includes(entry)) lexHits.push(entry);
               }
             }
 
@@ -99,13 +100,13 @@ jobs:
               `No-API summary for commit \`${pr.head.sha.slice(0, 7)}\`. It updates on every push. ` +
               (pr.draft
                 ? 'This PR is a **draft**, so the paid Claude review will not run yet.'
-                : 'The paid Claude review runs once, when the PR is marked ready for review.'),
+                : 'The paid Claude review runs once when a PR opens ready or is marked ready. To re-run it, add the `ai-review` label.'),
               '',
               `**Size:** ${files.length} files, +${pr.additions} / -${pr.deletions}`,
               '',
               '**Files by area**',
               ...Object.keys(areas).sort().map(a =>
-                `- \`${a}\`: ${areas[a].length} (${areas[a].map(f => f.status[0]).join('')})`),
+                `- \`${a}\`: ${areas[a].length} (${areas[a].map(f => f.status === 'removed' ? 'd' : f.status[0]).join('')})`),
               '',
               '**Needs Deck Master review**',
               list(deckHits.map(f => `- \`${f.filename}\``)),
@@ -132,7 +133,7 @@ jobs:
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner, repo, issue_number: pr.number, per_page: 100,
             });
-            const mine = comments.find(c => c.user.type === 'Bot' && (c.body || '').startsWith(MARKER));
+            const mine = comments.find(c => c.user?.type === 'Bot' && (c.body || '').startsWith(MARKER));
             if (mine) {
               await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body: text });
             } else {
