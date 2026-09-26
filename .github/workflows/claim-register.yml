@@ -38,6 +38,13 @@ jobs:
               owner: context.repo.owner, repo: context.repo.repo,
               issue_number: issue.number, labels: ['claimed'],
             });
+            // State labels are one at a time (docs/issue-system.md §2).
+            if (labels.includes('open')) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number, name: 'open',
+              }).catch(e => core.info(`Could not remove 'open': ${e.message}`));
+            }
 
             const reward = isTrial
               ? '- **First to complete** earns the Sparstone (or the badge the trial names).\n' +
