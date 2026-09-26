@@ -49,7 +49,9 @@ The shadow well is the waiting state between them.
 
 ## Form (decided 202609251844, issue #330)
 
-**Near-formless on purpose.** An entry is one `.md` file with a prima-clock line and the word `nowhere`. There's no schema beyond that. Formlessness is the point, but an unstamped fragment can't be found again.
+**Near-formless on purpose.** An entry is one `.md` file with a prima-clock line and the
+word `nowhere`. There's no schema beyond that. Formlessness is the point, but an unstamped
+fragment can't be found again.
 
 ## Routing
 

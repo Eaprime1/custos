@@ -71,10 +71,18 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 `quests/missions/` is the workflow arc — quests for operating the mission/bounty commission system.
 
 ### Missions (`missions/`)
-Operational wing for the Tabularium library pipeline (`eaprime1/tabularium`), distinct from the `quests/missions/` arc. Holds `CUSTOS_BRIEF.md` (the integration brief), `INDEX.md` (per-library status), `FIRST_LIBRARY.md`, `WORKFLOWS.md`, `SENESCHAL_Protocol.md`, and `TABULARIUM_BACKLOG.md` (the consolidated integration backlog, formerly issues #194–#198).
+Operational wing for the Tabularium library pipeline (`eaprime1/tabularium`), distinct
+from the `quests/missions/` arc. Holds `CUSTOS_BRIEF.md` (the integration brief),
+`INDEX.md` (per-library status), `FIRST_LIBRARY.md`, `WORKFLOWS.md`,
+`SENESCHAL_Protocol.md`, and `TABULARIUM_BACKLOG.md` (the consolidated integration
+backlog, formerly issues #194–#198).
 
 ### Issue System
-`docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim lifecycle, what a custos bounty pays, the Bot Brief every mission carries for automated submitters, the lexeme-development fallback when a mission can't be done, and the final "does it make sense?" review. Labels are defined in `.github/sovran-labels.yml` and synced by `sovran-labels-sync.yml`.
+`docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim
+lifecycle, what a custos bounty pays, the Bot Brief every mission carries for automated
+submitters, the lexeme-development fallback when a mission can't be done, and the final
+"does it make sense?" review. Labels are defined in `.github/sovran-labels.yml` and synced
+by `sovran-labels-sync.yml`.
 
 ### World (`world/`)
 - `lore.md` — The Podium (Pixel 8), the Field (terminal), the Flock (projects/repos), Shepherd (operator)
@@ -92,8 +100,11 @@ Tracks live device state. Not on `main`.
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
 - `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
 - `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
-- `.github/ISSUE_TEMPLATE/lexeme.yml` — Lexeme development (ground an undefined term in a citable source); also the fallback for any mission that can't be done as written
-- Labels: type (`mission`, `bounty`, `upgrade`, `lexeme`), state (`open` → `claimed` → `submitted`, or `needs-shepherd`), modifiers (`bot-friendly`, `anchor-review`). Full manual in `docs/issue-system.md`
+- `.github/ISSUE_TEMPLATE/lexeme.yml` — Lexeme development (ground an undefined term in a
+  citable source); also the fallback for any mission that can't be done as written
+- Labels: type (`mission`, `bounty`, `upgrade`, `lexeme`), state (`open` → `claimed` →
+  `submitted`, or `needs-shepherd`), modifiers (`bot-friendly`, `anchor-review`). Full
+  manual in `docs/issue-system.md`
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
