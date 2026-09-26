@@ -1,7 +1,7 @@
 # PR Journey: #339 — Workflows: fold ECC comments; record witnesses by comment, sealed at finalize
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202609230926  
+**prima-clock:** 202609260235  
 **Branch:** `claude/trusting-faraday-kdoq87` → `main`  
 **Author:** @Eaprime1  
 **State:** FINALIZED  
@@ -52,7 +52,7 @@ These take effect once on `main`, because `issue_comment` workflows run from the
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202609230815 | @Eaprime1 |
-| Finalized | 202609230926 | @Eaprime1 |
+| Finalized | 202609260235 | @Eaprime1 |
 
 ## CI Record
 
@@ -116,6 +116,6 @@ Should the auto-finalize bot (`auto-finalize.yml`) also seal witnesses when it f
 https://claude.ai/code/session_01XVihLtjp6k5TStKRVFcQsD
 
 ---
-**prima-clock:** 202609230926  
+**prima-clock:** 202609260235  
 **witnessed:** true  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
