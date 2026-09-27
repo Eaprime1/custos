@@ -339,3 +339,21 @@ seeds:        - Review packet (review-packet.yml, this turn) is the API-free
               - Session watchers: skip DeepSource "in progress" edits. Only
                 act on check_suite.completed for the current head.
 ---
+
+---
+turn_ref:     202609262130 (Navigo Claude, 202609251824 → 202609262130)
+prime:        3
+worked:       The free packet and cue record carried the review load, and the
+              paid review ran once per PR. Pasting Codacy findings into the
+              conversation got around the container's network block in one
+              round each time. Every merge was pinned to the sealed commit.
+friction:     - A navigo reply that quoted the seal cue sealed #356, because
+                the gate only checked the author, which is the owner's login.
+              - #356 was merged on a PR comment; the environment flagged it.
+              - A paid review failed on a subscription session limit.
+              - The container couldn't reach Codacy.
+seeds:        - Refresh the cue record after finalize, so the seal shows.
+              - Build an index of the latest cue record per open PR.
+              - Reconcile the navigo names once Eric's update arrives.
+              - Settle the two definitions of atelier/.
+---
