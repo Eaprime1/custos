@@ -62,7 +62,7 @@ only with the `ai-review` label.
    was merged on it. The environment's safety check flagged that as a merge
    without review. From then on, merges needed Eric's confirmation in the
    conversation. He confirmed #356 afterward, and asked for #343 directly.
-6. **#367.** The seal guard, whole-word placeholder matching, and the Latin
+6. **#367.** The seal guard, whole-word matching in the review packet, and the Latin
    cue record. Codacy flagged three wording issues in CLAUDE.md. Eric pasted
    the findings, because the container can't reach Codacy.
 7. **#342.** Two review threads were fixed and the missing PR description was
