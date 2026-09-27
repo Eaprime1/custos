@@ -49,11 +49,12 @@ If an optional review is intentionally omitted during an expeditus course, recor
 
 ## Where custos uses these
 
-- **`finalize-pr.yml`:** the existing implemented cue `@claude` plus `ultima Probatio` finalizes/seals a PR (as does `@claude finalize`). This document does **not** change that live behavior. Do not post that phrase merely to request a preliminary review; use a bare `Probatio` when you want the readiness assessment before finalization. Recensio and Lustratio calls do not finalize even if prose mentions 'finalize'.
+- **`finalize-pr.yml`:** the existing implemented cue `@claude` plus `ultima Probatio` finalizes/seals a PR (as does `@claude finalize`). This document does **not** change that live behavior. Do not post that phrase merely to request a preliminary review; use a bare `Probatio` when you want the readiness assessment before finalization. Recensio and Lustratio calls do not finalize even if prose mentions 'finalize'. The cue is ignored inside `code`, code blocks and `>` quotes, and in any comment carrying the Claude Code footer, so quoting it or a navigo reply can't seal a PR.
 - **Merge:** neither a finalized label nor a passing assessment merges a PR. Eric requests merge separately in the conversation or with the responsible merger.
 - **Conversations:** adapted usage and a seed block are in [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md). That document currently describes *Ultima Probatio* as sealing a conversation; align its language later if the owner changes that separate scope.
 - **Radix:** `ultima Probatio` also finalizes there (radix#41). A change to this glossary alone does not alter radix.
-- **Automation:** Renovata, Expeditus and Cursus have no installed parser or workflow here. Do not assume `Eaprime1` as GitHub comment author proves human intent: navigo comments can post under that same login. Any future trigger needs an unambiguous owner signal and tests on actual comments.
+- **`latin-cue-record.yml`:** any owner comment with a call (Recensio, Probatio, Lustratio, Judicium, Novissimum, Cursus, with or without a modifier) is logged in one comment on the PR, next to the PR's state: checks, open threads, merge state, witness seal, commits since the previous call and a link to the review packet. It calls no model and never reviews, seals or merges. Other conversations can work a PR with these calls; the record is what the final review checks before the merge.
+- **Automation:** apart from that record, Renovata, Expeditus and Cursus have no installed workflow here. Do not assume `Eaprime1` as GitHub comment author proves human intent: navigo comments can post under that same login. Any future trigger needs an unambiguous owner signal and tests on actual comments.
 
 ## Reconciliation notes
 
