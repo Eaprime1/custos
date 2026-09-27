@@ -208,7 +208,7 @@ Each navigo is a paired team of one AI model and eaprime1. They are internal con
 | nav3 | Gemini + eaprime1 | `.gemini/` |
 | nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
 
-**Naming is under review (202609270422).** Until Eric's update arrives, conversations use
+**Naming is under review (as of 2026-09-27).** Until Eric's update arrives, conversations use
 **Navigo Claude**, **Navigo Perplexity** and **Navigo Unexusi** (the project as primary
 perspective). The numbered table above stays as it is until then. See `turns/CULTIVATION.md`.
 
@@ -242,9 +242,10 @@ The reasoning is in `docs/issue-system.md` §4.
 
 **Seal and merge.** Navigo comments post under the owner's login, so a login alone isn't consent.
 - `finalize-pr.yml` seals only on the owner's cue.
-- It ignores comments with the Claude Code footer and cues inside quotes or code.
-- A navigo never writes the literal seal cue in a PR comment.
-- A navigo merges only when the owner asks in the conversation, never on a PR comment alone.
+- The seal gate ignores comments that carry the Claude Code footer.
+- The seal gate also ignores cues inside quotes or code.
+- A navigo describes the seal cue in words in PR comments, unless the owner asks it to post the cue.
+- A navigo merges when the owner asks in the conversation. A PR comment alone isn't enough, unless the owner has said otherwise in the conversation.
 - `latin-cue-record.yml` logs each Latin call with the PR's state for the final review.
 
 **Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
