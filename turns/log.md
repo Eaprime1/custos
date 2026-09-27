@@ -448,3 +448,81 @@ contribution: naught CLAUDE.md merged (Eaprime1/naught#2, e606129 — template C
 resonance:    oriented
 witnessed:    true
 ---
+
+---
+turn:         2026-09-25 18:44
+prima-clock:  202609251844
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       clear every issue without an outside claim or submission; set up the issue system (labels, claims, bounty terms, bot-ready missions, lexeme fallback, final sense check)
+contribution: 20 unclaimed issues triaged; #325/#235/#187 left for the Shepherd (outside claims and submissions). Built: world/concordance.md (#128), world/polarity.md + three .shadow-well entries (#330), tools/shepherd_considers.sh (#186), guides/anchor-review.md + anchor-review label (#188), turns/review-surface.md (#321), .claude/drift.md (#322), navigo2 row in the CLAUDE.md table (#320), missions/ in README + CLAUDE.md (#202), registry exception for the root custody files (#201). Confirmed already done: #127, #324. Consolidated: #194–#198 and #204 → missions/TABULARIUM_BACKLOG.md; #323/#327/#328 → .claude/missions.md. Issue system: docs/issue-system.md, lexeme.yml template, Bot Brief fields in the mission/bounty templates, fallback + sense-check lines in all templates, Sense Check in the PR template, atelier/lexemes/, ten labels in sovran-labels.yml. Pinnacle Drive folder surveyed (marrowing_of_hope, shadow_exchange/maw); nothing pulled in this turn
+resonance:    cleared
+witnessed:    false
+---
+
+---
+turn:         2026-09-26 01:28
+prima-clock:  202609260128
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       close the day: finish PR #343, review Perplexity's first two draft PRs, build a review step that needs no API
+contribution: PR #343 green and clean: claim-register now drops `open` when it adds `claimed`, and the stale plan line on auto-close is fixed; PR #356 opened as a draft: review-packet.yml gathers each PR's content with no model call, and claude-code-review.yml now runs only on ready-for-review or the `ai-review` label; review receipts posted on #354 and #355 (navigo naming, a nav4 slot for Perplexity, one home for the Latin cue terms); AAR with seeds is in #356; hourly check-ins off to save usage, and the PR watch stays on
+resonance:    rested
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 22:45
+prima-clock:  202609262245
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       carry Act II setup from the naught/maw/nullus handoff through to finish; seal every open PR and close the session with its journey
+contribution: 14 PRs merged across naught, nullus, maw, custos and radix.
+              - ECC comment folding in all five repos.
+              - Witnessing recorded by comment and sealed at finalize (custos#339).
+              - The Latin workflow glossary (custos#359) plus a conversation-seed adaptation.
+              - `ultima Probatio` as a finalize trigger in custos and radix; it sealed radix#42 on first use.
+              - check_mission.sh parses again (#340).
+              - Valuation ledger gaps settled from Drive, not invented (#341).
+              - Prima witness and the `---` parser fix ported to radix (#42).
+              Closing record: valuation/nav1-act-ii-setup_journey_202609262245.md.
+resonance:    sealed in Latin
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 16:09
+prima-clock:  202609261609
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       open the session after the days away; re-orient to what changed on main
+contribution: Main moved while this branch waited:
+              - #339, #340, #341, #357, #359, #360 and #361 merged.
+              - docs/latin-workflow-glossary.md (#359) is now the canonical home
+                for the Latin cues, which settles one open seed from PR #356's AAR.
+              - #356 was marked ready for review; #343 is still a draft.
+              - Open drafts from others: #354 and #355 (Perplexity), #358 (navigo2).
+              Both of this session's PRs had fallen into conflict with main,
+              in append-only files only (turns/, .claude/missions.md,
+              prima-clock/registry.md). Resolved by keeping both sides.
+resonance:    returning
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 21:30
+prima-clock:  202609262130
+prime:        3
+entity:       eaprime1 + Navigo Claude
+intent:       close the day: land the review flow, guard the seal, and verify the open PRs
+contribution: Four PRs merged, each sealed High 20/20:
+              - #343: the issue system.
+              - #356: the free review packet, with the paid review on request.
+              - #367: the seal guard, whole-word packet scan and Latin cue record.
+              - #342: CONTRIBUTING routing.
+              Perplexity's drafts #354 and #355 were reviewed on the PRs.
+              Merges are now confirmed in conversation, not by PR comment.
+              Closing record: valuation/navigo-claude_issue-system-and-review-flow_journey_202609262130.md.
+resonance:    guarded
+witnessed:    true
+---
