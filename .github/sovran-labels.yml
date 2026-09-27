@@ -10,6 +10,11 @@
 # to form a system-wide tracking layer.
 
 labels:
+  # ── Review (review-packet.yml / claude-code-review.yml) ───────────────────
+  - name: ai-review
+    color: "1d76db"
+    description: "Owner opt-in: run the paid Claude review on this PR now"
+
   # ── Concordance ────────────────────────────────────────────────────────────
   - name: concordance
     color: "0075ca"
