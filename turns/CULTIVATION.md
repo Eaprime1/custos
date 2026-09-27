@@ -93,6 +93,25 @@ close #18.
 
 ---
 
+## Navigo naming (202609262130)
+
+Several naming schemes are in use at once:
+- CLAUDE.md numbers the teams (nav1 Claude, navigo2 Gmail, nav3 Gemini, nav5 ChatGPT).
+- Perplexity's draft PRs call Claude "Navigo2".
+- On 202609270422 Eric said he'd use **Navigo Claude**, **Navigo Perplexity**
+  and **Navigo Unexusi** (the project as primary perspective) until a latest
+  update arrives.
+
+**Status:** deferred to that update. Don't rewrite the CLAUDE.md table or the
+Perplexity PRs before it arrives.
+
+## atelier/ has two definitions (202609262130)
+
+- CLAUDE.md and `atelier/README.md`: "concepts before they have names".
+- `.shadow-well/README.md`: "atelier names things and develops them".
+
+#342 followed CLAUDE.md. **Status:** open for Eric's decision.
+
 ## Process Seeds
 
 ### Trigger a GitHub Action when a PR merges

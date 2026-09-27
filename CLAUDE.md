@@ -68,7 +68,21 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 
 `quests/000-thee-the-door.md` is the initiation quest — blocks all others until `prima.yaml` is named and `world/lore.md` has content.
 
-`quests/missions/` is the workflow arc — quests for operating the mission/bounty commission system.
+`quests/missions/` is the workflow arc — quests for operating the mission and Sparstone Trial commission system.
+
+### Missions (`missions/`)
+The operational wing for the Tabularium library pipeline (`eaprime1/tabularium`).
+It is distinct from the `quests/missions/` arc. It holds `CUSTOS_BRIEF.md` (the integration
+brief), `INDEX.md` (the library index: status per library),
+`FIRST_LIBRARY.md`, `WORKFLOWS.md`,
+`SENESCHAL_Protocol.md`, and `TABULARIUM_BACKLOG.md` (formerly issues #194–#198).
+
+### Issue System
+`docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim
+lifecycle, the no-cash reward system, the Bot Brief every mission carries for automated
+submitters, the lexeme-development fallback when a mission can't be done, and the final
+"does it make sense?" review. `.github/sovran-labels.yml` defines the labels, and
+`sovran-labels-sync.yml` applies them.
 
 ### World (`world/`)
 - `lore.md` — The Podium (Pixel 8), the Field (terminal), the Flock (projects/repos), Shepherd (operator)
@@ -84,9 +98,14 @@ Tracks live device state. Not on `main`.
 
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
-- `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
+- `.github/ISSUE_TEMPLATE/sparstone-trial.yml` — Open challenge (problem defined, approach open).
+  It replaced the old `bounty` type; first completer earns the Sparstone
 - `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
-- Labels: `mission`, `bounty`, `upgrade`, `open` on GitHub Issues
+- `.github/ISSUE_TEMPLATE/lexeme.yml` — Lexeme development (ground an undefined term in a
+  citable source); also the fallback for any mission that can't be done as written
+- Labels: type (`mission`, `sparstone-trial`, `upgrade`, `lexeme`), state (`open`, `claimed`,
+  `submitted`, `needs-shepherd`), modifiers (`bot-friendly`, `anchor-review`). The full
+  manual is `docs/issue-system.md`
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
@@ -138,11 +157,14 @@ A listening practice for capturing fragments before they have names. Not a ticke
 Concept progression via prime numbers. Current: `3`. Advance only when a development phase completes. Template ships with `3`.
 
 ### Turns (`turns/`)
-Session memory, append only. Four files, distinct purposes:
+Session memory, append only. Five files, distinct purposes:
 - `log.md` — *what* a turn built. One entry per meaningful session. Schema in `TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
 - `CLOSING.md` — the checklist for ending a session: review what happened, file loose ends in `queue/artesium-weir/`, append to `log.md`, update `device/active.md`, run `scan_lexeme.sh`, commit/push, optionally write an AAR. Run this whenever asked to "wrap up", "finalize", or "close out."
 - `AAR.md` — *how* the turn went (process/friction/seeds), not what it produced. Same append-only spirit as `log.md`, different lens. Not every turn needs one.
 - `CULTIVATION.md` — cross-PR catalog of open design conflicts surfaced at closing time (e.g. competing naming systems introduced in separate PRs). Resolve or explicitly defer each entry when read; don't let it become an unread backlog.
+- `review-surface.md` — what review bots flagged on each PR, one plain sentence per flag, actionable or noise.
+
+nav1 keeps `.claude/drift.md` alongside: an append-only record of calls it made that the Shepherd didn't direct.
 
 ### Queue (`queue/`)
 Staging ground for what has crossed in from outside but hasn't found its place yet — nothing here is finished. `queue/artesium-weir/` is the filter between raw inbound material (e.g. a PDF export of a GitHub PR thread) and formal chain of custody; see `queue/artesium-weir/README.md` for the routine. Per-item subfolders (e.g. `queue/artesium-<contributor>/`) hold in-flight artifacts until the Weir routes them onward — close them out via the `turns/CLOSING.md` checklist rather than leaving them mid-flow.
@@ -154,7 +176,11 @@ Staging ground for what has crossed in from outside but hasn't found its place y
   - `scan-lexeme.yml` — placeholder scan
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
-  - `claude-code-review.yml`
+  - `claude-code-review.yml` — the paid Claude review
+    - The review runs once, when a PR is ready for review.
+    - The review runs again only when the `ai-review` label is added.
+  - `review-packet.yml` — API-free summary of every PR (files by area, Deck Master paths, template sections, placeholder words)
+  - `latin-cue-record.yml` — logs each Latin workflow call (docs/latin-workflow-glossary.md) with the PR's state, for the final review before merge
   - `dependency-review.yml`
   - `sovran-voice.yml`
 
@@ -178,8 +204,13 @@ Each navigo is a paired team of one AI model and eaprime1. They are internal con
 | Navigo | Team | Workspace |
 |--------|------|-----------|
 | nav1 | Claude + eaprime1 | `.claude/` |
+| navigo2 | Gmail + eaprime1 | none yet — see `guides/navigo2-gmail-preturn.md` |
 | nav3 | Gemini + eaprime1 | `.gemini/` |
 | nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
+
+**Naming is under review (as of 2026-09-27).** Until Eric's update arrives, conversations use
+**Navigo Claude**, **Navigo Perplexity** and **Navigo Unexusi** (the project as primary
+perspective). The numbered table above stays as it is until then. See `turns/CULTIVATION.md`.
 
 Each navigo workspace folder holds three types of content:
 - Source documents returned from that AI's sessions, before formal custody
@@ -190,7 +221,7 @@ Raw exports land in the workspace first, get renamed `.md` once reviewed, then f
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
-1. The mission/bounty issue URL or description
+1. The mission or Sparstone Trial issue URL or description
 2. Files to read first: `prima.yaml`, `CLAUDE.md`, relevant quest or guide
 3. The exact completion check command
 4. The PR template format (Intent, What Arrived, Resonance, Ethics Check)
@@ -199,7 +230,23 @@ When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, alway
 
 **Lore tone:** Short, evocative. The terminal is the world, not a tool. Avoid classroom framing.
 
+**No bounties, no cash.** custos retired the word "bounty" and pays no monetary rewards.
+Rewards are XP on the prime ladder, badges and Sparstones.
+Pay links in a PR are a safety risk here, because anyone can click one by accident.
+A submission that asks for payment gets the `payment-demand` label and is closed automatically, unread.
+An AI contributor facing a payment question can skip the task or ask in the thread.
+It can also build the work without any payment request. New ideas are welcome.
+The reasoning is in `docs/issue-system.md` §4.
+
 **Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
+
+**Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
+- `finalize-pr.yml` seals a PR when the owner comments the seal cue.
+- The seal gate skips comments that carry the Claude Code footer.
+- The seal gate also skips cues inside quotes or code.
+- In PR comments, a navigo describes the seal cue in words, unless the owner asks it to post the cue.
+- A navigo merges when the owner asks in the conversation, or in another way the owner has confirmed there.
+- `latin-cue-record.yml` logs each Latin call with the PR's state for the final review.
 
 **Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
 

@@ -309,3 +309,51 @@ partner_state:
                     are new work; the Latin calls now steer both PRs and
                     conversations"
 ---
+
+---
+turn_ref:     202609260128 (closing for the PR #343 session, 202609251824 → 202609260128)
+prime:        3
+worked:       Answering review bots in one line and resolving the thread,
+              so an echo doesn't wake the session again. Keeping the plan doc
+              ("seed forward") separate from the build, so a fresh
+              conversation can pick up Phase 1 without re-reading the thread.
+              Checking a new branch against an open PR with `git merge-tree`
+              before pushing, and moving a label entry to avoid a conflict.
+friction:     Usage. Most of the cost was PR notifications: DeepSource
+              edits its one comment 10+ times per push, and each edit woke
+              the session. The paid review also ran on every push of a
+              non-draft PR. A stale plan-doc line (auto-close) drew a bot
+              finding a few hours after it was written.
+seeds:        - Review packet (review-packet.yml, this turn) is the API-free
+                gather step. The paid review now runs only on
+                ready-for-review or the `ai-review` label.
+              - Owner-cue detector (PR #355's "safe future detector") could
+                start small: an Eaprime1 comment with a cue word adds a line
+                to the review packet. No model call, no fan-out.
+              - Perplexity has no navigo row in CLAUDE.md. nav4 is the free
+                number. The Shepherd decides.
+              - "Claude / Navigo2" in PR #354 conflicts with CLAUDE.md
+                (Claude is nav1, navigo2 is Gmail). Needs one wording.
+              - Latin cue terms now have two proposed homes (PR #354's
+                glossary and PR #355's owner-cues). Pick one canonical file.
+              - Session watchers: skip DeepSource "in progress" edits. Only
+                act on check_suite.completed for the current head.
+---
+
+---
+turn_ref:     202609262130 (Navigo Claude, 202609251824 → 202609262130)
+prime:        3
+worked:       The free packet and cue record carried the review load, and the
+              paid review ran once per PR. Pasting Codacy findings into the
+              conversation got around the container's network block in one
+              round each time. Every merge was pinned to the sealed commit.
+friction:     - A navigo reply that quoted the seal cue sealed #356, because
+                the gate only checked the author, which is the owner's login.
+              - #356 was merged on a PR comment; the environment flagged it.
+              - A paid review failed on a subscription session limit.
+              - The container couldn't reach Codacy.
+seeds:        - Refresh the cue record after finalize, so the seal shows.
+              - Build an index of the latest cue record per open PR.
+              - Reconcile the navigo names once Eric's update arrives.
+              - Settle the two definitions of atelier/.
+---

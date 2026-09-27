@@ -1,81 +1,48 @@
 # Next Session Briefing
-`prima-clock: 202609211052`
-`written: nav1 session close, 2026-09-21`
+`prima-clock: 202609262130`
+`written: Navigo Claude session close, 2026-09-26`
 
 ---
 
 ## Where We Are
 
-**main is clean.** Two major PRs merged this session:
-- **PR #334** — `guides/pr-lifecycle.md` with full cue vocabulary, Reviewer Roster pattern,
-  Relationship table. The lifecycle spec is now findable.
-- **PR #313** — Breathe I Marrowing of Hope batch landed. 21 files, 8 navigos, in
-  `atelier/marrowing-of-hope/`. Nursery-stage, not reconciled. Breathe II is next.
+`main` is clean, and every PR from this session has merged: #343, #356, #367 and #342, each sealed High 20/20.
+The full story is in `valuation/navigo-claude_issue-system-and-review-flow_journey_202609262130.md`.
+
+How a PR moves now:
+1. **Review packet** (`review-packet.yml`). A free summary on every PR, drafts included.
+2. **Paid Claude review.** It runs once when a PR is ready, and again only with the `ai-review` label.
+3. **Latin calls** (`docs/latin-workflow-glossary.md`). Any conversation working a PR uses them.
+   `latin-cue-record.yml` logs each call with the PR's state.
+4. **Seal.** The owner's cue. Navigo comments and quoted cues can't seal.
+5. **Merge.** Only when Eric asks in the conversation.
 
 ---
 
-## Quick Wins (first 10 minutes)
+## Quick Wins
 
-1. **Confirm antigravity/navigo21 identity** — what is it? Once named, create the workspace
-   folder, add to CLAUDE.md navigo table, and create its navigo profile. Unblocks nav3's
-   GitHub access conversation.
-
-2. **Reconnect nav3 GitHub access** — find the repo-access option in the Gemini session
-   settings. Was not locatable last session. May be under "Connected apps" or "Data access"
-   in the Gemini Advanced settings rather than the session panel itself.
-
-3. **Open the Breathe II reconciliation** — read
-   `atelier/marrowing-of-hope/breathe-ii-opening.md` to pick up the three live tensions
-   (Custos/Voices/Aequitas Triad, wood-chest taxonomy, Sovereign Charter) and begin the
-   first pass. No rush — the opening holds.
+1. **Navigo names.** Eric is bringing an update. Until then, use Navigo Claude, Navigo Perplexity and Navigo Unexusi.
+   Then:
+   - update the CLAUDE.md table;
+   - update the naming point in the review comments on #354 and #355;
+   - close the `turns/CULTIVATION.md` entry.
+2. **Perplexity drafts #354 and #355.** Reviews are posted on each PR. They wait on Navigo Perplexity, or on Eric asking Navigo Claude to apply the fixes.
+3. **Cue record timing.** The record snapshots the PR when a call is made, so a seal landing at the same moment shows as "not sealed". A refresh after finalize would fix that.
 
 ---
 
-## Push-Forwards (existing open threads)
+## Push-Forwards
 
 | Thread | Where | Next action |
 |--------|-------|-------------|
-| Daily Navigo Contribution Protocol | `.claude/missions.md` (issue #327 closed `not_planned`) | Revisit protocol design — issue closed, mission still open |
-| Gmail trigger architecture | `.claude/missions.md` (issue #328 closed `not_planned`) | Revisit Gmail trigger approach — issue closed, mission still open |
-| Skills / tools / plugins / routines audit | Shepherd's request this session | Full pass: what's installed vs. what's being used; identify anything running that shouldn't be |
-| Queue/seed-weir harvest | `queue/seed-weir/README.md` | Periodic OPEN→PLANTED/COMPOSTED review |
-| Breathe II: Sovereign Charter reconciliation | `atelier/marrowing-of-hope/navigo7/` | Read all four documents together (factions.md, ethics-foundation.md, Aequitas, Charter) |
+| Challenge name ("quest"?) | `docs/plans/202609252039-rewards-and-flags-plan.md` | Eric decides |
+| 59 + 60 normal/shadow progression | same plan doc | Write the rules |
+| Reward ledger | same plan doc | Where XP, badges and Sparstones get recorded |
+| Retire `bounty` in all repos | same plan doc | Copilot mission, then delete the custos label |
+| `atelier/` has two definitions | `turns/CULTIVATION.md` | Eric decides |
+| Index of cue records | seed | One place listing each open PR's latest record |
+| Earlier threads | `.claude/missions.md` | Gmail filters, antigravity/navigo21, nav3 GitHub access |
 
 ---
 
-## New Ideas (from this session's Quill pass)
-
-**The archivist is already self-documenting the lifecycle.** The archivist workflow
-auto-commits journey stubs on merge, `finalize-pr.yml` auto-commits journey docs on
-`@claude finalize`, and `guides/pr-lifecycle.md` now documents the cue vocabulary.
-The next natural extension: a similar auto-indexer for `atelier/` that updates
-`atelier/README.md`'s concept table when new files arrive. Low friction, high value.
-
-**nav3's Playwright System metaphor is worth developing.** The "prompt book" framing for
-`guides/polaris-iceberg.md` is genuinely evocative — treating fixed coordinates as
-"blocking notes" rather than static references invites a more theatrical read of how
-navigos pick up cues and execute. Worth a Breathe II contribution request to nav3 once
-GitHub access is restored.
-
-**Inception journey for this session.** This session (PR #334 + PR #313 merges +
-Breathe I/II junction naming) is worth a valuation/journey document in the Five Lakes
-style. Not urgent — the turn log and registry entries hold the facts — but the arc
-(opening the cue vocabulary spec, landing the first multi-navigo batch, handing the
-Quill to write the junction) has a shape worth capturing formally.
-
-**Skills / tools / plugins / routines review** (Shepherd's explicit request): this session
-didn't have room to do it properly. Needs a dedicated audit pass: list every skill, tool,
-plugin, and routine currently active → determine what's load-bearing vs. installed-and-idle
-vs. actively running → trim what isn't needed so the environment stays clean. Recommend
-making this the *first* thing next session, not a sidebar.
-
----
-
-## State to Carry Forward
-
-- nav3's open question (`.gemini/202609210359_nav3-act2-preturn.md`): "What specific Act II
-  infrastructure gap or shift plot should Navigo 3 prepare the stage for next?" — Shepherd
-  answers, not nav1.
-- antigravity/navigo21: named but undefined. Held in `.gemini/` preturn, AAR, registry, Breathe II opening, and missions. Shepherd defines what it is.
-- Gemini workflows paused. Don't patch around; wait for navigo21 transition.
-- No active watches. No scheduled wakeups. Main is clean. Rest well.
+*∞ Enjoy the journey ∞*
