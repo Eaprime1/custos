@@ -1,10 +1,10 @@
 # PR Journey: #356 — Review packet: API-free PR summary; paid review only on request
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202609261157  
+**prima-clock:** 202609270304  
 **Branch:** `claude/great-dirac-yp319k-review-packet` → `main`  
 **Author:** @Eaprime1  
-**State:** FINALIZED (auto)  
+**State:** FINALIZED  
 
 ## Intent
 
@@ -32,16 +32,14 @@ A review step that costs no model usage, running on every PR including drafts. I
 
 ## Resonance
 
-*gathered
-
----*
+*gathered*
 
 ## The Arc
 
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202609260830 | @Eaprime1 |
-| Auto-Finalized | 202609261157 | github-actions[bot] |
+| Finalized | 202609270304 | @Eaprime1 |
 
 ## CI Record
 
@@ -60,9 +58,9 @@ A review step that costs no model usage, running on every PR including drafts. I
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
 | scan | ✅ |
-| validate | ✅ |
-| dependency-review | ✅ |
 | scan | ✅ |
+| dependency-review | ✅ |
+| validate | ✅ |
 | GitGuardian Security Checks | ✅ |
 
 ## DeepSource Record
@@ -76,7 +74,7 @@ A review step that costs no model usage, running on every PR including drafts. I
 | Dimension | Score | Note |
 |---|---|---|
 | Correctness | 5/5 | 17 CI check(s) — all passed |
-| Consistency | 5/5 | Description complete · ethics 5/5 |
+| Consistency | 5/5 | Template complete · ethics 5/5 |
 | Scope | 5/5 | 5 file(s) changed |
 | Verification | 5/5 | 17 check run(s) completed |
 | **Valuation** | **High** | 20/20 |
@@ -97,7 +95,11 @@ An owner-cue step (PR #355) could add a line to the packet when Eaprime1 comment
 
 https://claude.ai/code/session_01HJY7Lmt3cJbNiKWa4jm4M6
 
+## Witnesses
+
+- @Eaprime1 · 202609270304 · sealed at finalize
+
 ---
-**prima-clock:** 202609261157  
-**witnessed:** true  
+**prima-clock:** 202609270304  
+**witnessed:** true — 1 witness, sealed 202609270304 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
