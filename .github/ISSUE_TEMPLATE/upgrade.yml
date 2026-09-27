@@ -82,3 +82,11 @@ body:
       placeholder: "75"
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **If this can't be done as written:** take the lexeme path. Pick one term or concept named above, research it (Wikipedia preferred; any citable source), and file a note in `atelier/lexemes/`. See `docs/issue-system.md` §6.
+
+        **Before you submit:** answer the Sense Check in the PR template. Does what you made answer this issue, and would it make sense to a stranger?
