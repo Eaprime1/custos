@@ -208,6 +208,10 @@ Each navigo is a paired team of one AI model and eaprime1. They are internal con
 | nav3 | Gemini + eaprime1 | `.gemini/` |
 | nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
 
+**Naming is under review (as of 2026-09-27).** Until Eric's update arrives, conversations use
+**Navigo Claude**, **Navigo Perplexity** and **Navigo Unexusi** (the project as primary
+perspective). The numbered table above stays as it is until then. See `turns/CULTIVATION.md`.
+
 Each navigo workspace folder holds three types of content:
 - Source documents returned from that AI's sessions, before formal custody
 - A queue of what to pick up next session
@@ -235,6 +239,14 @@ It can also build the work without any payment request. New ideas are welcome.
 The reasoning is in `docs/issue-system.md` §4.
 
 **Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
+
+**Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
+- `finalize-pr.yml` seals a PR when the owner comments the seal cue.
+- The seal gate skips comments that carry the Claude Code footer.
+- The seal gate also skips cues inside quotes or code.
+- In PR comments, a navigo describes the seal cue in words, unless the owner asks it to post the cue.
+- A navigo merges when the owner asks in the conversation, or in another way the owner has confirmed there.
+- `latin-cue-record.yml` logs each Latin call with the PR's state for the final review.
 
 **Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
 
