@@ -240,12 +240,12 @@ The reasoning is in `docs/issue-system.md` §4.
 
 **Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
 
-**Seal and merge.** Navigo comments post under the owner's login, so a login alone isn't consent.
-- `finalize-pr.yml` seals only on the owner's cue.
-- The seal gate ignores comments that carry the Claude Code footer.
-- The seal gate also ignores cues inside quotes or code.
-- A navigo describes the seal cue in words in PR comments, unless the owner asks it to post the cue.
-- A navigo merges when the owner asks in the conversation. A PR comment alone isn't enough, unless the owner has said otherwise in the conversation.
+**Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
+- `finalize-pr.yml` seals a PR when the owner comments the seal cue.
+- The seal gate skips comments that carry the Claude Code footer.
+- The seal gate also skips cues inside quotes or code.
+- In PR comments, a navigo describes the seal cue in words, unless the owner asks it to post the cue.
+- A navigo merges when the owner asks in the conversation, or in another way the owner has confirmed there.
 - `latin-cue-record.yml` logs each Latin call with the PR's state for the final review.
 
 **Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
