@@ -70,13 +70,17 @@ jobs:
               f.status === 'added' && f.filename.endsWith('.md') &&
               !added(f).some(l => STAMP.test(l)));
 
-            // Placeholder words in added lines, mirroring tools/scan_lexeme.sh.
+            // Placeholder words in added lines: the list from tools/scan_lexeme.sh,
+            // matched as whole words (any case), so "replaced" doesn't count as
+            // REPLACE. The shell scan matches substrings, so it can flag more.
             const LEX = ['TODO', 'FIXME', 'BROKEN', 'placeholder', 'REPLACE', 'TBD', '???', 'UNKNOWN', 'My Prima Terminal'];
+            const esc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const LEX_RE = LEX.map(w => ({ w, re: new RegExp('(^|[^A-Za-z0-9_])' + esc(w) + '(?![A-Za-z0-9_])', 'i') }));
             const EXT = /\.(md|sh|ya?ml|json)$/;
             const lexHits = [];
             for (const f of files.filter(x => EXT.test(x.filename))) {
               for (const l of added(f)) {
-                const hit = LEX.find(w => l.toLowerCase().includes(w.toLowerCase()));
+                const hit = (LEX_RE.find(x => x.re.test(l)) || {}).w;
                 const entry = `\`${f.filename}\`: ${hit}`;
                 if (hit && !lexHits.includes(entry)) lexHits.push(entry);
               }
