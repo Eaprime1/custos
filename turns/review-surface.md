@@ -25,12 +25,18 @@ prima-clock: 202609210713
 
 All bot findings on #319 were noise, apart from the review threads the review itself resolved.
 
+## PR #343 — Issue system: labels, claims, no-cash rewards, Bot Brief, lexeme fallback
+prima-clock: 202609270322
+
+- Claude review: failed on a subscription session limit, not on the code. Re-run once after the reset and passed.
+- Earlier bot findings: the stale plan-doc line on auto-close and `open` left on claimed issues. Actionable. Both fixed before the review above.
+- DeepSource: grade A. Codacy: clean after Eric's update.
+
 ## PR #356 — Review packet: API-free PR summary; paid review only on request
 prima-clock: 202609270305
 
 - codereviewbot-ai: five findings (removed-file letter, null user, duplicate hits, misleading text, non-draft trigger). Actionable. All fixed.
 - codereviewbot-ai: the packet was missing the template's "What Door" section. Actionable. Fixed.
-- Claude review: failed on a subscription session limit, not on the code. Noise for the PR itself. Re-run once and passed.
 - DeepSource, Codacy: clean.
 
 ## PR #367 — Seal-cue guard, whole-word packet scan, Latin cue record
