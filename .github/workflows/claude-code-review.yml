@@ -16,8 +16,11 @@ on:
   pull_request:
     types: [opened, ready_for_review, labeled]
 
+# Any label fires a `labeled` event, but only `ai-review` runs the job. Other
+# labels get their own group, so a bot adding a label can't cancel a review
+# that's already running.
 concurrency:
-  group: claude-review-${{ github.event.pull_request.number }}
+  group: claude-review-${{ github.event.pull_request.number }}-${{ (github.event.action == 'labeled' && github.event.label.name != 'ai-review') && 'other-label' || 'review' }}
   cancel-in-progress: true
 
 jobs:
