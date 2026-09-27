@@ -84,7 +84,10 @@ jobs:
 
             // PR template sections.
             const body = pr.body || '';
-            const SECTIONS = ['Intent', 'What Arrived', 'Resonance', 'Ethics Check', 'Sense Check'];
+            // Headings from .github/PULL_REQUEST_TEMPLATE.md. 'What Door' is the
+            // prefix of 'What Door Does This Open?', so no '?' reaches the regex.
+            // 'Sense Check' is added to the template by PR #343.
+            const SECTIONS = ['Intent', 'What Arrived', 'Resonance', 'Ethics Check', 'Sense Check', 'What Door'];
             const has = s => new RegExp('^#{1,3}\\s*' + s + '\\b', 'im').test(body);
             const closes = [...body.matchAll(/\b(?:closes|fixes|resolves|refs)\s+#(\d+)/gi)].map(m => '#' + m[1]);
 
