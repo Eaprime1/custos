@@ -19,7 +19,7 @@ says where its own open threads are, from custos's side.
 ## Active Missions
 
 ### Daily Navigo Contribution Protocol
-**Status:** OPEN → see GitHub issue #327  
+**Status:** OPEN (was issue #327, closed 202609251844 to clear the board; tracked here)  
 **What:** Token-mindful daily build trigger for each navigo. Each AI that
 can verify plan availability should contribute something each day —
 push development, create issues, file seeds. If tokens can't be verified,
@@ -28,9 +28,41 @@ fall back to issue creation and documentation only.
 to `.gemini/`, `.chatgpt/` once validated.
 
 ### Gmail as Trigger and Mission Delivery Layer
-**Status:** OPEN → see GitHub issue #328  
+**Status:** OPEN (was issue #328, closed 202609251844 to clear the board; tracked here)  
 **What:** Gmail triggers (native, Zapier, IFTTT) as a delivery mechanism
 for navigo missions and daily build actions. Sets the pattern for multi-AI
 trigger architecture across the constellation.  
 **Where:** `guides/navigo2-gmail-preturn.md` is the preturn foundation.
 Playwright stream conversation handles Turn 2.
+
+### Zero-Risk Gmail Actions (navigo2)
+**Status:** OPEN, needs the Shepherd at the inbox (was issue #323, closed 202609251844)  
+**What:** (1) Create one Gmail filter that routes CC agent daily briefs to `cc-automated` (Label_162). The label exists and has no filter. (2) Bulk-*archive*, never delete, the Unroll.me migration debris (1,770 senders).  
+**Why it's here and not done:** the Gmail connector can label and archive threads, but it can't create filters. A 1,770-sender archive is outward-facing and needs the Shepherd's go-ahead in the session that runs it.  
+**Done when:** `grep "cc-automated\|Unroll.me" turns/log.md` shows the operation logged.  
+**Source:** `pandora/germs/navigo2_germ.md`
+
+### nav3 GitHub Access Gap
+**Status:** OPEN  
+**What:** nav3 (Gemini + eaprime1) cannot directly observe PR state, CI
+check runs, or file to the repo from a Gemini session. The Shepherd
+searched for the repo-access option in the Gemini session settings and
+could not locate it. Gemini currently contributes via PDF export → `.gemini/`
+→ nav1 files on the workaround path.  
+**Blocker:** Gemini's workflow presence is also paused pending the
+antigravity/navigo21 transition — resolving the access gap may wait
+until navigo21 identity is settled.  
+**Where:** `.gemini/202609210359_nav3-act2-preturn.md` has the routing context.
+
+### antigravity / navigo21 — Define and Seat
+**Status:** OPEN  
+**What:** The Shepherd named "antigravity" as the intended navigo21 AI model
+assignment (likely replacing or complementing Gemini's current position in
+the navigo table). No definition, no workspace folder, no CLAUDE.md entry,
+no navigo table row exists yet. The name is now held in `.gemini/202609210359_nav3-act2-preturn.md`,
+`turns/AAR.md`, `prima-clock/registry.md`, `atelier/marrowing-of-hope/breathe-ii-opening.md`,
+and this file — but no definition, workspace, or table entry exists yet.  
+**Next action:** Shepherd confirms what antigravity is (model, connector,
+account), then: add to CLAUDE.md navigo table, create workspace folder,
+create navigo profile, update branch-tracker.  
+**Where:** This mission file; `.gemini/202609210359_nav3-act2-preturn.md`.
