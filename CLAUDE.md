@@ -176,7 +176,9 @@ Staging ground for what has crossed in from outside but hasn't found its place y
   - `scan-lexeme.yml` — placeholder scan
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
-  - `claude-code-review.yml`
+  - `claude-code-review.yml` — paid Claude review: once when a PR is ready, again only with the `ai-review` label
+  - `review-packet.yml` — API-free summary of every PR (files by area, Deck Master paths, template sections, placeholder words)
+  - `latin-cue-record.yml` — logs each Latin workflow call (docs/latin-workflow-glossary.md) with the PR's state, for the final review before merge
   - `dependency-review.yml`
   - `sovran-voice.yml`
 
