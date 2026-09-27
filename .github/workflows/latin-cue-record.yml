@@ -196,7 +196,7 @@ jobs:
               `- Unresolved review threads: ${open.length}`,
               open.length ? list(open, t => {
                 const c = t.comments.nodes[0] || {};
-                return `  - \`${t.path}\` by ${c.author?.login || 'unknown'} ([thread](${c.url}))`;
+                return `  - \`${t.path}\` by ${c.author?.login || 'a deleted user'} ([thread](${c.url}))`;
               }) : '',
               `- Witness list sealed: ${sealed ? 'yes' : 'no'} · labels: ${labels.length ? labels.map(l => `\`${l}\``).join(', ') : 'none'}`,
               `- Review packet: ${packet ? `[latest](${packet.html_url})` : 'not posted yet'}`,
