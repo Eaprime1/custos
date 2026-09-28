@@ -24,7 +24,7 @@ This is documented as a distressed lexeme in `atelier/lexemes/manifesto.md` (mer
 
 1. **Rights language conflicts within the suite** — Stewardship Accords and Triadic Partnership Charter vs. "All Entity Bill of Rights" in the original Act II submission. An explicit version decision is needed before any version is published as settled policy.
 
-2. **A gentle path still needs a real stop** — TOBEASIS curvature does not replace UNEXUSI's Constricted state. Compassionate handling must not soften a refusal, security boundary, or privacy stop into merely a suggestion.
+2. **A gentle path still needs a real stop** — TOBEASIS curvature does not supersede UNEXUSI's Constricted state. Compassionate handling must not soften a refusal, security boundary, or privacy stop into merely a suggestion.
 
 3. **Remapping must not silently rewrite a contributor** — automatically replacing distressed terms risks "attunement" becoming the identity capture the suite rejects. Preserve the original germ; show the proposed interpretation separately; obtain review where meaning changes.
 
