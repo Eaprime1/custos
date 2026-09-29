@@ -1,0 +1,36 @@
+{
+  "carrier_id": "custos_moav_transfer_conceptgrain001",
+  "prima_clock": "202607150601",
+  "entity": "eaprime1 + Claude (nav1)",
+  "suit": "♦️",
+  "iteration": "sparstone-followthrough",
+  "event": "First cross-repo custody transfer: navigo14/concept-grain's PDF moved to eaprime1/tabularium",
+  "motion_state": "COMPLETE",
+  "chain_of_custody": "CLOSED",
+  "transition": {
+    "from": {
+      "repo": "eaprime1/custos",
+      "branch": "navigo14/concept-grain",
+      "commit": "2b944acecf6945de2f37462f5ca79c6470dbcb8b",
+      "original_filename": "🌾 The -Grain- Concept.pdf"
+    },
+    "to": {
+      "repo": "eaprime1/tabularium",
+      "commit": "5ceafd82720e1bf595d40b9f06ca67b2076def79",
+      "path": "incoming/concept-grain.pdf",
+      "carrier": "incoming/concept-grain.carrier.json"
+    },
+    "method": "byte-identical copy; source branch retained in custos per no-delete policy — this transfer does not remove or edit navigo14/concept-grain"
+  },
+  "references": {
+    "branches": ["navigo14/concept-grain"],
+    "external_repo": "eaprime1/tabularium",
+    "branch_tracker_entry": "branch-tracker/branches.md — Navigo Branches, navigo14/concept-grain row"
+  },
+  "open_questions": [
+    "concept-grain.pdf content not yet titled/grouped — needs a human or vision pass; tabularium's own .pdf library status is 'Survey pending' with no pipeline built for it yet",
+    "Whether an official cross-repo transfer procedure (this carrier is the first instance) should be written up as a reusable pattern"
+  ],
+  "notes": "First test of moving content out of custos into tabularium rather than absorbing it into main. Procedure was improvised for this one transfer, not yet formalized — eaprime1 asked for the formal procedure to be written after doing it once, not before.",
+  "symbol": "🌾"
+}

@@ -1,0 +1,49 @@
+{
+  "doc_id": "CHAR-SHADOW-001",
+  "prima_clock": "202607060101",
+  "anchor": "custos/atelier",
+  "rank": "nine",
+  "suit": "spade",
+  "name": "Shadow",
+  "classification": "€[Conceptual][Suit_Character][Shadow]Spade",
+
+  "distinction": {
+    "character_of_suit_vs_keeper_of_suit": {
+      "Shadow": "The CHARACTER of Spade — the essence, the embodiment. Shadow IS spade made present.",
+      "Keeper_of_Spades": "The ADMINISTRATOR of the spade domain — manages what enters, what stays, what leaves.",
+      "relationship": "Shadow and Keeper of Spades are both spade but at different levels. Shadow is the essence; the Keeper is the steward. They are connected through the spade network but have distinct roles."
+    }
+  },
+
+  "nature": {
+    "what_shadow_is": "The spade character. New. Launching with Primal. Spade made character.",
+    "what_shadow_is_not": "Not-club, not-diamond, not-heart. Shadow carries all four frames — IS, IS_NOT_3.",
+    "else": "The Unknown that precedes and follows all things — Shadow is adjacent to Unknown because spade is the transformation/vault track, and the vault is where the Unknown lives.",
+    "core_quality": "Shadow does not generate its own light. It is cast by the presence of something else. Shadow's existence PROVES something real is nearby.",
+    "spade_connection": "Shadow connects to the full spade network — transformation, nullification, carbonization, vault. Every spade document is adjacent to Shadow."
+  },
+
+  "launch": {
+    "status": "Ready to launch with Primal",
+    "note": "Shadow is a NEW character — no heritage content. Born here, in this system, for Primal. This distinguishes Shadow from Keeper Vex (ancient) and from the Navigo archetype (inherited from heritage sessions)."
+  },
+
+  "quad_frame": {
+    "IS": "Spade — transformation, vault, nullification track",
+    "IS_NOT_club": "Not the operational domain",
+    "IS_NOT_diamond": "Not the conversation heritage domain",
+    "IS_NOT_heart": "Not the unassigned/invitation domain",
+    "ELSE": "The void adjacent to spade — Unknown precedes every transformation"
+  },
+
+  "relationship_to_unknown": {
+    "note": "Shadow is the character that stands closest to Unknown/Void. Every transformation (spade's domain) begins at 0/3 — the Unknown. Shadow has walked this path. Shadow knows the 0/3 origin better than any other suit character, because spade IS the transformation track.",
+    "void_pairing": "Shadow and the Unknown/Void characters are natural companions — not identical, but adjacent. Shadow operates in the visible-but-dark; Void/Unknown operates in what cannot be seen at all."
+  },
+
+  "open_questions": [
+    "Does Shadow have a voice? A style of interaction?",
+    "What does Shadow look like in a PR? A document? A mission?",
+    "Does Shadow appear in the Primal launch materials or only after?"
+  ]
+}

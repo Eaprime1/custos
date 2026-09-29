@@ -1,0 +1,95 @@
+name: Minimize ECC Tools comments
+
+# ecc-tools[bot] posts its PR audits as comments, several per push, because it
+# cannot publish check runs. This folds each one away (minimized as outdated,
+# still expandable) the moment it lands, so the PR conversation stays readable.
+#
+# - issue_comment: each ECC comment starts one short run that minimizes that
+#   comment. Comments from anyone else skip the job before a runner starts.
+# - workflow_dispatch: sweep an existing PR and minimize every ECC comment on it.
+#
+# issue_comment workflows run from the default branch, so this takes effect
+# once merged to main.
+
+on:
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request number to sweep
+        required: true
+        type: number
+
+permissions:
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: minimize-ecc-${{ github.event.issue.number || inputs.pr_number }}-${{ github.event.comment.id || 'sweep' }}
+
+jobs:
+  minimize:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.issue.pull_request != null &&
+       github.event.comment.user.login == 'ecc-tools[bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Minimize ECC Tools comments
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            const minimize = async (nodeId) => {
+              await github.graphql(`
+                mutation($id: ID!) {
+                  minimizeComment(input: {subjectId: $id, classifier: OUTDATED}) {
+                    minimizedComment { isMinimized }
+                  }
+                }
+              `, { id: nodeId });
+            };
+
+            if (context.eventName === 'issue_comment') {
+              await minimize(context.payload.comment.node_id);
+              core.info(`Minimized ECC Tools comment ${context.payload.comment.id}.`);
+              return;
+            }
+
+            const prNumber = Number(context.payload.inputs.pr_number);
+            // Sweep pull requests only: an issue number is rejected, not swept.
+            try {
+              await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber,
+              });
+            } catch (err) {
+              if (err.status === 404) {
+                core.setFailed(`#${prNumber} is not a pull request in this repository.`);
+                return;
+              }
+              // Rate limits, permissions, transient errors: report as they are.
+              throw err;
+            }
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              per_page: 100,
+            });
+            const ecc = comments.filter(c => c.user && c.user.login === 'ecc-tools[bot]');
+            let done = 0;
+            for (const c of ecc) {
+              try {
+                await minimize(c.node_id);
+                done++;
+              } catch (err) {
+                core.warning(`Could not minimize comment ${c.id}: ${err.message}`);
+              }
+            }
+            core.info(`Minimized ${done} of ${ecc.length} ECC Tools comment(s) on #${prNumber}.`);
+            if (done < ecc.length) {
+              core.setFailed(`${ecc.length - done} ECC Tools comment(s) on #${prNumber} could not be minimized; see warnings above.`);
+            }

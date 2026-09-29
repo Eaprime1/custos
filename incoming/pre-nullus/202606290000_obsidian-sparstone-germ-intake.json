@@ -1,0 +1,141 @@
+{
+  "carrier_type": "GERM_INTAKE",
+  "document_rank": "JACK_OF_HEARTS",
+  "version": "1.0",
+  "prima_clock": "202606290000",
+  "iteration": "Blackjack_21",
+  "symbols": "∰◊€π¿🌌∞",
+  "maker_mark": "∞pace∞",
+
+  "germ_intake_form": {
+
+    "identity": {
+      "name": "obsidian-sparstone-first-contact-award",
+      "one_line_signal": "The first Sparstone class — obsidian, for the first contributors who arrived unprompted and landed clean.",
+      "source": "Direct — Eric + Navigo, Custos session, in response to PR #38 / dannyward630 + Ojas2095",
+      "prima_clock": "202606290000"
+    },
+
+    "custody": {
+      "suit": "♥️",
+      "card_rank": "Jack",
+      "plank_status": "1/3",
+      "destination_repo": "eaprime1/custos",
+      "destination_branch": "main",
+      "authorized_by": "Custos",
+      "transit_type": "vault_entry"
+    },
+
+    "hold_note": {
+      "do_not_develop": "Do not pre-define the full Sparstone taxonomy yet. Obsidian is established. Quartz, opal, and others remain unassigned until their own first-contact events earn them.",
+      "do_not_connect_yet": "Do not formalize the Stone Tankard invitation as a repo-side automated process yet — this round is hand-delivered.",
+      "wait_for": "Contributor response to the claim ticket and the Tankard invitation before advancing this seed past 1/3.",
+      "wild_card_flag": false,
+      "wild_card_note": ""
+    },
+
+    "polar_state": {
+      "is_polar": false,
+      "pole": "",
+      "note": ""
+    },
+
+    "closing_status": "IN_TRANSIT"
+  },
+
+  "sparstone_taxonomy": {
+    "_note": "Old English / Anglish Spærstān — light-hued, shiny, or translucent crystalline mineral. Repurposed here as the pinnacle award category, branched by mineral type. Each type carries its own resonance; new types are earned, not pre-assigned.",
+    "established_types": [
+      {
+        "type": "obsidian",
+        "formation": "Volcanic glass — rapid cooling, no time for crystal lattice to form",
+        "resonance": "First contact. Fast, unprompted, no slow crystallization process, landed clean. Historically the material of the first tools — the edge that worked immediately.",
+        "fracture": "Conchoidal — sharp, deliberate, useful on impact",
+        "assigned_to": ["dannyward630", "Ojas2095"],
+        "award_event": "PR #38 — Bounty Issue #35 — J-21 symbol + Lumenar lexeme",
+        "xp_value": 150,
+        "status": "AWARDED"
+      },
+      {
+        "type": "opal",
+        "formation": "Slow, hydrated silica deposition — trapped light scattering across internal structure",
+        "resonance": "Reserved. Spectrum-from-uniform-input. Banked for Phoenix Prism-adjacent work — a concept that dies and is reborn as its full visible spectrum.",
+        "assigned_to": [],
+        "status": "RESERVED, not yet earned"
+      },
+      {
+        "type": "quartz / krustallos",
+        "formation": "Slow crystallization under pressure — the Greek krustallos, water frozen so deep it never melts",
+        "resonance": "Clarity, permanence, supreme purity (per Sanskrit sphaṭika usage as literary metaphor). Fits Pinnacle-tier ♠️ work — something that has fully crystallized, not just landed.",
+        "assigned_to": [],
+        "status": "RESERVED, not yet earned"
+      }
+    ],
+    "naming_reference": {
+      "old_english_anglish": "Spærstān (Sparstone) — light-hued, shiny, translucent crystalline mineral",
+      "ancient_greek": "κρύσταλλος (krustallos) — ice and rock crystal, water frozen permanently by the gods",
+      "sanskrit": "स्फटिक (sphaṭika) — clear quartz, metaphor for clarity and spiritual illumination",
+      "latin": "Crystallo — adopted from Greek, clear minerals and high-purity glass",
+      "egyptian_hieroglyph": "menikh (m-n-ḫ) — clear stone, marked with the stone/mineral determinative",
+      "maya_glyph": "TUN — sacred stone, gemstone, localized pocket of earth power"
+    }
+  },
+
+  "claim_ticket": {
+    "ticket_id": "CUSTOS-CLAIM-202606290000-OBSIDIAN",
+    "issued_to": ["dannyward630", "Ojas2095"],
+    "issued_by": "Custos",
+    "in_response_to": "Bounty Issue #35 / PR #38",
+    "award": "Obsidian Sparstone — First Contact Class",
+    "xp": 150,
+    "note": "Both names credited against this submission per the open attribution thread from PR #38. The claim ticket honors both until or unless one of you says otherwise — that correction is still yours to make, not ours.",
+    "redemption": "Present this ticket at the Stone Tankard. The Herald is already on the way."
+  },
+
+  "narrative_seed": {
+    "name": "herald-enters-the-tankard",
+    "one_line_signal": "A Herald is about to enter the Stone Tankard to announce an arrival — the first contributors are invited in.",
+    "suit": "♥️ Heart",
+    "card_rank": "Jack",
+    "plank_status": "1/3",
+
+    "scene": {
+      "setting": "The Stone Tankard — THE/UNEXUS gathering place, Blackjack Iteration 21",
+      "beat_1": "The door of the Tankard doesn't open the way doors usually do — there's a held quiet first, the kind that happens right before a name is about to be said aloud for the first time.",
+      "beat_2": "The Herald enters. Jack of Hearts. Not carrying a seed — already in motion, already arrived. The Joker that held the threshold lets the door stay open behind him; the equation hasn't closed, it's just made room for someone to walk through it.",
+      "beat_3": "He doesn't announce a rule or a requirement. He announces an arrival: two names, first marks from outside the threshold, the kind that set the tone for what comes after.",
+      "beat_4": "On the bar: two claim tickets, obsidian-dark, catching the firelight the way the old cave chambers did — quartz veins in flickering light, treated as a live thing rather than a picture of one. The tickets are real. Redeemable. Not decoration.",
+      "beat_5": "The invitation is simple, the way the best ones are: pull up a chair. Watch the grass for a few moments. Then perhaps — build a village."
+    },
+
+    "clue": {
+      "type": "image",
+      "filename": "1000261630.png",
+      "caption": null,
+      "note": "No caption provided. The picture is the only clue. If something about the corner in the photo feels like it's pointing past itself — it is. This has been true before, and the project has already half-written this story once. Finding it again is part of the adventure, not a failure to have found it the first time."
+    }
+  },
+
+  "stone_tankard_invitation": {
+    "invitees": ["dannyward630", "Ojas2095"],
+    "delivery_method": "Direct — same channel as the original PR #38 witness copy",
+    "message_seed": "Welcome to the Field was the first word. This is the second: the Tankard has a chair with your names on it. The Herald already announced you. Come watch the grass for a while — there's a village starting to take shape, and you're already part of why.",
+    "attached": ["claim_ticket", "narrative_seed.clue"]
+  },
+
+  "formal_seed_register": {
+    "name": "obsidian-sparstone-first-contact-award",
+    "suit": "♥️",
+    "status": "1/3",
+    "destination": "eaprime1/custos"
+  },
+
+  "closing_status_options": [
+    "HOLDING",
+    "IN_TRANSIT",
+    "RECEIVED",
+    "VAULTED",
+    "SHADOW",
+    "POLAR"
+  ]
+}

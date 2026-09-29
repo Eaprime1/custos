@@ -12,7 +12,7 @@ fi
 ITEM="${1:-}"
 LOCATION="${2:-}"
 METHOD="${3:-}"
-BY="${4:-$(whoami)}"
+BY="${4:-${USER:-$(whoami 2>/dev/null || echo "unknown")}}"
 NOTES="${5:-}"
 
 if [[ -z "$ITEM" || -z "$LOCATION" || -z "$METHOD" ]]; then

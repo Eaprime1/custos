@@ -1,0 +1,29 @@
+title: custos
+description: Guardian of the work done from here — prima terminal, convergence hub.
+author: eaprime1
+theme: minima
+
+# Exclude operational and non-content directories from Jekyll build.
+# Site-worthy content: world/, quests/, docs/, atelier/, vault/, returns/,
+# valuation/, dungeon-master/, turns/, pr-journeys/, moav/, prima-clock/,
+# pandora/, branch-tracker/, guides/
+exclude:
+  - airavata-custos/
+  - queue/
+  - intake/
+  - incoming/
+  - seeds/
+  - tools/
+  - seep-artois/
+  - plexworkflow/
+  - state/
+  - device/
+  - unexusi/
+  - "*.sh"
+  - "*.docx"
+  - prima.yaml
+  - PORTAQUE_MANIFEST.json
+  - PORTAQUE_CONTENT.json
+  - PORTAQUE_FECAL_TRUTH.json
+  - Gemfile
+  - Gemfile.lock

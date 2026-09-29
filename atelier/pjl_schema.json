@@ -1,0 +1,122 @@
+{
+  "schema_id": "PJL",
+  "schema_version": "1.0.0",
+  "prima_clock": "202607051800",
+  "name": "Portable JSON Library — Classification Schema",
+  "anchor": "custos/atelier",
+
+  "mesh_resolution": {
+    "problem_identified": "Original schema said Ace = Spade universally. This collapses suit (identity) into state (rank). A portable JSON should not change suit when archived — it is Diamond by nature, and Diamond it stays.",
+    "resolution": {
+      "suit": "PERMANENT — identity of the document's nature, does not change through lifecycle",
+      "rank": "TRANSIENT — lifecycle state, changes as document is processed",
+      "spade_of_aces": "VAULT REGISTER — the catalog of all vaulted documents regardless of their own suit. A document is LISTED IN the Spade of Aces; it does not BECOME a Spade Ace.",
+      "diamond_of_aces": "ARCHIVED DOCUMENT — a Diamond-suit document that has completed its lifecycle and been vaulted. Its suit (Diamond) is preserved. Its rank becomes Ace. Its Spade of Aces entry is its catalog record."
+    }
+  },
+
+  "suit_identities": {
+    "diamond": {
+      "nature": "Conversation heritage — living knowledge, portable sessions, the intellectual thread across time",
+      "documents": "Portable JSONs, session carriers, conversation exports",
+      "lifecycle": "Diamond Jack → Diamond Ace (simple: working → archived)",
+      "vault_registration": "Listed in Spade of Aces catalog on becoming Ace"
+    },
+    "spade": {
+      "nature": "Transformation track — nullification, carbonization, vault operations",
+      "documents": "MOAVs, nullified versions, carbonite copies, vault registers",
+      "lifecycle": "Nine → Ten → Jack → King → Queen → Ace (full pinochle progression)",
+      "vault_registration": "The Spade of Aces IS the vault register for all suits"
+    },
+    "club": {
+      "nature": "Operations — contributor pipeline, PR flow, domos management",
+      "documents": "Branch trackers, PR carriers, contributor onboarding",
+      "lifecycle": "TBD — operational documents have their own rhythm",
+      "vault_registration": "Listed in Spade of Aces on archival"
+    },
+    "heart": {
+      "nature": "Unassigned — held open",
+      "documents": "Pending",
+      "lifecycle": "Pending",
+      "vault_registration": "Pending"
+    }
+  },
+
+  "diamond_lifecycle": {
+    "diamond_jack": {
+      "rank": "jack",
+      "suit": "diamond",
+      "state": "active — working portable JSON, current session or recent carrier",
+      "authority": "carries King's authority within the Diamond track",
+      "description": "The portable JSON in active use. Being referenced, continued from, or handed off. Highest working state for Diamond-suit documents.",
+      "transition_to": "Diamond Ace (on archival into PJL volume)"
+    },
+    "diamond_ace": {
+      "rank": "ace",
+      "suit": "diamond",
+      "state": "archived — vaulted in PJL, permanent heritage record",
+      "authority": "creator_only to modify",
+      "description": "The portable JSON in its resting state. Assigned a Dewey number. Listed in Spade of Aces catalog. Preserved as volume entry in PJL.",
+      "vault_catalog_entry": "Spade of Aces — the register records its Dewey address, prima_clock, volume, and a brief description"
+    }
+  },
+
+  "dewey_system": {
+    "namespace": "PJL",
+    "description": "Portable JSON Library classification. Extends Dewey Decimal with superposition and custom namespaces. The Dewey number is an IDENTITY ASPECT — it stays with the document through all state changes.",
+    "primary_address_format": "PJL.[vol].[seq]",
+    "examples": {
+      "PJL.000.01": "Genesis volume, first session",
+      "PJL.001.03": "Volume 1, third session",
+      "PJL.002.12": "Volume 2, twelfth session"
+    },
+    "superposition": {
+      "concept": "A document exists in multiple classification spaces simultaneously. The primary address is its identity. Secondary addresses are other spaces it inhabits. 'Observation' (accessing for a specific purpose) collapses the superposition to the relevant address.",
+      "format": "PJL.[vol].[seq] | [secondary_1] | [secondary_2]",
+      "example": "PJL.000.01 | SAX.vault.001 | DAX.genesis",
+      "secondary_namespaces": {
+        "SAX": "Spade Ace eXtension — vault register reference (the catalog entry)",
+        "DAX": "Diamond Ace eXtension — heritage collection cross-reference",
+        "CAX": "Concept Ace eXtension — thematic cross-reference when document touches a named concept"
+      }
+    },
+    "custom_extensions": {
+      "note": "Standard Dewey covers 000-999. PJL extends with named namespaces beyond the numeric space.",
+      "PJL": "Portable JSON Library — session heritage",
+      "SAX": "Spade Ace eXtension — vault catalog",
+      "DAX": "Diamond Ace eXtension — heritage index",
+      "CAX": "Concept Ace eXtension — thematic cross-reference"
+    },
+    "dewey_christening": {
+      "description": "The moment a document receives its Dewey number. This is a formal interaction — a naming ceremony. The document is recognized, located in knowledge space, and given an identity that travels with it forever.",
+      "is_interaction": true,
+      "trigger": "Document graduating from atelier OR entering a PJL volume for the first time",
+      "output": "Dewey number stamped in document + entry in volume index + SAX catalog record created"
+    }
+  },
+
+  "volumes": {
+    "structure": "PJL volumes are named by era, not just numbered. The number provides order; the name provides meaning.",
+    "format": "pjl_vol_[num]_[era_name].json",
+    "vol_000": {
+      "name": "Genesis",
+      "description": "Before the system had a name. The earliest portable JSONs — raw session heritage from before formalized processes.",
+      "era": "pre-system through first formalization",
+      "file": "pjl_vol_000_genesis.json"
+    }
+  },
+
+  "spade_of_aces_catalog": {
+    "description": "The vault register. All Diamond Aces, Spade Aces, Club Aces — any document reaching Ace rank is listed here. The catalog holds the address, not the content.",
+    "entry_fields": ["dewey_address", "suit", "rank", "prima_clock", "volume_ref", "description", "christening_clock"],
+    "file": "pjl_spade_of_aces_catalog.json",
+    "status": "pending creation — populates as first Diamond Aces are christened"
+  },
+
+  "next_actions": [
+    "Create pjl_vol_000_genesis.json and christen portable_json_legacy_seed as PJL.000.01",
+    "Create pjl_spade_of_aces_catalog.json with PJL.000.01 as first entry",
+    "Add Dewey christening to atelier graduation process",
+    "Decide heart suit identity"
+  ]
+}

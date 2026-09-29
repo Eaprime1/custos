@@ -95,5 +95,219 @@
 
 ---
 
+*Updated: 2026-06-21*
+
+- PR #73 (fix for issue #44 — invalid `secrets` reference in job-level
+  `if:` conditions) is open, not yet merged, `mergeable_state: unstable`.
+  Recurring `claude-review` CI failures on this PR are expected and benign
+  — the PR itself rewrites `claude-code-review.yml`, so GitHub's
+  workflow-validation check will keep failing on this branch until it
+  merges into `main`. DeepSource is Grade A. Issue #44's original ask
+  (manual end-to-end verification that `@claude finalize` now fires on a
+  live PR) is still flagged as needed post-merge.
+
+---
+
+*Updated: 2026-06-21 (later)*
+
+- PR #73 merged into `main` (`2ef5143`) on the owner's confirmation. Issue
+  #44's underlying bug (invalid `secrets` reference in `finalize-pr.yml`'s
+  job-level `if:`) is fixed on `main`. Remaining open item: manual
+  end-to-end verification that `@claude finalize` now actually fires the
+  `issue_comment` trigger on a live PR — next session with bandwidth
+  should pick this up before closing #44 itself.
+
+---
+
+*Updated: 2026-06-21 (later still)*
+
+- Ran a full mining pass across the repo for ideas/gaps/misses/workflow —
+  see `turns/MINING-202606212142.md`. Nothing critical found; it's all
+  backlog. Three items flagged as highest-leverage if a future session has
+  bandwidth: refresh `branch-tracker/branches.md` (3 weeks stale, lists
+  `mandelbrot`/`mulberry` as branches that don't currently exist), do the
+  PR #18 diff check (possibly superseded, never actually verified), and
+  get a Deck Master ruling on the Sovran-vs-Deck-Master and
+  hub-suits-vs-Five-Lakes-suits design conflicts before a third
+  competing system lands.
+
+---
+
+*Updated: 2026-06-22*
+
+- Five files arrived this session (4 Hydrologic Cycle / House of Confusion
+  lore docs + 1 PDF transcript of an external Claude.ai conversation,
+  "Document lifecycle and greenacres memories"). The PDF held the answer to
+  a term the owner couldn't recall — **Unoiam** (Latin *iam*, already/now,
+  plus *uno*) — coined there to replace "lifecycle," since custos entities
+  don't terminate, they change state. The PDF's draft (THE WAKE OF UNOIAM)
+  had never actually landed in the repo; the four lore docs are its source
+  material. Wrote `world/unoiam-lifecycle.md` to seed it properly, carrying
+  the state table and Phases 0-4 forward and adding the Phase 5 the
+  original draft was missing: **Legacy** — what an entity leaves distributed
+  across the system (turn-log entries, adopted conventions, borrowed names)
+  as distinct from what Living Archive keeps retrievable in one place.
+  Tracked but not built: the Five Lakes Rubric's Ka-Coin economic layer and
+  the Commissioner/Artesian/Quartermaster/Herald/Broker roles referenced in
+  the Mulberry Initialization — not picked up this session, noted for
+  whoever picks up `world/unoiam-lifecycle.md` next. The House of Confusion
+  welcome piece for the owner's friend (the unsolicited-contribution thread
+  from the same PDF) was not actioned — it involves a real, named,
+  identifiable private person, and the owner stepped back before deciding
+  where it lives in the chain of custody. Leaving that for the owner to
+  pick back up explicitly.
+
+---
+
+*Updated: 2026-06-22 (later)*
+
+- Wrote `atelier/commissions/message-to-the-commissioner.md` — an in-world
+  letter to the Mulberry Initialization's still-undefined Commissioner
+  role, indexing every currently-commissionable item in the repo and
+  naming the gaps that have no home yet. Added three commissions to fill
+  the named gaps: `atelier/commissions/greenacres-oregon.md` (real
+  Coos Bay-area place research for the House of Confusion anchor — scoped
+  explicitly to exclude any real person's biography),
+  `atelier/commissions/lumenar-content.md` (the Lumenar has a precise
+  dictionary entry in `world/symbols.md` but no worked examples — this
+  asks for those), and `atelier/commissions/seneschal-exploration.md`
+  (asks for a `world/deck-master.md`-style treatment of the Seneschal,
+  which `world/unoiam-lifecycle.md` leans on constantly but never
+  actually defines as a standalone role). Six commissions now sit in
+  `atelier/commissions/` total — a real spread for whoever ends up
+  acting as Commissioner, human or AI, to choose from.
+
+---
+
+*Updated: 2026-06-22 (later still)*
+
+- Wrote `incoming/pre-nullus/202606220650_PR38-growth-update.md` — the
+  second document the "Welcome to the Field" witness-copy on PR #38
+  promised, fulfilling that promise with content-only updates (Lumenar
+  commission, J-21's still-unnamed card math, the Commissioner letter,
+  the Seneschal reconciliation) and no real names beyond the GitHub
+  handles already public on the PR (`@dannyward630`, `@Ojas2095`).
+  Flagged but unconfirmed: whether "Danny Weir" (a name eaprime1 knows
+  personally) maps to `@Ojas2095` — inferred by elimination, not verified.
+- Wrote `turns/STATE-OF-REPO-202606220650.md` for the next session to
+  start cold from — recaps this session, lists what's still open, and
+  adds five quick wins plus three bigger open threads (House of
+  Confusion router placement, Ka-Coin/Five Lakes scoring, the
+  conversion-interaction idea, `beasis`'s missing seed file).
+- **Start the next session at `turns/STATE-OF-REPO-202606220650.md`**,
+  not by re-deriving context.
+
+---
+
+*Updated: 2026-06-22 23:02*
+
+- PR #111 (mulberry — custos identity + workflow system foundation) and
+  PR #115 (J-21 canon math + contributor-outreach drafts) merged into
+  `main` (`591352b`, `d11db81`).
+- Ran the deep-dive review eaprime1 asked for, framed around the repo
+  "now has visitors" / getting it "ready for company" — see
+  `turns/DEEP-DIVE-202606222302.md`. Key findings: root-directory clutter
+  (`seneschal.md`/`seneschal-v2.md` duplicate draft, two loose
+  `gemini-code-*.md` files that belong in `.gemini/`, two large binaries),
+  and a GitHub Pages workflow (`static-gh-pages.yml`) that silently
+  deploys the entire raw repo on every push to `main` with no landing
+  page — the highest-visibility "not ready for company" item found.
+  Build list (8 items, priority order) leans toward making things
+  interactive rather than more lore, per eaprime1's stated preference.
+- **Start the next session at `turns/DEEP-DIVE-202606222302.md`** for the
+  full findings and build list.
+
+---
+
+*Updated: 2026-07-31 00:00*
+
+- **Contributor dispatch sent** — two PR #38 comments posted to dannyward630 + Ojas2095:
+  formal dispatch (issuecomment-5140537454) and coffee-haven personal aside
+  (issuecomment-5140539261). Record held in
+  `atelier/dispatch-to-contributors-draft.md`.
+- **J-21 card-math canon** locked in `world/symbols.md`: `J − 21 = −A`
+  (threshold-side reading of the ordinary `J + A = 21`).
+- **5 stale CI issues closed**: #228, #229, #230, #242, #274 (Dependabot/scan
+  artifacts, not real code issues).
+- **PR #297** open on branch `claude/external-submission-setup-lwxspi` — finalization
+  in progress; all CI green, DeepSource Grade A both runs.
+- **Pending**: contributor response from dannyward630/Ojas2095 (engage/witness/flag).
+- **Next track**: Track 2 — Repo cleanup PR (document `dungeon-master/` and
+  `sparstone/` in CLAUDE.md; file root emoji documents through intake; close
+  issues #201 and #202).
+
+---
+
+*Updated: 2026-08-22 08:00*
+
+- **New podium**: `pixel8a-unexusi` (Termux/PRoot, `~/unexusi/`) registered
+  in `device/podiums.md` — a fresh working environment distinct from the
+  existing `pixel8` podium.
+- **pixelator governance pipeline ported**: full `.claude` config + 13
+  `.github` workflows carried from custos to `eaprime1/pixelator`
+  (CODEOWNERS and claude-code-review prompt adapted for pixelator's actual
+  Python/Termux shape). Verified green via test PR #5.
+- **pixelator branch cleanup**: 11 stale branches triaged, 6 deleted
+  (dead/superseded), 5 resurrected as PRs #6-#10 — all merged, including a
+  real terraform.yml bug fix found along the way.
+- **First Legatum filed**: `atelier/legatum/202608220000_pixelator-legacy-
+  infusion.md` — new document form for conversations that span repos and
+  are seeding a future Legacy system. Concept + template at
+  `atelier/legatum/README.md`.
+- **Seed Weir opened**: `queue/seed-weir/README.md` — new lightweight
+  tracking system for process/skill ideas, modeled on `queue/artesium-
+  weir/`. 3 seeds logged OPEN: branch-triage pattern, automated JSON-
+  validity CI check, `docs/stale-branch-closure.md` not yet ported to
+  pixelator.
+- **Next track**: none forced — the three Seed Weir entries are the
+  natural next-pickup candidates whenever the Shepherd wants them worked.
+
+---
+
+*Updated: 2026-09-26 16:17*
+
+- **Second navigo2 preturn filed**: `pandora/germs/navigo2_202609261617_germ.md`,
+  fired by a scheduled email-mining routine. Confirms two zero-risk fixes
+  from the first germ (202609211300) are still open five days later
+  (cc-automated `Label_162` filter, XDA four-sub-stream routing) — these
+  should become their own operation rather than a third germ repeating the
+  finding. Also surfaces: eaprime1 independently re-derived the `duplicatus`
+  Carbonite pattern aimed at email (candidates: Instacart/MoneyLion/Bridge
+  Money/Virtual Vocations template-repeaters, not XDA); real Sentinel-faction
+  behavior already happening unassisted (watchduty.org fire-camera forwards,
+  KPTV photo licensing during the Huntington OR fire activity); a repeating
+  caregiving mileage-reimbursement email with no template (3+ instances to
+  `mileage@gobhi.org`); and a pre-existing "Prime/Archive System" Gmail label
+  tree that predates this repo's own Prime state (naming echo, no action
+  taken). Answered eaprime1's one-system-vs-three-routines question: stays
+  one stream entity (navigo2) with three existing gears — preturn,
+  zero-risk operations, playwright stream — rather than new infrastructure.
+
+---
+
 *Prime state: 3*  
+*Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-09-26*
+## For the Next Conversation
+
+- Act II setup is closed and sealed. Its journey is
+  `valuation/nav1-act-ii-setup_journey_202609262245.md`.
+- All 14 PRs from the session are merged: naught #1–#4, nullus #3–#4, maw #2,
+  custos #337/#339/#340/#341/#359, radix #41/#42. No watches or scheduled
+  check-ins remain.
+- New on `main`:
+  - witnessing by comment, sealed at finalize (custos);
+  - `ultima Probatio` finalizes, in custos and radix;
+  - the Latin workflow glossary, plus its conversation seed
+    (`docs/latin-workflow-conversation-seed.md`);
+  - the prima witness in radix.
+- ECC Tools is suspended by the owner; the fold workflows are idle.
+- Open owner questions are listed in the journey's "Notes for Next
+  Iteration". Process seeds are the last 8 rows of `queue/seed-weir/README.md`:
+  7 OPEN, and 1 COMPOSTED because it was already settled.
+
+*Prime state: 3*
 *Witnessed: true* 🃏

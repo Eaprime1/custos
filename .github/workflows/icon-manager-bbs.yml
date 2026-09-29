@@ -1,0 +1,125 @@
+# Custos — Icon Manager BBS
+#
+# Receives `icon-assigned` dispatch events from the PR Concordance workflow.
+# Validates detected icons against the Sovran registry.
+# Posts a confirmation receipt back to the originating PR.
+# Applies the `icon-assigned` label.
+#
+# Dispatch payload (from pr-concordance.yml):
+#   pr_number   — originating PR number
+#   pr_title    — PR title
+#   pr_url      — PR html_url
+#   icons       — array of icon characters detected in the diff
+#   prima_clock — timestamp of concordance compilation
+#   repo        — "owner/repo" of the originating PR
+#
+# Dispatched by: .github/workflows/pr-concordance.yml (step 10)
+name: Custos — Icon Manager BBS
+
+on:
+  repository_dispatch:
+    types: [icon-assigned]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  icon-manager:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Validate and confirm icon assignment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const SYMBOL = '∰🌿';
+
+            const payload     = context.payload.client_payload || {};
+            const prNum       = payload.pr_number;
+            const prTitle     = payload.pr_title   || '(untitled)';
+            const icons       = Array.isArray(payload.icons) ? payload.icons : [];
+            const primaClock  = payload.prima_clock || '—';
+
+            if (!prNum) {
+              core.warning('icon-manager-bbs: no pr_number in payload — skipping');
+              return;
+            }
+
+            // ── Known icon registry ────────────────────────────────────────
+            const REGISTRY = {
+              '♠️': { name: 'Spade',     suit: 'spade',   role: 'pinnacle/vault',       system: 'custos' },
+              '♦️': { name: 'Diamond',   suit: 'diamond', role: 'active development',   system: 'custos' },
+              '♣️': { name: 'Club',      suit: 'club',    role: 'sessions/operations',  system: 'custos' },
+              '❤️': { name: 'Heart',     suit: 'heart',   role: 'reserved',             system: 'custos' },
+              '♓':  { name: 'Pisces',    suit: 'nav5',    role: 'nav5 signature',        system: 'navigo' },
+              '⊕':  { name: 'DirectSum', suit: 'nav5',    role: 'nav5 signature',        system: 'navigo' },
+              '∰':  { name: 'Custos',    suit: 'custos',  role: 'custos sigil',          system: 'custos' },
+              '🌿': { name: 'Herb',      suit: 'shepherd',role: 'shepherd mark',         system: 'custos' },
+              '🃏': { name: 'Joker',     suit: 'j21',     role: 'threshold joker J-21',  system: 'custos' },
+              '◊':  { name: 'Lozenge',   suit: 'lumenar', role: 'lumenar/Talinor',       system: 'custos' },
+              '∞':  { name: 'Infinity',  suit: 'prima',   role: 'prima continuity',      system: 'custos' },
+            };
+
+            // ── Validate icons ─────────────────────────────────────────────
+            const validated = [];
+            const unknown   = [];
+            for (const ic of icons) {
+              if (REGISTRY[ic]) {
+                validated.push({ char: ic, ...REGISTRY[ic] });
+              } else {
+                unknown.push(ic);
+              }
+            }
+
+            // ── Confirmation comment ───────────────────────────────────────
+            const validRows = validated.map(i =>
+              `| ${i.char} | ${i.name} | ${i.role} | ${i.system} | ✅ |`
+            );
+            const unknownNote = unknown.length > 0
+              ? [``, `> ⚠️ Unregistered: ${unknown.join(' ')} — add to icon registry if intended`]
+              : [];
+
+            const body = [
+              `## 🌿 Icon Manager — Receipt`,
+              '',
+              `**PR:** #${prNum} — ${prTitle}`,
+              `**Compiled:** ${primaClock}`,
+              '',
+              '| Icon | Name | Role | System | Status |',
+              '|---|---|---|---|---|',
+              ...validRows,
+              ...unknownNote,
+              '',
+              `*${icons.join('  ')}*`,
+              '',
+              '---',
+              `*Custos Icon Manager BBS · ${SYMBOL}*`,
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: prNum, body,
+            });
+
+            // ── Apply icon-assigned label ──────────────────────────────────
+            try {
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number: prNum, labels: ['icon-assigned'],
+              });
+            } catch {
+              try {
+                await github.rest.issues.createLabel({
+                  owner, repo, name: 'icon-assigned', color: 'e4e669',
+                  description: 'PR introduces or assigns a project icon',
+                });
+                await github.rest.issues.addLabels({
+                  owner, repo, issue_number: prNum, labels: ['icon-assigned'],
+                });
+              } catch (e2) { core.warning(`icon-assigned label: ${e2.message}`); }
+            }
+
+            core.info(`Icon Manager BBS: confirmed ${validated.length} icon(s) on PR #${prNum}`);
+
+# ∰🛠️🌿-custos_icon_manager_v1

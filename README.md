@@ -26,6 +26,7 @@ Work arrives from many sources — navigo, remote repos, commissions, ideas. All
 prima.yaml          concept manifest and source of truth
 quests/             RPG-style quest arcs — real tasks, real outcomes
 quests/missions/    open missions and bounties for any contributor
+missions/           Tabularium library operations — save points, workflows, Seneschal log
 world/              lore, factions, and the founding myth
 seeds/              bootstrap scripts and dotfiles for new devices
 device/             Pixel 8 device state — active work, manifests (pixel8 branch)
@@ -60,7 +61,9 @@ custos uses GitHub Issues as an open mission board. Any contributor — human or
 - **Missions**: structured tasks with clear deliverables and completion checks
 - **Bounties**: open challenges where the approach is part of the work
 
-Browse [open issues](../../issues) and look for `mission` or `bounty` labels. Missions also appear as quests in `quests/missions/` for use inside the terminal.
+Browse [open issues](../../issues) and look for `mission` or `sparstone-trial` labels.
+custos has no bounties and pays no cash. Rewards are XP, badges and Sparstones.
+Why: see `docs/issue-system.md` §4. Missions also appear as quests in `quests/missions/` for use inside the terminal.
 
 ## GitHub Pages note 🃏
 
@@ -80,12 +83,19 @@ The `pixel8` branch carries `device/` files that track what is active, installed
 
 ## Multi-AI development
 
-custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see world/factions.md). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
+
+## THE/UNEXUS Convergence Hub
+
+custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
 
 ---
 
 ## THE/UNEXUS Convergence Hub
 
+custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
+
+---
 
 ∰◊€π¿🌌∞
 
@@ -122,22 +132,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST
 ---
 
 *THEE opens. YOD marks. EMBER warms. custos keeps.*
-
-## Known Repo Map
-
-
-| Repo | Role |
-|------|------|
-| eaprime1/custos | This hub |
-| eaprime1/nullus | Pre-system void preparation |
-| eaprime1/the | Main system active development |
-| eaprime1/diamond-reservoir | Seed pressure system |
-| eaprime1/prima-clock | Temporal anchor registry |
-| eaprime1/121 | Periodic table expansion |
-| eaprime1/milkweed-vectors | Seeded vector templates |
-
-
----
-
-
-*∞pace∞*

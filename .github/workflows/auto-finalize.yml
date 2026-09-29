@@ -1,0 +1,332 @@
+# Custos — Auto-Finalize Bot PRs
+#
+# Runs on check_suite completion and hourly.
+# Finds open bot-authored PRs (claude/ copilot/ dependabot/ prefixes or Bot user type)
+# that have been open > 1 hour, carry no `finalized` label,
+# and have all gates green — then finalizes them directly.
+#
+# Cannot use comment-trigger chain: GitHub prevents GITHUB_TOKEN-authored
+# issue_comment events from spawning new workflow runs. Full logic is inline.
+name: Custos — Auto-Finalize Bot PRs
+
+on:
+  check_suite:
+    types: [completed]
+  schedule:
+    - cron: '0 * * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  auto-finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Auto-finalize eligible bot PRs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+
+            const IDENTITY = '🌿 Custos — the shepherd closes the fold';
+            const SYMBOL   = '∰🌿';
+
+            const BOT_PREFIXES = ['claude/', 'copilot/', 'dependabot/', 'github-actions/'];
+            const AGE_MS = 60 * 60 * 1000;
+
+            const parseSection = (body, label) => {
+              const safe = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const re = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
+              const m  = body.match(re);
+              if (!m) return null;
+              const txt = m[1].replace(/<!--[\s\S]*?-->/g, '').trim();
+              return txt.length > 3 ? txt : null;
+            };
+
+            const THREAD_Q = `query($owner:String!,$repo:String!,$pr:Int!,$after:String){
+              repository(owner:$owner,name:$repo){
+                pullRequest(number:$pr){
+                  reviewThreads(first:100,after:$after){
+                    nodes{isResolved}
+                    pageInfo{hasNextPage endCursor}
+                  }
+                }
+              }
+            }`;
+
+            const openPRs = await github.paginate(github.rest.pulls.list, {
+              owner, repo, state: 'open', per_page: 100,
+            });
+
+            const nowMs = Date.now();
+
+            for (const pr of openPRs) {
+              const prNum  = pr.number;
+              const branch = pr.head.ref;
+
+              // Bot-authored check
+              const isBot = pr.user.type === 'Bot' ||
+                BOT_PREFIXES.some(pfx => branch.startsWith(pfx));
+              if (!isBot) continue;
+
+              // Age gate
+              if (nowMs - new Date(pr.created_at).getTime() < AGE_MS) continue;
+
+              // Already finalized?
+              if (pr.labels.some(l => l.name === 'finalized')) continue;
+
+              // ── Template sections ─────────────────────────────────────────
+              const body        = pr.body || '';
+              const intent      = parseSection(body, 'Intent');
+              const whatArrived = parseSection(body, 'What Arrived');
+              const resonance   = parseSection(body, 'Resonance');
+              const whatDoor    = parseSection(body, 'What Door Does This Open?');
+
+              const ethicsMatch = body.match(/##\s+Ethics Check\s*\n([\s\S]*?)(?=\n##\s|$)/);
+              const ethicsLines = ethicsMatch
+                ? ethicsMatch[1].split('\n').filter(l => /^\s*-\s*\[/.test(l))
+                : [];
+              const ethicsDone  = ethicsLines.filter(l => /\[x\]/i.test(l)).length;
+              const ethicsTotal = ethicsLines.length;
+
+              if (!intent || !whatArrived || !resonance) continue;
+
+              // ── Review threads ────────────────────────────────────────────
+              let unresolved = 0;
+              let afterCursor = null;
+              while (true) {
+                const r = await github.graphql(THREAD_Q, { owner, repo, pr: prNum, after: afterCursor });
+                const rt = r.repository.pullRequest.reviewThreads;
+                unresolved += rt.nodes.filter(n => !n.isResolved).length;
+                if (!rt.pageInfo.hasNextPage) break;
+                afterCursor = rt.pageInfo.endCursor;
+              }
+              if (unresolved > 0) continue;
+
+              // ── CI check runs ─────────────────────────────────────────────
+              const allChecksRaw = await github.paginate(github.rest.checks.listForRef, {
+                owner, repo, ref: pr.head.sha, per_page: 100,
+              });
+              const allChecks = allChecksRaw.filter(c => {
+                const n = c.name.toLowerCase();
+                return !n.includes('finalize') && !n.includes('readiness');
+              });
+              const failing = allChecks.filter(c =>
+                c.status === 'completed' &&
+                !['success', 'neutral', 'skipped'].includes(c.conclusion)
+              );
+              const pending = allChecks.filter(c => c.status !== 'completed');
+
+              if (failing.length > 0 || pending.length > 0) continue;
+
+              // ── All gates green — FINALIZE ────────────────────────────────
+              core.info(`Auto-finalizing PR #${prNum}: ${pr.title}`);
+
+              const dsChecks  = allChecks.filter(c =>
+                (c.app && (c.app.slug || '').toLowerCase().includes('deepsource')) ||
+                c.name.toLowerCase().includes('deepsource')
+              );
+              const dsPassed  = dsChecks.filter(c => c.conclusion === 'success');
+              const dsFailed  = dsChecks.filter(c => c.conclusion === 'failure');
+              const dsSkipped = dsChecks.filter(c => c.conclusion === 'skipped');
+
+              const files = await github.paginate(github.rest.pulls.listFiles, {
+                owner, repo, pull_number: prNum, per_page: 100,
+              });
+              const fc = files.length;
+
+              const scores = {
+                Correctness:  allChecks.length > 0 ? 5 : 4,
+                Consistency:  (intent && whatArrived && resonance)
+                                ? (ethicsTotal > 0 && ethicsDone === ethicsTotal ? 5 : 4) : 3,
+                Scope:        fc <= 5 ? 5 : fc <= 15 ? 4 : fc <= 30 ? 3 : fc <= 50 ? 2 : 1,
+                Verification: allChecks.length >= 5 ? 5 : allChecks.length >= 3 ? 4
+                                : allChecks.length >= 1 ? 3 : 2,
+              };
+              const notes = {
+                Correctness:  `${allChecks.length} CI check(s) — all passed`,
+                Consistency:  `Description complete · ethics ${ethicsDone}/${ethicsTotal}`,
+                Scope:        `${fc} file(s) changed`,
+                Verification: `${allChecks.length} check run(s) completed`,
+              };
+              const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+              const valuation  = totalScore >= 18 ? 'High' : totalScore >= 14 ? 'Medium' : 'Low';
+
+              const nowDate = new Date();
+              const p = n => String(n).padStart(2, '0');
+              const primaClock = `${nowDate.getUTCFullYear()}${p(nowDate.getUTCMonth()+1)}${p(nowDate.getUTCDate())}${p(nowDate.getUTCHours())}${p(nowDate.getUTCMinutes())}`;
+
+              // Apply label
+              try {
+                await github.rest.issues.addLabels({ owner, repo, issue_number: prNum, labels: ['finalized'] });
+              } catch {
+                try {
+                  await github.rest.issues.createLabel({ owner, repo, name: 'finalized', color: '5319e7', description: 'Review period closed' });
+                  await github.rest.issues.addLabels({ owner, repo, issue_number: prNum, labels: ['finalized'] });
+                } catch (e2) { core.warning(`Label: ${e2.message}`); }
+              }
+
+              // Post finalization comment
+              const rubricRows = Object.entries(scores)
+                .map(([k, v]) => `| ${k} | ${v}/5 | ${notes[k]} |`);
+
+              const ciRows = allChecks.map(c => {
+                const icon = { success:'✅', skipped:'⏭', neutral:'➖' }[c.conclusion] || '⛔';
+                return `| ${c.name} | ${icon} |`;
+              });
+
+              const dsBlock = dsChecks.length > 0 ? [
+                '',
+                '### DeepSource',
+                '',
+                `**Passed:** ${dsPassed.length} · **Failed:** ${dsFailed.length}` +
+                  (dsSkipped.length > 0 ? ` · **Skipped:** ${dsSkipped.map(c => c.name).join(', ')}` : ''),
+                '',
+              ] : [];
+
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum,
+                body: [
+                  `## ✅ Auto-Finalized — sealed ${primaClock}`,
+                  '',
+                  `> *${IDENTITY}*`,
+                  '',
+                  `**PR:** #${prNum} — ${pr.title}`,
+                  `**Branch:** \`${pr.head.ref}\` → \`${pr.base.ref}\``,
+                  `**Files:** ${fc} (+${pr.additions}/−${pr.deletions})`,
+                  '',
+                  '### Rubric',
+                  '',
+                  '| Dimension | Score | Note |',
+                  '|---|---|---|',
+                  ...rubricRows,
+                  `| **Valuation** | **${valuation}** | ${totalScore}/20 |`,
+                  '',
+                  '### CI Record',
+                  '',
+                  '| Check | Result |',
+                  '|---|---|',
+                  ...ciRows,
+                  ...dsBlock,
+                  ...(resonance ? ['### Resonance', '', `*${resonance}*`, ''] : []),
+                  '---',
+                  `**prima-clock:** ${primaClock} · **auto-sealed** (all gates green)`,
+                  `*${SYMBOL}*`,
+                ].join('\n'),
+              });
+
+              // Commit journey doc
+              const slug = pr.title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '')
+                .slice(0, 40);
+              const journeyPath = `pr-journeys/${primaClock.slice(0, 6)}_PR${prNum}_${slug}.md`;
+
+              const prOpenedClock = (() => {
+                const d = new Date(pr.created_at);
+                const pp = n => String(n).padStart(2, '0');
+                return `${d.getUTCFullYear()}${pp(d.getUTCMonth()+1)}${pp(d.getUTCDate())}${pp(d.getUTCHours())}${pp(d.getUTCMinutes())}`;
+              })();
+
+              const ethicsRows = ethicsLines.length > 0
+                ? ethicsLines.map(l => {
+                    const checked = /\[x\]/i.test(l) ? '✅' : '☐';
+                    const text = l.replace(/^\s*-\s*\[[x ]\]\s*/i, '').trim();
+                    return `- ${checked} ${text}`;
+                  }).join('\n')
+                : '*No ethics checklist found.*';
+
+              const dsSection = dsChecks.length > 0
+                ? [
+                    '## DeepSource Record',
+                    '',
+                    `**Passed:** ${dsPassed.length}  `,
+                    `**Failed:** ${dsFailed.length}  `,
+                    `**Skipped:** ${dsSkipped.length > 0 ? dsSkipped.map(c => c.name).join(', ') : 'none'}`,
+                    '',
+                  ].join('\n')
+                : '## DeepSource Record\n\n*Not configured for this repo.*\n';
+
+              const journeyContent = [
+                `# PR Journey: #${prNum} — ${pr.title}`,
+                '',
+                `**Repository:** ${owner}/${repo}  `,
+                `**prima-clock:** ${primaClock}  `,
+                `**Branch:** \`${pr.head.ref}\` → \`${pr.base.ref}\`  `,
+                `**Author:** @${pr.user.login}  `,
+                `**State:** FINALIZED (auto)  `,
+                '',
+                '## Intent',
+                '',
+                intent,
+                '',
+                '## What Arrived',
+                '',
+                whatArrived,
+                '',
+                ...(resonance ? ['## Resonance', '', `*${resonance}*`, ''] : []),
+                '## The Arc',
+                '',
+                '| Event | prima-clock | Actor |',
+                '|---|---|---|',
+                `| Opened | ${prOpenedClock} | @${pr.user.login} |`,
+                `| Auto-Finalized | ${primaClock} | github-actions[bot] |`,
+                '',
+                '## CI Record',
+                '',
+                '| Check | Result |',
+                '|---|---|',
+                ...allChecks.map(c => {
+                  const icon = { success:'✅', skipped:'⏭', neutral:'➖' }[c.conclusion] || '⛔';
+                  return `| ${c.name} | ${icon} |`;
+                }),
+                '',
+                dsSection,
+                '## Review Scores',
+                '',
+                '| Dimension | Score | Note |',
+                '|---|---|---|',
+                ...rubricRows,
+                `| **Valuation** | **${valuation}** | ${totalScore}/20 |`,
+                '',
+                ...(ethicsLines.length > 0 ? ['## Ethics Check', '', ethicsRows, ''] : []),
+                ...(whatDoor ? ['## What Door Does This Open?', '', whatDoor, ''] : []),
+                '---',
+                `**prima-clock:** ${primaClock}  `,
+                `**witnessed:** true  `,
+                `*${IDENTITY} · ${SYMBOL}*`,
+              ].join('\n');
+
+              try {
+                let existingSha;
+                try {
+                  const { data: existing } = await github.rest.repos.getContent({
+                    owner, repo, path: journeyPath, ref: pr.base.ref,
+                  });
+                  existingSha = existing.sha;
+                } catch { /* new file */ }
+
+                await github.rest.repos.createOrUpdateFileContents({
+                  owner, repo,
+                  path: journeyPath,
+                  message: `journey: PR #${prNum} auto-finalized [prima-clock ${primaClock}]`,
+                  content: Buffer.from(journeyContent).toString('base64'),
+                  branch: pr.base.ref,
+                  ...(existingSha ? { sha: existingSha } : {}),
+                });
+
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: prNum,
+                  body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.base.ref}/${journeyPath})\n\n*The record now lives in the system.*`,
+                });
+              } catch (e) {
+                core.warning(`Journey doc commit failed for PR #${prNum}: ${e.message}`);
+              }
+            }
+
+# ∰🛠️🌿🔒-custos_auto_finalize_v1

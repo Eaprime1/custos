@@ -1,0 +1,186 @@
+{
+  "doc_id": "SYNTHESIS-202607060001",
+  "prima_clock": "202607060001",
+  "anchor": "custos/atelier",
+  "rank": "ten",
+  "suit": "spade",
+  "name": "PJL + Suits + Missions — Synthesis & Roadmap",
+  "purpose": "Line up the threads from 202607051546-202607060001 session. Identify what exists, what connects, what doubled, what is new.",
+
+  "the_pr_question": {
+    "answer": "No PR needed for same-branch clones — git pull works directly. PR is the gate for EXTERNAL existence: content leaving a domos into the wider system requires a PR. This creates a natural role: an entity that manages the gate.",
+    "gate_keeper": "The Spaded Ace — the entity that decides what crosses from domos to external. Not a person, a role/process. Could be a GitHub Actions bot, a designated voice, or a mission.",
+    "connection_to_domos": "Anything living only within a domos = no PR needed. Anything claiming existence OUTSIDE its domos = PR required. This is the threshold."
+  },
+
+  "process_chain_clarified": {
+    "note": "Deweyization is now inserted as a formal step. The chain has 4 steps + vault entry trigger.",
+    "steps": [
+      {
+        "step": "1/3",
+        "name": "Nullification",
+        "output": "King of Spades (system copy) + Ace of Spades dispatch to vault",
+        "character": "The Nullifier — TBD"
+      },
+      {
+        "step": "2/3",
+        "name": "Carbonization",
+        "output": "Queen of Spades (carbonite, stays in domos)",
+        "character": "The Carbonizer — TBD"
+      },
+      {
+        "step": "3/3",
+        "name": "Deweyization (Codification)",
+        "output": "Document receives its Dewey address (anchored vector). Identity is now fixed in knowledge space.",
+        "icon": "📍",
+        "icon_rationale": "Pushpin = location pinned on a map. Anchored vector.",
+        "character": "The Decimal — TBD",
+        "pr_trigger": "Documents containing 📍 in their content trigger a review workflow that assigns or verifies Dewey address"
+      },
+      {
+        "step": "3/0",
+        "name": "Unknown — open",
+        "output": "Unresolved. Held deliberately. This is the invitation space for contributor development.",
+        "character": "The Unknown — to be discovered/built by contributors",
+        "note": "3/0 is not a step number — it's a placeholder for the step that hasn't been named yet. The Unknown is a mission."
+      },
+      {
+        "step": "vault entry",
+        "name": "Sparklization",
+        "output": "Triggered automatically at vault threshold crossing. Not a numbered step — it fires.",
+        "character": "The Sparklizer — TBD"
+      }
+    ]
+  },
+
+  "suit_keepers": {
+    "note": "Suit keepers are DOMAIN entities — not process characters. They hold a suit's identity and govern what belongs in it. Different from process characters (which perform transformations).",
+    "spade": {
+      "domain": "Transformation, vault, nullification track",
+      "keeper_name": "TBD — mission for contributors",
+      "sparstone_required": true,
+      "suit_icon": "♠️"
+    },
+    "diamond": {
+      "domain": "Conversation heritage, portable knowledge, PJL track",
+      "keeper_name": "TBD — mission for contributors",
+      "sparstone_required": true,
+      "suit_icon": "♦️"
+    },
+    "club": {
+      "domain": "Operations, contributor pipeline, PR flow",
+      "keeper_name": "TBD — mission for contributors",
+      "sparstone_required": true,
+      "suit_icon": "♣️"
+    },
+    "heart": {
+      "domain": "Unassigned — open for development",
+      "keeper_name": "TBD",
+      "sparstone_required": false,
+      "note": "Heart is the invitation suit. The first contributor to define it meaningfully could be its keeper.",
+      "suit_icon": "♥️"
+    },
+    "fifth": {
+      "domain": "5th Suite — concepts that graduated beyond the standard 4. Meta-level.",
+      "keeper_name": "TBD",
+      "sparstone_required": true,
+      "note": "Connects to Duplicatus copy-5+ where document becomes a Suite concept. Rare.",
+      "suit_icon": "⬡"
+    }
+  },
+
+  "what_doubled": {
+    "missions_for_voices": {
+      "existing": "Sparstone-earning missions (sparstone carrier, PR-based, idle-game build)",
+      "new": "Suit keeper missions, process character missions, unknown sub-missions",
+      "resolution": "These are DIFFERENT mission tiers. Sparstone = prerequisite. Suit keeper/process character = what you do WITH the sparstone. They stack, not duplicate."
+    },
+    "claims_system": {
+      "existing": "Sparstone earning via PR contribution",
+      "new": "/claim command → review → verify → log → creator notification",
+      "resolution": "The /claim system IS the sparstone earning mechanism, formalized as a command. Same concept, one implementation. Build once."
+    },
+    "unknown_as_concept": {
+      "note": "Unknown appears in: (1) the vault process chain as 3/0, (2) the suit system as 5th/heart, (3) the Google Drive folder named 'unknown'. These are RELATED but not identical. The Drive 'unknown' folder may already hold content relevant to the unknown suit."
+    }
+  },
+
+  "deweyization_as_codification": {
+    "term": "Deweyization",
+    "alternative_terms": ["codification", "decimalization", "anchoring"],
+    "recommended_term": "Deweyization — it names the process after its mechanism and creates a unique lexeme in the system",
+    "what_it_creates": "An anchored vector — a fixed point in knowledge space that the document can always be located by, regardless of what state it's in",
+    "icon": "📍",
+    "pr_workflow": {
+      "trigger": "PR or document containing 📍 icon",
+      "action": "Review workflow: does this document have a Dewey address? If yes, verify and log. If no, route to Deweyization process.",
+      "output": "Dewey address stamped, SAX catalog entry created or updated",
+      "possible_existing_lexeme": "Classification, cataloging, indexing — but 'Deweyization' is more specific and memorable"
+    }
+  },
+
+  "character_roster": {
+    "note": "One character per process step + one per suit. These are ROLES, not people. Missions assign them to voices.",
+    "process_characters": [
+      { "role": "The Nullifier", "step": "nullification", "status": "unnamed" },
+      { "role": "The Carbonizer", "step": "carbonization", "status": "unnamed" },
+      { "role": "The Decimal", "step": "deweyization", "icon": "📍", "status": "named" },
+      { "role": "The Unknown", "step": "3/0 — open", "status": "to be discovered" },
+      { "role": "The Sparklizer", "step": "sparklization", "status": "unnamed" }
+    ],
+    "suit_keepers": [
+      { "role": "Keeper of Spades", "suit": "♠️", "status": "mission open" },
+      { "role": "Keeper of Diamonds", "suit": "♦️", "status": "mission open" },
+      { "role": "Keeper of Clubs", "suit": "♣️", "status": "mission open" },
+      { "role": "Keeper of Hearts", "suit": "♥️", "status": "invitation open — defines the suit" },
+      { "role": "Keeper of the 5th", "suit": "⬡", "status": "rare — earned by extraordinary contribution" }
+    ]
+  },
+
+  "missions_for_pr130_voices": {
+    "context": "PR #130 tree contributors are the first candidate pool. dannyward630 and Ojas2095 already have sparstone as first contributors.",
+    "sparstone_required_missions": [
+      "Suit Keeper (any suit)",
+      "Process Character claim",
+      "Deweyization reviewer"
+    ],
+    "open_missions_no_sparstone": [
+      "Unknown suit definition — heart and 5th open for development",
+      "Unknown process step (3/0) — open for discovery",
+      "Sub-missions within the unknown PR"
+    ],
+    "reference_for_builders": {
+      "include_in_mission_pr": ["pjl_schema.json", "index_schema.json", "custos_moav_sparstone_handoff.json"],
+      "purpose": "Builders get the reference content so their submission is informed and high-quality",
+      "pr_structure": "Open PR with existing content pre-loaded. Voices claim sub-missions within it."
+    },
+    "bounty_format": {
+      "note": "Bounty language gets attention. Missions that are framed as bounties (find/build/claim X) draw more engagement than passive invitations.",
+      "sparstone_missions_as_bounties": "The suit keeper missions are rare and earnable — frame them as bounties with explicit reward (the keeper role itself)"
+    }
+  },
+
+  "what_is_not_yet_built": [
+    "Suit keeper character design documents (atelier concepts)",
+    "Process character design documents",
+    "The Unknown sub-mission PR",
+    "The /claim workflow (GitHub Actions or issue template)",
+    "The 📍 Deweyization PR trigger workflow",
+    "Heart suit definition",
+    "The Spaded Ace gate-keeper entity definition"
+  ],
+
+  "hold_until_primal": [
+    "Full character design for all roles",
+    "External mission deployment",
+    "The /claim GitHub Actions workflow",
+    "Heart and 5th suit definitions"
+  ],
+
+  "do_now_in_atelier": [
+    "This synthesis document (done)",
+    "Begin Keeper of Diamonds concept (connects directly to PJL — natural first keeper)"
+  ],
+
+  "navigo_note": "Navigo already walked the full process chain. Navigo is the pre-vetted traveler — not a keeper or process character, but the navigator between them. A_navigator not THE_navigator."
+}

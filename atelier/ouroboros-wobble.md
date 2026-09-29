@@ -2,6 +2,8 @@
 
 *nursery entry, filed 202606200005 — nothing here is finished*
 
+(A second, unrelated concept — lexeme/semantic drift in collaborative editing — was filed under this same name and timestamp by a parallel branch. It now lives at [`atelier/lexeme-drift.md`](./lexeme-drift.md).)
+
 ## The Idea
 
 A loop that doesn't quite close. The ouroboros eats itself — a perfect
@@ -56,6 +58,16 @@ loop behind the wobble, not the other way around.
   conversation and both describe places things converge before moving on.
   Worth checking, once either has a working pattern, whether they're the
   same convergence point wearing two names or genuinely separate.
+
+---
+
+4. **Manual review trigger** — A comment syntax `[wobble: <word>]` that can be added to a commit message or PR description to explicitly mark a word as potentially drifted. The detector then tracks that word across future changes.
+
+This mechanism is intentionally lightweight — it doesn't prevent drift, but it makes it visible before it becomes entrenched.
+
+## Hypothetical Origin
+
+Filed as a hypothetical in 202606200005. The lived instance was identified by eaprime1 through careful re-reading of old conversation transcripts.
 
 ---
 

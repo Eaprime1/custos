@@ -1,0 +1,282 @@
+# Custos — PR Concordance
+#
+# Comment `@claude concordance` on any PR to compile a concordance report.
+# Scans the diff for icons, artifact types, and dialogue history.
+# Generates a structured record: dialogues · new knowledge · artifacts · icon registry.
+# Upserts the concordance comment and dispatches `icon-assigned` if icons are detected.
+name: Custos — PR Concordance
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  concordance:
+    if: |
+      github.event.issue.pull_request != null &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Gate — check trigger phrase
+        id: gate
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: |
+          if echo "$COMMENT_BODY" | grep -qF '@claude concordance'; then
+            echo "triggered=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compile concordance
+        if: steps.gate.outputs.triggered == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const prNum = context.issue.number;
+            const SYMBOL = '∰🌿';
+
+            // ── Icon inventory ─────────────────────────────────────────────
+            const ICONS = [
+              { char: '♠️', name: 'Spade',      role: 'pinnacle/vault'       },
+              { char: '♦️', name: 'Diamond',    role: 'active development'   },
+              { char: '♣️', name: 'Club',       role: 'sessions/operations'  },
+              { char: '❤️', name: 'Heart',      role: 'reserved'             },
+              { char: '♓',  name: 'Pisces',     role: 'nav5 signature'       },
+              { char: '⊕',  name: 'DirectSum',  role: 'nav5 signature'       },
+              { char: '∰',  name: 'Custos',     role: 'custos sigil'         },
+              { char: '🌿', name: 'Herb',       role: 'shepherd mark'        },
+              { char: '🃏', name: 'Joker',      role: 'threshold joker J-21' },
+              { char: '◊',  name: 'Lozenge',   role: 'lumenar/Talinor'      },
+              { char: '∞',  name: 'Infinity',   role: 'prima continuity'     },
+            ];
+
+            // ── Artifact type detectors (by filename pattern) ──────────────
+            const ARTIFACT_TYPES = [
+              { re: /^quests\//,              type: 'quest'        },
+              { re: /^world\//,               type: 'world-lore'   },
+              { re: /^vault\//,               type: 'vault'        },
+              { re: /^atelier\//,             type: 'atelier'      },
+              { re: /^moav\//,               type: 'moav'         },
+              { re: /\.github\/workflows\//,   type: 'workflow'     },
+              { re: /tools\//,                type: 'tool'         },
+              { re: /returns\//,              type: 'stream-return'},
+              { re: /turns\//,               type: 'turn-log'     },
+              { re: /glossar|dictionar|lexeme|lexicon/i, type: 'lexical' },
+              { re: /pr-journeys\//,          type: 'journey-doc'  },
+              { re: /prima-clock\//,          type: 'prima-clock'  },
+              { re: /branch-tracker\//,       type: 'branch-map'   },
+            ];
+
+            // ── 1. PR details ──────────────────────────────────────────────
+            const { data: pr } = await github.rest.pulls.get({
+              owner, repo, pull_number: prNum,
+            });
+
+            // ── 2. Parse PR body sections ──────────────────────────────────
+            const body = pr.body || '';
+            const parseSection = (label) => {
+              const safe = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const re   = new RegExp(`##\\s+${safe}\\s*\\n([\\s\\S]*?)(?=\\n##\\s|$)`);
+              const m    = body.match(re);
+              if (!m) return null;
+              const txt  = m[1].replace(/<!--[\s\S]*?-->/g, '').trim();
+              return txt.length > 3 ? txt : null;
+            };
+            const whatArrived = parseSection('What Arrived');
+
+            // ── 3. Fetch changed files ─────────────────────────────────────
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: prNum, per_page: 100,
+            });
+
+            // ── 4. Scan diff for icons and classify artifacts ──────────────
+            const detectedIcons = new Map(); // char → { name, role, files[] }
+            const artifactRows  = [];
+
+            for (const file of files) {
+              const searchable = file.filename + '\n' + (file.patch || '');
+
+              // Icon scan
+              for (const icon of ICONS) {
+                if (searchable.includes(icon.char)) {
+                  if (!detectedIcons.has(icon.char)) {
+                    detectedIcons.set(icon.char, { ...icon, files: [] });
+                  }
+                  detectedIcons.get(icon.char).files.push(file.filename);
+                }
+              }
+
+              // Artifact classification
+              for (const art of ARTIFACT_TYPES) {
+                if (art.re.test(file.filename)) {
+                  const signals = ICONS
+                    .filter(i => searchable.includes(i.char))
+                    .map(i => i.char).join(' ') || '—';
+                  artifactRows.push({
+                    type: art.type, file: file.filename,
+                    status: file.status, signals,
+                  });
+                  break;
+                }
+              }
+            }
+
+            // ── 5. Fetch comments (single pass — used for dialogues + upsert) ──
+            const allComments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNum, per_page: 100,
+            });
+
+            const reviews = await github.paginate(github.rest.pulls.listReviews, {
+              owner, repo, pull_number: prNum, per_page: 100,
+            });
+
+            // Dialogue rows — skip bot concordance comment itself; first 10 substantive
+            const dialogueRows = allComments
+              .filter(c => c.body && c.body.trim().length > 5 &&
+                           !c.body.includes('PR Concordance'))
+              .slice(0, 10)
+              .map((c, i) => {
+                const preview = c.body
+                  .replace(/<!--[\s\S]*?-->/g, '')
+                  .replace(/\n+/g, ' ')
+                  .replace(/\|/g, '\\|')
+                  .slice(0, 70);
+                return `| ${i+1} | @${c.user.login} | ${preview}… |`;
+              });
+
+            // ── 6. prima-clock ─────────────────────────────────────────────
+            const now = new Date();
+            const p   = n => String(n).padStart(2, '0');
+            const primaClock = `${now.getUTCFullYear()}${p(now.getUTCMonth()+1)}${p(now.getUTCDate())}${p(now.getUTCHours())}${p(now.getUTCMinutes())}`;
+
+            // ── 7. Build concordance sections ──────────────────────────────
+            const iconFooterRow = detectedIcons.size > 0
+              ? [...detectedIcons.keys()].join('  ')
+              : '—';
+
+            const dialogueSection = [
+              '### Dialogues',
+              '',
+              `${allComments.length} comment(s) · ${reviews.length} review(s)`,
+              '',
+              ...(dialogueRows.length > 0
+                ? ['| # | Author | Preview |', '|---|---|---|', ...dialogueRows]
+                : ['*No substantive comments recorded.*']),
+            ];
+
+            const newKnowledgeSection = [
+              '### New Knowledge',
+              '',
+              whatArrived
+                ? whatArrived
+                : '*`What Arrived` section not filled in the PR description.*',
+            ];
+
+            const artifactSection = [
+              '### Project Artifacts',
+              '',
+              ...(artifactRows.length > 0
+                ? [
+                    '| Type | File | Status | Signals |',
+                    '|---|---|---|---|',
+                    ...artifactRows.map(r =>
+                      `| \`${r.type}\` | \`${r.file}\` | ${r.status} | ${r.signals} |`
+                    ),
+                  ]
+                : ['*No classified artifacts detected in this diff.*']),
+            ];
+
+            const iconRegistrySection = [
+              '### Icon Registry',
+              '',
+              `**Detected in diff:** ${iconFooterRow}`,
+              '',
+              ...(detectedIcons.size > 0
+                ? [
+                    '| Icon | Name | Role |',
+                    '|---|---|---|',
+                    ...[...detectedIcons.values()].map(i =>
+                      `| ${i.char} | ${i.name} | ${i.role} |`
+                    ),
+                  ]
+                : []),
+            ];
+
+            const commentBody = [
+              `## 🌿 PR Concordance — #${prNum}`,
+              '',
+              `*compiled ${primaClock} · nav1 · ${SYMBOL}*`,
+              '',
+              ...dialogueSection,
+              '',
+              ...newKnowledgeSection,
+              '',
+              ...artifactSection,
+              '',
+              ...iconRegistrySection,
+              '',
+              '---',
+              `*\`@claude concordance\` to refresh · ${SYMBOL}*`,
+            ].join('\n');
+
+            // ── 8. Upsert concordance comment ──────────────────────────────
+            const existingConcordance = allComments.find(c =>
+              c.user.login === 'github-actions[bot]' &&
+              c.body.includes('PR Concordance')
+            );
+
+            if (existingConcordance) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existingConcordance.id, body: commentBody,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNum, body: commentBody,
+              });
+            }
+
+            // ── 9. Apply `concordance` label ───────────────────────────────
+            try {
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number: prNum, labels: ['concordance'],
+              });
+            } catch {
+              try {
+                await github.rest.issues.createLabel({
+                  owner, repo, name: 'concordance', color: '0075ca',
+                  description: 'PR has a compiled concordance report',
+                });
+                await github.rest.issues.addLabels({
+                  owner, repo, issue_number: prNum, labels: ['concordance'],
+                });
+              } catch (e2) { core.warning(`concordance label: ${e2.message}`); }
+            }
+
+            // ── 10. Dispatch icon-manager-bbs if icons detected ────────────
+            if (detectedIcons.size > 0) {
+              try {
+                await github.rest.repos.createDispatchEvent({
+                  owner, repo,
+                  event_type: 'icon-assigned',
+                  client_payload: {
+                    pr_number:   prNum,
+                    pr_title:    pr.title,
+                    pr_url:      pr.html_url,
+                    icons:       [...detectedIcons.keys()],
+                    prima_clock: primaClock,
+                    repo:        `${owner}/${repo}`,
+                  },
+                });
+              } catch (e) {
+                core.warning(`icon-manager dispatch: ${e.message}`);
+              }
+            }
+
+# ∰🛠️🌿-custos_concordance_v1

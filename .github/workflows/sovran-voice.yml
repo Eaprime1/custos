@@ -16,7 +16,6 @@ jobs:
         with:
           script: |
             const pr = context.payload.pull_request;
-            const author = pr.user.login;
             const filesChanged = pr.changed_files || '?';
             const body = [
               '## 🌿 Custos — The Shepherd Considers',
@@ -25,8 +24,6 @@ jobs:
               '',
               '> *Custos* watches what enters. Every change is something new to keep,',
               '> or a new way of keeping what is already here.',
-              '',
-              `@${author} brings something for the shepherd to consider.`,
               '',
               '**From the shepherd watch:**',
               '- Does this protect what has been entrusted here?',
