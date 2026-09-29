@@ -157,9 +157,15 @@ jobs:
               const n = c.name.toLowerCase();
               return !n.includes('finalize') && !n.includes('readiness');
             });
+            const passingNames = new Set(
+              allChecks
+                .filter(c => c.status === 'completed' && c.conclusion === 'success')
+                .map(c => c.name)
+            );
             const failing = allChecks.filter(c =>
               c.status === 'completed' &&
-              !['success', 'neutral', 'skipped', 'cancelled'].includes(c.conclusion)
+              !['success', 'neutral', 'skipped'].includes(c.conclusion) &&
+              !(c.conclusion === 'cancelled' && passingNames.has(c.name))
             );
             const pending = allChecks.filter(c => c.status !== 'completed');
 
