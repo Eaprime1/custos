@@ -27,8 +27,9 @@ These are not stage actions or modifiers — they are the two-step check-in prot
 |---|---|---|
 | **`disponi`** | *disponere* — to arrange, make available | Availability check: is this mission open, in-progress, or paused? The navigo posts `@claude disponi` in a mission issue comment; the bot (or the Shepherd, until the bot exists) replies with the current state. |
 | **`petitio`** | *petitio* — request, claim | Plan submission: the navigo posts their intent, approach, and completion check and waits for the Shepherd's nod. Work begins on acceptance, not on submission. |
+| **`placet`** | *placet* — it pleases (the voice of assent) | The Shepherd's nod: the owner comments `@claude placet` on a mission issue that holds a petitio, and the `placet` workflow flips it to `in-progress`. Owner-only; footer comments and quoted cues are skipped. |
 
-These cues are issue-comment vocabulary, not PR-level workflow triggers. They live in the mission board procedure only; they do not finalize, seal, or merge anything.
+`placet` is the one cue that changes a label, and only on the owner's own word. These cues are issue-comment vocabulary, not PR-level workflow triggers. They live in the mission board procedure only; they do not finalize, seal, or merge anything.
 
 ## Actions
 
