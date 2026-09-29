@@ -373,3 +373,25 @@ partner_state:
   friction_named:   "branch divergence at session close; seal typo requiring retry; context window compaction mid-execution"
   next_stance:      "main is clean; mission board live; 6 missions ready to open; next session: open Mission 1 or 4 as first GitHub issue"
 ---
+
+---
+turn_ref:     202609291932
+prima-clock:  202609291932
+prime:        3
+worked:       Each piece was tested against a mocked GitHub context before it went live, so the disponi bot and the cue record both answered correctly on first contact. Separate PRs per topic kept every seal clean (19/20 to 20/20). Reading the sibling workflow (claim-register.yml) before building showed that claimed belongs to the public claim path, which is what led to the board's own labels. Trying the bot on a real mission issue the moment it merged closed the loop.
+friction:     - sovran-labels-sync.yml keeps its own hard-coded label list and never reads sovran-labels.yml, so the first sync created nothing; the label needed adding in two places.
+              - issue_comment workflows run from main, so nothing built here worked until its PR merged.
+              - The shell's safety check gave no verdict for a long stretch mid-session. Mission 2 went up through the GitHub connector on a new branch, was flagged untested in its PR body, tested when the shell returned, and the local branch was synced after.
+              - The Stop hook fired on the local copy of files already pushed, which only the shell could clear.
+              - I left the scan box unticked in #393's PR body while the shell was down and never updated it, so its seal reads 4/5 on Consistency.
+              - The review bot skipped every PR on its free-tier limit, so review came from CI, Codacy, DeepSource and the packet.
+seeds:        - Make sovran-labels-sync read sovran-labels.yml, so the label list lives in one place.
+              - A petitio handler: the Shepherd's nod flips the label from open to in-progress.
+              - Mission 3: route the feature/voices-of-navigo-manifesto content.
+              - Refresh the cue record after CI settles, so a Prima Recensio row shows the checks that finished.
+              - Open issues for missions shipped without one (Mission 5), or record them in mission-ideas.md.
+partner_state:
+  charge_received:  "continue the mission board for the voices of navigo; Mission 2 before session close since they go together"
+  friction_named:   "shell safety-check outage; label list kept in two places; Stop hook on synced files"
+  next_stance:      "main is clean; disponi and the petitio form are live; next build is the petitio handler or Mission 3"
+---
