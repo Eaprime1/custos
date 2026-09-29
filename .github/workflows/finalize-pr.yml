@@ -159,7 +159,7 @@ jobs:
             });
             const failing = allChecks.filter(c =>
               c.status === 'completed' &&
-              !['success', 'neutral', 'skipped'].includes(c.conclusion)
+              !['success', 'neutral', 'skipped', 'cancelled'].includes(c.conclusion)
             );
             const pending = allChecks.filter(c => c.status !== 'completed');
 
