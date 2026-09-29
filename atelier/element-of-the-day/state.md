@@ -2,7 +2,7 @@
 
 Status: not started in this repository.
 Last completed atomic number: none.
-Next core element: 1 — hydrogen (H).
+Next core element: not set — take from the first observed report.
 Last completed entry: none.
 Updated by / date: not yet set.
 
