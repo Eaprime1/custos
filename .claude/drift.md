@@ -47,3 +47,8 @@ Each entry: prima-clock · PR or branch · what nav1 did that wasn't directed ·
 **Did:** (1) named the accept cue `placet` and made it owner-only, footer-skipping and quote-safe like the seal gate. (2) Opened issue #395 as Mission 6 without waiting for a scoped brief. (3) Set the label swap: add `in-progress`, remove `open` and `paused`; refuse (in words, no label change) when `claimed` or `submitted` is set.
 **Why:** (1) the handoff said the accept step needed a cue and the glossary had none; owner association plus the footer rule keeps a navigo writing under the owner's login from accepting its own plan. (2) the handoff said it "needs a scoped mission issue first". (3) the board never sets `claimed`, so it should not overwrite states that other paths own.
 **Expected agreement:** yes on (2). (1) worth a second look: the cue name is new vocabulary. (3) is a judgement about scope.
+
+## 202609291942 · navigo registry draft
+**Did:** guessed the registry's row order and numbers (Claude 1, Perplexity 2, Unexusi 3, then Gemini, ChatGPT, Gmail) and marked the whole file DRAFT. Left CLAUDE.md and CULTIVATION.md untouched.
+**Why:** the Shepherd asked for a draft; the true order of first appearance isn't in the repo, and CULTIVATION.md says not to rewrite the CLAUDE.md table before the Shepherd's update.
+**Expected agreement:** the draft form, yes. The numbers are guesses and are flagged as such in the file.
