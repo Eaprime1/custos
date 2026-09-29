@@ -81,7 +81,7 @@ labels:
 
   - name: feedback
     color: "e4e669"
-    description: "Witnessed observation on an Ethica Nexus document or concept — endorsement, question, revision, or new direction"
+    description: "Witnessed observation on Ethica Nexus doc or concept — endorsement, question, revision, or direction"
 
   # State — one at a time, moves left to right
   - name: open
