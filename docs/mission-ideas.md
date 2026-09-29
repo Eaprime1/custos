@@ -25,7 +25,7 @@ A seed queue of mission candidates. The Shepherd reviews and opens missions from
 ### 3. `voices-of-navigo-manifesto` routing pass
 **What:** Review the `feature/voices-of-navigo-manifesto` branch, determine what each item is (atelier candidate, returns filing, queue item, or discardable), and route accordingly. Open missions for any items that deserve one.
 **Why:** The branch has significant unmerged content — dungeon-master/, pandora/, seep-artois/, state/, Gemini journey docs, Portaque JSON files, PDFs, seneschal.md. It cannot be safely deleted without this pass.
-**Completion check:** `git branch -r | grep -v "voices-of-navigo-manifesto"` (branch deleted after routing).
+**Completion check:** `! git branch -r | grep -q "voices-of-navigo-manifesto"` (exits 0 once the branch is gone, after routing).
 **Label candidates:** `mission`, `voices-of-navigo`
 
 ### 4. Sovran labels sync — add mission board labels ✅ done (PR #387; also `in-progress` and `paused` in PR #389)
