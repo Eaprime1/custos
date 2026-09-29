@@ -52,3 +52,8 @@ Each entry: prima-clock · PR or branch · what nav1 did that wasn't directed ·
 **Did:** guessed the registry's row order and numbers (Claude 1, Perplexity 2, Unexusi 3, then Gemini, ChatGPT, Gmail) and marked the whole file DRAFT. Left CLAUDE.md and CULTIVATION.md untouched.
 **Why:** the Shepherd asked for a draft; the true order of first appearance isn't in the repo, and CULTIVATION.md says not to rewrite the CLAUDE.md table before the Shepherd's update.
 **Expected agreement:** the draft form, yes. The numbers are guesses and are flagged as such in the file.
+
+## 202609292015 · navigo registry keys
+**Did:** replaced my own renumbering with a three-identifier scheme (key, existing number, label). Proposed a key for every row from the one example the Shepherd gave, and left Perplexity and Unexusi unnumbered. Ran the live placet test by posting a disponi, a petitio and a footer-carrying placet on throwaway issue #398 under the owner's login.
+**Why:** the Shepherd said existing numbers stay and asked for a unique key column; the test was requested. The footer-carrying placet was a deliberate negative check of the guard.
+**Expected agreement:** yes on the scheme and the test. The keys are guesses and are flagged in the file.
