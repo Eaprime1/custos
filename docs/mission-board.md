@@ -77,8 +77,9 @@ A petitio is not a reservation. Work begins on acceptance, not on submission.
 - the commenter is the repo owner, and the comment carries no Claude Code
   footer (a navigo writing under the owner's login is not the owner's nod);
 - the cue is not inside a quote or code;
-- the issue is an open `mission` in `open` or `paused` state with a petitio
-  in the thread.
+- the issue is an open `mission` that is not already `in-progress`, `claimed`
+  or `submitted` (a mission with none of these counts as open, as `disponi`
+  reads it), and a petitio is in the thread.
 
 Otherwise it answers in words (no petitio yet, already in progress, or
 `claimed`/`submitted` set elsewhere) and changes no label. It never sets
