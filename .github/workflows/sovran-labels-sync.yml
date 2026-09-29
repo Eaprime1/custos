@@ -79,6 +79,7 @@ jobs:
               { name: 'needs-shepherd', color: 'e99695', description: 'Blocked on a Shepherd decision, device access, or an outside system'   },
               { name: 'bot-friendly',   color: '5319e7', description: 'Carries a Bot Brief; automated submissions welcome'                   },
               { name: 'anchor-review',  color: 'd93f0b', description: '[ANCHOR REVIEW NEEDED] — a lore or custody claim lacks an anchor (guides/anchor-review.md)' },
+              { name: 'feedback',       color: 'e4e669', description: 'Witnessed observation on Ethica Nexus doc or concept — endorsement, question, revision, or direction' },
             ];
 
             const results = { created: [], updated: [], unchanged: [] };
