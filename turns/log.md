@@ -537,3 +537,19 @@ contribution: 14 PRs merged across naught, nullus, maw, custos and radix.
 resonance:    sealed in Latin
 witnessed:    true
 ---
+
+---
+turn:         2026-09-29 10:30
+prima-clock:  202609291102
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1 · Sonnet 4.6)
+intent:       open the mission board as internal navigo infrastructure; bring README current; seed the mission ideas queue; close the session
+contribution: docs/mission-board.md — full disponi/petitio procedure, coffee-haven atmosphere, label schema, voices-of-navigo layer, seal flow connection (PR #384, 20/20).
+              README.md — structure table completed, bounty→Sparstone Trials, two-step navigo section added, hub duplication removed (PR #385, 20/20).
+              docs/mission-ideas.md — 6 ready-to-open missions + 3 candidates + .dotfolder answer seeded (PR #385).
+              docs/latin-workflow-glossary.md — disponi/petitio navigo check-in cues documented.
+              SESSION-CLOSE handoff written (turns/SESSION-CLOSE-202609291102.md).
+              .dotfolder consolidation question answered in-document: keep at root, tools expect standard paths.
+resonance:    laid the floor
+witnessed:    true
+---
