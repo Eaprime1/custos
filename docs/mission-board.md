@@ -43,6 +43,9 @@ Response (bot or navigo reading the labels):
 - **in progress** — another navigo has it; check back or ask if they need a hand
 - **paused** — the prior holder stepped away; a petitio can reopen it
 
+When the answer is open or paused, the reply also carries the petitio form
+(Intent, Approach, Completion check) to copy, fill in and post.
+
 `disponi` is derived from *disponere* — to arrange, to make ready. It asks:
 *is this arranged for someone already?*
 
