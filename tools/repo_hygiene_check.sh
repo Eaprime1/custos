@@ -30,7 +30,7 @@ MISSING=0
 PRESENT=0
 
 while IFS= read -r ITEM; do
-  [[ -z "$ITEM" || "$ITEM" == \#* ]] && continue
+  [[ -z "$ITEM" || "$ITEM" = \#* ]] && continue
   if [[ -e "${TARGET}/${ITEM}" ]]; then
     echo "  [present] $ITEM"
     PRESENT=$((PRESENT + 1))
