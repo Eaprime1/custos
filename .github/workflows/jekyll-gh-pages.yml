@@ -1,11 +1,9 @@
 # Custos — Jekyll to GitHub Pages
-# Deploys on pushes to the ֍custos֎ deployed branch.
+# Push trigger disabled — static-gh-pages.yml is the single deploy source from ֍custos֎.
+# Kept for manual reference only (workflow_dispatch).
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
-  push:
-    branches: ["֍custos֎"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
