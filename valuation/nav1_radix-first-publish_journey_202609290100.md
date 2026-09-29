@@ -150,7 +150,7 @@ Applied to this journey document itself, per `valuation/README.md`:
 
 **Score: 9 → Rank: King** (Active Stand-alone — session is closed and operating as a record)
 **Suit (Hub system): ♣️ Club** — sessions/operations
-**Suit (Five Lakes): TBD** — Deck Master to assign
+**Suit (Five Lakes): Pending Deck Master assignment**
 
 ---
 
@@ -165,7 +165,7 @@ Applied to this journey document itself, per `valuation/README.md`:
 | Motion State | SEALING |
 | Chain of Custody | OPEN |
 | Suit Assignment (Hub) | ♣️ Club — sessions/operations |
-| Suit Assignment (Five Lakes) | TBD |
+| Suit Assignment (Five Lakes) | Pending Deck Master assignment |
 | Valuation Score | 9 → King |
 | Plank Status | At plank — session closed |
 | Destination Repo | custos |

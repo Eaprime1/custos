@@ -56,7 +56,7 @@ Checks that run on the radix PR:
 
 | Check | What it tests |
 |---|---|
-| `scan` (scan-lexeme) | Placeholder words in `.md/.sh/.yaml` |
+| `scan` (scan-lexeme) | Distressed lexemes in `.md/.sh/.yaml` |
 | `validate` (prima-witness) | New `.md` files without prima-clock stamps |
 | `packet` (review-packet) | No-API diff summary |
 | Codacy Static Code Analysis | Reads `.codacy.yml` **from `main`** |
