@@ -18,11 +18,13 @@ A navigo is a paired team: one AI model and eaprime1. The Shepherd can redirect 
 | # | Label | Team | Workspace | Legacy name | Status |
 |---|-------|------|-----------|-------------|--------|
 | 1 | Navigo Claude | Claude + eaprime1 | `.claude/` | nav1 | active |
-| 2 | Navigo Perplexity | Perplexity + eaprime1 | none yet | (Perplexity's PRs call Claude "Navigo2"; that is Claude, not this row) | active |
+| 2 | Navigo Perplexity | Perplexity + eaprime1 | none yet | none | active |
 | 3 | Navigo Unexusi | the project as primary perspective | none | none | active |
 | 4 | Navigo Gemini | Gemini + eaprime1 | `.gemini/` | nav3 | proposed |
 | 5 | Navigo ChatGPT | ChatGPT + eaprime1 | `.chatgpt/` | nav5 | proposed |
 | 6 | Navigo Gmail | Gmail + eaprime1 | none yet (`guides/navigo2-gmail-preturn.md`) | navigo2 | proposed |
+
+Perplexity's draft PRs refer to Claude as "Navigo2"; that label belongs to row 1, not row 2.
 
 **To confirm:** the order above is a guess from what the repo shows, not from
 the true first appearance of each navigo. Rows 4–6 also collide with the
