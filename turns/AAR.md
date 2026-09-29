@@ -395,3 +395,23 @@ partner_state:
   friction_named:   "shell safety-check outage; label list kept in two places; Stop hook on synced files"
   next_stance:      "main is clean; disponi and the petitio form are live; next build is the petitio handler or Mission 3"
 ---
+
+---
+turn_ref:     202609292018
+prima-clock:  202609292018
+prime:        3
+worked:       The guard that keeps a navigo from giving the Shepherd's nod is the same footer rule the seal gate already used, so it needed no new idea; the live run showed it holding (a footer-carrying placet did nothing). Running the negative case on purpose before asking the Shepherd for the real cue made the positive result mean more.
+friction:     - .claude/drift.md is append-only and every PR appends to it, so two PRs in flight conflict on merge; #396 needed a merge of main to resolve it.
+              - The shell's safety check gave no verdict again at the start of the live test; the issue and comments went through the GitHub connector.
+              - #396's merge went through as soon as the merge commit was pushed, before CI ran on that commit; the content was the sealed content, but the commit itself was never checked.
+              - The Shepherd's first placet landed on PR #399 instead of test issue #398; the handler ignored it correctly, but the test lost a round.
+              - A review finding (guard wording vs code) was settled by fixing the docs, because the code followed disponi's rule; the alternative would have made placet and disponi disagree about the same issue.
+seeds:        - Make drift.md conflict-proof: one file per entry, or a union merge rule in .gitattributes.
+              - Make sovran-labels-sync read sovran-labels.yml, so the label list lives in one place.
+              - Have placet write the holder's key into its reply once navigo keys are settled.
+              - Mission 3: route the feature/voices-of-navigo-manifesto content.
+partner_state:
+  charge_received:  "close this section; existing nav numbers stay and add a unique key column; run the live placet test"
+  friction_named:   "placet posted on the PR instead of the issue; shell safety-check outage; drift.md merge conflict"
+  next_stance:      "main is clean; the board loop is live and verified; #399 waits on confirmed keys; next build is the label list, Mission 3, or recording the holder"
+---
