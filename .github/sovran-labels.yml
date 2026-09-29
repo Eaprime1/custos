@@ -109,4 +109,8 @@ labels:
     color: "d93f0b"
     description: "[ANCHOR REVIEW NEEDED] — a lore or custody claim lacks an anchor (guides/anchor-review.md)"
 
+  - name: voices-of-navigo
+    color: "c2e0c6"
+    description: "Mission seeded from a navigo session insight (docs/mission-board.md)"
+
 # ∰🌿-sovran_labels_v1
