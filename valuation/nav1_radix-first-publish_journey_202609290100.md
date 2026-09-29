@@ -186,7 +186,6 @@ Applied to this journey document itself, per `valuation/README.md`:
 - **Bot PR automation**: consider a workflow that fires on `pull_request` opened
   by known bots (DeepSource, Dependabot) and posts a body template comment so
   the navigo has a template to fill rather than authoring from scratch.
-- **PR #381**: still pending final merge. Body is correct, seal cue outcome TBD.
-  One clean `@claude ultima probatio` confirms the seal; then merge.
+- **PR #381**: merged (`a7e12ea`). Sealed on the fourth cue attempt; closed the trailing cleanup.
 - **Metrics baseline**: these Run 1 numbers are the baseline. Track seal efficiency
   and publish lag on the next run to see if the procedure reduces friction.
