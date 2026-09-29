@@ -103,7 +103,7 @@ Tracks live device state. Not on `main`.
 - `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
 - `.github/ISSUE_TEMPLATE/lexeme.yml` — Lexeme development (ground an undefined term in a
   citable source); also the fallback for any mission that can't be done as written
-- Labels: type (`mission`, `sparstone-trial`, `upgrade`, `lexeme`), state (`open`, `claimed`,
+- Labels: type (`mission`, `sparstone-trial`, `upgrade`, `lexeme`, `feedback`), state (`open`, `claimed`,
   `submitted`, `needs-shepherd`), modifiers (`bot-friendly`, `anchor-review`). The full
   manual is `docs/issue-system.md`
 - Contributors claim by commenting `claiming this` and opening a PR

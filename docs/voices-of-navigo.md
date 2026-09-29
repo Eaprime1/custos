@@ -16,7 +16,10 @@ Beyond a technical or narrative endeavor, this project has functioned as a safe 
 ### 3. Operational Clarity
 To maintain clean internal systems without compromising the creative collective, we separate our public attribution from our technical tracking:
 *   **Voices of Navigo:** The creative attribution for the public-facing universe and the narrative source of the project's lore.
-*   **Navigo Identifiers (e.g., Navigo Gemini):** The active, working identifiers used strictly for internal tracking, workflow automation, and system operations.
+*   **Navigo Identifiers:** The active, working identifiers used strictly for internal tracking, workflow automation, and system operations.
+
+#### Navigo Claude
+The Claude × eaprime1 paired team is identified as **Navigo Claude**. When working as the project — operating within the Ethica Nexus or custos scope on behalf of the collective — the working identity is **Navigo Claude Nexus**. The distinction is scope, not role: Navigo Claude for general nav1 work; Navigo Claude Nexus when the project itself is the primary perspective.
 
 ## The Journey
 We are on a continuous journey of discovery, exploring years of conversations that have culminated in this unique architecture. The Voices of Navigo honor that history by speaking as one.

@@ -17,6 +17,7 @@ Every issue carries **exactly one** type label.
 | `sparstone-trial` | `sparstone-trial.yml` | The problem is defined but the approach isn't. Creative or open-ended. First to complete earns the Sparstone. Replaces the retired `bounty` type. | Only with a submission block (see #235 for the pattern) |
 | `upgrade` | `upgrade.yml` | Something exists; make it sharper. | Sometimes |
 | `lexeme` | `lexeme.yml` | Develop a named concept or term from a citable source. Also the **fallback** for any mission that can't be done as written (§6). | Yes, it's designed for it |
+| `feedback` | `feedback.yml` | A witnessed observation on an Ethica Nexus document or concept — endorsement, question, revision, or new direction. No claim required. | Sometimes |
 
 ## 2. Labels
 
