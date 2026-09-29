@@ -79,9 +79,9 @@ brief), `INDEX.md` (the library index: status per library),
 
 ### Issue System
 `docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim
-lifecycle, the no-cash reward system, the Bot Brief every mission carries for automated
-submitters, the lexeme-development fallback when a mission can't be done, and the final
-"does it make sense?" review. `.github/sovran-labels.yml` defines the labels, and
+lifecycle, the no-cash reward system, and the Bot Brief every mission carries for automated
+submitters. It also covers the lexeme-development fallback when a mission can't be done, and
+the final "does it make sense?" review. `.github/sovran-labels.yml` defines the labels, and
 `sovran-labels-sync.yml` applies them.
 
 ### World (`world/`)
