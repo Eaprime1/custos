@@ -553,3 +553,20 @@ contribution: docs/mission-board.md — full disponi/petitio procedure, coffee-h
 resonance:    laid the floor
 witnessed:    true
 ---
+
+---
+turn:         2026-09-29 19:32
+prima-clock:  202609291932
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       continue the mission board for the voices of navigo: refresh, then build the first missions off the seed list
+contribution: 4 PRs merged, 3 missions opened and closed, the board's first live answers.
+              - #387 session open record; Mission 4 (voices-of-navigo label, in the yml and in the sync workflow's own list) and Mission 5 (disponi/petitio note in the mission template).
+              - #389 Mission 1: disponi.yml answers open / in progress / paused from the labels; in-progress and paused labels; anchor-review taken out of the board's label table; the board does not use claimed.
+              - #391 Prima Recensio: the cue record logs the first witness when a PR opens ready or is marked ready; a manual prima recensio comment still lands in the same log.
+              - #393 Mission 2: the open and paused disponi reply carries the petitio form.
+              Live checks: disponi answered "open" on #390 in 8 seconds; Prima Recensio logged itself on #391 and #393.
+              Closing record: turns/SESSION-CLOSE-202609291932.md.
+resonance:    steady
+witnessed:    true
+---

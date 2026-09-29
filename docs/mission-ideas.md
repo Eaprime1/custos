@@ -3,19 +3,19 @@
 `suit: ♦️ Diamond — active build`
 `prima-clock: 202609291030`
 
-A seed queue of mission candidates — not yet opened as issues. The Shepherd reviews and opens missions from here. Each entry is a candidate, not a commitment.
+A seed queue of mission candidates. The Shepherd reviews and opens missions from here. Each entry is a candidate, not a commitment. Items marked ✅ are done (session 202609291932); open items are 3, 6 and the candidates below.
 
 ---
 
 ## Ready to open
 
-### 1. `disponi` bot — availability check workflow
+### 1. `disponi` bot — availability check workflow ✅ done (#388, PR #389)
 **What:** A GitHub Actions workflow that responds to `@claude disponi` in a mission issue comment, reads the issue labels, and replies: open / in-progress / paused.
 **Why:** The mission-board procedure exists; the automation does not. Without it, `disponi` is a manual check.
 **Completion check:** `grep -r "disponi" .github/workflows/ | grep -q "issue_comment"` exits 0.
 **Label candidates:** `mission`, `bot-friendly`
 
-### 2. `petitio` scaffolder — plan template prompt
+### 2. `petitio` scaffolder — plan template prompt ✅ done (#392, PR #393)
 **What:** When `disponi` returns "open," the bot posts a comment with the petitio template pre-filled (Intent / Approach / Completion check fields visible), so the navigo fills in a form rather than writing from memory.
 **Why:** Reduces friction. Keeps petitio submissions consistent.
 **Completion check:** `grep -r "petitio" .github/workflows/ | grep -q "petitio_template"` exits 0.
@@ -25,16 +25,16 @@ A seed queue of mission candidates — not yet opened as issues. The Shepherd re
 ### 3. `voices-of-navigo-manifesto` routing pass
 **What:** Review the `feature/voices-of-navigo-manifesto` branch, determine what each item is (atelier candidate, returns filing, queue item, or discardable), and route accordingly. Open missions for any items that deserve one.
 **Why:** The branch has significant unmerged content — dungeon-master/, pandora/, seep-artois/, state/, Gemini journey docs, Portaque JSON files, PDFs, seneschal.md. It cannot be safely deleted without this pass.
-**Completion check:** `git branch -r | grep -v "voices-of-navigo-manifesto"` (branch deleted after routing).
+**Completion check:** `! git branch -r | grep -q "voices-of-navigo-manifesto"` (exits 0 once the branch is gone, after routing).
 **Label candidates:** `mission`, `voices-of-navigo`
 
-### 4. Sovran labels sync — add mission board labels
+### 4. Sovran labels sync — add mission board labels ✅ done (PR #387; also `in-progress` and `paused` in PR #389)
 **What:** Add `voices-of-navigo` and `anchor-review` to `.github/sovran-labels.yml` so they exist as official labels in the taxonomy.
 **Why:** `docs/mission-board.md` defines these labels; they need to be in the sovran registry to be created by `sovran-labels-sync.yml`.
 **Completion check:** `grep "voices-of-navigo" .github/sovran-labels.yml` exits 0.
 **Label candidates:** `mission`, `bot-friendly`
 
-### 5. Mission issue template — disponi/petitio instructions
+### 5. Mission issue template — disponi/petitio instructions ✅ done (PR #387, no issue)
 **What:** Update `.github/ISSUE_TEMPLATE/mission.yml` to include a brief note in the body explaining the `disponi` / `petitio` two-step for navigo contributors.
 **Why:** Right now a navigo reading a mission issue has no in-issue reminder of the flow. The instructions live in `docs/mission-board.md` but not at the point of contact.
 **Completion check:** `grep "disponi" .github/ISSUE_TEMPLATE/mission.yml` exits 0.
@@ -58,7 +58,7 @@ The `turns/CULTIVATION.md` flags an open design conflict: numbered navigo table 
 `seep-artois/` appears in the convergence hub structure but is not documented in `docs/convergence-hub.md`. What is the current seep-artois pool state?
 **Note:** Needs a review pass before a mission can be scoped.
 
-### 9. Session test — run the full disponi/petitio flow live
+### 9. Session test — run the full disponi/petitio flow live (partly done: disponi answered live on #390; the petitio handler is not built)
 Once the disponi bot exists, run a live test session: Shepherd opens a small mission, navigo posts `@claude disponi`, bot responds, navigo posts petitio, Shepherd accepts, navigo builds and merges.
 **Note:** Depends on Missions 1 and 2.
 
