@@ -1,0 +1,102 @@
+name: Feedback
+description: Submit feedback on an Ethica Nexus document or concept. Navigo teams, external contributors, and the Shepherd use this to record what they noticed in a review pass.
+title: "[feedback] "
+labels: ["feedback", "open"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Feedback is a witnessed observation.** You read something in the Ethica Nexus corpus (a return document, a convergence note, a drive file) and noticed something worth recording — an endorsement, a question, a revision request, or a new direction it opens. The Shepherd decides what becomes action.
+
+        Claim is not required for feedback. Submit and let it be considered.
+
+  - type: input
+    id: subject
+    attributes:
+      label: Subject document or concept
+      description: The document, file path, or concept name this feedback addresses.
+      placeholder: ".perplexity/returns/ethica_nexus_convergence_202609280758.md"
+    validations:
+      required: true
+
+  - type: input
+    id: source_ref
+    attributes:
+      label: Source reference
+      description: "Repository path OR Google Drive link. Use the path when the document is in the repo; use the Drive link when it is only on Drive."
+      placeholder: "https://drive.google.com/... or atelier/ethica-nexus/..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: feedback_kind
+    attributes:
+      label: Feedback kind
+      description: What kind of observation is this?
+      options:
+        - Endorsement — this is sound; record it
+        - Revision needed — something is off; see details below
+        - Question — unclear or unresolved; needs Shepherd attention
+        - New direction — this opens something; see details below
+        - Edge case — a scenario not covered in the current document
+    validations:
+      required: true
+
+  - type: textarea
+    id: content
+    attributes:
+      label: Feedback
+      description: The observation itself. Be specific — quote the relevant passage when possible.
+      placeholder: |
+        "The phrase 'individual authorship is impossible' (line 12) overstates the case.
+        Suggest: 'individual authorship is incomplete without the network.'"
+    validations:
+      required: true
+
+  - type: input
+    id: navigo_stream
+    attributes:
+      label: Navigo stream (if applicable)
+      description: "Which navigo produced this feedback? Leave blank if from a human contributor."
+      placeholder: "Navigo Perplexity (∭)"
+    validations:
+      required: false
+
+  - type: textarea
+    id: action_requested
+    attributes:
+      label: Action requested
+      description: "What should happen with this feedback? A revision PR, a lexeme, a Shepherd decision, or just a record?"
+      placeholder: "Open a revision PR targeting the convergence note; no new lore needed."
+    validations:
+      required: false
+
+  - type: textarea
+    id: read_first
+    attributes:
+      label: Read first
+      value: |
+        - `prima.yaml`
+        - `CLAUDE.md`
+        - `docs/issue-system.md`
+        - The subject document listed above
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion_check
+    attributes:
+      label: Completion Check
+      description: Optional — only needed if the feedback requests a concrete deliverable.
+      render: bash
+      placeholder: |
+        # Example: confirm a revision landed
+        grep -q "incomplete without" .perplexity/returns/ethica_nexus_convergence_202609280758.md && echo "revision landed"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **No claim required.** Feedback issues stay open until the Shepherd marks them `held`, `witnessed`, or `needs-shepherd`. If this feedback leads to a revision, the revision PR links back to this issue.
