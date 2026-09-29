@@ -1,0 +1,103 @@
+name: Sparstone Trial
+description: An open challenge where the approach is part of the work. First to complete earns the Sparstone; everyone who completes it earns XP.
+title: "[trial] "
+labels: ["sparstone-trial", "open"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **A Sparstone Trial is open-ended work.** The problem is defined but the approach is not. Contributors bring their own method and the Shepherd decides what lands. Claim by commenting `claiming this`.
+
+        **No cash, no monetary reward.** The first to complete it earns the Sparstone (or the badge named below). Everyone who completes it earns XP on the prime ladder, and every submission gets a written evaluation. Submissions that ask for payment are labelled `payment-demand` and don't merge. See `docs/issue-system.md` §4.
+
+  - type: textarea
+    id: challenge
+    attributes:
+      label: The Challenge
+      description: What problem needs solving? What is currently broken, missing, or possible?
+      placeholder: "The Field lacks X. Whoever figures out Y earns the Sparstone."
+    validations:
+      required: true
+
+  - type: textarea
+    id: read_first
+    attributes:
+      label: Read first
+      description: "Bot Brief 1 — exact paths a contributor (or bot) must read. Always include prima.yaml and CLAUDE.md."
+      value: |
+        - `prima.yaml`
+        - `CLAUDE.md`
+        - `docs/issue-system.md`
+    validations:
+      required: true
+
+  - type: textarea
+    id: write_to
+    attributes:
+      label: Write to
+      description: "Bot Brief 2 & 3 — exact output path(s) and form. Say world/ vs atelier/ vs tools/ explicitly; say 'no Python, no new runtime' when that applies."
+      placeholder: "`atelier/<slug>.md` — Markdown, lore tone. No Python, no new runtime."
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: "Bot Brief 6 — what a submission must NOT do."
+      value: |
+        - Don't edit `vault/` or `world/the-the.md`
+        - Don't invent history or claim rewards not named here
+        - Don't add dependencies or a build step
+    validations:
+      required: false
+
+  - type: textarea
+    id: success
+    attributes:
+      label: What success looks like
+      description: How will you know a solution worked? Be as specific as you can without prescribing the approach.
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Anything the solution must not do, or must work within.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Background, related files, prior attempts, relevant lore.
+    validations:
+      required: false
+
+  - type: input
+    id: required_access
+    attributes:
+      label: Required access
+      description: "Badges a contributor needs to execute this effectively. Leave blank if none. List badge tokens — e.g. `notebook:radix`, `drive:breathe-ii`."
+      placeholder: "notebook:radix, drive:breathe-ii"
+    validations:
+      required: false
+
+  - type: input
+    id: xp
+    attributes:
+      label: Reward
+      description: "The Sparstone or badge the first completer earns, plus XP rungs for everyone who completes it. Never a cash amount."
+      placeholder: "Sparstone: <name> · XP: 3 rungs"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **If this can't be done as written:** take the lexeme path. Pick one term or concept named above, research it (Wikipedia preferred; any citable source), and file a note in `atelier/lexemes/`. See `docs/issue-system.md` §6.
+
+        **Before you submit:** answer the Sense Check in the PR template. Does what you made answer this issue, and would it make sense to a stranger?

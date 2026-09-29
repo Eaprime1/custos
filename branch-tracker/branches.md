@@ -1,7 +1,7 @@
 # BRANCH TRACKER 🃏
 
 Active development map for eaprime1/custos
-Last updated: 202607150601
+Last updated: 202609290340
 
 ---
 
@@ -15,13 +15,13 @@ The working hierarchy of the convergence hub. Flow direction:
 
 | Card | Branch | Role | Status | Notes |
 |------|--------|------|--------|-------|
-| ♣️K | `main` | Hub default — father of all branches | Active | Tip `551cb8a` as of 202607150601 (PR #200, sparstone docs hub, just merged) |
+| ♣️K | `main` | Hub default — father of all branches | Active | Tip `46fb3376` as of 202609290340 (PR #363, element-of-the-day atelier seed, just merged). Prior tip `551cb8a` (PR #200, sparstone docs hub, 202607150601). |
 | ♣️Q | `radix` | Buffer / go-between — working to showpiece | **Stale** | 270 commits behind `main` as of 202607150601. Its 1 unique commit (PR #56, merged 2026-06-22) was itself an attempt to "catch radix back up" — it fell behind again after. Needs a dedicated reconciliation pass; not safe to blind-pull into `main`. |
 | ♣️J | `pixel8` | Pixel 8 device (Podium) | Active | 0 unique commits vs `main` as of 202607150601 — currently fully caught up content-wise. Stays a separate branch by design (device state; PRs to `main` require Sentinel review). |
 | ♣️J | `mandelbrot` | Working branch | **Not created** | Listed in a prior version of this doc as a germ Jack; no such branch currently exists in the repo. Either never materialized or was cleaned up before this pass — flagging rather than silently dropping the row. |
 | ♣️J | `mulberry` | Working branch | **Not created** | Same as `mandelbrot` — no matching branch exists currently. |
 | ♣️J | `main-to-radix` | Update path: main → radix | **Not created** | No such branch currently exists. `radix`'s staleness (above) suggests this path, if it ever existed, isn't running. |
-| ♥️A | `֍custos֎` | Deploy branch | Active — **just updated** | Fast-forwarded to `main` tip `551cb8a` on 202607150601 (was 277 commits behind, 0 unique content of its own). Deploy is current as of this pass. |
+| ♥️A | `֍custos֎` | Deploy branch | Active | Fast-forwarded to `main` tip `551cb8a` on 202607150601 (was 277 commits behind, 0 unique content of its own). Not re-verified since — may be behind current `main` tip. |
 | ♠️A | `∰custos` | Vault pinnacle | Pending | Not yet created — highest custody |
 | Pandora | `pandora/primal-seed` | Container branch — collects per-stream germ responses to the Primal Seed document (origin: a Claude Projects conversation) | Germ | First cross-conversation alignment handshake; see `pandora/README.md` |
 | 🔐J | `master` | Save point | **Not created** | No branch by this name currently exists. Protected-branch role, if still intended, needs re-establishing or this row retired. |
@@ -42,6 +42,7 @@ Branches developing into separate destination repos.
 | valuation | ♣️ | 1/3 | eaprime1/custos | Five Lakes Valuation System — bridge doc landed, ledger crawl in progress |
 | `threshold-crossing` (atelier seed) | ♦️ | Germ (atelier) | TBD | First named atelier exit; suit ♦️ Diamond confirmed; Chronicle 0002; destination repo TBD — awaiting eaprime1 routing decision |
 | `wordpress` | ♦️ | Germ | WordPress.com — www.unexusi.com ("Phoenix Prism") | Branched from updated `֍custos֎`/`main` at `551cb8a` on 202607150601, per eaprime1 direction. No content yet. WordPress.com MCP connector available in-session but not yet authorized. |
+| `atelier/element-of-the-day/` (atelier seed, on main) | ♦️ | Germ (atelier) | `eaprime1/121` (periodic table) or `eaprime1/hodie` (daily reports) | Merged to main via PR #363 (202609290000). Separate atomic-number rotation and optional news lane. Cursor: not set until first observed report. Hodie handoff doc included as design-only. Branch `perplexity/atelier-element-daily` Mobius-closed. |
 
 ---
 
@@ -49,10 +50,14 @@ Branches developing into separate destination repos.
 
 Branches developed by navigo teams (navN = AI model + eaprime1). Internal contributors; same accountability as external, Shepherd can redirect.
 
+**Navigo naming under review as of 2026-09-27.** Until eaprime1 confirms numbering, teams are identified by name. See `turns/CULTIVATION.md`.
+
 | Branch | Navigo | Suit | Status | Notes |
 |--------|--------|------|--------|-------|
 | `navigo5/granum-anchor-review` | nav5 (ChatGPT+eaprime1) | ♦️ | **Mobius-closed** | PR #179 merged 2026-07-02. Content (anchor-review seed, `.chatgpt/` workspace) fully absorbed into `main`. Branch retained, not deleted — see Mobius-Closed section below. |
 | `navigo14/concept-grain` | nav14 | ♦️ | **Mobius-closed, content migrated out** | Single-commit branch (`Add files via upload`, 2026-07-01), carried one file: `🌾 The -Grain- Concept.pdf` — not otherwise integrated into `main`. On 202607150601, the PDF was copied (byte-identical) to `eaprime1/tabularium` at `incoming/concept-grain.pdf`, with a chain-of-custody carrier (`incoming/concept-grain.carrier.json` in tabularium; mirrored in this repo as `moav/custos_moav_transfer_conceptgrain001.json`). This is the first item against tabularium's own noted-but-unstarted ".pdf survey" mission. Branch retained per no-delete policy — the branch itself, not just the file, is the record. |
+| `perplexity/atelier-element-daily` | Navigo Perplexity (Perplexity+eaprime1) | ♦️ | **Mobius-closed** | PR #363 merged 202609290000. Element-of-the-day atelier seed (`atelier/element-of-the-day/`). Cursor fix (not hydrogen until first observed report) landed in fix commit `45ff425` after first seal; final merge `46fb3376`. Branch retained. |
+| `perplexity/session-close-20260928` | Navigo Perplexity (Perplexity+eaprime1) | ♣️ | **Open — prima** | PR #374 open as of 202609290340. Opening journey narrative + next-session handoff. CI green. Missing `## Resonance` in PR body — needed before seal gate will pass. Perplexity's system symbol used: `∭`. |
 
 ---
 
@@ -74,6 +79,7 @@ Repos this hub routes content to, or draws reference material from, outside the 
 |------|--------------|-------|
 | `eaprime1/tabularium` | Reference-everything archive; destination for the Crispr-NiE library pipeline | Founded from custos prep work (see Mobius-Closed section — `claude/tabularium-repo-setup-7h5229`). Cloned into this session 202607150601. First cross-repo custody transfer landed same session: `navigo14/concept-grain`'s PDF (see Navigo Branches above). |
 | WordPress.com — www.unexusi.com ("Phoenix Prism") | Deploy destination for the new `wordpress` branch (see Concept Development above) | eaprime1 reports the site has been through several rapid iterations, at least one crash/rebuild cycle, over roughly a year. A direct check of www.unexusi.com from this session returned HTTP 403 (blocked, live/down state unverified from here). |
+| `eaprime1/navigo` | Navigo-team shared repo | PR #2 (Voices of Navigo cross-post) was found open and set to draft as of 202609280. Outcome not verified in this pass — check live status. |
 
 ---
 
@@ -89,5 +95,10 @@ Repos this hub routes content to, or draws reference material from, outside the 
 | `navigo5/granum-anchor-review` | Anchor-review seed bundle, `.chatgpt/` nav5 workspace | PR #179 (merged 2026-07-02) | 202607022251 | 0 unique commits vs `main`. |
 | `seneschal_seeds` | Ethics foundation + submission pipeline | PR #172 (branch tip commit is the merge commit itself) | — | No registry row found for PR #172 — predates or fell outside this pass's registry review. 0 unique commits vs `main`. |
 | `navigo14/concept-grain` | `🌾 The -Grain- Concept.pdf` | Not merged to `main` — content migrated to `eaprime1/tabularium` instead (see Navigo Branches above) | 202607150601 | Listed here too since its work is done, even though the destination wasn't `main`. |
+| `feature/voices-of-navigo-manifesto` | `docs/voices-of-navigo.md` (Gemini's collective attribution manifesto) + `.gemini/returns/pr_receipt_voices_of_navigo.md` | PR #371 merged 202609280741 | 202609280729 (sealed) | Provenance: Gemini Notebook × eaprime1; submitted via Navigo Perplexity. Note: "individual authorship is impossible" phrase is on main — revision PR question open, eaprime1 decides. |
+| `claude/message-clarity-repo-setup-q0agry` | `atelier/lexemes/manifesto.md` (distressed-lexeme seed) + `.claude/returns/ethica_nexus_review_202609280650.md` (nav1 Ethica review) via PR #372; `.perplexity/returns/ethica_nexus_convergence_202609280758.md` (nav1 convergence note) via PR #373 | PR #372 merged 202609280720; PR #373 merged 202609280807 | 202609280650 (PR #372 prima-clock) | Same branch carried two sequential PRs. Post-merge commit `04a7675` was pushed to this branch after PR #373 merged — that revision is NOT on `main`; a fresh PR is needed if the correction is wanted on `main`. |
+| `perplexity/atelier-element-daily` | `atelier/element-of-the-day/` seed (README, state.md, entry-template.md, hodie-handoff.md) | PR #363 merged 202609290000 | — | Navigo Perplexity × eaprime1. Cursor fix committed post-first-seal; final merge `46fb3376`. |
+
+*Note: PRs #354, #355, #358, #364 (and others in the #354–#370 range) are confirmed merged but their source branches were not traced in this pass. A future reconciliation pass should add them.*
 
 No branches have been deleted. This section supersedes the old "Departed Branches" framing, which implied removal — these branches haven't departed, they've closed.

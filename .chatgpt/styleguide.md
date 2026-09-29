@@ -26,7 +26,7 @@ The Shepherd governs by declared protocol, not improvisation.
    - Vault entry placed without custody review documentation → protocol violation
 
 3. **Placeholder hygiene** — flag any `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`,
-   `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` in `.md`, `.sh`, `.yaml`, `.json`
+   `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` in `.md`, `.sh`, `.yaml`, `.yml`, `.json`
 
 4. **Quest format** — every quest needs: YAML front matter with all required fields,
    deterministic Completion Check, all required sections

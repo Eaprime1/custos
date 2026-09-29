@@ -24,6 +24,7 @@ Nothing in the Atelier is finished. That is the point.
 | INT Radix | `int-radix-seed.md` | Terms named, ethics tension flagged — nothing operational built | intake/incoming.md fragment, 2026-07-20 |
 | Bit Germ Dust (contributor on-ramp) | `bit-germ-dust-contributor-onramp.md` | Idea captured, generation mechanism not scoped | hodie session, Conversation 1 of the hodie series |
 | Void-maker | `void-maker.md` | Named, not yet coined — Shepherd decision pending | Bounty #187 moderation cycle |
+| Legatum | `legatum/` | Concept + template defined, first instance filed | pixel8a-unexusi podium, 2026-08-22 |
 
 ### The Convergence Note
 

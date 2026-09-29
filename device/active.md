@@ -238,5 +238,76 @@
 
 ---
 
+*Updated: 2026-08-22 08:00*
+
+- **New podium**: `pixel8a-unexusi` (Termux/PRoot, `~/unexusi/`) registered
+  in `device/podiums.md` — a fresh working environment distinct from the
+  existing `pixel8` podium.
+- **pixelator governance pipeline ported**: full `.claude` config + 13
+  `.github` workflows carried from custos to `eaprime1/pixelator`
+  (CODEOWNERS and claude-code-review prompt adapted for pixelator's actual
+  Python/Termux shape). Verified green via test PR #5.
+- **pixelator branch cleanup**: 11 stale branches triaged, 6 deleted
+  (dead/superseded), 5 resurrected as PRs #6-#10 — all merged, including a
+  real terraform.yml bug fix found along the way.
+- **First Legatum filed**: `atelier/legatum/202608220000_pixelator-legacy-
+  infusion.md` — new document form for conversations that span repos and
+  are seeding a future Legacy system. Concept + template at
+  `atelier/legatum/README.md`.
+- **Seed Weir opened**: `queue/seed-weir/README.md` — new lightweight
+  tracking system for process/skill ideas, modeled on `queue/artesium-
+  weir/`. 3 seeds logged OPEN: branch-triage pattern, automated JSON-
+  validity CI check, `docs/stale-branch-closure.md` not yet ported to
+  pixelator.
+- **Next track**: none forced — the three Seed Weir entries are the
+  natural next-pickup candidates whenever the Shepherd wants them worked.
+
+---
+
+*Updated: 2026-09-26 16:17*
+
+- **Second navigo2 preturn filed**: `pandora/germs/navigo2_202609261617_germ.md`,
+  fired by a scheduled email-mining routine. Confirms two zero-risk fixes
+  from the first germ (202609211300) are still open five days later
+  (cc-automated `Label_162` filter, XDA four-sub-stream routing) — these
+  should become their own operation rather than a third germ repeating the
+  finding. Also surfaces: eaprime1 independently re-derived the `duplicatus`
+  Carbonite pattern aimed at email (candidates: Instacart/MoneyLion/Bridge
+  Money/Virtual Vocations template-repeaters, not XDA); real Sentinel-faction
+  behavior already happening unassisted (watchduty.org fire-camera forwards,
+  KPTV photo licensing during the Huntington OR fire activity); a repeating
+  caregiving mileage-reimbursement email with no template (3+ instances to
+  `mileage@gobhi.org`); and a pre-existing "Prime/Archive System" Gmail label
+  tree that predates this repo's own Prime state (naming echo, no action
+  taken). Answered eaprime1's one-system-vs-three-routines question: stays
+  one stream entity (navigo2) with three existing gears — preturn,
+  zero-risk operations, playwright stream — rather than new infrastructure.
+
+---
+
 *Prime state: 3*  
+*Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-09-26*
+## For the Next Conversation
+
+- Act II setup is closed and sealed. Its journey is
+  `valuation/nav1-act-ii-setup_journey_202609262245.md`.
+- All 14 PRs from the session are merged: naught #1–#4, nullus #3–#4, maw #2,
+  custos #337/#339/#340/#341/#359, radix #41/#42. No watches or scheduled
+  check-ins remain.
+- New on `main`:
+  - witnessing by comment, sealed at finalize (custos);
+  - `ultima Probatio` finalizes, in custos and radix;
+  - the Latin workflow glossary, plus its conversation seed
+    (`docs/latin-workflow-conversation-seed.md`);
+  - the prima witness in radix.
+- ECC Tools is suspended by the owner; the fold workflows are idle.
+- Open owner questions are listed in the journey's "Notes for Next
+  Iteration". Process seeds are the last 8 rows of `queue/seed-weir/README.md`:
+  7 OPEN, and 1 COMPOSTED because it was already settled.
+
+*Prime state: 3*
 *Witnessed: true* 🃏
