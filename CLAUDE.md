@@ -162,7 +162,10 @@ Concept progression via prime numbers. Current: `3`. Advance only when a develop
 ### Turns (`turns/`)
 Session memory, append only. Five files, distinct purposes:
 - `log.md` — *what* a turn built. One entry per meaningful session. Schema in `TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
-- `CLOSING.md` — the checklist for ending a session: review what happened, file loose ends in `queue/artesium-weir/`, append to `log.md`, update `device/active.md`, run `scan_lexeme.sh`, commit/push, optionally write an AAR. Run this whenever asked to "wrap up", "finalize", or "close out."
+- `CLOSING.md` — the checklist for ending a session: review what happened, file
+  loose ends in `queue/artesium-weir/`, append to `log.md`, update `device/active.md`,
+  run `scan_lexeme.sh`, commit/push, optionally write an AAR. Run this whenever asked
+  to "wrap up", "finalize", or "close out."
 - `AAR.md` — *how* the turn went (process/friction/seeds), not what it produced. Same append-only spirit as `log.md`, different lens. Not every turn needs one.
 - `CULTIVATION.md` — cross-PR catalog of open design conflicts surfaced at closing time (e.g. competing naming systems introduced in separate PRs). Resolve or explicitly defer each entry when read; don't let it become an unread backlog.
 - `review-surface.md` — what review bots flagged on each PR, one plain sentence per flag, actionable or noise.
@@ -170,11 +173,21 @@ Session memory, append only. Five files, distinct purposes:
 nav1 keeps `.claude/drift.md` alongside: an append-only record of calls it made that the Shepherd didn't direct.
 
 ### Queue (`queue/`)
-Staging ground for what has crossed in from outside but hasn't found its place yet — nothing here is finished. `queue/artesium-weir/` is the filter between raw inbound material (e.g. a PDF export of a GitHub PR thread) and formal chain of custody; see `queue/artesium-weir/README.md` for the routine. Per-item subfolders (e.g. `queue/artesium-<contributor>/`) hold in-flight artifacts until the Weir routes them onward — close them out via the `turns/CLOSING.md` checklist rather than leaving them mid-flow.
+Staging ground for what has crossed in from outside but hasn't found its place yet —
+nothing here is finished. `queue/artesium-weir/` is the filter between raw inbound
+material (e.g. a PDF export of a GitHub PR thread) and formal chain of custody; see
+`queue/artesium-weir/README.md` for the routine. Per-item subfolders
+(e.g. `queue/artesium-<contributor>/`) hold in-flight artifacts until the Weir routes
+them onward — close them out via the `turns/CLOSING.md` checklist rather than leaving
+them mid-flow.
 
 ### Review Gates
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
-- **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
+- **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for
+  `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes,
+  and for all PRs to `main` from device branches. Same person (eaprime1) currently holds
+  both the Shepherd and Deck Master roles; the roles are conceptually distinct
+  (lifecycle/structure review vs. device-branch review), not duplicates.
 - **CI**: `.github/workflows/` runs:
   - `scan-lexeme.yml` — placeholder scan
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
