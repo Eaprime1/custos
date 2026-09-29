@@ -42,3 +42,8 @@ Each entry: prima-clock · PR or branch · what nav1 did that wasn't directed ·
 **Did:** (1) opened GitHub issues #388, #390 and #392 for Missions 1, 2 and the Prima Recensio change. (2) Added voices-of-navigo, in-progress and paused to the sync workflow's own label list, which the plan hadn't named. (3) Made the Prima Recensio row fire on opened-ready PRs as well as ready-for-review. (4) Posted a `disponi` test comment on #390 under the owner's login. (5) Pushed #393 through the GitHub connector on a new branch while the shell was down.
 **Why:** (1) the board's rule is that the issue is the mission. (2) the sync never reads the yml, so the label would not exist otherwise. (3) a PR opened ready never emits a ready event, and the paid review runs on both. (4) to test the bot on a real mission the moment it merged. (5) the work was already built and needed to survive the outage; it went up as a draft, marked untested in its body, and was tested before it sealed.
 **Expected agreement:** yes on (1) and (2). (3) worth a second look: it widens the trigger beyond what was asked. (4) and (5) were unasked; the disponi comment carried the Claude Code footer.
+
+## 202609291942 · navigo registry draft
+**Did:** guessed the registry's row order and numbers (Claude 1, Perplexity 2, Unexusi 3, then Gemini, ChatGPT, Gmail) and marked the whole file DRAFT. Left CLAUDE.md and CULTIVATION.md untouched.
+**Why:** the Shepherd asked for a draft; the true order of first appearance isn't in the repo, and CULTIVATION.md says not to rewrite the CLAUDE.md table before the Shepherd's update.
+**Expected agreement:** the draft form, yes. The numbers are guesses and are flagged as such in the file.
