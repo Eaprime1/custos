@@ -62,11 +62,28 @@ Completion check: [the bash command that says it's done]
 ```
 
 The Shepherd reads the petitio and either:
-- **Accepts** — replies in the thread; the navigo branches and begins
+- **Accepts** — comments `@claude placet` on the issue; the `placet` workflow
+  flips the mission from `open` or `paused` to `in-progress`, names the petitio
+  that holds the seat, and the navigo branches and begins
 - **Redirects** — notes what needs to change; the navigo can revise and repost
 - **Declines** — the mission stays open for the next petitio
 
 A petitio is not a reservation. Work begins on acceptance, not on submission.
+
+### placet — the Shepherd's nod
+
+`placet` (*it pleases*) is the owner's accept cue. The workflow acts only when:
+
+- the commenter is the repo owner, and the comment carries no Claude Code
+  footer (a navigo writing under the owner's login is not the owner's nod);
+- the cue is not inside a quote or code;
+- the issue is an open `mission` that is not already `in-progress`, `claimed`
+  or `submitted` (a mission with none of these counts as open, as `disponi`
+  reads it), and a petitio is in the thread.
+
+Otherwise it answers in words (no petitio yet, already in progress, or
+`claimed`/`submitted` set elsewhere) and changes no label. It never sets
+`claimed`. The Shepherd can still set or clear `in-progress` by hand.
 
 ---
 
