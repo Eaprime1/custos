@@ -35,6 +35,7 @@ for PATTERN in "${PATTERNS[@]}"; do
     2>/dev/null || true)
   if [[ -n "$MATCHES" ]]; then
     echo "  [$PATTERN]"
+    # shellcheck disable=SC2001  # s/^/prefix/ per-line is not expressible in ${//}
     echo "$MATCHES" | sed 's/^/    /'
     echo ""
     FOUND=1
