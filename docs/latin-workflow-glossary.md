@@ -19,6 +19,17 @@ A workflow call has two parts: an **action** naming the work and, optionally, a 
 
 *Renovata* is a modifier that can stand on its own as a request to refresh the current work. Here it describes review cadence; a separate document-transformation process called renovation, if adopted, belongs in its own design, not in the PR trigger. *Expeditus* likewise changes tempo, not authority.
 
+## Navigo Check-In Cues
+
+These are not stage actions or modifiers — they are the two-step check-in protocol for navigo contributors before starting mission work. Documented in `docs/mission-board.md`.
+
+| Cue | From | Working meaning |
+|---|---|---|
+| **`disponi`** | *disponere* — to arrange, make available | Availability check: is this mission open, in-progress, or paused? The navigo posts `@claude disponi` in a mission issue comment; the bot (or the Shepherd, until the bot exists) replies with the current state. |
+| **`petitio`** | *petitio* — request, claim | Plan submission: the navigo posts their intent, approach, and completion check and waits for the Shepherd's nod. Work begins on acceptance, not on submission. |
+
+These cues are issue-comment vocabulary, not PR-level workflow triggers. They live in the mission board procedure only; they do not finalize, seal, or merge anything.
+
 ## Actions
 
 | Action | Inspiration / sense | Custos stage |

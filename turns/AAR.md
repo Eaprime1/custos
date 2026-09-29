@@ -357,3 +357,19 @@ seeds:        - Refresh the cue record after finalize, so the seal shows.
               - Reconcile the navigo names once Eric's update arrives.
               - Settle the two definitions of atelier/.
 ---
+
+---
+turn_ref:     202609291102
+prima-clock:  202609291102
+prime:        3
+worked:       Writing the mission board from the session vocabulary itself — "disponi" and "petitio" emerged as names for a two-step the Shepherd and nav1 had been doing informally, then got formalized in docs, README, glossary, and a mission ideas seed list in a single session. The coffee-haven framing ("no race, no territorial staking") gave the bot-unfriendly behavior a shape that could be enforced by culture, not just code. The README pass caught two real problems (bounty/Sparstone drift, THE/UNEXUS section appearing twice) by doing a full read of the file before editing — not from a diff. Opening mission-ideas.md as an artifact let the session end with something the Shepherd could actually use as a planning surface, not just a file on a branch.
+friction:     The designated branch (claude/message-clarity-repo-setup-q0agry) was behind main by the time the session close began — PRs #384 and #385 had landed on separate branches (readme-update-and-mission-ideas). Had to reset the designated branch to main and force-push. The seal cue typo on PR #384 (@claude utlima vs. @claude ultima) required a second attempt — Latin inflection typos are easy to miss in a comment box and the gate is exact-match.
+seeds:        - disponi/petitio are now documented in the Latin glossary; the next logical step is Mission 1 (the actual disponi bot workflow).
+              - branch-tracker/branches.md has a stale footer note ("No branches have been deleted") — eaprime1 deleted Mobius-closed branches this session. A correction pass is a fast win before the tracker misleads the next navigo.
+              - scan_lexeme.sh false-positive on the README "unfilled placeholders" phrase in the getting-started section — a self-reference the scanner can't distinguish from an actual gap. The AAR from 2026-06-14 already noted this; the seed is still open.
+              - The `feature/voices-of-navigo-manifesto` branch survived eaprime1's cleanup — Mission 3 (routing pass) is the named path to retiring it safely.
+partner_state:
+  charge_received:  "open mission board infrastructure; update README; create mission ideas list; wrap the session; finish the conversation"
+  friction_named:   "branch divergence at session close; seal typo requiring retry; context window compaction mid-execution"
+  next_stance:      "main is clean; mission board live; 6 missions ready to open; next session: open Mission 1 or 4 as first GitHub issue"
+---
