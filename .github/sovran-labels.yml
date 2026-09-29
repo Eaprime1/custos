@@ -79,6 +79,10 @@ labels:
     color: "c5def5"
     description: "Develop a named concept or term from a citable source (the fallback path)"
 
+  - name: feedback
+    color: "e4e669"
+    description: "Witnessed observation on an Ethica Nexus document or concept — endorsement, question, revision, or new direction"
+
   # State — one at a time, moves left to right
   - name: open
     color: "0e8a16"
