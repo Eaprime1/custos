@@ -101,7 +101,11 @@ Labels:
 | `in-progress` | A petitio was accepted; navigo is building |
 | `paused` | Work stalled; open to a new petitio |
 | `voices-of-navigo` | Mission seeded from a navigo session insight |
-| `anchor-review` | Requires Deck Master review before merge |
+
+The board does not use `claimed` (the public claim tracker, set by
+`claim-register.yml`) or `anchor-review` (the broad anchor label for lore,
+custody and photo anchors). Deck Master review is a separate gate: it follows
+the paths in `.github/CODEOWNERS`, not a label.
 
 ---
 
