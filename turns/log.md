@@ -570,3 +570,18 @@ contribution: 4 PRs merged, 3 missions opened and closed, the board's first live
 resonance:    steady
 witnessed:    true
 ---
+
+---
+turn:         2026-09-29 20:18
+prima-clock:  202609292018
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       build the petitio handler (the Shepherd's accept step), draft the navigo registry, and run the mission board loop live.
+contribution: 2 PRs merged, 1 draft open, the loop verified end to end.
+              - #396 Mission 6: placet.yml flips a mission with a petitio to in-progress on the owner's plain-text cue; navigo (footer) comments and PRs are ignored.
+              - #397 first draft of docs/navigo-registry.md; #399 redraft with unique keys and the existing nav numbers kept (open, draft, green).
+              Live check on throwaway issue #398: disponi open, petitio, guarded placet ignored, Shepherd's placet accepted in 10 s, disponi in progress.
+              Closing record: turns/SESSION-CLOSE-202609292018.md.
+resonance:    assent
+witnessed:    true
+---

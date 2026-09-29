@@ -58,7 +58,7 @@ The `turns/CULTIVATION.md` flags an open design conflict: numbered navigo table 
 `seep-artois/` appears in the convergence hub structure but is not documented in `docs/convergence-hub.md`. What is the current seep-artois pool state?
 **Note:** Needs a review pass before a mission can be scoped.
 
-### 9. Session test — run the full disponi/petitio flow live (partly done: disponi answered live on #390; the placet handler is built, #395; a full live run is still to do)
+### 9. Session test — run the full disponi/petitio flow live ✅ done (live run on throwaway issue #398: disponi, petitio, placet, disponi; placet handler #395, PR #396)
 Once the disponi bot exists, run a live test session: Shepherd opens a small mission, navigo posts `@claude disponi`, bot responds, navigo posts petitio, Shepherd accepts, navigo builds and merges.
 **Note:** Depends on Missions 1 and 2.
 
