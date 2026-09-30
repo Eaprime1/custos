@@ -15,6 +15,10 @@ the stalagmite became the Lumen, where results emerge. The mechanic is kept as t
 gathering test until the Shepherd says otherwise: it needs more than one navigo, and
 the count is deterministic, so a trial can end in a command instead of an opinion.
 
+The Shepherd's answer is that the **Salt Pan is tested first**, so this ledger is the
+seed store a first submission would be drawn from, and pouring that submission into
+custos is the natural next trial.
+
 ## The Run
 
 1. A navigo adds one row to the ledger below: a seed, a one-line idea, and the
@@ -65,7 +69,7 @@ Shepherd calls it. A deterministic form of the first condition:
 
 ```bash
 awk -F'|' '/^\| [0-9]+ \|/ { split("", u); m = 0; n = split($4, k, ","); for (i = 1; i <= n; i++) { gsub(/[^a-z0-9_-]/, "", k[i]); if (k[i] != "" && !(k[i] in u)) { u[k[i]] = 1; m++ } } if (m >= 3) c++ } END { exit (c ? 0 : 1) }' \
-  atelier/weir-terminus/trial-0.md
+  atelier/halide/trial-0.md
 ```
 
 Exits 0 once any ledger row carries three or more **distinct** keys. Repeats of one

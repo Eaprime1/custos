@@ -2,7 +2,7 @@
 
 `suit: ♦️ Diamond — idea-gathering, nothing built`
 `prima-clock: 202609300539`
-`revised: 202609300931`
+`revised: 202609301016`
 `plank: 1/3 — germ. Nothing here is canon.`
 
 A well is not a folder yet. It is a **behavior**: what it does to what falls in. Ten
@@ -29,8 +29,8 @@ line: it takes what arrives and does not send it back as noise. The dark is not
 empty. It is where things are gathered before they have a shape, and a submission is
 what they become when they are brought together.
 - **Physics:** absorption, then gathering. Nothing here is turned away or lit.
-- **Passes on when:** the gathered things hold together as one submission.
-- **Outflow:** poured into the Salt Pan.
+- **Passes on when:** the seed documents (missions) drawn from here hold together as one submission.
+- **Outflow:** the submission is poured into the Salt Pan.
 - **Holds back:** anything withdrawn keeps one line of residue, so a set-aside thing
   still teaches something (see the residue table in `trial-0.md`).
 - **Kin:** the Shadow Well (`.shadow-well/`) is *before naming*; the Dark is where
@@ -46,6 +46,13 @@ station's motion.
 - **Passes on when:** it can be re-wetted and survive. That is what pinnacle means here.
 - **Outflow:** the project content in the repo, and `vault/spade-of-aces/` for the
   pinnacle.
+- **What it holds here:** what is in custos, and its current perspective. A
+  submission poured in goes through all of it.
+- **Tested first**, at the Shepherd's word: it is the FOAH-inspired well.
+- **The salt image:** a salt joins a metal and a non-metal by an ionic bond. Sodium is
+  a reactive metal and chlorine is a poison gas; bound together they are table salt,
+  safe to eat. The pour works that way as an image: raw material and custos's
+  perspective bond into something the project can take in.
 - **Setting:** open sky, no roof: the middle of the line, under Polaris.
 
 ### 3. The Lumen  *(the lumen spectrum, starlight on a crystal)*
@@ -57,7 +64,10 @@ warm-without-heat light of Lacus Hope (`world/five-lakes.md`): not white, which 
 too much, and not dark, which is too little.
 - **Physics:** accretion by light. A stalagmite grows only by many small visits, and
   where stalactite and stalagmite meet they form a column.
-- **What emerges:** results. What shape they take is undecided.
+- **What emerges:** the completed PR, the documents created. One submission can
+  develop more than one concept, and everything submitted to the repo is lumen.
+  Results are **shadow-type seeds**: the lumen makes the shadow visible, and each is
+  ready to become a full shadow version, then to transition to the lumen version.
 - **Setting:** the well nearest Polaris. Its light is the only light in the cave.
 - **Why it comes last:** the Shepherd's order lets results *emerge* from the light,
   after the pour, and not gather ahead of it.

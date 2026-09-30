@@ -2,12 +2,12 @@
 
 `suit: ♦️ Diamond — concept stub, active development`
 `prima-clock: 202609300539`
-`revised: 202609300931 (the Shepherd's direction: a station in motion; dark, salt pan, lumen)`
+`revised: 202609301016 (the Shepherd's answers on how a submission passes; folder renamed)`
 `plank: 1/3 — germ. Nothing here is canon. Working title; the Shepherd names it.`
 
 *A station that is always in motion. You do not arrive here to stay.*
 
-*(The folder still says `weir-terminus` from the first draft. Renaming it is the Shepherd's call.)*
+*(Folder: `atelier/halide/`. FOAH is the Father of All Halides, and a halide is a salt-forming compound. The first draft called it `weir-terminus/`.)*
 
 ---
 
@@ -54,13 +54,40 @@ it.
 
 | Well | Inspired by | What it does |
 |---|---|---|
-| **Dark** | the dark: void, black, unlit | **Gather.** Things come together here as a *submission* |
-| **Salt Pan** | evaporation; FOAH, the Father of All Halides | **Pour.** The submission is poured in. What remains is white crystal: the pinnacle, or the project content in the repo |
-| **Lumen** | starlight on a crystal (the stalagmite) | **Emerge.** Results come out as light, warm without heat |
+| **Dark** | the dark: void, black, unlit | **Gather.** Seed documents (missions) are drawn from here and formed into a *submission* |
+| **Salt Pan** | evaporation; FOAH, the Father of All Halides | **Pour.** The submission is poured in and goes through whatever the pan holds: custos as it stands, and its current perspective. What remains is white crystal: the pinnacle, or the project content in the repo |
+| **Lumen** | starlight on a crystal (the stalagmite) | **Emerge.** The completed PR: the documents created. Results are shadow-type seeds, and the lumen makes the shadow visible |
 
-The order was the Shepherd's question: would it fit better as *dark, salt pan,
-lumen*? The first draft had the stalagmite gathering first. **This order is the
-current germ and either can be tried.** `wells.md` describes all three.
+The Shepherd's order is *dark, salt pan, lumen*. The first draft had the
+stalagmite gathering first. It is still germ stage. `wells.md` describes all three.
+
+## How a Submission Passes
+
+1. **Draw.** Seed documents (missions) are drawn from the dark.
+2. **Form.** They are formed into a **submission**.
+3. **Pour.** The submission is poured into the salt pan, like pouring content or
+   fluid into a basin. It goes through whatever is in the pan: what is in custos
+   now, and its current perspective.
+4. **Emerge.** What comes out is the **lumen**: the completed PR, the documents
+   created. One submission can develop **more than one concept**, and everything
+   submitted to the repo is lumen.
+5. **Shadow seeds.** The results are shadow-type seeds. The lumen makes the shadow
+   visible. Each is ready to be made into a full shadow version, ready to
+   transition to the lumen version.
+
+**Tested first: the Salt Pan** (the FOAH-inspired well), since what it holds is
+custos itself. One unplanned pass has already happened: the concepts gathered in
+this conversation were formed into a submission and poured through custos's own
+review and seal (PR #402). It only fits the shape in hindsight.
+
+## Why the Folder Is Called Halide
+
+FOAH is the Father of All Halides. A salt joins a metal and a non-metal by an
+**ionic bond**. Sodium is a reactive metal and chlorine is a poison gas, yet bound
+together they make table salt, which is safe to eat. As an image for the pour, that
+is the picture: bonding lets something hazardous enter a natural system, and lets a
+metal be taken in. (`halite`, the mineral form of rock salt, is a nearer-to-crystal
+alternative for the folder name.)
 
 ## The Setting: Under Polaris
 
@@ -131,7 +158,8 @@ tested, in `trial-0.md`.
 ## Held, at Germ Stage
 
 - A station always in motion, entered as a liminal space.
-- The order dark, salt pan, lumen (offered as a question).
+- The order dark, salt pan, lumen, and the five steps of how a submission passes.
+- The Salt Pan is tested first; the lumen is the completed PR, and its results are shadow-type seeds.
 - The salt pan as the pinnacle, and also as the project content in the repo.
 - Two directions: toward Polaris and from it.
 - Many witnesses is a perspective, and the camera is the witness of the picture.
@@ -139,10 +167,10 @@ tested, in `trial-0.md`.
 
 ## Open
 
-1. Which well is tested first, and how does a submission pass from dark to the salt pan?
-2. Does the folder keep the name `weir-terminus`?
-3. What does Lumen hand back, and to whom? (Results "emerge"; what shape they take is
-   not decided.)
+1. Who receives the shadow seeds? (Results are shadow-type seeds and the lumen makes
+   them visible; who gets them was not stated.)
+2. Do the shadow seeds re-enter the dark as new seeds, or stop at the lumen?
+3. Does the folder keep `halide/`, or take `halite/` or another salt name?
 
 ---
 
