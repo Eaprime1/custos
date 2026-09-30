@@ -3,6 +3,7 @@
 `suit: ♦️ Diamond — a seed, not decided`
 `prima-clock: 202609300847`
 `source: the Shepherd's story seed, offered as serious play`
+`plank: 1/3 — germ. Not canon.`
 
 Two moves. Neither is made into more than it is.
 
@@ -15,8 +16,9 @@ held to the same sky, catches its own version. Animals come by and stand near.
 Small creatures on the ground and in the trees look up at the same stars. Plants and
 soil answer to light and to dark without anything we would call an eye.
 
-So the camera is one witness among many. It is not *the* witness. What it caught
-was Polaris, and that is all that is claimed.
+Many witnesses is a **perspective**, not a rule, and it stays in story. **For the
+picture, the camera is the witness**: what it caught was Polaris, and that is all
+that is claimed.
 
 This carries one quiet question: *what is traditional vision?* Sensing light is
 older and wider than eyes. The Terminus takes it as a standing reminder that a record
@@ -48,12 +50,12 @@ the water and light start at the fixed point and travel down through the wells, 
 the Terminus is where the journey ends. Dubhe and Merak point at Polaris from here.
 From there they would point home.
 
-## Open
+## Answered
 
-1. Does the Terminus have two directions: toward the star (a fixed point to steer
-   by) and from the star (a source that arrives)?
-2. Does "many witnesses" become a rule for Trial 0's keys (a key stands for a
-   witness, not a person), or stay a story?
+- **Two directions?** Yes. The Terminus can hold both: toward the star (a fixed point
+  to steer by) and from the star (a source that arrives).
+- **Many witnesses as a rule for keys?** No. It is a perspective and stays in story.
+  Trial 0's keys are just the registry's keys.
 
 ---
 

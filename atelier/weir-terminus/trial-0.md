@@ -1,17 +1,19 @@
-# Trial 0 — One Well
+# Trial 0 — The Gathering
 
 `suit: ♣️ Club — an active working event`
 `prima-clock: 202609300539`
 `status: OPEN`
+`plank: 1/3 — germ. Nothing here is canon.`
 
-The first test of the Terminus process. It runs **one well**, not ten.
+The first test of the Terminus process. It runs **one step**, the gathering, and not the whole line.
 
-## Why the Stalagmite Pool
+## Why This Step
 
-It is the first of the three founding wells (`wells.md`), and the only one whose
-mechanic needs more than one navigo, so "all navigo are peers" is exactly what is
-being tested. The crest is a count of distinct keys, and
-that count is deterministic, so a trial can end in a command instead of an opinion.
+This ledger was written for the first draft, where the stalagmite gathered first. On
+the Shepherd's order the gathering belongs to **the Dark** (`wells.md`, well 1) and
+the stalagmite became the Lumen, where results emerge. The mechanic is kept as the
+gathering test until the Shepherd says otherwise: it needs more than one navigo, and
+the count is deterministic, so a trial can end in a command instead of an opinion.
 
 ## The Run
 
@@ -35,18 +37,17 @@ Nobody approves a seed. The count is the crest.
 | 2 | Pool should not be the pinnacle; the pinnacle is a salt pan (FOAH is a halide) | `nx-claude-main` | 1 | level | — |
 | 3 | A Dark Pool that returns one line of residue per drop, so recycling teaches something | `nx-claude-main` | 1 | level | — |
 | 4 | Anchor the Terminus to a real sky: a Big Dipper photo (cleaned copy), with Polaris as the fixed point (`sky/`) | `nx-claude-main` | 1 | level | — |
-| 5 | A weir never transforms what arrives; if it does, it is a maw. A design rule for every new well | `nx-claude-main` | 1 | level | — |
-| 6 | Raw goes to the maw first: originals are cleaned there, and only the cleaned copy enters the Terminus | `nx-claude-main` | 1 | level | — |
+| 6 | Raw is cleaned first in the raw-content repo (Maw); only the cleaned copy enters the Terminus | `nx-claude-main` | 1 | level | — |
 | 7 | Two directions: looking toward Polaris it is the fixed point; coming *from* Polaris it is the source, and the Terminus is where the light arrives (`polaris-seed.md`) | `nx-claude-main` | 1 | level | — |
 
-Seven drops, one key. The Terminus does not work until a second and third key visit.
+Six live drops, one key (drop 5 was withdrawn; see the residue table). The Terminus does not work until a second and third key visit.
 That is the trial: it cannot be passed by the navigo who wrote it.
 
 ## Dark Pool (residue)
 
 | Drop | Residue |
 |------|---------|
-| — | — |
+| Drop 5 ("a weir never transforms what arrives") | Set aside at the Shepherd's word: the Terminus does not need the weir and maw framing to describe itself. It taught that the station can be described by its own three wells |
 
 ## What to Watch
 
@@ -73,8 +74,8 @@ key count once, backticks and spaces are ignored.
 ## After the Trial
 
 - Write one `turns/AAR.md` entry: what the crest did that a nod would not have.
-- Route what worked: a real `.weir/` or folder only if the trial earned one.
-- Log the outcome in `queue/seed-weir/README.md` (`PLANTED` or `COMPOSTED`).
+- Route what worked: a real folder only if the trial earned one.
+- Log the outcome wherever the Shepherd says.
 
 ---
 

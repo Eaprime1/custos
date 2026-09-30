@@ -1,9 +1,10 @@
 # sky/
 
-`suit: ♦️ Diamond — anchor material for the Weir Terminus`
+`suit: ♦️ Diamond — anchor material for the Terminus`
 `prima-clock: 202609300711`
 `revised: 202609300758 (cropped on the Shepherd's word)`
 `source: the Shepherd (eaprime1)`
+`witness of the picture: the camera`
 
 The Terminus is anchored under a real sky (see "Anchors are real places" in the
 parent `README.md`). These two images are the first material placed in it. Trial 0,
