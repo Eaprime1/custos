@@ -2,7 +2,7 @@
 
 `suit: ♦️ Diamond — idea-gathering, nothing built`
 `prima-clock: 202609300539`
-`revised: 202609301016`
+`revised: 202609301111`
 `plank: 1/3 — germ. Nothing here is canon.`
 
 A well is not a folder yet. It is a **behavior**: what it does to what falls in. Ten
@@ -68,6 +68,9 @@ too much, and not dark, which is too little.
   develop more than one concept, and everything submitted to the repo is lumen.
   Results are **shadow-type seeds**: the lumen makes the shadow visible, and each is
   ready to become a full shadow version, then to transition to the lumen version.
+- **Goes to:** the Shadow stream (normally the originator's seeds). The originator
+  chooses an official working copy; the Spade Ace stays with the system
+  (`README.md`, "Where the Shadow Seeds Go").
 - **Setting:** the well nearest Polaris. Its light is the only light in the cave.
 - **Why it comes last:** the Shepherd's order lets results *emerge* from the light,
   after the pour, and not gather ahead of it.

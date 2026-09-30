@@ -2,7 +2,7 @@
 
 `suit: ♦️ Diamond — concept stub, active development`
 `prima-clock: 202609300539`
-`revised: 202609301016 (the Shepherd's answers on how a submission passes; folder renamed)`
+`revised: 202609301111 (the Shepherd's answers on the shadow seeds; folder kept as halide/)`
 `plank: 1/3 — germ. Nothing here is canon. Working title; the Shepherd names it.`
 
 *A station that is always in motion. You do not arrive here to stay.*
@@ -78,7 +78,30 @@ stalagmite gathering first. It is still germ stage. `wells.md` describes all thr
 **Tested first: the Salt Pan** (the FOAH-inspired well), since what it holds is
 custos itself. One unplanned pass has already happened: the concepts gathered in
 this conversation were formed into a submission and poured through custos's own
-review and seal (PR #402). It only fits the shape in hindsight.
+review and seal (PR #402). It only fits the shape in hindsight, and the Shepherd's
+read is that **hindsight is where the shadow becomes visible**, so a fit that shows
+only afterward is a sign we are dealing with a shadow concept.
+
+## Where the Shadow Seeds Go
+
+The shadow seeds (normally the originator's) go into the **Shadow stream**. Drive
+already holds a `🚥shadow_stream` folder, described as a gathering point
+(`turns/STATE-OF-CONSTELLATION-202609221628.md`). A stub for it here is
+`shadow-stream/`; whether it stays is open.
+
+**The originator gets an official working copy, and it is a choice.** These are the
+Shepherd's words, at germ stage. They use cards that `valuation/README.md` already
+ranks for readiness; the two uses are not reconciled here.
+
+| Choice | What it is |
+|---|---|
+| **Jack** | Sent out carrying the authority of another. Not editable (rare exceptions) and append-only. It can be referenced. It uses the Jacks of all trades system |
+| **Queen** | For developing **concepts** from the seed |
+| **King** | For developing the seed **as a whole** |
+| **Club Ace** | For an **external** originator: the official carbonite version |
+
+Clubs are copies. The **Spade Ace stays with the system**: it is the pinnacle, the
+master, the trump.
 
 ## Why the Folder Is Called Halide
 
@@ -153,6 +176,7 @@ tested, in `trial-0.md`.
 | `wells.md` | the three wells, then seven candidates for later |
 | `trial-0.md` | the first test: a gathering ledger, real drops, what to watch |
 | `polaris-seed.md` | a story seed: many witnesses under one sky, and coming *from* Polaris |
+| `shadow-stream/` | a stub for where the shadow seeds go |
 | `sky/` | the cleaned photo and the chart that anchor the setting |
 
 ## Held, at Germ Stage
@@ -160,6 +184,9 @@ tested, in `trial-0.md`.
 - A station always in motion, entered as a liminal space.
 - The order dark, salt pan, lumen, and the five steps of how a submission passes.
 - The Salt Pan is tested first; the lumen is the completed PR, and its results are shadow-type seeds.
+- The folder stays `halide/`.
+- Hindsight is where the shadow becomes visible.
+- Shadow seeds go into the Shadow stream, and the originator chooses an official working copy (Jack, Queen or King; the Club Ace for an external originator). The Spade Ace stays with the system.
 - The salt pan as the pinnacle, and also as the project content in the repo.
 - Two directions: toward Polaris and from it.
 - Many witnesses is a perspective, and the camera is the witness of the picture.
@@ -167,10 +194,11 @@ tested, in `trial-0.md`.
 
 ## Open
 
-1. Who receives the shadow seeds? (Results are shadow-type seeds and the lumen makes
-   them visible; who gets them was not stated.)
-2. Do the shadow seeds re-enter the dark as new seeds, or stop at the lumen?
-3. Does the folder keep `halide/`, or take `halite/` or another salt name?
+1. Does the Shadow stream feed the dark again, or does it stop there?
+2. Do the Jack, Queen, King and Ace choices keep the readiness meanings in
+   `valuation/README.md`, or take the meanings given here?
+3. What is the first deliberate pass: which submission is poured into the salt pan?
+   (The Shepherd thinks the shape is close.)
 
 ---
 
