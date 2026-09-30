@@ -35,4 +35,4 @@ original frame also held ordinary street clutter. Both are reasons to clean it
 before it enters. The original is not kept in this repo. The image carries no
 metadata (none was found on the original either, and none was added).
 
-*Polaris does not move. Everything else is arranged around it.*
+*Polaris hardly moves. Everything else is arranged around it.*

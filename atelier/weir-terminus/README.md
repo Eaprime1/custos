@@ -5,7 +5,7 @@
 `revised: 202609300711 (Shepherd's answers, session anchor 202609292207)`
 `working title — the Shepherd names it`
 
-*The place where the line ends and the water gathers. A landscape under one fixed star.*
+*The place where the line ends and the water gathers. A landscape under one nearly fixed star.*
 
 ---
 
@@ -85,7 +85,8 @@ fitting, it changes. Nothing else depends on it.
 The Terminus is anchored in nature, not in a building. It starts with one theme,
 and lets everything else grow around it.
 
-**Polaris** is the fixed point. The whole sky turns around it and it does not move,
+**Polaris** is the fixed point. The whole sky turns around it and it barely moves
+(within a lifetime; over about 26,000 years the pole drifts to other stars),
 which makes it the honest picture of an end of the line: everything circles, one
 thing stays. The Big Dipper points at it. Its two "pointer" stars, Dubhe and
 Merak, line up on Polaris, and a dipper is a vessel for *drawing from* water. The
@@ -142,6 +143,7 @@ is being tested. The rest are named so they are not lost, not scheduled.
 | `wells.md` | the three founding wells, then seven candidates for later |
 | `trial-0.md` | the first test: one well, real drops, what to watch |
 | `sky/` | the photo and the chart that anchor the setting |
+| `polaris-seed.md` | a story seed: many witnesses under one sky, and coming *from* Polaris |
 
 ## Settled and Open
 
@@ -164,4 +166,4 @@ is being tested. The rest are named so they are not lost, not scheduled.
 
 ---
 
-*One star that does not move. The water finds its level below it.*
+*One star that hardly moves. The water finds its level below it.*
