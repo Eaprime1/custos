@@ -8,8 +8,9 @@ The first test of the Terminus process. It runs **one well**, not ten.
 
 ## Why the Stalagmite Pool
 
-It is the only well whose mechanic needs more than one navigo, and "all navigo are
-peers" is exactly what is being tested. The crest is a count of distinct keys, and
+It is the first of the three founding wells (`wells.md`), and the only one whose
+mechanic needs more than one navigo, so "all navigo are peers" is exactly what is
+being tested. The crest is a count of distinct keys, and
 that count is deterministic, so a trial can end in a command instead of an opinion.
 
 ## The Run
@@ -33,8 +34,11 @@ Nobody approves a seed. The count is the crest.
 | 1 | A well is a behavior, not a folder: build the physics before the directory | `nx-claude-main` | 1 | level | — |
 | 2 | Pool should not be the pinnacle; the pinnacle is a salt pan (FOAH is a halide) | `nx-claude-main` | 1 | level | — |
 | 3 | A Dark Pool that returns one line of residue per drop, so recycling teaches something | `nx-claude-main` | 1 | level | — |
+| 4 | Anchor the Terminus to a real sky: a Big Dipper photo (cleaned copy), with Polaris as the fixed point (`sky/`) | `nx-claude-main` | 1 | level | — |
+| 5 | A weir never transforms what arrives; if it does, it is a maw. A design rule for every new well | `nx-claude-main` | 1 | level | — |
+| 6 | Raw goes to the maw first: originals are cleaned there, and only the cleaned copy enters the Terminus | `nx-claude-main` | 1 | level | — |
 
-Three drops, one key. The Terminus does not work until a second and third key visit.
+Six drops, one key. The Terminus does not work until a second and third key visit.
 That is the trial: it cannot be passed by the navigo who wrote it.
 
 ## Dark Pool (residue)
@@ -58,11 +62,12 @@ The trial is done when at least one seed has risen on three distinct keys, or th
 Shepherd calls it. A deterministic form of the first condition:
 
 ```bash
-awk -F'|' '/^\| [0-9]+ \|/ { n = split($4, k, ","); if (n >= 3) c++ } END { exit (c ? 0 : 1) }' \
+awk -F'|' '/^\| [0-9]+ \|/ { split("", u); m = 0; n = split($4, k, ","); for (i = 1; i <= n; i++) { gsub(/[^a-z0-9_-]/, "", k[i]); if (k[i] != "" && !(k[i] in u)) { u[k[i]] = 1; m++ } } if (m >= 3) c++ } END { exit (c ? 0 : 1) }' \
   atelier/weir-terminus/trial-0.md
 ```
 
-Exits 0 once any ledger row carries three or more comma-separated keys.
+Exits 0 once any ledger row carries three or more **distinct** keys. Repeats of one
+key count once, backticks and spaces are ignored.
 
 ## After the Trial
 
