@@ -25,6 +25,7 @@ Nothing in the Atelier is finished. That is the point.
 | Bit Germ Dust (contributor on-ramp) | `bit-germ-dust-contributor-onramp.md` | Idea captured, generation mechanism not scoped | hodie session, Conversation 1 of the hodie series |
 | Void-maker | `void-maker.md` | Named, not yet coined — Shepherd decision pending | Bounty #187 moderation cycle |
 | Legatum | `legatum/` | Concept + template defined, first instance filed | pixel8a-unexusi podium, 2026-08-22 |
+| Terminus | `weir-terminus/` | A station in motion: three wells (dark, salt pan, lumen), seven for later; a gathering ledger (Trial 0) open. Germ stage | Shepherd session 202609292207 |
 
 ### The Convergence Note
 
