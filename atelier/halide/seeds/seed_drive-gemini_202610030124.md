@@ -4,7 +4,7 @@
 
 - **Perspective:** Google Drive, asked through Gemini. No repo access.
 - **How asked:** a fresh chat, with the seed-guide v2 first message and guide, plus the line asking for folder names, file types, counts, and opened versus listed.
-- **Shepherd's note:** none given. **Open question for the Shepherd:** is `seed_drive-storage-document_202610030124.md` a second turn of this same chat, or a separate one? See `REVIEW-202610030124.md`.
+- **Shepherd's note:** the same conversation made a second document, `seed_drive-storage-document_202610030124.md` (confirmed by the Shepherd, 202610031417).
 - **Filing note:** kept close to verbatim. One Drive folder ID was removed (see `README.md`, "What was removed"). Its date citations in parentheses are the seat's own.
 
 ---

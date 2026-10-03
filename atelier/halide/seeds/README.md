@@ -21,10 +21,29 @@ synthesis", `pandora/README.md`), plus a review of it.
 | `seed_drive-storage-document_202610030124.md` | Google Drive / UNEXUSI storage, in its own eight-part structure (not the template) |
 | `extra_pour_gemini-notebook_202610030124.md` | A pour the notebook made unasked. Not the repo's pour. Filed as a shadow germ |
 | `REVIEW-202610030124.md` | The review: privacy, template, overlap, collisions, gaps, valuation, method notes |
-| `second-look-guide-202610030124.md` | The next round's first message and guide, with a briefing for each seat |
+| `round-one-seed_202610031417.md` | **The Form step.** The three seeds on one page: what each holds, terms side by side, collisions, gaps, and what the submission asks custos to do |
+| `round-two-guide_202610031417.md` | Round two: the launch prompt, the guide with an appendix per seat, and (below a cut line) the History and the Notes on round one. Supersedes the first second-look guide |
 
 Each file opens with a short note: the perspective, how it was asked, and anything the
 Shepherd added. The text under the rule is the perspective's own.
+
+**Three conversations, six documents.** Each conversation made two documents. The Claude
+project's two (a pause, then the seed) are in one file; the notebook's are the seed and an
+unasked pour; Drive's are the seed and "Seed Document Step 2".
+
+## The Shepherd's decisions on round one (202610031417)
+
+| # | Decision |
+|---|---|
+| 1 | Each conversation has two documents. The two Drive documents are one conversation. The Claude project's two are in one file |
+| 2 | Older place strings stay for now. New documents **supersede** unless there is a reason not to. Older or replaced content that could mislead moves to a History section near the end of the document, with the change and the reason. Documents from outside get at least one iteration before they enter the stream |
+| 3 | The notebook's pour stays filed, as a concept seed for the real pour process |
+| 4 | The repo and other convergence points (Drive and the like) are likely a **peer to navigo**, not a voice. Under discussion |
+| 5 | The sixth rubric question (traceability) stays in, on trial, outside the total |
+| 6 | No PR needs merging to start round two. The PRs are reviewed together once round two is done |
+| 7 | Round two uses two documents and a launch prompt: this folder's `round-two-guide` and `round-one-seed` |
+| 8 | PRs stay open until round two is done |
+| 9 | The round-two document carries a Notes section on lessons and issues, to see whether the conversations address them unprompted |
 
 ## What was removed (Cave privatum)
 
@@ -43,6 +62,6 @@ addition, at filing:
 Removed text is marked `[… withheld by the filing conversation]`. The originals stayed
 with the Shepherd.
 
-**A note for the Shepherd, not changed here:** some of the same place strings are
-already in `main`, in older files (`.shadow-well/`, `.claude/`, `atelier/`). Whether those
-stay is the Shepherd's call. See `REVIEW-202610030124.md`, section 2.
+**Older files, not changed here:** some of the same place strings are already in `main`, in
+older files (`.shadow-well/`, `.claude/`, `atelier/`). Per decision 2 above they stay for now,
+and a superseding document carries the History. See `REVIEW-202610030124.md`, section 2.

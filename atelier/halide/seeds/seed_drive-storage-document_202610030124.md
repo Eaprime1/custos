@@ -3,8 +3,8 @@
 `prima-clock: 202610030124 (filed)` · `asked: date not given in the file` · `plank: germ — a first description, not canon`
 
 - **Perspective:** Google Drive / UNEXUSI cloud storage. No repo access.
-- **How asked:** not stated. The file was named "Seed Document Step 2 - Custos unexusi_storage" by the Shepherd. It does **not** follow the guide's eight-section template, and it opens with the guide-version line only.
-- **Shepherd's note:** none given. **Open question for the Shepherd:** is this a second turn of the chat behind `seed_drive-gemini_202610030124.md`? Its section 6 answers question 1 of that seed as if the Shepherd had replied.
+- **How asked:** a second turn of the Drive conversation. The file was named "Seed Document Step 2 - Custos unexusi_storage" by the Shepherd. It does **not** follow the guide's eight-section template, and it opens with the guide-version line only.
+- **Shepherd's note:** this is the second document of the same conversation as `seed_drive-gemini_202610030124.md` (confirmed by the Shepherd, 202610031417). Its section 6 answers question 1 of that seed as if the Shepherd had replied.
 - **Filing note:** kept close to verbatim. A header line naming a real place was removed (see `README.md`, "What was removed"). Tags are the seat's own. Several [stated] tags mark things the seat could only have learned from the conversation, not from its storage (see `REVIEW-202610030124.md`).
 
 ---
