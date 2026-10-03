@@ -2,7 +2,7 @@
 
 `suit: ♦️ Diamond — a stub, nothing filed`
 `prima-clock: 202609301111`
-`plank: 1/3 — germ. Nothing here is canon.`
+`plank: germ — a stub, nothing filed. Not canon.`
 
 Where the shadow seeds go. When a submission is poured through the salt pan and the
 lumen makes its shadow visible, the seeds that come out (normally the originator's)

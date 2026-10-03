@@ -3,7 +3,7 @@
 `suit: ♣️ Club — an active working event`
 `prima-clock: 202610022352`
 `session anchor: 202610021614 (the Shepherd's clock)`
-`plank: 1/3 — named, not yet tested. Nothing here is canon.`
+`plank: 1/3 — named, not yet tested. Not canon.`
 `status: OPEN`
 `for: a Claude Code conversation acting as Navigo Claude`
 
@@ -75,9 +75,9 @@ Each step waits for the Shepherd's word.
    new. One submission can develop **more than one concept**.
 4. **Emerge (the lumen).** What is submitted to the repo is lumen: a draft PR with the
    documents created. The Shepherd seals and merges. You do neither.
-5. **Shadow seeds.** What comes out beyond the PR, the seeds that the lumen makes
-   visible, goes to the Shadow stream: one file per seed in
-   `atelier/halide/shadow-stream/`. The originator chooses an official working copy:
+5. **Shadow germs.** What is left over beyond the PR, the 1/3 pieces that the lumen
+   makes visible, goes to the Shadow stream: one file per germ, or an addition to one
+   that exists, in `atelier/halide/shadow-stream/`. The originator chooses an official working copy:
    a **Jack** (carries another's authority; append-only), a **Queen** (develop
    concepts from the seed) or a **King** (develop it as a whole). An *external*
    originator would also have the **Club Ace**, the official carbonite. The **Spade
@@ -91,7 +91,7 @@ A short receipt, in the PR description and in the conversation:
 - each seed: where it came from, and what is not verified;
 - the submission, in one paragraph;
 - what changed in custos, with the PR link;
-- the shadow seeds, one line each;
+- the shadow germs, one line each, and which of them add to one that already exists;
 - **what surprised you, and what did not fit.** This is the point of the test.
 
 ## Rules for This Test
@@ -115,9 +115,10 @@ Open in `atelier/halide/README.md`, plus what this request adds:
 2. Do Jack, Queen, King and Ace keep their readiness meanings in
    `valuation/README.md`, or take the ones above?
 3. Does the conversation ID earn its place at the front, and is the format right?
-4. The Shepherd's two routines already gather (ideas mined from email, a daily
+4. The Shepherd's routines already gather (email management and idea mining, a daily
    briefing) and their output is not landing anywhere. Are they dark feeds, and where
-   do their results go?
+   do their results go? *Finishing a routine* is now a type of mission
+   (`docs/mission-ideas.md`, item 10).
 5. The plank reading below: does it hold in a real pass?
 
 ## The Plank, as the Repo Already Uses It
@@ -142,8 +143,7 @@ naturally be more or less. The process has two end caps outside it.
 - **Front cap, 3/0.** Undefined, which is a paradox. Its synergy resolves by
   **inversion** to 0/3: the undefined plank becomes a located germ.
 - **Back cap, 4/3** (one and a third). More than one, which is a paradox. Its
-  synergy resolves by **separation**: one (the plank completes) and 1/3 (a new plank
-  that exists and gets worked).
+  synergy resolves by **separation**: one (the plank completes) and a leftover 1/3.
 
 Checked: 4/3 is 1 and 1/3, correct. Four thirds is one whole and a third left over,
 the same as a carry in base three (4 is written 11). The inversion of 3/0 is 0/3 as a
@@ -152,9 +152,15 @@ line, where 3/0 is the point at infinity and its inverse is 0. In ordinary arith
 3/0 is undefined and so is its inverse. That matches the repo's own wording: 3/0 exists
 but cannot be located, 0/3 is located.
 
-**Offered, not decided:** the whole that completes could be the lumen (the PR, the
-documents), and the 1/3 left over could be the shadow seed. That fits "results are
-shadow-type seeds", and it makes every shadow seed a plank already at 1/3.
+**The Shepherd's refinement (202610030033):** many concepts use the plank system as a
+**model**. The **lumen is the one**: what happens, the plank completing. The 1/3 left
+over is a **shadow germ**, because we are in the shadow stream. It is **not a plank**:
+a plank cannot be less than one, so it is a *piece* of plank, concept time happening.
+What happens becomes a 1/3 germ, or adds to filling up one.
+
+In practice: a document's stage (1/3, 2/3, 3/3) says where a whole plank stands. A
+1/3 shadow germ is a different thing: a piece left over from a plank that finished.
+(An earlier draft of this request called the leftover a plank at 1/3. That was wrong.)
 
 ---
 
