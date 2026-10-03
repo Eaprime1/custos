@@ -43,7 +43,11 @@ unasked pour; Drive's are the seed and "Seed Document Step 2".
 | 6 | No PR needs merging to start round two. The PRs are reviewed together once round two is done |
 | 7 | Round two uses two documents and a launch prompt: this folder's `round-two-guide` and `round-one-seed` |
 | 8 | PRs stay open until round two is done |
-| 9 | The round-two document carries a Notes section on lessons and issues, to see whether the conversations address them unprompted |
+| 9 | The round-two document carries a Notes section on lessons and issues, to see whether the conversations address them unprompted. The Notes are cut off for a clean test (202610031417) |
+| 10 | **Loaded words.** None enters the automated stream. The originator is told the exact spot and may adapt it in their original. If a loaded word is truly the best word, it goes through a separate manual vetting, the burden is on the invoker, it is stored apart, and no automation touches it |
+| 11 | **Places.** The repo and other convergence points are peers of navigo. A *portus* has in and out and sends seeds to be scattered into the *hortus*, where they grow. Concepts will grow into containers (*pandora*), each with a Drive folder that holds its History. Voice, place and clock fit: the clock arrives at custody |
+| 12 | **Anchors.** Real places carry aliases (a street corner is "Suxen and Nexus"). The alias is the rule; real names, ZIP codes and the like are what to leave out |
+| 13 | **Tempering** is the chosen word for easing the extremes. It belongs to a family of processes that prepare a thing for its mission (blanching, searing, vulcanizing, firing, charcoal), which round two asks the seats about |
 
 ## What was removed (Cave privatum)
 

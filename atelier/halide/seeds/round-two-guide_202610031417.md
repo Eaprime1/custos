@@ -80,7 +80,9 @@ the Shepherd, who decides what moves on.
   ZIP or postal codes, named rivers, confluences, watersheds and corners.** **Why:** this
   will be published in a public repository, and published text may be copied and indexed
   even if it's deleted later. Leave the item out and count it. A seat that reports
-  "withheld: 0" will be read by someone who checks.
+  "withheld: 0" will be read by someone who checks. The project already uses **aliases** for
+  the places that anchor its stories (for example, "Suxen and Nexus" for a street corner).
+  Where your sources use an alias, keep it. Where they use the real name, leave it out.
 - ***Noli fingere.*** *Do not feign.* Please don't invent history, sources, dates or
   connections to fill a silence. **Why:** the project keeps a record of who said what, and
   one invented line spoils the lines next to it.
@@ -115,6 +117,10 @@ the Shepherd, who decides what moves on.
   extremism.
 - **What a pan keeps.** What do your sources say about evaporation, salt, residue and crystals:
   what a salt pan keeps, and what it lets go?
+- **Preparing, not making.** Blanching, searing, tempering, vulcanizing, firing pottery, making
+  charcoal, salt-curing: processes that don't make a thing but prepare it for what it must do or
+  endure. What do your sources say about any of them, or about processes like them? Is there a
+  word for the family?
 - **A collision.** Pick one collision in the round-one seed and say how your sources would settle
   it, or why they wouldn't.
 
@@ -237,6 +243,7 @@ Supersedes `second-look-guide-202610030124.md`.
 | Sixth valuation question (traceability), on trial and outside the total | The Shepherd: keep it in and see how it develops |
 | Added leads for every seat (a place that holds, managing extremes, what a pan keeps) | Questions that came from the Shepherd's replies to the first review |
 | Removed the Drive lead "which chat was which" | Answered: each conversation made two documents; the Claude project's two are in one file |
+| Added a lead on processes that prepare a thing for its mission, and a note on aliases under *Cave privatum* | The Shepherd's replies of 202610031417: the family needs a word, and the project already aliases its anchor places. Neither tests a round-one issue |
 
 ## Notes: lessons from round one, and what to watch for
 
