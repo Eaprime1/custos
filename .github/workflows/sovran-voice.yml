@@ -1,8 +1,16 @@
 name: Custos — Sovran Voice
 
+# One living comment per PR. It lists the files with links: the file as it
+# stands on the PR's head (to read it) and its diff (to comment on a line).
+# It is posted when the PR opens or becomes ready, and refreshed on each push.
+
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, ready_for_review, synchronize]
+
+concurrency:
+  group: sovran-voice-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   custos-speaks:
@@ -15,12 +23,47 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const crypto = require('crypto');
             const pr = context.payload.pull_request;
-            const filesChanged = pr.changed_files || '?';
+            const { owner, repo } = context.repo;
+            const MARK = '<!-- custos-shepherd-considers -->';
+            const MAX = 40;
+            const headRepo = pr.head.repo ? pr.head.repo.full_name : `${owner}/${repo}`;
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: pr.number, per_page: 100
+            });
+
+            // File names come from the PR, so keep them from breaking the markdown.
+            const label = (p) => p.replace(/[`\r\n]/g, '');
+            const enc = (p) => p.split('/').map(encodeURIComponent).join('/')
+              .replace(/\(/g, '%28').replace(/\)/g, '%29');
+            const diffUrl = (p) =>
+              `${pr.html_url}/files#diff-${crypto.createHash('sha256').update(p).digest('hex')}`;
+            const line = (f) => {
+              const name = '`' + label(f.filename) + '`';
+              if (f.status === 'removed') return `- ${name} — removed`;
+              const view = `https://github.com/${headRepo}/blob/${pr.head.sha}/${enc(f.filename)}`;
+              const was = f.status === 'renamed' && f.previous_filename
+                ? ` (was \`${label(f.previous_filename)}\`)` : '';
+              return `- [${name}](${view})${was} · [diff](${diffUrl(f.filename)})`;
+            };
+            const shown = files.slice(0, MAX).map(line);
+            if (files.length > MAX) {
+              shown.push(`- …and ${files.length - MAX} more: see [Files changed](${pr.html_url}/files)`);
+            }
+
             const body = [
+              MARK,
               '## 🌿 Custos — The Shepherd Considers',
               '',
-              `*${filesChanged} file(s) entering the fold*`,
+              `*${files.length} file(s) entering the fold*`,
+              '',
+              '**The documents** (open one to read it; use *diff* to comment on a line):',
+              '',
+              ...shown,
+              '',
+              `[All files changed](${pr.html_url}/files)`,
               '',
               '> *Custos* watches what enters. Every change is something new to keep,',
               '> or a new way of keeping what is already here.',
@@ -34,11 +77,17 @@ jobs:
               '---',
               '*Custos · sovran shepherd · eaprime1 · ∰*'
             ].join('\n');
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: pr.number,
-              body
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: pr.number, per_page: 100
             });
+            // Only a bot's own marked comment counts, so a pasted marker can't hijack it.
+            const mine = comments.find((c) =>
+              c.body && c.body.startsWith(MARK) && c.user && c.user.type === 'Bot');
+            if (mine) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: pr.number, body });
+            }
 
 # ∰🛠️🌿🔒-custos_sovran

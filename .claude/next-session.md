@@ -4,6 +4,16 @@
 
 ---
 
+## Read This First (added 202610022352)
+
+A test of the halide process is waiting for a Claude Code conversation acting as
+Navigo Claude: [`.claude/halide-test-request.md`](halide-test-request.md). It starts
+with a conversation ID (`bash tools/session_id.sh`), runs by hand with no triggers,
+and ends with a receipt of what held and what did not. The notes below are from the
+2026-09-26 close and are older.
+
+---
+
 ## Where We Are
 
 `main` is clean, and every PR from this session has merged: #343, #356, #367 and #342, each sealed High 20/20.

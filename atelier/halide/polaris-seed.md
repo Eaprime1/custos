@@ -3,7 +3,7 @@
 `suit: ♦️ Diamond — a seed, not decided`
 `prima-clock: 202609300847`
 `source: the Shepherd's story seed, offered as serious play`
-`plank: 1/3 — germ. Not canon.`
+`plank: germ — a story seed, not yet worked. Not canon.`
 
 Two moves. Neither is made into more than it is.
 

@@ -3,7 +3,7 @@
 `suit: ♦️ Diamond — concept stub, active development`
 `prima-clock: 202609300539`
 `revised: 202609301111 (the Shepherd's answers on the shadow seeds; folder kept as halide/)`
-`plank: 1/3 — germ. Nothing here is canon. Working title; the Shepherd names it.`
+`plank: 1/3 — named, not yet tested. Not canon. Working title; the Shepherd names it.`
 
 *A station that is always in motion. You do not arrive here to stay.*
 
@@ -191,6 +191,7 @@ tested, in `trial-0.md`.
 - Two directions: toward Polaris and from it.
 - Many witnesses is a perspective, and the camera is the witness of the picture.
 - Start with three wells and let it grow.
+- A shadow seed is a **1/3 shadow germ**: a piece left over when a plank completes, and not a plank itself. The lumen is the one.
 
 ## Open
 
