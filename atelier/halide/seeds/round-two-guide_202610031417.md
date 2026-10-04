@@ -120,7 +120,19 @@ the Shepherd, who decides what moves on.
 - **Preparing, not making.** Blanching, searing, tempering, vulcanizing, firing pottery, making
   charcoal, salt-curing: processes that don't make a thing but prepare it for what it must do or
   endure. What do your sources say about any of them, or about processes like them? Is there a
-  word for the family?
+  word for the family? (The Shepherd leans toward "curing", which runs at a different rate for
+  every material and takes skill and a feel for the thing. Say what your sources add or change.)
+- **Resting.** Some things work only once they are left alone: dough that proofs, soup that
+  settles. What do your sources say about rest, settling or equilibrium as a step?
+- **What a salt pan does.** Salt is a metal joined to a non-metal. A pan evaporates a brine, and the
+  minerals come out in order. What do your sources say about purifying, and about adding a trace
+  that changes the whole (doping)?
+- **Marks that guide.** Street signs, airmail beacons and arrows, UPC check digits, relay stations:
+  small marks that tell a traveler where they are and which way to go. Do your sources hold marks
+  like these, or a way to tell where a document has been?
+- **A container that doesn't trap.** The project's word for a container is *pandora*, and the
+  concern is that containers can feel like traps. What do your sources say about containers with
+  a way out?
 - **A collision.** Pick one collision in the round-one seed and say how your sources would settle
   it, or why they wouldn't.
 
@@ -243,6 +255,7 @@ Supersedes `second-look-guide-202610030124.md`.
 | Sixth valuation question (traceability), on trial and outside the total | The Shepherd: keep it in and see how it develops |
 | Added leads for every seat (a place that holds, managing extremes, what a pan keeps) | Questions that came from the Shepherd's replies to the first review |
 | Removed the Drive lead "which chat was which" | Answered: each conversation made two documents; the Claude project's two are in one file |
+| Added leads on resting, what a salt pan does, marks that guide, and a container that doesn't trap; extended the "preparing" lead with the Shepherd's lean toward "curing" (202610031822) | The Shepherd's replies: these may be held in the seats' sources. None tests a round-one issue |
 | Added a lead on processes that prepare a thing for its mission, and a note on aliases under *Cave privatum* | The Shepherd's replies of 202610031417: the family needs a word, and the project already aliases its anchor places. Neither tests a round-one issue |
 
 ## Notes: lessons from round one, and what to watch for

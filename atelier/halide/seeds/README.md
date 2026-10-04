@@ -48,6 +48,10 @@ unasked pour; Drive's are the seed and "Seed Document Step 2".
 | 11 | **Places.** The repo and other convergence points are peers of navigo. A *portus* has in and out and sends seeds to be scattered into the *hortus*, where they grow. Concepts will grow into containers (*pandora*), each with a Drive folder that holds its History. Voice, place and clock fit: the clock arrives at custody |
 | 12 | **Anchors.** Real places carry aliases (a street corner is "Suxen and Nexus"). The alias is the rule; real names, ZIP codes and the like are what to leave out |
 | 13 | **Tempering** is the chosen word for easing the extremes. It belongs to a family of processes that prepare a thing for its mission (blanching, searing, vulcanizing, firing, charcoal), which round two asks the seats about |
+| 14 | **Curing** is the word for that family. It runs on a spectrum: every material has its own cure rate, and curing takes care, skill, experience and often an affinity for the thing |
+| 15 | **Domos** is home: the active working folder, with things going in and out and some not yet in custody. The pinnacle lives in `vault/`. *History: this changed from "pinnacle folder to a concept" on 202610031822* |
+| 16 | **Anchors** move away from real postal codes toward layered track marks built from several smaller marks. Real anchors stay in a separate private store |
+| 17 | **The chain.** Nullification comes after maw. `eternal_naught_space` is the last repo of the pre stage, and zero is the next stage, with its own name, built after the pre stage |
 
 ## What was removed (Cave privatum)
 
