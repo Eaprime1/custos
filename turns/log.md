@@ -603,3 +603,20 @@ contribution: the gateway rule, the lexeme list and the peer-review process writ
 resonance:    measured
 witnessed:    true
 ---
+
+---
+turn:         2026-10-06 10:48
+prima-clock:  202610061048
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the peer-review adoptions, get pixelator's governance pipeline live, and close the open pull requests.
+contribution: every pull request from the peer-review run is merged or sealed; pixelator now has the same cue, packet, witness and seal workflows as custos.
+              - custos #407-#413 merged: the peer-review process and Run 0, the validator fix, the perspective template, the closing tracker paragraph, the intake-ladder draft, UTC cue stamps, and the queue update.
+              - pixelator #13-#17 merged: the four workflows (auto-finalize retired, bots never seal), the scan_lexeme and validator copies, the lexeme form with bounty removed, CLAUDE.md and the custody log.
+              - First live cues on pixelator (#14, #15, #16, #17) sealed, recovered earlier cues, and stamped in UTC.
+              Decisions this turn: auto-finalize is retired; the cue record is official, so UTC; a navigo merges only when the owner asks; `ultima probatio` is the seal cue on pixelator now.
+              Follow-ups the Shepherd approved: mission and upgrade labels, README clone line and retiring blank.yml and terraform.yml, validator fixture tests, and a shared stamp script. Opened as drafts after this entry.
+              Not done: the phone commit for pixel (still on the phone), the license conversation, CP-7 corrections, CP-8, H-6.
+resonance:    converged
+witnessed:    true
+---
