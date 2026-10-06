@@ -10,6 +10,7 @@
 #   area   path prefix to compare, or "." for root-level files only
 #          (default: . .github .github/workflows .github/ISSUE_TEMPLATE tools docs)
 set -euo pipefail
+export LC_ALL=C
 
 if [[ $# -lt 2 ]]; then
   echo "Usage: $0 <repoA[@ref]> <repoB[@ref]> [area ...]" >&2
