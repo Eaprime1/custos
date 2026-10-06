@@ -486,6 +486,21 @@ jobs:
               // Writing to head means the journey doc rides into main inside
               // this same PR's eventual merge, instead of needing a second,
               // separate write to the protected branch.
+              //
+              // Fork guard: pr.head.ref is only a branch name, not a full
+              // ref. getContent/createOrUpdateFileContents above always
+              // target `owner, repo` (the base repository) — for a fork PR
+              // that silently reads/writes a same-named branch in the base
+              // repo instead of the fork, which is wrong at best and could
+              // clobber an unrelated branch at worst. Only proceed when the
+              // head actually lives in this repository.
+              const headInBaseRepo = pr.head.repo && pr.head.repo.full_name === `${owner}/${repo}`;
+              if (!headInBaseRepo) {
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: prNum,
+                  body: `⚠️ **Journey document skipped** — this PR's head branch lives in \`${pr.head.repo ? pr.head.repo.full_name : '(deleted fork)'}\`, not this repository. Writing to \`pr.head.ref\` by branch name only is safe when the head is local; for a fork it would target the wrong repo. File the journey record manually after merge if wanted.`,
+                });
+              } else {
               let existingSha;
               try {
                 const { data: existing } = await github.rest.repos.getContent({
@@ -503,15 +518,24 @@ jobs:
                 ...(existingSha ? { sha: existingSha } : {}),
               });
 
+              // Known limitation, accepted rather than worked around: a
+              // GITHUB_TOKEN-authored commit does not trigger new
+              // `pull_request` workflow runs, so this journey-doc commit
+              // changes the head SHA without re-running CI on it. Safe
+              // here because (a) the file is markdown only, no executable
+              // content, (b) branch protection on main sets no required
+              // status checks, and (c) merge is always a manual human
+              // decision in this repo, never automatic on finalize.
               await github.rest.issues.createComment({
                 owner, repo, issue_number: prNum,
-                body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.head.ref}/${journeyPath}) — on this PR's branch; lands in \`${pr.base.ref}\` when the PR merges.\n\n*The record now lives in the system.*`,
+                body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.head.ref}/${journeyPath}) — on this PR's branch; lands in \`${pr.base.ref}\` when the PR merges. Note: this commit (markdown only) does not re-trigger CI on the new head SHA — bot-authored commits don't fire \`pull_request\` workflow runs.\n\n*The record now lives in the system.*`,
               });
+              }
             } catch (e) {
               core.warning(`Journey doc commit failed: ${e.message}`);
               await github.rest.issues.createComment({
                 owner, repo, issue_number: prNum,
-                body: `⚠️ PR finalized and labeled, but the journey document could not be committed: ${e.message}\n\nEnable "Allow GitHub Actions to bypass required pull requests" in branch protection settings if needed.`,
+                body: `⚠️ PR finalized and labeled, but the journey document could not be committed: ${e.message}`,
               });
             }
 
