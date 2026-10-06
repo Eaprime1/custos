@@ -21,5 +21,5 @@ PR opening non-draft or going `ready_for_review`, again only on the
 It should not depend on a CLI tool authenticated inside the Action
 runner; a CLI-dependent review can come later as an addition, but only
 if it's gated on that same trigger, never firing before Eric is ready
-to finish the PR. Read `review-packet.yml` first — it's the free layer
+to finish the PR. Read `.github/workflows/review-packet.yml` first — it's the free layer
 every review should build on, not duplicate.

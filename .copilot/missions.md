@@ -41,10 +41,17 @@ challenge/reward-ledger plan in
 `docs/plans/202609252039-rewards-and-flags-plan.md` settles on. Confirm
 that plan has landed (check for a newer session-close note first — this
 one may be stale), then: find every open issue/PR carrying the `bounty`
-label across custos and sibling repos, re-label or close per the
-settled scheme, then delete the label itself.
-**Done when:** `gh label list` no longer shows `bounty` in any repo it
-was removed from, and nothing that mattered got silently dropped.
+label across custos and sibling repos and **re-label** per the settled
+scheme, then delete the label itself. Per `docs/issue-system.md:57`,
+claimed or linked work is not closed during cleanup — this task
+re-labels only. If something carrying `bounty` looks like it should
+also be closed, that is a separate decision outside this mission, not
+a side effect of removing the label.
+**Done when:** the exact repo set is named up front (custos and
+whichever siblings actually carry the label — don't assume, check),
+and `gh label list --repo <each-repo>` run individually for every one
+of them shows `bounty` gone, with nothing that was still active
+silently closed in the process.
 
 ### CP-8 — pilot a per-round final-review record
 
