@@ -107,6 +107,7 @@ Three findings carry two dispositions (CP-7, PC-5, PC-8), so the counts add to 2
 - **The lenses overlap less than expected.** Custos through pixelator gave mostly tools and habits; pixelator through custos gave mostly governance and conventions.
 - **Some findings need a closer read** (CP-6, CP-8). The record should say so, as it does, and not guess.
 - **Counting needs a rule** for findings with two dispositions. The first draft of the tally was written from memory and was incorrect; counting by script fixed it. Count by script from now on.
+- **The new inventory tool failed the repo's own lint on its first push.** DeepSource Shell flagged three findings in `tools/peer_inventory.sh` (two `==` in tests, which the repo already fixed once in #381, and backticks inside single quotes). ShellCheck was not installed in the working environment, so it was not run before pushing. Fixed with output verified identical; the lesson for the process is to run ShellCheck on any new tool before the first push, which is also a small argument for CP-3 (tests and lint for tools).
 - **The lexeme list works as a test, and it showed a gap.** Scanning this record and the process doc against the compiled list matched an overloaded word in plain prose (fixed) and the word "system" inside the file name `docs/issue-system.md`. A scanner needs a rule for path-like text, or it will flag names it should leave alone. Add that to the Stage 2 triage in the list.
 
 ## 9. Proposed next steps (none started)

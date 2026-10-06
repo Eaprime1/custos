@@ -22,13 +22,14 @@ if [[ ${#AREAS[@]} -eq 0 ]]; then
   AREAS=("." ".github" ".github/workflows" ".github/ISSUE_TEMPLATE" "tools" "docs")
 fi
 
+BT=$'\x60'   # a backtick, kept out of quoted strings
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
 resolve() { # spec -> "path ref label"
   local spec="$1" path ref
   path="${spec%%@*}"
-  if [[ "$spec" == *@* ]]; then ref="${spec#*@}"; else ref=""; fi
+  if [[ "$spec" = *@* ]]; then ref="${spec#*@}"; else ref=""; fi
   if [[ ! -d "$path" ]] || ! git -C "$path" rev-parse --git-dir >/dev/null 2>&1; then
     echo "ERROR: '$path' is not a git checkout." >&2; exit 2
   fi
@@ -53,7 +54,7 @@ manifest "$PB" "$RB" >"$TMP/b"
 
 in_area() { # area -> awk filter on path (field 1)
   local area="$1"
-  if [[ "$area" == "." ]]; then awk -F'\t' '$1 !~ /\//'
+  if [[ "$area" = "." ]]; then awk -F'\t' '$1 !~ /\//'
   else awk -F'\t' -v p="${area%/}/" 'index($1,p)==1 && substr($1,length(p)+1) !~ /\//'
   fi
 }
@@ -81,7 +82,7 @@ for area in "${AREAS[@]}"; do
   show() { # label list
     [[ -z "$2" ]] && return
     echo "**$1**"
-    printf '%s\n' "$2" | sed 's/^/- `/; s/$/`/'
+    printf '%s\n' "$2" | while IFS= read -r line; do printf -- '- %s%s%s\n' "$BT" "$line" "$BT"; done
     echo
   }
   show "Differs (same path, different content)" "$diff_"
