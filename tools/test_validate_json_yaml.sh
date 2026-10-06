@@ -11,7 +11,8 @@ set -uo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VALIDATOR="$HERE/validate_json_yaml.sh"
-SCRATCH="$(mktemp -d)"
+SCRATCH="$(mktemp -d)" || { echo "cannot create a scratch directory" >&2; exit 1; }
+[ -n "$SCRATCH" ] && [ -d "$SCRATCH" ] || { echo "scratch directory missing" >&2; exit 1; }
 trap 'rm -rf "$SCRATCH"' EXIT
 
 pass=0
