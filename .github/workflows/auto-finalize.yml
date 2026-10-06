@@ -303,10 +303,17 @@ jobs:
               ].join('\n');
 
               try {
+                // Committed to the PR's own head branch, not base — main is
+                // protected and requires a PR, and this bot runs on the
+                // GITHUB_TOKEN with no bypass available (personal-account
+                // repos can't grant actor-level bypass_pull_request_allowances).
+                // Writing to head means the journey doc rides into main inside
+                // this same PR's eventual merge, instead of needing a second,
+                // separate write to the protected branch.
                 let existingSha;
                 try {
                   const { data: existing } = await github.rest.repos.getContent({
-                    owner, repo, path: journeyPath, ref: pr.base.ref,
+                    owner, repo, path: journeyPath, ref: pr.head.ref,
                   });
                   existingSha = existing.sha;
                 } catch { /* new file */ }
@@ -316,13 +323,13 @@ jobs:
                   path: journeyPath,
                   message: `journey: PR #${prNum} auto-finalized [prima-clock ${primaClock}]`,
                   content: Buffer.from(journeyContent).toString('base64'),
-                  branch: pr.base.ref,
+                  branch: pr.head.ref,
                   ...(existingSha ? { sha: existingSha } : {}),
                 });
 
                 await github.rest.issues.createComment({
                   owner, repo, issue_number: prNum,
-                  body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.base.ref}/${journeyPath})\n\n*The record now lives in the system.*`,
+                  body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.head.ref}/${journeyPath}) — on this PR's branch; lands in \`${pr.base.ref}\` when the PR merges.\n\n*The record now lives in the system.*`,
                 });
               } catch (e) {
                 core.warning(`Journey doc commit failed for PR #${prNum}: ${e.message}`);
