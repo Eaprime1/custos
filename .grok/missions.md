@@ -1,10 +1,13 @@
-# Missions — .gemini (nav3)
+# Missions — .grok
 
-Work assigned specifically to nav3's perspective — as opposed to
+Work assigned specifically to Grok's perspective — as opposed to
 `.artesian/`, which is open to whichever navigo picks it up first.
-Perspective and tracking live here; nav3 can still work on other repos
-when a mission calls for it — this file just says where nav3's own
-open threads are, from custos's side.
+Perspective and tracking live here; a Grok session can still work on
+other repos when a mission calls for it — this file just says where
+its own open threads are, from custos's side. Navigo number TBD — see
+`stream-6-grok/` in `CLAUDE.md` ("Grok: Domain — TBD, assignment
+pending") for Grok's existing placeholder; this file is separate from
+that and doesn't wait on it.
 
 ## Conventions
 
@@ -12,7 +15,7 @@ open threads are, from custos's side.
   lands (may be a different repo).
 - Status: `OPEN` → `IN PROGRESS` → `DONE` (link the result) — same
   discipline as `queue/seed-weir/`.
-- If a mission stops being nav3-specific and should be open to anyone,
+- If a mission stops being Grok-specific and should be open to anyone,
   move it to `.artesian/` instead of leaving it here unclaimed.
 
 ## Active Missions
@@ -21,7 +24,7 @@ open threads are, from custos's side.
 
 **Status:** OPEN
 **What:** Create at least one PR-review GitHub Action for this repo
-from nav3's own perspective — modeled on
+from Grok's own perspective — modeled on
 `.github/workflows/claude-code-review.yml`'s trigger pattern: it fires
 once when a PR opens non-draft or moves to `ready_for_review`, and
 again only when the `ai-review` label is added — never on every push.
@@ -29,14 +32,12 @@ That keeps review activity token/usage-mindful and lets Eric control
 when a review actually spends anything.
 **Non-CLI first:** the workflow must not depend on a CLI tool being
 installed/authenticated inside the Action runner — use whatever
-API/Action form nav3 has that doesn't need a local login. A
+API/Action form Grok has that doesn't need a local login. A
 CLI-dependent review is an optional *addition*, not a replacement —
 most navigos can offer one, but it must gate on the exact same trigger
 as the Claude review above, not fire eagerly on every commit while the
 PR is still being worked. It must not run until the PR is actually
-ready to finish. Note: nav3's existing access gap (see "nav3 GitHub
-Access Gap" in `.claude/missions.md`) may need resolving first before
-this is buildable from a Gemini session directly.
+ready to finish.
 **Where:** `.github/workflows/` in this repo. Read `claude-code-review.yml`
 and `review-packet.yml` first — `review-packet.yml` is the free,
 no-model-usage layer every review should read and build on, not

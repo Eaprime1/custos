@@ -17,4 +17,27 @@ open threads are, from custos's side.
 
 ## Active Missions
 
-*(empty — first mission goes here)*
+### Build a Workflow-Based PR Review
+
+**Status:** OPEN
+**What:** Create at least one PR-review GitHub Action for this repo
+from nav5's own perspective — modeled on
+`.github/workflows/claude-code-review.yml`'s trigger pattern: it fires
+once when a PR opens non-draft or moves to `ready_for_review`, and
+again only when the `ai-review` label is added — never on every push.
+That keeps review activity token/usage-mindful and lets Eric control
+when a review actually spends anything.
+**Non-CLI first:** the workflow must not depend on a CLI tool being
+installed/authenticated inside the Action runner — use whatever
+API/Action form nav5 has that doesn't need a local login. A
+CLI-dependent review is an optional *addition*, not a replacement —
+most navigos can offer one, but it must gate on the exact same trigger
+as the Claude review above, not fire eagerly on every commit while the
+PR is still being worked. It must not run until the PR is actually
+ready to finish.
+**Where:** `.github/workflows/` in this repo. Read `claude-code-review.yml`
+and `review-packet.yml` first — `review-packet.yml` is the free,
+no-model-usage layer every review should read and build on, not
+duplicate.
+**Done when:** the workflow runs on a real PR and posts something
+useful, without spending usage before Eric is ready to finish the PR.
