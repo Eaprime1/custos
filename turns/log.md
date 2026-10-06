@@ -620,3 +620,19 @@ contribution: every pull request from the peer-review run is merged or sealed; p
 resonance:    converged
 witnessed:    true
 ---
+
+---
+turn:         2026-10-06 12:06
+prima-clock:  202610061206
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the session: take the approved follow-ups from draft to merged, and leave the handoff true.
+contribution: the seven follow-up pull requests are sealed and merged, and the review findings on them were fixed before sealing.
+              - custos #414-#416 and pixelator #18-#21 merged in order. Pixelator #18 added the mission and upgrade labels; the Shepherd ran the sync and the four labels now exist. #19 fixed the README clone line and retired blank.yml and terraform.yml. #20 and #21, and custos #415 and #416, added the validator fixture tests and tools/prima_clock.sh.
+              - Review findings fixed before sealing, all verified first: prima_clock.sh now rejects extra arguments and names the logs that use local time; the test script fails fast if its scratch directory cannot be made; the closing tip in device/active.md points at the registered pixelator clone.
+              - This entry also marks the README clone line and starter-workflow rows RESOLVED in the pixelator queue (open count 3 to 1), and updates the handoff block in device/active.md, which still described the follow-ups as drafts.
+              Decisions this turn: none new. Still the Shepherd's, none blocking: the phone commit (its own conversation, branch pixel), the license, CP-7 corrections, CP-8, H-6, the two other README devicehaven mentions, whose local time the turn log means, wiring the validator tests into CI, and pointing CLAUDE.md at prima_clock.sh.
+              Not done: the phone commit, and everything on that list.
+resonance:    settled
+witnessed:    true
+---
