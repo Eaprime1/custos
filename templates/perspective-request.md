@@ -1,12 +1,14 @@
 ---
 request_id: [PR-NNN]
-prima_clock: [202610060825]
+prima_clock: [YYYYMMDDHHMM]
 issued_by: [name and role]
 status: OPEN              # OPEN | CLOSED
 context: "[the decision point or phase this request belongs to]"
 reference: "[path or link to the plan or document it comes from]"
 adapted_from: "eaprime1/pixelator PERSPECTIVE_REQUEST_001_CARBONITE_MAW.md (2026-04-21)"
 ---
+
+<!-- Prima-clock: 202610060206 (this template was adopted from pixelator; stamp the copy you issue in the front matter above) -->
 
 # PERSPECTIVE REQUEST — [PR-NNN]
 ## [Title: the subject the perspectives are asked about]
