@@ -7,7 +7,9 @@
 #
 # UTC is for official records: the seal, the cue record, custody logs, MOAV
 # carriers and registry entries, so they do not depend on where the Shepherd
-# is. The Shepherd's own stamps use local time; pass --local for those.
+# is. The Shepherd's own stamps use local time; pass --local for those. So does
+# any log whose own schema asks for local time (custos's turns/log.md does, see
+# turns/TURN_SCHEMA.md).
 set -euo pipefail
 
 usage() {
