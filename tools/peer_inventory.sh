@@ -26,10 +26,15 @@ BT=$'\x60'   # a backtick, kept out of quoted strings
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-resolve() { # spec -> "path ref label"
+resolve() { # spec -> "path<TAB>ref<TAB>label" (tab-separated so paths may contain spaces)
   local spec="$1" path ref
-  path="${spec%%@*}"
-  if [[ "$spec" = *@* ]]; then ref="${spec#*@}"; else ref=""; fi
+  if [[ -d "$spec" ]]; then
+    path="$spec"; ref=""
+  elif [[ "$spec" = *@* ]]; then
+    path="${spec%@*}"; ref="${spec##*@}"
+  else
+    path="$spec"; ref=""
+  fi
   if [[ ! -d "$path" ]] || ! git -C "$path" rev-parse --git-dir >/dev/null 2>&1; then
     echo "ERROR: '$path' is not a git checkout." >&2; exit 2
   fi
@@ -37,18 +42,20 @@ resolve() { # spec -> "path ref label"
     if git -C "$path" rev-parse --verify -q origin/main >/dev/null; then ref="origin/main"; else ref="HEAD"; fi
   fi
   git -C "$path" rev-parse --verify -q "$ref" >/dev/null || { echo "ERROR: ref '$ref' not found in '$path'." >&2; exit 2; }
-  echo "$(cd "$path" && pwd) $ref $(basename "$(cd "$path" && pwd)")"
+  local abs
+  abs="$(cd "$path" && pwd)"
+  printf '%s\t%s\t%s\n' "$abs" "$ref" "$(basename "$abs")"
 }
 
 # resolve runs in a subshell, so its failure must be caught here or the script
 # would carry on with empty values.
 RES_A="$(resolve "$SPEC_A")" || exit 2
 RES_B="$(resolve "$SPEC_B")" || exit 2
-read -r PA RA LA <<<"$RES_A"
-read -r PB RB LB <<<"$RES_B"
+IFS=$'\t' read -r PA RA LA <<<"$RES_A"
+IFS=$'\t' read -r PB RB LB <<<"$RES_B"
 
 # blob-id<TAB>path for every file at the ref, sorted by path
-manifest() { git -C "$1" ls-tree -r "$2" | awk -F'\t' '{split($1,m," "); print $2 "\t" m[3]}' | LC_ALL=C sort; }
+manifest() { git -C "$1" -c core.quotePath=false ls-tree -r "$2" | awk -F'\t' '{split($1,m," "); print $2 "\t" m[3]}' | LC_ALL=C sort; }
 manifest "$PA" "$RA" >"$TMP/a"
 manifest "$PB" "$RB" >"$TMP/b"
 
