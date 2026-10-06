@@ -328,7 +328,7 @@
 - Approved follow-ups are open as drafts: mission and upgrade labels, README
   clone line with retiring blank.yml and terraform.yml, validator fixture
   tests, and a shared stamp script.
-- Run `bash ~/pixelator/termux_proc.sh` from the phone when closing, if wanted
+- Run `bash termux_proc.sh` from your pixelator clone on the phone when closing, if wanted (the clone path is in `device/podiums.md`, for example `~/unexusi/pixelator`)
   (see `turns/CLOSING.md`).
 
 *Prime state: 3*
