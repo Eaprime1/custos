@@ -1,6 +1,6 @@
 # Distressed lexeme list
 
-`prima-clock: 202610060727`
+`prima-clock: 202610060701`
 `status: DRAFT v1 — compiled from references found in custos, hodie, maw, pixelator. The Shepherd decides what is canon.`
 
 One list for the scanner to read. Every entry in Part A has a source you can open. Part B holds lexemes known to be distressed with no reference found yet. Part C is the evidence for why we scan.
@@ -72,10 +72,12 @@ All of the above: hodie Acknowledgments Extended (§ Secondary).
 
 Rough size, counting every case-insensitive line match (quotes and definitions included). Not yet triaged.
 
+*Method:* `git grep -I -i -c <term>` over all of `origin/main` at `5934e6e` for custos, including `pr-journeys/`; `grep -rIi -c <term>` over the working tree (excluding `.git`) for the other three. The count for this very file is not included in custos's figure.
+
 | Repo | "consciousness" | "manifesto" |
 |---|---|---|
 | hodie | 6,342 lines in 268 files; 23 paths with the word in the name | 1 line |
-| custos (main) | 86 lines in 21 files; 2 paths | 32 lines in 14 files |
+| custos (main) | 86 lines in 21 files; 2 paths | 38 lines in 17 files |
 | pixelator | 12 lines in 6 files | 2 lines in 1 file |
 | maw | 0 | 0 |
 
