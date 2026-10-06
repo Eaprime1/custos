@@ -332,7 +332,7 @@
 - The phone commit has its own conversation. The branch is `pixel` in custos;
   the Shepherd opens the test PR when the commit is ready.
 - Open for the Shepherd, none blocking: the turn-log schema says "device local"
-  without saying whose; README lines 4 and 85 still mention `devicehaven`; wire
+  without saying whose; pixelator README lines 4 and 85 still mention `devicehaven`; wire
   the validator tests into CI; point CLAUDE.md and the closing checklist at
   `prima_clock.sh`.
 - Run `bash termux_proc.sh` from your pixelator clone on the phone when closing, if wanted (the clone path is in `device/podiums.md`, for example `~/unexusi/pixelator`)
