@@ -325,9 +325,16 @@
   is still the July commit), the license conversation, CP-7 corrections, CP-8
   and H-6. The decisions list is in the Claude Docs note "Decisions waiting on
   Eric".
-- Approved follow-ups are open as drafts: mission and upgrade labels, README
-  clone line with retiring blank.yml and terraform.yml, validator fixture
-  tests, and a shared stamp script.
+- The approved follow-ups are merged: custos #414-#416 and pixelator #18-#21
+  (mission and upgrade labels, now synced; README clone line; blank.yml and
+  terraform.yml retired; validator fixture tests; `tools/prima_clock.sh` in
+  both repos).
+- The phone commit has its own conversation. The branch is `pixel` in custos;
+  the Shepherd opens the test PR when the commit is ready.
+- Open for the Shepherd, none blocking: the turn-log schema says "device local"
+  without saying whose; README lines 4 and 85 still mention `devicehaven`; wire
+  the validator tests into CI; point CLAUDE.md and the closing checklist at
+  `prima_clock.sh`.
 - Run `bash termux_proc.sh` from your pixelator clone on the phone when closing, if wanted (the clone path is in `device/podiums.md`, for example `~/unexusi/pixelator`)
   (see `turns/CLOSING.md`).
 
