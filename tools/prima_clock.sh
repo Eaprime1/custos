@@ -14,6 +14,11 @@ usage() {
   echo "usage: prima_clock.sh [--utc | --local]" >&2
 }
 
+if [ "$#" -gt 1 ]; then
+  usage
+  exit 2
+fi
+
 case "${1:-}" in
   "" | --utc) date -u '+%Y%m%d%H%M' ;;
   --local) date '+%Y%m%d%H%M' ;;
