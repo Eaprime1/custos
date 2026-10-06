@@ -91,8 +91,19 @@ if yaml_files:
         # override semantics), not corruption -- only a literal key typed
         # twice in the same block is.
         seen = set()
+        merge_seen = False
         for key_node, _ in node.value:
             if getattr(key_node, "tag", None) == "tag:yaml.org,2002:merge":
+                # One merge key per mapping is fine (it can merge a list of
+                # anchors). A second literal << is a duplicate key.
+                if merge_seen:
+                    raise yaml.constructor.ConstructorError(
+                        "while constructing a mapping",
+                        node.start_mark,
+                        "found duplicate merge key ('<<')",
+                        key_node.start_mark,
+                    )
+                merge_seen = True
                 continue
             key = loader.construct_object(key_node, deep=True)
             if key in seen:
