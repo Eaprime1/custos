@@ -52,6 +52,10 @@ def find_files(root, suffixes):
                 yield os.path.join(dirpath, name)
 
 
+if not os.path.isdir(root):
+    print(f"ERROR: {root!r} is not a directory or does not exist.", file=sys.stderr)
+    sys.exit(2)
+
 print(f"Validating JSON/YAML files under: {root}")
 print()
 
@@ -81,18 +85,26 @@ if yaml_files:
         pass
 
     def unique_mapping(loader, node, deep=False):
-        mapping = {}
-        pairs = loader.construct_pairs(node, deep=deep)
-        for (key, value), (key_node, _) in zip(pairs, node.value):
-            if key in mapping:
+        # Reject duplicates only among this mapping's own literal keys,
+        # checked BEFORE merge-key (<<) expansion. A local key legitimately
+        # overriding a merged-in key is valid YAML (standard merge-key
+        # override semantics), not corruption -- only a literal key typed
+        # twice in the same block is.
+        seen = set()
+        for key_node, _ in node.value:
+            if getattr(key_node, "tag", None) == "tag:yaml.org,2002:merge":
+                continue
+            key = loader.construct_object(key_node, deep=True)
+            if key in seen:
                 raise yaml.constructor.ConstructorError(
                     "while constructing a mapping",
                     node.start_mark,
                     f"found duplicate key ({key!r})",
                     key_node.start_mark,
                 )
-            mapping[key] = value
-        return mapping
+            seen.add(key)
+        loader.flatten_mapping(node)
+        return dict(loader.construct_pairs(node, deep=deep))
 
     UniqueKeyLoader.add_constructor(
         yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping
