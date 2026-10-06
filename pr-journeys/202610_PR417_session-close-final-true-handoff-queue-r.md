@@ -1,7 +1,7 @@
 # PR Journey: #417 — session close, final: true handoff, queue rows resolved, closing turn entry
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202610061305  
+**prima-clock:** 202610061432  
 **Branch:** `claude/session-close-final-t2203p` → `main`  
 **Author:** @Eaprime1  
 **State:** FINALIZED  
@@ -26,14 +26,13 @@ Leave the handoff true. The session-close PR (#414) was written before the follo
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202610061206 | @Eaprime1 |
-| Finalized | 202610061305 | @Eaprime1 |
+| Finalized | 202610061432 | @Eaprime1 |
 
 ## CI Record
 
 | Check | Result |
 |---|---|
 | DeepSource: Lua | ⏭ |
-| Codacy Static Code Analysis | ✅ |
 | DeepSource: Apex | ⏭ |
 | DeepSource: Dart | ⏭ |
 | DeepSource: Erlang | ⏭ |
@@ -45,11 +44,12 @@ Leave the handoff true. The session-close PR (#414) was written before the follo
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
 | GitGuardian Security Checks | ✅ |
+| Codacy Static Code Analysis | ✅ |
+| packet | ✅ |
+| scan | ✅ |
 | scan | ✅ |
 | validate | ✅ |
 | dependency-review | ✅ |
-| scan | ✅ |
-| packet | ✅ |
 
 ## DeepSource Record
 
@@ -84,6 +84,6 @@ Which clock should a turn-log stamp use, the Shepherd's or the machine's?
 - @Eaprime1 · 202610061305 · sealed at finalize
 
 ---
-**prima-clock:** 202610061305  
+**prima-clock:** 202610061432  
 **witnessed:** true — 1 witness, sealed 202610061305 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
