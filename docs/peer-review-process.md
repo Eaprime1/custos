@@ -1,6 +1,6 @@
 # Peer Review Between Repos
 
-`prima-clock: 202610060743`
+`prima-clock: 202610060743` · revised `202610060824`
 `status: DRAFT v0, to be tested on Run 0 (custos and pixelator) and refined`
 
 The repos in the constellation are peers. Each holds things the others could use, and copies of the same file drift apart quietly. This process is how two repos look at each other on purpose, decide what to share, and keep a record of what was decided.
@@ -37,6 +37,31 @@ One pass looks at the pair three ways. Where possible, give each lens to a separ
 | **B: Y through X** | The mirror | The same questions, from Y's side |
 | **C: the hub** | Custos looks at both, as coordinator | What applies to **every** repo, not just this pair? What is a pair-specific adaptation? What conflicts between the two views? What should be asked of the Shepherd? Who is the next pair? |
 
+## Three ways to run the lenses
+
+The same three lenses can be run in three ways. Pick by how much is at stake.
+
+| Mode | How | Output |
+|---|---|---|
+| **Distributed** | Three separate passes from three different places (separate conversations or devices), one lens each. The hub conversation then brings them together. | One perspective document per lens, then the final record |
+| **Swap** | Three passes in **one** conversation, using the perspective swap method: complete one pass from each perspective in turn. | One perspective document per pass, then the final record, written from those documents and referencing them |
+| **Quick pass** | One pass, "from the hip", for a small or low-risk comparison. | The final record only |
+
+A perspective document is one lens's findings, written before the lenses meet. File name: `atelier/peer-review/<YYYYMM>_<repoA>-<repoB>_run-<N>_<lens>.md`. The final record cites them, so a reader can see where each finding came from and where the lenses disagreed.
+
+Run 0 was a **quick pass**: one conversation, one sitting, three lenses written one after another. It tested the facts step and the record format, not the lenses as separate views. The proposal is to run Run 1 (custos with maw) as a **swap** or **distributed** run, so the two can be compared.
+
+## Who works the pull requests
+
+Several voices of Navigo (Claude, Gemini, Perplexity and others) author and work pull requests. Each voice has its own attention flag: `@claude` gets Claude's attention, and another voice uses its own. The Latin workflow cues (see the glossary in `docs/latin-workflow-glossary.md`) are posted by the owner, and a navigo describes the seal cue in words unless the owner asks it to post the cue. This is deliberate: it keeps accidental triggers from sealing or merging a PR.
+
+The direction is oversight. As the other voices handle pull requests well, the Shepherd and the first voice move to oversight review of PRs that arrive ready:
+
+1. A PR that passes oversight review is merged.
+2. A PR that does not pass goes back to the Shepherd to decide: fix it in place, return it to the originating voice, or another route.
+
+Peer review PRs follow the same path.
+
 ## The steps
 
 1. **Pick the pair and the trigger** (see Cadence).
@@ -57,7 +82,7 @@ One pass looks at the pair three ways. Where possible, give each lens to a separ
 | **ADOPT** | Copy as is. The file has nothing repo-specific. |
 | **ADAPT** | Port with named changes (names, paths, voice, local conventions). |
 | **PROJECT-WIDE** | Applies to every repo. Goes on the shared list for the hub. |
-| **ASK** | Needs a Shepherd decision. Not decided by the reviewer. |
+| **DECIDE** | Needs a decision from the Shepherd. The reviewer does not decide it, and says plainly what the choice is and what each answer would do. |
 | **SKIP** | Reviewed and not wanted, with the reason recorded. |
 
 Each finding also records evidence, effort (XS, S, M, L), risk, and status (`OPEN` or `RESOLVED` with a link). Rows are never deleted.
@@ -105,5 +130,4 @@ Change this file in the same PR as the run's record, so the process and its evid
 ## Open questions for the Shepherd
 
 - Should the hygiene manifest grow to include the four Latin-cue workflows, and compare content as well as presence?
-- Who runs each lens: separate conversations, or one conversation in three passes?
 - Is one prima-clock timezone to be chosen project-wide? (Run 0 found two in use.)
