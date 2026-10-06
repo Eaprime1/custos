@@ -311,3 +311,25 @@
 
 *Prime state: 3*
 *Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-10-06*
+## For the Next Conversation
+
+- Peer-review Run 0 is closed out: custos #407-#413 and pixelator #13-#17 are
+  merged. Pixelator now has finalize, cue record, review packet and witness
+  workflows; `auto-finalize.yml` is retired and bots never seal.
+- Cue stamps are UTC in both repos. `ultima probatio` seals on pixelator.
+- Still open for the Shepherd: the phone commit for `pixel` (the remote branch
+  is still the July commit), the license conversation, CP-7 corrections, CP-8
+  and H-6. The decisions list is in the Claude Docs note "Decisions waiting on
+  Eric".
+- Approved follow-ups are open as drafts: mission and upgrade labels, README
+  clone line with retiring blank.yml and terraform.yml, validator fixture
+  tests, and a shared stamp script.
+- Run `bash ~/pixelator/termux_proc.sh` from the phone when closing, if wanted
+  (see `turns/CLOSING.md`).
+
+*Prime state: 3*
+*Witnessed: true* 🃏

@@ -18,4 +18,4 @@ as the Seed Weir and Artesium Weir logs.
 | Repo | Findings file | Open items |
 |---|---|---|
 | custos | [`custos.md`](custos.md) | 3 |
-| pixelator | [`pixelator.md`](pixelator.md) | 6 |
+| pixelator | [`pixelator.md`](pixelator.md) | 3 |
