@@ -1,0 +1,104 @@
+# Custos — Disponi
+#
+# Mission board availability check. On issue_comment, a `disponi` cue on a
+# `mission` issue gets a one-line answer read from the issue labels:
+# open, in progress, or paused. An open or paused seat also gets the petitio
+# form to fill in. See docs/mission-board.md.
+#
+# Read-only: it never adds or removes a label. `claimed` belongs to the public
+# claim path (claim-register.yml), so it is reported but never set here.
+name: Custos — Disponi
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  disponi:
+    if: >-
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Answer the availability check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const raw = context.payload.comment.body || '';
+
+            // Ignore cues inside code fences, inline code or quotes.
+            const text = raw
+              .replace(/```[\s\S]*?```/g, '')
+              .replace(/`[^`]*`/g, '')
+              .split('\n')
+              .filter(l => !/^\s*>/.test(l))
+              .join('\n');
+            if (!/^\s*@claude\s+disponi\b/im.test(text)) {
+              core.info('Not a disponi cue.');
+              return;
+            }
+
+            const labels = issue.labels.map(l => l.name);
+            if (!labels.includes('mission')) {
+              core.info('Not a mission issue; no answer.');
+              return;
+            }
+
+            function state(labels, issueState) {
+              if (issueState === 'closed') return 'closed';
+              if (labels.includes('in-progress')) return 'in-progress';
+              if (labels.includes('paused')) return 'paused';
+              if (labels.includes('submitted')) return 'submitted';
+              if (labels.includes('claimed')) return 'claimed';
+              return 'open';
+            }
+
+            const answers = {
+              'open': '**open** — no one holds this seat. A petitio is welcome.',
+              'in-progress': '**in progress** — a petitio was accepted and a navigo is building. Check back, or ask whether they want a hand.',
+              'paused': '**paused** — the prior holder stepped away. A petitio can reopen it.',
+              'submitted': '**submitted** — a PR is linked and waiting on the Shepherd. No new petitio needed.',
+              'claimed': '**claimed** — someone took this through the public claim path. Ask in the thread before planning.',
+              'closed': '**closed** — this mission is done.',
+            };
+
+            // The petitio form, offered only where a seat can be taken. It sits in a
+            // code fence, so the cue inside it is quoted, not given.
+            const petitio_template = [
+              'Copy, fill in and post as a comment:',
+              '',
+              '```',
+              '@claude petitio',
+              '',
+              'Intent: [one sentence: what you will produce]',
+              'Approach: [two or three sentences: how you will do it]',
+              'Completion check: [the bash command that says it is done]',
+              '```',
+              '',
+              'Work begins when the Shepherd accepts, not when you post.',
+            ].join('\n');
+
+            const s = state(labels, issue.state);
+            const offerForm = s === 'open' || s === 'paused';
+            const body = [
+              '## 🌿 Disponi',
+              '',
+              answers[s],
+              ...(offerForm ? ['', petitio_template] : []),
+              '',
+              '---',
+              '*Custos disponi · read-only · ∰🌿*',
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: issue.number, body,
+            });
+            core.info(`disponi answered: ${s}`);
+
+# ∰🌿-custos_disponi_v1

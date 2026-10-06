@@ -10,7 +10,9 @@
     "prima-clock",
     "121"
   ],
-  "active_quests": [],
+  "active_quests": [
+    "threshold-crossing: route atelier/threshold-crossing.md to destination repo per branch-tracker/branches.md"
+  ],
   "active_expeditions": [],
-  "chronicle_count": 1
+  "chronicle_count": 2
 }

@@ -79,6 +79,21 @@ notes:           Subscribed to PR #43 webhook activity end to end: resolved
 ---
 
 ---
+podium_id:       mulberry-vscode-navigo
+name:            "Claude Code in VSCode — custos (Mulberry)"
+type:            conversation
+platform:        vscode
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          mulberry
+conversation_id: ""
+role:            "Sixth blackjack-event session — PR #133/#134 review,
+                 partner-perspective journey, first state-of-custos
+                 document. Shepherd's own naming for this conversation:
+                 nav1 (eaprime1) + nav2 (Claude), navigo perspective."
+status:          active
+notes:           Persistent local filesystem (unlike the ephemeral
+                 custos-web-* podiums) — full repo access on the Mulberry
+                 device, not a remote container.
 podium_id:       custos-web-youthful-goldberg
 name:            "Claude Code on the web — custos"
 type:            conversation
@@ -97,4 +112,49 @@ notes:           Subscribed to PR #73 webhook activity: diagnosed two
                  atelier/testing-lab.md; watched DeepSource converge to
                  Grade A across two commit ranges. Ephemeral remote
                  container, same constraints as custos-web-jolly-bohr.
+---
+
+---
+podium_id:       pixel8a-unexusi
+name:            "Pixel 8a (Termux + PRoot Debian)"
+type:            device
+platform:        termux
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: ""
+role:            "Pinnacle non-repo working device — clones repos fresh into
+                 ~/unexusi/ (Termux home, reachable from PRoot at
+                 /data/data/com.termux/files/home/unexusi/) rather than
+                 working against scattered prior clones. First work: ported
+                 custos's .claude config and full .github governance
+                 pipeline onto eaprime1/pixelator, then triaged and closed
+                 10 stale pixelator branches (5 deleted, 5 resurrected as
+                 PRs #6-#10, all merged)."
+status:          active
+notes:           Debian GNU/Linux 13 (Trixie), aarch64, glibc 2.43 patched
+                 in for Antigravity CLI. Distinct from the `pixel8` podium
+                 above — different clone path (~/unexusi vs ~/pixel8),
+                 fresh PRoot environment. custos cloned at
+                 ~/unexusi/custos; pixelator at ~/unexusi/pixelator.
+---
+
+---
+podium_id:       custos-web-trusting-faraday
+name:            "Claude Code on the web — Act II constellation"
+type:            conversation
+platform:        claude-code-web
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: "session_01XVihLtjp6k5TStKRVFcQsD"
+role:            "Act II setup session (nav1). Branch
+                 claude/trusting-faraday-kdoq87 across custos, naught,
+                 nullus, maw and radix."
+status:          dormant
+notes:           Worked five repos from one ephemeral container, with MCP
+                 access scoped to the constellation. Merged 14 PRs over
+                 202609221628–202609262245, across two usage resets and a
+                 compaction, with scheduled check-ins keeping PR watches
+                 alive between turns. Also read Google Drive (unexusi_storage)
+                 to settle the valuation ledger gaps. Closed with the Act II
+                 journey. Same ephemeral constraints as custos-web-jolly-bohr.
 ---

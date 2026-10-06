@@ -37,13 +37,17 @@ bash tools/prime_check.sh                  # reads .prime, reports current/next 
 # Authoring validation
 bash tools/scan_lexeme.sh                  # finds unfilled placeholders across .md/.sh/.yaml/.json
 bash tools/scan_lexeme.sh path/to/dir      # scan a specific subdirectory
+bash tools/scan_provenance.sh origin/main  # checks new .md files for a Prima-clock stamp (advisory)
 
 # Environment bootstrap (idempotent)
 bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
+
+# Location detection
+source seeds/env_setup.sh                  # detects mulberry/pixel8/codespaces, loads .locations/<name>/config.sh
 ```
 
 **Claude Code on Termux (Android):**
-Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
+Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI, its Application Binary Interface). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
 
 Workarounds:
 - **Use the web session** — claude.ai/code connects to the repo remotely; this is the primary path for device-side AI work
@@ -64,7 +68,21 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 
 `quests/000-thee-the-door.md` is the initiation quest — blocks all others until `prima.yaml` is named and `world/lore.md` has content.
 
-`quests/missions/` is the workflow arc — quests for operating the mission/bounty commission system.
+`quests/missions/` is the workflow arc — quests for operating the mission and Sparstone Trial commission system.
+
+### Missions (`missions/`)
+The operational wing for the Tabularium library pipeline (`eaprime1/tabularium`).
+It is distinct from the `quests/missions/` arc. It holds `CUSTOS_BRIEF.md` (the integration
+brief), `INDEX.md` (the library index: status per library),
+`FIRST_LIBRARY.md`, `WORKFLOWS.md`,
+`SENESCHAL_Protocol.md`, and `TABULARIUM_BACKLOG.md` (formerly issues #194–#198).
+
+### Issue System
+`docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim
+lifecycle, the no-cash reward system, the Bot Brief every mission carries for automated
+submitters, the lexeme-development fallback when a mission can't be done, and the final
+"does it make sense?" review. `.github/sovran-labels.yml` defines the labels, and
+`sovran-labels-sync.yml` applies them.
 
 ### World (`world/`)
 - `lore.md` — The Podium (Pixel 8), the Field (terminal), the Flock (projects/repos), Shepherd (operator)
@@ -80,8 +98,14 @@ Tracks live device state. Not on `main`.
 
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
-- `.github/ISSUE_TEMPLATE/bounty.yml` — Open challenge template (problem defined, approach open)
-- Labels: `mission`, `bounty`, `open` on GitHub Issues
+- `.github/ISSUE_TEMPLATE/sparstone-trial.yml` — Open challenge (problem defined, approach open).
+  It replaced the old `bounty` type; first completer earns the Sparstone
+- `.github/ISSUE_TEMPLATE/upgrade.yml` — Improvement template (target exists, contributor sharpens/extends it)
+- `.github/ISSUE_TEMPLATE/lexeme.yml` — Lexeme development (ground an undefined term in a
+  citable source); also the fallback for any mission that can't be done as written
+- Labels: type (`mission`, `sparstone-trial`, `upgrade`, `lexeme`, `feedback`), state (`open`, `claimed`,
+  `submitted`, `needs-shepherd`), modifiers (`bot-friendly`, `anchor-review`). The full
+  manual is `docs/issue-system.md`
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
@@ -89,13 +113,15 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 
 **`branch-tracker/branches.md`** — Active development map: each branch has a suit, status, and destination repo.
 
-**`prima-clock/registry.md`** — Formal custody log. Every significant event gets a prima-clock stamp (`YYYYMMDDHHMM`). Always include the current prima-clock value when creating MOAV carriers or vault entries.
+**`prima-clock/registry.md`** — Formal custody log. Significant events are expected to get a prima-clock stamp (`YYYYMMDDHHMM`). Include the current prima-clock value when creating MOAV carriers or vault entries.
 
-**`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier must include its prima-clock stamp and a `chain_of_custody` field.
+**`moav/`** — MOAV (Mother of All Vinegar) carriers. JSON files documenting formal transitions. Naming: `[entity]_moav_[event].json`. Each carrier is expected to include its prima-clock stamp and a `chain_of_custody` field, barring a documented exception.
 
-**`vault/`** — Origin molds. Documents placed here have passed formal custody. Never directly edited — active work happens on Carbonite instances. `vault/spade-of-aces/` holds ♠️ pinnacle documents only.
+**`vault/`** — Origin molds. Documents placed here have passed formal custody. Not directly edited outside a formal custody review — active work happens on Carbonite instances. `vault/spade-of-aces/` holds ♠️ pinnacle documents only.
 
-**`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When a concept is ready, custos routes it to the appropriate branch or repo.
+**`atelier/`** — Nursery. Concepts before they have names. Nothing here is finished — that is the point. When the Shepherd judges a concept ready, custos routes it to the appropriate branch or repo.
+
+**`.shadow-well/`** — Shadow artesian. Pre-custody material not yet named, claimed, or routed — the `nowhere` counterpart to `.artesian/`'s `now_here`. Holds fragments, seeds, and shadow versions of ideas before they reach `atelier/` or the formal mission board. See `.shadow-well/README.md` for the polarity and routing rules.
 
 **`returns/`** — External agent stream returns. Each stream directory receives findings from the assigned AI model:
 - `stream-1-language/` — Gemini: Language/Fodere/Agnoscere
@@ -116,6 +142,11 @@ Branches and documents carry suit designations:
 ### Seeds (`seeds/`)
 `bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/`, creates `~/.prima-env`. Idempotent.
 
+`env_setup.sh` detects the current location (`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
+- Ported/adapted from hodie's `.scripts/env_setup.sh`.
+- Static topology only: paths, active branch, whether `device/` is reachable.
+- Not live device state — that stays in `device/` on the `pixel8` branch as before.
+
 ### Unexusi Layer (`unexusi/connect.yaml`)
 Tracks player XP, level, quest completion, session timestamps across devices. Configures session lifecycle. `concept.slug: custos`.
 
@@ -125,8 +156,35 @@ A listening practice for capturing fragments before they have names. Not a ticke
 ### Prime State (`.prime`, `tools/prime_check.sh`)
 Concept progression via prime numbers. Current: `3`. Advance only when a development phase completes. Template ships with `3`.
 
-### Turns (`turns/log.md`)
-Session memory. Append only. One entry per meaningful session. Schema in `turns/TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
+### Turns (`turns/`)
+Session memory, append only. Five files, distinct purposes:
+- `log.md` — *what* a turn built. One entry per meaningful session. Schema in `TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
+- `CLOSING.md` — the checklist for ending a session: review what happened, file loose ends in `queue/artesium-weir/`, append to `log.md`, update `device/active.md`, run `scan_lexeme.sh`, commit/push, optionally write an AAR. Run this whenever asked to "wrap up", "finalize", or "close out."
+- `AAR.md` — *how* the turn went (process/friction/seeds), not what it produced. Same append-only spirit as `log.md`, different lens. Not every turn needs one.
+- `CULTIVATION.md` — cross-PR catalog of open design conflicts surfaced at closing time (e.g. competing naming systems introduced in separate PRs). Resolve or explicitly defer each entry when read; don't let it become an unread backlog.
+- `review-surface.md` — what review bots flagged on each PR, one plain sentence per flag, actionable or noise.
+
+nav1 keeps `.claude/drift.md` alongside: an append-only record of calls it made that the Shepherd didn't direct.
+
+### Queue (`queue/`)
+Staging ground for what has crossed in from outside but hasn't found its place yet — nothing here is finished. `queue/artesium-weir/` is the filter between raw inbound material (e.g. a PDF export of a GitHub PR thread) and formal chain of custody; see `queue/artesium-weir/README.md` for the routine. Per-item subfolders (e.g. `queue/artesium-<contributor>/`) hold in-flight artifacts until the Weir routes them onward — close them out via the `turns/CLOSING.md` checklist rather than leaving them mid-flow.
+
+### Review Gates
+- **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
+- **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
+- **CI**: `.github/workflows/` runs:
+  - `scan-lexeme.yml` — placeholder scan
+  - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
+  - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
+  - `claude-code-review.yml` — the paid Claude review
+    - The review runs once, when a PR is ready for review.
+    - The review runs again only when the `ai-review` label is added.
+  - `review-packet.yml` — API-free summary of every PR (files by area, Deck Master paths, template sections, placeholder words)
+  - `latin-cue-record.yml` — logs each Latin workflow call (docs/latin-workflow-glossary.md) with the PR's state, for the final review before merge
+  - `dependency-review.yml`
+  - `sovran-voice.yml`
+
+  Resolve Codacy findings before merge — see `docs/final-review-and-codacy.md`.
 
 ## Key Conventions
 
@@ -138,11 +196,32 @@ Session memory. Append only. One entry per meaningful session. Schema in `turns/
 
 **prima-clock stamps:** Use `date '+%Y%m%d%H%M'` to generate. Include in MOAV carriers and prima-clock/registry.md entries.
 
-**MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Always include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody`.
+**MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody` unless a documented exception applies.
+
+**Navigo model — AI+eaprime1 teams:**
+Each navigo is a paired team of one AI model and eaprime1. They are internal contributors with the same accountability as external contributors; the Shepherd can redirect any navigo.
+
+| Navigo | Team | Workspace |
+|--------|------|-----------|
+| nav1 | Claude + eaprime1 | `.claude/` |
+| navigo2 | Gmail + eaprime1 | none yet — see `guides/navigo2-gmail-preturn.md` |
+| nav3 | Gemini + eaprime1 | `.gemini/` |
+| nav5 | ChatGPT + eaprime1 | `.chatgpt/` |
+
+**Naming is under review (as of 2026-09-27).** Until Eric's update arrives, conversations use
+**Navigo Claude**, **Navigo Perplexity** and **Navigo Unexusi** (the project as primary
+perspective). The numbered table above stays as it is until then. See `turns/CULTIVATION.md`.
+
+Each navigo workspace folder holds three types of content:
+- Source documents returned from that AI's sessions, before formal custody
+- A queue of what to pick up next session
+- Stream-return materials pending filing
+
+Raw exports land in the workspace first, get renamed `.md` once reviewed, then file to `returns/`, `incoming/pre-nullus/`, or `atelier/`.
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
-1. The mission/bounty issue URL or description
+1. The mission or Sparstone Trial issue URL or description
 2. Files to read first: `prima.yaml`, `CLAUDE.md`, relevant quest or guide
 3. The exact completion check command
 4. The PR template format (Intent, What Arrived, Resonance, Ethics Check)
@@ -151,8 +230,32 @@ When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, alway
 
 **Lore tone:** Short, evocative. The terminal is the world, not a tool. Avoid classroom framing.
 
-**Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.json`.
+**No bounties, no cash.** custos retired the word "bounty" and pays no monetary rewards.
+Rewards are XP on the prime ladder, badges and Sparstones.
+Pay links in a PR are a safety risk here, because anyone can click one by accident.
+A submission that asks for payment gets the `payment-demand` label and is closed automatically, unread.
+An AI contributor facing a payment question can skip the task or ask in the thread.
+It can also build the work without any payment request. New ideas are welcome.
+The reasoning is in `docs/issue-system.md` §4.
+
+**Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
+
+**Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
+- `finalize-pr.yml` seals a PR when the owner comments the seal cue.
+- The seal gate skips comments that carry the Claude Code footer.
+- The seal gate also skips cues inside quotes or code.
+- In PR comments, a navigo describes the seal cue in words, unless the owner asks it to post the cue.
+- A navigo merges when the owner asks in the conversation, or in another way the owner has confirmed there.
+- `latin-cue-record.yml` logs each Latin call with the PR's state for the final review.
 
 **Turn log:** Append only. One entry per meaningful session. `resonance` is one honest word.
 
 **Development plan:** See `docs/custos-plan.md` for the phased roadmap and current status.
+
+## Known Stray Content (untracked, not part of the concept)
+
+These currently sit in the working tree but are not part of custos and should not be assumed to be in scope, referenced in lore, or committed without first checking with the Shepherd:
+
+- `airavata-custos/` — an unrelated Apache Airavata "Custos" project (Go IAM service + Next.js web app, its own nested `.git`). Name collision only; do not merge its content with this repo's `custos` concept.
+- `seneschal/scanner/New folder/` — empty, undocumented. Likely an in-progress drop that hasn't been named or routed through `queue/` yet.
+- `queue/artesium-<contributor>/` item folders — in-flight Weir material (e.g. a PDF export of a contributor's PR thread). Route through `queue/artesium-weir/README.md` and close out via `turns/CLOSING.md` rather than leaving indefinitely.

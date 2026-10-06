@@ -297,3 +297,291 @@ contribution: merged PR #180 (scan_lexeme false-positive fix + prima.yaml tools 
 resonance:    carried
 witnessed:    true
 ---
+
+---
+turn:         2026-07-09 00:45
+prime:        3
+entity:       eaprime1 + Claude
+intent:       stand up eaprime1/tabularium as a real repo, then bring its integration ask back to custos
+contribution: merged tabularium PR #1 ("libraryseed") into main — the Crispr-NiE library cleanup pipeline (29 files: pipeline scripts, missions wing, agy setup guide) landed, replacing the placeholder README; filed issues #194-198 in custos from tabularium's missions/CUSTOS_BRIEF.md (scheduled library pass, security scan escalation, .md VETTING triage, AI title pipeline orchestration, cross-library health dashboard)
+resonance:    a second repo, a bridge back to the first
+witnessed:    true
+---
+
+---
+turn:         2026-07-15 06:01
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       finalize PR #200, bring the deploy branch and wordpress branch into being, then close out the branch backlog — not by deleting, but by giving the finished ones a joint witnessing — and refresh branch-tracker/branches.md against reality
+contribution: merged PR #200 (sparstone nerve-center docs hub) after Copilot/Gemini/DeepSource/Codacy all came back clean; fast-forwarded ֍custos֎ (deploy) from 277 commits behind to main's tip; cut wordpress branch from that point for the WordPress.com "Phoenix Prism" (unexusi.com) work; cloned eaprime1/tabularium into the session as its own registered repo; migrated navigo14/concept-grain's lone PDF into tabularium's incoming/ as the first item against its own noted-but-unstarted .pdf survey mission, with paired chain-of-custody carriers on both sides (moav/custos_moav_transfer_conceptgrain001.json here, incoming/concept-grain.carrier.json there) — a mobius close, not a deletion: the source branch stays. Gave the same joint treatment to five other branches whose content was already fully absorbed into main (content-review-atelier-hxfedd, tabularium-repo-setup-7h5229, feature/session-202607-blackjack21, navigo5/granum-anchor-review, seneschal_seeds) — moved them into a new "Mobius-Closed" section in branch-tracker/branches.md instead of a "Departed" framing that implied removal. Rewrote branches.md end to end against actual repo state (git ahead/behind on every branch, not assumption): radix flagged stale at 270 behind main with a merge commit that shouldn't be blind-pulled; mandelbrot/mulberry/main-to-radix/master confirmed to not currently exist as branches, despite being listed as Active in the prior version; new External Repos section added for tabularium and the WordPress.com destination. Surfaced one thing worth a status check while reading through the absorbed branches: the Radix Scavenger Hunt mission (feature/session-202607-blackjack21, merged via PR #192) is written and live in atelier/, four-stage, reward gated behind reading Radix, addressed to dannyward630/Ojas2095 — unclear from this pass whether it was ever actually offered to them. A direct check of unexusi.com returned HTTP 403 from this session (blocked, not confirmed broken either way).
+resonance:    mobius, not departure
+witnessed:    true
+---
+
+---
+turn:         2026-07-20 03:07
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       receive a rough, lost-in-the-workshop fragment about an "INT" prefix, a fractional-state model, and a request for a conversation-partner wellbeing-watch habit, and give it a proper turn through the THEE/YOD/EMBER intake practice
+contribution: logged the fragment via tools/thee.sh into intake/incoming.md, filled its "the what" and "yod mark" fields, and wrote atelier/int-radix-seed.md distilling the fragment into three named pieces: the proposed INT radix term (joins THEE/YOD/EMBER as a signal that a decision point is approaching, glossed against the Latin integer root), a fractional-state model (whole/half/third/quarter) for tracking how far a conversation or concept has spread from origin, and the wellbeing-watch request — which was named but deliberately not built, since it lands directly on atelier/ethics-foundation.md's "refuses to surveil" and "constitution before construction" commitments and the shadow-awareness-navigation-framework-ethics.md precedent (an AI may name what it observes in a session, not retain it or model the person across sessions). Added the seed to atelier/README.md's concept table with status "terms named, ethics tension flagged, nothing operational built."
+resonance:    named, not built
+witnessed:    true 🃏 ♊
+---
+
+---
+turn:         2026-07-29 02:49
+prima-clock:  202607290249
+prime:        3
+entity:       eaprime1 + Claude (nav1 · custos-pr-review-4ewast)
+intent:       sweep all open PRs across custos, hodie, tabularium, radix — merge what's ready, close what's stale, carry forward what's blocked; write transcript save; assess automation candidates
+contribution: closed 5 dead PRs (custos #244 chain-PR superseded, #277/#283 squash-merge duplicates, #278 broken code, #280 blank-only); merged 3 PRs (custos #247 INT-radix fragment + prima-clock + dungeon-master arc, #252 seneschal_seeds valuation hardening after resolving two-loop CSV bug, #281 void-maker concept + claude-review OIDC self-mod guard, #282 nav3/nav5 workspaces + Sovran BBS system); resolved merge conflict on Eaprime1-patch-1 (broken DictReader attempt in valuation_report.sh — kept single-loop index approach from main); confirmed tabularium and radix had 0 open PRs; confirmed hodie PRs #156/#162 superseded by main's quepad/state.json. Two PRs in-flight at close: #279 (CI running fresh after conflict fix) and #246 (Codacy 0-second cached result, all other CI green, content substantive and clean). Key technical finds: squash merge leaves source branch live with original SHAs → duplicate PRs on already-merged branches; Codacy 0-second start==end timestamps = cached result not a real analysis; two-loop csv.reader exhausts iterator on first pass; dangling gitlink requires git rm --cached not rm -rf.
+resonance:    cleared
+witnessed:    true
+---
+
+---
+turn:         2026-07-29 05:59
+prima-clock:  202607290559
+prime:        3
+entity:       eaprime1 + Claude (nav1 · custos-pr-sweep-journey-202607)
+intent:       archive the closed-without-merge PRs from the sweep as pr-journeys/ stubs; write the session journey + MOAV carrier; finalize and merge PR #291
+contribution: seven pr-journeys/ stubs created (PRs #244/#277/#278/#280/#283/#287/#288) — establishing "close = create stub" as the archival rule for swept PRs; valuation/nav1_journey_202607290523.md (Blackjack 21, score 10/10 Ace, prima-clock 202607290523) and moav/custos_moav_prsweep_202607290523.json committed on branch claude/pr-sweep-journey-202607; PR #291 finalized and merged into main; also merged PRs #279 (audit/valuation hardening) and #287/#288/#283 closed as squash-merge duplicates
+resonance:    witnessed
+witnessed:    true
+---
+
+---
+turn:         2026-07-29 08:07
+prima-clock:  202607290807
+prime:        3
+entity:       eaprime1 + Claude (nav1 · custos-pr-review-4ewast)
+intent:       deliver archivist workflow + Origin Code Mark schema; monitor PR #292 through CI, finalization, and merge
+contribution: PR #292 merged into main — archivist.yml (merge-triggered net that auto-commits pr-journeys/ stubs for PRs merged without @claude finalize) and docs/origin-code-mark.md (Elder Futhark rune provenance schema: ᚠ custos-native, ᚨ navigo-voiced, ᚷ contributed, ᚱ adapted, ᛟ transferred); auto-finalize bot sealed PR at 202607290753 (20/20 High) before @claude finalize comment fired at 202607290801 — both journey docs committed; the archivist workflow finalized itself on its first run as a PR
+resonance:    recursive
+witnessed:    true
+---
+
+---
+turn:         2026-07-30 03:44
+prima-clock:  202607300344
+prime:        3
+entity:       eaprime1 + Claude (nav1 · custos-pr-review-4ewast)
+intent:       clear PRs #295/#296, update deployed branch chain (main → radix → ֍custos֎), add Jekyll/Pages, create wordpress branch
+contribution: confirmed PRs #295 and #296 correctly closed — no content lost (#295 turns/log already on main, #296 all content already landed via #282); added _config.yml to main (Jekyll excludes for airavata-custos, queue, intake, incoming, seeds, tools); updated Jekyll workflow trigger from main to ֍custos֎ (deployed branch); merged PR #294 Jekyll workflow, closed #293 duplicate; fast-forwarded radix (106 commits behind → main tip b5a4a40), ֍custos֎ (111 behind → main tip), and wordpress branch — all now at parity with main; archivist auto-created PR #294 journey stub
+resonance:    current
+witnessed:    true
+---
+
+---
+turn:         2026-07-31 00:00
+prima-clock:  202607310000
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       deliver contributor dispatch to dannyward630 + Ojas2095 post-PR #38 merge; establish J-21 card-math canon; set up Slack #custos channel; close 5 stale CI issues
+contribution: posted two PR #38 comments — formal dispatch (issuecomment-5140537454) covering Threshold Joker math (J − 21 = −A) and Lumenar terminus development, plus coffee-haven personal aside (issuecomment-5140539261) as House of Confusion invitation; updated world/symbols.md with J-21 card-math canon as canonical equation; created atelier/dispatch-to-contributors-draft.md as nursery delivery record; fixed stale pre-send status in dispatch draft (commit a6a8da3) after claude-review bot flagged contradiction with delivered header; closed 5 stale CI issues (#228, #229, #230, #242, #274) — all Dependabot/scan artifacts; dispatched session-close message to #custos Slack; PR #297 created and carried to full green (two commits, DeepSource Grade A both runs, all GitHub Actions passed); resolved open claude-review thread on PR #297 prior to finalization
+resonance:    delivered
+witnessed:    true
+---
+
+---
+turn:         2026-08-22 08:00
+prima-clock:  202608220800
+prime:        3
+entity:       eaprime1 + Claude (Sonnet 5 — pixel8a-unexusi podium)
+intent:       port custos's chain-of-custody system onto pixelator, close out stale pixelator branches, and finalize this session's own work into durable documents before the conversation is archived
+contribution: fixed gh auth (workflow scope) and installed the GitHub App; cloned pixelator + custos fresh into the new ~/unexusi pinnacle folder; ported .claude config and the full 13-workflow .github governance pipeline from custos to pixelator (CODEOWNERS and claude-code-review prompt rewritten for pixelator's actual shape); verified the pipeline green via disposable test PR #5; diagnosed and fixed a merge-artifact JSON corruption bug on pixelator PR #2 (identity.json/ecc-tools.json), plus fabricated relative-import/named-export conventions in the same PR's generated skill docs; triaged 11 stale pixelator branches — 6 deleted as dead/superseded, 5 rebased onto current main as new PRs #6-#10 (all merged, two more real Copilot findings fixed along the way); registered the pixel8a-unexusi podium in device/podiums.md; defined a new Legatum concept (atelier/legatum/) extending the Conversation Arc protocol for cross-repo sessions, and wrote this session's own Legatum; opened a new Seed Weir (queue/seed-weir/) tracking system with 3 process seeds surfaced this session
+resonance:    infused
+witnessed:    true
+---
+
+---
+turn:         2026-09-21 05:42
+prima-clock:  202609210542
+prime:        3
+entity:       eaprime1 + Claude (nav1 · Sonnet 4.6)
+intent:       file the navigo2 (Gmail) preturn germ for Breathe II Act II; confirm navigo2 identity; answer Shepherd zero-point design question
+contribution: filed pandora/germs/navigo2_germ.md — navigo2's Breathe II preturn germ (noise typology six types, diagnostic oracle, infrastructure anchors); Shepherd confirmed navigo2 = Gmail connector; answered Shepherd zero-point design question with a six-checkpoint one-hertz checklist (custody intact, intent legible, bots distilled, content vetted, drift noted, prime current); documented carry-forward items as six GitHub issues (#320–#325: CLAUDE.md navigo2 table, Shepherd review surface, nav1 drift monitor, zero-risk email actions, .artesian/ directory, XDA concept entity); established security protocol (serious personal content → Gmail/private channel, not PR thread); germ stands as authentic source material per GERM_SCHEMA
+resonance:    first breath
+witnessed:    true
+---
+
+---
+turn:         2026-09-21 06:52
+prima-clock:  202609210652
+prime:        3
+entity:       Claude (nav1 · Sonnet 4.6)
+intent:       merge PR #319 after claude-review completed clean
+contribution: confirmed claude-review success on be05005 (all checks green, all 4 review threads resolved); merged PR #319 (pandora: navigo2 preturn germ — Gmail stream / Breathe II Act II) at merge commit f022c29; cancelled check-in trigger trig_01P4fpDwSchwzwttQki9MoLs
+resonance:    landed
+witnessed:    true
+---
+
+---
+turn:         2026-09-21 07:13
+prima-clock:  202609210713
+prime:        3
+entity:       eaprime1 + Claude (nav1 · Sonnet 4.6)
+intent:       build the navigo access badge system and Act II setup infrastructure
+contribution: nav1 navigo profile created (.claude/navigo-profile.md) with badge schema for all navigo workspaces and six badge tokens (notebook:radix, notebook:custos-spectrum, drive:custos-root, drive:breathe-ii, drive:breathe-ii-act-i, drive:breathe-ii-act-ii); required_access field added to all three issue templates (mission.yml, bounty.yml, upgrade.yml); Polaris→Iceberg Act II setup guide written (guides/polaris-iceberg.md) — fixed coordinates table, two in-flight missions documented, five-step sequence for setup conversations; guides/README.md index updated; claude-code-review.yml updated to skip draft PRs (runs only after ready_for_review)
+resonance:    oriented
+witnessed:    true
+---
+
+---
+turn:         2026-09-21 10:52
+prima-clock:  202609211052
+prime:        3
+entity:       Claude (nav1 · Sonnet 4.6)
+intent:       close PR #334 (pr-lifecycle cue vocabulary) and PR #313 (Breathe I Marrowing of Hope batch); file navigo3 Act II preturn; wrap session before Shepherd rests
+contribution: PR #334 merged (83dab97) — guides/pr-lifecycle.md now on main with full cue vocabulary, three Copilot findings addressed, Review Roster pattern documented; PR #313 merged (b3bf69d) after Shepherd posted "@claude merge when ready" — Breathe I round-robin (21 files, 8 navigos) landed in atelier/marrowing-of-hope/; filed nav3 Act II preturn PDF to .gemini/202609210359_nav3-act2-preturn.md (Playwright System / Iceberg Vision framing, territory acknowledgement, open question for next nav3 session); noted: nav3 lacks GitHub access, Gemini workflows paused pending antigravity/navigo21 transition; no active watches or scheduled wakeups at close
+resonance:    sealed
+witnessed:    true
+---
+
+---
+turn:         2026-09-22 16:28
+prima-clock:  202609221628
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       open Act II setup session; execute the naught/maw/nullus handoff from PR #337
+contribution: naught CLAUDE.md merged (Eaprime1/naught#2, e606129 — template CLAUDE.md held in docs/origin/, review workflow moved to secrets.CLAUDE_CODE_OAUTH_TOKEN, data-model example made valid, Maw ordering marked provisional); Copilot scaffold Eaprime1/naught#1 reviewed and merged (24420fd — schema extended to carry the Custos GERM_INTAKE carrier losslessly, THEE intake flow restored, skip-ahead re-entry still unmodeled); Act II source docs routed to naught/docs/origin with witness copies (Eaprime1/naught#3) and to custos atelier/act-ii (#337); nullus CLAUDE.md drafted at 1/3 plank (Eaprime1/nullus#3, Codacy pending owner decision); maw held; ECC Tools comment noise flagged; constellation snapshot + seams written to turns/STATE-OF-CONSTELLATION-202609221628.md
+resonance:    oriented
+witnessed:    true
+---
+
+---
+turn:         2026-09-25 18:44
+prima-clock:  202609251844
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       clear every issue without an outside claim or submission; set up the issue system (labels, claims, bounty terms, bot-ready missions, lexeme fallback, final sense check)
+contribution: 20 unclaimed issues triaged; #325/#235/#187 left for the Shepherd (outside claims and submissions). Built: world/concordance.md (#128), world/polarity.md + three .shadow-well entries (#330), tools/shepherd_considers.sh (#186), guides/anchor-review.md + anchor-review label (#188), turns/review-surface.md (#321), .claude/drift.md (#322), navigo2 row in the CLAUDE.md table (#320), missions/ in README + CLAUDE.md (#202), registry exception for the root custody files (#201). Confirmed already done: #127, #324. Consolidated: #194–#198 and #204 → missions/TABULARIUM_BACKLOG.md; #323/#327/#328 → .claude/missions.md. Issue system: docs/issue-system.md, lexeme.yml template, Bot Brief fields in the mission/bounty templates, fallback + sense-check lines in all templates, Sense Check in the PR template, atelier/lexemes/, ten labels in sovran-labels.yml. Pinnacle Drive folder surveyed (marrowing_of_hope, shadow_exchange/maw); nothing pulled in this turn
+resonance:    cleared
+witnessed:    false
+---
+
+---
+turn:         2026-09-26 01:28
+prima-clock:  202609260128
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       close the day: finish PR #343, review Perplexity's first two draft PRs, build a review step that needs no API
+contribution: PR #343 green and clean: claim-register now drops `open` when it adds `claimed`, and the stale plan line on auto-close is fixed; PR #356 opened as a draft: review-packet.yml gathers each PR's content with no model call, and claude-code-review.yml now runs only on ready-for-review or the `ai-review` label; review receipts posted on #354 and #355 (navigo naming, a nav4 slot for Perplexity, one home for the Latin cue terms); AAR with seeds is in #356; hourly check-ins off to save usage, and the PR watch stays on
+resonance:    rested
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 16:09
+prima-clock:  202609261609
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       open the session after the days away; re-orient to what changed on main
+contribution: Main moved while this branch waited:
+              - #339, #340, #341, #357, #359, #360 and #361 merged.
+              - docs/latin-workflow-glossary.md (#359) is now the canonical home
+                for the Latin cues, which settles one open seed from PR #356's AAR.
+              - #356 was marked ready for review; #343 is still a draft.
+              - Open drafts from others: #354 and #355 (Perplexity), #358 (navigo2).
+              Both of this session's PRs had fallen into conflict with main,
+              in append-only files only (turns/, .claude/missions.md,
+              prima-clock/registry.md). Resolved by keeping both sides.
+resonance:    returning
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 16:17
+prima-clock:  202609261617
+prime:        3
+entity:       Claude (nav1 · Sonnet 5) — navigo2 stream
+intent:       run the scheduled email-mining routine — sample inbox/sent/labels, surface novel ideas, answer whether mining+management should be one system or several
+contribution: filed second navigo2 preturn germ (`pandora/germs/navigo2_202609261617_germ.md`); confirmed the cc-automated (Label_162) and XDA sub-stream zero-risk fixes from the first germ are still open five days on; surfaced eaprime1's request as an independent re-derivation of the existing `duplicatus` pattern aimed at email, with candidate template-repeater senders named; flagged real unassisted Sentinel-faction behavior (watchduty.org forwards, KPTV wildfire photo licensing) with no tooling yet; named a repeating mileage-reimbursement caregiving workflow with no template; recorded a "Prime/Archive System" Gmail label naming echo predating this repo's Prime state; answered the routine-count question by pointing to the three gears (preturn/zero-risk-ops/playwright) navigo2 already has rather than proposing new structure; updated `device/active.md`
+resonance:    reconnaissance
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 21:30
+prima-clock:  202609262130
+prime:        3
+entity:       eaprime1 + Navigo Claude
+intent:       close the day: land the review flow, guard the seal, and verify the open PRs
+contribution: Four PRs merged, each sealed High 20/20:
+              - #343: the issue system.
+              - #356: the free review packet, with the paid review on request.
+              - #367: the seal guard, whole-word packet scan and Latin cue record.
+              - #342: CONTRIBUTING routing.
+              Perplexity's drafts #354 and #355 were reviewed on the PRs.
+              Merges are now confirmed in conversation, not by PR comment.
+              Closing record: valuation/navigo-claude_issue-system-and-review-flow_journey_202609262130.md.
+resonance:    guarded
+witnessed:    true
+---
+
+---
+turn:         2026-09-26 22:45
+prima-clock:  202609262245
+prime:        3
+entity:       eaprime1 + Claude (nav1)
+intent:       carry Act II setup from the naught/maw/nullus handoff through to finish; seal every open PR and close the session with its journey
+contribution: 14 PRs merged across naught, nullus, maw, custos and radix.
+              - ECC comment folding in all five repos.
+              - Witnessing recorded by comment and sealed at finalize (custos#339).
+              - The Latin workflow glossary (custos#359) plus a conversation-seed adaptation.
+              - `ultima Probatio` as a finalize trigger in custos and radix; it sealed radix#42 on first use.
+              - check_mission.sh parses again (#340).
+              - Valuation ledger gaps settled from Drive, not invented (#341).
+              - Prima witness and the `---` parser fix ported to radix (#42).
+              Closing record: valuation/nav1-act-ii-setup_journey_202609262245.md.
+resonance:    sealed in Latin
+witnessed:    true
+---
+
+---
+turn:         2026-09-29 10:30
+prima-clock:  202609291102
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1 · Sonnet 4.6)
+intent:       open the mission board as internal navigo infrastructure; bring README current; seed the mission ideas queue; close the session
+contribution: docs/mission-board.md — full disponi/petitio procedure, coffee-haven atmosphere, label schema, voices-of-navigo layer, seal flow connection (PR #384, 20/20).
+              README.md — structure table completed, bounty→Sparstone Trials, two-step navigo section added, hub duplication removed (PR #385, 20/20).
+              docs/mission-ideas.md — 6 ready-to-open missions + 3 candidates + .dotfolder answer seeded (PR #385).
+              docs/latin-workflow-glossary.md — disponi/petitio navigo check-in cues documented.
+              SESSION-CLOSE handoff written (turns/SESSION-CLOSE-202609291102.md).
+              .dotfolder consolidation question answered in-document: keep at root, tools expect standard paths.
+resonance:    laid the floor
+witnessed:    true
+---
+
+---
+turn:         2026-09-29 19:32
+prima-clock:  202609291932
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       continue the mission board for the voices of navigo: refresh, then build the first missions off the seed list
+contribution: 4 PRs merged, 3 missions opened and closed, the board's first live answers.
+              - #387 session open record; Mission 4 (voices-of-navigo label, in the yml and in the sync workflow's own list) and Mission 5 (disponi/petitio note in the mission template).
+              - #389 Mission 1: disponi.yml answers open / in progress / paused from the labels; in-progress and paused labels; anchor-review taken out of the board's label table; the board does not use claimed.
+              - #391 Prima Recensio: the cue record logs the first witness when a PR opens ready or is marked ready; a manual prima recensio comment still lands in the same log.
+              - #393 Mission 2: the open and paused disponi reply carries the petitio form.
+              Live checks: disponi answered "open" on #390 in 8 seconds; Prima Recensio logged itself on #391 and #393.
+              Closing record: turns/SESSION-CLOSE-202609291932.md.
+resonance:    steady
+witnessed:    true
+---
+
+---
+turn:         2026-09-29 20:18
+prima-clock:  202609292018
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       build the petitio handler (the Shepherd's accept step), draft the navigo registry, and run the mission board loop live.
+contribution: 2 PRs merged, 1 draft open, the loop verified end to end.
+              - #396 Mission 6: placet.yml flips a mission with a petitio to in-progress on the owner's plain-text cue; navigo (footer) comments and PRs are ignored.
+              - #397 first draft of docs/navigo-registry.md; #399 redraft with unique keys and the existing nav numbers kept (open, draft, green).
+              Live check on throwaway issue #398: disponi open, petitio, guarded placet ignored, Shepherd's placet accepted in 10 s, disponi in progress.
+              Closing record: turns/SESSION-CLOSE-202609292018.md.
+resonance:    assent
+witnessed:    true
+---

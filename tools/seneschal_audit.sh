@@ -9,6 +9,11 @@ C_WARN='\033[1;33m'   # Yellow
 C_PATH='\033[0;32m'   # Green
 C_NONE='\033[0m'      # Reset
 
+if [[ ! -d "seep-artois" || ! -d "atelier" ]]; then
+  echo "Error: Run this script from the repository root." >&2
+  exit 1
+fi
+
 echo -e "${C_HEAD}========================================${C_NONE}"
 echo -e "${C_HEAD}  THE SENESCHAL : ESTATE AUDIT LEDGER   ${C_NONE}"
 echo -e "${C_HEAD}========================================${C_NONE}"
@@ -49,13 +54,13 @@ echo -e "${C_TAG}[ THE FIELD ] - Scanning for active operational tags...${C_NONE
 
 # Look for specific markers across the repo
 echo -e "  ${C_HEAD}Draft Commissions [COMMISSION-DRAFT]:${C_NONE}"
-grep -rnw --exclude-dir={.git,.claude,.gemini} '.' -e '\[COMMISSION-DRAFT\]' | while read -r line ; do
-    echo -e "  - ${C_PATH}$line${C_NONE}"
+grep -rn --exclude-dir={.git,.claude,.gemini} '.' -e '\[COMMISSION-DRAFT\]' | while read -r line ; do
+    printf "  - %b%s%b\n" "${C_PATH}" "$line" "${C_NONE}"
 done
 
 echo -e "  ${C_HEAD}Items Needing Tending [NEEDS-TENDING]:${C_NONE}"
-grep -rnw --exclude-dir={.git,.claude,.gemini} '.' -e '\[NEEDS-TENDING\]' | while read -r line ; do
-    echo -e "  - ${C_PATH}$line${C_NONE}"
+grep -rn --exclude-dir={.git,.claude,.gemini} '.' -e '\[NEEDS-TENDING\]' | while read -r line ; do
+    printf "  - %b%s%b\n" "${C_PATH}" "$line" "${C_NONE}"
 done
 echo ""
 

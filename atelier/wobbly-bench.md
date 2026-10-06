@@ -1,6 +1,7 @@
 # The Wobbly Bench — atelier seed
 
 *nursery entry, filed 202606192101 — nothing here is finished (commission pending)*
+*nursery entry, filed 202606192101 — nothing here is finished*
 
 ## The Idea
 

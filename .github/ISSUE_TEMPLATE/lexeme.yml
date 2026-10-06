@@ -1,0 +1,73 @@
+name: Lexeme
+description: Develop a named term or concept from a citable source. Also the fallback path for any mission that can't be done as written.
+title: "[lexeme] "
+labels: ["lexeme", "open", "bot-friendly"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **A lexeme issue opens a term nobody has defined yet.** Pick up the term, ground it in a citable source (Wikipedia preferred), and write what it could mean in custos. Seeds, not canon: the Shepherd decides what graduates. Claim by commenting `claiming this`.
+
+        Example: a narrative has a character called *the great stag* that nobody has described. The note starts from what a source says about red deer stags (antlers regrown yearly, the autumn rut, the stag in heraldry) and asks what that could make the character.
+
+  - type: input
+    id: term
+    attributes:
+      label: Term or concept
+      description: The lexeme to develop, exactly as it appears.
+      placeholder: "the great stag"
+    validations:
+      required: true
+
+  - type: textarea
+    id: found_in
+    attributes:
+      label: Where it appears
+      description: File path(s) or issue(s) where the term is used but not defined.
+    validations:
+      required: true
+
+  - type: input
+    id: suggested_source
+    attributes:
+      label: Suggested starting source
+      description: Optional. A Wikipedia article or other citable page to start from. Contributors may choose their own.
+      placeholder: "https://en.wikipedia.org/wiki/Red_deer"
+    validations:
+      required: false
+
+  - type: textarea
+    id: read_first
+    attributes:
+      label: Read first
+      value: |
+        - `prima.yaml`
+        - `CLAUDE.md`
+        - `atelier/lexemes/README.md` (the note shape)
+        - `world/concordance.md` (terms already defined; don't collide)
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion_check
+    attributes:
+      label: Completion Check
+      render: bash
+      value: |
+        f=$(git diff --name-only --diff-filter=A origin/main -- 'atelier/lexemes/*.md' | head -1); \
+          test -n "$f" && grep -qi "^source:" "$f" && grep -qi "^## sense check" "$f" && echo "lexeme note ready: $f"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        **Write to:** `atelier/lexemes/<slug>.md` — Markdown only, no code. **Out of scope:** editing `world/` directly, declaring canon, inventing events. Rewards are XP and credit (`docs/issue-system.md` §4).
+
+  - type: input
+    id: xp
+    attributes:
+      label: XP reward
+      placeholder: "50"
+    validations:
+      required: false

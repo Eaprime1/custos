@@ -1,0 +1,66 @@
+# Wobble Record — germ schema
+# Fields may remain null when the unknown is part of the record.
+
+schema: custos.wobble-record
+schema_version: "0.1-germ"
+
+record:
+  id: null
+  title: null
+  prima_clock: null
+  status: germ
+  layer: project_hypothesis
+  custody_state: open
+
+origin:
+  prior_state: null
+  loop_or_binary: null
+  conatus:
+    name: null
+    pressure_or_striving: null
+    source: null
+  nth_radian:
+    description: null
+    magnitude: null
+    direction_or_degree_of_freedom: null
+    known_or_unknown: unknown
+
+wobble:
+  observed_result: null
+  smallest_available_change: null
+  new_trajectory: null
+  new_degree_of_freedom: null
+  concept_time_change: null
+
+witness:
+  state: unknown
+  # absent | latent | emergent | external | reciprocal | unknown
+  role: unknown
+  # constitutive | evidentiary | interpretive | unknown
+  witnesses: []
+  observation: null
+  first_difference_observed: null
+  trace_retained: null
+
+relationships:
+  related_plans: []
+  related_records: []
+  related_artifacts: []
+  icon_addresses: []
+  search_tokens: []
+
+provenance:
+  # physical_fact | scientific_analogy | project_hypothesis | project_cosmology
+  layer: project_hypothesis
+  # origin | null_copy | interpretation | transformation
+  source_relation: origin
+  sources: []
+  uncertainties: []
+
+movement:
+  next_movement: null
+  safety_boundary: null
+  decision_needed_from: null
+  ready_for_review: false
+
+signature: "∰◊€π¿🌌∞"
