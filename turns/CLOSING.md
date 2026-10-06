@@ -22,6 +22,16 @@ work survives the session that produced it.
 
 ## The Checklist
 
+**From the phone (Termux), optional:** keep a receipt for the closing. Before
+step 1, start pixelator's procedure tracker from your pixelator clone
+(`bash termux_proc.sh`; the clone's path is in `device/podiums.md`, for example
+`~/unexusi/pixelator`). Start a procedure named for the closing (option 1),
+record each checklist step as you finish it (option 2), and at the end paste the
+last `CERT|...` line back into the conversation. The certificate is a receipt,
+not proof: it is the first 8 characters of a SHA-256 of the label and a local
+timestamp, with no secret, so anyone can recompute it. It shows what the person
+at the phone said was done, and when.
+
 1. **Review** — what did this session actually do? Built, fixed, decided, moved.
 2. **File loose ends** — any artesian items mid-flow through `queue/artesium-weir/`
    should be CLOSED, not left half-processed.
@@ -36,14 +46,6 @@ work survives the session that produced it.
 7. **Commit & push** — everything above lands in the repo. The conversation can
    end now; the work doesn't. If the work landed via PR, confirm its merge
    status before calling the turn closed.
-   **From the phone (Termux), optional:** keep a receipt for the closing. Run
-   pixelator's procedure tracker, `bash ~/pixelator/termux_proc.sh`, start a
-   procedure named for the closing (option 1), record each checklist step as
-   you finish it (option 2), and paste the last `CERT|...` line back into the
-   conversation. The certificate is a receipt, not proof: it is the first 8
-   characters of a SHA-256 of the label and a local timestamp, with no secret,
-   so anyone can recompute it. It shows what the person at the phone said was
-   done, and when.
 8. **Reflect (optional)** — if this turn taught something about *how* turns
    go, not just what they built, write a `turns/AAR.md` entry: what worked,
    what was friction, what to carry forward as a seed.
