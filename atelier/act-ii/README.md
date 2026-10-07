@@ -2,10 +2,11 @@
 
 Prima-clock: 202609221628
 
-These arrived in PR #337. They are working material for Breathe II Act II
-("from Polaris to the iceberg"), so they sit in the atelier rather than at
-the repo root. Nothing here is finished. The Shepherd routes each piece
-onward when it's ready.
+The core setup documents arrived in PR #337; later Act II working material is
+indexed here as it arrives. Together they support Breathe II Act II ("from
+Polaris to the iceberg"), so they sit in the atelier rather than at the repo
+root. Nothing here is finished. The Shepherd routes each piece onward when
+it's ready.
 
 | File | What it is |
 |---|---|
