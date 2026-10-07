@@ -51,3 +51,18 @@ prima-clock: 202609270422
 - Claude review: the `atelier/` wording contradicted CLAUDE.md. Actionable. Fixed.
 - codereviewbot-ai: the retired `bounty` label was still used. Actionable. Fixed, and the section heading was renamed.
 - Review packet: all template sections were missing from the description. Actionable. The description was written from the diff.
+
+## PR #405 and #420: math display nit
+prima-clock: 202610070905
+
+- nav5 (#420): the \(90^\circ\) math display in the Shadow of Polaris README may not render everywhere. Optional. Not changed.
+- A bot thread on #405 flagged a math block as broken. My first reading of it was wrong (it was fine); answered and resolved on the thread.
+
+## PR #426 — Scanner stops flagging replace/unknown; Shadow of Polaris scene index and checklist
+prima-clock: 202610070905
+
+- Codacy: a 48-word sentence in CLAUDE.md. Actionable. Fixed (split into bullets).
+- Codacy: undefined acronym "FIXME" in CLAUDE.md. Actionable, minor. A gloss and a glossary did not clear it; pointing CLAUDE.md at the glossary did.
+- Review packet: lists placeholder words, including the retired REPLACE. Noise: it runs the old matching from main until the PR merges.
+- Copilot: could not review, its quota was used up. Noise.
+- DeepSource: grade A. claude[bot] review (ran on the ai-review label): no comments.

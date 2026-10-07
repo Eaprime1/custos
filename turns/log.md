@@ -636,3 +636,19 @@ contribution: the seven follow-up pull requests are sealed and merged, and the r
 resonance:    settled
 witnessed:    true
 ---
+
+---
+turn:         2026-10-07 09:05
+prima-clock:  202610070905
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       move the halide seeds work and the Shadow of Polaris nursery through to merged, fix the auto-finalize draft bug, and leave round two ready.
+contribution: five pull requests merged, a duplicate closed, and a new oversight step added before the seal.
+              - #425 merged: auto-finalize skips drafts and holds the seal while changes are requested. #404 merged: the halide test request, session_id.sh and the Shepherd Considers comment. #405 merged: round-one seeds, the review and the round-two guide (the duplicate #424 was closed). #420 merged: the Shadow of Polaris nursery from the nav5 conversation.
+              - #426 merged: the scanners now flag only shouted markers and phrases (replace moved to atelier/lexemes/reserved-lexemes.md, with a marker glossary); the Shadow of Polaris scene index and ready-for-review checklist; and the oversight observation: turns/observations/, an observed box below witnessed in the PR template, and latin-cue-record.yml showing and ticking it. The order is observation, then seal, then merge.
+              - Round two is ready: atelier/halide/seeds/round-two/README.md holds the launch sheet, the run in order, where returns land and the table for reading them.
+              Decisions this turn: the observation sits before the seal and changes neither the seal nor the merge; the observed box means the document exists, and its status line says whether the review is complete; a navigo opens the document, the workflow only ticks the box. The Pour waits for the Shepherd's word.
+              Not done: round two itself, the Pour, the age gate in auto-finalize (counts from PR creation, not from ready; in CULTIVATION), the display fix in the Shadow of Polaris README.
+resonance:    steadied
+witnessed:    true
+---

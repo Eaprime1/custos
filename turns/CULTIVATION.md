@@ -147,3 +147,17 @@ history isn't needed to recover the work. Safe to delete merged branches.
 
 *Updated: 2026-06-14*
 *Prime state: 3* 🃏
+
+## Age gate counts from creation (202610070905)
+
+`auto-finalize.yml` counts a PR's age from creation. A PR opened as a draft and marked
+ready later can pass the one-hour gate the moment it is ready. Raised in #425, unchanged
+since. **Status:** open for the Shepherd's decision. One option: count from the
+`ready_for_review` event.
+
+## Observation and the seal (202610070905)
+
+The oversight observation (turns/observations/) sits in front of the seal. `finalize-pr.yml`
+does not check for it. Whether the seal should refuse without an observation document is a
+choice not yet made; the box and the cue record only show it. **Status:** open; the box
+is advisory for now.

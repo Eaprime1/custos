@@ -23,6 +23,7 @@
 
 ## Recently Dispatched
 
+- 2026-10-07: #425, #404, #405, #420 and #426 merged: auto-finalize draft fix, halide round-one seeds, the Shadow of Polaris nursery, the scanner change, the scene index and checklist, and the oversight observation step
 - custos concept identity filled in (`prima.yaml`, `unexusi/connect.yaml`, README, world/lore.md, world/factions.md)
 - Convergence hub structure stood up: `vault/`, `atelier/`, `moav/`, `prima-clock/`, `returns/`, `branch-tracker/`
 - Card/suit system formalized and confirmed (♣️K main / ♣️Q radix / ♣️J workers / ♥️A ֍custos֎ deploy / ♠️A ∰custos vault / 🔐J master)
@@ -36,6 +37,8 @@
 
 ## Open Questions (for next session)
 
+- [ ] Round two of the halide test: ready on the Shepherd's word (`atelier/halide/seeds/round-two/README.md`); the Pour waits
+- [ ] Age gate in `auto-finalize.yml`, and whether the seal requires an observation (`turns/CULTIVATION.md`)
 - [ ] Stream 6 (Grok) and Stream 7 (Perplexity) domain assignments — still "TBD" in `returns/README.md`
 - [ ] When/how to create the `∰custos` (♠️A vault) branch and its founding MOAV carrier
 - [ ] What `mandelbrot` and `mulberry` (♣️J Germ branches) are actually for
