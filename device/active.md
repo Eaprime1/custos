@@ -23,6 +23,7 @@
 
 ## Recently Dispatched
 
+- 2026-10-07 (later): #429 and #430 merged: the caret cue plan, the shared cue parser with its 54-row offline test, and the Shepherd's answers to the plan
 - 2026-10-07: #425, #404, #405, #420 and #426 merged: auto-finalize draft fix, halide round-one seeds, the Shadow of Polaris nursery, the scanner change, the scene index and checklist, and the oversight observation step
 - custos concept identity filled in (`prima.yaml`, `unexusi/connect.yaml`, README, world/lore.md, world/factions.md)
 - Convergence hub structure stood up: `vault/`, `atelier/`, `moav/`, `prima-clock/`, `returns/`, `branch-tracker/`
@@ -340,6 +341,26 @@
   `prima_clock.sh`.
 - Run `bash termux_proc.sh` from your pixelator clone on the phone when closing, if wanted (the clone path is in `device/podiums.md`, for example `~/unexusi/pixelator`)
   (see `turns/CLOSING.md`).
+
+*Prime state: 3*
+*Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-10-07 (closing)*
+## For the Next Conversation
+
+- The standing plan is `docs/plans/202610070939-cue-sigil-and-living-observation-plan.md`.
+  Phases 0 and 1 are merged (#429, #430). Phase 2 is next, on the Shepherd's word:
+  `cue-router.yml`, the To column in the cue record, and the `awaiting:` and
+  `returned:` labels. One phase per PR.
+- Settle first in phase 2: the seal gate reads `@claude` anywhere in a comment, the
+  shared parser reads it only at line start. The gate does not read `^custos` cues yet.
+- Carried forward (`turns/observations/202610071021_pr430_observation.md`): the seal
+  does not require an observation; confirm that the `@claude` forms of finalize, ultima
+  probatio, check and concordance retire after one clean cycle.
+- Round two of the halide test and the Pour still wait on the Shepherd's word.
+- Run the parser test with `bash tools/test_cue_parser.sh` (54 of 54).
 
 *Prime state: 3*
 *Witnessed: true* 🃏
