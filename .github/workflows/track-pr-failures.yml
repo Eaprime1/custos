@@ -35,7 +35,7 @@ jobs:
 
       - name: Handle Failed Status (Create/Reopen Issue)
         if: steps.check_status.outputs.run == 'true' && steps.check_status.outputs.conclusion == 'failure'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         with:
           script: |
             const prNum = "${{ steps.check_status.outputs.pr_number }}";
@@ -78,7 +78,7 @@ jobs:
 
       - name: Handle Passed Status (Resolve/Close Issue)
         if: steps.check_status.outputs.run == 'true' && steps.check_status.outputs.conclusion == 'success'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         with:
           script: |
             const prNum = "${{ steps.check_status.outputs.pr_number }}";
