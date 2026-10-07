@@ -122,9 +122,9 @@ a file changed.
 
 The conversation retained the master valuation foundation:
 
-[
-V_0 = Q 	imes G 	imes D_c
-]
+$$
+V_0 = Q \times G \times D_c
+$$
 
 where:
 
@@ -187,13 +187,13 @@ names for interchangeable denominations.
 Fibonacci scaling represents branching organic growth rather than automatic
 interest:
 
-[
-V_A = V_0 	imes A_V
-]
+$$
+V_A = V_0 \times A_V
+$$
 
-[
-V_P = V_A 	imes F_k
-]
+$$
+V_P = V_A \times F_k
+$$
 
 The maturity index should advance only when a verified developmental event
 occurs, such as a new relationship, viable branch, implementation, independent
