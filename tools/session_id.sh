@@ -72,8 +72,8 @@ check_own() {
   case "${1#*-}" in
     *[!a-z0-9]*|"") echo "after the dash use only a-z and 0-9" >&2; return 3 ;;
   esac
-  tail_len=$(printf '%s' "${1#*-}" | wc -c)
-  if [ "$tail_len" -lt 3 ] || [ "$tail_len" -gt 12 ]; then
+  tail="${1#*-}"
+  if [ "${#tail}" -lt 3 ] || [ "${#tail}" -gt 12 ]; then
     echo "the part after the dash is 3 to 12 characters" >&2
     return 3
   fi
