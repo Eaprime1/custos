@@ -1,0 +1,29 @@
+# Reserved Lexemes
+
+prima-clock: 202610070820
+status: draft (the Shepherd decides what stays)
+
+Some words carry two loads: they are command language in the tools and
+workflows, and they carry emotional weight in narrative ("you are being
+replaced"). The placeholder scanners (`tools/scan_lexeme.sh`, the review
+packet) do **not** flag these words, because flagging them in prose would
+treat a real sentence as an unfinished one.
+
+This list is mainly for commands. In narrative it is not critical: use the
+word with care, and let the scene carry it.
+
+## Criteria for adding a word
+
+- It is an operation word in a tool, workflow, or protocol.
+- Or it carries weight in narrative that a scan would flatten.
+- It is not a shouted marker (`TODO`, `FIXME`, `BROKEN`, `TBD`, `UNKNOWN`);
+  those stay scanned, in capitals.
+
+## Entries
+
+| Word | Command use | Narrative weight | Note |
+|------|-------------|------------------|------|
+| replace | substitute text or a file in place | being replaced; a seat given to another | Used with care. Scanner dropped it from the placeholder list. |
+
+Lowercase "unknown" in prose is also not scanned; only the capitalised
+`UNKNOWN` marker is.

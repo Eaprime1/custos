@@ -238,7 +238,7 @@ An AI contributor facing a payment question can skip the task or ask in the thre
 It can also build the work without any payment request. New ideas are welcome.
 The reasoning is in `docs/issue-system.md` §4.
 
-**Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags: `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`, `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
+**Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing. Flags the shouted markers `TODO`, `FIXME`, `BROKEN`, `TBD`, `UNKNOWN` (capitals, whole word) and the phrases `placeholder`, `fill this in`, `???`, `"My Prima Terminal"` across `.md`, `.sh`, `.yaml`, `.yml`, `.json`. Words with weight (`replace`, `unknown` in prose) are not scanned; see `atelier/lexemes/reserved-lexemes.md`.
 
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
 - `finalize-pr.yml` seals a PR when the owner comments the seal cue.
