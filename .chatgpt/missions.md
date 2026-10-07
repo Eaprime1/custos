@@ -17,6 +17,26 @@ open threads are, from custos's side.
 
 ## Active Missions
 
+### Reconcile the Polar Radian Compass Conversation Return
+
+**Status:** IN PROGRESS  
+**What:** Preserve Eric + ChatGPT's current Compass consolidation as a
+source return, reconcile it with the fuller Act II architecture already on
+`main`, and seed **Act II — Shadow of Polaris** as a shared narrative
+workspace without overwriting or prematurely canonizing its sources.  
+**Where:** Source return in
+`.chatgpt/202610061728_polar-radian-compass-conversation-return.md`;
+working architecture in
+`atelier/act-ii/The Polar Radian Compass, Sextant & Crystalline Metric Architecture.md`;
+collaborative scene system in `atelier/act-ii/shadow-of-polaris/`.  
+**Arrived:** a scene-contribution template, an Extended Wobble Record, a
+working project plumb-line definition (right angle / perpendicular / dynamic
+standard), recognition hooks for cross-conversation weaving, and an opening
+narrative germ.  
+**Done when:** the new templates receive witness review, at least one sovereign
+scene uses both instruments, and the Shepherd decides what should remain
+nursery material or route onward.
+
 ### Build a Workflow-Based PR Review
 
 **Status:** OPEN
