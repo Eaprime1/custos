@@ -62,7 +62,7 @@ prima-clock: 202610070905
 prima-clock: 202610070905
 
 - Codacy: a 48-word sentence in CLAUDE.md. Actionable. Fixed (split into bullets).
-- Codacy: undefined acronym "FIXME" in CLAUDE.md. Actionable, minor. A gloss and a glossary did not clear it; pointing CLAUDE.md at the glossary did.
-- Review packet: lists placeholder words, including the retired REPLACE. Noise: it runs the old matching from main until the PR merges.
+- Codacy: an undefined-acronym finding on a shouted marker word in CLAUDE.md. Actionable, minor. A gloss and a glossary did not clear it; pointing CLAUDE.md at the glossary did.
+- Review packet: listed the words the scanner had just retired. Noise: it runs the old matching from main until the PR merges.
 - Copilot: could not review, its quota was used up. Noise.
 - DeepSource: grade A. claude[bot] review (ran on the ai-review label): no comments.

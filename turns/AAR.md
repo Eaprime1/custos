@@ -420,11 +420,11 @@ partner_state:
 turn_ref:     202610070905
 prima-clock:  202610070905
 prime:        3
-worked:       The observation step came out of using the process: the Shepherd named the oversight review while the Latin cue record and the seal were in front of us, and the first observation was filed on the PR that created the folder. Reading a bot's finding down to its annotation (Codacy's FIXME) found the real cause where the first two fixes had guessed.
+worked:       The observation step came out of using the process: the Shepherd named the oversight review while the Latin cue record and the seal were in front of us, and the first observation was filed on the PR that created the folder. Reading a bot's finding down to its annotation (Codacy's marker-word finding) found the real cause where the first two fixes had guessed.
 friction:     - A PR list that showed only recently updated PRs led to #424 duplicating #405. Search by head branch first.
               - A misread of cat -A end-of-line markers ($) as a broken math block; corrected on the thread before it was acted on.
               - Workflow changes only take effect after merge, so the review packet kept flagging the words #426 retired, and the observed box had to be ticked by hand once.
-              - Codacy's FIXME finding survived an inline gloss and a glossary; only removing the all-caps word from CLAUDE.md cleared it.
+              - Codacy's undefined-acronym finding on a marker word survived an inline gloss and a glossary; only removing the all-caps word from CLAUDE.md cleared it.
               - A force push was denied, and the branch carried old merged history; a no-op merge pushed it instead.
               - Mid-turn and stacked PRs run fewer checks and the age gate counts from creation, so a PR can seal before it is marked ready.
 seeds:        - Make the age gate count from when a PR was marked ready.
