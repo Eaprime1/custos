@@ -48,11 +48,19 @@ so skip it unless the Shepherd asks.
 | A seed store: six drops, all from one key | `atelier/halide/trial-0.md` |
 | The Shadow stream stub, with nothing filed | `atelier/halide/shadow-stream/README.md` |
 | A Polaris seed and a cleaned sky photo | `atelier/halide/polaris-seed.md`, `sky/` |
+| Round one of Draw and Form: five seed files, a review, a one-page form, a round-two guide (**PR #405, unmerged**) | `atelier/halide/seeds/` on that PR |
 
-**No deliberate pass has been run.** The concept is written; the process has not met
-real material. One unplanned pass happened (PR #402 was formed and poured through
-custos's review and seal), and it only fits the shape in hindsight. This request is
-the first deliberate one.
+**Draw and Form have been run once, deliberately.** The concept is written, and a
+first pass met real material: three seats that cannot see the repo were asked what
+they hold, and the answers were reviewed and put on one page. That work is in
+**PR #405** (`atelier/halide/seeds/`, still a draft, stacked on this PR). It stopped
+before the Pour: **nothing has been set against custos yet.** (The earlier unplanned
+pass, PR #402, only fits the shape in hindsight.)
+
+What is left, each step on the Shepherd's word: **round two** (the seats revise, so
+the collisions found in round one can be addressed in their own submissions), then
+the **Pour**, **Emerge** and the **Shadow germs** below. Do not repeat Draw and Form;
+read the round-one seed page in #405 first.
 
 ## The Run
 
