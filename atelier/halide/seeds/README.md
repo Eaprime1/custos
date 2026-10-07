@@ -23,6 +23,7 @@ synthesis", `pandora/GERM_SCHEMA.md`), plus a review of it.
 | `REVIEW-202610030124.md` | The review: privacy, template, overlap, collisions, gaps, valuation, method notes |
 | `round-one-seed_202610031417.md` | **The Form step.** The three seeds on one page: what each holds, terms side by side, collisions, gaps, and what the submission asks custos to do |
 | `round-two-guide_202610031417.md` | Round two: the launch prompt, the guide with an appendix per seat, and (below a cut line) the History and the Notes on round one. Supersedes the first second-look guide |
+| `round-two/README.md` | **Round two, ready to run**: what to carry, the run in order, where returns land, and the table for reading them |
 
 Each file opens with a short note: the perspective, how it was asked, and anything the
 Shepherd added. The text under the rule is the perspective's own.

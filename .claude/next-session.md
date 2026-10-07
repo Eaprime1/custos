@@ -4,15 +4,28 @@
 
 ---
 
-## Read This First (added 202610022352, updated 202610070601)
+## Read This First (updated 202610070905)
 
-A test of the halide process is under way. Draw and Form (round one) are done and filed
-in **PR #405** (`atelier/halide/seeds/`, draft). The next unfinished step is **round two**,
-where the seats revise their submissions; the **Pour** waits for the Shepherd's word.
-Start from [`.claude/halide-test-request.md`](halide-test-request.md), read the round-one
-seed page in #405, and open with a conversation ID (`bash tools/session_id.sh`). It runs
-by hand with no triggers, and ends with a receipt of what held and what did not. The
-notes below are from the 2026-09-26 close and are older.
+`main` is clean. This session's chain is merged: #425, #404, #405, #420 and #426.
+
+**Round two of the halide test is ready, on the Shepherd's word.** Start at
+[`atelier/halide/seeds/round-two/README.md`](../atelier/halide/seeds/round-two/README.md):
+what to carry (the launch prompt, the guide cut at its "Cut here" line, the round-one
+seed), the run in order, where returns land, and the table for reading them. Then
+[`.claude/halide-test-request.md`](halide-test-request.md) for the plank reading and the
+rules (manual, no triggers). Open with a conversation ID (`bash tools/session_id.sh`).
+**The Pour waits** for a separate word.
+
+**New: the oversight observation.** Before the seal, Navigo Claude opens
+`turns/observations/<prima-clock>_pr<N>_observation.md` from the template when the PR is
+ready (`status: open`), and completes it with the Shepherd. Then the seal cue, then the
+merge on the Shepherd's word. See `turns/observations/README.md`.
+
+**Open, none blocking:** the age gate in `auto-finalize.yml` (counts from creation, not
+from ready) and whether the seal should require an observation, both in
+`turns/CULTIVATION.md`; the `\(90^\circ\)` display nit in the Shadow of Polaris README;
+the scene index is empty except its row 0, waiting on the first scene; the older threads
+below. The notes below this block are from the 2026-09-26 close and are older.
 
 ---
 
