@@ -11,6 +11,7 @@ Prima-clock: 202610061943
 - **Scene title:**
 - **Contributor / conversation:**
 - **Navigo or stable identifier:**
+- **Conversation ID:** (from `bash tools/session_id.sh`)
 - **Prima-clock:**
 - **Stage:** seed / draft / witnessed / synthesis candidate
 - **Dominant movement:** Work / Play / Create / mixed
