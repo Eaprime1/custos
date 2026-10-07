@@ -42,7 +42,7 @@ jobs:
               `${pr.html_url}/files#diff-${crypto.createHash('sha256').update(p).digest('hex')}`;
             const line = (f) => {
               const name = '`' + label(f.filename) + '`';
-              if (f.status === 'removed') return `- ${name} — removed`;
+              if (f.status === 'removed') return `- ${name} — removed · [diff](${diffUrl(f.filename)})`;
               const view = `https://github.com/${headRepo}/blob/${pr.head.sha}/${enc(f.filename)}`;
               const was = f.status === 'renamed' && f.previous_filename
                 ? ` (was \`${label(f.previous_filename)}\`)` : '';
@@ -81,9 +81,10 @@ jobs:
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner, repo, issue_number: pr.number, per_page: 100
             });
-            // Only a bot's own marked comment counts, so a pasted marker can't hijack it.
+            // Only this workflow's own marked comment counts, so a marker pasted or posted
+            // by another account or integration can't hijack it.
             const mine = comments.find((c) =>
-              c.body && c.body.startsWith(MARK) && c.user && c.user.type === 'Bot');
+              c.body && c.body.startsWith(MARK) && c.user && c.user.login === 'github-actions[bot]');
             if (mine) {
               await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
             } else {

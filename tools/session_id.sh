@@ -3,7 +3,7 @@
 #
 #   bash tools/session_id.sh                         menu: pick a type, generate or type your own
 #   bash tools/session_id.sh --auto <type> [note]    automatic: print a new ID and stop
-#   bash tools/session_id.sh --set <id> [note]       use an ID you made up (checked, never reused)
+#   bash tools/session_id.sh --set <id> [note]       use an ID you made up (checked against the ledger, if there is one)
 #   add --log to any of the above to append the ID to .claude/session-ids.md
 #
 # Types: explore, setup, consider, other.
@@ -72,7 +72,7 @@ check_own() {
   case "${1#*-}" in
     *[!a-z0-9]*|"") echo "after the dash use only a-z and 0-9" >&2; return 3 ;;
   esac
-  tail="${1#*-}"
+  local tail="${1#*-}"
   if [ "${#tail}" -lt 3 ] || [ "${#tail}" -gt 12 ]; then
     echo "the part after the dash is 3 to 12 characters" >&2
     return 3
@@ -87,10 +87,14 @@ log_id() {
   # log_id <id> <how> <note>
   local id="$1" how="$2" note="$3" kind
   kind="$(type_for "${id%%-*}")"
+  # the ledger is a Markdown table: a pipe or a line break in a note would split a row
+  note="$(printf '%s' "$note" | tr '|\r\n' '/  ')"
   if [ ! -f "$LEDGER" ]; then
     mkdir -p "$(dirname "$LEDGER")"
     {
       echo "# Session IDs"
+      echo
+      echo "\`prima-clock: $(date '+%Y%m%d%H%M')\`"
       echo
       echo "Append only. One row per conversation. The ID carries no time stamp; the"
       echo "minted column records it separately. See tools/session_id.sh."
