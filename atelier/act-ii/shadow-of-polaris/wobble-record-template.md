@@ -1,5 +1,7 @@
 # Shadow of Polaris — Extended Wobble Record
 
+Prima-clock: 202610061943
+
 **Record ID:** WR-SOP-[prima-clock or local identifier]  
 **Scene:**  
 **Contributor / conversation:**  
