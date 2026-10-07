@@ -1,0 +1,36 @@
+# Line endings for custos. The tools run under bash on Termux, Ubuntu,
+# Codespaces and Git Bash on Windows, so scripts and configs stay LF
+# everywhere, whatever core.autocrlf says on a given machine.
+* text=auto eol=lf
+
+*.sh    text eol=lf
+*.bash  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+
+# Windows-only scripts keep CRLF.
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# Binaries: never convert, never diff as text.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.doc   binary
+*.docx  binary
+*.xlsx  binary
+*.zip   binary
+
+# Records stored with mixed line endings. They are append-only, so they keep
+# their exact bytes; never renormalize them.
+pr-journeys/202607_PR294_add-jekyll-github-pages-deployment-workf.md -text
+pr-journeys/202608_PR314_add-files-via-upload.md -text
+pr-journeys/202609_PR374_docs-perplexity-record-opening-journey-a.md -text
+valuation/ledger_raw.csv -text

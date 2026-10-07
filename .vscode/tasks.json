@@ -1,0 +1,89 @@
+{
+  // custos tools as VS Code tasks: Terminal > Run Task, or Ctrl+Shift+P "Run Task".
+  // Each one runs from the repo root under bash (Git Bash on Windows).
+  "version": "2.0.0",
+  "windows": {
+    "options": {
+      "shell": {
+        "executable": "C:\\Program Files\\Git\\bin\\bash.exe",
+        "args": ["-c"]
+      }
+    }
+  },
+  "options": { "cwd": "${workspaceFolder}" },
+  "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+  "tasks": [
+    {
+      "label": "custos: scan lexeme",
+      "detail": "Find unfilled placeholders across .md/.sh/.yaml/.json",
+      "type": "shell",
+      "command": "bash tools/scan_lexeme.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: prime check",
+      "detail": "Read .prime and report the current and next prime",
+      "type": "shell",
+      "command": "bash tools/prime_check.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: prima-clock (UTC)",
+      "detail": "Stamp for official records: seal, custody, MOAV, registry",
+      "type": "shell",
+      "command": "bash tools/prima_clock.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: prima-clock (local)",
+      "detail": "Stamp for the Shepherd's own notes and the turn log",
+      "type": "shell",
+      "command": "bash tools/prima_clock.sh --local",
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: provenance scan",
+      "detail": "Advisory: new .md files without a prima-clock stamp, against origin/main",
+      "type": "shell",
+      "command": "bash tools/scan_provenance.sh origin/main",
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: validate json/yaml",
+      "type": "shell",
+      "command": "bash tools/validate_json_yaml.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: thee (receive a fragment)",
+      "type": "process",
+      "command": "bash",
+      "windows": { "command": "C:\\Program Files\\Git\\bin\\bash.exe" },
+      "args": ["tools/thee.sh", "${input:fragment}"],
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: yod (mark the smallest true action)",
+      "type": "process",
+      "command": "bash",
+      "windows": { "command": "C:\\Program Files\\Git\\bin\\bash.exe" },
+      "args": ["tools/yod.sh", "${input:fragment}"],
+      "problemMatcher": []
+    },
+    {
+      "label": "custos: ember (keep a fragment warm)",
+      "type": "process",
+      "command": "bash",
+      "windows": { "command": "C:\\Program Files\\Git\\bin\\bash.exe" },
+      "args": ["tools/ember.sh", "${input:fragment}"],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "fragment",
+      "type": "promptString",
+      "description": "The fragment (THEE asks: the what?)"
+    }
+  ]
+}

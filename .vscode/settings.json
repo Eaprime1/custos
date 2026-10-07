@@ -1,0 +1,41 @@
+{
+  // custos workspace settings. Shared by every machine that opens the repo in VS Code.
+  // Machine-only settings belong in your user settings, not here.
+
+  // Line endings and whitespace: match .editorconfig and .gitattributes.
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "[markdown]": {
+    // Two trailing spaces are a hard line break in Markdown.
+    "files.trimTrailingWhitespace": false,
+    "editor.wordWrap": "on"
+  },
+
+  // Run the custos tools with Git Bash on Windows, so `bash tools/*.sh` behaves
+  // the same as on Termux, Ubuntu and Codespaces.
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+  // Keep stray and generated folders out of search and the file watcher.
+  "search.exclude": {
+    "airavata-custos/**": true,
+    ".refact/**": true
+  },
+  "files.watcherExclude": {
+    "airavata-custos/**": true,
+    ".refact/**": true
+  },
+
+  // The custos lexicon, so the spell checker reads it as words, not errors.
+  "cSpell.words": [
+    "aequilibrium", "Aequitas", "Agnoscere", "artesian", "artesium", "atelier",
+    "Carbonite", "Codacy", "curatio", "custos", "disponi", "domos", "Expeditus",
+    "Fodere", "halide", "hodie", "hortus", "Judicium", "Lustratio", "lexeme",
+    "lexemes", "maw", "MOAV", "navigo", "navigos", "Novissimum", "nullus",
+    "Ouroboros", "pandora", "petitio", "pixelator", "placet", "Polaris",
+    "portus", "prima", "Probatio", "quies", "radix", "Recensio", "Renovata",
+    "Seneschal", "sovran", "Sparstone", "Sparstones", "Suxen", "Tabularium",
+    "Termux", "thee", "Ultima", "unexusi", "yod"
+  ]
+}
