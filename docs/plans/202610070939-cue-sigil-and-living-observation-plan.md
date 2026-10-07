@@ -20,6 +20,10 @@ decides at every phase gate. A navigo never seals or merges.
 | 2 | The observation becomes a **living PR comment**, archived to a file at merge. The PR's own perspective is carried into the project, so it grows there. | Shepherd |
 | 3 | Cues for navigos that Actions cannot run become **commissions with labels** (`awaiting:<navigo>`). | Shepherd |
 | 4 | This design is filed as a note, then built in phases. | Shepherd |
+| 5 | The caret is case-insensitive: `^Claude` and `^claude` are the same. | Shepherd, 202610070957 |
+| 6 | After the caret, navigos are matched by **name only**. Registry keys stay out until the Shepherd confirms them. | Shepherd, 202610070957 |
+| 7 | The dispatch ledger is a **living comment, archived on return** through the Weir to `queue/`. | Shepherd, 202610070957 |
+| 8 | `^custos check` and `^custos concordance` are added as aliases beside the `@claude` forms; the old forms are retired after one clean cycle. | Shepherd, 202610070957 |
 
 ## Why: what the session showed
 
@@ -80,6 +84,13 @@ is the common bot-command prefix. The Shepherd chose the caret.
 
 `@claude` keeps working. The shared parser accepts both, and the old workflows move to it
 one at a time. Nothing is retired in the first phase.
+
+**What each sign means.** The caret is for process cues: calls from the Latin glossary,
+check, concordance, and addressing a navigo. `@claude` in a comment says there are issues
+or fixes for Claude to work on. Keeping the two apart tells a reader at a glance whether a
+comment is a step in the process or a request for work. The `@claude` forms of the cues
+(finalize, ultima probatio, check, concordance) stay as aliases for one clean cycle, then
+retire; `@claude` itself stays. (My reading of the Shepherd's answer; confirm at phase 1.)
 
 ## The shared parser
 
@@ -150,12 +161,18 @@ the checks. Instead:
 - A caret in code, a quote or a formula is never a cue.
 - The router logs and dispatches. The seal and merge keep their current gates.
 
-## Open questions for the Shepherd
+## Open questions: answered (202610070957)
 
-1. Case: are `^Claude` and `^claude` the same? (Proposed: yes, matched without case.)
-2. Keys or names: should the registry key (for example `nav1`) also work after the caret?
-3. Where the dispatch ledger lives: a PR comment, or a file under `queue/`.
-4. Whether `^custos` should replace `@claude check` and `@claude concordance`.
+1. **Case.** Case-insensitive. `^Claude` and `^claude` are the same.
+2. **Keys or names.** Names only. Registry keys (for example `nav1`) are not accepted after
+   the caret until the Shepherd confirms them; they may be added as aliases later.
+3. **Where the dispatch ledger lives.** A living comment on the PR or issue, edited in place
+   like the cue record, archived to `queue/` when the return is filed through the Weir.
+4. **`^custos` and the old cues.** Alias now, retire later: `^custos check` and
+   `^custos concordance` work beside the `@claude` forms, which retire after one clean
+   cycle. `@claude` stays as the sign for issues and fixes.
+
+Nothing is left open before phase 1.
 
 ## Not part of this plan
 
