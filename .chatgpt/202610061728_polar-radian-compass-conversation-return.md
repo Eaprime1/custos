@@ -139,10 +139,9 @@ completely substituting for care, relationship, and realized work.
 
 One of the most important reconciliations is:
 
-[
-	ext{Ka Pressure} 
-e 	ext{Value}
-]
+$$
+\text{Ka Pressure} \neq \text{Value}
+$$
 
 Ka Pressure can witness duration, resistance, intensity, revision,
 collaborative complexity, recovery, and the distance traveled from possibility
