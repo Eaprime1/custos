@@ -1,5 +1,7 @@
 # Shadow of Polaris — Scenes
 
+Prima-clock: 202610070721
+
 This folder holds sovereign scene contributions created from the
 [Scene Contribution Template](../scene-template.md) and accompanied by an
 [Extended Wobble Record](../wobble-record-template.md).
