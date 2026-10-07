@@ -156,8 +156,9 @@ Leave at least one retrievable opening for another conversation.
 
 ## Extended Wobble Record
 
-Complete [the Wobble Record template](wobble-record-template.md) here or link to
-a separate record.
+Complete the Wobble Record template from
+`atelier/act-ii/shadow-of-polaris/wobble-record-template.md` here or link to a
+separate record.
 
 ## Vault Trace
 
