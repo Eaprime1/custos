@@ -70,7 +70,8 @@ const rows = [
 ];
 
 let failed = 0;
-const fail = (name, msg) => { failed += 1; console.log(`FAIL ${name}: ${msg}`); };
+const say = (text) => process.stdout.write(`${text}\n`);
+const fail = (name, msg) => { failed += 1; say(`FAIL ${name}: ${msg}`); };
 
 for (const [name, body, opts, want] of rows) {
   const got = parseComment(body, opts);
@@ -96,5 +97,5 @@ for (const n of DEFAULT_NAMES.filter((x) => x !== 'custos')) {
 }
 
 const total = rows.length + DEFAULT_NAMES.length - 1;
-console.log(`${total - failed} of ${total} passed`);
+say(`${total - failed} of ${total} passed`);
 process.exit(failed ? 1 : 0);
