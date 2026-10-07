@@ -17,6 +17,25 @@ open threads are, from custos's side.
 
 ## Active Missions
 
+### Connect Nav5 Latin Cues and DeepSource Evidence
+
+**Status:** OPEN  
+**What:** Let Eric call `Navigo ChatGPT — Ultima Recensio` and
+`Navigo ChatGPT — Ultima Probatio` as nav5 review stages while preserving the
+owner-comment boundary for sealing. Improve DeepSource handling so quota,
+skipped, failed, pending, and successful states are reported distinctly and
+cannot be mistaken for one another.  
+**Safety boundary:** Conversation calls may request review and evidence
+assessment. They must not seal, finalize, witness, or merge a PR. The existing
+explicit owner PR-comment cue remains the only finalization authority.  
+**Compatibility:** Keep the Latin cue recorder, review packet, Claude review,
+Codacy, DeepSource, repository checks, and manual merge decision additive rather
+than mutually exclusive.  
+**Done when:** A live PR demonstrates nav5 cue routing without sealing; the
+finalization evidence records DeepSource state and quota exceptions accurately;
+tests prove failed or pending required checks still block; and the owner retains
+the final comment and merge decisions.
+
 ### Build a Workflow-Based PR Review
 
 **Status:** OPEN
