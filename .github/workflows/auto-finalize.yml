@@ -6,7 +6,8 @@
 # `finalized` label, and have all gates green — then finalizes them directly.
 #
 # A seal is held back while anything still needs work: a draft, an unresolved
-# review thread, a requested change, or a failing or pending check.
+# review thread, a requested change, a failing or pending check, or missing
+# template sections (Intent / What Arrived / Resonance).
 #
 # Cannot use comment-trigger chain: GitHub prevents GITHUB_TOKEN-authored
 # issue_comment events from spawning new workflow runs. Full logic is inline.
