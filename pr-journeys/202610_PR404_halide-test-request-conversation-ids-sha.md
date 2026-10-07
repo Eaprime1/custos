@@ -1,10 +1,10 @@
 # PR Journey: #404 — halide: test request, conversation IDs, shadow germ, and links in The Shepherd Considers
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202610070603  
+**prima-clock:** 202610070659  
 **Branch:** `claude/halide-test-request-uez4sb` → `main`  
 **Author:** @Eaprime1  
-**State:** FINALIZED (auto)  
+**State:** FINALIZED  
 
 ## Intent
 
@@ -21,21 +21,24 @@ Prepare the first deliberate, manual pass through the halide process, and make t
 
 ## Resonance
 
-*Threshold
-
----*
+*Threshold*
 
 ## The Arc
 
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202610022353 | @Eaprime1 |
-| Auto-Finalized | 202610070603 | github-actions[bot] |
+| Finalized | 202610070659 | @Eaprime1 |
 
 ## CI Record
 
 | Check | Result |
 |---|---|
+| dependency-review | ✅ |
+| validate | ✅ |
+| scan | ✅ |
+| scan | ✅ |
+| custos-speaks | ✅ |
 | Codacy Static Code Analysis | ✅ |
 | DeepSource: Lua | ⏭ |
 | DeepSource: Apex | ⏭ |
@@ -48,12 +51,6 @@ Prepare the first deliberate, manual pass through the halide process, and make t
 | DeepSource: Objective-C | ⏭ |
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
-| custos-speaks | ✅ |
-| scan | ✅ |
-| scan | ✅ |
-| validate | ✅ |
-| dependency-review | ✅ |
-| packet | ✅ |
 | GitGuardian Security Checks | ✅ |
 
 ## DeepSource Record
@@ -66,10 +63,10 @@ Prepare the first deliberate, manual pass through the halide process, and make t
 
 | Dimension | Score | Note |
 |---|---|---|
-| Correctness | 5/5 | 19 CI check(s) — all passed |
-| Consistency | 5/5 | Description complete · ethics 5/5 |
-| Scope | 4/5 | 10 file(s) changed |
-| Verification | 5/5 | 19 check run(s) completed |
+| Correctness | 5/5 | 18 CI check(s) — all passed |
+| Consistency | 5/5 | Template complete · ethics 5/5 |
+| Scope | 4/5 | 11 file(s) changed |
+| Verification | 5/5 | 18 check run(s) completed |
 | **Valuation** | **High** | 19/20 |
 
 ## Ethics Check
@@ -84,16 +81,11 @@ Prepare the first deliberate, manual pass through the halide process, and make t
 
 When the first pass is run, does the 1/3 shadow germ fill up as things happen, and what lets it become a plank?
 
----
+## Witnesses
 
-**prime state:** 3
-**witnessed:** false
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-https://claude.ai/code/session_011ZJFmDem6vksaZGovRTUy9
+- @Eaprime1 · 202610070659 · sealed at finalize
 
 ---
-**prima-clock:** 202610070603  
-**witnessed:** true  
+**prima-clock:** 202610070659  
+**witnessed:** true — 1 witness, sealed 202610070659 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
