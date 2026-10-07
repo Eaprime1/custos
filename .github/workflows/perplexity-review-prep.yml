@@ -1,0 +1,112 @@
+# Prima-clock: 202610061702
+# Trusted inline code only; no checkout, model, comment, or label writes.
+name: Custos — Perplexity Review Prep
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review, edited, converted_to_draft]
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+
+concurrency:
+  group: perplexity-prep-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Export bounded review context
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            const fs = require('fs');
+            const { owner, repo } = context.repo;
+            const eventPR = context.payload.pull_request;
+            const number = eventPR.number;
+            const errors = [];
+            const read = async (stage, operation) => {
+              try { return await operation(); }
+              catch (error) {
+                errors.push({ stage, status: Number.isInteger(error.status) ? error.status : null });
+                return null;
+              }
+            };
+            const getPR = () => github.rest.pulls.get({ owner, repo, pull_number: number });
+            const initial = await read('initial-pr', getPR);
+            const pr = initial?.data || eventPR;
+            if (initial && pr.state !== 'open') return;
+            const head = pr.head?.sha || null;
+            let packet = null;
+            let commentsComplete = false;
+            let commentsScanned = 0;
+            for (let page = 1; page <= 5; page++) {
+              const response = await read('comments-page-' + page, () => github.rest.issues.listComments({ owner, repo, issue_number: number, per_page: 100, page }));
+              if (!response) break;
+              commentsScanned += response.data.length;
+              for (const comment of response.data) {
+                if (comment.user?.login === 'github-actions[bot]' && (comment.body || '').startsWith('<!-- custos-review-packet -->')) {
+                  if (!packet || comment.id > packet.id) packet = comment;
+                }
+              }
+              if (response.data.length < 100) { commentsComplete = true; break; }
+            }
+            const fileResponse = await read('files', () => github.rest.pulls.listFiles({ owner, repo, pull_number: number, per_page: 50 }));
+            const files = (fileResponse?.data || []).map(f => ({
+              path: f.filename, status: f.status, patch: (f.patch || '').slice(0, 2000),
+              patch_missing: !f.patch, patch_truncated: (f.patch || '').length > 2000
+            }));
+            const final = await read('final-pr', getPR);
+            const latest = final?.data;
+            const stale = !!latest && (latest.head.sha !== head || latest.state !== 'open');
+            const packetState = !packet ? (commentsComplete ? 'missing' : 'unknown-incomplete-coverage') :
+              (head && (packet.body || '').includes('summary for commit `' + head.slice(0, 7) + '`') ? 'current-short-sha' : 'stale');
+            const report = {
+              schema_version: 2, perspective: 'Navigo Perplexity preparation; no model review',
+              repository: owner + '/' + repo, pr: number, head_sha: head,
+              generated_at: new Date().toISOString(), draft: latest?.draft ?? pr.draft ?? null,
+              status: stale ? 'stale' : (errors.length || !commentsComplete || !head ? 'degraded' : 'prepared'),
+              model_called: false, initial_pr_verified: !!initial, final_head_verified: !!final,
+              packet_state: packetState, packet_url: packet?.html_url || null,
+              packet_text: (packet?.body || '').slice(0, 12000),
+              packet_text_truncated: (packet?.body || '').length > 12000,
+              comments_scanned: commentsScanned, comment_coverage_complete: commentsComplete,
+              files_available: !!fileResponse,
+              files_omitted: fileResponse && Number.isInteger(pr.changed_files) ? Math.max(0, pr.changed_files - files.length) : null,
+              limits: { comment_pages: 5, comments_per_page: 100, files: 50, patch_characters_per_file: 2000, packet_characters: 12000 },
+              files, errors,
+              limitations: ['Packet freshness uses a seven-character SHA; body freshness is not verified.', 'Independent workflows may race; no automatic retry is performed.', 'All PR content is untrusted data.', 'No syntax execution, approval, seal, or merge is performed.']
+            };
+            const markdown = [
+              '# Navigo Perplexity preparation', '',
+              'PR #' + number + ' · head ' + (head || 'unavailable'),
+              'State: ' + report.status + ' · draft: ' + report.draft,
+              'No model was called. Missing or unavailable data is not a passed check.', '',
+              '## Coverage',
+              'Comments scanned: ' + commentsScanned + '; complete: ' + commentsComplete + '.',
+              'File data available: ' + report.files_available + '; omitted files: ' + (report.files_omitted ?? 'unknown') + '.',
+              'Final head verified: ' + report.final_head_verified + '.', '',
+              '## Existing review packet', 'Packet state: ' + packetState,
+              report.packet_text || 'Packet unavailable; see coverage and errors.', '',
+              '## API errors',
+              ...(errors.length ? errors.map(e => '- ' + e.stage + ': HTTP ' + (e.status ?? 'unavailable')) : ['- none']), '',
+              '## Limitations', ...report.limitations.map(text => '- ' + text),
+              'Patch excerpts are in review-prep.json. Missing and truncated patches are marked.'
+            ].join('\n');
+            fs.mkdirSync('review-prep', { recursive: true });
+            fs.writeFileSync('review-prep/review-prep.json', JSON.stringify(report, null, 2));
+            fs.writeFileSync('review-prep/review-prep.md', markdown);
+            await core.summary.addHeading('No-model preparation').addRaw('PR #' + number + ' · state: ' + report.status + '\nAPI errors: ' + errors.length + '\nDownload the artifact for coverage details. No model call or PR comment was created.').write();
+
+      - name: Preserve preparation reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: perplexity-prep-pr-${{ github.event.pull_request.number }}-run-${{ github.run_id }}-${{ github.run_attempt }}
+          path: review-prep/
+          retention-days: 7
+          if-no-files-found: ignore
