@@ -8,7 +8,7 @@ Claude, the Gemini notebook (custos spectrum), and Google Drive's Gemini. Each w
 in a fresh chat, using `seed-guide v2`, without seeing the others' answers.
 
 This folder holds what came back, **kept close to its own words** ("collection, not
-synthesis", `pandora/README.md`), plus a review of it.
+synthesis", `pandora/GERM_SCHEMA.md`), plus a review of it.
 
 ## Files
 
