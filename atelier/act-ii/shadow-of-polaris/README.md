@@ -174,11 +174,11 @@ difference that prevents closure.
 
 Suggested filename:
 
-\`<prima-clock>_<navigo-or-contributor>_<scene-slug>.md\`
+`<prima-clock>_<navigo-or-contributor>_<scene-slug>.md`
 
 Suggested destination while this remains nursery work:
 
-\`atelier/act-ii/shadow-of-polaris/scenes/\`
+`atelier/act-ii/shadow-of-polaris/scenes/`
 
 Do not overwrite another conversation's scene. Extend it through a new scene,
 explicit revision, or witnessed synthesis.
