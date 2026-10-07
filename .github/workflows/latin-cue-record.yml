@@ -9,6 +9,9 @@
 #   - checks on the head commit: passed, failed, still running
 #   - unresolved review threads, merge state, draft, labels, witness seal
 #   - a link to the review packet (review-packet.yml)
+#   - the oversight observation: whether turns/observations/<clock>_pr<N>_observation.md
+#     is on the head commit, its status line, and the observed box below
+#     `witnessed` in the PR description (ticked here once the document is there)
 #
 # It also records a Prima Recensio when a PR opens ready for review or is marked
 # ready for review: the first witness (docs/latin-workflow-glossary.md). That row
@@ -165,6 +168,44 @@ jobs:
             const labels = pr.labels.map(l => l.name);
             const sealed = (pr.body || '').includes('witnesses:sealed');
 
+            // ── Oversight observation (turns/observations/README.md) ────────
+            // The observation is a document in the PR branch. When it is there
+            // and the observed box in the description is unticked, tick it. This
+            // reads the branch and edits the description only: no commit.
+            let observation = null, obsStatus = null, boxTicked = false;
+            const BOX_OFF = /^- \[ \] (\*\*observed:\*\*)/m;
+            const BOX_ON = /^- \[[xX]\] \*\*observed:\*\*/m;
+            try {
+              const hr = pr.head.repo;
+              const { data: dir } = await github.rest.repos.getContent({
+                owner: hr.owner.login, repo: hr.name, path: 'turns/observations', ref: head,
+              });
+              const re = new RegExp(`^\\d{12}_pr${prNum}_observation\\.md$`);
+              observation = (Array.isArray(dir) ? dir : [])
+                .filter(x => x.type === 'file' && re.test(x.name))
+                .sort((a, b) => a.name.localeCompare(b.name)).pop() || null;
+              if (observation) {
+                const { data: file } = await github.rest.repos.getContent({
+                  owner: hr.owner.login, repo: hr.name, path: observation.path, ref: head,
+                });
+                const txt = Buffer.from(file.content || '', 'base64').toString('utf8');
+                obsStatus = (txt.match(/^status:\s*([A-Za-z-]+)/m) || [])[1] || 'unstated';
+              }
+            } catch (e) {
+              if (e.status !== 404) core.warning(`Observation lookup failed: ${e.status || e.message}`);
+            }
+            if (observation && BOX_OFF.test(pr.body || '')) {
+              try {
+                await github.rest.pulls.update({
+                  owner, repo, pull_number: prNum, body: pr.body.replace(BOX_OFF, '- [x] $1'),
+                });
+                boxTicked = true;
+              } catch (e) {
+                core.warning(`Could not tick the observed box: ${e.status || e.message}`);
+              }
+            }
+            const boxOn = boxTicked || BOX_ON.test(pr.body || '');
+
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner, repo, issue_number: prNum, per_page: 100,
             });
@@ -228,6 +269,7 @@ jobs:
                 return `  - \`${t.path}\` by ${c.author?.login || 'a deleted user'} ([thread](${c.url}))`;
               }) : '',
               `- Witness list sealed: ${sealed ? 'yes' : 'no'} · labels: ${labels.length ? labels.map(l => `\`${l}\``).join(', ') : 'none'}`,
+              `- Observation: ${observation ? `[filed](${observation.html_url}) · status \`${obsStatus}\`` : 'not filed yet'} · observed box: ${boxOn ? 'ticked' : 'not ticked'}`,
               `- Review packet: ${packet ? `[latest](${packet.html_url})` : 'not posted yet'}`,
               '',
               '**Cue log**',

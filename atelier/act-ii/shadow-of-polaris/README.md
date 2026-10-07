@@ -109,7 +109,9 @@ Each participating conversation:
 6. completes or links an Extended Wobble Record;
 7. leaves at least one **recognition hook** another conversation can answer;
 8. names open coordinates instead of fabricating missing history;
-9. submits through a branch or other witnessed return.
+9. submits through a branch or other witnessed return, adds a row to the
+   [Scene Index](scenes/INDEX.md), and walks the
+   [Ready checklist](scenes/READY.md) before asking for final review.
 
 Conversations do not need to agree. They do need to remain retrievable and
 honest about what they inherited, inferred, invented, or could not access.

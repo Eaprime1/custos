@@ -15,5 +15,8 @@ scene through a new scene, explicit revision, or witnessed synthesis rather
 than silently overwriting it. Inherited anchors, new invention, access limits,
 and open coordinates should remain visible.
 
+Every scene gets a row in the [Scene Index](INDEX.md). Before asking for
+final review, walk the [Ready checklist](READY.md).
+
 Return to the [Shadow of Polaris guide](../README.md) for the shared
 constellation, recognition hooks, filing practice, and boundaries.
