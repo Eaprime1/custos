@@ -27,14 +27,17 @@ skipped, failed, pending, and successful states are reported distinctly and
 cannot be mistaken for one another.  
 **Safety boundary:** Conversation calls may request review and evidence
 assessment. They must not seal, finalize, witness, or merge a PR. The existing
-explicit owner PR-comment cue remains the only finalization authority.  
+explicit owner PR-comment cue remains the only finalization authority.
+Finalization must not set `witnessed: true`; witnessing occurs at merge, as a
+separate event.  
 **Compatibility:** Keep the Latin cue recorder, review packet, Claude review,
 Codacy, DeepSource, repository checks, and manual merge decision additive rather
 than mutually exclusive.  
 **Done when:** A live PR demonstrates nav5 cue routing without sealing; the
 finalization evidence records DeepSource state and quota exceptions accurately;
-tests prove failed or pending required checks still block; and the owner retains
-the final comment and merge decisions.
+tests prove failed or pending required checks still block; finalization leaves
+the witness state unsealed; merge performs the witnessed transition; and the
+owner retains the final comment and merge decisions.
 
 ### Build a Workflow-Based PR Review
 
