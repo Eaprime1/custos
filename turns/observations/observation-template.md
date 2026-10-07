@@ -1,5 +1,7 @@
 # Observation — PR #<N>
 
+Template prima-clock: 202610070835
+
 Prima-clock: <YYYYMMDDHHMM>
 status: open
 pr: #<N>
