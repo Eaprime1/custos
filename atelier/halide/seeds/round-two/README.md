@@ -3,7 +3,7 @@
 `prima-clock: 202610070901` · `suit: ♣️ Club — an instrument, for the Shepherd to carry` · `plank: germ — a working page, not canon`
 
 Round one (Draw and Form) is filed and merged (#405). This page is the launch sheet for
-round two, where the three seats revise in the open, and the place their returns land.
+round two, where the three seats revise in the open, and the place where returns land.
 Nothing runs until the Shepherd says go. No triggers, no background work. **The Pour is
 not part of round two**: it waits for the Shepherd's separate word.
 
