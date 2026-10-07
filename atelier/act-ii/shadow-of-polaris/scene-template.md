@@ -1,7 +1,7 @@
 # Shadow of Polaris — Scene Contribution Template
 
-> Copy this file into \`scenes/\` and rename it
-> \`<prima-clock>_<navigo-or-contributor>_<scene-slug>.md\`.
+> Copy this file into `scenes/` and rename it
+> `<prima-clock>_<navigo-or-contributor>_<scene-slug>.md`.
 > Remove instructional text only after it has served its purpose.
 
 ## Scene Identity
