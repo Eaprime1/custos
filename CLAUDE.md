@@ -239,10 +239,10 @@ It can also build the work without any payment request. New ideas are welcome.
 The reasoning is in `docs/issue-system.md` §4.
 
 **Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing.
-- Shouted markers (capitals, whole word): `TODO` (work left to do), `FIXME` (a known fault to fix), `BROKEN`, `TBD` (to be determined), `UNKNOWN`.
+- Shouted markers (capitals, whole word): `TODO` (work left to do), `FIXME` ("fix me": a known fault to fix), `BROKEN`, `TBD` (to be determined), `UNKNOWN`.
 - Phrases (any case): `placeholder`, `fill this in`, `???`, `"My Prima Terminal"`.
 - Files scanned: `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
-- Words with weight (`replace`, `unknown` in prose) are not scanned. See `atelier/lexemes/reserved-lexemes.md`.
+- Words with weight (`replace`, `unknown` in prose) are not scanned. The marker glossary and the reserved list are in `atelier/lexemes/reserved-lexemes.md`.
 
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
 - `finalize-pr.yml` seals a PR when the owner comments the seal cue.

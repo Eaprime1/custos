@@ -27,3 +27,16 @@ word with care, and let the scene carry it.
 
 Lowercase "unknown" in prose is also not scanned; only the capitalised
 `UNKNOWN` marker is.
+
+## Glossary: the shouted markers
+
+The scanners flag these five words only when written in capitals as a whole word.
+They are working-note shorthand, not acronyms.
+
+| Marker | Short for | Meaning here |
+|--------|-----------|--------------|
+| `TODO` | "to do" | Work left to do. |
+| `FIXME` | "fix me" | A known fault that needs fixing. |
+| `BROKEN` | "broken" | Something known not to work. |
+| `TBD` | "to be determined" | A decision or value not settled yet. |
+| `UNKNOWN` | "unknown" | A fact nobody has found yet. |
