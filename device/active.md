@@ -311,3 +311,32 @@
 
 *Prime state: 3*
 *Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-10-06*
+## For the Next Conversation
+
+- Peer-review Run 0 is closed out: custos #407-#413 and pixelator #13-#17 are
+  merged. Pixelator now has finalize, cue record, review packet and witness
+  workflows; `auto-finalize.yml` is retired and bots never seal.
+- Cue stamps are UTC in both repos. `ultima probatio` seals on pixelator.
+- Still open for the Shepherd: the phone commit for `pixel` (the remote branch
+  is still the July commit), the license conversation, CP-7 corrections, CP-8
+  and H-6. The decisions list is in the Claude Docs note "Decisions waiting on
+  Eric".
+- The approved follow-ups are merged: custos #414-#416 and pixelator #18-#21
+  (mission and upgrade labels, now synced; README clone line; blank.yml and
+  terraform.yml retired; validator fixture tests; `tools/prima_clock.sh` in
+  both repos).
+- The phone commit has its own conversation. The branch is `pixel` in custos;
+  the Shepherd opens the test PR when the commit is ready.
+- Open for the Shepherd, none blocking: the turn-log schema says "device local"
+  without saying whose; pixelator README lines 4 and 85 still mention `devicehaven`; wire
+  the validator tests into CI; point CLAUDE.md and the closing checklist at
+  `prima_clock.sh`.
+- Run `bash termux_proc.sh` from your pixelator clone on the phone when closing, if wanted (the clone path is in `device/podiums.md`, for example `~/unexusi/pixelator`)
+  (see `turns/CLOSING.md`).
+
+*Prime state: 3*
+*Witnessed: true* 🃏

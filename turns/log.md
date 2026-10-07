@@ -585,3 +585,54 @@ contribution: 2 PRs merged, 1 draft open, the loop verified end to end.
 resonance:    assent
 witnessed:    true
 ---
+
+---
+turn:         2026-10-06 01:59
+prima-clock:  202610060159
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       restructure the phone workflow through pixelator, then compare custos and pixelator as peers and write the process down.
+contribution: the gateway rule, the lexeme list and the peer-review process written down; three adoptions opened as drafts; the Shepherd's decisions recorded in the queue.
+              - pixelator #12 merged: pixelate/ROUTING.md, the routing ladder for the phone-side conversation.
+              - custos #406 merged: atelier/lexemes/distressed-lexeme-list.md.
+              - pixelator #13 (open): finalize-pr, latin-cue-record, review-packet and witness-pr ported from custos and adapted; review findings fixed, auto-finalize and the bot rule left for the Shepherd.
+              - custos #407 (open): docs/peer-review-process.md, tools/peer_inventory.sh, Run 0 record (25 findings), queue rows for the decisions.
+              - Drafts opened: custos #408 (validator fix), custos #409 (perspective-request template), pixelator #14 (scan_lexeme fix).
+              Decisions this turn: use pixelator's tracker script in session closing; start the intake mapping from pixelator's routing ladder; retire bounty and bring the lexeme form to pixelator; give pixelator a log and core documents; license is its own conversation; local time for the Shepherd's stamps, UTC for the seal and official records.
+              Not done: the phone commit for pixel (pending on the Shepherd), pixelator's issue forms, log and CLAUDE.md, the license check.
+resonance:    measured
+witnessed:    true
+---
+
+---
+turn:         2026-10-06 10:48
+prima-clock:  202610061048
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the peer-review adoptions, get pixelator's governance pipeline live, and close the open pull requests.
+contribution: every pull request from the peer-review run is merged or sealed; pixelator now has the same cue, packet, witness and seal workflows as custos.
+              - custos #407-#413 merged: the peer-review process and Run 0, the validator fix, the perspective template, the closing tracker paragraph, the intake-ladder draft, UTC cue stamps, and the queue update.
+              - pixelator #13-#17 merged: the four workflows (auto-finalize retired, bots never seal), the scan_lexeme and validator copies, the lexeme form with bounty removed, CLAUDE.md and the custody log.
+              - First live cues on pixelator (#14, #15, #16, #17) sealed, recovered earlier cues, and stamped in UTC.
+              Decisions this turn: auto-finalize is retired; the cue record is official, so UTC; a navigo merges only when the owner asks; `ultima probatio` is the seal cue on pixelator now.
+              Follow-ups the Shepherd approved: mission and upgrade labels, README clone line and retiring blank.yml and terraform.yml, validator fixture tests, and a shared stamp script. Opened as drafts after this entry.
+              Not done: the phone commit for pixel (still on the phone), the license conversation, CP-7 corrections, CP-8, H-6.
+resonance:    converged
+witnessed:    true
+---
+
+---
+turn:         2026-10-06 12:06
+prima-clock:  202610061206
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the session: take the approved follow-ups from draft to merged, and leave the handoff true.
+contribution: the seven follow-up pull requests are sealed and merged, and the review findings on them were fixed before sealing.
+              - custos #414-#416 and pixelator #18-#21 merged in order. Pixelator #18 added the mission and upgrade labels; the Shepherd ran the sync and the four labels now exist. #19 fixed the README clone line and retired blank.yml and terraform.yml. #20 and #21, and custos #415 and #416, added the validator fixture tests and tools/prima_clock.sh.
+              - Review findings fixed before sealing, all verified first: prima_clock.sh now rejects extra arguments and names the logs that use local time; the test script fails fast if its scratch directory cannot be made; the closing tip in device/active.md points at the registered pixelator clone.
+              - This entry also marks the README clone line and starter-workflow rows RESOLVED in the pixelator queue (open count 3 to 1), and updates the handoff block in device/active.md, which still described the follow-ups as drafts.
+              Decisions this turn: none new. Still the Shepherd's, none blocking: the phone commit (its own conversation, branch pixel), the license, CP-7 corrections, CP-8, H-6, the two other README devicehaven mentions, whose local time the turn log means, wiring the validator tests into CI, and pointing CLAUDE.md at prima_clock.sh.
+              Not done: the phone commit, and everything on that list.
+resonance:    settled
+witnessed:    true
+---
