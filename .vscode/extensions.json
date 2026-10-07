@@ -1,5 +1,4 @@
 {
-  // Suggested when the repo is opened. Nothing installs without your click.
   "recommendations": [
     "anthropic.claude-code",
     "editorconfig.editorconfig",

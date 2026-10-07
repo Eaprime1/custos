@@ -1,6 +1,4 @@
 {
-  // custos tools as VS Code tasks: Terminal > Run Task, or Ctrl+Shift+P "Run Task".
-  // Each one runs from the repo root under bash (Git Bash on Windows).
   "version": "2.0.0",
   "windows": {
     "options": {
