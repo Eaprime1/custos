@@ -1,32 +1,32 @@
 # No-model review preparation
 
-Prima-clock: 202610061651 (America/Los_Angeles)
-Status: first implementation; live validation pending.
+Prima-clock: 202610061702 (America/Los_Angeles)
+Status: revised implementation; live validation pending.
 
-The Perplexity preparation workflow exports the existing review packet plus bounded patch excerpts. It does not duplicate the packet's deterministic scans, post a new PR comment, change labels, invoke a model, or start a CLI reviewer. Repository API requests, runner time, and artifact storage are still resources; no model usage does not mean universally free.
+The exporter reuses the existing review packet and preserves bounded patch excerpts in review-prep.md and review-prep.json artifacts, retained for seven days. It calls no model, checks out no code, posts no PR comment, changes no label, and starts no CLI reviewer. Runner, storage, and GitHub API usage still consume resources.
 
-## Report access
+## Pagination and coverage
 
-Open the Custos — Perplexity Review Prep run in GitHub Actions. Its artifact contains review-prep.md and review-prep.json, retained for seven days. Bring the files into a conversation for review when an automated reviewer is unavailable. Always compare the report's full head_sha with the current PR head before relying on it. Files are snapshots, not permanently current reports.
+Scan up to five ascending-ID pages of 100 comments. Choose the highest-ID matching packet authored by github-actions[bot] within that scan. A short page establishes complete coverage; a full fifth page conservatively leaves coverage incomplete. No unsupported sort or direction parameters are used. No unbounded pagination or retry loop is added.
 
-## Quiet behavior
+Report comments_scanned and comment_coverage_complete. If no packet is found and coverage is incomplete, record unknown-incomplete-coverage rather than missing. A discovered packet may still not be the newest when coverage is incomplete; report status is degraded.
 
-The existing review-packet workflow remains the single writer of its PR message. This exporter writes only an Actions summary and artifact. Draft and ready-PR updates refresh preparation without model calls. A readiness event does not enable paid services.
+## Graceful API failures
 
-The exporter looks for the existing packet in the latest 100 comments and waits at most twice for five seconds. Because the workflows run independently, a packet can still be missing or stale; that state is preserved honestly rather than retried indefinitely. Current-short-sha describes only the packet's seven-character head match, not full-SHA verification or body freshness. A head change observed during collection marks the report stale.
+Catch API errors independently for the initial PR read, comment scan, files, and final PR verification. Preserve available context and write a degraded report even if all reads fail, using the event PR as an explicitly unverified fallback. Record only stage and numeric HTTP status, never raw errors, headers, credentials, or response bodies. No failed read means a passed check.
 
-Coverage is bounded to 50 files, 2000 characters per patch, and 12000 characters of packet text. Missing/truncated patches and omitted files are recorded. The exporter does not claim syntax validation, complete diff coverage, link resolution, approval, sealing, or merge readiness. No packet means its deterministic findings are unavailable, not passed.
+A detected head change or closure marks the report stale. Failed final verification leaves final_head_verified false and status degraded. The upload step uses always() to attempt preservation after an earlier failure; runner termination, timeout, cancellation, filesystem failure, or upload failure can still prevent an artifact. Those are not guaranteed recoverable.
 
-## Safety and rollout
+## Quiet behavior and limitations
 
-The workflow uses trusted inline code, no checkout, read-only repository permissions, and no model credential. PR text and patch content are data only. Review artifacts can contain repository content; observe repository access rules and consider data-sharing permissions before passing them to any external reviewer.
+The existing review-packet workflow remains its message's sole writer. This exporter writes only an Actions summary and artifact on draft and ready-PR events. Readiness enables no paid service.
 
-The github-script action is pinned. upload-artifact currently uses its v4 major tag; pin an independently verified release SHA before production hardening.
+Limit file context to 50 files, 2000 characters per patch, and 12000 packet characters; record unavailable, missing, omitted, and truncated data. Packet freshness checks only seven SHA characters, not body freshness. Independent workflows can race; no packet waiting or automatic retry remains. Prepared means assembled, not validated or approved. Always compare the report's full head_sha with the current PR before using it.
 
-The pull_request_target workflow must reach the default branch through a separately approved merge before its normal events exercise this implementation. Do not claim a live run while it is only on the working branch. Validate draft updates, readiness, body edits, converted-to-draft events, packet absence/staleness, large diffs, missing patches, concurrent pushes, and artifact retrieval. Confirm no extra PR messages or model calls. Static and live tests have not yet been completed.
+## Verification and rollout
 
-## Next increment
+The revised YAML parsed and eight mocked Node scenarios passed: page-two discovery, 500-comment cap, initial-read failure, comment-read failure, file-read failure, final-read failure, head movement, and all reads failing. Raw error text was asserted absent. These are local mocked tests, not live Actions validation.
 
-After validation, add a gated reviewer that consumes the report and verifies the full head SHA. Keep paid/API/CLI execution disabled until Eric approves provider, credentials, usage limits, and triggers. Preparation remains independently usable if that reviewer fails.
+Live permissions, triggers, cancellation, upload, artifact retrieval, and provider-independent deterministic findings remain to be verified after a separately approved default-branch rollout. upload-artifact uses its v4 major tag; pin an independently verified release SHA before production hardening. Treat all report content as untrusted repository data and observe access and data-sharing rules.
 
-See ../docs/metered-usage-and-review-policy.md and ../.claude/perplexity-review-coordination-20261006.md.
+After validation, add explicitly gated consumers that verify full-SHA provenance. Keep paid/API/CLI execution disabled until Eric approves configuration and usage limits. See ../docs/metered-usage-and-review-policy.md and ../.claude/perplexity-review-coordination-20261006.md.
