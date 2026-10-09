@@ -18,6 +18,26 @@ below is done or carried forward with a reason.
 - Merge state: <clean / conflicted / behind>
 - Bots: <what each flagged, in one plain sentence each>
 
+## Shepherd Copy
+
+<!-- The reading copy for the Shepherd. Written from the Us perspective: "we" where the
+     work was shared, "I" for the navigo's own calls, "you" for the Shepherd. Name who made
+     each piece. No invented history. See world/shepherd-copy.md. -->
+
+**Arrived.** <a short reading in plain prose: what came in and why it matters>
+
+**Reading path.**
+1. `<path>` — <what it is, why read it, how long>
+2. `<path>` — <...>
+
+**Margin** *(the Shepherd's; the navigo leaves it open)*
+
+- <ideas, connections, additions>
+
+**Echoes** *(form: `kind · title · stamp · locator`; no pointer, no entry)*
+
+- <kind · title or filename · stamp · locator> — <one line on what it holds>
+
 ## Fixed during the review
 
 - <item, commit>
