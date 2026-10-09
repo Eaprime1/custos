@@ -1,6 +1,6 @@
 # Notion branch tracker — schema proposal
 
-Prima-clock stamp: 202610092148 (UTC). Status: proposal, ♦️ Germ.
+Prima-clock: 202610092148 (UTC). Status: proposal, ♦️ Germ.
 
 `custos_branch_tracker.xlsx` mirrors a proposed two-database schema for tracking seeds and stream returns in Notion. Nothing has been created in Notion yet. It does not replace `branch-tracker/branches.md`, which stays the active map.
 
