@@ -60,7 +60,7 @@ Shepherd in the conversation; the repo keeps the source.
 - **#434** — Suit and Plank definition (`world/suit-and-plank.md`), the plugin source at
   `docs/linear-plugin/`, one registry row. Sealed 202610091106. All checks green. **Not
   merged.** Merge only when the Shepherd asks in the conversation.
-- **This draft PR** — the Shepherd Copy (`world/shepherd-copy.md`, PR template line,
+- **#435 (draft)** — the Shepherd Copy (`world/shepherd-copy.md`, PR template line,
   observation template), a top-level `plugins/` folder, this handoff, and a naming entry in
   `turns/CULTIVATION.md`. Draft. Based on `main`, because most CI runs only on PRs to `main`.
 
@@ -186,8 +186,8 @@ on purpose.
 
 ```
 Read, in order: CLAUDE.md, plugins/linear/HANDOFF.md, plugins/linear/README.md,
-turns/CULTIVATION.md (last three entries). Then check PR #434 and the draft PR named in
-the handoff with `gh api repos/eaprime1/custos/pulls/<N>`. Do not merge or post the seal
+turns/CULTIVATION.md (last three entries). Then check PR #434 and #435 (the draft named in
+the handoff) with `gh api repos/eaprime1/custos/pulls/<N>`. Do not merge or post the seal
 cue. Stamp with `date -u '+%Y%m%d%H%M'`.
 Work: the Linear plugin in plugins/linear/. Start with section 3 of the handoff and ask
 me which thread I want.
