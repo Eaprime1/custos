@@ -10,6 +10,11 @@
 (state, open threads, the voices, how to cite the record, and a paste-ready opening for a
 code session or a conversation). The older notes below are unchanged.
 
+**Left for next session (paused 202610091258):** #433 needs the owner's seal cue (its description is now
+filled in). #435 is a green draft awaiting the owner's word to mark it ready. Voices of navigo: the owner
+updated them; the location was not given. After #435 merges, remove `docs/linear-plugin/` and add the
+registry row for `plugins/linear/`. #434 is merged; its bot notes are in `turns/review-surface.md`.
+
 `main` is clean. This session's chain is merged: #425, #404, #405, #420 and #426.
 
 **Round two of the halide test is ready, on the Shepherd's word.** Start at
