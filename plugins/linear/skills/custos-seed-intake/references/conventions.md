@@ -1,5 +1,7 @@
 # Custos / THE-UNEXUS — Linear conventions
 
+Prima-clock: 202610091148 (UTC)
+
 ## Workspace facts (read from Linear)
 - Workspace: Qrunexusiam (linear.app/qrunexusiam)
 - Team: Qrunexusiam, key QRU (the only team)
@@ -44,6 +46,3 @@ Linear is the technical backbone: architecture, protocols, entity definitions, e
 
 ## Working in Linear
 Eric is still learning Linear and expects things to be out of whack at first. Tidy as you go: prefer small, reversible changes, say what you changed, and surface mismatches (wrong status, missing project, duplicate issues) instead of silently fixing large batches. Linear automations are configured in Linear's own settings, not through this plugin; suggest candidates, don't claim to have set them up.
-
----
-Prima-clock: 202610091148 (UTC)
