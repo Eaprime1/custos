@@ -4,8 +4,9 @@
 
 If you discover a security issue, please report it privately using one of the following channels:
 
-- Email: `security@example.com` **(placeholder: replace with the project's real security contact)**
-- GitHub Security Advisories: https://github.com/eaprime1/custos/security/advisories/new
+- GitHub Security Advisories (preferred): https://github.com/eaprime1/custos/security/advisories/new
+- Email: `primeunexusi@gmail.com`
+
 Please include:
 
 - a description of the vulnerability

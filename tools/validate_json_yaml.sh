@@ -26,7 +26,25 @@ ROOT="${1:-.}"
 # conversation-template.md). Excluded, not broken.
 EXCLUDE_PATTERN="/.claude/homunculus/instincts/inherited/"
 
-python3 - "$ROOT" "$EXCLUDE_PATTERN" <<'PY'
+# Find a working Python 3. Windows' python.org install has `python` but no
+# `python3`, and `python3` there can be the Microsoft Store stub (an "App
+# execution alias") rather than an interpreter. See guides/windows-laptop.md.
+PY=""
+for candidate in python3 python; do
+  if "$candidate" -c 'import sys; sys.exit(sys.version_info[0] != 3)' >/dev/null 2>&1; then
+    PY="$candidate"
+    break
+  fi
+done
+if [[ -z "$PY" ]]; then
+  echo "No working Python 3 found (tried python3, python)." >&2
+  echo "On Windows, a Microsoft Store alias may be in the way:" >&2
+  echo "  Settings > Apps > Advanced app settings > App execution aliases," >&2
+  echo "  turn off python.exe and python3.exe. See guides/windows-laptop.md." >&2
+  exit 2
+fi
+
+"$PY" - "$ROOT" "$EXCLUDE_PATTERN" <<'PY'
 import json
 import os
 import sys

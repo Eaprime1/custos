@@ -2,3 +2,9 @@
 .gemini/settings.json
 # nav3 queue file — session-specific, not for custody
 .gemini/queue.md
+
+# Codacy's VS Code AI rules: generated per machine by the Codacy extension
+.github/instructions/codacy.instructions.md
+
+# Refact (VS Code extension) workspace state: auto-mined notes, not custody material
+.refact/

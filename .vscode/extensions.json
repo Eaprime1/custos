@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "editorconfig.editorconfig",
+    "davidanson.vscode-markdownlint",
+    "redhat.vscode-yaml",
+    "timonwong.shellcheck",
+    "streetsidesoftware.code-spell-checker",
+    "github.vscode-github-actions",
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens"
+  ]
+}

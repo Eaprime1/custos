@@ -1,0 +1,29 @@
+{
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.wordWrap": "on"
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "search.exclude": {
+    "airavata-custos/**": true,
+    ".refact/**": true
+  },
+  "files.watcherExclude": {
+    "airavata-custos/**": true,
+    ".refact/**": true
+  },
+  "cSpell.words": [
+    "aequilibrium", "Aequitas", "Agnoscere", "artesian", "artesium", "atelier",
+    "Carbonite", "Codacy", "curatio", "custos", "disponi", "domos", "Expeditus",
+    "Fodere", "halide", "hodie", "hortus", "Judicium", "Lustratio", "lexeme",
+    "lexemes", "maw", "MOAV", "navigo", "navigos", "Novissimum", "nullus",
+    "Ouroboros", "pandora", "petitio", "pixelator", "placet", "Polaris",
+    "portus", "prima", "Probatio", "quies", "radix", "Recensio", "Renovata",
+    "Seneschal", "sovran", "Sparstone", "Sparstones", "Suxen", "Tabularium",
+    "Termux", "thee", "Ultima", "unexusi", "yod"
+  ]
+}
