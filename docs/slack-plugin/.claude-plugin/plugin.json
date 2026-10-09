@@ -1,0 +1,7 @@
+{
+  "name": "slack",
+  "description": "Slack integration. Search and read channels and threads, send and schedule messages, draft posts, and work with canvases. Customized for Custos / THE-UNEXUS with session-close dispatches, turn notices, and channel briefs for #custos.",
+  "author": {
+    "name": "Slack"
+  }
+}
