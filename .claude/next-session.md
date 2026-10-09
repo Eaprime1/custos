@@ -4,7 +4,11 @@
 
 ---
 
-## Read This First (updated 202610070905)
+## Read This First (updated 202610091148)
+
+**Linear plugin focus has its own carrier:** [`plugins/linear/HANDOFF.md`](../plugins/linear/HANDOFF.md)
+(state, open threads, the voices, how to cite the record, and a paste-ready opening for a
+code session or a conversation). The older notes below are unchanged.
 
 `main` is clean. This session's chain is merged: #425, #404, #405, #420 and #426.
 
