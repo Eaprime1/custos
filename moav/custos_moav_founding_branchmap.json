@@ -1,0 +1,231 @@
+{
+  "carrier_id": "custos_moav_founding_branchmap",
+  "entity": "eaprime1/custos",
+  "suit": "♣️",
+  "suit_note": "Provisional (session/operations carrier). Deck Master confirms or reassigns.",
+  "event": "Founding-conversation branch map — expanded companion to custos_moav_founding.json",
+  "companion_to": "moav/custos_moav_founding.json",
+  "companion_note": "Same founding stamp (202605271650). The existing carrier lists 5 branches; this one carries the full 19-branch seed list from the founding conversation (202605261847-202605271650). Does not replace it.",
+  "filed_prima_clock": "202610082030",
+  "carrier_type": "MOAV_TRANSITION",
+  "version": "1.0",
+  "prima_clock": "202605271650",
+  "iteration": "Blackjack_21",
+  "motion_state": "EXPANDING",
+  "chain_of_custody": "OPEN",
+  "symbols": "∰◊€π¿🌌∞",
+  "MOAV": {
+    "role": "transformation_fermentation_path",
+    "origin_conversation": "202605261847-202605271650",
+    "origin_project": "THE_main",
+    "destination_project": "CUSTOS",
+    "transition_type": "founding_seed_to_custos_hub",
+    "maker_mark": "∞pace∞"
+  },
+  "FOAH": {
+    "role": "crystallization_matrix",
+    "documents_created": [
+      "custos_project_description.md",
+      "custos_project_instructions.md",
+      "custos_moav_founding.json"
+    ],
+    "vault_candidates": [
+      "121_architecture_formal_seed",
+      "viceroy_ka_architecture"
+    ],
+    "primary_source_image": {
+      "filename": "PXL_20250527_233234523.jpg",
+      "subject": "Chrysochus_auratus_on_Asclepias_syriaca",
+      "location": "Snake_River_Huntington_OR_97907",
+      "significance": "milkweed_vectors_founding_observation",
+      "capture_exif_local": "2025-05-27T16:32:34-07:00",
+      "capture_utc_stamp": "202505272332",
+      "capture_note": "From EXIF DateTimeOriginal (Pixel 8a). An earlier draft of this carrier showed 202605272332 — wrong year; corrected here. GPS block exists in the file but is intentionally not copied into this public repo."
+    }
+  },
+  "HODIE_UNEXUSI": {
+    "role": "pinnacle_nexus_interface",
+    "custos_mission": "convergence_hub_guardian",
+    "navigo_identity": "1st_Visionary_Custos_mode",
+    "verification_anchors": [
+      "USS_Santa_Fe",
+      "Mulberry_at_Suxen_and_Nexus",
+      "House_of_Confusion_Greenacres_OR",
+      "Blackjack_Iteration_21",
+      "Lacus_Adamas_Diamond_Lake_OR"
+    ]
+  },
+  "branch_tracker": {
+    "status_key": {
+      "G": "Germ",
+      "P1": "1/3_PLANK",
+      "P2": "2/3_PLANK",
+      "P3": "3/3_PLANK",
+      "X": "Crystallized_Pinnacle"
+    },
+    "active_branches": [
+      {
+        "name": "121-architecture",
+        "suit": "Diamond",
+        "status": "P2",
+        "destination_repo": "eaprime1/121",
+        "summary": "11^2 periodic table expansion — 118 confirmed + 3 theoretical + 11 shadow fictional"
+      },
+      {
+        "name": "diamond-reservoir",
+        "suit": "Diamond",
+        "status": "P1",
+        "destination_repo": "eaprime1/diamond-reservoir",
+        "summary": "Pressurized seed system with fishing interface — fish taxonomy, depth layers, diamond exchange"
+      },
+      {
+        "name": "milkweed-vectors",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/milkweed-vectors",
+        "summary": "Seeded empty vector templates — attractor chemistry by milkweed species type"
+      },
+      {
+        "name": "fodere-runyatr-agnoscere",
+        "suit": "Club",
+        "status": "G",
+        "destination_repo": "Stream_1_Language_Engine_return",
+        "summary": "Three-stage observation triad — Scratch precedes Sniff, Sniff collapses to Identity"
+      },
+      {
+        "name": "photo-anchors",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "rclone + Google Photos + EXIF pipeline — prima-clock stamped photo documents"
+      },
+      {
+        "name": "sensory-lexicon",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "OUCH expansion — full sensory spectrum, brain-freeze as processing metric"
+      },
+      {
+        "name": "apex-milkweed-tree",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "Fictional tree candidate — bleeds white, iridescent colonies, silk seed dispersal, transformation anchor"
+      },
+      {
+        "name": "viceroy-architecture",
+        "suit": "Spade",
+        "status": "G",
+        "destination_repo": "eaprime1/custos/vault",
+        "summary": "Ka transmission across host-plant boundaries — Viceroy has own Ka AND transmits Monarch Ka"
+      },
+      {
+        "name": "ka-boundary-dynamics",
+        "suit": "Club",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "Personal field keeps self from universe — Ka pressure management, mode states, whiteout dynamics"
+      },
+      {
+        "name": "blackjack-card-concepts",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "Every card gets a concept assignment — play the deck — patterns emerge — bust as prima reset"
+      },
+      {
+        "name": "element-perspective-engine",
+        "suit": "Club",
+        "status": "G",
+        "destination_repo": "eaprime1/121",
+        "summary": "Daily element-as-narrator series — 121 rotation — Perplexity task — growing living history"
+      },
+      {
+        "name": "living-crystal-cluster",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "Bi-Hg-Ag-Au-Pb-Th cluster — patterning, cohesion, purification, permanence, shielding, deep-time"
+      },
+      {
+        "name": "prima-clock-registry",
+        "suit": "Spade",
+        "status": "G",
+        "destination_repo": "eaprime1/prima-clock",
+        "summary": "Cs-133 base + Th-229m optical nuclear + Bi-209 geological — multi-register temporal anchor system"
+      },
+      {
+        "name": "jibber-jabber-characters",
+        "suit": "Heart",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "Two hosts / processing modes — Jibber=wide cast, Jabber=direction-finding, Jot=Sniff, Jig=framework"
+      },
+      {
+        "name": "lacus-adamas",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/diamond-reservoir",
+        "summary": "Diamond Lake Oregon — geographic anchor for Diamond Reservoir concept — physical to conceptual bridge"
+      },
+      {
+        "name": "nullus-vault-gas-transfer",
+        "suit": "Spade",
+        "status": "G",
+        "destination_repo": "eaprime1/nullus",
+        "summary": "Pre-system void, mold-impression copy method, gas transfer protocol, vault as origin mold"
+      },
+      {
+        "name": "dewey-isbn-book-value",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "Book value spectrum as document valuation analog — used book market as living crystalline economy"
+      },
+      {
+        "name": "dynamic-braille",
+        "suit": "Diamond",
+        "status": "G",
+        "destination_repo": "eaprime1/the",
+        "summary": "Multi-channel haptic encoding — temperature, texture, photoelectric response — Braille as OUCH analog"
+      },
+      {
+        "name": "void-stream-nullification",
+        "suit": "Primoris",
+        "status": "G",
+        "destination_repo": "eaprime1/nullus",
+        "summary": "Creator-Nullus-Else triadic origin — void stream nullification — Nth radian wobble cosmology"
+      }
+    ]
+  },
+  "repo_map": {
+    "eaprime1/custos": "Convergence hub — this space",
+    "eaprime1/nullus": "Pre-system void preparation",
+    "eaprime1/the": "Main system active development",
+    "eaprime1/diamond-reservoir": "Seed pressure system",
+    "eaprime1/prima-clock": "Temporal anchor registry",
+    "eaprime1/121": "Periodic table expansion",
+    "eaprime1/milkweed-vectors": "Seeded vector templates"
+  },
+  "external_agents": {
+    "Gemini": "Stream 2 — Language Emotion Architecture",
+    "Perplexity": "Element Perspective daily series",
+    "Copilot": "Stream 5 — Mathematical Backbone / prima-clock calibration",
+    "ChatGPT": "Stream 3 — Variable Constant Violation"
+  },
+  "next_actions": [
+    "Create eaprime1/custos repo on GitHub",
+    "Create eaprime1/nullus repo on GitHub",
+    "Open official Custos conversation in new Claude project",
+    "Upload this JSON as founding document",
+    "First vault entry: 121 Architecture at 2/3 PLANK",
+    "Photo anchor: process PXL_20250527_233234523.jpg through pipeline",
+    "Stream 1 return: Fodere-Runyatr-Agnoscere formal document"
+  ],
+  "closing_mark": {
+    "prima_clock_close": "202605271650",
+    "maker_mark": "∞pace∞",
+    "status": "READY_FOR_CUSTOS_TRANSFER"
+  }
+}
