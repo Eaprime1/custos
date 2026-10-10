@@ -2,3 +2,6 @@
 .gemini/settings.json
 # nav3 queue file — session-specific, not for custody
 .gemini/queue.md
+
+# Codacy CLI local config and scratch output (local analysis only)
+.codacy/
