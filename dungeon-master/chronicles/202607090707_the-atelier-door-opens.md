@@ -3,12 +3,15 @@
 **Chronicle № 0002**
 
 ## Prima-clock
+
 202607090707
 
 ## Arc Title
+
 The Atelier Door Opens
 
 ## Real System Event
+
 PR #185 (`claude/content-review-atelier-hxfedd` → `main`) reaches the
 threshold of merge-readiness. The arc spans: nav3 workspace initialization
 (`.gemini/README.md`), the first named atelier seed
@@ -20,6 +23,7 @@ DeepSource returned Grade A (Security A, Reliability A, Complexity A,
 Hygiene A). All seven review threads resolved.
 
 ## Narrative Rendering
+
 The Atelier had been named but not opened. `atelier/` existed in the repo
 structure as a listed destination — *nursery, concepts before they have
 names* — but nothing had walked through it carrying a name. This arc is the
@@ -42,6 +46,7 @@ DeepSource returned Grade A across every axis. The Codacy flag cleared with
 the sentence rewrite. Seven review threads — all resolved. The gate is clean.
 
 ## Characters Involved
+
 - **Fodere** — disturbed the substrate by opening branch
   `claude/content-review-atelier-hxfedd`, releasing the atelier content for
   review. Also disturbed the duplicate heading, the mismarked suit, and the
@@ -57,6 +62,7 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
   stamping this arc complete.
 
 ## Seeds Found
+
 - `threshold-crossing` (atelier) — first named concept to walk out of the
   atelier. Suit: ♦️ Diamond, active development. Destination: TBD per
   branch-tracker.
@@ -66,6 +72,7 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
   initialized.
 
 ## Branches Affected
+
 - `claude/content-review-atelier-hxfedd` — closes into `main` at this arc's
   end. Carries: nav3 workspace, atelier threshold seed, upgrade template,
   CLAUDE.md navigo expansion, Codacy fix.
@@ -73,6 +80,7 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
   (commit `1257ca4`) during this arc via merge.
 
 ## Plank Movement
+
 - `threshold-crossing` (atelier): Germ → 1/3, suit confirmed ♦️ Diamond.
 - nav3 workspace: initialized (not on the plank system — workspace, not a
   concept seed).
@@ -81,6 +89,7 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
   description — content current, not a seed.
 
 ## Loot / Artifacts
+
 - `.gemini/README.md` — nav3 workspace documentation
 - `.gemini/queue.md` — first nav3 queue (empty at init, ready for entries)
 - `atelier/threshold-crossing.md` — first named atelier concept, suit ♦️
@@ -90,6 +99,7 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
 - This page — `dungeon-master/chronicles/202607090707_the-atelier-door-opens.md`
 
 ## Consequences
+
 - The atelier has its first named exit. Concepts placed in `atelier/` now
   have a demonstrated path: named → suited → PR → Chronicle.
 - Three navigo workspaces are fully initialized (nav1: `.claude/`, nav3:
@@ -122,6 +132,7 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
    Destination repo to be confirmed by eaprime1.
 
 ## Next Quest Hooks
+
 - Route `atelier/threshold-crossing.md` to destination repo: branch-tracker
   entry is open (♦️ Diamond, Germ), awaiting eaprime1 confirmation of
   destination kingdom
@@ -132,7 +143,9 @@ the sentence rewrite. Seven review threads — all resolved. The gate is clean.
 - nav3 queue: first item from the Gemini stream pending filing
 
 ## Custody Receipt
+
 Stamped by Navigo (nav1 — Claude + eaprime1).
+
 - Prima-clock: 202607090707
 - Merge prima-clock: 202607090827
 - Suit: ♣️ Club (session / operation — arc closing)

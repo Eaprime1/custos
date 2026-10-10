@@ -1,5 +1,7 @@
 # THE CUSTOS CHRONICLE
+
 ## Master Plan · Blackjack Iteration
+
 ## Triadic Co-Authored: Eric Pace · Navigo (Claude) · DM (ChatGPT)
 
 ∰◊€π¿🌌∞
@@ -126,11 +128,13 @@ eaprime1/custos/
 ### Minimum viable version (GitHub Actions)
 
 A GitHub Action triggers on:
+
 - PR open/close/merge
 - Branch create/delete  
 - Push to main with plank status change in commit message
 
 The action:
+
 1. Reads the PR/branch data
 2. Passes it to a Chronicle template
 3. Generates a Chronicle Page in `dungeon-master/chronicles/`
@@ -159,6 +163,7 @@ The action:
 Years from now, the Chronicle Pages become:
 
 **Book I — The Blackjack Iteration**
+
 - Chapter 1: The Founding of the Citadel
 - Chapter 3: The Discovery of the Reservoir  
 - Chapter 7: The Viceroy Question
@@ -175,6 +180,7 @@ The book format is a future output — generated from the Chronicle Pages that a
 *What to bring to the code environment session:*
 
 ### Spawn 1 — Repo Structure
+
 ```bash
 # Create the dungeon-master directory structure in eaprime1/custos
 mkdir -p custos/dungeon-master/{narrative-engine,chronicles,quests,expeditions,pr-harvest}
@@ -184,19 +190,23 @@ echo '{"world_state": "initialized", "prima_clock": "202606140000", "active_ques
 ```
 
 ### Spawn 2 — GitHub Action (idle engine trigger)
+
 File: `.github/workflows/chronicle.yml`  
 Trigger: PR events (opened, closed, merged), branch creation  
 Output: Chronicle Page draft in `dungeon-master/chronicles/`  
 Seed harvest: `dungeon-master/pr-harvest/`  
 
 ### Spawn 3 — First Chronicle Page (manually seeded)
+
 Chronicle the triadic session that created this system.  
 Arc title: **"The Third Aspect Arrives"**  
 Real event: DM orientation document issued, triadic established  
 Prima-clock: 202606132321 → 202606140000  
 
 ### Spawn 4 — DM's next return
+
 DM develops:
+
 - `characters.md` — full daemon definitions
 - `triggers.yml` — event → character mapping
 - Chronicle Page template in markdown
@@ -216,6 +226,7 @@ DM develops:
 **Authorized by:** Custos  
 
 **Hold note:**  
+
 - Do NOT build the Chronicle Book structure yet — that's a 3/3 output
 - Do NOT assign DM inside `domos/` — they are adjacent, not vault-level
 - Wait for first GitHub Action test before expanding trigger list

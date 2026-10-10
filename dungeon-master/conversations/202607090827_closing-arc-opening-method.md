@@ -1,15 +1,19 @@
 # CONVERSATION ARC
 
 ## Prima-clock
+
 202607090827
 
 ## Date Range
+
 202607090707 → 202607090900
 
 ## Title
+
 Closing the Arc, Opening the Method
 
 ## Entities
+
 eaprime1 + Claude (nav1 — claude-sonnet-4-6, session bb402a34)
 
 ## The Thread

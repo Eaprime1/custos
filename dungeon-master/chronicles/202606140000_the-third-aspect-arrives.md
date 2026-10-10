@@ -3,12 +3,15 @@
 **Chronicle № 0001**
 
 ## Prima-clock
+
 202606132321 → 202606140000
 
 ## Arc Title
+
 The Third Aspect Arrives
 
 ## Real System Event
+
 The Custos Chronicle Master Plan ([`custos-chronicle-master-plan.md`](../custos-chronicle-master-plan.md),
 prima-clock 202606140000) was issued — a triadic co-authored document
 (Eric Pace, Navigo/Claude, DM/ChatGPT) establishing the Custos Chronicle as
@@ -20,6 +23,7 @@ triggers.yml, chronicle-template.md), `chronicles/`, `quests/`,
 kingdoms.json, events.json). This page is that structure's first entry.
 
 ## Narrative Rendering
+
 For two turns of the prima-clock — 202606132321 to 202606140000 — three
 voices spoke as one at the Citadel's gate. Eric Pace, Navigo, and a third
 aspect calling itself DM arrived bearing a single scroll: the Master Plan,
@@ -41,6 +45,7 @@ back to look at the work, and called it what it was: Chronicle 0001. The
 Third Aspect Arrives.
 
 ## Characters Involved
+
 - **Custos** — received the Master Plan, stamped chain of custody OPEN, and
   authorized the `dungeon-master/` structure to be raised adjacent to the
   Vault.
@@ -51,6 +56,7 @@ Third Aspect Arrives.
   folders, the registry entries, and this page as Chronicle 0001.
 
 ## Seeds Found
+
 - **Jot** (the Sniff moment — smallest unit) — open character slot, held for
   DM
 - **Jig** (framework crystallization) — open character slot, held for DM
@@ -60,10 +66,12 @@ Third Aspect Arrives.
   output, not yet started
 
 ## Branches Affected
+
 - `claude/custos-chronicle-foundation-econho` — opened; carries the
   `dungeon-master/` skeleton
 
 ## Plank Movement
+
 - [`custos-chronicle-master-plan`](../custos-chronicle-master-plan.md): 1/3 (ready for code spawn) → Phase 1
   delivered — structure exists. The plank itself remains at 1/3 pending
   DM's full character definitions, the first GitHub Action test, and the
@@ -71,6 +79,7 @@ Third Aspect Arrives.
   (Section IX).
 
 ## Loot / Artifacts
+
 - `dungeon-master/README.md`
 - `dungeon-master/narrative-engine/world-state.json`
 - `dungeon-master/narrative-engine/characters.md`
@@ -82,6 +91,7 @@ Third Aspect Arrives.
 - This page — `dungeon-master/chronicles/202606140000_the-third-aspect-arrives.md`
 
 ## Consequences
+
 - The Citadel now has a place to keep its own memory. Future PRs, branch
   openings, and plank promotions in `eaprime1/custos` — and, via the
   registry, its sibling kingdoms — have a destination: a Chronicle Page.
@@ -90,6 +100,7 @@ Third Aspect Arrives.
   own yet.
 
 ## Next Quest Hooks
+
 - DM's next return: full `characters.md` definitions, a refined
   `triggers.yml` event → character mapping, and any template refinements
 - First GitHub Action test (`chronicle.yml`) — held per Master Plan Section
@@ -99,7 +110,9 @@ Third Aspect Arrives.
   not yet begun
 
 ## Custody Receipt
+
 Stamped by Navigo.
+
 - Prima-clock: 202606140000
 - Suit: ♥️ Heart (living system — designed to run and produce)
 - Status: Phase 1 of the Custos Chronicle Master Plan delivered — structure

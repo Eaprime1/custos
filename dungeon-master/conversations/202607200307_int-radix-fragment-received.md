@@ -1,15 +1,19 @@
 # CONVERSATION ARC
 
 ## Prima-clock
+
 202607200307
 
 ## Date Range
+
 202607200307 → 202607212214
 
 ## Title
+
 Receiving the INT Radix Fragment, Then Learning When to Defer
 
 ## Entities
+
 eaprime1 + Claude (nav1 — session_01SHUtSHPCKc9qYTZcmxn6MZ)
 
 ## The Thread

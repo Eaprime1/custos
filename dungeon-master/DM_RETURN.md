@@ -45,21 +45,26 @@ These are raw — recommendations included, but none built. Treat as the
 expedition log of one conversation, not a roadmap.
 
 ### a. Custos as a formal reviewer entity
+
 Custos already has a voice: `.github/workflows/sovran-voice.yml` posts "The
 Shepherd Considers" on every PR. That's a narrative reviewer, not a GitHub
 *required reviewer* (which needs a real account, bot account, or
 CODEOWNERS team). Options to consider later:
+
 - A `CODEOWNERS` file routing `dungeon-master/` changes to a named reviewer
 - A dedicated bot/service account named `custos` (more setup, real identity)
 - Leave as-is — the Sovran Voice comment *is* Custos's review, just advisory
 
 ### b. GitHub Milestones
+
 Could map cleanly onto plank stages (Germ → 1/3 → 2/3 → 3/3) or onto Master
 Plan phases (Phase 1–4 of the Chronicle). Low-cost, reversible, easy to set
 up whenever wanted.
 
 ### c. DM's icon
+
 Needs a symbol distinct from existing marks already in use:
+
 - 🃏 — already claimed (turn-log `witnessed` marker / wildcard)
 - ♥️♦️♣️♠️ — already claimed (branch suits)
 - ∰ — already claimed (Custos's sigil)
@@ -69,6 +74,7 @@ Needs a symbol distinct from existing marks already in use:
   existing marks. DM should have final say.
 
 ### d. Other automated reviewers currently active on PRs
+
 `gemini-code-assist`, Codacy, DeepSource (Groovy/Elixir — currently skipped,
 likely not relevant to this repo's languages), GitGuardian, and the
 `custos-speaks` / Sovran Voice action. **Recommendation:** this is already a
@@ -76,6 +82,7 @@ fair amount of review surface for a content repo — hold before adding more
 (e.g. CodeRabbit) unless a specific gap shows up.
 
 ### e. Webhooks / connectors / spreadsheet / database
+
 `dungeon-master/registry/*.json` is the seed of "the database" — flat files,
 git-versioned, queryable by any future tool. Before adding a spreadsheet,
 external DB, or webhook integrations: what question can't the registry
@@ -83,6 +90,7 @@ answer today? Start there rather than standing up infrastructure
 speculatively.
 
 ### f. BBS seed
+
 Eric's idea: fork or seed a classic BBS system (e.g. Telegard-lineage, or a
 modern equivalent like ENiGMA½ which is Node.js-based and easier to extend
 in a repo-driven way) and grow custos's own BBS from it.
@@ -95,6 +103,7 @@ with its own repo (`eaprime1/nullus`?) once Custos issues a founding seal
 (per the Master Plan's "New repo created" trigger → Chronicle entry).
 
 ### g. WordPress / external publishing
+
 Chronicle Pages are designed to be human-readable — WordPress (or similar)
 could be a future *output* surface for the Chronicle Book, once there's a
 book to publish. Hold until Chronicle Pages accumulate; premature to wire up
