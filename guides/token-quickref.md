@@ -1,6 +1,6 @@
 # Token & Key Quick Reference
 
-Prima-clock: 202610100622
+Prima-clock: 202610100807
 
 Where to get each token, where it lives, what uses it. URLs only; never paste a token value into this file.
 Add a row each time you create a new one. "Verify" means the path is from memory and has not been confirmed in the UI.
