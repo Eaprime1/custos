@@ -161,3 +161,33 @@ The oversight observation (turns/observations/) sits in front of the seal. `fina
 does not check for it. Whether the seal should refuse without an observation document is a
 choice not yet made; the box and the cue record only show it. **Status:** open; the box
 is advisory for now.
+
+## Shepherd, Navigator and Navigo (202610091148)
+
+Three words from one family are in use or on the way, and they overlap:
+
+- **Shepherd** names the operator (`world/lore.md`: players are Shepherds). It also names
+  Custos's own voice in the workflows ("the shepherd closes the fold") and the "sovran
+  shepherd" of PR #12, the conflict filed above.
+- **Navigo** is a seat or voice. CLAUDE.md makes it a paired team (AI plus eaprime1), so
+  the Shepherd sits inside "Navigo Claude". An earlier registry gave the numbers
+  differently: navigo0 the joint voice (the Us), navigo1 Eric, navigo2 Claude, navigo16
+  editors and trackers such as Linear
+  (`chat · Hopechest project content development · u202609010154 · de5d0cd4`;
+  `chat · Custos as third perspective contributor · u202608110857 · 89c43529`).
+- **Navigator** is new. On 202610091144 the Shepherd raised it for the idle adventure (the
+  concept seeded in `chat · Custom assistant conversation mapping system · u202606240912 ·
+  580ebd3c`), as a role that would include the whole navigation system. It shares its stem
+  with Navigo, so the two can be taken for each other.
+
+Navigo names are **claimed, not assigned**, and a vacated one waits for a real claiming
+(`doc · 202607191800_manifest_of_My_claiming_narrative.md · 202607191800`). So this is the
+Shepherd's choice, and the table in CLAUDE.md stays as it is until the naming update
+arrives (see "Navigo naming" above).
+
+**Questions for the Shepherd:** is Shepherd a role (the human in the Us) or a seat? Does
+Navigator name a role over the navigation system, or a voice inside it? Should the word
+differ enough from Navigo that nobody has to ask?
+
+**Status:** open for the Shepherd's decision. `world/shepherd-copy.md` uses "Shepherd"
+only for the operator and does not adopt "Navigator".

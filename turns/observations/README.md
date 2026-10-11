@@ -20,6 +20,13 @@ before the merge. It is a document, one per PR, kept in this folder.
 
 The seal, the cue and the merge are unchanged. The observation sits in front of them.
 
+## The Shepherd Copy
+
+Each observation carries a **Shepherd Copy** section: the reading copy of the PR for the
+Shepherd, written from the Us perspective, with a reading path, an open margin for the
+Shepherd's ideas, and echoes into the project's record. The PR description points to it.
+It is advisory for now. Definition: [`world/shepherd-copy.md`](../../world/shepherd-copy.md).
+
 ## The observed box
 
 The PR template has a box below `witnessed`:

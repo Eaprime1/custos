@@ -37,6 +37,12 @@
 
 <!-- one question this PR leaves unanswered — the next chamber -->
 
+## Shepherd Copy
+
+<!-- the reading copy for the Shepherd: the path to the Shepherd Copy section in this PR's
+     observation document (turns/observations/<prima-clock>_pr<N>_observation.md), or the
+     word pending. See world/shepherd-copy.md -->
+
 ---
 
 **prime state:** <!-- run: cat .prime -->  

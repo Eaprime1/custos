@@ -66,3 +66,10 @@ prima-clock: 202610070905
 - Review packet: listed the words the scanner had just retired. Noise: it runs the old matching from main until the PR merges.
 - Copilot: could not review, its quota was used up. Noise.
 - DeepSource: grade A. claude[bot] review (ran on the ai-review label): no comments.
+
+## PR #434 — Suit and Plank system doc + Linear plugin source
+prima-clock: 202610091255
+
+- codereviewbot-ai: LGTM twice. Its summary says the plugin config uses `@modelcontextprotocol/server-linear`. Noise: `.mcp.json` points at Linear's hosted endpoint, `https://mcp.linear.app/mcp`. Nothing changed.
+- Copilot: could not review, its quota was used up. Noise.
+- Codacy: no issues. DeepSource: grade A. Review packet: all template sections present.
