@@ -26,7 +26,7 @@ Nothing in the Atelier is finished. That is the point.
 | Void-maker | `void-maker.md` | Named, not yet coined — Shepherd decision pending | Bounty #187 moderation cycle |
 | Legatum | `legatum/` | Concept + template defined, first instance filed | pixel8a-unexusi podium, 2026-08-22 |
 | Terminus | `halide/` | A station in motion: three wells (dark, salt pan, lumen), seven for later; a gathering ledger (Trial 0) open. Germ stage | Shepherd session 202609292207 |
-| Atrium discord pass | `atrium-sanctum-discord-pass/` | Rows 21, 22 tested; rulings on hash, case and container open. Working note, no export content | Session 202610132212 |
+| Atrium discord pass | `atrium-sanctum-discord-pass/` | Rows 21, 22 tested; hash, case and container settled by Eric 202610132226. Working note, no export content | Session 202610132212 |
 
 ### The Convergence Note
 

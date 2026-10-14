@@ -1,6 +1,6 @@
 # Atrium discord pass: Sanctum export, rows 21, 22, 29 and 31
 
-Prima-clock: 202610132212 (Pacific local)
+Prima-clock: 202610132212 (Pacific local); rulings recorded 202610132226
 Status: working note, assistant-built. Rulings marked "settled_by_human" are Eric's own words; everything else is a proposal for him to rule on.
 Chain of custody: OPEN
 
@@ -35,9 +35,9 @@ Word count depends on the method. Splitting on whitespace gives 16,618, which ma
 | # | Eric's words (202610132211) | Proposal (assistant-proposed) | Status |
 |---|------------------------------|-------------------------------|--------|
 | Row 21 | "yes": the origin is the export with both sides | Tab 1 goes to a container record; the origin stays "awaiting the export" | settled_by_human |
-| Hash | not sure; "the most universal" | SHA-256 of the exact stored bytes, as hex beside the file name, checkable with `sha256sum`. Normalized text hashes only for derived text, with no sniffing of bare `---` lines | proposal_awaiting |
-| Case | caps are part of the command lexemes (AND, OR, NOT, PRIME, ZERO, ONE, THIS, THEN, THAT, CUSTOS); scans struggle with all caps; he avoids typing them | My earlier question meant upper versus lower case inside a quoted fragment (Tab 2 "Spending", Tab 10 "spending"), not ALL CAPS typing. The verbatim test ignores case, flags "case differs", and never alters stored text | proposal_awaiting |
-| Container | now that Google Docs have tabs, unsure of the best direction | The Doc with tabs is the container, each tab a part. Identify it by Drive file id plus the SHA-256 of its text export on the day, and re-record on every return. Page count stops being an identity. The 76-page PDF and the text export stay as separate copies with their own hashes | proposal_awaiting |
+| Hash | "sha-256 is what we using" (202610132226) | SHA-256 of the exact stored bytes, as hex beside the file name, checkable with `sha256sum`. Normalized text hashes only for derived text, with no sniffing of bare `---` lines | settled_by_human (algorithm); byte and normalization details stay assistant-proposed |
+| Case | caps are part of the command lexemes (AND, OR, NOT, PRIME, ZERO, ONE, THIS, THEN, THAT, CUSTOS); scans struggle with all caps; he avoids typing them | My earlier question meant upper versus lower case inside a quoted fragment (Tab 2 "Spending", Tab 10 "spending"), not ALL CAPS typing. The verbatim test ignores case, flags "case differs", and never alters stored text | settled_by_human ("your recommendation", 202610132226) |
+| Container | now that Google Docs have tabs, unsure of the best direction | The Doc with tabs is the container, each tab a part. Identify it by Drive file id plus the SHA-256 of its text export on the day, and re-record on every return. Page count stops being an identity. The 76-page PDF and the text export stay as separate copies with their own hashes | settled_by_human ("google doc works", 202610132226); identity details stay assistant-proposed |
 
 ## Not seen, so not tested
 
@@ -47,4 +47,8 @@ Word count depends on the method. Splitting on whitespace gives 16,618, which ma
 
 ## Still open
 
-Rulings on hash direction, case and container; whether the Drive Sanctum doc and the text export are the same container; and the privacy review (discord 26) before any copy of the export leaves the private store.
+Whether the Drive Sanctum doc and the text export are the same container (not yet compared); discord 29 (page count, which a text export cannot settle); and the privacy review (discord 26) before any copy of the export leaves the private store.
+
+## Branch stance
+
+Eric (202610132226): leave this as a branch for now, no PR. Other conversations may commit to `atelier/atrium-sanctum-discord-pass` to gather Atrium perspectives. Nothing here is merged or sealed.
