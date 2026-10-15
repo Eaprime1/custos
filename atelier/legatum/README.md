@@ -125,3 +125,4 @@ is for.
 |---|---|---|---|
 | [`202608220000_pixelator-legacy-infusion.md`](202608220000_pixelator-legacy-infusion.md) | pixelator, custos | ♦️ | CLOSED |
 | [`202608211549_what-the-repos-owed-each-other.md`](202608211549_what-the-repos-owed-each-other.md) | custos, hodie, duplicatus, gravitar, navigo | ♦️ | OPEN-seeds-pending |
+| [`202610142006_taluira-veilwalker-heritage-hodie-shadow.md`](202610142006_taluira-veilwalker-heritage-hodie-shadow.md) | custos, hodie | ♦️ | OPEN — seeds destined for hodie shadow-before-primal |
