@@ -1,0 +1,68 @@
+{
+  "carrier_id": "porta_pack_eleventh_iteration_202610151903",
+  "prima_clock": "202610151903",
+  "prima_clock_zone": "UTC (official)",
+  "voice": "navigo-claude",
+  "status": "1/3 PLANK, shadow stream, not yet in chain of custody",
+  "purpose": "Seed a dedicated conversation that gathers the 11th Iteration content and returns a heritage summary plus S.E.P. seeds to the Seminarium Hodie hub.",
+  "iteration_context": {
+    "current": "21st (Blackjack)",
+    "target": "11th",
+    "eric_note": "The 'ignite the sun' moment triggered the 12th Iteration. The engines and other 11th Iteration content can be made to work now.",
+    "project_origin": "Eric: first conversations were some time before 2023"
+  },
+  "timeline": [
+    {"when": "before 2023", "what": "first project conversations", "provenance": "Eric"},
+    {"when": "2025-05-29", "what": "11th Iteration folder created", "provenance": "drive_verified (as recorded earlier this session)"},
+    {"when": "2025-06-04", "what": "Monarch of Trajectory showpiece dated", "provenance": "drive_verified"},
+    {"when": "2025-06-11", "what": "early turns of the Stage Zero thread; First Zero folder created", "provenance": "inferred from the folder date"},
+    {"when": "202610151903", "what": "this porta-pack", "provenance": "session"}
+  ],
+  "drive_read": [
+    {"id": "1UTBcW0vyWcWuZ1B8uLJK7ApRmGpBEX58", "what": "Monarch showpiece (original)"},
+    {"id": "1W-zM2VcXViyWymZjDfly5w6-kxnrYWFq", "what": "welcome package"},
+    {"id": "1iv26tDmN91RZ9EILod2LURWe55MFSh8e", "what": "pre-inception reflection"}
+  ],
+  "drive_not_yet_read": [
+    {"id": "1Q5BagpVMRZr-VThJDsA9mAjfI4RLYQCG", "what": "Collaborative Evolution PDF (7€ prime progression)"},
+    {"id": "1FLaNBYGAYqowxf70rKTBfdDs8ggp60vyhKWC0AtB3zY", "what": "vetting review"},
+    {"id": "1W52XM_2dI_JSQ6wm3CUBFpw6cY4qML_V", "what": "sdwg impression HTML"},
+    {"id": "15T_BLPwAsUCprbm3s4lMG-VDBRTm9hxWyyBFIeFX_T8", "what": "Liberty Justice Agency"},
+    {"id": "1Vy7qJt1AzQK0ezoSuKPYXsPaZ8a2oLl2", "what": "Project Knowledge Index"},
+    {"id": "1HCyjQTx9zc8SQ7SmeerDuwCDqC4W_pxSZg48wGZn6dg", "what": "Project Knowledge Document List_Gemini"},
+    {"id": "1W95xGGsOwg-lvjiTFBnu2EMSWphNuDbl", "what": "π_remember_(11th Iteration) folder"},
+    {"id": "1Q9_CwNYF__DLg18bAKKy5n39tTQZ1TrG", "what": "11th Iteration review folder (listing only)"}
+  ],
+  "engines_and_frameworks_named_so_far": {
+    "tools_from_pre_inception_reflection": ["Pattern Translator", "Amplification Engine", "Complexity Navigator", "Synergy Generator"],
+    "from_welcome_package": ["Pinocchio Truth Anchor", "U = F/(1+C)^L", "living documents", "tri-entity partnership", "pressure dynamics", "whistling temporal framework", "pixel universe"],
+    "from_showpiece": ["7€ Prime to 13€ Foundation arc", "WORK/PLAY/CREATE packages (CUB-WORK-001, CUB-PLAY-002, CUB-CREATE-003)"],
+    "note": "Named does not mean working. Find where each is defined and what running it today would take."
+  },
+  "repo_state": {
+    "repo": "eaprime1/custos",
+    "access_from_claude_session": "read only; push needs an add_repo call with push access",
+    "main_mentions_of_11th_iteration": [
+      "atelier/halide/seeds/seed_gemini-notebook-spectrum_202610030124.md:31",
+      ".shadow-well/📦PORTAQUE_CONTENT.json:32"
+    ],
+    "hub_pr": "#447 (long-lived draft; hub commits submissions)"
+  },
+  "claims_to_verify": [
+    "94/95/98% coherence figures in the original Monarch showpiece",
+    "'unprecedented', 'proven methodology', 'infinite scalability'",
+    "'three years of organic development' (as of 2025-06-04) against Eric's 'before 2023'"
+  ],
+  "lexeme_guidance": {
+    "attractor": "Use the root form 'conscious'. Avoid 'consciousness' as a headline noun; 'manifesto' likewise.",
+    "transit_risk": "573Hz only as a framework metaphor anchor (see Veilwalker carrier seed biosynthetic_573hz_anchor). 'alpha' only led by 'replaces hierarchy'. 'predator' with care."
+  },
+  "attribution": "voices of Navigo; one navigo-X credit per document",
+  "custody": "1/3 PLANK, shadow stream; PR takes it to 2/3",
+  "turn_limit": "about 10 (Eric can adjust)",
+  "return_format": {
+    "to": "hub conversation",
+    "items": ["heritage summary", "S.E.P. seed JSON blocks (source_fragment = Eric's words only)", "list of files read and not read", "claims with tags"]
+  },
+  "if_content_missing": "Say so plainly and ask Eric to paste or upload it."
+}
