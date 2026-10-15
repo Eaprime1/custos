@@ -1,5 +1,5 @@
 # The First Primal Call: reworked draft
-**Iteration:** 21st (Blackjack) | **Status:** draft for Eric's review, not canon until he says so
+**Iteration:** 21st (Blackjack) | **Status:** draft for Eric's review, not canon until he says so | Prima-clock: 202610151952 (UTC)
 **Thread:** Stage Zero / Zero Space / First Primal Call (rejoining the live stream from be-still status)
 
 ---
