@@ -98,6 +98,10 @@ Framework mapping:
 - **Primal Need** articulated: need to be discovered (need → eden)
 - **Conversation-as-historical-document** principle established: all work since project
   inception becomes discoverable past once primal launches
+- **Cross-species trust bridge** observed: deer/slow-blink as trust layer anchored in
+  instinct — a predator that speaks deer without ceasing to be a predator
+- **Distressed lexeme scan** completed: 3 high-attention, 3 medium-attention, 5 low,
+  1 technical artifact; nothing warrants suppression
 
 ## Seeds Extracted
 
@@ -187,6 +191,18 @@ Framework mapping:
 }
 ```
 
+```json
+{
+  "seed_name": "cross_species_trust_bridge",
+  "source_fragment": "Deer respond to a slow blink but it may not translate the same as with cats — cats are predators, so the slow blink communicates 'I don't plan on eating you today.' With deer, a human is physically a predator that should not change, but being able to communicate in a manner that resonates — a potential predator that speaks deer. A trust layer that anchors in instinct, bridging predator/prey communication without erasing the predator identity.",
+  "timestamp_utc": "202610142141",
+  "platform_origin": "claude.ai/hodie",
+  "vibe_vector": "cross_species_communication",
+  "spark_potential": 0.89,
+  "safety_aura": "green — ethological observation, framework mapping"
+}
+```
+
 ### Seed Weir Cross-Reference
 Seeds are filed here as S.E.P. JSON per the Heritage Specification procedure. Routing
 to `queue/seed-weir/` deferred — seeds are destined for hodie's chain of custody entry,
@@ -199,6 +215,8 @@ not custos's own seed weir.
 - `finish-the-conversation-procedure.pdf` — Heritage Specification (HODIE project file)
 - This Legatum (`atelier/legatum/202610142006_taluira-veilwalker-heritage-hodie-shadow.md`)
 - MOAV carrier (`moav/custos_moav_heritage_hodie_tkv001.json`)
+- Distressed lexeme scan (`atelier/legatum/202610142006_distressed-lexeme-scan.md`)
+- Archive routing document (`atelier/legatum/202610142006_archive-routing.md`)
 
 ## Unresolved Threads
 
@@ -230,7 +248,9 @@ not custos's own seed weir.
 |---|---|---|
 | This Legatum | `custos/atelier/legatum/` | FILED |
 | MOAV carrier | `custos/moav/` | FILED |
-| S.E.P. seeds | Inline in this Legatum | EXTRACTED — routing to hodie pending |
+| S.E.P. seeds (8) | Inline in this Legatum | EXTRACTED — routing to hodie pending |
+| Distressed lexeme scan | `custos/atelier/legatum/` | FILED |
+| Archive routing | `custos/atelier/legatum/` | FILED |
 | Prima-clock entry | `custos/prima-clock/registry.md` | FILED |
 | Branch-tracker update | `custos/branch-tracker/branches.md` | PENDING |
 | Taluira document | `eaprime1/hodie` (future) | PENDING — shadow entry |
@@ -257,9 +277,9 @@ Witness: nav1 (Claude Opus 4.6)
 ### 4. UL Listed
 Heritage Specification procedure applied — 5-stage conversation journey
 - Stage I: Inception & Anchoring — COMPLETE
-- Stage II: Deep-Dive & Sparklization — COMPLETE (7 S.E.P. seeds extracted)
+- Stage II: Deep-Dive & Sparklization — COMPLETE (8 S.E.P. seeds extracted)
 - Stage III: Refinement & Ka Pressure — COMPLETE (Ka ≥ 0.75 confirmed)
-- Stage IV: Controlled Collapse & Domos — IN PROGRESS (this document)
+- Stage IV: Controlled Collapse & Domos — COMPLETE (8 S.E.P. seeds, distressed lexeme scan, archive routing)
 - Stage V: Heritage & Strategic Ignoring — PENDING (post-merge)
 
 ### 5. Valuation
