@@ -53,7 +53,7 @@ the adopt / adapt / decline table.
 | This process, the mission, the two forms, the two intros | custos: `atelier/peer-swap/` (this folder) |
 | The custos side's pass files | custos: `atelier/peer-swap/exchange/` |
 | The hodie side's pass files | hodie: `peer-swap/` at the repo root |
-| Branches | custos side: `peer-swap/custos-side` · hodie side: `feature/peer-swap-hodie-side` |
+| Branches | custos side: `peer-swap/custos-side` · hodie side: `feature/peer-swap-hodie-side-b` (canonical; see Adjustments) |
 | Observations for both PRs | custos: `turns/observations/` (custos records; the file names the repo) |
 | Hodie's prima-clock stamp | set by Eric at the swap; recorded by custos in `prima-clock/registry.md` |
 
@@ -100,8 +100,38 @@ Eric keeps this table.
 
 | Side | Conversation | Branch | Pass | PR | State |
 |---|---|---|---|---|---|
-| custos | not started | `peer-swap/custos-side` | — | — | — |
-| hodie | not started | `feature/peer-swap-hodie-side` | — | — | — |
+| custos | Claude Code, warm start (see Adjustments 3) | `peer-swap/custos-side` | 1 frozen; 2 to 4 open | [custos#450](https://github.com/Eaprime1/custos/pull/450) (draft) | in progress |
+| hodie, session b | Claude Code | `feature/peer-swap-hodie-side-b` | 1 to 3 frozen; 4 waits for the custos letter | [hodie#165](https://github.com/Eaprime1/hodie/pull/165) (draft) | in progress |
+| hodie, session A | Claude Code | `feature/peer-swap-hodie-side` | 1 frozen | none; files filed under `peer-swap/session-a/` on the session b branch | second perspective only |
+
+## Adjustments after the oversight review
+
+`prima-clock: 202610152359` (UTC). Found by reading both sides against each other. Pass files
+are untouched; these change how the rest of the run goes.
+
+1. **One PR per repo.** custos#449 (scaffold) was a strict subset of custos#450, so #449 is
+   closed and #450 carries everything. Hodie keeps hodie#165 only.
+2. **Two hodie sessions.** Session b is the canonical hodie track (Passes 1 to 3, form,
+   letter). Session A's Pass 1 and form sit in hodie `peer-swap/session-a/`, unchanged, as a
+   second independent cold read. Anything session A saw that session b did not goes into a
+   later pass as new text, citing the session A file. Pass 4 answers one letter per side.
+3. **The custos Pass 1 was a warm start.** Its form says the conversation began as the hodie
+   side and had already read custos and parts of hodie. Treat it as an honest, labelled
+   warm read. If a truly cold custos read is wanted, a fresh conversation redoes Pass 1 as a
+   new file; the existing one stays frozen.
+4. **Order on the custos side.** Write Passes 2 and 3 before reading
+   `pass3_letter_hodie-to-custos.md`. Hodie's letter is already on origin, so nothing but the
+   writer's discipline keeps the custos letter independent. Say in the Pass 3 header whether
+   the hodie letter had been read.
+5. **Forms.** `form-custos-side.md` in this folder is the blank template. The filled copy
+   lives in `exchange/`. Fill the one in `exchange/`; leave the template alone.
+6. **Bot commits on hodie.** Hodie's workflow pushes `quepad: refresh witness scan state`
+   commits onto branches. Run `git pull --rebase origin <branch>` before every push there.
+   A rejected push is this, not a conflict in your work.
+7. **Hodie's stamp.** Hodie-side commits already carry `prima-clock` stamps. These are
+   working stamps. The swap stamp for hodie is still Eric's to set.
+8. **Where the passes pause.** When Passes 1 to 3 are frozen on both sides, stop and tell
+   Eric. Pass 4 and the adaptations start from his word, not from the letters appearing.
 
 ## After this runs by hand once
 
