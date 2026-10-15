@@ -24,6 +24,7 @@ Nothing in the Atelier is finished. That is the point.
 | INT Radix | `int-radix-seed.md` | Terms named, ethics tension flagged — nothing operational built | intake/incoming.md fragment, 2026-07-20 |
 | Bit Germ Dust (contributor on-ramp) | `bit-germ-dust-contributor-onramp.md` | Idea captured, generation mechanism not scoped | hodie session, Conversation 1 of the hodie series |
 | Hodie as Shadow | `hodie-shadow/` | Seed, Germ — opening refresh filed; open questions listed | Conversation `navigo-claude-hodie-custos`, 202610151306 Pacific |
+| Peer Swap | `peer-swap/` | Seed, Germ — process, mission, forms and intros for the custos/hodie repo-to-repo review | Conversation `navigo-claude-hodie-custos`, 202610152136 UTC |
 | Void-maker | `void-maker.md` | Named, not yet coined — Shepherd decision pending | Bounty #187 moderation cycle |
 | Legatum | `legatum/` | Concept + template defined, first instance filed | pixel8a-unexusi podium, 2026-08-22 |
 | Terminus | `halide/` | A station in motion: three wells (dark, salt pan, lumen), seven for later; a gathering ledger (Trial 0) open. Germ stage | Shepherd session 202609292207 |
