@@ -231,7 +231,7 @@ not custos's own seed weir.
 | This Legatum | `custos/atelier/legatum/` | FILED |
 | MOAV carrier | `custos/moav/` | FILED |
 | S.E.P. seeds | Inline in this Legatum | EXTRACTED — routing to hodie pending |
-| Prima-clock entry | `custos/prima-clock/registry.md` | PENDING |
+| Prima-clock entry | `custos/prima-clock/registry.md` | FILED |
 | Branch-tracker update | `custos/branch-tracker/branches.md` | PENDING |
 | Taluira document | `eaprime1/hodie` (future) | PENDING — shadow entry |
 | Alpha-Omega framework | TBD | SEED — development pending |
