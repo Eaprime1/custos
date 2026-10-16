@@ -115,15 +115,15 @@ const notOwner = (o) => o.association !== undefined && !(o.allowed || ['OWNER'])
 
 // Why a whole comment is not read at all, in the order the reasons are checked.
 const SKIP_RULES = [
-  ['empty', (body) => isEmpty(body)],
-  ['bot', (body, o) => isBot(o)],
-  ['not owner', (body, o) => notOwner(o)],
-  ['footer', (body) => hasFooter(body)],
+  ['empty', (c) => isEmpty(c.body)],
+  ['bot', (c) => isBot(c.opts)],
+  ['not owner', (c) => notOwner(c.opts)],
+  ['footer', (c) => hasFooter(c.body)],
 ];
 
 // The first reason a comment is skipped, or null when it is read.
-function skipReason(body, o) {
-  const hit = SKIP_RULES.find(([, test]) => test(body, o));
+function skipReason(body, opts) {
+  const hit = SKIP_RULES.find(([, test]) => test({ body, opts }));
   return hit ? hit[0] : null;
 }
 
@@ -161,8 +161,8 @@ function parseComment(body, opts) {
 
   strip(String(body)).split('\n').forEach((line, i) => {
     const r = readLine(line, i + 1, names);
-    if (r && r.cue) out.cues.push(r.cue);
-    if (r && r.rejected) out.rejected.push(r.rejected);
+    if (r?.cue) out.cues.push(r.cue);
+    if (r?.rejected) out.rejected.push(r.rejected);
   });
   return out;
 }
