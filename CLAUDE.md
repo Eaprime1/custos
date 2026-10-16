@@ -91,6 +91,7 @@ submitters, the lexeme-development fallback when a mission can't be done, and th
 - `the-the.md` — The founding myth of prima (do not edit)
 
 ### Device Layer (`device/`)
+
 Tracks device state. It was intended for the `pixel8` branch only.
 As of 2026-10-15 `device/` also sits on `main` (six files: `PODIUM_SCHEMA.md`, `README.md`, `active.md`, `install-log.md`, `pixel8.yaml`, `podiums.md`). The `pixel8` branch is absent on origin.
 Treat what is on `main` as a snapshot, not live state.
