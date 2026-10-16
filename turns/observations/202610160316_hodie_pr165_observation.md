@@ -3,7 +3,7 @@
 Template prima-clock: 202610070835
 
 Prima-clock: 202610160316
-status: open
+status: complete
 pr: #165 (Eaprime1/hodie, `feature/peer-swap-hodie-side-b` into `main`)
 head: `d3fe02e` (observed from `138e80e`, the sealed head)
 observer: Navigo Claude (oversight) with the Shepherd
@@ -74,3 +74,11 @@ Sealed at 202610160212 (the first `@claude finalize` at 02:06 was refused for th
 ## Result
 
 Observed. Nothing blocks the merge; one real gap (the seal gate) was found and fixed, which reopened the seal. Ready for the Shepherd to read, then seal.
+
+## Closing note — 202610160448 (UTC)
+
+Added after the merge; the sections above are unchanged. `status:` is now `complete`.
+
+- Merged by merge commit `a2b6a3f`, so the freeze commits stay in history.
+- Done since this was written: the "approve and run" step was looked at (bot-authored commits do not start workflows, so GitHub holds them for the owner; the journey commit after each seal is the case) and the new `final-oversight` gate was built for it (#452); hodie's custody entry is filed (#453, registry row `202610160105`, carrier `moav/hodie_moav_entry_peerswap001.json`).
+- Still carried forward: footer wording in four copies, the footer guard and `AUTO_COMMITS` live tests, the meaning of ♠️ on a carrier, optional transfer fields in `moav/README.md`, the second swap. Owners are as listed above.
