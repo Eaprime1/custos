@@ -12,6 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - `test_footer_guards.sh` (16 checks, needs Node and PyYAML)
   - `test_final_oversight.js` (46 checks, needs Node)
   - `test_probatio_label.js` (15 rows, needs Node)
+  - `test_file_review.js` (30 rows, needs Node)
   - `test_check_workflow_injection.sh` (11 checks, needs Python 3)
   - `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
@@ -200,7 +201,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
   - `review-packet.yml` — API-free summary of every PR (files by area, Deck Master paths, template sections, placeholder words)
   - `latin-cue-record.yml` — logs each Latin workflow call (docs/latin-workflow-glossary.md) with the PR's state, for the final review before merge
   - `dependency-review.yml`
-  - `sovran-voice.yml`
+  - `sovran-voice.yml` — the Shepherd Considers comment, a checklist of the PR's files (`docs/file-review.md`). Rules in `.github/review-skip.json`.
 
   Resolve Codacy findings before merge — see `docs/final-review-and-codacy.md`.
 
