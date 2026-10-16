@@ -1,0 +1,37 @@
+{
+  "carrier_id": "hodie_moav_entry_peerswap001",
+  "prima_clock": "202610160105",
+  "entity": "hodie (eaprime1/hodie), entered by eaprime1 + Navigo Claude",
+  "suit": "♦️",
+  "iteration": "peer-swap-001",
+  "event": "hodie enters custos custody as a peer after the first peer swap (Passes 1 to 4) and the first final oversight",
+  "motion_state": "COMPLETE",
+  "chain_of_custody": "OPEN",
+  "stamp_note": "202610160105 is the swap stamp in UTC (202610151805 Pacific). The stamp on this carrier file's commit is later; this carrier records the event, not the file.",
+  "witness": {
+    "hodie_pr": "https://github.com/Eaprime1/hodie/pull/165",
+    "hodie_main_commit": "a2b6a3f27b4705eee22d907542436b8eec2f9dbd",
+    "custos_pr": "https://github.com/Eaprime1/custos/pull/450",
+    "custos_main_commit": "36f8c8e11db4eac76b1d06b026116f5b9045336e",
+    "merge_method": "merge commit on both, so the freeze commits stay in history",
+    "files": [
+      "atelier/peer-swap/exchange/ (custos): passes 1 to 4",
+      "peer-swap/ (hodie): passes 1 to 4",
+      "turns/observations/202610160316_pr450_observation.md",
+      "turns/observations/202610160316_hodie_pr165_observation.md",
+      "turns/observations/RUBRIC.md"
+    ]
+  },
+  "left_in_place": "hodie keeps its own main, its own moav/ and its own witness check. Nothing moved out of hodie. This carrier records the entry; it does not transfer content.",
+  "hodie_carriers": {
+    "count": 17,
+    "state": "listed only, not entered",
+    "note": "hodie's own carriers (dedupe candidates and one transfer) stay CANDIDATE/OPEN in hodie/moav/. Whether they enter as a batch is open and is the Shepherd's call."
+  },
+  "open_questions": [
+    "Suit and plank for the entry: proposed ♦️ (active development) with no plank, pending the Deck Master and the Suit and Plank proposal (world/suit-and-plank.md).",
+    "Whether chain_of_custody stays OPEN on a COMPLETE carrier (raised in hodie's Pass 3 letter; see moav/README.md).",
+    "Whether 17 digit witness lines (hodie) or 12 digit stamps (custos) become the shared form."
+  ],
+  "notes": "Registry row and this carrier are Deck Master paths. Proposed by the navigo for review, not self-approved."
+}
