@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **custos** is a prima terminal concept for the Pixel 8 — a guardian/shepherd environment for tending all work done from the device.
 
 - Not a software project with a build pipeline
-- No compilation, no test suite, no package manager
+- No compilation and no package manager. Two small test scripts live in `tools/`: `test_cue_parser.sh` (55 rows, needs Node) and `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
 
 ```
@@ -19,7 +19,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 
 **Concept identity:** name=`custos`, slug=`custos`, theme=`guardian`, author=`eaprime1`, platform=`termux`.  
-**Active branch for Pixel 8 device work:** `pixel8` (tracks `device/` files with live device state).
+**Branch for Pixel 8 device work:** `pixel8` is the intended branch for live device state. As of 2026-10-15 it does not exist on origin (a `pixel` branch does), and `device/` is also on `main`. See Device Layer below.
 
 ## Shell Tools
 
@@ -89,8 +89,8 @@ submitters, the lexeme-development fallback when a mission can't be done, and th
 - `factions.md` — Scribes, Builders, Sentinels, Wanderers, Unexusi
 - `the-the.md` — The founding myth of prima (do not edit)
 
-### Device Layer (`device/`) — pixel8 branch only
-Tracks live device state. Not on `main`.
+### Device Layer (`device/`)
+Tracks device state. Intended for the `pixel8` branch only, but as of 2026-10-15 `device/` sits on `main` too (six files: `PODIUM_SCHEMA.md`, `README.md`, `active.md`, `install-log.md`, `pixel8.yaml`, `podiums.md`) and the `pixel8` branch is absent on origin. Treat what is on `main` as a snapshot, not live state.
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
 - `install-log.md` — Append-only record of what was installed, where, and how. Use
@@ -140,7 +140,7 @@ Branches and documents carry suit designations:
 - ❤️ **Heart** — (reserved)
 
 ### Seeds (`seeds/`)
-`bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/`, creates `~/.prima-env`. Idempotent.
+`bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/` if that directory exists (it does not as of 2026-10-15; the script skips that step and says so), creates `~/.prima-env`. Idempotent.
 
 `env_setup.sh` detects the current location (`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
 - Ported/adapted from hodie's `.scripts/env_setup.sh`.
@@ -172,7 +172,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 ### Review Gates
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
 - **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
-- **CI**: `.github/workflows/` runs:
+- **CI**: `.github/workflows/` holds 25 workflows (checked 2026-10-15). The ones named below are the review and seal path; `ls .github/workflows` is the full list. The rest include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand`, `validate-json-yaml`, `auto-finalize` (bot PRs, never drafts), `track-pr-failures`, `sovran-labels-sync`, and three Pages or icon jobs.
   - `scan-lexeme.yml` — placeholder scan
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
@@ -194,7 +194,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 - All PRs from `pixel8` → `main` require Sentinel review (default: eaprime1)
 - Feature/concept branches: develop here, then dispatch to destination repo per `branch-tracker/branches.md`
 
-**prima-clock stamps:** Use `date '+%Y%m%d%H%M'` to generate. Include in MOAV carriers and prima-clock/registry.md entries.
+**prima-clock stamps:** Use `date -u '+%Y%m%d%H%M'` to generate (UTC, as the registry row `202610091052` states; earlier stamps in this repo mix UTC and Pacific). Include in MOAV carriers and prima-clock/registry.md entries.
 
 **MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody` unless a documented exception applies.
 
@@ -257,10 +257,9 @@ The reasoning is in `docs/issue-system.md` §4.
 
 **Development plan:** See `docs/custos-plan.md` for the phased roadmap and current status.
 
-## Known Stray Content (untracked, not part of the concept)
+## Known Stray Content
 
-These currently sit in the working tree but are not part of custos and should not be assumed to be in scope, referenced in lore, or committed without first checking with the Shepherd:
+Checked 2026-10-15. Do not assume anything here is in scope, referenced in lore, or committed without first checking with the Shepherd:
 
-- `airavata-custos/` — an unrelated Apache Airavata "Custos" project (Go IAM service + Next.js web app, its own nested `.git`). Name collision only; do not merge its content with this repo's `custos` concept.
-- `seneschal/scanner/New folder/` — empty, undocumented. Likely an in-progress drop that hasn't been named or routed through `queue/` yet.
+- `airavata-custos/` and `seneschal/scanner/New folder/` were listed here earlier and are **not in the tree now**. `airavata-custos/` was an unrelated Apache Airavata "Custos" project (a name collision only); if it returns, do not merge it with this repo's `custos` concept. Seneschal material that does exist lives under `atelier/commissions/` and `missions/`.
 - `queue/artesium-<contributor>/` item folders — in-flight Weir material (e.g. a PDF export of a contributor's PR thread). Route through `queue/artesium-weir/README.md` and close out via `turns/CLOSING.md` rather than leaving indefinitely.
