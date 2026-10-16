@@ -8,8 +8,9 @@
 # number, or drop the number.
 #
 # Usage: bash tools/stale_claims.sh [file ...]     (default: CLAUDE.md README.md)
+#        STALE_ROOT=/path/to/other/repo bash tools/stale_claims.sh   (check a peer checkout)
 set -uo pipefail
-cd "$(dirname "$0")/.." || exit 1
+cd "${STALE_ROOT:-$(dirname "$0")/..}" || exit 1
 files=("$@"); [ ${#files[@]} -eq 0 ] && files=(CLAUDE.md README.md)
 # A name written without its folder ("scan-lexeme.yml") counts as present when a
 # file or folder with that name exists anywhere in the tree.
