@@ -1,4 +1,3 @@
-'use strict';
 // Offline test table for .github/scripts/probatio-label.js. No network, no GitHub.
 // Run: node tools/test_probatio_label.js
 

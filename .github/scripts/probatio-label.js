@@ -1,4 +1,3 @@
-'use strict';
 // Soft seal: the owner's `^<name> probatio` marks a PR ready for oversight.
 // Plan: docs/latin-workflow-v2.md. The label is a signal. It never seals or merges.
 // The seal stays in finalize-pr.yml, on `ultima probatio`.

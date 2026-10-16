@@ -7,7 +7,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **custos** is a prima terminal concept for the Pixel 8 — a guardian/shepherd environment for tending all work done from the device.
 
 - Not a software project with a build pipeline
-- No compilation and no package manager. Small test scripts live in `tools/`: `test_cue_parser.sh` (67 rows, needs Node), `test_footer_guards.sh` (16 checks, needs Node and PyYAML), `test_final_oversight.js` (46 checks, needs Node), `tools/test_probatio_label.js` (15 rows, needs Node), `test_check_workflow_injection.sh` (11 checks, needs Python 3) and `test_validate_json_yaml.sh`
+- No compilation and no package manager. Small test scripts live in `tools/`:
+  - `test_cue_parser.sh` (67 rows, needs Node)
+  - `test_footer_guards.sh` (16 checks, needs Node and PyYAML)
+  - `test_final_oversight.js` (46 checks, needs Node)
+  - `test_probatio_label.js` (15 rows, needs Node)
+  - `test_check_workflow_injection.sh` (11 checks, needs Python 3)
+  - `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
 
 ```
