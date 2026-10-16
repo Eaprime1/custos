@@ -23,7 +23,7 @@ does not merge and does not edit the PR. The seal and the merge stay the owner's
 | Stale claims | `bash tools/stale_claims.sh` count for `CLAUDE.md` | information |
 
 The rules live in `.github/scripts/final-oversight.js`; `final-oversight-run.js` gathers the facts from GitHub and hands them over. The rules are tested offline by
-`tools/test_final_oversight.js` (42 checks, run in CI by `seal-path-tests.yml`).
+`tools/test_final_oversight.js` (46 checks, run in CI by `seal-path-tests.yml`).
 
 ## How the owner's approval works
 

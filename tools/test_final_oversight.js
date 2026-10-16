@@ -1,10 +1,9 @@
-'use strict';
 // Offline test table for .github/scripts/final-oversight.js. Needs node; no network.
 const fo = require('../.github/scripts/final-oversight.js');
 
 let failed = 0;
 let total = 0;
-const say = (s) => process.stdout.write(s + '\n');
+const say = (s) => process.stdout.write(`${s}\n`);
 function check(name, got, want) {
   total += 1;
   const a = JSON.stringify(got);
@@ -23,6 +22,11 @@ check('own check is ignored', fo.evaluateChecks({ runs: [run('gate', 'in_progres
 check('pending status', fo.evaluateChecks({ statuses: [{ context: 'DeepSource: Swift', state: 'pending' }] }).pending, ['DeepSource: Swift']);
 check('error status is bad', fo.evaluateChecks({ statuses: [{ context: 'x', state: 'error' }] }).bad, ['x (error)']);
 check('no checks at all is ok', fo.evaluateChecks({}).ok, true);
+
+check('completed with an odd conclusion is pending', fo.evaluateChecks({ runs: [run('a', 'completed', 'weird')] }).pending, ['a']);
+check('observation file needs 12 digits', fo.findObservation(['turns/observations/2026101603_pr450_observation.md'], 450), []);
+check('observation file needs the folder', fo.findObservation(['elsewhere/202610160316_pr450_observation.md'], 450), []);
+check('observation number is not a regex', fo.findObservation(['turns/observations/202610160316_pr.*_observation.md'], '.*'), []);
 
 // ── review threads ──────────────────────────────────────────────────
 check('threads all resolved', fo.evaluateThreads([{ isResolved: true }, { isResolved: true }]), { ok: true, open: 0, total: 2 });
