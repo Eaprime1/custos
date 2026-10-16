@@ -1,0 +1,30 @@
+name: Workflow Lint
+
+# Looks for expression injection in the workflows: a ${{ }} value pasted straight into a run:
+# script. A branch name, commit message or PR title that a contributor controls would then be
+# read as shell. The fix is to pass the value through env: and use $NAME in the script.
+# Adopted from hodie in the peer swap. Reads and reports only; no API, no write.
+
+on:
+  pull_request:
+    branches: [main, radix]
+    paths:
+      - '.github/workflows/**'
+      - 'tools/check_workflow_injection.py'
+      - 'tools/test_check_workflow_injection.sh'
+
+permissions:
+  contents: read
+
+jobs:
+  injection-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: The checker's own tests
+        run: bash tools/test_check_workflow_injection.sh
+
+      - name: Expression injection in the workflows
+        run: python3 tools/check_workflow_injection.py --check .github/workflows
