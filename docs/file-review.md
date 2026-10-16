@@ -39,7 +39,7 @@ Until the rules reach the base branch, the comment is a plain list.
 
 ## What comes next
 
-- **B:** the final oversight report gets a File review row that must pass, and the seal asks for a complete observation.
+- **B (done):** the final oversight report has a File review row that must pass. The seal asks for a filed observation that says `status: complete`.
 - **C:** the same gate for hodie.
 
-Offline tests: `tools/test_file_review.js` (30 rows, run by `seal-path-tests.yml`).
+Offline tests: `tools/test_file_review.js` (30 rows) and, for the oversight row, `tools/test_final_oversight.js` (60 checks). `seal-path-tests.yml` runs them.

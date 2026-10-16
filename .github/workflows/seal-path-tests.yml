@@ -27,6 +27,8 @@ on:
       - '.github/scripts/file-review.js'
       - '.github/review-skip.json'
       - 'tools/test_file_review.js'
+      - 'tools/test_seal_observation.js'
+      - 'tools/test_seal_observation.sh'
       - 'tools/test_probatio_label.js'
       - 'docs/navigo-registry.md'
 
@@ -51,6 +53,9 @@ jobs:
 
       - name: Soft seal label
         run: node tools/test_probatio_label.js
+
+      - name: Observation rule in the seal
+        run: bash tools/test_seal_observation.sh
 
       - name: File review checklist
         run: node tools/test_file_review.js

@@ -6,6 +6,8 @@
 //
 // The gate reports. It never seals, never merges, never edits the PR.
 
+const { MARK: CONSIDERS_MARK, parseState } = require('./file-review.js');
+
 const OK_CONCLUSIONS = ['success', 'skipped', 'neutral'];
 const BAD_CONCLUSIONS = ['failure', 'cancelled', 'timed_out', 'action_required', 'startup_failure', 'stale'];
 
@@ -67,6 +69,31 @@ function evaluatePostSeal({ sealAt, commits = [] }) {
     .filter((c) => Date.parse(c.date) > sealTime && !isJourneyCommit(c))
     .map((c) => c.sha.slice(0, 7));
   return { ok: late.length === 0, sealed: true, late };
+}
+
+// The Shepherd Considers checklist (docs/file-review.md): every file to read is ticked.
+// The comment names the head it describes. After the seal, the journey document
+// moves the head, so a checklist that is one journey commit behind still counts.
+// commits: [{ sha, authorLogin?, files? }] in order; details are needed after the marked head.
+function checklistHead(body) {
+  return parseState(body).head;
+}
+
+function staleProblem(markedHead, head, commits) {
+  if (markedHead === head) return null;
+  const at = commits.findIndex((c) => c.sha === markedHead);
+  if (at === -1) return 'the checklist describes another head';
+  return commits.slice(at + 1).every(isJourneyCommit) ? null : 'files changed since the checklist was written';
+}
+
+function evaluateFileReview({ body, head, commits = [] }) {
+  const state = parseState(body);
+  if (!String(body || '').trim()) return { ok: false, open: [], problems: ['no Shepherd Considers comment'] };
+  if (!state.head) return { ok: false, open: [], problems: ['the comment has no checklist'] };
+  const problems = [staleProblem(state.head, head, commits)].filter(Boolean);
+  if (state.total > state.shown) problems.push(`${state.total - state.shown} file(s) not listed`);
+  if (state.open.length) problems.push(`${state.open.length} file(s) not yet read`);
+  return { ok: problems.length === 0, open: state.open, problems };
 }
 
 // The observation file for this PR: turns/observations/<12 digits>_pr<N>_observation.md
@@ -172,6 +199,14 @@ function watchedRow({ watched, unnamed }) {
   return row(unnamed.length ? '⚠️' : 'ℹ️', 'Watched paths (Deck Master or seal path)', detail);
 }
 
+function fileReviewRow({ fileReview }) {
+  const fr = fileReview || { ok: false, open: [], problems: ['not checked'] };
+  const shown = fr.open.slice(0, 8).map((p) => `\`${p}\``).join(', ');
+  const more = fr.open.length > 8 ? `, and ${fr.open.length - 8} more` : '';
+  const detail = fr.ok ? 'every file to read is ticked' : `${fr.problems.join('; ')}${shown ? `: ${shown}${more}` : ''}`;
+  return row(tick(fr.ok), 'File review (Shepherd Considers)', detail);
+}
+
 function staleRow({ stale }) {
   const detail = stale ? `${stale.flagged} of ${stale.total} path-like names in CLAUDE.md not in the tree` : 'not run';
   return row('ℹ️', 'Stale claims (advisory)', detail);
@@ -191,6 +226,7 @@ function render(facts) {
     threadsRow(facts),
     sealRow(facts),
     observationRow(facts),
+    fileReviewRow(facts),
     watchedRow(facts),
     staleRow(facts),
     '',
@@ -199,11 +235,12 @@ function render(facts) {
 
 // facts: the same object; true when a must-pass check failed.
 function hardFail(facts) {
-  const passes = [facts.checks.ok, facts.threads.ok, facts.post.ok, facts.obs.ok, Boolean(facts.obsPath)];
+  const passes = [facts.checks.ok, facts.threads.ok, facts.post.ok, facts.obs.ok, Boolean(facts.obsPath),
+    Boolean(facts.fileReview && facts.fileReview.ok)];
   return !passes.every(Boolean);
 }
 
 module.exports = {
-  MARK, evaluateChecks, evaluateThreads, evaluatePostSeal, findObservation,
+  MARK, CONSIDERS_MARK, evaluateChecks, evaluateThreads, evaluatePostSeal, evaluateFileReview, checklistHead, findObservation,
   evaluateObservation, watchedPaths, unnamedWatched, parseStale, render, hardFail,
 };

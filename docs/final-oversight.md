@@ -19,11 +19,12 @@ does not merge and does not edit the PR. The seal and the merge stay the owner's
 | Review threads | none open | must pass |
 | Seal covers this head | a seal record exists, and only the journey document (a bot commit that touches only `pr-journeys/`) follows it | must pass |
 | Observation complete | `turns/observations/<stamp>_pr<N>_observation.md` is in the PR, says `status: complete`, has Seen, Carried forward, Scores and Result, and scores M1 to M8 (0 to 3) | must pass |
+| File review (Shepherd Considers) | the checklist comment names this head (or a head only the journey document follows), lists every file, and every file to read is ticked (`docs/file-review.md`) | must pass |
 | Watched paths | lists files under `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, `device/`, `CODEOWNERS` and the seal path, and says which the PR body does not name | information |
 | Stale claims | `bash tools/stale_claims.sh` count for `CLAUDE.md` | information |
 
 The rules live in `.github/scripts/final-oversight.js`; `final-oversight-run.js` gathers the facts from GitHub and hands them over. The rules are tested offline by
-`tools/test_final_oversight.js` (46 checks, run in CI by `seal-path-tests.yml`).
+`tools/test_final_oversight.js` (60 checks, run in CI by `seal-path-tests.yml`).
 
 ## How the owner's approval works
 
