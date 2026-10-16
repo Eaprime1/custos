@@ -86,10 +86,15 @@ function staleProblem(markedHead, head, commits) {
   return commits.slice(at + 1).every(isJourneyCommit) ? null : 'files changed since the checklist was written';
 }
 
+function missingChecklist(body, state) {
+  if (!String(body || '').trim()) return 'no Shepherd Considers comment';
+  return state.head ? null : 'the comment has no checklist';
+}
+
 function evaluateFileReview({ body, head, commits = [] }) {
   const state = parseState(body);
-  if (!String(body || '').trim()) return { ok: false, open: [], problems: ['no Shepherd Considers comment'] };
-  if (!state.head) return { ok: false, open: [], problems: ['the comment has no checklist'] };
+  const missing = missingChecklist(body, state);
+  if (missing) return { ok: false, open: [], problems: [missing] };
   const problems = [staleProblem(state.head, head, commits)].filter(Boolean);
   if (state.total > state.shown) problems.push(`${state.total - state.shown} file(s) not listed`);
   if (state.open.length) problems.push(`${state.open.length} file(s) not yet read`);
@@ -236,7 +241,7 @@ function render(facts) {
 // facts: the same object; true when a must-pass check failed.
 function hardFail(facts) {
   const passes = [facts.checks.ok, facts.threads.ok, facts.post.ok, facts.obs.ok, Boolean(facts.obsPath),
-    Boolean(facts.fileReview && facts.fileReview.ok)];
+    Boolean(facts.fileReview?.ok)];
   return !passes.every(Boolean);
 }
 

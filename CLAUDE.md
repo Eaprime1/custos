@@ -268,6 +268,7 @@ The reasoning is in `docs/issue-system.md` §4.
 - Words with weight (`replace`, `unknown` in prose) are not scanned. The marker glossary and the reserved list are in `atelier/lexemes/reserved-lexemes.md`.
 
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
+
 - `finalize-pr.yml` seals a PR when the owner comments the seal cue. The seal asks for a filed observation with `status: complete` (not for a bot's finalize).
 - `probatio-label.yml` reads the owner's `^name probatio` as the soft seal and sets `ready-for-oversight`. It seals nothing.
 - `finalize` is the manual backup. The method is in `.claude/manual-finalize.md`, and the vocabulary is in `docs/latin-workflow-v2.md`.

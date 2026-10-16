@@ -1,9 +1,9 @@
 // Offline test for the observation rule in the seal ("Finalize PR" step of
 // .github/workflows/finalize-pr.yml). The shell wrapper writes the step's script into
-// a module and passes its path. It runs with fake GitHub calls, so nothing touches
-// the network. Run: bash tools/test_seal_observation.sh
+// tools/.seal-gate.generated.js, which is not committed. It runs with fake GitHub
+// calls, so nothing touches the network. Run: bash tools/test_seal_observation.sh
 
-const run = require(process.argv[2]);
+const run = require('./.seal-gate.generated.js');
 
 const OBS = 'turns/observations/202610160316_pr5_observation.md';
 const PR = {

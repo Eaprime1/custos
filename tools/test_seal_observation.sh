@@ -3,9 +3,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 command -v node >/dev/null 2>&1 || { echo "node is not installed" >&2; exit 2; }
-work="$(mktemp -d)"
-trap 'rm -rf "$work"' EXIT
-python3 - "$work/finalize.js" <<'PY'
+gate="tools/.seal-gate.generated.js"
+trap 'rm -f "$gate"' EXIT
+python3 - "$gate" <<'PY'
 import sys
 import yaml
 
@@ -15,4 +15,4 @@ step = next(s for s in steps if s.get("name") == "Finalize PR")
 script = step["with"]["script"]
 open(sys.argv[1], "w").write("module.exports = async ({ github, context, core }) => {\n" + script + "\n};\n")
 PY
-node tools/test_seal_observation.js "$work/finalize.js"
+node tools/test_seal_observation.js
