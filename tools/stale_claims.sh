@@ -15,7 +15,7 @@ bt=$'\x60'   # a backtick, kept out of single quotes so the shell lint stays qui
 files=("$@"); [ ${#files[@]} -eq 0 ] && files=(CLAUDE.md README.md)
 # A name written without its folder ("scan-lexeme.yml") counts as present when a
 # file or folder with that name exists anywhere in the tree.
-names=$(git ls-files | awk -F/ '{print $NF; p=""; for(i=1;i<NF;i++){print $i}}' | sort -u)
+names=$(git ls-files | awk -F/ '{print $NF; for(i=1;i<NF;i++){print $i}}' | sort -u)
 for f in "${files[@]}"; do
   [ -f "$f" ] || { echo "skip: $f not found"; continue; }
   total=0; missing=0

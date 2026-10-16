@@ -176,7 +176,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 ### Review Gates
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
 - **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
-- **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (25 on 2026-10-15).
+- **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (26 on 2026-10-16).
   - The ones named below are the review and seal path.
   - Others include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand` and `validate-json-yaml`.
   - Also `auto-finalize` (bot PRs; its header says it skips drafts), `track-pr-failures`, `sovran-labels-sync` and three Pages or icon jobs.
