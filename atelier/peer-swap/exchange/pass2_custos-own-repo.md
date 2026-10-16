@@ -74,7 +74,7 @@ File counts are for this branch unless marked.
   (`custos.md`, `pixelator.md`), `seed-weir/`.
 - **`incoming/`** (16): `README.md` and `pre-nullus/` witness copies (`202606181903_PR38…` through
   `202606290000_fuel-loading-protocol`). "Filing is not acceptance."
-- **`returns/`** (8): one directory per external agent stream; streams 6 and 7 still "TBD".
+- **`returns/`** (8): one directory per external agent stream; streams 6 and 7 still unassigned.
 - **`device/`** (6). See Section 2, correction K1.
 
 ### Generated, large, not hand-written
