@@ -1,7 +1,8 @@
 name: Seal Path Tests
 
-# Runs the offline tests for the seal path: the cue parser and the footer guards.
-# Neither test calls an API or writes to the repo. Added during the first peer swap
+# Offline tests for the seal path: the cue parser and the footer guards.
+# Neither test calls an API or writes to the repo.
+# Added during the first peer swap
 # (202610160314 UTC) because neither test ran in CI before.
 
 on:

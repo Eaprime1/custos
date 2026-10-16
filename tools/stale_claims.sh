@@ -11,6 +11,7 @@
 #        STALE_ROOT=/path/to/other/repo bash tools/stale_claims.sh   (check a peer checkout)
 set -uo pipefail
 cd "${STALE_ROOT:-$(dirname "$0")/..}" || exit 1
+bt=$'\x60'   # a backtick, kept out of single quotes so the shell lint stays quiet
 files=("$@"); [ ${#files[@]} -eq 0 ] && files=(CLAUDE.md README.md)
 # A name written without its folder ("scan-lexeme.yml") counts as present when a
 # file or folder with that name exists anywhere in the tree.
@@ -25,7 +26,7 @@ for f in "${files[@]}"; do
     total=$((total+1))
     p="${tok%%#*}"; p="${p%/}"
     [ -e "$p" ] || printf '%s\n' "$names" | grep -qxF -- "${p##*/}" || { missing=$((missing+1)); echo "  not in tree: $tok"; }
-  done < <(grep -o '`[^`]*`' "$f" | tr -d '`' | sort -u)
+  done < <(grep -o "${bt}[^${bt}]*${bt}" "$f" | tr -d "$bt" | sort -u)
   echo "$f: $missing of $total backticked path-like names not in the tree"
 done
 exit 0
