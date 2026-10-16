@@ -21,6 +21,9 @@ on:
       - '.github/scripts/final-oversight.js'
       - '.github/scripts/final-oversight-run.js'
       - '.github/workflows/final-oversight.yml'
+      - '.github/scripts/probatio-label.js'
+      - '.github/workflows/probatio-label.yml'
+      - 'tools/test_probatio_label.js'
       - 'docs/navigo-registry.md'
 
 permissions:
@@ -41,6 +44,9 @@ jobs:
 
       - name: Footer guards
         run: bash tools/test_footer_guards.sh
+
+      - name: Soft seal label
+        run: node tools/test_probatio_label.js
 
       - name: Final oversight rules
         run: node tools/test_final_oversight.js

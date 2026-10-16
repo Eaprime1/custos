@@ -15,8 +15,10 @@
 //
 // This module only reads text. It never labels, seals or merges.
 
-const DEFAULT_NAMES = ['claude', 'chatgpt', 'gemini', 'perplexity', 'unexusi', 'custos'];
-const ACTIONS = ['recensio', 'probatio', 'lustratio', 'judicium', 'novissimum', 'cursus'];
+// 'custos' addresses the workflows. 'omnes' addresses every contributor at once.
+// 'cuncti' addresses the project as a whole: read it first, then add your own view.
+const DEFAULT_NAMES = ['claude', 'chatgpt', 'gemini', 'perplexity', 'unexusi', 'custos', 'omnes', 'cuncti'];
+const ACTIONS = ['recensio', 'probatio', 'lustratio', 'judicium', 'novissimum', 'cursus', 'emenda'];
 const MODIFIERS = ['prima', 'ultima', 'suprema', 'extrema', 'renovata', 'expeditus'];
 const VERBS = ['disponi', 'petitio', 'placet', 'finalize', 'check', 'concordance', 'sync-labels'];
 // 3 to 12 characters after the dash, the same bound tools/session_id.sh check_own enforces
@@ -61,6 +63,10 @@ function readWords(rest) {
 
   if (verbs.length === 1 && actions.length === 0 && modifiers.length === 0) {
     return { id, verb: verbs[0], canonical: verbs[0], modifiers: [], action: null };
+  }
+  // Renovata may stand alone: a request to refresh the current work (docs/latin-workflow-v2.md).
+  if (words.length === 1 && words[0] === 'renovata') {
+    return { id, verb: null, action: null, modifiers: ['Renovata'], canonical: 'Renovata' };
   }
   if (actions.length === 1 && verbs.length === 0) {
     return {

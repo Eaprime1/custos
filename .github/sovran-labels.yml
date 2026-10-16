@@ -19,6 +19,10 @@ labels:
     color: "5319e7"
     description: "Owner opt-in: run the Final Oversight report on this PR (waits for the owner's approval)"
 
+  - name: ready-for-oversight
+    color: "0e8a16"
+    description: "Soft seal (probatio) given: ready for the oversight review"
+
   # ── Concordance ────────────────────────────────────────────────────────────
   - name: concordance
     color: "0075ca"
