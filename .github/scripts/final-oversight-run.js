@@ -30,21 +30,22 @@ function latestSealTime(comments) {
   return seals.length ? seals[seals.length - 1].created_at : null;
 }
 
+async function commitDetail(ctx, c) {
+  const { github, owner, repo } = ctx;
+  const full = await github.rest.repos.getCommit({ owner, repo, ref: c.sha });
+  return {
+    sha: c.sha,
+    date: c.commit.committer.date,
+    authorLogin: c.author ? c.author.login : '',
+    files: (full.data.files || []).map((f) => f.filename),
+  };
+}
+
 async function commitsAfter(ctx) {
   const { github, owner, repo, number, sealAt } = ctx;
   const all = await github.paginate(github.rest.pulls.listCommits, { owner, repo, pull_number: number, per_page: 100 });
   const later = all.filter((c) => Date.parse(c.commit.committer.date) > Date.parse(sealAt));
-  const detailed = [];
-  for (const c of later) {
-    const full = await github.rest.repos.getCommit({ owner, repo, ref: c.sha });
-    detailed.push({
-      sha: c.sha,
-      date: c.commit.committer.date,
-      authorLogin: c.author ? c.author.login : '',
-      files: (full.data.files || []).map((f) => f.filename),
-    });
-  }
-  return detailed;
+  return Promise.all(later.map((c) => commitDetail(ctx, c)));
 }
 
 async function gatherSeal(ctx) {
