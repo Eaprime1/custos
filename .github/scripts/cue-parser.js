@@ -1,4 +1,3 @@
-'use strict';
 // Custos cue parser. One place for the rules that the cue workflows each
 // re-implement: who may give a cue, which text counts, and what a cue is.
 // Plan: docs/plans/202610070939-cue-sigil-and-living-observation-plan.md
