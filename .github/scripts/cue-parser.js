@@ -15,8 +15,9 @@
 //
 // This module only reads text. It never labels, seals or merges.
 
-// 'custos' addresses the workflows; 'omnes' addresses every contributor at once.
-const DEFAULT_NAMES = ['claude', 'chatgpt', 'gemini', 'perplexity', 'unexusi', 'custos', 'omnes'];
+// 'custos' addresses the workflows. 'omnes' addresses every contributor at once.
+// 'cuncti' addresses the project as a whole: read it first, then add your own view.
+const DEFAULT_NAMES = ['claude', 'chatgpt', 'gemini', 'perplexity', 'unexusi', 'custos', 'omnes', 'cuncti'];
 const ACTIONS = ['recensio', 'probatio', 'lustratio', 'judicium', 'novissimum', 'cursus', 'emenda'];
 const MODIFIERS = ['prima', 'ultima', 'suprema', 'extrema', 'renovata', 'expeditus'];
 const VERBS = ['disponi', 'petitio', 'placet', 'finalize', 'check', 'concordance', 'sync-labels'];

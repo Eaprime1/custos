@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **custos** is a prima terminal concept for the Pixel 8 — a guardian/shepherd environment for tending all work done from the device.
 
 - Not a software project with a build pipeline
-- No compilation and no package manager. Small test scripts live in `tools/`: `test_cue_parser.sh` (65 rows, needs Node), `test_footer_guards.sh` (16 checks, needs Node and PyYAML), `test_final_oversight.js` (46 checks, needs Node), `test_check_workflow_injection.sh` (11 checks, needs Python 3) and `test_validate_json_yaml.sh`
+- No compilation and no package manager. Small test scripts live in `tools/`: `test_cue_parser.sh` (67 rows, needs Node), `test_footer_guards.sh` (16 checks, needs Node and PyYAML), `test_final_oversight.js` (46 checks, needs Node), `tools/test_probatio_label.js` (15 rows, needs Node), `test_check_workflow_injection.sh` (11 checks, needs Python 3) and `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
 
 ```
@@ -177,12 +177,13 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 ### Review Gates
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
 - **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
-- **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (28 on 2026-10-16).
+- **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (29 on 2026-10-16).
   - The ones named below are the review and seal path.
   - Others include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand` and `validate-json-yaml`.
   - Also `auto-finalize` (bot PRs; its header says it skips drafts), `track-pr-failures`, `sovran-labels-sync`, `minimize-ecc-comments` (folds ecc-tools[bot] audit comments away as outdated) and three Pages or icon jobs.
   - `scan-lexeme.yml` — placeholder scan
   - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards and the final-oversight rules, run when a seal-path file changes
+  - `probatio-label.yml` — the soft seal: the owner's `^name probatio` sets the `ready-for-oversight` label, and a person's push takes it off
   - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `final-oversight` label and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
   - `workflow-lint.yml` — looks for `${{ }}` expressions pasted into `run:` scripts (expression injection) with `tools/check_workflow_injection.py`; adopted from hodie, runs when a workflow or the checker changes
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
@@ -260,6 +261,8 @@ The reasoning is in `docs/issue-system.md` §4.
 
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
 - `finalize-pr.yml` seals a PR when the owner comments the seal cue.
+- `probatio-label.yml` reads the owner's `^name probatio` as the soft seal and sets `ready-for-oversight`. It seals nothing.
+- `finalize` is the manual backup. The method is in `.claude/manual-finalize.md`, and the vocabulary is in `docs/latin-workflow-v2.md`.
 - The seal gate skips comments that carry the Claude Code footer.
 - The seal gate also skips cues inside quotes or code.
 - In PR comments, a navigo describes the seal cue in words, unless the owner asks it to post the cue.

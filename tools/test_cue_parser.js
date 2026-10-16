@@ -35,6 +35,8 @@ const rows = [
   ['repair, final round', '^gemini ultima emenda', OWNER, { cues: [['^', 'gemini', 'Ultima Emenda', null]] }],
   ['renovata alone, targeted', '^perplexity renovata', OWNER, { cues: [['^', 'perplexity', 'Renovata', null]] }],
   ['renovata alone, everyone', '^omnes renovata', OWNER, { cues: [['^', 'omnes', 'Renovata', null]] }],
+  ['project perspective first', '^cuncti prima recensio', OWNER, { cues: [['^', 'cuncti', 'Prima Recensio', null]] }],
+  ['project perspective, refresh', '^cuncti renovata', OWNER, { cues: [['^', 'cuncti', 'Renovata', null]] }],
   ['soft seal to everyone', '^omnes probatio', OWNER, { cues: [['^', 'omnes', 'Probatio', null]] }],
   ['final review to everyone', '^omnes ultima recensio', OWNER, { cues: [['^', 'omnes', 'Ultima Recensio', null]] }],
   ['renovata with id', '^gemini set-4f2a1c renovata', OWNER, { cues: [['^', 'gemini', 'Renovata', 'set-4f2a1c']] }],
@@ -106,10 +108,10 @@ for (const [name, body, opts, want] of rows) {
 // The registry text arrives in REGISTRY_TEXT (tools/test_cue_parser.sh sets it from docs/navigo-registry.md).
 // The default names must be the navigos the registry lists (custos is the workflows' own name).
 const registry = (process.env.REGISTRY_TEXT || '').toLowerCase();
-for (const n of DEFAULT_NAMES.filter((x) => x !== 'custos' && x !== 'omnes')) {
+for (const n of DEFAULT_NAMES.filter((x) => !['custos', 'omnes', 'cuncti'].includes(x))) {
   if (!registry.includes(n)) fail(`registry has ${n}`, 'name not found in docs/navigo-registry.md');
 }
 
-const total = rows.length + DEFAULT_NAMES.length - 2;
+const total = rows.length + DEFAULT_NAMES.length - 3;
 say(`${total - failed} of ${total} passed`);
 process.exit(failed ? 1 : 0);

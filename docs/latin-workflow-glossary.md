@@ -38,11 +38,11 @@ These are not stage actions or modifiers — they are the two-step check-in prot
 | Action | Inspiration / sense | Custos stage |
 |---|---|---|
 | **Recensio** | Review or census, looking for discrepancies | Verify, fix findings and work toward readiness; deep scan when warranted, not automatically on every small PR. |
-| **Probatio** | Examination or testing of proof | Assess final evidence and readiness. A bare `Probatio` asks for the assessment; it does not by itself finalize or merge. |
+| **Probatio** | Examination or testing of proof | The soft seal. The owner's `^name probatio` sets the `ready-for-oversight` label and the contributor states readiness. It does not finalize or merge. |
 | **Lustratio** | Review and presentation | Optional coherence, polish, reading path and provenance pass without quietly changing scope. |
 | **Judicium** | Judgment | Explicit owner decision: choices, evidence, risks and authority. A waiver is not assumed from this word alone. |
 | **Novissimum** | The rear guard | Close loose ends or carry them forward with a named owner and destination. |
-| **Emenda** | *Emendare*, to correct | Repair what oversight flagged. The owner asks a contributor to fix and report each flag. Added in [v2](latin-workflow-v2.md). |
+| **Emenda** | *Emendare*, to correct | Repair what oversight flagged. The owner asks a contributor to fix and report each flag. Editing, not blame. Added in [v2](latin-workflow-v2.md). *Refice* (rework) is reserved. |
 | **Cursus** | Course or path | 'Finish it up': perform the remaining applicable stages in order, recording their results. `Cursus expeditus` requests a prompt, focused course, not an automatic merge. |
 
 ## Combined codes
@@ -64,7 +64,9 @@ If an optional review is intentionally omitted during an expeditus course, recor
 
 ## Where custos uses these
 
-- **`finalize-pr.yml`:** the existing implemented cue `@claude` plus `ultima Probatio` finalizes/seals a PR (as does `@claude finalize`). This document does **not** change that live behavior. Do not post that phrase merely to request a preliminary review; use a bare `Probatio` when you want the readiness assessment before finalization. Recensio and Lustratio calls do not finalize even if prose mentions 'finalize'. The cue is ignored inside `code`, code blocks and `>` quotes, and in any comment carrying the Claude Code footer, so quoting it or a navigo reply can't seal a PR.
+- **`probatio-label.yml`:** the owner's `^name probatio` (not `ultima probatio`) sets the `ready-for-oversight` label. A person's push takes it off. See [v2](latin-workflow-v2.md).
+- **Manual backup:** `finalize` and a handwritten ticket are described in [`.claude/manual-finalize.md`](../.claude/manual-finalize.md), outside the main stream.
+- **`finalize-pr.yml`:** the existing implemented cue `@claude` plus `ultima Probatio` finalizes/seals a PR (as does `@claude finalize`). This document does **not** change that live behavior. Do not post that phrase merely to request a preliminary review; use a bare `Probatio` for the soft seal before finalization. Recensio and Lustratio calls do not finalize even if prose mentions 'finalize'. The cue is ignored inside `code`, code blocks and `>` quotes, and in any comment carrying the Claude Code footer, so quoting it or a navigo reply can't seal a PR.
 - **Merge:** neither a finalized label nor a passing assessment merges a PR. Eric requests merge separately in the conversation or with the responsible merger.
 - **Conversations:** adapted usage and a seed block are in [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md). That document currently describes *Ultima Probatio* as sealing a conversation; align its language later if the owner changes that separate scope.
 - **Radix:** `ultima Probatio` also finalizes there (radix#41). A change to this glossary alone does not alter radix.

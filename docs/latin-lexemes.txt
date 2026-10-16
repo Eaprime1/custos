@@ -5,18 +5,20 @@ custos, docs/latin-workflow-v2.md
 HOW TO CALL
   ^name cue words          one contributor
   ^name set-4f2a1c cue     one conversation of that contributor
-  ^omnes cue words         every contributor
+  ^omnes cue words         every contributor, each from its own seat
+  ^cuncti cue words        the project as a whole. Read it first.
   Start of a line. Not in quotes or code. Owner only.
-  Names: claude chatgpt gemini perplexity unexusi custos omnes
+  Names: claude chatgpt gemini perplexity unexusi custos omnes cuncti
 
 ACTIONS (the work)
   recensio      review. Scan, find, fix.
-  probatio      soft seal. Ready for oversight.
+  probatio      soft seal. Sets the ready-for-oversight label.
   lustratio     polish. How it reads, not what it does.
   judicium      stop. Options and a recommendation. Wait.
   novissimum    rear guard. Close or file loose ends.
   cursus        run the remaining stages in order.
-  emenda        repair what oversight flagged.
+  emenda        amend what oversight flagged. Editing, not blame.
+  (refice       rework, bigger than amending. Reserved for later.)
 
 MODIFIERS (the scope or tempo)
   prima         first. Orient, change nothing.
@@ -28,24 +30,28 @@ MODIFIERS (the scope or tempo)
 
 COMMON CALLS
   ^omnes renovata               everyone refreshes their PR
+  ^cuncti prima recensio        orient from the whole project first
   ^perplexity renovata          only Perplexity refreshes
   ^omnes recensio               everyone reviews
   ^gemini ultima recensio       Gemini does the final review
   ^chatgpt probatio             ChatGPT states readiness
-  ^claude emenda                Claude repairs the flags
-  ^claude expeditus emenda      quick repair of small flags
+  ^claude emenda                Claude amends the flags
+  ^claude expeditus emenda      quick amendment of small flags
   ^claude extrema emenda        root cause for a stubborn flag
-  ^claude ultima emenda         last round of repairs
+  ^claude ultima emenda         last round of amendments
 
 THE ROAD
-  recensio  >  ultima recensio  >  probatio  >  oversight
+  recensio  >  ultima recensio  >  probatio (label)  >  oversight
   oversight finds flags  >  emenda  >  back to ultima recensio
   oversight is clear  >  ultima probatio (owner)  >  merge
 
 OWNER ONLY
   ultima probatio    final seal
-  finalize           older word for ultima probatio
   merge              on the Shepherd's word
+
+MANUAL BACKUP
+  finalize + a handwritten ticket. When the words are in a mess.
+  See .claude/manual-finalize.md
 
 CHECK-IN CUES (issues)
   disponi    is this mission open?
