@@ -64,6 +64,19 @@ async function gatherObservation(ctx) {
   return { obs: fo.evaluateObservation(text), obsPath };
 }
 
+// The checklist comment, and the commits after the head it describes (with their files).
+async function gatherFileReview(ctx) {
+  const { github, fo, owner, repo, number, head, comments } = ctx;
+  const mine = comments.find((c) => c.user && c.user.type === 'Bot' && c.body.startsWith(fo.CONSIDERS_MARK));
+  const body = mine ? mine.body : '';
+  const marked = fo.checklistHead(body);
+  const all = await github.paginate(github.rest.pulls.listCommits, { owner, repo, pull_number: number, per_page: 100 });
+  const at = all.findIndex((c) => c.sha === marked);
+  const detail = (c, i) => (i > at ? commitDetail(ctx, c) : { sha: c.sha });
+  const commits = at === -1 ? [] : await Promise.all(all.map(detail));
+  return fo.evaluateFileReview({ body, head, commits });
+}
+
 async function upsertComment(ctx) {
   const { github, fo, owner, repo, number, comments, body } = ctx;
   const mine = comments.find((c) => c.user && c.user.type === 'Bot' && c.body.startsWith(fo.MARK));
@@ -86,6 +99,7 @@ module.exports = async function run({ github, context, core, fo }) {
     threads: await gatherThreads(base),
     post: await gatherSeal({ ...base, comments }),
     ...(await gatherObservation({ ...base, names })),
+    fileReview: await gatherFileReview({ ...base, comments }),
     watched,
     unnamed: fo.unnamedWatched(watched, pr.body || ''),
     stale: fo.parseStale(fs.readFileSync('stale.txt', 'utf8')),

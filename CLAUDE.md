@@ -10,9 +10,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - No compilation and no package manager. Small test scripts live in `tools/`:
   - `test_cue_parser.sh` (67 rows, needs Node)
   - `test_footer_guards.sh` (16 checks, needs Node and PyYAML)
-  - `test_final_oversight.js` (46 checks, needs Node)
+  - `test_final_oversight.js` (60 checks, needs Node)
   - `test_probatio_label.js` (15 rows, needs Node)
   - `test_file_review.js` (30 rows, needs Node)
+  - `test_seal_observation.sh` (9 rows, needs Node, Python 3 and PyYAML)
   - `test_check_workflow_injection.sh` (11 checks, needs Python 3)
   - `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
@@ -267,7 +268,8 @@ The reasoning is in `docs/issue-system.md` §4.
 - Words with weight (`replace`, `unknown` in prose) are not scanned. The marker glossary and the reserved list are in `atelier/lexemes/reserved-lexemes.md`.
 
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
-- `finalize-pr.yml` seals a PR when the owner comments the seal cue.
+
+- `finalize-pr.yml` seals a PR when the owner comments the seal cue. The seal asks for a filed observation with `status: complete` (not for a bot's finalize).
 - `probatio-label.yml` reads the owner's `^name probatio` as the soft seal and sets `ready-for-oversight`. It seals nothing.
 - `finalize` is the manual backup. The method is in `.claude/manual-finalize.md`, and the vocabulary is in `docs/latin-workflow-v2.md`.
 - The seal gate skips comments that carry the Claude Code footer.

@@ -16,6 +16,7 @@ and a handwritten ticket still get the work done.
 - The cue record or labels disagree with the PR and nobody can say why.
 - Actions are down, or an approval prompt is stuck.
 - A word is in dispute and the PR must still close today.
+- The seal refuses for a missing observation and the PR must still close. Write the reason in the ticket.
 
 ## The three levels
 
