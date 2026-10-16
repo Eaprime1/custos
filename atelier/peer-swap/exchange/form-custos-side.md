@@ -43,43 +43,34 @@ Full observations with citations are in `atelier/peer-swap/exchange/pass1_custos
 
 ## C. Pass 2 — deep dive of `eaprime1/custos`
 
-*Read your own repo with Pass 1 in hand. Do not edit Pass 1.*
+*Full text: `pass2_custos-own-repo.md` (frozen). Summary of each answer:*
 
-1. The top-level folders of `eaprime1/custos`, one line each: what is load-bearing, what is finished,
-   what is unfinished: ____
-   - `quests/`, `world/`, `tools/` ____
-   - `prima-clock/`, `moav/`, `vault/`, `branch-tracker/` ____
-   - `atelier/`, `.shadow-well/`, `queue/` ____
-   - `turns/` (including `observations/`) ____
-   - `.github/workflows/` ____
-   - Anything top-level I did not list: ____
-2. Where my Pass 1 was wrong or incomplete, now that I know my own repo better: ____
-3. Things `eaprime1/custos` does that `eaprime1/hodie` would not guess: ____
-4. The thing in `eaprime1/custos` I would least like the peer to open, and why: ____
-5. Did anything in my own repo change how I read Pass 1? If not, say so: ____
+1. Top-level folders: see Pass 2 section 1 (load-bearing / finished / unfinished / generated / unknown).
+   - `quests/`, `world/`, `tools/`: finished or near-finished; `world/the-the.md` do-not-edit; 22 tools, tests pass.
+   - `prima-clock/`, `moav/`, `vault/`, `branch-tracker/`: registry 40 rows, 13 carriers (README indexes 5), vault empty, tracker 12 days behind.
+   - `atelier/`, `.shadow-well/`, `queue/`: unfinished by design; `atelier/` 142 files, mostly unread by me.
+   - `turns/`: five files, five jobs; five PR observations.
+   - `.github/workflows/`: 25 workflows; `CLAUDE.md` names nine.
+   - Not listed: `pr-journeys/` (115, generated), `dungeon-master/`, `valuation/`, `guides/`, `docs/`, `missions/`, `device/` and others: present, state not judged.
+2. Corrections to Pass 1: K1–K8 in Pass 2 section 2 (`device/` on `main`; witness counts not comparable; four tracker branches absent; registry row `202609251844` outlived its tree; stale "Known Stray Content"; 48 lines vs 40 rows; five workflows differ from hodie's; bounty remnants).
+3. Things hodie would not guess: Pass 2 section 3 (exceptions as registry rows, seal and merge as two acts, rationed paid review, workflow-enforced no-cash rule, five session-memory files, `peer_inventory.sh`, empty vault by design).
+4. Least like the peer to open: `CLAUDE.md` and `branch-tracker/branches.md`, because both state things the tree no longer matches.
+5. Did it change how I read Pass 1: yes. Custos has the same four faults I listed for hodie; only the way of stating staleness differs (Pass 2 section 5).
 
-*Commit as `pass2_custos-own-repo.md`, message starting `freeze:`.*
+*Disclosure: after gathering facts I read hodie session A's Pass 1. Not the letter. Not session b.*
 
 ---
 
 ## D. Pass 3 — letter to `eaprime1/hodie`
 
-*Write the letter as its own file. Fill this block in first as the outline.*
+*Full text: `pass3_letter_custos-to-hodie.md` (frozen). Header says hodie's letter had NOT been read.*
 
-1. What I saw in your repo that you may not see (up to five, each with a path): ____
-2. What I would borrow from you:
+1. Seen in hodie: plexus described and absent; `CLAUDE.md` against the tree (`claude.yml`, 15 vs 16, `pytest-asyncio`); all 17 carriers `OPEN`; no contributor door; wellspring "1 item at a time" beside 114 files.
+2. Borrow table: carrier transfer fields (adopt), current carrier index (adopt), Mobius-Closed retention (adapt), tombstone stubs (adapt), footer stamp state and bot commit (decline; "additive" rule maybe adapt). Costs are in the letter.
+3. Questions: plexus code vs folders; `claude.yml`; meaning of `OPEN` on `COMPLETE`; draft handling in `auto-finalize`; owner of the wellspring next step; Quince.
+4. Warnings: custos `CLAUDE.md` stale in four places; "ported" is not shared; seal convention is heavy; `pull_request_target` workflows; empty vault; naming under review; bounty remnant.
 
-| Item (path) | Tentative: adopt / adapt / decline | Why | Cost to my repo |
-|---|---|---|---|
-| ____ | ____ | ____ | ____ |
-| ____ | ____ | ____ | ____ |
-| ____ | ____ | ____ | ____ |
-
-3. What I would ask you: ____
-4. What I would warn you about before you borrow from mine: ____
-
-*Commit as `pass3_letter_custos-to-hodie.md`, message starting `freeze:`.
-Then check that the peer's letter is on origin before Pass 4.*
+*Peer's letter on origin before Pass 4: not checked. I have not read it.*
 
 ---
 
