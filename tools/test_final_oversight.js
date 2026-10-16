@@ -73,7 +73,7 @@ check('parse stale, nothing', fo.parseStale('nothing here'), null);
 
 // ── file review checklist (the Shepherd Considers comment) ──────────
 const fmark = (box, path) => `- [${box}] [\`${path}\`](x) <!--fr ${encodeURIComponent(path)} abc-->`;
-const checklist = (head, total, shown, lines) => ['<!-- custos-shepherd-considers -->', `<!--fr-head ${head} total=${total} shown=${shown}-->`, ...lines].join('\n');
+const checklist = (head, count, listed, lines) => ['<!-- custos-shepherd-considers -->', `<!--fr-head ${head} total=${count} shown=${listed}-->`, ...lines].join('\n');
 const done = checklist('h1', 2, 2, [fmark('x', 'a.md'), fmark('x', 'b.md')]);
 const journey = (sha) => ({ sha, authorLogin: 'github-actions[bot]', files: ['pr-journeys/j.md'] });
 check('file review: all ticked', fo.evaluateFileReview({ body: done, head: 'h1' }).ok, true);
