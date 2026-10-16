@@ -180,7 +180,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 - **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (28 on 2026-10-16).
   - The ones named below are the review and seal path.
   - Others include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand` and `validate-json-yaml`.
-  - Also `auto-finalize` (bot PRs; its header says it skips drafts), `track-pr-failures`, `sovran-labels-sync` and three Pages or icon jobs.
+  - Also `auto-finalize` (bot PRs; its header says it skips drafts), `track-pr-failures`, `sovran-labels-sync`, `minimize-ecc-comments` (folds ecc-tools[bot] audit comments away as outdated) and three Pages or icon jobs.
   - `scan-lexeme.yml` — placeholder scan
   - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards and the final-oversight rules, run when a seal-path file changes
   - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `final-oversight` label and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
