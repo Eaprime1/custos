@@ -23,6 +23,10 @@ on:
       - '.github/workflows/final-oversight.yml'
       - '.github/scripts/probatio-label.js'
       - '.github/workflows/probatio-label.yml'
+      - '.github/workflows/sovran-voice.yml'
+      - '.github/scripts/file-review.js'
+      - '.github/review-skip.json'
+      - 'tools/test_file_review.js'
       - 'tools/test_probatio_label.js'
       - 'docs/navigo-registry.md'
 
@@ -47,6 +51,9 @@ jobs:
 
       - name: Soft seal label
         run: node tools/test_probatio_label.js
+
+      - name: File review checklist
+        run: node tools/test_file_review.js
 
       - name: Final oversight rules
         run: node tools/test_final_oversight.js
