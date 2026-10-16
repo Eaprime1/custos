@@ -98,8 +98,8 @@ function statusProblem(text) {
 // The observation must be complete and carry a rubric score for each of M1 to M8.
 function evaluateObservation(text) {
   const problems = [statusProblem(text)].filter(Boolean);
-  REQUIRED_SECTIONS.filter((h) => !String(text).includes(h))
-    .forEach((h) => problems.push(`missing section "${h}"`));
+  const absent = REQUIRED_SECTIONS.filter((h) => !String(text).includes(h));
+  problems.push(...absent.map((h) => `missing section "${h}"`));
   const scored = scoredRows(text);
   const missing = [1, 2, 3, 4, 5, 6, 7, 8].filter((n) => !scored.has(n));
   const labels = missing.map((n) => `M${n}`).join(', ');
