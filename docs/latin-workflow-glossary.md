@@ -6,6 +6,8 @@
 
 A workflow call has two parts: an **action** naming the work and, optionally, a **modifier** naming its scope or tempo. A call is a request for a stage of work, not proof that stage passed. Read the surrounding comment and the applicable workflow before acting. These names are project vocabulary, not a historical equivalence or a new required PR-title/label scheme.
 
+A refinement of this vocabulary, with the road from contributor to merge, is in [`latin-workflow-v2.md`](latin-workflow-v2.md). A plain-text copy for quick reference is [`latin-lexemes.txt`](latin-lexemes.txt).
+
 ## Modifiers
 
 | Modifier | Working meaning | Use |
@@ -40,6 +42,7 @@ These are not stage actions or modifiers — they are the two-step check-in prot
 | **Lustratio** | Review and presentation | Optional coherence, polish, reading path and provenance pass without quietly changing scope. |
 | **Judicium** | Judgment | Explicit owner decision: choices, evidence, risks and authority. A waiver is not assumed from this word alone. |
 | **Novissimum** | The rear guard | Close loose ends or carry them forward with a named owner and destination. |
+| **Emenda** | *Emendare*, to correct | Repair what oversight flagged. The owner asks a contributor to fix and report each flag. Added in [v2](latin-workflow-v2.md). |
 | **Cursus** | Course or path | 'Finish it up': perform the remaining applicable stages in order, recording their results. `Cursus expeditus` requests a prompt, focused course, not an automatic merge. |
 
 ## Combined codes

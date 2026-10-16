@@ -1,0 +1,62 @@
+LATIN WORKFLOW QUICK REFERENCE
+custos, docs/latin-workflow-v2.md
+------------------------------------------------------------
+
+HOW TO CALL
+  ^name cue words          one contributor
+  ^name set-4f2a1c cue     one conversation of that contributor
+  ^omnes cue words         every contributor
+  Start of a line. Not in quotes or code. Owner only.
+  Names: claude chatgpt gemini perplexity unexusi custos omnes
+
+ACTIONS (the work)
+  recensio      review. Scan, find, fix.
+  probatio      soft seal. Ready for oversight.
+  lustratio     polish. How it reads, not what it does.
+  judicium      stop. Options and a recommendation. Wait.
+  novissimum    rear guard. Close or file loose ends.
+  cursus        run the remaining stages in order.
+  emenda        repair what oversight flagged.
+
+MODIFIERS (the scope or tempo)
+  prima         first. Orient, change nothing.
+  ultima        final. No new scope.
+  suprema       highest. Presentation. Use sparingly.
+  extrema       deepest. Root cause, evidence.
+  renovata      refresh. May stand alone.
+  expeditus     prompt. Focused, same standards.
+
+COMMON CALLS
+  ^omnes renovata               everyone refreshes their PR
+  ^perplexity renovata          only Perplexity refreshes
+  ^omnes recensio               everyone reviews
+  ^gemini ultima recensio       Gemini does the final review
+  ^chatgpt probatio             ChatGPT states readiness
+  ^claude emenda                Claude repairs the flags
+  ^claude expeditus emenda      quick repair of small flags
+  ^claude extrema emenda        root cause for a stubborn flag
+  ^claude ultima emenda         last round of repairs
+
+THE ROAD
+  recensio  >  ultima recensio  >  probatio  >  oversight
+  oversight finds flags  >  emenda  >  back to ultima recensio
+  oversight is clear  >  ultima probatio (owner)  >  merge
+
+OWNER ONLY
+  ultima probatio    final seal
+  finalize           older word for ultima probatio
+  merge              on the Shepherd's word
+
+CHECK-IN CUES (issues)
+  disponi    is this mission open?
+  petitio    my plan, waiting for the nod
+  placet     the nod (owner)
+
+CUSTOS VERBS
+  ^custos check          ^custos concordance
+  ^custos sync-labels
+
+REMEMBER
+  A call is a mode, not a keyword.
+  A contributor never seals and never merges.
+  A new head means a new seal.

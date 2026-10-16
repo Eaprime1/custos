@@ -30,7 +30,15 @@ const rows = [
   ['three spaces in', '   ^claude ultima probatio', OWNER, { cues: [['^', 'claude', 'Ultima Probatio', null]] }],
   ['two cues, two lines', '^claude prima recensio\n^chatgpt ultima recensio', OWNER,
     { cues: [['^', 'claude', 'Prima Recensio', null], ['^', 'chatgpt', 'Ultima Recensio', null]] }],
-  ['older at form', '@claude ultima probatio', OWNER, { cues: [['@', 'claude', 'Ultima Probatio', null]] }],
+  ['repair word', '^perplexity emenda', OWNER, { cues: [['^', 'perplexity', 'Emenda', null]] }],
+  ['repair with modifier', '^chatgpt extrema emenda', OWNER, { cues: [['^', 'chatgpt', 'Extrema Emenda', null]] }],
+  ['repair, final round', '^gemini ultima emenda', OWNER, { cues: [['^', 'gemini', 'Ultima Emenda', null]] }],
+  ['renovata alone, targeted', '^perplexity renovata', OWNER, { cues: [['^', 'perplexity', 'Renovata', null]] }],
+  ['renovata alone, everyone', '^omnes renovata', OWNER, { cues: [['^', 'omnes', 'Renovata', null]] }],
+  ['soft seal to everyone', '^omnes probatio', OWNER, { cues: [['^', 'omnes', 'Probatio', null]] }],
+  ['final review to everyone', '^omnes ultima recensio', OWNER, { cues: [['^', 'omnes', 'Ultima Recensio', null]] }],
+  ['renovata with id', '^gemini set-4f2a1c renovata', OWNER, { cues: [['^', 'gemini', 'Renovata', 'set-4f2a1c']] }],
+  ['older at form',  '@claude ultima probatio', OWNER, { cues: [['@', 'claude', 'Ultima Probatio', null]] }],
   ['older at finalize', '@claude finalize', OWNER, { cues: [['@', 'claude', 'finalize', null]] }],
   ['at and caret together', '@claude finalize\n^custos check', OWNER,
     { cues: [['@', 'claude', 'finalize', null], ['^', 'custos', 'check', null]] }],
@@ -57,6 +65,8 @@ const rows = [
   ['two actions', '^claude probatio recensio', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
   ['verb with a modifier', '^claude ultima finalize', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
   ['modifier only', '^claude ultima', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
+  ['renovata with another modifier', '^claude renovata ultima', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
+  ['renovata with a verb', '^claude renovata check', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
 
   // Who may give a cue.
   ['footer comment', `^claude ultima probatio${FOOTER}`, OWNER, { cues: [], skipped: 'footer' }],
@@ -96,10 +106,10 @@ for (const [name, body, opts, want] of rows) {
 // The registry text arrives in REGISTRY_TEXT (tools/test_cue_parser.sh sets it from docs/navigo-registry.md).
 // The default names must be the navigos the registry lists (custos is the workflows' own name).
 const registry = (process.env.REGISTRY_TEXT || '').toLowerCase();
-for (const n of DEFAULT_NAMES.filter((x) => x !== 'custos')) {
+for (const n of DEFAULT_NAMES.filter((x) => x !== 'custos' && x !== 'omnes')) {
   if (!registry.includes(n)) fail(`registry has ${n}`, 'name not found in docs/navigo-registry.md');
 }
 
-const total = rows.length + DEFAULT_NAMES.length - 1;
+const total = rows.length + DEFAULT_NAMES.length - 2;
 say(`${total - failed} of ${total} passed`);
 process.exit(failed ? 1 : 0);
