@@ -1,7 +1,7 @@
 # PR Journey: #450 — Peer swap/custos side
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202610160208  
+**prima-clock:** 202610160214  
 **Branch:** `peer-swap/custos-side` → `main`  
 **Author:** @Eaprime1  
 **State:** FINALIZED  
@@ -30,12 +30,17 @@ The one custos PR for the custos/hodie peer swap: the process, mission, forms an
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202610152323 | @Eaprime1 |
-| Finalized | 202610160208 | @Eaprime1 |
+| Finalized | 202610160214 | @Eaprime1 |
 
 ## CI Record
 
 | Check | Result |
 |---|---|
+| scan | ✅ |
+| scan | ✅ |
+| custos-speaks | ✅ |
+| validate | ✅ |
+| dependency-review | ✅ |
 | Codacy Static Code Analysis | ✅ |
 | DeepSource: Lua | ⏭ |
 | DeepSource: Apex | ⏭ |
@@ -48,12 +53,6 @@ The one custos PR for the custos/hodie peer swap: the process, mission, forms an
 | DeepSource: Objective-C | ⏭ |
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
-| custos-speaks | ✅ |
-| scan | ✅ |
-| dependency-review | ✅ |
-| validate | ✅ |
-| scan | ✅ |
-| packet | ✅ |
 | GitGuardian Security Checks | ✅ |
 
 ## DeepSource Record
@@ -66,10 +65,10 @@ The one custos PR for the custos/hodie peer swap: the process, mission, forms an
 
 | Dimension | Score | Note |
 |---|---|---|
-| Correctness | 5/5 | 19 CI check(s) — all passed |
+| Correctness | 5/5 | 18 CI check(s) — all passed |
 | Consistency | 5/5 | Template complete · ethics 5/5 |
-| Scope | 3/5 | 24 file(s) changed |
-| Verification | 5/5 | 19 check run(s) completed |
+| Scope | 3/5 | 25 file(s) changed |
+| Verification | 5/5 | 18 check run(s) completed |
 | **Valuation** | **High** | 18/20 |
 
 ## Ethics Check
@@ -89,6 +88,6 @@ Eric seals, oversight merges. Open for later: whether ♠️ on a carrier means 
 - @Eaprime1 · 202610160208 · sealed at finalize
 
 ---
-**prima-clock:** 202610160208  
+**prima-clock:** 202610160214  
 **witnessed:** true — 1 witness, sealed 202610160208 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
