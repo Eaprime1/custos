@@ -39,7 +39,7 @@ same('marks: unticked, path with a space', marks.get('b b.md'), { checked: false
 same('marks: capital X, parentheses', marks.get('dir/c (1).md'), { checked: true, sha: 'ccc' });
 same('marks: line without a mark is ignored', marks.size, 3);
 same('marks: empty body', fr.readMarks('').size, 0);
-same('marks: undefined body', fr.readMarks(undefined).size, 0);
+same('marks: undefined body', fr.readMarks().size, 0);
 
 // Judging one file against the earlier ticks.
 const judged = (file) => {
