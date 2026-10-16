@@ -6,9 +6,9 @@ let total = 0;
 const say = (s) => process.stdout.write(`${s}\n`);
 function check(name, got, want) {
   total += 1;
-  const a = JSON.stringify(got);
-  const b = JSON.stringify(want);
-  if (a !== b) { failed += 1; say(`FAIL: ${name}\n  got  ${a}\n  want ${b}`); }
+  const gotJson = JSON.stringify(got);
+  const wantJson = JSON.stringify(want);
+  if (gotJson !== wantJson) { failed += 1; say(`FAIL: ${name}\n  got  ${gotJson}\n  want ${wantJson}`); }
 }
 
 // ── checks and statuses ─────────────────────────────────────────────
@@ -34,14 +34,14 @@ check('one open thread', fo.evaluateThreads([{ isResolved: true }, { isResolved:
 check('no threads', fo.evaluateThreads([]).ok, true);
 
 // ── commits after the seal ──────────────────────────────────────────
-const c = (sha, date, authorLogin, files) => ({ sha, date, authorLogin, files });
+const commit = (sha, date, authorLogin, files) => ({ sha, date, authorLogin, files });
 const seal = '2026-10-16T03:45:00Z';
 check('no seal record', fo.evaluatePostSeal({ sealAt: null, commits: [] }).ok, false);
-check('nothing after seal', fo.evaluatePostSeal({ sealAt: seal, commits: [c('aaaaaaa1', '2026-10-16T03:40:00Z', 'eaprime1', ['x.md'])] }).ok, true);
-check('journey bot commit after seal is fine', fo.evaluatePostSeal({ sealAt: seal, commits: [c('bbbbbbb1', '2026-10-16T03:46:00Z', 'github-actions[bot]', ['pr-journeys/a.md'])] }).ok, true);
-check('human commit after seal', fo.evaluatePostSeal({ sealAt: seal, commits: [c('ccccccc1', '2026-10-16T03:50:00Z', 'eaprime1', ['pr-journeys/a.md'])] }).late, ['ccccccc']);
-check('bot commit touching other files', fo.evaluatePostSeal({ sealAt: seal, commits: [c('ddddddd1', '2026-10-16T03:50:00Z', 'github-actions[bot]', ['pr-journeys/a.md', 'CLAUDE.md'])] }).late, ['ddddddd']);
-check('bot commit with no files', fo.evaluatePostSeal({ sealAt: seal, commits: [c('eeeeeee1', '2026-10-16T03:50:00Z', 'github-actions[bot]', [])] }).ok, false);
+check('nothing after seal', fo.evaluatePostSeal({ sealAt: seal, commits: [commit('aaaaaaa1', '2026-10-16T03:40:00Z', 'eaprime1', ['x.md'])] }).ok, true);
+check('journey bot commit after seal is fine', fo.evaluatePostSeal({ sealAt: seal, commits: [commit('bbbbbbb1', '2026-10-16T03:46:00Z', 'github-actions[bot]', ['pr-journeys/a.md'])] }).ok, true);
+check('human commit after seal', fo.evaluatePostSeal({ sealAt: seal, commits: [commit('ccccccc1', '2026-10-16T03:50:00Z', 'eaprime1', ['pr-journeys/a.md'])] }).late, ['ccccccc']);
+check('bot commit touching other files', fo.evaluatePostSeal({ sealAt: seal, commits: [commit('ddddddd1', '2026-10-16T03:50:00Z', 'github-actions[bot]', ['pr-journeys/a.md', 'CLAUDE.md'])] }).late, ['ddddddd']);
+check('bot commit with no files', fo.evaluatePostSeal({ sealAt: seal, commits: [commit('eeeeeee1', '2026-10-16T03:50:00Z', 'github-actions[bot]', [])] }).ok, false);
 
 // ── observation file and content ────────────────────────────────────
 const paths = ['turns/observations/202610160316_pr450_observation.md', 'turns/observations/202610160316_hodie_pr165_observation.md', 'turns/observations/202610070847_pr426_observation.md', 'turns/observations/README.md'];

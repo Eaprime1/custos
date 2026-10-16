@@ -62,9 +62,9 @@ function isJourneyCommit(c) {
 // commits: [{ sha, date, authorLogin, files: [path] }], sealAt: ISO string or null
 function evaluatePostSeal({ sealAt, commits = [] }) {
   if (!sealAt) return { ok: false, sealed: false, late: [], note: 'no seal record found' };
-  const t = Date.parse(sealAt);
+  const sealTime = Date.parse(sealAt);
   const late = commits
-    .filter((c) => Date.parse(c.date) > t && !isJourneyCommit(c))
+    .filter((c) => Date.parse(c.date) > sealTime && !isJourneyCommit(c))
     .map((c) => c.sha.slice(0, 7));
   return { ok: late.length === 0, sealed: true, late };
 }
@@ -119,18 +119,18 @@ function watchedPaths(files = []) {
 }
 // A watched path is "named" when the PR body mentions its file name or folder.
 function unnamedWatched(watched, body = '') {
-  const b = String(body).toLowerCase();
+  const lowered = String(body).toLowerCase();
   return watched.filter((f) => {
     const base = f.split('/').pop().toLowerCase();
     const top = f.split('/')[0].toLowerCase();
-    return !(b.includes(base) || b.includes(`${top}/`));
+    return !(lowered.includes(base) || lowered.includes(`${top}/`));
   });
 }
 
 // Advisory: the CLAUDE.md line of tools/stale_claims.sh output.
 function parseStale(text) {
-  const m = String(text).match(/^CLAUDE\.md: (\d+) of (\d+)/m);
-  return m ? { flagged: Number(m[1]), total: Number(m[2]) } : null;
+  const found = String(text).match(/^CLAUDE\.md: (\d+) of (\d+)/m);
+  return found ? { flagged: Number(found[1]), total: Number(found[2]) } : null;
 }
 
 const MARK = '<!-- custos-final-oversight -->';

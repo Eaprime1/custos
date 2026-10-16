@@ -19,8 +19,8 @@ async function gatherChecks(ctx) {
 
 async function gatherThreads(ctx) {
   const { github, fo, owner, repo, number } = ctx;
-  const q = await github.graphql(THREADS_QUERY, { o: owner, r: repo, n: number });
-  return fo.evaluateThreads(q.repository.pullRequest.reviewThreads.nodes);
+  const data = await github.graphql(THREADS_QUERY, { o: owner, r: repo, n: number });
+  return fo.evaluateThreads(data.repository.pullRequest.reviewThreads.nodes);
 }
 
 function latestSealTime(comments) {
