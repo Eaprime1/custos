@@ -90,7 +90,9 @@ submitters, the lexeme-development fallback when a mission can't be done, and th
 - `the-the.md` — The founding myth of prima (do not edit)
 
 ### Device Layer (`device/`)
-Tracks device state. Intended for the `pixel8` branch only, but as of 2026-10-15 `device/` sits on `main` too (six files: `PODIUM_SCHEMA.md`, `README.md`, `active.md`, `install-log.md`, `pixel8.yaml`, `podiums.md`) and the `pixel8` branch is absent on origin. Treat what is on `main` as a snapshot, not live state.
+Tracks device state. It was intended for the `pixel8` branch only.
+As of 2026-10-15 `device/` also sits on `main` (six files: `PODIUM_SCHEMA.md`, `README.md`, `active.md`, `install-log.md`, `pixel8.yaml`, `podiums.md`). The `pixel8` branch is absent on origin.
+Treat what is on `main` as a snapshot, not live state.
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
 - `install-log.md` — Append-only record of what was installed, where, and how. Use
@@ -172,7 +174,10 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 ### Review Gates
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
 - **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
-- **CI**: `.github/workflows/` holds 25 workflows (checked 2026-10-15). The ones named below are the review and seal path; `ls .github/workflows` is the full list. The rest include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand`, `validate-json-yaml`, `auto-finalize` (bot PRs, never drafts), `track-pr-failures`, `sovran-labels-sync`, and three Pages or icon jobs.
+- **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (25 on 2026-10-15).
+  - The ones named below are the review and seal path.
+  - Others include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand` and `validate-json-yaml`.
+  - Also `auto-finalize` (bot PRs, never drafts), `track-pr-failures`, `sovran-labels-sync` and three Pages or icon jobs.
   - `scan-lexeme.yml` — placeholder scan
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
@@ -194,7 +199,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 - All PRs from `pixel8` → `main` require Sentinel review (default: eaprime1)
 - Feature/concept branches: develop here, then dispatch to destination repo per `branch-tracker/branches.md`
 
-**prima-clock stamps:** Use `date -u '+%Y%m%d%H%M'` to generate (UTC, as the registry row `202610091052` states; earlier stamps in this repo mix UTC and Pacific). Include in MOAV carriers and prima-clock/registry.md entries.
+**prima-clock stamps:** Use `date -u '+%Y%m%d%H%M'` to generate (UTC, as the registry's Suit and Plank row states; earlier stamps in this repo mix UTC and Pacific). Include in MOAV carriers and prima-clock/registry.md entries.
 
 **MOAV carriers:** Create one when: a branch reaches its destination repo, a concept moves from atelier to active development, or a vault entry is placed. Include `prima_clock`, `entity`, `suit`, `iteration`, `chain_of_custody` unless a documented exception applies.
 
@@ -242,7 +247,9 @@ The reasoning is in `docs/issue-system.md` §4.
 - Shouted markers (capitals, whole word): five working-note words, defined in the glossary in `atelier/lexemes/reserved-lexemes.md`.
 - Phrases (any case): `placeholder`, `fill this in`, `???`, `"My Prima Terminal"`.
 - Files scanned: `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
-- The scan is advisory: it prints hits and exits 0 even when it finds some, and several hits are its own pattern definitions. "scan_lexeme run" in the PR template means it was run, not that it was clean.
+- The scan is advisory. It prints hits and exits 0 even when it finds some.
+- Several hits are the scanner's own pattern definitions.
+- "scan_lexeme run" in the PR template means it was run, not that it was clean.
 - Words with weight (`replace`, `unknown` in prose) are not scanned. The marker glossary and the reserved list are in `atelier/lexemes/reserved-lexemes.md`.
 
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
@@ -261,5 +268,7 @@ The reasoning is in `docs/issue-system.md` §4.
 
 Checked 2026-10-15. Do not assume anything here is in scope, referenced in lore, or committed without first checking with the Shepherd:
 
-- `airavata-custos/` and `seneschal/scanner/New folder/` were listed here earlier and are **not in the tree now**. `airavata-custos/` was an unrelated Apache Airavata "Custos" project (a name collision only); if it returns, do not merge it with this repo's `custos` concept. Seneschal material that does exist lives under `atelier/commissions/` and `missions/`.
+- `airavata-custos/` and `seneschal/scanner/New folder/` were listed here earlier. Neither is in the tree now.
+- `airavata-custos/` was an unrelated Apache Airavata "Custos" project, a name collision only. If it returns, do not merge it with this repo's `custos` concept.
+- Seneschal material that does exist lives under `atelier/commissions/` and `missions/`.
 - `queue/artesium-<contributor>/` item folders — in-flight Weir material (e.g. a PDF export of a contributor's PR thread). Route through `queue/artesium-weir/README.md` and close out via `turns/CLOSING.md` rather than leaving indefinitely.
