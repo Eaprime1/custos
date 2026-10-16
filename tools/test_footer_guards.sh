@@ -4,7 +4,7 @@
 # workflow drifts from the wording the guards are meant to catch.
 # Needs bash, python3 with PyYAML, and node. Writes nothing to the repo.
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
