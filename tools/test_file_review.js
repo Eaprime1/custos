@@ -27,7 +27,9 @@ const skipRows = [
   ['moav stays in', 'moav/x.json', null],
   ['codeowners stays in', '.github/CODEOWNERS', null],
 ];
-skipRows.forEach(([name, path, want]) => same(`skip: ${name}`, fr.skipReason(path), want));
+skipRows.forEach(([name, path, want]) => {
+  same(`skip: ${name}`, fr.skipReason(path), want);
+});
 
 // Reading earlier ticks.
 const line = (box, path, sha) => `- [${box}] [\`${path}\`](x) <!--fr ${encodeURIComponent(path)} ${sha}-->`;

@@ -51,7 +51,7 @@ function judge(file, marks, config = CONFIG) {
   const reason = skipReason(path, config);
   if (reason) return { ...base, checked: true, skipped: true, note: reason };
   const before = marks.get(path);
-  if (!before || !before.checked) return base;
+  if (!before?.checked) return base;
   if (before.sha === file.sha) return { ...base, checked: true };
   return { ...base, note: 'changed since you ticked it' };
 }
