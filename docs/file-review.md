@@ -1,7 +1,7 @@
 # File Review Checklist
 
 **Prima-clock:** 202610160949
-**Suit:** ♦️ Diamond, 2/3 plank. Phase A of three (B and C follow).
+**Suit:** ♦️ Diamond, 2/3 plank. Phase B of three (C follows).
 
 The Shepherd Considers comment on each PR is a checklist of the PR's files. It shows the Shepherd
 which files are worth reading and records which ones were read.
