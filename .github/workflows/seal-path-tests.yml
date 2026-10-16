@@ -17,6 +17,10 @@ on:
       - 'tools/test_cue_parser.js'
       - 'tools/test_cue_parser.sh'
       - 'tools/test_footer_guards.sh'
+      - 'tools/test_final_oversight.js'
+      - '.github/scripts/final-oversight.js'
+      - '.github/scripts/final-oversight-run.js'
+      - '.github/workflows/final-oversight.yml'
       - 'docs/navigo-registry.md'
 
 permissions:
@@ -37,3 +41,6 @@ jobs:
 
       - name: Footer guards
         run: bash tools/test_footer_guards.sh
+
+      - name: Final oversight rules
+        run: node tools/test_final_oversight.js

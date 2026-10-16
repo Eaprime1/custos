@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **custos** is a prima terminal concept for the Pixel 8 — a guardian/shepherd environment for tending all work done from the device.
 
 - Not a software project with a build pipeline
-- No compilation and no package manager. Three small test scripts live in `tools/`: `test_cue_parser.sh` (55 rows, needs Node), `test_footer_guards.sh` (16 checks, needs Node and PyYAML) and `test_validate_json_yaml.sh`
+- No compilation and no package manager. Small test scripts live in `tools/`: `test_cue_parser.sh` (55 rows, needs Node), `test_footer_guards.sh` (16 checks, needs Node and PyYAML), `test_final_oversight.js` (42 checks, needs Node) and `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
 
 ```
@@ -176,12 +176,13 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 ### Review Gates
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
 - **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
-- **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (26 on 2026-10-16).
+- **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (27 on 2026-10-16).
   - The ones named below are the review and seal path.
   - Others include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand` and `validate-json-yaml`.
   - Also `auto-finalize` (bot PRs; its header says it skips drafts), `track-pr-failures`, `sovran-labels-sync` and three Pages or icon jobs.
   - `scan-lexeme.yml` — placeholder scan
-  - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards, run when a seal-path file changes
+  - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards and the final-oversight rules, run when a seal-path file changes
+  - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `final-oversight` label and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
   - `claude-code-review.yml` — the paid Claude review
