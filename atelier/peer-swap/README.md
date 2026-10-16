@@ -96,13 +96,13 @@ the observation. Eric's call either way.
 
 ## Status
 
-Eric keeps this table.
-
 | Side | Conversation | Branch | Pass | PR | State |
 |---|---|---|---|---|---|
-| custos | Claude Code, warm start (see Adjustments 3) | `peer-swap/custos-side` | 1 frozen; 2 to 4 open | [custos#450](https://github.com/Eaprime1/custos/pull/450) (draft) | in progress |
-| hodie, session b | Claude Code | `feature/peer-swap-hodie-side-b` | 1 to 3 frozen; 4 waits for the custos letter | [hodie#165](https://github.com/Eaprime1/hodie/pull/165) (draft) | in progress |
+| custos | Claude Code, warm start (see Adjustments 3) | `peer-swap/custos-side` | 1 to 4 done; 1 to 3 frozen | [custos#450](https://github.com/Eaprime1/custos/pull/450) | sealed, then reopened by oversight; re-seal pending |
+| hodie, session b | Claude Code | `feature/peer-swap-hodie-side-b` | 1 to 4 done; 1 to 3 frozen | [hodie#165](https://github.com/Eaprime1/hodie/pull/165) | sealed, then reopened by oversight; re-seal pending |
 | hodie, session A | Claude Code | `feature/peer-swap-hodie-side` | 1 frozen | none; files filed under `peer-swap/session-a/` on the session b branch | second perspective only |
+
+Status as of 202610160314 UTC (oversight). Eric keeps this table.
 
 ## Adjustments after the oversight review
 
@@ -112,7 +112,7 @@ are untouched; these change how the rest of the run goes.
 1. **One PR per repo.** custos#449 (scaffold) was a strict subset of custos#450, so #449 is
    closed and #450 carries everything. Hodie keeps hodie#165 only.
 2. **Two hodie sessions.** Session b is the canonical hodie track (Passes 1 to 3, form,
-   letter). Session A's Pass 1 and form sit in hodie `peer-swap/session-a/`, unchanged, as a
+   letter). Session A's Pass 1 and form sit in hodie `peer-swap/session-a/`, as written (plus one appended witness line each), as a
    second independent cold read. Anything session A saw that session b did not goes into a
    later pass as new text, citing the session A file. Pass 4 answers one letter per side.
 3. **The custos Pass 1 was a warm start.** Its form says the conversation began as the hodie
@@ -132,6 +132,20 @@ are untouched; these change how the rest of the run goes.
    working stamps. The swap stamp for hodie is still Eric's to set.
 8. **Where the passes pause.** When Passes 1 to 3 are frozen on both sides, stop and tell
    Eric. Pass 4 and the adaptations start from his word, not from the letters appearing.
+
+9. **Oversight can break a seal.** If oversight finds something that needs fixing, the fix goes in
+   and the owner seals again. Oversight may also add a comment or a document (an observation) on
+   its own, and then the owner seals again. The seal is on the head at the time; a new head means a
+   new seal. This is expected, not a failure.
+10. **Merge with a merge commit.** The files cite freeze commits (`b41bfc2`, `1b6973d`, `923c0a3` and
+    others) as evidence. A merge commit keeps them in the history of `main`; a squash would hide
+    them. The merge commit is the one commit GitHub creates to join the branch to `main`; it is made
+    when the owner gives the word to merge, not before. Do not delete the branches until the
+    observations and the custody entry cite the merge commit.
+11. **Score the run.** `turns/observations/RUBRIC.md` is a first scoring sheet for a swap. It is meant
+    to be hard to max out. Re-score at the second swap and compare.
+12. **Stale claims.** `bash tools/stale_claims.sh` lists backticked paths in `CLAUDE.md` and `README.md`
+    that the tree does not have. Run it at the start of a swap and attach the output to Pass 2.
 
 ## After this runs by hand once
 

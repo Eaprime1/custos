@@ -34,6 +34,7 @@ file's own fields; nothing here is a judgment. "Note" is blank where I had no de
 | custos_moav_prsweep_202607290523.json | 202607290523 | CLEARING | OPEN | |
 
 `chain_of_custody` has three shapes today: the string `OPEN` (8 files), the string `CLOSED` (2), and a list (3).
-No rule written in this repo says what makes a carrier `CLOSED`; the two that are closed record a finished event
-(a merged contribution, a completed transfer). Whether `OPEN` should stay on a carrier whose `motion_state` is
+Observed practice, not a rule: a carrier is `CLOSED` once the event it records has finished (the two closed here are a merged
+contribution and a completed transfer), and `OPEN` while its trail can still change. Nobody is named as the one who sets it.
+The Deck Master can adopt or change this sentence (added at oversight, 202610160314 UTC). Whether `OPEN` should stay on a carrier whose `motion_state` is
 `COMPLETE` is an open question, raised by hodie's Pass 3 letter (peer swap, `atelier/peer-swap/exchange/`).

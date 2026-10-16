@@ -38,6 +38,7 @@ bash tools/prime_check.sh                  # reads .prime, reports current/next 
 bash tools/scan_lexeme.sh                  # finds unfilled placeholders across .md/.sh/.yaml/.json
 bash tools/scan_lexeme.sh path/to/dir      # scan a specific subdirectory
 bash tools/scan_provenance.sh origin/main  # checks new .md files for a Prima-clock stamp (advisory)
+bash tools/stale_claims.sh               # lists backticked paths in CLAUDE.md and README.md the tree lacks (advisory, exits 0)
 
 # Environment bootstrap (idempotent)
 bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
@@ -179,6 +180,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
   - Others include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand` and `validate-json-yaml`.
   - Also `auto-finalize` (bot PRs; its header says it skips drafts), `track-pr-failures`, `sovran-labels-sync` and three Pages or icon jobs.
   - `scan-lexeme.yml` — placeholder scan
+  - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards, run when a seal-path file changes
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
   - `claude-code-review.yml` — the paid Claude review
