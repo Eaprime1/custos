@@ -242,6 +242,7 @@ The reasoning is in `docs/issue-system.md` §4.
 - Shouted markers (capitals, whole word): five working-note words, defined in the glossary in `atelier/lexemes/reserved-lexemes.md`.
 - Phrases (any case): `placeholder`, `fill this in`, `???`, `"My Prima Terminal"`.
 - Files scanned: `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
+- The scan is advisory: it prints hits and exits 0 even when it finds some, and several hits are its own pattern definitions. "scan_lexeme run" in the PR template means it was run, not that it was clean.
 - Words with weight (`replace`, `unknown` in prose) are not scanned. The marker glossary and the reserved list are in `atelier/lexemes/reserved-lexemes.md`.
 
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.

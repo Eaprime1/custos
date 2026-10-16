@@ -76,36 +76,30 @@ Full observations with citations are in `atelier/peer-swap/exchange/pass1_custos
 
 ## E. Pass 4 — reply to the peer's letter
 
-1. For each item in the peer's letter:
+*Full text: `pass4_reply_custos.md`. Read after Passes 2 and 3 were frozen. Hodie's own Pass 4 not read.*
 
-| Their item | adopt / adapt / decline | Reason | Where in my repo | Done in this PR, or follow-up |
-|---|---|---|---|---|
-| ____ | ____ | ____ | ____ | ____ |
-| ____ | ____ | ____ | ____ | ____ |
-| ____ | ____ | ____ | ____ | ____ |
-
-2. Small adaptations made in this PR (paths): ____
-3. Follow-ups named but not done: ____
-4. What changed my mind, if anything: ____
+1. Their items: five findings (agree on all; one part of finding 4 unchecked); eight borrow rows (support four, agree with four declines; one defect found in the footer guard source); five questions answered; six warnings noted (`.eric/` honoured).
+2. Small adaptations in this PR: `moav/README.md` (13-row index and custody-field note); `CLAUDE.md` (scan is advisory).
+3. Follow-ups named but not done: corrective registry row for `202609251844`; meaning of ♠️ on carriers; widen footer match from "by" to "by or with" (seal path, Eric's call); mark `returns/` dormant; fix stale `CLAUDE.md` statements; add transfer fields to the carrier README.
+4. What changed my mind: the footer string matches "by" only. Nothing else.
 
 ### Custos-side block
 
-5. How custos would record hodie's prima-clock stamp once Eric sets it (registry row, MOAV
-   carrier, both?), with the fields I would use: ____
-6. What custos would need from hodie to treat its entry as custody and not only as a note: ____
-7. Which parts of custos' conventions would not travel to hodie without rewriting, and why: ____
-8. One thing hodie does that custos lacks, and what it would cost to adopt: ____
+5. Both a registry row and a carrier `hodie_moav_entry_<event>.json`; fields `prima_clock` (Eric's stamp), `entity`, `suit`, `iteration`, `event`, `motion_state`, `chain_of_custody`.
+6. Eric's stamp; hodie `main` commit id at that moment; the swap files as witness (hodie #165, custos #450); what is left in place; batch or list-only decision for hodie's 17 carriers.
+7. Latin cues; the Ethics Check box; the no-bounty rule and workflow; the stateless-witness rule.
+8. A strict witness check that can fail a PR. Cost: choose a stamp form, turn advisory into a gate, decide whether freeze yields; take the check without the state file.
 
 ---
 
 ## F. Ready for oversight
 
-- [ ] All four passes committed; Passes 1 to 3 frozen
-- [ ] This form complete; unanswered blanks marked and explained
-- [ ] My repo's own scan run: ____ (result)
-- [ ] PR description follows my repo's template; PR marked ready for review
-- [ ] One comment posted in words saying the PR is ready, and what is left open
-- [ ] I have not sealed, merged, or edited the peer repo
+- [x] All four passes committed; Passes 1 to 3 frozen (Pass 2 has one wording-only fix commit after its freeze, `1b6973d`)
+- [x] This form complete; unanswered blanks marked and explained
+- [x] My repo's own scan run: `bash tools/scan_lexeme.sh` on the exchange folder, no hits in these files; whole-repo run exits 0 with hits that are the scanner's own definitions
+- [ ] PR description follows my repo's template; PR marked ready for review — **not done**: Eric's call, left in draft
+- [ ] One comment posted in words saying the PR is ready, and what is left open — **not done**, waits on the item above
+- [x] I have not sealed, merged, or edited the peer repo
 
 ---
 
