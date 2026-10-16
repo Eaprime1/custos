@@ -1,7 +1,7 @@
 # PR Journey: #458 — Phase B: File review row in final oversight, observation required for the seal
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202610161221  
+**prima-clock:** 202610161225  
 **Branch:** `claude/nifty-mendel-vyji3n` → `main`  
 **Author:** @Eaprime1  
 **State:** FINALIZED  
@@ -34,13 +34,22 @@ The observation rule in the seal is deliberately light (filed, `status: complete
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202610161209 | @Eaprime1 |
-| Finalized | 202610161221 | @Eaprime1 |
+| Finalized | 202610161225 | @Eaprime1 |
 
 ## CI Record
 
 | Check | Result |
 |---|---|
 | Codacy Static Code Analysis | ✅ |
+| final-oversight | ⏭ |
+| custos-speaks | ✅ |
+| scan | ✅ |
+| validate | ✅ |
+| label | ✅ |
+| tests | ✅ |
+| injection-check | ✅ |
+| scan | ✅ |
+| dependency-review | ✅ |
 | DeepSource: Lua | ⏭ |
 | DeepSource: Apex | ⏭ |
 | DeepSource: Dart | ⏭ |
@@ -48,20 +57,10 @@ The observation rule in the seal is deliberately light (filed, `status: complete
 | DeepSource: Helm | ⏭ |
 | DeepSource: Perl | ⏭ |
 | DeepSource: VB.NET | ⏭ |
-| final-oversight | ⏭ |
 | DeepSource: PowerShell | ⏭ |
 | DeepSource: Objective-C | ⏭ |
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
-| custos-speaks | ✅ |
-| label | ✅ |
-| scan | ✅ |
-| dependency-review | ✅ |
-| injection-check | ✅ |
-| tests | ✅ |
-| scan | ✅ |
-| validate | ✅ |
-| packet | ✅ |
 | GitGuardian Security Checks | ✅ |
 
 ## DeepSource Record
@@ -74,10 +73,10 @@ The observation rule in the seal is deliberately light (filed, `status: complete
 
 | Dimension | Score | Note |
 |---|---|---|
-| Correctness | 5/5 | 23 CI check(s) — all passed |
+| Correctness | 5/5 | 22 CI check(s) — all passed |
 | Consistency | 4/5 | Template complete · ethics 0/0 |
-| Scope | 4/5 | 13 file(s) changed |
-| Verification | 5/5 | 23 check run(s) completed |
+| Scope | 4/5 | 14 file(s) changed |
+| Verification | 5/5 | 22 check run(s) completed |
 | **Valuation** | **High** | 18/20 |
 
 ## Ethics Check
@@ -93,6 +92,6 @@ The observation rule in the seal is deliberately light (filed, `status: complete
 - @Eaprime1 · 202610161221 · sealed at finalize
 
 ---
-**prima-clock:** 202610161221  
+**prima-clock:** 202610161225  
 **witnessed:** true — 1 witness, sealed 202610161221 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
