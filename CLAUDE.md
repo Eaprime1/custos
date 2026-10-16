@@ -177,7 +177,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 - **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (25 on 2026-10-15).
   - The ones named below are the review and seal path.
   - Others include comment-driven cues (`disponi`, `placet`, `claim-register`, `pr-concordance`, `pr-readiness`, `witness-pr`), `archivist`, `payment-demand` and `validate-json-yaml`.
-  - Also `auto-finalize` (bot PRs, never drafts), `track-pr-failures`, `sovran-labels-sync` and three Pages or icon jobs.
+  - Also `auto-finalize` (bot PRs; its header says it skips drafts), `track-pr-failures`, `sovran-labels-sync` and three Pages or icon jobs.
   - `scan-lexeme.yml` — placeholder scan
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
