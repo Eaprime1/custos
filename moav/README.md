@@ -33,6 +33,7 @@ file's own fields; nothing here is a judgment. "Note" is blank where I had no de
 | praevium_moav_sparstone-nomination.json | 202607212328 | (none) | list | |
 | custos_moav_prsweep_202607290523.json | 202607290523 | CLEARING | OPEN | |
 | hodie_moav_entry_peerswap001.json | 202610160105 | COMPLETE | OPEN | hodie enters custody after the first peer swap (added after the 13-file check above) |
+| armarium_moav_birth001.json | 202610172005 | COMPLETE | OPEN | the private origin vault Armarium is born (added after the 13-file check above) |
 
 `chain_of_custody` has three shapes today: the string `OPEN` (8 files), the string `CLOSED` (2), and a list (3).
 Observed practice, not a rule: a carrier is `CLOSED` once the event it records has finished (the two closed here are a merged
