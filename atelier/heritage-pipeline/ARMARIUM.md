@@ -221,6 +221,38 @@ character sheet, scoring rule or link to the grading in the heritage draft.
 **Status:** an idea in the Shepherd's words. Nothing is built or filed. Whether it becomes an atelier seed or a
 lexeme issue is the Shepherd's call.
 
+## 10. Two tiers, and how a change is recorded (the Shepherd's idea; a recommendation)
+
+The Shepherd's words, 202610171510 (review comment at the Genizah section; the polished version was stamped
+2026101715114 as written, 13 digits): originals are stored in an Armarium vault, like a safety-deposit system,
+with a link to a display-style vault that is less restrictive. The originator should be able to choose between an
+additive-only option that keeps a record of every change, and a vault folder where new content is added
+periodically without changing the original document. The safety-deposit system could eventually be hosted
+remotely, possibly on Box, but start with local storage until the process is established. Then the question:
+*if I saved the comment, then opened it and replaced my original with the updated version, would that keep a
+record? Is the difference worth the extra effort? Having both together will create clutter.*
+
+**The two options are one mechanism.** The layout in section 2 already gives each origin its own folder with the
+untouched file and an `amendments/` folder beside it. "Additive-only with a record of every change" and "a folder
+where new content is added without touching the original" describe that same folder from two sides: the original
+never changes, and each addition is a new dated file. Building both would only make clutter, as the Shepherd
+suspects. **Recommendation: build the one layout now, and add a `mode` field to `receipt.json` later only if two
+behaviors turn out to be needed.**
+
+**Replacing in place.** Git keeps older versions of a file when a new commit replaces it, so a replaced origin is
+still recoverable from history. That holds only while history is never rewritten, and section 2 notes that this
+private repo cannot block a force-push. So the rule stays: an origin is never replaced, and a change is an
+amendment. On GitHub, an edited comment shows an "edited" label with a history dropdown, as far as I know; the
+Shepherd can check by clicking "edited" on a comment. That is GitHub's own history, outside this repo.
+
+**The display tier.** A less restrictive place to look at an origin, linked from the Armarium, is noted. Where it
+lives (a folder here, a separate repo, the Drive `domos` folder, or Box) is not decided, and nothing is built.
+
+**Remote hosting.** Local first, as the Shepherd says. Box was already recorded as a cold mirror for containers
+and large files; whether it also holds the strict tier is for later.
+
+**Not decided:** the display tier's home, whether `mode` is ever needed, and when remote hosting starts.
+
 ---
 
-*The repository exists. Sections 6 to 9 are proposals or notes.*
+*The repository exists. Sections 6 to 10 are proposals or notes.*
