@@ -253,6 +253,13 @@ and large files; whether it also holds the strict tier is for later.
 
 **Not decided:** the display tier's home, whether `mode` is ever needed, and when remote hosting starts.
 
+**Where the interactive parts live (the Shepherd, 202610171523).** Armarium stays private. The interactive
+places, such as the Genizah, could sit in public repos, with access to Armarium granted if the need arises.
+Recorded as the Shepherd's direction. One thing to settle first: a public place that shows retired origins
+would show their content, so it would hold only what has passed a privacy review, or only notes and
+pointers, while the origin itself stays in Armarium. That would also settle the display tier's home in
+favor of a public repo. Not built, not decided.
+
 ---
 
 *The repository exists. Sections 6 to 10 are proposals or notes.*
