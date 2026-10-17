@@ -2,14 +2,14 @@
 
 Repeatable, low-cost way to open a Custos work session across navigo conversations. Start with a small working artifact and a handoff; do not require a model API. Read the repo's current mission, PR, review and claim conventions first. This kit complements `.artesian/`, `pr-journeys/`, and the issue system landed by PR #343 rather than replacing them.
 
-## Four artifacts
+## Five portable artifacts
 
 1. Copy `intake-card.md` into the navigo's own workspace or conversation; leave unverified fields explicitly open.
 2. Use `review-receipt.md` for one bounded inspection and build. Put substantive PR review in the PR's existing review surface; the receipt is a portable handoff.
 3. Follow `no-api-path.md` even if an API is available; API-assisted review is optional.
 4. Read `owner-cues.md` for the currently installed record-only Latin comment cue behavior and its limits; the canonical meanings live in [`docs/latin-workflow-glossary.md`](../../docs/latin-workflow-glossary.md).
 
-One hertz is a repeatable footfall, not a speed limit. Eric reviews each PR and requests merge explicitly. No automatic merge, paid model call, new environment, or Project is introduced by this kit. Repository folders and PR comments in a public repo are public, not private messaging.
+5. For a conversation without a direct repository connection, follow [offline-conversation-submission.md](offline-conversation-submission.md). Keep the original voice and its return comments distinct; receive the work before discussing finalization. The current [GitGuardian Primal Gate candidate](../../atelier/gitguardian-primal-gate-consolidation-candidate-v1-20261012.md) is a **draft rehearsal**, not an installed gate or a sealed policy.\n\nOne hertz is a repeatable footfall, not a speed limit. Eric reviews each PR and requests merge explicitly. No automatic merge, paid model call, new environment, or Project is introduced by this kit. Repository folders and PR comments in a public repo are public, not private messaging.
 
 ## Test of the kit
 
