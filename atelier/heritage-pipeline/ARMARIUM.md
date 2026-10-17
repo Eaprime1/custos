@@ -28,7 +28,7 @@ to the navigo.*
 | **Autographum** (Latin, from Greek) | An author's own handwritten original | א · Ա · A | Not the repo's name (long, and narrower than a conversation export). Taken up instead as a special section of the Armarium for handwritten and similar origins: see section 7. |
 | **Exemplar** (Latin) | In manuscript study, the copy that other copies are made from | E | Close to the vault's idea, but the word is common in English and loses the Latin feel. A different life for the word is noted in section 8. |
 | **Genizah** (Hebrew גניזה) | A storeroom for worn or retired texts that are kept, not destroyed | ג · Գ · G (the third letter in all three) | Taken up as a part of the Armarium instead, not a second repo: see section 6. |
-| **Matenadaran** (Armenian Մատենադարան) | "Manuscript repository"; the name of the famous manuscript library in Yerevan | Մ | Strong, but it is a specific institution's name. |
+| **Matenadaran** (Armenian Մատենադարան) | "Manuscript repository"; the name of the famous manuscript library in Yerevan | Մ | Strong, but it is a specific institution's name. A different life for the name is noted in section 9. |
 
 ## 2. Layout and rules
 
@@ -158,6 +158,50 @@ What is recorded, and no more:
 - **Where it could go:** it belongs with the lore and the idle adventures more than with this repo. Whether to
   file it as an atelier seed or a lexeme issue is the Shepherd's call; nothing is filed.
 
+## 9. Matenadaran: a character and concept idea, with what the history says (noted, not started)
+
+The Shepherd's words, 202610171427 (review comment on this file; stamp as the Shepherd wrote it): Matenadaran
+would make a good character system peer to "valthram" and "complexity", one of the characters and concepts; one of
+the evaluation, valuation and quantification specialists. *What does the real history speak? Preservation seems to
+be a key aspect, part of the decision process for how things are preserved within our system.*
+
+**Not found:** "valthram" does not appear anywhere in this repository (searched 202610172130). This note carries
+only the Shepherd's wording for it. Where "valthram" and "complexity" are defined is not known to this file.
+
+**What the history says.** Taken from web sources on 202610172130, not from the Matenadaran's own catalogues, and
+the sources disagree in places:
+
+- **The name and place.** The Matenadaran is the Mesrop Mashtots Institute of Ancient Manuscripts in Yerevan: a
+  museum, archive and research institute
+  ([Wikipedia](https://en.wikipedia.org/wiki/Matenadaran); [UNESCO](https://en.unesco.org/silkroad/silk-road-themes/documentary-heritage/mashtots-matenadaran-ancient-manuscripts-collection)).
+  The earlier table row gives the meaning "manuscript repository", which this file did not re-check.
+- **When it began.** Sources differ. One ties the collection to the Etchmiadzin library, with a record that is silent
+  until 1441; another says the Bolsheviks nationalized the collection in 1920; the institute form dates from 1959
+  and the Mashtots name from 1962 in one account.
+- **How much it holds.** Estimates run from about 17,000 manuscripts (UNESCO) through about 20,000 to "over
+  100,000 manuscripts, documents and fragments", depending on what is counted.
+- **Preservation by people, and by the object itself.** A colophon is a note a scribe or owner wrote inside a
+  manuscript. For the Homilies of Mush (written 1200), colophon-based accounts say it was seized in 1202 and bought
+  back for 4,000 silver coins; that in 1915 it was carried to safety by two women; and that its two halves were
+  reunited at the Matenadaran. Another account says donors who paid to free a manuscript are named in its notes. Some
+  details of these stories may not be accurate, per one source
+  ([EVN Report](https://old.evnreport.com/raw-unfiltered/where-are-our-manuscripts-stories-of-loss-and-survival);
+  [AGBU](https://agbu.org/armenia-new-era/matenadaran-other-central-bank-armenia)).
+- **Loss and carrying.** One account says Seljuk invaders destroyed about 10,000 manuscripts in 1170 in Syunik.
+  A Matenadaran-linked radio report says some refugees in 1915 hid books inside their clothing
+  ([RFE/RL](https://thehub.rferl.org/a/armenia-manuscripts-online-database-matenadaran-project-scans/33481701.html)).
+- **Not found:** a single authoritative count of how many manuscripts were ransomed, hidden or lost.
+
+**A reading, mine, not the sources'.** Three things in this history echo what the Armarium already does. The object
+carried its own custody record (the colophon names who held it and who paid). The things that survived were the
+ones people chose to carry, bury or buy back. And the number of manuscripts is not agreed even today. A
+preservation specialist in the lore could keep that spirit: decide what is worth carrying, keep the trail with the
+thing, and be plain about what cannot be counted. This is a thought for the Shepherd to take or leave. It proposes no
+character sheet, scoring rule or link to the grading in the heritage draft.
+
+**Status:** an idea in the Shepherd's words. Nothing is built or filed. Whether it becomes an atelier seed or a
+lexeme issue is the Shepherd's call.
+
 ---
 
-*The repository exists. Sections 6, 7 and 8 are proposals or notes.*
+*The repository exists. Sections 6 to 9 are proposals or notes.*
