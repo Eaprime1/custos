@@ -25,7 +25,7 @@ to the navigo.*
 
 | Name | Meaning | Mark | Why not first |
 |---|---|---|---|
-| **Autographum** (Latin, from Greek) | An author's own handwritten original | א · Ա · A | Exact for "origin as is", but long, and a person's autograph is narrower than a conversation export. |
+| **Autographum** (Latin, from Greek) | An author's own handwritten original | א · Ա · A | Not the repo's name (long, and narrower than a conversation export). Taken up instead as a special section of the Armarium for handwritten and similar origins: see section 7. |
 | **Exemplar** (Latin) | In manuscript study, the copy that other copies are made from | E | Close to the vault's idea, but the word is common in English and loses the Latin feel. |
 | **Genizah** (Hebrew גניזה) | A storeroom for worn or retired texts that are kept, not destroyed | ג · Գ · G (the third letter in all three) | Taken up as a part of the Armarium instead, not a second repo: see section 6. |
 | **Matenadaran** (Armenian Մատենադարան) | "Manuscript repository"; the name of the famous manuscript library in Yerevan | Մ | Strong, but it is a specific institution's name. |
@@ -119,6 +119,26 @@ stays where it is.
 whether `verify.sh` should also check that every `*.retired.md` points at an origin that exists. The
 Shepherd's call; neither is built.
 
+## 7. Autographum: a section for handwritten origins (noted, not started)
+
+The Shepherd's words, 202610172056 (review comment on this file): *Autographum, a special section of the
+Armarium for actual handwritten and other similar origin documents. We do have scanned copies of a few of my
+handwritten content; this can be a mission seed. I don't want to tackle it yet, but I do need to make sure we
+have at least a few for the launch of Primal.*
+
+What is recorded, and no more:
+
+- **Intent:** a part of the Armarium for handwritten (and similar non-typed) origins. Scans of a few of the
+  Shepherd's handwritten pages already exist. Where they are, how many, and what they hold are not known to
+  this file.
+- **A launch need:** at least a few such origins should be in place for the launch of Primal. This is the
+  Shepherd's requirement; no date is attached.
+- **Status:** not started, by the Shepherd's choice. No folder, rule or hash format is proposed here.
+- **Open for when it starts:** a scan is a file like any origin (exact bytes, hash beside it), but a scan also
+  has a physical original and a scan quality. Whether the Armarium's layout needs a field for those, and
+  whether any scan is private enough to need review before the first commit, are the Shepherd's to decide.
+- **As a mission seed:** it can be filed as an issue when the Shepherd says. It is not filed yet.
+
 ---
 
-*The repository exists. Section 6 is a proposal.*
+*The repository exists. Sections 6 and 7 are proposals.*
