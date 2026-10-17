@@ -55,7 +55,8 @@ case "$cmd" in
     dirty="no"
     if git rev-parse --git-dir >/dev/null 2>&1; then
       src_commit="$(git rev-parse --short HEAD 2>/dev/null || echo unknown)"
-      if [ -n "$(git status --porcelain -- $(tr '\n' ' ' < "$list") 2>/dev/null)" ]; then dirty="yes"; fi
+      mapfile -t src_paths < "$list"
+      if [ -n "$(git status --porcelain -- "${src_paths[@]}" 2>/dev/null)" ]; then dirty="yes"; fi
     else
       src_commit="not a git checkout"
     fi

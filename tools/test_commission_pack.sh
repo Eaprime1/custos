@@ -52,6 +52,10 @@ expect "bad slug is refused"                2 bash "$TOOL" build "Bad Slug" Eapr
 expect "missing source is refused"          1 env PACK_STAMP=202601010001 bash "$TOOL" build other Eaprime1/target "$out" docs/nope.md
 expect "check of an unknown pack is refused" 2 bash "$TOOL" check 999-none
 
+printf 'spaced\n' > "$repo/docs/has space.md"
+expect "a file name with a space builds and verifies" 0 env PACK_STAMP=202601010002 bash "$TOOL" build spaced Eaprime1/target "$out" "docs/has space.md"
+expect "the spaced pack verifies with sha256sum -c" 0 bash -c "cd '$out/202601010002-spaced' && sha256sum -c --quiet files.sha256"
+
 echo
 echo "$pass passed, $fail failed"
 [ "$fail" -eq 0 ]
