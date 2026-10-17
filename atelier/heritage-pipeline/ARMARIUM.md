@@ -72,6 +72,25 @@ text is hashed, and two tools chose different rules. The simplest cure is to rem
 edited line fails; a silent CRLF-to-LF change fails; a missing hash file fails.
 **Trade-off:** byte-exact hashes break on any whitespace change. For origins that is wanted.
 
+### Scanners and the hash files (recommendation; the Shepherd asked, 202610171442)
+
+The Shepherd's question: if a scan has trouble with our hashes, do we need the scan, can it make exceptions or
+ignore, or do we disable a type of scan? Answer, as a proposal:
+
+- **Keep the scan.** In the Armarium the origins are raw conversation exports, and a conversation can contain a
+  pasted key or password. A secrets scan is the safety net for exactly that. Exempting `origins/` as a whole
+  would blind the scan where it matters most.
+- **A hash is not a secret.** A SHA-256 is a public fingerprint of a file. A secret scanner can still flag a long
+  hex string as "high entropy". No scanner has flagged a hash in a custos PR so far (this is forward-looking).
+- **If one does, make the smallest exception.** Exempt only the hash files (`origins/*/origin.sha256`, which hold
+  nothing but a hash and a file name), never the origin beside them. ggshield's sample config can ignore a path
+  or a single match (`paths-ignore`, `matches-ignore`); the key names changed across versions, so check the
+  installed one ([ggshield on PyPI](https://pypi.org/project/ggshield/1.12.0/)).
+- **Do not switch a whole scan type off.** custos itself already has the DeepSource secrets analyzer set to
+  `enabled = false` in `.deepsource.toml`, and `.codacy.yml` skips many folders. This file does not know why, and
+  the Armarium should not copy that pattern for `origins/`.
+- **Not decided:** which scanners the private Armarium will have at all. It has none attached yet.
+
 ## 4. Creating it (done; steps kept for the record)
 
 1. Create a **private** repo named `armarium` (empty: no README, no licence, no template), or tell
