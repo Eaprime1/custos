@@ -17,6 +17,8 @@ Label format: `STREAM N RETURN — [prima-clock timestamp]`
 | [stream-6-grok](./stream-6-grok) | Grok | Domain — TBD (assignment pending) | Pending |
 | [stream-7-perplexity](./stream-7-perplexity) | Perplexity | Domain — TBD (assignment pending) | Pending |
 
+**Status, checked 202610160314 UTC (oversight):** dormant. Each of the seven stream folders holds only `.gitkeep`; no return has been filed here. Dormant is allowed. Update this line when a return arrives.
+
 ---
 
 ## How to Submit a Return

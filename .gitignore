@@ -5,3 +5,6 @@
 
 # Codacy CLI local config and scratch output (local analysis only)
 .codacy/
+
+# Written by tools/test_seal_observation.sh, removed when it ends
+tools/.seal-gate.generated.js

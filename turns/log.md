@@ -667,3 +667,19 @@ contribution: two pull requests merged and the next phase is queued.
 resonance:    steadied
 witnessed:    true
 ---
+
+---
+turn:         2026-10-16 15:42
+prima-clock:  202610161542
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the file review swap across custos and hodie, bring the Latin cue words and the seals to hodie, and tidy the cue parser in both directions.
+contribution: eight pull requests merged across the two repos, each sealed first and merged on the Shepherd's word with a merge commit.
+              - custos #458 (a must-pass File review row in final oversight, and a seal that needs a filed observation with `status: complete`), #459 (the file-review header fix) and #460 (the cue parser split into small functions, backticks written as \x60, same behavior). The observation gate refused the first seal cue on #459 until the observation was complete, then passed: its first live use.
+              - hodie #168 (the checklist and final oversight ported), #169 (the shared Latin vocabulary, the cue parser, and `ultima probatio` as a seal phrase), #170 (the soft-seal label and the cue record), #171 (security cleanup: SHA-256 for file identity, the Google installer downloaded before it runs, the git call resolved with shutil.which and its ref checked against an allow-list) and #172 (the cue record compares short heads).
+              - Review findings were fixed before each seal. Codacy gave only a count on two pull requests, so the details came from the Shepherd's paste; two fixes made before the paste did not hit the real finding.
+              Decisions this turn: SHA-256 replaces MD5 in hodie, so older catalogs will not match new scans; a `nosemgrep` marker sits on the one reviewed subprocess call in hodie's footer_witness.py; the observation for #460 records that the paid Claude review result was not seen; `'use strict'` was dropped from the custos parser on a guess and may not have been needed.
+              Not done: the check-in cues `disponi`, `petitio` and `placet` in hodie; an observation document in hodie; the `final-oversight` label in hodie, so its oversight has not run live; bringing hodie's parser in line with custos' two newest changes; the shared-parser and Codacy-detail ideas; the rest of hodie's Python Codacy backlog.
+resonance:    unhurried
+witnessed:    true
+---
