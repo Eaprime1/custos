@@ -72,7 +72,7 @@ text is hashed, and two tools chose different rules. The simplest cure is to rem
 edited line fails; a silent CRLF-to-LF change fails; a missing hash file fails.
 **Trade-off:** byte-exact hashes break on any whitespace change. For origins that is wanted.
 
-**The Shepherd's answer (202610171543 on this section):** "I agree with your recommendation." Read here as
+**The Shepherd's answer (a comment with no stamp, posted 202610172244 UTC on this section):** "I agree with your recommendation." Read here as
 agreement with the hash rule above (exact bytes, hash beside the file, `sha256sum -c`). The comment sits on
 this section and does not name a rule, so say so if it meant something else. Until then the rule counts as
 agreed for the kit, not yet written into a ratification record.
@@ -95,7 +95,7 @@ ignore, or do we disable a type of scan? Answer, as a proposal:
   `enabled = false` in `.deepsource.toml`, and `.codacy.yml` skips many folders. This file does not know why, and
   the Armarium should not copy that pattern for `origins/`.
 - **Not decided:** which scanners the private Armarium will have at all. It has none attached yet.
-- **The Shepherd's direction (202610171543):** DeepSource and Codacy both need to be reviewed and improved, and the
+- **The Shepherd's direction (same comment):** DeepSource and Codacy both need to be reviewed and improved, and the
   Codacy side already has a conversation of its own. The aim is for Unexusi to build at the best level we can
   manage, with these tools as contributors that push that growth. One thing to check in that review: this PR's
   DeepSource run reported its Secrets analyzer as passed, while `.deepsource.toml` on this branch says
