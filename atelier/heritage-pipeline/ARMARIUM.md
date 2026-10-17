@@ -1,8 +1,8 @@
 # Armarium — the origin vault (name, layout, hash rule)
 
 `suit: ♦️ Diamond — seed, structure forming`
-`prima-clock: 202610171925`
-`status: proposal for the Shepherd. The repo is not created. A bootstrap kit is ready in armarium-bootstrap/.`
+`prima-clock: 202610171925 (updated 202610172020)`
+`status: the repo exists (private, `Eaprime1/armarium`); the kit was pushed as `80c073d`. Branch protection could not be enforced (see section 4). Section 6 (Genizah) is a proposal.`
 
 *The Shepherd's call on 202610171006: origins go in a new private vault-type repo with a fitting
 name (Latin, or older: Hebrew, Armenian, as a letter beside a Latin lexeme). The name was left
@@ -27,7 +27,7 @@ to the navigo.*
 |---|---|---|---|
 | **Autographum** (Latin, from Greek) | An author's own handwritten original | א · Ա · A | Exact for "origin as is", but long, and a person's autograph is narrower than a conversation export. |
 | **Exemplar** (Latin) | In manuscript study, the copy that other copies are made from | E | Close to the vault's idea, but the word is common in English and loses the Latin feel. |
-| **Genizah** (Hebrew גניזה) | A storeroom for worn or retired texts that are kept, not destroyed | ג · Գ · G (the third letter in all three) | A better fit for step C, the shadow legacy store, where retired copies rest. Keep the name for that. |
+| **Genizah** (Hebrew גניזה) | A storeroom for worn or retired texts that are kept, not destroyed | ג · Գ · G (the third letter in all three) | Taken up as a part of the Armarium instead, not a second repo: see section 6. |
 | **Matenadaran** (Armenian Մատենադարան) | "Manuscript repository"; the name of the famous manuscript library in Yerevan | Մ | Strong, but it is a specific institution's name. |
 
 ## 2. Layout and rules
@@ -43,6 +43,12 @@ Three protections to turn on when the repo is born:
 2. Branch protection on `main`: no force-push, no deletion.
 3. A check on every push that only **added** files appear under `origins/` (a changed or deleted
    origin fails). Not built yet; it needs a tested workflow, so it is listed under "next".
+
+**Found 202610172020:** GitHub does not enforce branch protection on a private repo outside a Team or
+Enterprise account, so protection 2 cannot be turned on for this repo today. Nothing blocks a
+force-push or a deletion on `main`. What remains is detection (the check in 3, run after each push)
+and `tools/verify.sh`, which compares every origin to its hash file. Moving to a Team account or
+making the repo public (not wanted: it holds private material) would change that.
 
 ## 3. The hash question: a recommendation
 
@@ -66,7 +72,7 @@ text is hashed, and two tools chose different rules. The simplest cure is to rem
 edited line fails; a silent CRLF-to-LF change fails; a missing hash file fails.
 **Trade-off:** byte-exact hashes break on any whitespace change. For origins that is wanted.
 
-## 4. Creating it (needs the Shepherd's word)
+## 4. Creating it (done; steps kept for the record)
 
 1. Create a **private** repo named `armarium` (empty: no README, no licence, no template), or tell
    me the name you want instead.
@@ -83,8 +89,36 @@ repo. The private repo also means the Armarium is not part of custos's public hi
 
 - The workflow that fails a push which changes or deletes anything under `origins/`.
 - The receipt format as a JSON schema, with a validator.
-- Genizah as the step-C store, once the Shepherd says so.
+- The Genizah rules in section 6: the Shepherd's yes, then a folder and one example note.
+
+## 6. Genizah: where retired scrolls stay readable (proposal)
+
+The Shepherd's words, 202610172016: *a place where the old scrolls can be interacted with, within the
+Armarium.* A genizah (Hebrew, a hiding or storing place) keeps texts that are worn or retired, and
+does not destroy them.
+
+**The tension to solve:** origins are additive only. An origin is never moved, edited or deleted,
+so retiring one cannot mean taking it out of `origins/`.
+
+**Proposal:** a top-level `genizah/` folder holds *notes about* retired scrolls, and the scroll itself
+stays where it is.
+
+- A scroll is **retired** when a later origin or a cleaned version replaces it as the working source.
+  Example: the 86-page Sanctum export, a rough draft, once a cleaned version exists.
+- Retiring is one new file, `genizah/<origin-slug>.retired.md`, with the origin's path and SHA-256, the
+  date, who retired it, the reason, and a pointer to what replaced it. The origin and its hash file
+  are not touched, so `tools/verify.sh` still passes.
+- **To interact** means: read it, annotate it, compare it with its successor. Annotations are new dated
+  files in `genizah/<origin-slug>/`, one per note. Nothing is overwritten. A reader works on a copy
+  (a carbonite), never on the origin.
+- A retired scroll can be **restored** by a new dated note saying so. The old notes stay.
+- Step C of the pipeline (the shadow legacy carbonite) is where such copies go outside the repo; the
+  Genizah is the repo's own record of what was retired and why.
+
+**Not decided:** whether a retired origin's carbonite also goes to the Lacus Hope shadow pool, and
+whether `verify.sh` should also check that every `*.retired.md` points at an origin that exists. The
+Shepherd's call; neither is built.
 
 ---
 
-*Proposal only. The repository has not been created.*
+*The repository exists. Section 6 is a proposal.*

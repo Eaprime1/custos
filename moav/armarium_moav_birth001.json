@@ -1,0 +1,34 @@
+{
+  "carrier_id": "armarium_moav_birth001",
+  "prima_clock": "202610172005",
+  "entity": "armarium (Eaprime1/armarium, private), created by eaprime1; kit pushed by Claude (Sonnet 5.5) for Navigo Claude",
+  "suit": "♦️",
+  "iteration": "armarium-birth-001",
+  "event": "The private origin vault Armarium is born: an empty repo created by the Shepherd, then the custos kit pushed to its main",
+  "motion_state": "COMPLETE",
+  "chain_of_custody": "OPEN",
+  "stamp_note": "202610172005 is the stamp (UTC) of the kit push, when the first custos file entered the repo. The Shepherd created the repo shortly before; its exact creation time was not recorded. Filed 202610172020.",
+  "witness": {
+    "repo": "https://github.com/Eaprime1/armarium",
+    "visibility": "private",
+    "initial_commit": "66ec6ffa (GitHub, one-line README written by the Shepherd)",
+    "kit_commit": "80c073d",
+    "custos_pr": "https://github.com/Eaprime1/custos/pull/462",
+    "custos_main_commit": "9620854",
+    "files": [
+      "README.md (the Shepherd's line first, then the layout and rules from the kit)",
+      ".gitattributes (* -text)",
+      "tools/verify.sh"
+    ],
+    "source_in_custos": "atelier/heritage-pipeline/armarium-bootstrap/ and atelier/heritage-pipeline/ARMARIUM.md"
+  },
+  "left_in_place": "The kit stays in custos under atelier/heritage-pipeline/ as the record of what was pushed. No origin has been placed in the Armarium yet.",
+  "open_questions": [
+    "Branch protection cannot be enforced: GitHub does not apply it to a private repo outside a Team or Enterprise account. Nothing blocks a force-push or deletion on main. A detection workflow (fail a push that changes or deletes anything under origins/) is not built.",
+    "The hash rule (exact bytes, hash beside the file, sha256sum -c) is a recommendation used by the kit. The Shepherd said they were unsure and asked for the repo; it has not been explicitly ratified.",
+    "Genizah (retired scrolls kept readable inside the Armarium) is a proposal in ARMARIUM.md section 6, not built.",
+    "The repo description and the one-line README opener were a placeholder, to be reworded by the Shepherd's word.",
+    "Suit proposed as ♦️ (active development), pending the Deck Master and world/suit-and-plank.md."
+  ],
+  "notes": "Registry row and this carrier are Deck Master paths. Proposed by the navigo for review, not self-approved."
+}
