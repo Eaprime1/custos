@@ -26,7 +26,7 @@ to the navigo.*
 | Name | Meaning | Mark | Why not first |
 |---|---|---|---|
 | **Autographum** (Latin, from Greek) | An author's own handwritten original | א · Ա · A | Not the repo's name (long, and narrower than a conversation export). Taken up instead as a special section of the Armarium for handwritten and similar origins: see section 7. |
-| **Exemplar** (Latin) | In manuscript study, the copy that other copies are made from | E | Close to the vault's idea, but the word is common in English and loses the Latin feel. |
+| **Exemplar** (Latin) | In manuscript study, the copy that other copies are made from | E | Close to the vault's idea, but the word is common in English and loses the Latin feel. A different life for the word is noted in section 8. |
 | **Genizah** (Hebrew גניזה) | A storeroom for worn or retired texts that are kept, not destroyed | ג · Գ · G (the third letter in all three) | Taken up as a part of the Armarium instead, not a second repo: see section 6. |
 | **Matenadaran** (Armenian Մատենադարան) | "Manuscript repository"; the name of the famous manuscript library in Yerevan | Մ | Strong, but it is a specific institution's name. |
 
@@ -139,6 +139,25 @@ What is recorded, and no more:
   whether any scan is private enough to need review before the first commit, are the Shepherd's to decide.
 - **As a mission seed:** it can be filed as an issue when the Shepherd says. It is not filed yet.
 
+## 8. Exemplar: a lore idea, noted (not started, not about the Armarium's layout)
+
+The Shepherd's words, 202610171417 (review comment on this file; stamp as the Shepherd wrote it): the Exemplar as
+a character, possibly in the idle adventures. It shows up when something has an exemplary quality. It is a powerful
+lexeme that speaks volumes by its presence alone, and as a descriptor of quality it would carry high value or
+impact. The caution: do not dilute it by over-application. A pairing was floated: the high end, the exemplary, as
+one lexeme; the low end as an antagonist character. The Exemplar would help the antagonist (the issue, or some types
+of missions). A third character could offer something that meets or exceeds the mission, with an option for content
+issues that might need an exception. The Shepherd's closing instruction: be mindful of absolutes.
+
+What is recorded, and no more:
+
+- **Intent:** the Exemplar as a rare character and a high-value lexeme, used sparingly.
+- **Status:** an idea in the Shepherd's own words, still forming ("hmmm"). No character sheet, trigger rule,
+  scoring link or lexeme entry is proposed here, and no link to the grading in the heritage draft.
+- **Caution carried forward:** rarity, and no absolutes.
+- **Where it could go:** it belongs with the lore and the idle adventures more than with this repo. Whether to
+  file it as an atelier seed or a lexeme issue is the Shepherd's call; nothing is filed.
+
 ---
 
-*The repository exists. Sections 6 and 7 are proposals.*
+*The repository exists. Sections 6, 7 and 8 are proposals or notes.*
