@@ -27,7 +27,7 @@
     "Branch protection cannot be enforced: GitHub does not apply it to a private repo outside a Team or Enterprise account. Nothing blocks a force-push or deletion on main. A detection workflow (fail a push that changes or deletes anything under origins/) is not built.",
     "The hash rule (exact bytes, hash beside the file, sha256sum -c) is a recommendation used by the kit. The Shepherd said they were unsure and asked for the repo; it has not been explicitly ratified.",
     "Genizah (retired scrolls kept readable inside the Armarium) is a proposal in ARMARIUM.md section 6, not built.",
-    "The repo description and the one-line README opener were a placeholder, to be reworded by the Shepherd's word.",
+    "The repo description and the one-line README opener were a first working note; the README opener has since been rewritten (armarium f31d272), and the GitHub About field is the Shepherd's to set.",
     "Suit proposed as ♦️ (active development), pending the Deck Master and world/suit-and-plank.md."
   ],
   "notes": "Registry row and this carrier are Deck Master paths. Proposed by the navigo for review, not self-approved."
