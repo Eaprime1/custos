@@ -1,0 +1,64 @@
+name: Seal Path Tests
+
+# Offline tests for the seal path: the cue parser and the footer guards.
+# Neither test calls an API or writes to the repo.
+# Added during the first peer swap
+# (202610160314 UTC) because neither test ran in CI before.
+
+on:
+  pull_request:
+    branches: [main, radix]
+    paths:
+      - '.github/scripts/cue-parser.js'
+      - '.github/workflows/finalize-pr.yml'
+      - '.github/workflows/latin-cue-record.yml'
+      - '.github/workflows/placet.yml'
+      - '.github/workflows/seal-path-tests.yml'
+      - 'tools/test_cue_parser.js'
+      - 'tools/test_cue_parser.sh'
+      - 'tools/test_footer_guards.sh'
+      - 'tools/test_final_oversight.js'
+      - '.github/scripts/final-oversight.js'
+      - '.github/scripts/final-oversight-run.js'
+      - '.github/workflows/final-oversight.yml'
+      - '.github/scripts/probatio-label.js'
+      - '.github/workflows/probatio-label.yml'
+      - '.github/workflows/sovran-voice.yml'
+      - '.github/scripts/file-review.js'
+      - '.github/review-skip.json'
+      - 'tools/test_file_review.js'
+      - 'tools/test_seal_observation.js'
+      - 'tools/test_seal_observation.sh'
+      - 'tools/test_probatio_label.js'
+      - 'docs/navigo-registry.md'
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install PyYAML (the footer test reads the workflow files)
+        run: python3 -m pip install --quiet pyyaml
+
+      - name: Cue parser
+        run: bash tools/test_cue_parser.sh
+
+      - name: Footer guards
+        run: bash tools/test_footer_guards.sh
+
+      - name: Soft seal label
+        run: node tools/test_probatio_label.js
+
+      - name: Observation rule in the seal
+        run: bash tools/test_seal_observation.sh
+
+      - name: File review checklist
+        run: node tools/test_file_review.js
+
+      - name: Final oversight rules
+        run: node tools/test_final_oversight.js
