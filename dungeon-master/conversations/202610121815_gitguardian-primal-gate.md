@@ -63,7 +63,7 @@ The originating conversation returns a second set of responses. Their most signi
 - `atelier/gitguardian-origin-review-comments-20261011.md`
 - `atelier/gitguardian-origin-first-return-receipt-20261011.md`
 - `atelier/gitguardian-primal-gate-consolidation-candidate-v1-20261012.md`
-- Draft PR: https://github.com/Eaprime1/custos/pull/442
+- Draft PR: <https://github.com/Eaprime1/custos/pull/442>
 
 ## Unresolved Threads
 
