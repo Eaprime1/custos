@@ -54,7 +54,7 @@ python3 tools/check_workflow_injection.py --check .github/workflows   # ${{ }} i
 bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
 
 # Location detection
-source seeds/env_setup.sh                  # detects mulberry/pixel8/codespaces, loads .locations/<name>/config.sh
+source seeds/env_setup.sh                  # detects primehaven/mulberry/pixel8/codespaces, loads .locations/<name>/config.sh
 ```
 
 **Claude Code on Termux (Android):**
@@ -103,12 +103,14 @@ submitters, the lexeme-development fallback when a mission can't be done, and th
 ### Device Layer (`device/`)
 
 Tracks device state. It was intended for the `pixel8` branch only.
-As of 2026-10-15 `device/` also sits on `main` (six files: `PODIUM_SCHEMA.md`, `README.md`, `active.md`, `install-log.md`, `pixel8.yaml`, `podiums.md`). The `pixel8` branch is absent on origin.
+As of 2026-10-18 `device/` also sits on `main` (seven files: `PODIUM_SCHEMA.md`, `README.md`, `active.md`, `install-log.md`, `pixel8.yaml`, `podiums.md`, `retired-clones.md`). The `pixel8` branch is absent on origin.
 Treat what is on `main` as a snapshot, not live state.
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
 - `install-log.md` — Append-only record of what was installed, where, and how. Use
   `bash tools/log_install.sh <item> <location> <method> [by] [notes]` to add an entry.
+- `retired-clones.md` — Append-only record of clones that completed their mission: the
+  "everything is on GitHub" test, what was bundled first, and which clone stays canonical.
 
 ### Workflow System
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
@@ -156,7 +158,9 @@ Branches and documents carry suit designations:
 ### Seeds (`seeds/`)
 `bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/` if that directory exists (it does not as of 2026-10-15; the script skips that step and says so), creates `~/.prima-env`. Idempotent.
 
-`env_setup.sh` detects the current location (`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
+`env_setup.sh` detects the current location (`primehaven`/`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
+
+- `primehaven` is the Ubuntu laptop (hostname `sauron`); `mulberry` is the Windows laptop. Detection keys on host traits, not on a clone path, because more than one machine keeps custos at the same path.
 - Ported/adapted from hodie's `.scripts/env_setup.sh`.
 - Static topology only: paths, active branch, whether `device/` is reachable.
 - Not live device state — that stays in `device/` on the `pixel8` branch as before.
