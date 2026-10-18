@@ -53,7 +53,7 @@ python3 tools/check_workflow_injection.py --check .github/workflows   # ${{ }} i
 bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
 
 # Location detection
-source seeds/env_setup.sh                  # detects mulberry/pixel8/codespaces, loads .locations/<name>/config.sh
+source seeds/env_setup.sh                  # detects primehaven/mulberry/pixel8/codespaces, loads .locations/<name>/config.sh
 ```
 
 **Claude Code on Termux (Android):**
@@ -155,7 +155,9 @@ Branches and documents carry suit designations:
 ### Seeds (`seeds/`)
 `bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/` if that directory exists (it does not as of 2026-10-15; the script skips that step and says so), creates `~/.prima-env`. Idempotent.
 
-`env_setup.sh` detects the current location (`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
+`env_setup.sh` detects the current location (`primehaven`/`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
+
+- `primehaven` is the Ubuntu laptop (hostname `sauron`); `mulberry` is the Windows laptop. Detection keys on host traits, not on a clone path, because more than one machine keeps custos at the same path.
 - Ported/adapted from hodie's `.scripts/env_setup.sh`.
 - Static topology only: paths, active branch, whether `device/` is reachable.
 - Not live device state — that stays in `device/` on the `pixel8` branch as before.
