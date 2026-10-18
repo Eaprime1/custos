@@ -60,7 +60,7 @@ case "$cmd" in
     else
       src_commit="not a git checkout"
     fi
-    python3 - "$pack" "$id" "$stamp" "$to" "$src_commit" "$dirty" "$list" <<'PY'
+    python3 - "$pack" "$id" "$stamp" "$to" "$src_commit" "$dirty" "$list" <<'PY' || exit 1
 import hashlib, json, os, sys
 pack, pid, stamp, to, commit, dirty, listfile = sys.argv[1:8]
 files = []
@@ -88,7 +88,6 @@ m = {
 json.dump(m, open(os.path.join(pack, "manifest.json"), "w"), indent=2, ensure_ascii=False)
 open(os.path.join(pack, "manifest.json"), "a").write("\n")
 PY
-    [ $? -eq 0 ] || exit 1
     (cd "$pack" && sha256sum -c --quiet files.sha256) || { echo "pack failed its own check" >&2; exit 1; }
     mkdir -p "$packs/$id"
     cp "$pack/manifest.json" "$pack/files.sha256" "$packs/$id/"
