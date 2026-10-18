@@ -1,4 +1,3 @@
-'use strict';
 // Offline test table for .github/scripts/observation-log.js. No network, no GitHub.
 // Run: bash tools/test_observation_log.sh
 
@@ -105,7 +104,7 @@ eq('utcStamp: accepts a Date', utcStamp(new Date('2026-01-02T03:04:00Z')), '2026
 
 // ── A row ───────────────────────────────────────────────────────────────────
 const base = {
-  id: 'review-5559775662', kind: 'review', url: 'https://github.com/Eaprime1/custos/pull/462#pullrequestreview-5559775662',
+  id: 'review-5561541', kind: 'review', url: 'https://github.com/Eaprime1/custos/pull/462#pullrequestreview-5561541',
   by: 'Eaprime1', posted: '2026-10-17T21:54:00Z', stamp: '202610171254', head: 'abc1234def5678', excerpt: 'rename it',
 };
 {
@@ -113,9 +112,9 @@ const base = {
   check('row: carries the typed stamp as written', built.line.includes('| 202610171254 |'), built.line);
   check('row: carries the posted time in UTC', built.line.startsWith('| 202610172154 |'), built.line);
   check('row: head is shortened', built.line.includes('`abc1234`') && !built.line.includes('def5678'), built.line);
-  check('row: links the source', built.line.includes('[review](https://github.com/Eaprime1/custos/pull/462#pullrequestreview-5559775662)'), built.line);
-  check('row: ends with its hidden id', built.line.endsWith('<!--obs:review-5559775662--> |'), built.line);
-  eq('row: id is returned', built.id, 'review-5559775662');
+  check('row: links the source', built.line.includes('[review](https://github.com/Eaprime1/custos/pull/462#pullrequestreview-5561541)'), built.line);
+  check('row: ends with its hidden id', built.line.endsWith('<!--obs:review-5561541--> |'), built.line);
+  eq('row: id is returned', built.id, 'review-5561541');
 }
 check('row: no stamp shows a dash', buildRow({ ...base, stamp: null }).line.includes('| \u2014 |'));
 check('row: no text says so', buildRow({ ...base, excerpt: '' }).line.includes('(no text)'));
@@ -148,24 +147,24 @@ const rowB = buildRow({ ...base, id: 'comment-77', kind: 'comment', posted: '202
   const first = mergeLog('', rowA);
   check('log: first row makes a body with the marker first', first.body.startsWith(`${MARKER}\n`), first.body.slice(0, 60));
   check('log: has the start and end markers', first.body.includes(LOG_START) && first.body.includes(LOG_END));
-  eq('log: one row', parseRows(first.body).map((row) => row.id), ['review-5559775662']);
+  eq('log: one row', parseRows(first.body).map((row) => row.id), ['review-5561541']);
 
   const second = mergeLog(first.body, rowB);
-  eq('log: a second row is appended in order', parseRows(second.body).map((row) => row.id), ['review-5559775662', 'comment-77']);
+  eq('log: a second row is appended in order', parseRows(second.body).map((row) => row.id), ['review-5561541', 'comment-77']);
 
   const again = mergeLog(second.body, rowB);
   check('log: applying the same row twice changes nothing', again.body === second.body);
 
   const edited = mergeLog(second.body, buildRow({ ...base, excerpt: 'rename it, and the other one', edited: true }));
-  eq('log: an edit keeps the order', parseRows(edited.body).map((row) => row.id), ['review-5559775662', 'comment-77']);
+  eq('log: an edit keeps the order', parseRows(edited.body).map((row) => row.id), ['review-5561541', 'comment-77']);
   check('log: an edit replaces the text', edited.body.includes('and the other one') && !edited.body.includes('| rename it <!--'));
   eq('log: an edit does not add a row', parseRows(edited.body).length, 2);
 }
 {
   const messy = ['hand-written intro', '', rowA.line, 'a stray line', '| not a row |', rowB.line, ''].join('\n');
-  eq('log: rows survive a body with no markers and stray lines', parseRows(messy).map((row) => row.id), ['review-5559775662', 'comment-77']);
+  eq('log: rows survive a body with no markers and stray lines', parseRows(messy).map((row) => row.id), ['review-5561541', 'comment-77']);
   const rebuilt = mergeLog(messy, buildRow({ ...base, id: 'comment-99', kind: 'comment', excerpt: 'third' }));
-  eq('log: a messy body is rebuilt with all rows', parseRows(rebuilt.body).map((row) => row.id), ['review-5559775662', 'comment-77', 'comment-99']);
+  eq('log: a messy body is rebuilt with all rows', parseRows(rebuilt.body).map((row) => row.id), ['review-5561541', 'comment-77', 'comment-99']);
   check('log: the rebuilt body has the markers again', rebuilt.body.startsWith(MARKER) && rebuilt.body.includes(LOG_END));
 }
 eq('log: null old body is an empty log', parseRows(null), []);
@@ -180,8 +179,8 @@ check('log: the time-zone note is there', mergeLog('', rowA).body.includes('Noth
 const user = { login: 'Eaprime1', type: 'User' };
 const reviewEv = {
   action: 'submitted', pull_request: { number: 462 },
-  review: { id: 5559775662, body: 'shepherd observation 202610171254', user, author_association: 'OWNER',
-    submitted_at: '2026-10-17T21:54:00Z', commit_id: 'abc1234def5678', html_url: 'https://github.com/o/r/pull/462#pullrequestreview-5559775662' },
+  review: { id: 5561541, body: 'shepherd observation 202610171254', user, author_association: 'OWNER',
+    submitted_at: '2026-10-17T21:54:00Z', commit_id: 'abc1234def5678', html_url: 'https://github.com/o/r/pull/462#pullrequestreview-5561541' },
 };
 const inlineEv = {
   action: 'created', pull_request: { number: 462 },
@@ -195,9 +194,9 @@ const prCommentEv = {
 };
 {
   const read = readEvent('pull_request_review', reviewEv);
-  check('event: review reads its id, kind and number', read.id === 'review-5559775662' && read.kind === 'review' && read.prNumber === 462, JSON.stringify(read));
+  check('event: review reads its id, kind and number', read.id === 'review-5561541' && read.kind === 'review' && read.prNumber === 462, JSON.stringify(read));
   check('event: review uses submitted_at and commit_id', read.posted === '2026-10-17T21:54:00Z' && read.head === 'abc1234def5678', JSON.stringify(read));
-  check('event: review remembers its id for the inline lookup', read.reviewId === 5559775662);
+  check('event: review remembers its id for the inline lookup', read.reviewId === 5561541);
   check('event: review carries who, what and association', read.by === 'Eaprime1' && read.authorType === 'User' && read.association === 'OWNER' && read.body.startsWith('shepherd'));
   eq('event: submitted is not an edit', read.edited, false);
 }

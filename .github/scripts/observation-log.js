@@ -49,24 +49,30 @@ const reject = (reason) => ({ ok: false, reason });
 function makeExcerpt(text, max = EXCERPT_MAX) {
   let s = String(text).replace(/\s+/g, ' ').trim().replace(/</g, '&lt;');
   const chars = Array.from(s);
-  if (chars.length > max) s = chars.slice(0, max).join('').trimEnd() + '\u2026';
+  if (chars.length > max) s = `${chars.slice(0, max).join('').trimEnd()}\u2026`;
   return s.replace(/\|/g, '\\|').replace(/@/g, '@\u200b');
 }
 
-function parseObservation(body, { association, authorType } = {}) {
-  if (authorType === 'Bot') return reject('bot');
-  if (association !== 'OWNER') return reject('not the owner');
+// Why a comment is not the owner's observation, or null if it may be.
+function rejectionOf(body, { association, authorType }) {
+  if (authorType === 'Bot') return 'bot';
+  if (association !== 'OWNER') return 'not the owner';
+  if (hasFooter(body)) return 'carries the Claude Code footer';
+  return null;
+}
+
+function parseObservation(body, opts = {}) {
   const raw = String(body || '');
-  if (hasFooter(raw)) return reject('carries the Claude Code footer');
+  const why = rejectionOf(raw, opts);
+  if (why) return reject(why);
   const lines = strip(raw).split('\n');
   const at = lines.findIndex((l) => MARKER_RE.test(l));
   if (at === -1) return reject('no marker at the start of a line');
   const rest = lines[at].match(MARKER_RE)[1].replace(LEAD_SEP_RE, '');
   const sm = rest.match(STAMP_RE);
-  const stamp = sm ? sm[1] : null;
   const first = sm ? rest.slice(sm[0].length) : rest;
   const text = [first, ...lines.slice(at + 1)].join('\n').trim();
-  return { ok: true, stamp, text, excerpt: makeExcerpt(text) };
+  return { ok: true, stamp: sm ? sm[1] : null, text, excerpt: makeExcerpt(text) };
 }
 
 // UTC, YYYYMMDDHHMM: the repo's prima-clock form.
@@ -81,7 +87,7 @@ const isGithubUrl = (u) => typeof u === 'string' && u.startsWith('https://github
 const link = (label, url) => (isGithubUrl(url) ? `[${label}](${url})` : label);
 
 function inlineNote(list) {
-  if (!list || !list.length) return '';
+  if (!list?.length) return '';
   const shown = list.slice(0, INLINE_LINKS_MAX).map((c, i) => link(String(i + 1), c.url));
   const more = list.length > INLINE_LINKS_MAX ? ` \u2026+${list.length - INLINE_LINKS_MAX}` : '';
   return ` \u00b7 ${list.length} inline: ${shown.join(' ')}${more}`;
@@ -89,15 +95,17 @@ function inlineNote(list) {
 
 const KIND_LABEL = { review: 'review', comment: 'comment', inline: 'inline comment' };
 
+const safeWho = (by) => (/^[A-Za-z0-9_[\]-]+$/.test(String(by)) ? by : '?');
+const shortSha = (head) => (/^[0-9a-f]{7,40}$/i.test(String(head)) ? String(head).slice(0, 7) : '?');
+
 // One table row. The id (kind-number) is hidden at the end so an edit replaces its row.
-function buildRow({ id, kind, url, by, posted, stamp, head, excerpt, inline = [], edited = false }) {
+function buildRow(row) {
+  const { id, kind, url, posted, stamp, excerpt, inline = [], edited = false } = row;
   if (!ROW_ID_RE.test(String(id))) throw new Error(`bad row id: ${id}`);
   const label = KIND_LABEL[kind] || 'comment';
-  const who = /^[A-Za-z0-9_[\]-]+$/.test(String(by)) ? by : '?';
-  const sha = /^[0-9a-f]{7,40}$/i.test(String(head)) ? String(head).slice(0, 7) : '?';
   const note = (excerpt || '(no text)') + inlineNote(inline) + (edited ? ' \u00b7 edited' : '');
-  const line = `| ${utcStamp(posted)} | ${stamp || '\u2014'} | ${link(label, url)} | @${who} | ` +
-    `\`${sha}\` | ${note} <!--obs:${id}--> |`;
+  const line = `| ${utcStamp(posted)} | ${stamp || '\u2014'} | ${link(label, url)} | @${safeWho(row.by)} | ` +
+    `\`${shortSha(row.head)}\` | ${note} <!--obs:${id}--> |`;
   return { id, line };
 }
 
@@ -160,7 +168,7 @@ function fromReviewComment(p) {
 
 function fromPrComment(p) {
   const c = p.comment;
-  if (!c || !p.issue || !p.issue.pull_request) return null;
+  if (!c || !p.issue?.pull_request) return null;
   return { c, kind: 'comment', prNumber: p.issue.number, id: `comment-${c.id}`, posted: c.created_at };
 }
 
@@ -171,19 +179,22 @@ const READERS = new Map([
   ['issue_comment', fromPrComment],
 ]);
 
+const fromComment = (c, p) => ({
+  url: c.html_url, body: c.body,
+  by: c.user?.login, authorType: c.user?.type,
+  association: c.author_association,
+  edited: p.action === 'edited',
+});
+
 function readEvent(eventName, payload) {
   const p = payload || {};
   const read = READERS.get(eventName);
   const part = read ? read(p) : null;
-  if (!part || !part.prNumber) return null;
-  const c = part.c;
+  if (!part?.prNumber) return null;
   return {
     id: part.id, kind: part.kind, prNumber: part.prNumber,
     reviewId: part.reviewId ?? null, head: part.head ?? null, posted: part.posted,
-    url: c.html_url, body: c.body,
-    by: c.user && c.user.login, authorType: c.user && c.user.type,
-    association: c.author_association,
-    edited: p.action === 'edited',
+    ...fromComment(part.c, p),
   };
 }
 

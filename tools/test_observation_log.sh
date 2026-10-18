@@ -19,4 +19,4 @@ steps = [s for j in d['jobs'].values() for s in j['steps'] if s.get('uses', '').
 assert len(steps) == 1, f'expected one github-script step, found {len(steps)}'
 open(sys.argv[1], 'w').write(steps[0]['with']['script'])
 PY
-node tools/test_observation_log_workflow.js "$step"
+node tools/test_observation_log_workflow.js < "$step"

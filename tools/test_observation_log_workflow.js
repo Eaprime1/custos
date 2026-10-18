@@ -1,25 +1,27 @@
-'use strict';
 // Runs the real github-script step from .github/workflows/observation-log.yml against a
 // stubbed GitHub. No network. The script text is extracted by test_observation_log.sh
-// (PyYAML reads the workflow) and passed in as a file, so the test cannot drift from the
+// (PyYAML reads the workflow) and piped in on stdin, so the test cannot drift from the
 // workflow it covers.
 // Run: bash tools/test_observation_log.sh
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
 
 process.env.TZ = 'America/Los_Angeles';
 
 const say = (text) => process.stdout.write(`${text}\n`);
 
-const scriptPath = process.argv[2];
-if (!scriptPath) { process.stderr.write('usage: node test_observation_log_workflow.js <script-file>\n'); process.exit(2); }
-const script = fs.readFileSync(scriptPath, 'utf8');
+const script = fs.readFileSync(0, 'utf8');
+if (!script.trim()) { say('usage: pipe the workflow step script in on stdin'); process.exit(2); }
 // github-script runs a step as the body of an async function; this reaches the same
 // constructor. The function below is never called, it only has to be a real async one.
 const AsyncFunction = Object.getPrototypeOf(async () => { await null; }).constructor;
 const run = new AsyncFunction('github', 'context', 'core', 'require', script);
-const rootRequire = (p) => require(path.resolve(p));
+// The only module the step loads. A literal require, so the test reaches nothing else.
+const observationLog = require('../.github/scripts/observation-log.js');
+const rootRequire = (name) => {
+  if (name !== './.github/scripts/observation-log.js') throw new Error(`unexpected require: ${name}`);
+  return observationLog;
+};
 
 let failed = 0;
 let count = 0;
@@ -76,7 +78,7 @@ const prComment = (over = {}) => ({
 });
 const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) => s.slice(8, -3));
 
-(async () => {
+async function scenario0() {
   // 1. A review opens the log; its inline comments are looked up; no head lookup is needed.
   {
     const world = makeWorld({ reviewComments: [{ html_url: 'https://github.com/o/r/pull/462#discussion_r1' }, { html_url: 'https://github.com/o/r/pull/462#discussion_r2' }] });
@@ -92,6 +94,9 @@ const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) 
     check('review: nothing failed', !world.failed);
     check('review: it says it opened the log', world.logs.some((m) => m.startsWith('Opened the observation log (review-11)')), world.logs.join(' | '));
   }
+}
+
+async function scenario1() {
   // 2. A PR comment has no commit; the head is asked for. Then a second row joins the first.
   {
     const world = makeWorld();
@@ -108,6 +113,9 @@ const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) 
     check('edit: the new words are there and flagged', world.comments[0].body.includes('rename it') && world.comments[0].body.includes('edited'));
     check('edit: order is kept', rowIds(world.comments[0].body).join() === 'review-11,comment-77');
   }
+}
+
+async function scenario2() {
   // 4. Things that must not be recorded.
   const quiet = async (name, eventName, payload, opts) => {
     const world = makeWorld(opts);
@@ -122,6 +130,9 @@ const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) 
   await quiet('in code', 'issue_comment', prComment({ body: '`shepherd observation 202610171600`' }));
   await quiet('a comment on a plain issue', 'issue_comment', { action: 'created', issue: { number: 3 }, comment: prComment().comment });
   await quiet('an event it does not read', 'push', {});
+}
+
+async function scenario3() {
   // 5. Someone else's comment that happens to start with the marker is not our log.
   {
     const world = makeWorld({ comments: [{ id: 1, body: '<!-- custos-observation-log -->\nlooks like ours', user: { type: 'User' } }] });
@@ -129,6 +140,9 @@ const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) 
     check('a human comment that starts with the marker is not ours', writes(world).join() === 'createComment' && world.comments.length === 2, writes(world).join());
     check('and it is left alone', world.comments[0].body.includes('looks like ours') && !world.comments[0].body.includes('obs:'));
   }
+}
+
+async function scenario4() {
   // 6. Rows already in the log are kept when it is rewritten.
   {
     const world = makeWorld();
@@ -141,7 +155,14 @@ const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) 
     check('a review comment is recorded alongside the review', rowIds(world.comments[0].body).join() === 'review-11,rcomment-901', rowIds(world.comments[0].body).join());
     check('an unstamped observation shows a dash', world.comments[0].body.includes('| — |'));
   }
+}
 
+(async () => {
+  await scenario0();
+  await scenario1();
+  await scenario2();
+  await scenario3();
+  await scenario4();
   say(`${count - failed} of ${count} workflow checks passed`);
   process.exit(failed ? 1 : 0);
 })().catch((e) => { say(`FAIL  the step threw: ${e.stack || e}`); process.exit(1); });
