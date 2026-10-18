@@ -158,3 +158,24 @@ notes:           Worked five repos from one ephemeral container, with MCP
                  to settle the valuation ledger gaps. Closed with the Act II
                  journey. Same ephemeral constraints as custos-web-jolly-bohr.
 ---
+
+---
+podium_id:       primehaven
+name:            "primehaven (Ubuntu laptop)"
+type:            device
+platform:        claude-code-cli
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: ""
+role:            "Shepherd's Ubuntu laptop — full Claude Code CLI, home of
+                 the PrimeHaven framework (~/primehaven) and the unexusi
+                 clones (~/unexusi/)"
+status:          active
+notes:           Ubuntu 24.04, hostname `sauron`, worked from a TTY (no GUI
+                 from Claude's process). Distinct from mulberry (the Windows
+                 laptop) — until 2026-10-18 .locations/ detected this laptop
+                 as mulberry by its ~/unexusi/custos path. Holds several
+                 custos-family setups: ~/unexusi/custos (working clone, main),
+                 ~/repo/custos (June iteration), plus practice and older
+                 iterations under ~/mandelbrot/ and ~/repo/.
+---
