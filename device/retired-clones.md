@@ -143,6 +143,36 @@ local-only: none
 status:    verified — awaiting removal
 ---
 
+---
+date:      2026-10-18
+podium:    primehaven
+path:      ~/radix
+repo:      eaprime1/radix, main, 9ee55da (78 commits behind GitHub)
+canonical: ~/primehaven/repo/radix
+local-only: ORIGIN - NotebookLM.html, a Gemini image, a Gemini JSON, and a
+           second image saved over README.md by mistake. All four went to
+           ~/primehaven/vetting/radix/ and then to eaprime1/maw as arrival
+           origin-shadow-seed (they need upgrading before radix).
+status:    verified — awaiting removal
+---
+
+---
+date:      2026-10-18
+podium:    primehaven
+path:      ~/mandelbrot/repo/radix
+repo:      eaprime1/radix, main, f5cfbf0 (59 commits behind GitHub)
+canonical: ~/primehaven/repo/radix
+local-only: txt_Building Radix Repo Seed Document.txt, Platform Podium Radix
+           Guide v0.1.docx, €_Germ_Bank_Factor_Log.xlsx. All three went to
+           ~/primehaven/vetting/radix/ and then to eaprime1/maw with the arrival
+           above.
+status:    verified — awaiting removal
+---
+
+Removal on primehaven is done by `~/primehaven/vetting/remove-retired-clones.sh`,
+which re-checks each clone and skips any that changed since this audit.
+`~/repo/custos` was moved to `~/repo/_old/custos` before removal.
+
 ## Not yet retired
 
 Checked in the same pass. These still hold work that exists only on
@@ -151,10 +181,13 @@ primehaven, so their mission is not complete:
 - `~/fleet-commander` — the canonical clone. It has unpushed commit 08d7718
   (`fleet_modern.py`, which the `fleet` alias runs, plus README-MODERN.md,
   README-RESTORED.md, COMPLETION_SUMMARY.md and a workflow) and an untracked
-  RESTORATION_PLAN.md. Push or PR these first.
-- `~/radix` and `~/mandelbrot/repo/radix` — both clones of eaprime1/radix,
-  each with untracked source material (NotebookLM export, docx, xlsx, an
-  image, a JSON). One should become canonical once that material is placed.
+  RESTORATION_PLAN.md. Five files are now in draft PR eaprime1/fleet-commander
+  #1; the workflow is held until it works.
+- `~/repo/_old/fleet-commander` and `~/repo/_old/MANDELBROT` — clean, but
+  `~/Q/runexusiam/` symlinks (used by `fleet`) still point at them.
+- `~/mandelbrot/domos/runexusiam` — not a clone: a local repo, never on GitHub
+  (5 Redundancy Ranger commits, `journey/`, `🧁🌊Sargasso Sea©6®`). Copied with
+  a history bundle to `~/primehaven/vetting/runexusiam-domos/` to find homes.
 - `~/mandelbrot/repo/pandora` — the only clone of eaprime1/pandora; an
   untracked `.queue/`.
 - `~/mandelbrot` — active working tree for eaprime1/MANDELBROT, branch
