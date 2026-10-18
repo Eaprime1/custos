@@ -1,0 +1,116 @@
+# Custos — Observation Log
+#
+# When the owner posts a "shepherd observation" (a review, a review comment or a PR
+# comment that has those words at the start of a line, with an optional 12-digit stamp:
+# `shepherd observation 202610171524`), this records it in one living comment on the PR:
+# when it was posted (UTC), the stamp as typed, who, which commit, and the first words.
+# A review's inline comments are counted and linked. An edit updates its row; a
+# deletion leaves the row in place.
+#
+# It is the capture half of the living observation (docs/plans/
+# 202610070939-cue-sigil-and-living-observation-plan.md, Phase 3). It does not build the
+# observation, archive it at merge, tick the observed box or gate the seal.
+#
+# It only records. It calls no model, and it doesn't review, seal or merge.
+# The rules for what counts live in .github/scripts/observation-log.js and are tested
+# offline by tools/test_observation_log.sh. Quoted text, code, comments that carry the
+# Claude Code footer (a navigo writing under the owner's login), bots and non-owners
+# are skipped, the same as the cue parser.
+name: Custos — Observation Log
+
+on:
+  pull_request_review:
+    types: [submitted, edited]
+  pull_request_review_comment:
+    types: [created, edited]
+  issue_comment:
+    types: [created, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  # One update at a time per PR, and never cancel one: each run changes the same comment.
+  group: observation-log-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  record:
+    # Cheap pre-filter (contains() ignores case); the script does the exact match.
+    if: >
+      (github.event_name == 'pull_request_review' &&
+       github.event.pull_request.head.repo.fork == false &&
+       github.event.review.user.type != 'Bot' &&
+       github.event.review.author_association == 'OWNER' &&
+       contains(github.event.review.body, 'observation')) ||
+      (github.event_name == 'pull_request_review_comment' &&
+       github.event.pull_request.head.repo.fork == false &&
+       github.event.comment.user.type != 'Bot' &&
+       github.event.comment.author_association == 'OWNER' &&
+       contains(github.event.comment.body, 'observation')) ||
+      (github.event_name == 'issue_comment' &&
+       github.event.issue.pull_request != null &&
+       github.event.comment.user.type != 'Bot' &&
+       github.event.comment.author_association == 'OWNER' &&
+       contains(github.event.comment.body, 'observation'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Record the observation
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            const log = require('./.github/scripts/observation-log.js');
+            const { owner, repo } = context.repo;
+
+            const ev = log.readEvent(context.eventName, context.payload);
+            if (!ev) {
+              core.info('Not an event this log reads.');
+              return;
+            }
+            const parsed = log.parseObservation(ev.body, {
+              association: ev.association, authorType: ev.authorType,
+            });
+            if (!parsed.ok) {
+              core.info(`Not an observation: ${parsed.reason}.`);
+              return;
+            }
+
+            // A review brings its inline comments with it: count and link them.
+            let inline = [];
+            if (ev.reviewId) {
+              const list = await github.paginate(github.rest.pulls.listCommentsForReview, {
+                owner, repo, pull_number: ev.prNumber, review_id: ev.reviewId, per_page: 100,
+              });
+              inline = list.map((c) => ({ url: c.html_url }));
+            }
+
+            // A PR comment does not say which commit it was made on; ask for the head.
+            let head = ev.head;
+            if (!head) {
+              const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: ev.prNumber });
+              head = pr.head.sha;
+            }
+
+            const row = log.buildRow({
+              id: ev.id, kind: ev.kind, url: ev.url, by: ev.by, posted: ev.posted,
+              stamp: parsed.stamp, head, excerpt: parsed.excerpt, inline, edited: ev.edited,
+            });
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: ev.prNumber, per_page: 100,
+            });
+            const mine = comments.find((c) => c.user?.type === 'Bot' && (c.body || '').startsWith(log.MARKER));
+            const { body } = log.mergeLog(mine ? mine.body : '', row);
+
+            if (mine) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
+              core.info(`Updated the observation log (${ev.id}).`);
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: ev.prNumber, body });
+              core.info(`Opened the observation log (${ev.id}).`);
+            }

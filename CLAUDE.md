@@ -14,6 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - `test_probatio_label.js` (15 rows, needs Node)
   - `test_file_review.js` (30 rows, needs Node)
   - `test_seal_observation.sh` (9 rows, needs Node, Python 3 and PyYAML)
+  - `test_observation_log.sh` (96 checks on the rules, 27 on the workflow step; needs Node, Python 3 and PyYAML)
   - `test_check_workflow_injection.sh` (11 checks, needs Python 3)
   - `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
