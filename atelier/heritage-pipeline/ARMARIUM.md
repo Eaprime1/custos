@@ -1,8 +1,8 @@
 # Armarium — the origin vault (name, layout, hash rule)
 
 `suit: ♦️ Diamond — seed, structure forming`
-`prima-clock: 202610171925 (updated 202610172020)`
-`status: the repo exists (private, `Eaprime1/armarium`); the kit was pushed as `80c073d`. Branch protection could not be enforced (see section 4). Section 6 (Genizah) is a proposal.`
+`prima-clock: 202610171925 (updated 202610172355)`
+`status: the repo exists (private, `Eaprime1/armarium`); the kit was pushed as `80c073d`. Branch protection could not be enforced; the Armarium declares the policy in its own `RULES.md` instead. The hash rule is ratified (section 3). Section 6 (Genizah) is a proposal.`
 
 *The Shepherd's call on 202610171006: origins go in a new private vault-type repo with a fitting
 name (Latin, or older: Hebrew, Armenian, as a letter beside a Latin lexeme). The name was left
@@ -77,6 +77,12 @@ agreement with the hash rule above (exact bytes, hash beside the file, `sha256su
 this section and does not name a rule, so say so if it meant something else. Until then the rule counts as
 agreed for the kit, not yet written into a ratification record.
 
+**Ratified (the Shepherd, after 202610172338 UTC, in the conversation):** "hash rule yes set it up please."
+That is the explicit yes. The rule is written into the Armarium repo as `RULES.md` (armarium `40e744a`) and
+recorded in the carrier `moav/armarium_moav_hashrule001.json`. The message's own time was not recorded; the
+export file the Shepherd sent in the same message is dated 202610172338 UTC, so the yes came at or after
+that.
+
 ### Scanners and the hash files (recommendation; the Shepherd asked, 202610171442)
 
 The Shepherd's question: if a scan has trouble with our hashes, do we need the scan, can it make exceptions or
@@ -118,6 +124,9 @@ repo. The private repo also means the Armarium is not part of custos's public hi
 ## 5. Next
 
 - The workflow that fails a push which changes or deletes anything under `origins/`.
+- **Getting this concept's shadow seeds from the custos atelier to the Armarium:** the commission pack. Design in
+  `COMMISSION-PACK.md` (this folder), tool `tools/commission_pack.sh`. The first pack is built; sending it is the
+  Shepherd's word.
 - The receipt format as a JSON schema, with a validator.
 - The Genizah rules in section 6: the Shepherd's yes, then a folder and one example note.
 
