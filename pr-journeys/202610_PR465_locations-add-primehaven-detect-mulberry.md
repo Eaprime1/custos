@@ -1,10 +1,10 @@
 # PR Journey: #465 — .locations: add primehaven, detect mulberry as Windows, never by path
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202610180353  
+**prima-clock:** 202610180457  
 **Branch:** `claude/primehaven-location-202610180011` → `main`  
 **Author:** @Eaprime1  
-**State:** FINALIZED (auto)  
+**State:** FINALIZED  
 
 ## Intent
 
@@ -30,16 +30,14 @@ Stop the Ubuntu laptop from identifying itself as mulberry, and give it its own 
 
 ## Resonance
 
-*naming true
-
----*
+*naming true*
 
 ## The Arc
 
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202610180027 | @Eaprime1 |
-| Auto-Finalized | 202610180353 | github-actions[bot] |
+| Finalized | 202610180457 | @Eaprime1 |
 
 ## CI Record
 
@@ -58,11 +56,11 @@ Stop the Ubuntu laptop from identifying itself as mulberry, and give it its own 
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
 | final-oversight | ⏭ |
-| label | ✅ |
 | validate | ✅ |
-| scan | ✅ |
 | custos-speaks | ✅ |
+| label | ✅ |
 | dependency-review | ✅ |
+| scan | ✅ |
 | scan | ✅ |
 | packet | ✅ |
 | GitGuardian Security Checks | ✅ |
@@ -78,8 +76,8 @@ Stop the Ubuntu laptop from identifying itself as mulberry, and give it its own 
 | Dimension | Score | Note |
 |---|---|---|
 | Correctness | 5/5 | 21 CI check(s) — all passed |
-| Consistency | 5/5 | Description complete · ethics 5/5 |
-| Scope | 4/5 | 6 file(s) changed |
+| Consistency | 5/5 | Template complete · ethics 5/5 |
+| Scope | 4/5 | 8 file(s) changed |
 | Verification | 5/5 | 21 check run(s) completed |
 | **Valuation** | **High** | 19/20 |
 
@@ -95,15 +93,11 @@ Stop the Ubuntu laptop from identifying itself as mulberry, and give it its own 
 
 hodie's `.locations/mulberry` has the same lineage, and hodie has moved on since. Does hodie need the same correction, adapted to its current shape?
 
----
+## Witnesses
 
-**prime state:** 3  
-**witnessed:** false
-- [ ] **observed:** observation document filed in `turns/observations/` (ticked by the cue record once it is there)
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
+- @Eaprime1 · 202610180457 · sealed at finalize
 
 ---
-**prima-clock:** 202610180353  
-**witnessed:** true  
+**prima-clock:** 202610180457  
+**witnessed:** true — 1 witness, sealed 202610180457 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
