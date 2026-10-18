@@ -1,0 +1,31 @@
+{
+  "carrier_id": "armarium_moav_hashrule001",
+  "prima_clock": "202610172354",
+  "entity": "armarium (Eaprime1/armarium, private); rule ratified by eaprime1, written down by Claude (Sonnet 5.5) for Navigo Claude",
+  "suit": "♦️",
+  "iteration": "armarium-hashrule-001",
+  "event": "The hash rule for the Armarium is ratified by the Shepherd and written into the Armarium repo as RULES.md",
+  "motion_state": "COMPLETE",
+  "chain_of_custody": "OPEN",
+  "supersedes": "Open question 2 of armarium_moav_birth001.json (the hash rule was a recommendation, not ratified). That carrier is not edited; this one records the change.",
+  "stamp_note": "202610172354 is the filing time (UTC). The Shepherd's agreement came in two steps. First, a review comment on custos PR #463 posted 202610172244 UTC on the hash section: 'I agree with your recommendation.' Second, in the conversation, after 202610172338 UTC (the time of the export file the Shepherd sent in the same message; the message's own time was not recorded): 'hash rule yes set it up please.' The second is the explicit ratification.",
+  "rule": [
+    "An origin is hashed as the SHA-256 of its exact bytes. No cleaning, no normalization.",
+    "The hash lives beside the file (origin.sha256), never inside it.",
+    "The authoritative check is sha256sum -c, which any machine has.",
+    "An edit makes a new hash; for an origin that means an amendment, never a replacement.",
+    "Where a document must carry an embedded passport (the older format), the hash covers everything before one exact marker line, in one shared module, tested against sha256sum on the same bytes."
+  ],
+  "witness": {
+    "repo": "https://github.com/Eaprime1/armarium",
+    "rules_file": "RULES.md (in the Armarium repo root)",
+    "design_source": "atelier/heritage-pipeline/ARMARIUM.md section 3",
+    "custos_pr_of_the_comment": "https://github.com/Eaprime1/custos/pull/463",
+    "kit_check": "tools/verify.sh in the Armarium repo"
+  },
+  "left_open": [
+    "Branch protection cannot be enforced on a private repo outside a Team or Enterprise account. RULES.md declares the policy in words; a detection workflow for origins/ is not built.",
+    "Whether a scan that flags a hash file needs an exemption. None has so far; the smallest exemption (the hash files only, never the origin) is described in ARMARIUM.md section 3."
+  ],
+  "notes": "Deck Master path. Proposed by the navigo for review, not self-approved."
+}
