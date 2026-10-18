@@ -93,7 +93,7 @@ const KIND_LABEL = { review: 'review', comment: 'comment', inline: 'inline comme
 function buildRow({ id, kind, url, by, posted, stamp, head, excerpt, inline = [], edited = false }) {
   if (!ROW_ID_RE.test(String(id))) throw new Error(`bad row id: ${id}`);
   const label = KIND_LABEL[kind] || 'comment';
-  const who = /^[A-Za-z0-9_\-\[\]]+$/.test(String(by)) ? by : '?';
+  const who = /^[A-Za-z0-9_[\]-]+$/.test(String(by)) ? by : '?';
   const sha = /^[0-9a-f]{7,40}$/i.test(String(head)) ? String(head).slice(0, 7) : '?';
   const note = (excerpt || '(no text)') + inlineNote(inline) + (edited ? ' \u00b7 edited' : '');
   const line = `| ${utcStamp(posted)} | ${stamp || '\u2014'} | ${link(label, url)} | @${who} | ` +
@@ -143,25 +143,43 @@ function mergeLog(oldBody, row) {
 // under different names: a review has submitted_at and a commit_id, a review comment has
 // a commit_id, a PR comment (an issue_comment) has neither and the head must be asked for.
 // Returns null for an event this log does not read (including a comment on a plain issue).
+const prNumberOf = (p) => (p.pull_request ? p.pull_request.number : undefined);
+
+// One small reader per event: what it calls the comment, its kind and its number.
+function fromReview(p) {
+  const c = p.review;
+  return c && { c, kind: 'review', prNumber: prNumberOf(p), id: `review-${c.id}`,
+    posted: c.submitted_at, head: c.commit_id, reviewId: c.id };
+}
+
+function fromReviewComment(p) {
+  const c = p.comment;
+  return c && { c, kind: 'inline', prNumber: prNumberOf(p), id: `rcomment-${c.id}`,
+    posted: c.created_at, head: c.commit_id };
+}
+
+function fromPrComment(p) {
+  const c = p.comment;
+  if (!c || !p.issue || !p.issue.pull_request) return null;
+  return { c, kind: 'comment', prNumber: p.issue.number, id: `comment-${c.id}`, posted: c.created_at };
+}
+
+// A Map, not a plain object, so an event named `constructor` finds nothing.
+const READERS = new Map([
+  ['pull_request_review', fromReview],
+  ['pull_request_review_comment', fromReviewComment],
+  ['issue_comment', fromPrComment],
+]);
+
 function readEvent(eventName, payload) {
   const p = payload || {};
-  let c; let kind; let prNumber; let posted; let head; let id; let reviewId = null;
-  if (eventName === 'pull_request_review') {
-    c = p.review; kind = 'review'; prNumber = p.pull_request && p.pull_request.number;
-    posted = c && c.submitted_at; head = c && c.commit_id; id = c && `review-${c.id}`; reviewId = c && c.id;
-  } else if (eventName === 'pull_request_review_comment') {
-    c = p.comment; kind = 'inline'; prNumber = p.pull_request && p.pull_request.number;
-    posted = c && c.created_at; head = c && c.commit_id; id = c && `rcomment-${c.id}`;
-  } else if (eventName === 'issue_comment') {
-    if (!p.issue || !p.issue.pull_request) return null;
-    c = p.comment; kind = 'comment'; prNumber = p.issue.number;
-    posted = c && c.created_at; head = null; id = c && `comment-${c.id}`;
-  } else {
-    return null;
-  }
-  if (!c || !prNumber) return null;
+  const read = READERS.get(eventName);
+  const part = read ? read(p) : null;
+  if (!part || !part.prNumber) return null;
+  const c = part.c;
   return {
-    id, kind, prNumber, reviewId, head, posted,
+    id: part.id, kind: part.kind, prNumber: part.prNumber,
+    reviewId: part.reviewId ?? null, head: part.head ?? null, posted: part.posted,
     url: c.html_url, body: c.body,
     by: c.user && c.user.login, authorType: c.user && c.user.type,
     association: c.author_association,

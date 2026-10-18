@@ -124,7 +124,7 @@ check('row: an odd login is not echoed', buildRow({ ...base, by: 'a|b' }).line.i
 check('row: an odd sha is not echoed', buildRow({ ...base, head: 'zz;rm' }).line.includes('`?`'));
 for (const bad of ['', 'review', 'review-', 'Review-1', 'review-1x', '../x', 'review-1 --> <!--obs:review-2']) {
   let threw = false;
-  try { buildRow({ ...base, id: bad }); } catch (e) { threw = true; }
+  try { buildRow({ ...base, id: bad }); } catch { threw = true; }
   check(`row: bad id rejected (${JSON.stringify(bad)})`, threw);
 }
 
@@ -214,6 +214,9 @@ const prCommentEv = {
 eq('event: a comment on a plain issue is not read',
   readEvent('issue_comment', { action: 'created', issue: { number: 5 }, comment: prCommentEv.comment }), null);
 eq('event: an unknown event is not read', readEvent('push', reviewEv), null);
+eq('event: a name from Object.prototype is not read', readEvent('constructor', reviewEv), null);
+eq('event: a PR comment with no comment object is not read',
+  readEvent('issue_comment', { issue: { number: 1, pull_request: {} } }), null);
 eq('event: a missing payload is not read', readEvent('issue_comment', undefined), null);
 eq('event: a review with no body object is not read', readEvent('pull_request_review', { pull_request: { number: 1 } }), null);
 eq('event: a review with no PR number is not read', readEvent('pull_request_review', { review: reviewEv.review }), null);

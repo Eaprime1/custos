@@ -13,7 +13,9 @@ process.env.TZ = 'America/Los_Angeles';
 const scriptPath = process.argv[2];
 if (!scriptPath) { console.error('usage: node test_observation_log_workflow.js <script-file>'); process.exit(2); }
 const script = fs.readFileSync(scriptPath, 'utf8');
-const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+// github-script runs a step as the body of an async function; this reaches the same
+// constructor. The function below is never called, it only has to be a real async one.
+const AsyncFunction = Object.getPrototypeOf(async () => { await null; }).constructor;
 const run = new AsyncFunction('github', 'context', 'core', 'require', script);
 const rootRequire = (p) => require(path.resolve(p));
 
@@ -26,28 +28,33 @@ function check(name, ok, detail) {
 
 // A stand-in for the pieces of the GitHub API the step touches.
 function makeWorld({ comments = [], headSha = 'feedface1234567', reviewComments = [] } = {}) {
-  const world = { comments: [...comments], calls: [], nextId: 5000 };
+  const world = { comments: [...comments], calls: [], logs: [], nextId: 5000 };
   const rest = {
     pulls: {
-      listCommentsForReview: async () => { world.calls.push('listCommentsForReview'); return reviewComments; },
-      get: async () => { world.calls.push('pulls.get'); return { data: { head: { sha: headSha } } }; },
+      listCommentsForReview: () => { world.calls.push('listCommentsForReview'); return Promise.resolve(reviewComments); },
+      get: () => { world.calls.push('pulls.get'); return Promise.resolve({ data: { head: { sha: headSha } } }); },
     },
     issues: {
-      listComments: async () => { world.calls.push('listComments'); return world.comments; },
-      createComment: async ({ issue_number, body }) => {
+      listComments: () => { world.calls.push('listComments'); return Promise.resolve(world.comments); },
+      createComment: ({ issue_number, body }) => {
         world.calls.push('createComment');
-        world.comments.push({ id: world.nextId += 1, body, user: { type: 'Bot' }, issue_number });
-        return {};
+        world.nextId += 1;
+        world.comments.push({ id: world.nextId, body, user: { type: 'Bot' }, issue_number });
+        return Promise.resolve({});
       },
-      updateComment: async ({ comment_id, body }) => {
+      updateComment: ({ comment_id, body }) => {
         world.calls.push('updateComment');
         world.comments.find((c) => c.id === comment_id).body = body;
-        return {};
+        return Promise.resolve({});
       },
     },
   };
-  world.github = { rest, paginate: async (fn, args) => fn(args) };
-  world.core = { info: () => {}, warning: () => {}, setFailed: (m) => { world.failed = m; } };
+  world.github = { rest, paginate: (fn, args) => fn(args) };
+  world.core = {
+    info: (m) => { world.logs.push(m); },
+    warning: (m) => { world.logs.push(`warning: ${m}`); },
+    setFailed: (m) => { world.failed = m; },
+  };
   return world;
 }
 const writes = (w) => w.calls.filter((c) => c === 'createComment' || c === 'updateComment');
@@ -81,6 +88,7 @@ const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) 
     check('review: inline comments are counted', !!body && body.includes('2 inline:'));
     check('review: it was posted to the PR number from the payload', w.comments[0] && w.comments[0].issue_number === 462);
     check('review: nothing failed', !w.failed);
+    check('review: it says it opened the log', w.logs.some((m) => m.startsWith('Opened the observation log (review-11)')), w.logs.join(' | '));
   }
   // 2. A PR comment has no commit; the head is asked for. Then a second row joins the first.
   {
@@ -88,6 +96,7 @@ const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) 
     await go(w, 'pull_request_review', review());
     await go(w, 'issue_comment', prComment());
     check('second event updates, it does not open another comment', writes(w).join() === 'createComment,updateComment' && w.comments.length === 1, writes(w).join());
+    check('second event says it updated the log', w.logs.some((m) => m.startsWith('Updated the observation log (comment-77)')), w.logs.join(' | '));
     check('PR comment: the head was asked for', w.calls.includes('pulls.get'));
     check('PR comment: the log now has both rows in order', rowIds(w.comments[0].body).join() === 'review-11,comment-77', rowIds(w.comments[0].body).join());
     check('PR comment: the head comes from the API', w.comments[0].body.includes('`feedfac`'));
