@@ -22,9 +22,9 @@ if [[ "${PREFIX:-}" = *com.termux* ]]; then
     ENV_NAME="pixel8"
 elif [[ -n "${CODESPACES:-}" ]]; then
     ENV_NAME="codespaces"
-elif [[ "$(uname -n)" == "sauron" && "${OSTYPE:-}" == linux-gnu* ]]; then
+elif [[ "$(uname -n)" = "sauron" && "${OSTYPE:-}" = linux-gnu* ]]; then
     ENV_NAME="primehaven"
-elif [[ "${OSTYPE:-}" == cygwin* || "${OSTYPE:-}" == msys* ]]; then
+elif [[ "${OSTYPE:-}" = cygwin* || "${OSTYPE:-}" = msys* ]]; then
     ENV_NAME="mulberry"
 else
     ENV_NAME="unknown"
