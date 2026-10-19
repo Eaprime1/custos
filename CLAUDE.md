@@ -18,7 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
 
-```
+```text
 [ Termux on Pixel 8 ]        ← the Podium (runtime engine, not in this repo)
         ↕
     [ Unexusi ]              ← identity + connection layer (unexusi/connect.yaml)
@@ -60,6 +60,7 @@ source seeds/env_setup.sh                  # detects primehaven/mulberry/pixel8/
 Claude Code does not distribute a native binary for `linux-arm64-android` (Termux's ABI, its Application Binary Interface). The `npm approve-scripts` + reinstall flow will fail with "Native binaries for linux-arm64-android are not available on this release channel."
 
 Workarounds:
+
 - **Use the web session** — claude.ai/code connects to the repo remotely; this is the primary path for device-side AI work
 - **Use the Anthropic API directly** in Termux: `curl` or a Python script with the `anthropic` package
 - **SSH to a remote Linux box** from Termux and run Claude Code there (full support on linux-arm64)
@@ -67,10 +68,13 @@ Workarounds:
 ## Architecture
 
 ### `prima.yaml` — Central Manifest
+
 Single source of truth. Declares concept name/slug/version, runtime requirements, and references every component by path. `concept.slug` must stay in sync with `unexusi/connect.yaml concept.slug`.
 
 ### Quests (`quests/`)
+
 RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `quests/QUEST_SCHEMA.md`:
+
 - YAML front matter: `id`, `title`, `arc`, `sequence`, `xp`, `difficulty`, `estimated_time`, `requires`, `unlocks`, `tags`
 - Sections: Lore, Objective, Tasks, Completion Check, Reward, Hints
 - File naming: `quests/<arc>/<NNN>-slug.md`
@@ -81,6 +85,7 @@ RPG-style tasks organized into **arcs** (folders of 3–10 quests). Schema in `q
 `quests/missions/` is the workflow arc — quests for operating the mission and Sparstone Trial commission system.
 
 ### Missions (`missions/`)
+
 The operational wing for the Tabularium library pipeline (`eaprime1/tabularium`).
 It is distinct from the `quests/missions/` arc. It holds `CUSTOS_BRIEF.md` (the integration
 brief), `INDEX.md` (the library index: status per library),
@@ -88,6 +93,7 @@ brief), `INDEX.md` (the library index: status per library),
 `SENESCHAL_Protocol.md`, and `TABULARIUM_BACKLOG.md` (formerly issues #194–#198).
 
 ### Issue System
+
 `docs/issue-system.md` is the operating manual for GitHub Issues: label taxonomy, claim
 lifecycle, the no-cash reward system, the Bot Brief every mission carries for automated
 submitters, the lexeme-development fallback when a mission can't be done, and the final
@@ -95,6 +101,7 @@ submitters, the lexeme-development fallback when a mission can't be done, and th
 `sovran-labels-sync.yml` applies them.
 
 ### World (`world/`)
+
 - `lore.md` — The Podium (Pixel 8), the Field (terminal), the Flock (projects/repos), Shepherd (operator)
 - `factions.md` — Scribes, Builders, Sentinels, Wanderers, Unexusi
 - `the-the.md` — The founding myth of prima (do not edit)
@@ -104,6 +111,7 @@ submitters, the lexeme-development fallback when a mission can't be done, and th
 Tracks device state. It was intended for the `pixel8` branch only.
 As of 2026-10-18 `device/` also sits on `main` (seven files: `PODIUM_SCHEMA.md`, `README.md`, `active.md`, `install-log.md`, `pixel8.yaml`, `podiums.md`, `retired-clones.md`). The `pixel8` branch is absent on origin.
 Treat what is on `main` as a snapshot, not live state.
+
 - `pixel8.yaml` — Device manifest: installed packages, key paths, reviewer note, active sessions
 - `active.md` — Work-in-flight: active repos, in-progress tasks, arriving fragments
 - `install-log.md` — Append-only record of what was installed, where, and how. Use
@@ -112,6 +120,7 @@ Treat what is on `main` as a snapshot, not live state.
   "everything is on GitHub" test, what was bundled first, and which clone stays canonical.
 
 ### Workflow System
+
 - `.github/ISSUE_TEMPLATE/mission.yml` — Structured task template (clear deliverable + bash completion check)
 - `.github/ISSUE_TEMPLATE/sparstone-trial.yml` — Open challenge (problem defined, approach open).
   It replaced the old `bounty` type; first completer earns the Sparstone
@@ -124,6 +133,7 @@ Treat what is on `main` as a snapshot, not live state.
 - Contributors claim by commenting `claiming this` and opening a PR
 
 ### Convergence Hub Structure
+
 custos is the origin mold for a constellation of repos. Branches in this repo develop into separate repos via a formal lifecycle.
 
 **`branch-tracker/branches.md`** — Active development map: each branch has a suit, status, and destination repo.
@@ -139,6 +149,7 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 **`.shadow-well/`** — Shadow artesian. Pre-custody material not yet named, claimed, or routed — the `nowhere` counterpart to `.artesian/`'s `now_here`. Holds fragments, seeds, and shadow versions of ideas before they reach `atelier/` or the formal mission board. See `.shadow-well/README.md` for the polarity and routing rules.
 
 **`returns/`** — External agent stream returns. Each stream directory receives findings from the assigned AI model:
+
 - `stream-1-language/` — Gemini: Language/Fodere/Agnoscere
 - `stream-2-emotion/` — Gemini: Emotion Architecture
 - `stream-3-variables/` — ChatGPT: Variable Constant Violation
@@ -148,13 +159,16 @@ custos is the origin mold for a constellation of repos. Branches in this repo de
 - `stream-7-perplexity/` — Perplexity: Domain — TBD (assignment pending)
 
 ### Suit System
+
 Branches and documents carry suit designations:
+
 - ♠️ **Spade** — Pinnacle / vault items. Passed formal custody.
 - ♦️ **Diamond** — Active development. Working branches en route to destination repos.
 - ♣️ **Club** — Sessions / operations. Active working events.
 - ❤️ **Heart** — (reserved)
 
 ### Seeds (`seeds/`)
+
 `bootstrap.sh` installs packages via auto-detected manager (pkg/apt-get), deploys dotfiles from `seeds/dotfiles/` if that directory exists (it does not as of 2026-10-15; the script skips that step and says so), creates `~/.prima-env`. Idempotent.
 
 `env_setup.sh` detects the current location (`primehaven`/`mulberry`/`pixel8`/`codespaces`) and sources `.locations/<name>/config.sh` — see `.locations/README.md`.
@@ -165,16 +179,21 @@ Branches and documents carry suit designations:
 - Not live device state — that stays in `device/` on the `pixel8` branch as before.
 
 ### Unexusi Layer (`unexusi/connect.yaml`)
+
 Tracks player XP, level, quest completion, session timestamps across devices. Configures session lifecycle. `concept.slug: custos`.
 
 ### THEE / YOD / EMBER Triad
+
 A listening practice for capturing fragments before they have names. Not a ticketing system.
 
 ### Prime State (`.prime`, `tools/prime_check.sh`)
+
 Concept progression via prime numbers. Current: `3`. Advance only when a development phase completes. Template ships with `3`.
 
 ### Turns (`turns/`)
+
 Session memory, append only. Five files, distinct purposes:
+
 - `log.md` — *what* a turn built. One entry per meaningful session. Schema in `TURN_SCHEMA.md`: timestamp, prime, entity, intent, contribution, resonance, `witnessed: true`.
 - `CLOSING.md` — the checklist for ending a session: review what happened, file loose ends in `queue/artesium-weir/`, append to `log.md`, update `device/active.md`, run `scan_lexeme.sh`, commit/push, optionally write an AAR. Run this whenever asked to "wrap up", "finalize", or "close out."
 - `AAR.md` — *how* the turn went (process/friction/seeds), not what it produced. Same append-only spirit as `log.md`, different lens. Not every turn needs one.
@@ -184,9 +203,11 @@ Session memory, append only. Five files, distinct purposes:
 nav1 keeps `.claude/drift.md` alongside: an append-only record of calls it made that the Shepherd didn't direct.
 
 ### Queue (`queue/`)
+
 Staging ground for what has crossed in from outside but hasn't found its place yet — nothing here is finished. `queue/artesium-weir/` is the filter between raw inbound material (e.g. a PDF export of a GitHub PR thread) and formal chain of custody; see `queue/artesium-weir/README.md` for the routine. Per-item subfolders (e.g. `queue/artesium-<contributor>/`) hold in-flight artifacts until the Weir routes them onward — close them out via the `turns/CLOSING.md` checklist rather than leaving them mid-flow.
 
 ### Review Gates
+
 - **Sentinel review** (`world/factions.md`) — required on every PR from `pixel8` → `main`. Default Sentinel: eaprime1.
 - **Deck Master review** (`world/deck-master.md`, `.github/CODEOWNERS`) — required for `vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, and `device/` changes, and for all PRs to `main` from device branches. Same person (eaprime1) currently holds both the Shepherd and Deck Master roles; the roles are conceptually distinct (lifecycle/structure review vs. device-branch review), not duplicates.
 - **CI**: `.github/workflows/` holds more workflows than are named here. Run `ls .github/workflows` for the current list (29 on 2026-10-16).
@@ -213,6 +234,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
 ## Key Conventions
 
 **Branches:**
+
 - `main` — concept foundation (quests, world, tools, workflow, convergence hub)
 - `pixel8` — Pixel 8 device layer (adds `device/` files, device-specific state)
 - All PRs from `pixel8` → `main` require Sentinel review (default: eaprime1)
@@ -237,6 +259,7 @@ Each navigo is a paired team of one AI model and eaprime1. They are internal con
 perspective). The numbered table above stays as it is until then. See `turns/CULTIVATION.md`.
 
 Each navigo workspace folder holds three types of content:
+
 - Source documents returned from that AI's sessions, before formal custody
 - A queue of what to pick up next session
 - Stream-return materials pending filing
@@ -245,6 +268,7 @@ Raw exports land in the workspace first, get renamed `.md` once reviewed, then f
 
 **Commissioning AI models:**
 When creating a commission prompt for Claude, ChatGPT, Gemini, or Copilot, always include:
+
 1. The mission or Sparstone Trial issue URL or description
 2. Files to read first: `prima.yaml`, `CLAUDE.md`, relevant quest or guide
 3. The exact completion check command
@@ -263,6 +287,7 @@ It can also build the work without any payment request. New ideas are welcome.
 The reasoning is in `docs/issue-system.md` §4.
 
 **Placeholder detection:** Run `bash tools/scan_lexeme.sh` before committing.
+
 - Shouted markers (capitals, whole word): five working-note words, defined in the glossary in `atelier/lexemes/reserved-lexemes.md`.
 - Phrases (any case): `placeholder`, `fill this in`, `???`, `"My Prima Terminal"`.
 - Files scanned: `.md`, `.sh`, `.yaml`, `.yml`, `.json`.
