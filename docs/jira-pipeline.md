@@ -142,13 +142,40 @@ Not everything should run on every push. What runs today (from the workflow head
   Whether they have an on-request or PR-only mode has **not** been checked, so no setting
   is recommended here.
 
-## 7. What is not settled
+## 7. Decided, and what is not settled
 
-- Whether Jira and GitHub connect through Jira's GitHub app, Codacy's Jira option, or comments only.
-- Whether a confirmation scan gets its own cue.
+### Decided by the Shepherd (in conversation, 202610190754 UTC)
+
+- **Starter tickets stay.** KAN-1 to KAN-3 are kept as worked examples. Nothing is deleted.
+- **SAM1 stays as the practice board.** It is the only board with an In Review status and a
+  full Epic and Task spread, so it serves as a safe place to try moves without touching KAN.
+  It is not a clonable template; whether Jira can copy a team-managed project is unchecked.
+- **The repo label system is primary.** Jira follows it. Good ideas from Jira can be absorbed
+  into the repo labels, not the other way round.
+- **`ultima recensio` is the last step before oversight.** Then the soft seal (`probatio`).
+- **`probatio` should start the soft-seal scans.** Proposed shape: it dispatches the manual
+  `final-review.yml` (the Codacy gate). Not built; it needs a workflow edit and the Shepherd's yes.
+- **Three words accepted into the vocabulary.** Not yet in `latin-workflow-v2.md`, the glossary
+  or `cue-parser.js`, so none of them is live:
+  - `refice`: repair by plan. If a plan exists, follow it; if not, write the plan, then repair.
+    (`refice` was already reserved in v2 for bigger rework.)
+  - `semina`: sow the seed. Write a handoff block so the work can continue in a new conversation.
+  - `sustine`: hold back. Sets `held` and stops the final seal until the Shepherd releases it.
+- **`novissimum` means finish now:** only small tweaks, carry the rest forward by name.
+  `cursus expeditus` stays as the glossary has it.
+
+### Not settled
+
+- Whether `finalize-pr.yml` should refuse to seal while `held` is on. Checked today: the label
+  exists in `sovran-labels.yml` but nothing reads it. The gate's blockers are template gaps,
+  observation gaps, unresolved threads, and failing or pending CI.
+- How Jira and GitHub connect. Jira's GitHub app is already linked (the Development field on
+  KAN-4 and KAN-6 shows their draft PRs). What it can change on its own is unchecked.
+  Comments remain the working method.
 - The suit list conflict (§2).
-- What happens to the starter tickets KAN-1 to KAN-3 and the SAM1 sample project.
-- Whether `codacy` replaces the capitalized `Codacy` already on KAN-4, or both stay.
+- Whether `codacy` takes over from the capitalized `Codacy` already on KAN-4, or both stay.
+- What DeepSource and Codacy offer on request. That lives in their settings, which the Shepherd changes.
+- KAN-5 (48 issues) waits for the Shepherd's go.
 
 ## 8. Not yet done
 
