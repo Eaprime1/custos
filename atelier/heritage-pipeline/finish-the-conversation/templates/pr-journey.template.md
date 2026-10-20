@@ -32,5 +32,5 @@ Prose, in the conversation's own voice. No raw export text.>
 | 1 | Franking Mark | `<YYYYMMDDHHMM, UTC>` (repo convention; see SOP.md reconciliation note 1) |
 | 2 | Wax Signet | `∞pace∞ x <■■>` |
 | 3 | Notary Seal | <Keeper Vex / Custos, who witnessed, when> |
-| 4 | UL Listed | SHA-256 of this file's exact bytes: `<sha256>`; compliance runic: <not yet defined in the repo> |
+| 4 | UL Listed | SHA-256 of everything before the passport marker line, per `atelier/heritage-pipeline/ARMARIUM.md` §3 rule 3 (a file cannot hold a hash of its own exact bytes): `<sha256>`; the exact marker line is not yet fixed in the repo; compliance runic: <not yet defined in the repo> |
 | 5 | Valuation | Five Lakes Assay: €C `<value>`, Ξ `<value>` (method not yet defined in the repo) |

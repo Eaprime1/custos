@@ -24,7 +24,7 @@ hopechest/<YYYYMMDDHHMM>-<slug>/
 **This repository is public.** So only the distilled package goes here: seeds, the Active
 Reference and the PR Journey.
 
-- **Not here:** the raw conversation export (the origin), and any thread that triggered the Right of No (SOP.md §V). The origin belongs in the private Armarium (`../ARMARIUM.md`). A thread that triggered the Right of No is not filed at all until the Shepherd decides where it goes.
+- **Not here:** the raw conversation export (the origin), and any thread that triggered the Right of No (SOP.md §V). The origin belongs in the private Armarium (`../../ARMARIUM.md`). A thread that triggered the Right of No is not filed at all until the Shepherd decides where it goes.
 - **Not here:** names, contact details or private material of people other than the Shepherd, unless they have agreed.
 - Each folder's PR Journey names where its origin is held, by Armarium path and SHA-256, never by a link that works for the public.
 
