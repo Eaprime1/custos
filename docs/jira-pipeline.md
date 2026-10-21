@@ -45,18 +45,18 @@ are lowercase words with no spaces, so the names below are already Jira-safe.
 | `held`, `witnessed`, `finalized` | Custody states | `sovran-labels.yml` |
 | `glossary-update`, `anchor-review`, `payment-demand`, `bot-friendly` | As in the repo | `sovran-labels.yml` |
 
-### Reused from Linear (suit and plank)
+### Derived from Linear (proposed Jira-safe suit and plank labels)
 
-Linear does not allow emoji in names, and neither do we, so the emoji live in this table.
-One suit and one plank per seed ticket.
+Linear's actual labels are `Seed`, `Carbonite`, `Aethereal`, `Pinnacle` and `Germ`, `1/3 Plank`, `2/3 Plank`, `3/3 Plank`, `Crystallized` (without prefixes). The `suit-*` and `plank-*` names below are proposed Jira-safe derivatives, **not existing Linear label names**. Emoji are shown here for reference only.
+One proposed suit and one plank label per Jira seed ticket; these labels are not installed by this document.
 
 | Label | Suit meaning (Linear / project instructions) | Origin |
 |---|---|---|
-| `suit-seed` ♦️ | Seed | Linear Suit group |
-| `suit-carbonite` ♣️ | Working copy | Linear Suit group |
-| `suit-aethereal` ♥️ | Living copy | Linear Suit group |
-| `suit-pinnacle` ♠️ | Single master | Linear Suit group |
-| `plank-germ`, `plank-1of3`, `plank-2of3`, `plank-3of3`, `plank-crystallized` | Plank | Linear Plank group |
+| `suit-seed` ♦️ | Seed | Proposed Jira form of Linear `Seed` |
+| `suit-carbonite` ♣️ | Working copy | Proposed Jira form of Linear `Carbonite` |
+| `suit-aethereal` ♥️ | Living copy | Proposed Jira form of Linear `Aethereal` |
+| `suit-pinnacle` ♠️ | Single master | Proposed Jira form of Linear `Pinnacle` |
+| `plank-germ`, `plank-1of3`, `plank-2of3`, `plank-3of3`, `plank-crystallized` | Plank | Proposed Jira forms of Linear `Germ`, `1/3 Plank`, `2/3 Plank`, `3/3 Plank`, `Crystallized` |
 
 Only the Shepherd sets `plank-3of3`, `plank-crystallized` and `suit-pinnacle`.
 
@@ -81,6 +81,7 @@ than choosing. The Shepherd decides; see `turns/CULTIVATION.md`.
 ## 3. The PR road, as labels
 
 The Latin cues stay the owner's voice. Jira records where a PR is, it does not call anything.
+For a short owner-facing list of live, manual and reserved lexemes, use the [Shepherd Latin workflow guide](latin-workflow-shepherd-guide.md).
 
 | Road step ([v2](latin-workflow-v2.md)) | Repo signal | Jira label on the ticket |
 |---|---|---|
@@ -155,12 +156,10 @@ Not everything should run on every push. What runs today (from the workflow head
 - **`ultima recensio` is the last step before oversight.** Then the soft seal (`probatio`).
 - **`probatio` should start the soft-seal scans.** Proposed shape: it dispatches the manual
   `final-review.yml` (the Codacy gate). Not built; it needs a workflow edit and the Shepherd's yes.
-- **Three words accepted into the vocabulary.** Not yet in `latin-workflow-v2.md`, the glossary
-  or `cue-parser.js`, so none of them is live:
-  - `refice`: repair by plan. If a plan exists, follow it; if not, write the plan, then repair.
-    (`refice` was already reserved in v2 for bigger rework.)
-  - `semina`: sow the seed. Write a handoff block so the work can continue in a new conversation.
-  - `sustine`: hold back. Sets `held` and stops the final seal until the Shepherd releases it.
+- **Three words accepted as future vocabulary, but not live automation:**
+  - `refice`: repair by plan. If a plan exists, follow it; if not, write the plan, then repair. Already mentioned in `latin-workflow-v2.md` as **reserved**, but not defined as a live action in the glossary or `cue-parser.js`.
+  - `semina`: sow the seed. Write a handoff block so work can continue in a new conversation. Not yet in `latin-workflow-v2.md`, the glossary or `cue-parser.js`.
+  - `sustine`: hold back. **Intended** to apply `held` and prevent the final seal until the Shepherd releases the hold. That enforcement is **not built**: neither the Latin parser nor `finalize-pr.yml` currently implements this cue or gates the seal on `held` (see Not settled below).
 - **`novissimum` means finish now:** only small tweaks, carry the rest forward by name.
   `cursus expeditus` stays as the glossary has it.
 
