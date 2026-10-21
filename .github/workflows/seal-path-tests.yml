@@ -35,6 +35,7 @@ on:
       - 'tools/test_observation_log.js'
       - 'tools/test_observation_log.sh'
       - 'tools/test_observation_log_workflow.js'
+      - 'tools/observation_log_test_kit.js'
       - 'docs/navigo-registry.md'
 
 permissions:

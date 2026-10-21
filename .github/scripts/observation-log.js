@@ -61,18 +61,23 @@ function rejectionOf(body, { association, authorType }) {
   return null;
 }
 
+// The stamp and words that follow the marker line, or null if no line carries the marker.
+function afterMarker(lines) {
+  const at = lines.findIndex((l) => MARKER_RE.test(l));
+  if (at === -1) return null;
+  const rest = lines[at].match(MARKER_RE)[1].replace(LEAD_SEP_RE, '');
+  const sm = rest.match(STAMP_RE);
+  const first = sm ? rest.slice(sm[0].length) : rest;
+  return { stamp: sm ? sm[1] : null, text: [first, ...lines.slice(at + 1)].join('\n').trim() };
+}
+
 function parseObservation(body, opts = {}) {
   const raw = String(body || '');
   const why = rejectionOf(raw, opts);
   if (why) return reject(why);
-  const lines = strip(raw).split('\n');
-  const at = lines.findIndex((l) => MARKER_RE.test(l));
-  if (at === -1) return reject('no marker at the start of a line');
-  const rest = lines[at].match(MARKER_RE)[1].replace(LEAD_SEP_RE, '');
-  const sm = rest.match(STAMP_RE);
-  const first = sm ? rest.slice(sm[0].length) : rest;
-  const text = [first, ...lines.slice(at + 1)].join('\n').trim();
-  return { ok: true, stamp: sm ? sm[1] : null, text, excerpt: makeExcerpt(text) };
+  const found = afterMarker(strip(raw).split('\n'));
+  if (!found) return reject('no marker at the start of a line');
+  return { ok: true, ...found, excerpt: makeExcerpt(found.text) };
 }
 
 // UTC, YYYYMMDDHHMM: the repo's prima-clock form.
@@ -179,6 +184,8 @@ const READERS = new Map([
   ['issue_comment', fromPrComment],
 ]);
 
+const orNull = (value) => value ?? null;
+
 const fromComment = (c, p) => ({
   url: c.html_url, body: c.body,
   by: c.user?.login, authorType: c.user?.type,
@@ -193,7 +200,7 @@ function readEvent(eventName, payload) {
   if (!part?.prNumber) return null;
   return {
     id: part.id, kind: part.kind, prNumber: part.prNumber,
-    reviewId: part.reviewId ?? null, head: part.head ?? null, posted: part.posted,
+    reviewId: orNull(part.reviewId), head: orNull(part.head), posted: part.posted,
     ...fromComment(part.c, p),
   };
 }
