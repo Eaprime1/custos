@@ -12,7 +12,7 @@ const { say, makeChecker } = require('./observation_log_test_kit.js');
 
 const { check, report } = makeChecker('workflow checks');
 
-const script = fs.readFileSync(0, 'utf8');
+const script = fs.readFileSync('/dev/stdin', 'utf8');
 if (!script.trim()) { say('usage: pipe the workflow step script in on stdin'); process.exit(2); }
 // github-script runs a step as the body of an async function; this reaches the same
 // constructor. The function below is never called, it only has to be a real async one.
