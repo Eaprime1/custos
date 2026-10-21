@@ -30,6 +30,12 @@ on:
       - 'tools/test_seal_observation.js'
       - 'tools/test_seal_observation.sh'
       - 'tools/test_probatio_label.js'
+      - '.github/scripts/observation-log.js'
+      - '.github/workflows/observation-log.yml'
+      - 'tools/test_observation_log.js'
+      - 'tools/test_observation_log.sh'
+      - 'tools/test_observation_log_workflow.js'
+      - 'tools/observation_log_test_kit.js'
       - 'docs/navigo-registry.md'
 
 permissions:
@@ -62,3 +68,6 @@ jobs:
 
       - name: Final oversight rules
         run: node tools/test_final_oversight.js
+
+      - name: Observation log
+        run: bash tools/test_observation_log.sh
