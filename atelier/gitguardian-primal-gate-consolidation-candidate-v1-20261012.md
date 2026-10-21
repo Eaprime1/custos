@@ -40,7 +40,7 @@ The **origin's returned text** explicitly names two outcomes:
 
 **Receiving Navigo extension, not yet accepted by origin:**
 
-- **NOT-CHECKED / UNKNOWN:** tool absent, hook not installed, credential unavailable, scan unreachable, or check status not observable. Never call this Pass. A receiving workflow may pause for explicit direction rather than claiming a deterministic block.
+- **NOT-CHECKED / UNVERIFIED:** tool absent, hook not installed, credential unavailable, scan unreachable, or check status not observable. Never call this Pass. A receiving workflow may pause for explicit direction rather than claiming a deterministic block.
 
 **Critical external-documentation distinction:** GitGuardian's current AI Hook documentation says a hook can *fail open* when scanning cannot run; it warns but may allow the interaction. GitGuardian also describes differing pre/post-tool coverage among assistants. Thus an **intended Fail means stop** is a policy, not proof all supported tools enforce fail-closed behavior.
 
