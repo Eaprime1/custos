@@ -10,8 +10,8 @@
 This is the second pass over what was built but scattered: the GitHub label schema
 (`.github/sovran-labels.yml`), the Linear Suit and Plank labels
 (`docs/linear-plugin/`), the Latin workflow road ([`latin-workflow-v2.md`](latin-workflow-v2.md))
-and the Jira project. It adds nothing that exists already under another name. It is a
-proposal until the Shepherd says otherwise.
+and the Jira project. It reuses existing vocabulary where possible and distinguishes
+new proposals from installed labels. It is a proposal until the Shepherd says otherwise.
 
 ## 1. The shape
 
@@ -28,8 +28,9 @@ Jira has no In Review status in KAN, and none is added. "In review" is a label (
 
 ## 2. One label vocabulary
 
-Rule: if a word exists as a GitHub label, Jira uses it with the same meaning. Jira labels
-are lowercase words with no spaces, so the names below are already Jira-safe.
+Rule proposed here: reuse the same meaning for existing GitHub labels when applied in Jira.
+For new labels in this guide, use lowercase hyphenated words without spaces; legacy Jira
+labels such as `Codacy` may differ in case. These are conventions, not an installed sync.
 
 ### Reused from the repo (GitHub)
 
@@ -88,13 +89,15 @@ For a short owner-facing list of live, manual and reserved lexemes, use the [She
 | Contributor builds | draft PR | `in-progress` (status In Progress) |
 | Prima Recensio | PR ready for review | `submitted` |
 | Recensio / ultima recensio | owner's cue | none; note on the ticket |
-| Probatio (soft seal) | `ready-for-oversight` label | `ready-for-oversight`, status Idling, plus `needs-shepherd` |
+| Probatio (soft seal) | `ready-for-oversight` label | Proposed Jira mirror: `ready-for-oversight`, status Idling, plus `needs-shepherd` |
 | Final oversight run | `final-oversight` label and environment approval | `final-oversight` |
 | Emenda (repair) | owner's cue | back to In Progress, remove `ready-for-oversight` |
 | Ultima probatio | owner only, `finalize-pr.yml` | `finalized` |
 | Merge | on the owner's word | status Done |
 
-A person's push takes `ready-for-oversight` off the PR, so the Jira label comes off with it.
+A person's push withdraws `ready-for-oversight` from the GitHub PR. The Jira ticket must
+be updated separately unless a verified integration supplies this synchronization; it
+must not be assumed to happen automatically.
 Contributors never post `ultima probatio` and never merge. A navigo describes the seal cue in
 words, and never posts it unless the owner asks.
 
@@ -169,12 +172,15 @@ Not everything should run on every push. What runs today (from the workflow head
   exists in `sovran-labels.yml` but nothing reads it. The gate's blockers are template gaps,
   observation gaps, unresolved threads, and failing or pending CI.
 - How Jira and GitHub connect. Jira's GitHub app is already linked (the Development field on
-  KAN-4 and KAN-6 shows their draft PRs). What it can change on its own is unchecked.
+  KAN-4 and KAN-6 has shown their PRs). Both PRs have since left draft status. What the
+  integration can change on its own is unchecked.
   Comments remain the working method.
 - The suit list conflict (§2).
 - Whether `codacy` takes over from the capitalized `Codacy` already on KAN-4, or both stay.
 - What DeepSource and Codacy offer on request. That lives in their settings, which the Shepherd changes.
-- KAN-5 (48 issues) waits for the Shepherd's go.
+- KAN-5's 48 originally reported findings are being handled in batches. Draft PR #476
+  addressed 11 formatting occurrences and was subsequently marked ready for review.
+  The remaining findings require reconciliation with the existing cleanup PRs.
 
 ## 8. Not yet done
 
