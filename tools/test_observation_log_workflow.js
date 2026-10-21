@@ -25,6 +25,13 @@ const rootRequire = (name) => {
   return observationLog;
 };
 
+// Keep the test harness logging behavior separate from its fake GitHub REST surface.
+const makeCore = (world) => ({
+  info: (m) => { world.logs.push(m); },
+  warning: (m) => { world.logs.push(`warning: ${m}`); },
+  setFailed: (m) => { world.failed = m; },
+});
+
 // A stand-in for the pieces of the GitHub API the step touches.
 function makeWorld({ comments = [], headSha = 'feedface1234567', reviewComments = [] } = {}) {
   const world = { comments: [...comments], calls: [], logs: [], nextId: 5000 };
@@ -49,11 +56,7 @@ function makeWorld({ comments = [], headSha = 'feedface1234567', reviewComments 
     },
   };
   world.github = { rest, paginate: (fn, args) => fn(args) };
-  world.core = {
-    info: (m) => { world.logs.push(m); },
-    warning: (m) => { world.logs.push(`warning: ${m}`); },
-    setFailed: (m) => { world.failed = m; },
-  };
+  world.core = makeCore(world);
   return world;
 }
 const writes = (world) => world.calls.filter((call) => call === 'createComment' || call === 'updateComment');
@@ -73,6 +76,14 @@ const prComment = (over = {}) => ({
 });
 const rowIds = (body) => (body.match(/<!--obs:([a-z]+-\d+)-->/g) || []).map((s) => s.slice(8, -3));
 
+function checkReviewBody(world) {
+  const body = world.comments[0]?.body;
+  check('review: the log carries its marker first', Boolean(body?.startsWith('<!-- custos-observation-log -->')));
+  check('review: both clocks are in the row', Boolean(body?.includes('| 202610172154 | 202610171254 |')), body);
+  check('review: inline comments are counted', Boolean(body?.includes('2 inline:')));
+  check('review: it was posted to the PR number from the payload', world.comments[0]?.issue_number === 462);
+}
+
 async function scenario0() {
   // 1. A review opens the log; its inline comments are looked up; no head lookup is needed.
   const world = makeWorld({ reviewComments: [{ html_url: 'https://github.com/o/r/pull/462#discussion_r1' }, { html_url: 'https://github.com/o/r/pull/462#discussion_r2' }] });
@@ -80,11 +91,7 @@ async function scenario0() {
   check('review: one comment is created', writes(world).join() === 'createComment', world.calls.join());
   check('review: inline comments were looked up', world.calls.includes('listCommentsForReview'));
   check('review: no head lookup (the review knows its commit)', !world.calls.includes('pulls.get'));
-  const body = world.comments[0]?.body;
-  check('review: the log carries its marker first', Boolean(body) && body.startsWith('<!-- custos-observation-log -->'));
-  check('review: both clocks are in the row', Boolean(body) && body.includes('| 202610172154 | 202610171254 |'), body);
-  check('review: inline comments are counted', Boolean(body) && body.includes('2 inline:'));
-  check('review: it was posted to the PR number from the payload', world.comments[0] && world.comments[0].issue_number === 462);
+  checkReviewBody(world);
   check('review: nothing failed', !world.failed);
   check('review: it says it opened the log', world.logs.some((m) => m.startsWith('Opened the observation log (review-11)')), world.logs.join(' | '));
 }
