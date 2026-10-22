@@ -1,0 +1,62 @@
+{
+  "_metadata": {
+    "entity_name": "Mandelbrot Set",
+    "quantum_address": "88015500999∞",
+    "archetype": "The Boundary Navigator & Fractal Scout",
+    "status": "seed_proposal",
+    "creation_timestamp": "2026-10-22T03:02:44-07:00",
+    "wikipedia_source": {
+      "article": "Mandelbrot set",
+      "url": "https://en.wikipedia.org/wiki/Mandelbrot_set",
+      "revision_id": null,
+      "revision_pinned": false
+    },
+    "serendipity_bridge": {
+      "article": "Rubber duck debugging",
+      "url": "https://en.wikipedia.org/wiki/Rubber_duck_debugging",
+      "analogy_only": true,
+      "synthesis_notes": "Explaining recursive boundary logic step by step can help a person notice gaps in their reasoning."
+    }
+  },
+  "core_essence": {
+    "foundation": "For a complex parameter c, start with z0 = 0 and iterate z(n+1) = z(n)^2 + c. The Mandelbrot set contains the values of c for which this sequence remains bounded.",
+    "philosophical_anchor": "Intricate structure emerges from a simple iterative rule near the boundary between bounded and unbounded behavior.",
+    "functional_role": "A project-design metaphor for exploring boundaries, scale, and iterative feedback; it does not supply an engineering algorithm."
+  },
+  "attribute_mappings": {
+    "scale_invariance": {
+      "definition": "The set has recurring structure across zoom levels, including approximate self-similarity in some regions; it is not uniformly identical at every scale.",
+      "project_application": "Use as a prompt to check whether local tasks align with broader project principles."
+    },
+    "liminal_boundary": {
+      "definition": "The set's boundary separates parameters with bounded iteration from those with unbounded iteration and has fractal structure.",
+      "project_application": "Use as a metaphor for marking experiment limits and explicit rollback conditions."
+    },
+    "iterative_feedback": {
+      "definition": "Repeatedly applying a rule, with each output becoming the next input.",
+      "project_application": "Use as a metaphor for review cycles; project changes still require human decisions and tests."
+    }
+  },
+  "cross_reference_links": [
+    {
+      "target_entity": "Linguistics",
+      "quantum_address": "11022300888",
+      "analogy_only": true,
+      "synergy": "A shared rule system can be used as a metaphor for structure across levels."
+    },
+    {
+      "target_entity": "Rubber Duck Debugging",
+      "quantum_address": "45067300089",
+      "analogy_only": true,
+      "synergy": "Stepwise explanation can help make recursive assumptions explicit."
+    }
+  ],
+  "adventure_quests": [
+    {
+      "quest_id": "QUEST_001_LIMINAL_MAPPING",
+      "title": "The Boundary Exploration Protocol",
+      "objective": "Map project risks and experimental ideas against stability and rollback boundaries.",
+      "outcome": "Documented distinction between stable core and experiments."
+    }
+  ]
+}
