@@ -117,3 +117,12 @@ custos is the origin mold for a constellation of repos — the negative mold fro
 **Motion State:** EXPANDING
 **Chain of Custody:** OPEN
 **Iteration:** 21 — Blackjack
+
+
+## Dynamic Wiki-Inspired Seed Pack
+
+The four entity records in [index.json](index.json) and the entities directory are a data-only proposal for project metaphors and source references. Project applications and cross-domain bridges are explicitly analogies; they do not describe scientific mechanisms or implemented software.
+
+The source package redacted its Wikipedia links. This seed therefore uses the corresponding article URLs and marks each revision as unpinned; it does not claim immutable oldid anchors. SOURCE_UPDATED_TRIGGER_NEXT_ITERATION and convergence automation are proposals only. This PR adds no live source tracking, trigger, or automation.
+
+The source called its format “tJSON v1.2” but supplied no formal schema. The files are valid JSON; the label is retained as source metadata pending a schema decision.
