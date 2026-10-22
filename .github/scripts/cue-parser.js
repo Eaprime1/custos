@@ -18,7 +18,8 @@
 // 'cuncti' addresses the project as a whole: read it first, then add your own view.
 const DEFAULT_NAMES = ['claude', 'chatgpt', 'gemini', 'perplexity', 'unexusi', 'custos', 'omnes', 'cuncti'];
 const ACTIONS = ['recensio', 'probatio', 'lustratio', 'judicium', 'novissimum', 'cursus', 'emenda'];
-const MODIFIERS = ['prima', 'ultima', 'suprema', 'extrema', 'renovata', 'expeditus'];
+// confirmanda and supplenda qualify emenda: the thing to amend is a claim to confirm, or a step the road lacks.
+const MODIFIERS = ['prima', 'ultima', 'suprema', 'extrema', 'renovata', 'expeditus', 'confirmanda', 'supplenda'];
 const VERBS = ['disponi', 'petitio', 'placet', 'finalize', 'check', 'concordance', 'sync-labels'];
 // 3 to 12 characters after the dash, the same bound tools/session_id.sh check_own enforces
 // (minted IDs are always 6; a hand-typed ID may be shorter or longer).

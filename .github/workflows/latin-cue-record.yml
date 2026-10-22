@@ -103,7 +103,7 @@ jobs:
                 .replace(/`[^`\n]*`/g, ' ')
                 .replace(/^[ \t]*>.*$/gm, ' ');
               const ACTIONS = ['Recensio', 'Probatio', 'Lustratio', 'Judicium', 'Novissimum', 'Cursus', 'Emenda'];
-              const MODS = ['Prima', 'Ultima', 'Suprema', 'Extrema', 'Renovata', 'Expeditus'];
+              const MODS = ['Prima', 'Ultima', 'Suprema', 'Extrema', 'Renovata', 'Expeditus', 'Confirmanda', 'Supplenda'];
               const words = (text.match(/[A-Za-z]+/g) || []).map(w => w.toLowerCase());
               const cap = w => w[0].toUpperCase() + w.slice(1);
               const cueWords = [];
