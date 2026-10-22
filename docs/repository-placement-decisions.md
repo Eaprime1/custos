@@ -8,9 +8,9 @@ This checkpoint is separate from contributor review, the Probatio packet, final 
 ## The small process
 
 1. The author opens a **draft PR** and completes the Repository Placement section of the PR template. Name the existing path or proposed new path and explain why established locations do not fit.
-2. The author makes a `petitio`: a concise request naming the choice to be made, purpose, scope, alternatives, and consequences. Keep the request in the draft PR so it travels with the change.
-3. The author asks for a `judicium` when a decision is needed. The decision record states the options, evidence, recommendation, risks, and what each result permits.
-4. The Shepherd records `placet` for an accepted placement, or records **revise** or **deferred** with the reason. The draft PR records the outcome. A decision can be made before the content is ready for contributor review.
+2. The author makes a `petitio` (`^custos petitio`): a concise request naming the choice to be made, purpose, scope, alternatives, and consequences. Keep it in the draft PR so it travels with the change.
+3. The author asks for a `judicium` (`^custos judicium`) when a decision is needed. The decision record states the options, evidence, recommendation, risks, and what each result permits.
+4. The Shepherd records `placet` (`^custos placet`) for an accepted placement, or records **revise** or **deferred** with the reason. The draft PR records the outcome. A decision can be made before the content is ready for contributor review.
 5. After the location is accepted, the author continues the draft. When content is ready, use the separate Probatio process in `docs/latin-workflow-v2.md`.
 
 A placement `placet` approves the location and bounded scope only. It does not approve the content, request or complete a Probatio review, make the PR ready for review, grant the final seal, or authorize merge.
