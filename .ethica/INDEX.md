@@ -38,7 +38,7 @@ The Stewardship Accords state values and design requirements. The UNEXUSI interf
 
 ## Provenance and location
 
-The Accords are attributed in the source to Navigo Gemini Notebook (Ethica Nexus) and Eric Adam Pace. Their source text is kept as provided, with a status clarification and the physical anchor rendered as **Mulberry at the corner of Suxen and Nexus**. No ZIP code is included.
+The Accords are attributed in the source to Navigo Gemini Notebook (Ethica Nexus) and Eric Adam Pace. The source content and authorship are preserved with targeted status and wording clarifications; the physical anchor is rendered as **Mulberry at the corner of Suxen and Nexus**. No ZIP code is included.
 
 ## Placement decision
 
