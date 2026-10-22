@@ -19,3 +19,4 @@ and asks when the work reaches it, so the Shepherd is not holding the list. Ids 
 | T09 | Codacy checks to keep | open | Which checks stay, which get a narrow exclusion; no blanket exclusion. Asked at the next Codacy PR. |
 | T10 | Mission board and simple tracker | parked | Start with a sheet or a checklist. Asked when the inventory is next opened. |
 | T11 | Local model for simple lint fixes | parked | Whether opencode or ollama is worth setting up. Asked after T09. |
+| T12 | Port the new modifiers to hodie | open | Hodie's `cue-parser.js` has the old modifier list, so `confirmanda` and `supplenda` would be rejected there. Port after #488 merges. Owner: nav1, with the Shepherd's word. |
