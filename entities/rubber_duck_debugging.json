@@ -1,0 +1,52 @@
+{
+  "_metadata": {
+    "entity_name": "Rubber Duck Debugging",
+    "quantum_address": "45067300089",
+    "archetype": "The Auditory Catalyst & Reflective Listener",
+    "status": "seed_proposal",
+    "creation_timestamp": "2026-10-22T03:02:44-07:00",
+    "wikipedia_source": {
+      "article": "Rubber duck debugging",
+      "url": "https://en.wikipedia.org/wiki/Rubber_duck_debugging",
+      "revision_id": null,
+      "revision_pinned": false
+    },
+    "serendipity_bridge": {
+      "article": "Mandelbrot set",
+      "url": "https://en.wikipedia.org/wiki/Mandelbrot_set",
+      "analogy_only": true,
+      "synthesis_notes": "Explaining a complex recursive idea in simple steps can expose assumptions; this is an analogy, not a mathematical reduction."
+    }
+  },
+  "core_essence": {
+    "foundation": "A debugging technique in which a programmer explains code or a problem step by step, aloud or in writing, to help reveal mistakes or misunderstandings.",
+    "philosophical_anchor": "Externalizing reasoning can make implicit assumptions easier to inspect.",
+    "functional_role": "A self-review technique for identifying candidate gaps in code or system proposals."
+  },
+  "attribute_mappings": {
+    "narrative_externalization": {
+      "definition": "Describing the intended logic step by step.",
+      "project_application": "Use a written walkthrough to surface missing conditions and unstated constraints."
+    },
+    "neutral_reflection": {
+      "definition": "The listener or writing process does not need to supply an answer for the explanation to be useful.",
+      "project_application": "Create a low-pressure self-review step; solutions are not guaranteed or necessarily immediate."
+    }
+  },
+  "cross_reference_links": [
+    {
+      "target_entity": "Mandelbrot Set",
+      "quantum_address": "88015500999∞",
+      "analogy_only": true,
+      "synergy": "Stepwise explanation can make recursive complexity more inspectable."
+    }
+  ],
+  "adventure_quests": [
+    {
+      "quest_id": "QUEST_004_AUDITORY_DECOMPRESSION",
+      "title": "The Out-Loud Logic Audit",
+      "objective": "Explain a stuck module or design step by step and compare intended behavior with observed behavior.",
+      "outcome": "Record candidate gaps to test; resolution is not guaranteed."
+    }
+  ]
+}
