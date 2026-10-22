@@ -4,7 +4,8 @@
 **Suit:** ♦️ Diamond, 2/3 plank. Decisions made by the Shepherd on 202610160811; workflow side built.
 **Builds on:** [`latin-workflow-glossary.md`](latin-workflow-glossary.md), [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md)
 **Quick reference:** [`latin-lexemes.txt`](latin-lexemes.txt), plain text for Notepad
-**v2.1:** drafted 202610212355 UTC from the Shepherd's words at the oversight of #468, #469, #470 and #476. Proposal until the Shepherd rules; the two modifiers are built (parser and cue record), the rest is practice.
+**v2.1:** drafted 202610212355 UTC from the Shepherd's words at the oversight of #468, #469, #470 and #476.
+**v2.2:** draft update 20261022 records the Shepherd's placement checkpoint and separates Probatio requests, soft-seal evidence, packet verification and final oversight. Pending review.
 
 The existing system works. This refines it with a repair word, ways to reach contributors, a draft-stage
 repository placement checkpoint, and a clear path from contributor work to oversight. Probatio requests,
@@ -126,7 +127,7 @@ Docs: docs/latin-workflow-v2.md in custos.
 |---|---|
 | `cue-parser.js` reads `emenda`, `^omnes`, `^cuncti` and a bare `renovata`. | Built, 12 new test rows. |
 | `probatio-label.yml` and `probatio-label.js`: requests do not set readiness; a human push withdraws a previously verified `ready-for-oversight` label. | Updated in this branch; see the tests. |
-| `latin-cue-record.yml` logs `emenda` and a bare `renovata`. | Built. |
+| `latin-cue-record.yml` uses the shared parser and records only valid cue lines; ordinary prose mentions are ignored. | Updated in this branch; tested through the shared parser. |
 | `ready-for-oversight` in `.github/sovran-labels.yml`. | Built. The workflow also creates it if missing. |
 | `.claude/manual-finalize.md`: the backup method. | Built. |
 | This document, the glossary, the seed block and `latin-lexemes.txt`. | Updated. |
