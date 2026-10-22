@@ -45,7 +45,7 @@ jobs:
           # Use trusted default-branch code for issue_comment and pull_request events.
           ref: ${{ github.event.repository.default_branch }}
 
-      - name: Set or withdraw the soft seal
+      - name: Keep the verified packet label current
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         with:
           script: |
