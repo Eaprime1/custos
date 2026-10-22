@@ -6,26 +6,27 @@
 **Quick reference:** [`latin-lexemes.txt`](latin-lexemes.txt), plain text for Notepad
 **v2.1:** drafted 202610212355 UTC from the Shepherd's words at the oversight of #468, #469, #470 and #476. Proposal until the Shepherd rules; the two modifiers are built (parser and cue record), the rest is practice.
 
-The existing system works. This refines it and adds four things: a repair word, two ways to reach
-contributors, a soft seal that sets a label, and a clear road from contributor work to merge.
+The existing system works. This refines it with a repair word, ways to reach contributors, a draft-stage
+repository placement checkpoint, and a clear path from contributor work to oversight. Probatio requests,
+soft seals, the oversight packet, the final seal, and merge are distinct events.
 
 ## The road of a PR
 
-| Step | Who | Cue | What happens |
+| Step | Who | Cue or event | What happens |
 |---|---|---|---|
-| 1 | Contributor | (opens PR ready) | *Prima Recensio* is logged by the event. |
-| 2 | Contributor | `recensio` | Reviews its own PR, fixes what it finds. |
-| 3 | Contributor | `ultima recensio` | Final review. Every finding is fixed or carried forward by name. |
-| 4 | Shepherd | `probatio` | The soft seal. Sets the `ready-for-oversight` label. The contributor states its readiness in a comment. |
-| 4a | Contributor | probatio note | One note to oversight after the label is set. See v2.1 below. |
-| 5 | Oversight | final oversight run | Report only. Lists flags. |
-| 6 | Shepherd | `emenda` | Asks contributors to repair the flags. Loops to step 3. |
-| 7 | Shepherd | `ultima probatio` | The final seal, on the owner's word only. If the words are in a mess, see the manual ticket. |
-| 8 | Shepherd | (says so in the conversation) | Merge by merge commit. |
+| 0 | Author / Shepherd | `petitio`, `judicium`, `placet` (when needed) | While the PR is draft, decide whether a new repository path is appropriate. This approves placement and bounded scope only. See [repository placement decisions](repository-placement-decisions.md). |
+| 1 | Contributor | (opens PR ready) | *Prima Recensio* is logged by the event. A placement decision is not a review of content. |
+| 2 | Contributor | `recensio`, then `ultima recensio` | Reviews the work, fixes findings, and records anything carried forward. |
+| 3 | Shepherd | `probatio` request | Invites the able contributors to prepare their individual soft seals/reviews. A request does not set `ready-for-oversight`. |
+| 3a | Shepherd | `^omnes probatio` | Requests every able contributor to create a Probatio review for oversight. |
+| 4 | Shepherd | `^chatgpt probatio` | ChatGPT checks the available soft seals and reports against the current head, then prepares a packet for oversight. Missing reports, open questions, and oversight decisions are named. |
+| 5 | Oversight observer | Probatio packet | Performs the final oversight review and returns flags or a clear result. This is separate from the contributor packet and placement decision. |
+| 6 | Shepherd / contributors | `emenda` | Repairs oversight flags; the affected review and soft seal repeat on the new head. |
+| 7 | Shepherd | `ultima probatio` | The owner's final seal, after oversight is complete. |
+| 8 | Shepherd | explicit merge decision | Merge remains a separate owner decision. |
 
-Steps 2 and 3 belong to the contributor. Step 6 sends a PR back. A person's push after the soft seal
-takes the label off, because a new head needs a new seal.
-
+A person’s push after a soft seal invalidates that seal because the head changed. A placement `placet` never makes a PR ready for content review or oversight.
+ 
 ## What is new
 
 ### `emenda` — repair
@@ -73,16 +74,18 @@ before it speaks for itself.
 Any cue can take `^omnes` or `^cuncti`. A contributor that does not own the PR's branch answers "not mine" in
 one line and does nothing else.
 
-### `probatio` and `ultima probatio`
+### `probatio`, `^omnes probatio`, and `ultima probatio`
 
 | Call | Who gives it | Meaning |
 |---|---|---|
-| `probatio` | Shepherd (owner) | The soft seal. Sets the `ready-for-oversight` label. The contributor answers with its readiness. |
-| `ultima probatio` | Shepherd only | The final seal that `finalize-pr.yml` acts on. |
+| `probatio` | Shepherd (owner) | Requests the soft-seal stage: able contributors prepare readiness on the current head. It is not a label or evidence that the stage passed. |
+| `^omnes probatio` | Shepherd (owner) | Explicitly requests a Probatio review from every contributor able to provide one. Each response is an individual review/soft-seal record. |
+| `^chatgpt probatio` | Shepherd (owner) | Asks ChatGPT to verify the available contributor soft seals and reviews against the current head, then create a consolidated packet for the oversight observer. The packet reports absences and open flags; it does not replace the observer's review. |
+| `ready-for-oversight` | Set only after packet verification | A status signal for a verified packet on the current head. A request cue alone never sets it. A later human push removes it. |
+| `ultima probatio` | Shepherd only | The final owner seal after oversight, which `finalize-pr.yml` acts on. |
 | `finalize` | Shepherd only | The manual backup. It moved out of the main stream to [`.claude/manual-finalize.md`](../.claude/manual-finalize.md). |
 
-The label workflow reads only the owner's caret cue. A comment with the Claude Code footer is a
-contributor writing under the owner's login, so it never sets the label.
+Soft seal and final seal are different. The cue parser can recognize a request; it cannot verify that a contributor did the work. ChatGPT creates the packet only after checking the current head and available reports. The oversight observer then makes the final review. No cue by itself merges a PR.
 
 ## What each cue asks of a contributor
 
@@ -100,7 +103,7 @@ the seal gate skips it.
 | `lustratio` | Polishes descriptions and reading path. | What reads differently now. |
 | `novissimum` | Closes loose ends, or files them. | What is carried forward, and where. |
 | `judicium` | Stops. Gives options, a recommendation and what each choice changes. | Waits for the Shepherd's ruling. |
-| `probatio` | Checks the road so far, then states readiness. | Ready for oversight, or what blocks it. The label is set by the owner's cue. |
+| `probatio` | Checks the road so far, then states readiness on the current head. | A review/soft-seal note with evidence, gaps, and what blocks readiness. A request cue does not set a label. |
 | `cursus` | Runs the remaining applicable stages in order. | The result of each stage. |
 
 A contributor never posts `ultima probatio`, never merges, and never answers a cue meant for
@@ -122,7 +125,7 @@ Docs: docs/latin-workflow-v2.md in custos.
 | Piece | State |
 |---|---|
 | `cue-parser.js` reads `emenda`, `^omnes`, `^cuncti` and a bare `renovata`. | Built, 12 new test rows. |
-| `probatio-label.yml` and `probatio-label.js`: the soft seal sets and withdraws `ready-for-oversight`. | Built, with `tools/test_probatio_label.js` (15 rows). |
+| `probatio-label.yml` and `probatio-label.js`: requests do not set readiness; a human push withdraws a previously verified `ready-for-oversight` label. | Updated in this branch; see the tests. |
 | `latin-cue-record.yml` logs `emenda` and a bare `renovata`. | Built. |
 | `ready-for-oversight` in `.github/sovran-labels.yml`. | Built. The workflow also creates it if missing. |
 | `.claude/manual-finalize.md`: the backup method. | Built. |
@@ -133,7 +136,7 @@ Docs: docs/latin-workflow-v2.md in custos.
 
 1. `emenda` is the repair word. `refice` is reserved for bigger rework, later.
 2. `omnes` is everyone. `cuncti` is the project as a whole.
-3. The soft `probatio` sets the `ready-for-oversight` label.
+3. Earlier behavior set the label directly from a soft-seal cue. Superseded: a request cue is not evidence; the label follows verification of the Probatio packet on the current head.
 4. `finalize` moves out of the main stream into a manual backup method.
 
 ## v2.1 — Sending a PR back for what is missing
@@ -205,9 +208,9 @@ and the register says which. Threads are numbered in the order they open and nev
 
 ### The contributor's probatio note
 
-When the Shepherd's `probatio` sets `ready-for-oversight`, the contributor assigned to the PR posts
-one note to oversight on the same head. The label is the automated soft seal; the note is the team's
-voice beside it. It holds:
+When the Shepherd requests Probatio, each able contributor posts one review/note on the same head.
+That contribution is the soft-seal evidence; the cue itself does not set `ready-for-oversight`.
+After verification, ChatGPT assembles a packet for the oversight observer. It holds:
 
 - readiness on the current head: checks (counts), open threads, merge state;
 - recommendations for oversight;
@@ -238,8 +241,7 @@ follow the `observed` box. That is a workflow change and is not built here.
 
 The parser rejects any word it does not know, and the PR looks as if nothing happened. On #469 the
 cue was spelled `renovatta`: the cue log recorded a *Probatio* (it looks for the action word), the
-label workflow read nothing, and the label stayed off. After a `probatio`, look for the
-`ready-for-oversight` label or the bot's reply. A notice from the recorder when an owner cue line is
+label workflow read nothing, and the label stayed off. After a Probatio request, look for individual reports and the consolidated packet; the request itself does not set a readiness label. A notice from the recorder when an owner cue line is
 rejected would close this; it is a possible follow-up, not built.
 
 ### What is built
