@@ -25,22 +25,22 @@ A refinement of this vocabulary, with the road from contributor to merge, is in 
 
 ## Navigo Check-In Cues
 
-These are not stage actions or modifiers — they are the two-step check-in protocol for navigo contributors before starting mission work. Documented in `docs/mission-board.md`.
+These are check-in cues used before mission work and, with this proposal, for repository placement decisions on draft PRs. The placement checkpoint is documented in [`repository-placement-decisions.md`](repository-placement-decisions.md).
 
 | Cue | From | Working meaning |
 |---|---|---|
 | **`disponi`** | *disponere* — to arrange, make available | Availability check: is this mission open, in-progress, or paused? The navigo posts `@claude disponi` in a mission issue comment; the bot (or the Shepherd, until the bot exists) replies with the current state. |
 | **`petitio`** | *petitio* — request, claim | Plan submission: the navigo posts their intent, approach, and completion check and waits for the Shepherd's nod. Work begins on acceptance, not on submission. |
-| **`placet`** | *placet* — it pleases (the voice of assent) | The Shepherd's nod: the owner comments `@claude placet` on a mission issue that holds a petitio, and the `placet` workflow flips it to `in-progress`. Owner-only; footer comments and quoted cues are skipped. |
+| **`placet`** | *placet* — it pleases (the voice of assent) | The Shepherd's assent: on a mission issue, `placet` accepts a plan; on a draft PR, it records an accepted repository placement after a `petitio` and any needed `judicium`. The existing mission workflow still flips its issue to `in-progress`; a PR placement `placet` does not change review state. |
 
-`placet` is the one cue that changes a label, and only on the owner's own word. These cues are issue-comment vocabulary, not PR-level workflow triggers. They live in the mission board procedure only; they do not finalize, seal, or merge anything.
+`placet` changes the mission issue label only in the mission workflow. A draft-PR placement decision is recorded in the PR or linked decision note and does not make the PR ready for review. Neither use finalizes, seals, or merges anything. See [repository placement decisions](repository-placement-decisions.md).
 
 ## Actions
 
 | Action | Inspiration / sense | Custos stage |
 |---|---|---|
 | **Recensio** | Review or census, looking for discrepancies | Verify, fix findings and work toward readiness; deep scan when warranted, not automatically on every small PR. |
-| **Probatio** | Examination or testing of proof | The soft seal. The owner's `^name probatio` sets the `ready-for-oversight` label and the contributor states readiness. It does not finalize or merge. |
+| **Probatio** | Examination or testing of proof | Request/review stage. Contributors record soft-seal evidence on the current head; a request cue does not set `ready-for-oversight`. `^omnes probatio` requests reviews from every able contributor; `^chatgpt probatio` asks ChatGPT to verify reports and prepare the oversight packet. It does not finalize or merge. |
 | **Lustratio** | Review and presentation | Optional coherence, polish, reading path and provenance pass without quietly changing scope. |
 | **Judicium** | Judgment | Explicit owner decision: choices, evidence, risks and authority. A waiver is not assumed from this word alone. |
 | **Novissimum** | The rear guard | Close loose ends or carry them forward with a named owner and destination. |
@@ -66,9 +66,9 @@ If an optional review is intentionally omitted during an expeditus course, recor
 
 ## Where custos uses these
 
-- **`probatio-label.yml`:** the owner's `^name probatio` (not `ultima probatio`) sets the `ready-for-oversight` label. A person's push takes it off. See [v2](latin-workflow-v2.md).
+- **`probatio-label.yml`:** Probatio request cues do not set `ready-for-oversight`. Set the label only after the packet is verified on the current head; a person's push removes it. See [v2](latin-workflow-v2.md).
 - **Manual backup:** `finalize` and a handwritten ticket are described in [`.claude/manual-finalize.md`](../.claude/manual-finalize.md), outside the main stream.
-- **`finalize-pr.yml`:** the existing implemented cue `@claude` plus `ultima Probatio` finalizes/seals a PR (as does `@claude finalize`). This document does **not** change that live behavior. Do not post that phrase merely to request a preliminary review; use a bare `Probatio` for the soft seal before finalization. Recensio and Lustratio calls do not finalize even if prose mentions 'finalize'. The cue is ignored inside `code`, code blocks and `>` quotes, and in any comment carrying the Claude Code footer, so quoting it or a navigo reply can't seal a PR.
+- **`finalize-pr.yml`:** the existing implemented cue `@claude` plus `ultima Probatio` finalizes/seals a PR (as does `@claude finalize`). This document does **not** change that live behavior. Do not post that phrase merely to request a preliminary review; use `probatio` for the contributor soft-seal stage and `^chatgpt probatio` for the verified packet request. Recensio and Lustratio calls do not finalize even if prose mentions 'finalize'. The cue is ignored inside `code`, code blocks and `>` quotes, and in any comment carrying the Claude Code footer, so quoting it or a navigo reply can't seal a PR.
 - **Merge:** neither a finalized label nor a passing assessment merges a PR. Eric requests merge separately in the conversation or with the responsible merger.
 - **Conversations:** adapted usage and a seed block are in [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md). That document currently describes *Ultima Probatio* as sealing a conversation; align its language later if the owner changes that separate scope.
 - **Radix:** `ultima Probatio` also finalizes there (radix#41). A change to this glossary alone does not alter radix.
