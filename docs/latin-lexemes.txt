@@ -27,6 +27,8 @@ MODIFIERS (the scope or tempo)
   extrema       deepest. Root cause, evidence.
   renovata      refresh. May stand alone.
   expeditus     prompt. Focused, same standards.
+  confirmanda   with emenda: a claim needs confirming. Cite it or mark it unconfirmed.
+  supplenda     with emenda: a step the road needs is missing. Supply it. Not a defect.
 
 COMMON CALLS
   ^omnes renovata               everyone refreshes their PR
@@ -39,6 +41,8 @@ COMMON CALLS
   ^claude expeditus emenda      quick amendment of small flags
   ^claude extrema emenda        root cause for a stubborn flag
   ^claude ultima emenda         last round of amendments
+  ^chatgpt confirmanda emenda   confirm the claim named, or mark it unconfirmed
+  ^chatgpt supplenda emenda     supply the missing step, or say who it waits on
 
 THE ROAD
   recensio  >  ultima recensio  >  probatio (label)  >  oversight
