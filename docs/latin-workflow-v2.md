@@ -4,6 +4,7 @@
 **Suit:** ♦️ Diamond, 2/3 plank. Decisions made by the Shepherd on 202610160811; workflow side built.
 **Builds on:** [`latin-workflow-glossary.md`](latin-workflow-glossary.md), [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md)
 **Quick reference:** [`latin-lexemes.txt`](latin-lexemes.txt), plain text for Notepad
+**v2.1:** drafted 202610212355 UTC from the Shepherd's words at the oversight of #468, #469, #470 and #476. Proposal until the Shepherd rules; the two modifiers are built (parser and cue record), the rest is practice.
 
 The existing system works. This refines it and adds four things: a repair word, two ways to reach
 contributors, a soft seal that sets a label, and a clear road from contributor work to merge.
@@ -16,6 +17,7 @@ contributors, a soft seal that sets a label, and a clear road from contributor w
 | 2 | Contributor | `recensio` | Reviews its own PR, fixes what it finds. |
 | 3 | Contributor | `ultima recensio` | Final review. Every finding is fixed or carried forward by name. |
 | 4 | Shepherd | `probatio` | The soft seal. Sets the `ready-for-oversight` label. The contributor states its readiness in a comment. |
+| 4a | Contributor | probatio note | One note to oversight after the label is set. See v2.1 below. |
 | 5 | Oversight | final oversight run | Report only. Lists flags. |
 | 6 | Shepherd | `emenda` | Asks contributors to repair the flags. Loops to step 3. |
 | 7 | Shepherd | `ultima probatio` | The final seal, on the owner's word only. If the words are in a mess, see the manual ticket. |
@@ -133,3 +135,120 @@ Docs: docs/latin-workflow-v2.md in custos.
 2. `omnes` is everyone. `cuncti` is the project as a whole.
 3. The soft `probatio` sets the `ready-for-oversight` label.
 4. `finalize` moves out of the main stream into a manual backup method.
+
+## v2.1 — Sending a PR back for what is missing
+
+The oversight of four PRs showed two ways a PR can go back that are not a repair. In one a claim
+cannot be checked from the repo. In the other the work is sound but a step the road requires is
+missing. Neither is a flaw in the work, so neither should read like `emenda` alone.
+
+### Two modifiers of `emenda`
+
+They are gerundives, "that must be ...", coined from *confirmare* and *supplere*. Like the rest of
+this vocabulary they are project words, not a claim about Roman usage.
+
+| Call | Meaning | The contributor |
+|---|---|---|
+| `confirmanda emenda` | A concept, claim, citation or source in the PR cannot be checked from the repo. It needs confirming. | Names each claim, says where the Shepherd can find the content (an Ask, below), and marks the claim *unconfirmed* in the PR until the source is cited. Never fills the gap from memory. |
+| `supplenda emenda` | The work is sound, but something the road requires is missing: a document, a field, a tick, a label, a note. An administrative gap, not a defect. | Supplies what it can. For what only the Shepherd can supply, asks (an Ask, below). Reports each missing piece as supplied or waiting. |
+
+How the three repair calls differ:
+
+| | Something is wrong | Something is unproven | Something is absent |
+|---|---|---|---|
+| Call | `emenda` | `confirmanda emenda` | `supplenda emenda` |
+| Ends with | fixed, not a defect, or carried forward | cited and confirmed, or marked unconfirmed | supplied, or waiting on a named person |
+
+Both stack with the older modifiers where it helps: `confirmanda emenda` after `extrema` is
+possible, but one modifier is the usual call. The parser reads the words in either order and a
+bare `confirmanda` is "ambiguous cue" like any modifier without an action. They change nothing
+else: no label is set, and the recorder logs them in the cue log.
+
+`probanda` was passed over because it sounds like `probatio`, the soft seal.
+
+### The Ask
+
+Some of what a PR needs is held only by the Shepherd: a location, a document, a ruling. When oversight
+finds one, the contributor asks in the same comment that returns the PR, so the Shepherd does not have to
+remember a separate errand. One shape:
+
+```text
+Ask of the Shepherd (thread T05, Dixi Jam)
+Need:      the text of the four rights, or where it lives
+My guess:  Google Drive, or one of the earlier conversations
+Why now:   README section 3 and warning-labels.md cite it
+Unblocks:  the citation line. Until then the claim is marked unconfirmed.
+Easiest:   paste the text, or a link, or say "not found" and it stays marked
+```
+
+Rules:
+
+1. **Ask where the work is.** The ask arrives with the PR or the step that needs it, not as a list of errands
+   gathered somewhere else. One ask per comment, unless the asks are the same errand.
+2. **Name the guess.** Say where the content probably lives. A guess costs the Shepherd less than a search.
+3. **Always include a way out.** "Not found" is a valid answer. The PR says how it proceeds without the answer.
+4. **Every ask has a thread id** (next section), so it can be found again and so an answer lands in one place.
+5. **Say what is asked of the Shepherd and nothing else in the same block.** A decision and an errand are two asks.
+
+### Threads
+
+A thread is one open question or stream that outlives a PR. There can be many. `.claude/threads.md`
+holds the register: id, name, state, the next ask and where it will be asked. Nobody is expected to
+keep it in mind. When the work reaches a thread, the navigo posts that thread's note and asks then:
+
+```text
+Thread T05, Dixi Jam. State: waiting on you for the text. Last seen: PR #470 cites it, not in the repo.
+```
+
+Answers go back to the register. A thread closes when its last ask is answered or deliberately dropped,
+and the register says which. Threads are numbered in the order they open and never reused.
+
+### The contributor's probatio note
+
+When the Shepherd's `probatio` sets `ready-for-oversight`, the contributor assigned to the PR posts
+one note to oversight on the same head. The label is the automated soft seal; the note is the team's
+voice beside it. It holds:
+
+- readiness on the current head: checks (counts), open threads, merge state;
+- recommendations for oversight;
+- other issues or ideas noticed while working, each marked as a thread when the Shepherd must decide;
+- what it did not check.
+
+It is not an owner cue and carries the footer. A new head after the note needs a new note.
+(Added because #469 had receipts but no note after its soft seal, so oversight could not tell
+whether the contributor considered the new head ready.)
+
+### Confirming a merge
+
+After a merge, one comment on the merged PR, posted by the navigo on the Shepherd's word. A comment
+is better than a document per merge: it sits where the contributors read the PR and needs no new file.
+
+```text
+Merged. PR #N into main by <squash / merge commit> as <short sha>, <prima-clock>.
+Checks on main after the merge: <result>.
+Closed or advanced: <Jira key, issue, thread>.
+Carried forward: <item, owner, thread id> (or none).
+Next: <the one next step, or none>.
+```
+
+A box in the PR description, ticked by the cue record when the PR is merged (`landed`), would
+follow the `observed` box. That is a workflow change and is not built here.
+
+### A cue that is not read
+
+The parser rejects any word it does not know, and the PR looks as if nothing happened. On #469 the
+cue was spelled `renovatta`: the cue log recorded a *Probatio* (it looks for the action word), the
+label workflow read nothing, and the label stayed off. After a `probatio`, look for the
+`ready-for-oversight` label or the bot's reply. A notice from the recorder when an owner cue line is
+rejected would close this; it is a possible follow-up, not built.
+
+### What is built
+
+| Piece | State |
+|---|---|
+| `cue-parser.js` reads `confirmanda` and `supplenda`. | Built, 5 new test rows (72 in all). |
+| `latin-cue-record.yml` logs them. | Built. |
+| Glossary and `latin-lexemes.txt`. | Updated. |
+| Thread register, Ask shape, probatio note, merge confirmation. | Practice only. No workflow reads them. |
+| `landed` box, rejected-cue notice. | Not built. |
+

@@ -32,6 +32,10 @@ const rows = [
   ['repair word', '^perplexity emenda', OWNER, { cues: [['^', 'perplexity', 'Emenda', null]] }],
   ['repair with modifier', '^chatgpt extrema emenda', OWNER, { cues: [['^', 'chatgpt', 'Extrema Emenda', null]] }],
   ['repair, final round', '^gemini ultima emenda', OWNER, { cues: [['^', 'gemini', 'Ultima Emenda', null]] }],
+  ['repair, claim to confirm', '^chatgpt confirmanda emenda', OWNER, { cues: [['^', 'chatgpt', 'Confirmanda Emenda', null]] }],
+  ['repair, step the road lacks', '^chatgpt supplenda emenda', OWNER, { cues: [['^', 'chatgpt', 'Supplenda Emenda', null]] }],
+  ['confirmanda after the action', '^chatgpt set-4f2a1c emenda confirmanda', OWNER, { cues: [['^', 'chatgpt', 'Emenda Confirmanda', 'set-4f2a1c']] }],
+  ['misspelled modifier is rejected, not guessed', '^chatgpt renovatta probatio', OWNER, { cues: [], rejected: ['unrecognized words: renovatta'] }],
   ['renovata alone, targeted', '^perplexity renovata', OWNER, { cues: [['^', 'perplexity', 'Renovata', null]] }],
   ['renovata alone, everyone', '^omnes renovata', OWNER, { cues: [['^', 'omnes', 'Renovata', null]] }],
   ['project perspective first', '^cuncti prima recensio', OWNER, { cues: [['^', 'cuncti', 'Prima Recensio', null]] }],
@@ -66,6 +70,7 @@ const rows = [
   ['two actions', '^claude probatio recensio', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
   ['verb with a modifier', '^claude ultima finalize', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
   ['modifier only', '^claude ultima', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
+  ['confirmanda alone', '^claude confirmanda', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
   ['renovata with another modifier', '^claude renovata ultima', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
   ['renovata with a verb', '^claude renovata check', OWNER, { cues: [], rejected: ['ambiguous cue'] }],
 
