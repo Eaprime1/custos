@@ -1,14 +1,14 @@
 # Custos — Probatio Label
 #
-# The soft seal. When the owner comments `^<name> probatio` (or `^omnes probatio`)
-# on a PR, this sets the `ready-for-oversight` label and keeps one comment that
-# names the head commit. A push by a person takes the label off again, because
-# the soft seal covered the earlier head. A push by a bot leaves it.
+# A Probatio cue is a request, not proof of a soft seal or a verified packet.
+# Requests never set `ready-for-oversight`; ChatGPT prepares a packet after
+# checking contributor reports on the current head. A person push removes a
+# previously applied label because the packet covered an earlier head.
 #
 # It reads cues with .github/scripts/cue-parser.js: owner only, never a bot,
 # never a comment with the Claude Code footer, never a cue inside quotes or code.
-# `ultima probatio` is the final seal and belongs to finalize-pr.yml, so it does
-# not set this label. This workflow never seals and never merges.
+# `ultima probatio` is the later final seal and belongs to finalize-pr.yml.
+# This workflow never sets readiness from a request, never seals, and never merges.
 # See docs/latin-workflow-v2.md.
 name: Custos — Probatio Label
 
@@ -40,9 +40,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          # Use trusted default-branch code for issue_comment and pull_request events.
+          ref: ${{ github.event.repository.default_branch }}
 
-      - name: Set or withdraw the soft seal
+      - name: Keep the verified packet label current
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         with:
           script: |

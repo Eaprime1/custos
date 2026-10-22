@@ -24,8 +24,9 @@
 # what we check before the merge.
 #
 # A comment with the Claude Code footer is a navigo writing under the owner's
-# login, so it is never recorded as a cue. Cues inside `code`, ``` blocks or
-# > quotes are quoted, not given, and are ignored.
+# login, so it is never recorded as a cue. The shared cue parser accepts only
+# valid cue lines and ignores cues inside code, code blocks or > quotes.
+# The checkout below always uses trusted default-branch code, never PR code.
 name: Custos — Latin Cue Record
 
 on:
@@ -69,6 +70,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
       - name: Record the cue and gather the PR's state
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         with:
@@ -97,30 +102,17 @@ jobs:
                 return;
               }
 
-              // Drop quoted material, then find the call.
-              const text = raw
-                .replace(/```[\s\S]*?```/g, ' ')
-                .replace(/`[^`\n]*`/g, ' ')
-                .replace(/^[ \t]*>.*$/gm, ' ');
-              const ACTIONS = ['Recensio', 'Probatio', 'Lustratio', 'Judicium', 'Novissimum', 'Cursus', 'Emenda'];
-              const MODS = ['Prima', 'Ultima', 'Suprema', 'Extrema', 'Renovata', 'Expeditus', 'Confirmanda', 'Supplenda'];
-              const words = (text.match(/[A-Za-z]+/g) || []).map(w => w.toLowerCase());
-              const cap = w => w[0].toUpperCase() + w.slice(1);
-              const cueWords = [];
-              words.forEach((w, i) => {
-                if (!ACTIONS.some(a => a.toLowerCase() === w)) return;
-                const before = words[i - 1], after = words[i + 1];
-                const pre = MODS.find(m => m.toLowerCase() === before);
-                const post = MODS.find(m => m.toLowerCase() === after);
-                cueWords.push([pre, cap(w), post].filter(Boolean).join(' '));
+              // Use the shared parser: only a valid cue at the start of a line
+              // counts. Mentions of cue words in ordinary prose are not commands.
+              const { parseComment } = require('./.github/scripts/cue-parser.js');
+              const parsed = parseComment(raw, {
+                association: comment.author_association,
+                authorType: comment.user.type,
+                allowed: ['OWNER', 'MEMBER', 'COLLABORATOR'],
               });
-              // A bare Renovata (no action beside it) is a refresh request on its own.
-              const isAct = w => ACTIONS.some(a => a.toLowerCase() === w);
-              words.forEach((w, i) => {
-                if (w === 'renovata' && !isAct(words[i - 1]) && !isAct(words[i + 1])) cueWords.push('Renovata');
-              });
+              const cueWords = parsed.cues.map((item) => item.canonical);
               if (!cueWords.length) {
-                core.info('No Latin call outside quotes; nothing to record.');
+                core.info('No valid Latin cue line outside quotes or code; nothing to record.');
                 return;
               }
               cue = [...new Set(cueWords)].join(' · ');

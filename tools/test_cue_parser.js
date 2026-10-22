@@ -51,6 +51,7 @@ const rows = [
 
   // Not cues: quoted, mid-sentence, or not at the start of a line.
   ['mid-sentence caret', 'I think ^claude ultima probatio is fine', OWNER, { cues: [] }],
+  ['ordinary prose mention', 'This probatio request is still being discussed.', OWNER, { cues: [] }],
   ['mid-sentence at', 'thanks @claude finalize', OWNER, { cues: [] }],
   ['inline code', 'use `^claude ultima probatio` to seal', OWNER, { cues: [] }],
   ['fenced code', '```\n^claude ultima probatio\n```', OWNER, { cues: [] }],

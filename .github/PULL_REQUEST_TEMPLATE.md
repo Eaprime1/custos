@@ -11,6 +11,17 @@
 
 <!-- one sentence: what actually happened (may differ from intent — that's fine) -->
 
+## Repository Placement (draft-stage checkpoint)
+
+<!-- Complete when proposing a new top-level, dot-folder, or materially new path.
+     Existing paths can be named without requesting a placement decision. -->
+
+- Existing or proposed path:
+- New path? (yes/no):
+- Why existing paths do not fit (if new):
+- Placement decision: not required / pending / accepted / revise / deferred
+- Decision record or Shepherd's judicium (if required):
+
 ## Resonance
 
 <!-- one word or phrase that describes the quality of this work -->
