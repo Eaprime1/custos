@@ -2,7 +2,7 @@
 
 **Prima-clock:** 202610190449 (UTC)
 **Suit:** ♣️ Club, working copy (CLAUDE.md suit list)
-**Plank:** 1/3, structure forming
+**Plank:** 2/3, structure forming
 **Jira:** KAN-6, project KAN "primal shadow haven" at primalshadow.atlassian.net
 
 *One place to look for where a piece of work stands, using words the repo already has.*
