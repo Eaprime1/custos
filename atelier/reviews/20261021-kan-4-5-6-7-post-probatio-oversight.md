@@ -22,6 +22,26 @@ proof of future readiness. A later push may withdraw a soft seal.
 | [#469](https://github.com/Eaprime1/custos/pull/469) | [KAN-6](https://primalshadow.atlassian.net/browse/KAN-6) | `3914ee8` | **not yet** | Jira guide, source-of-truth labels, reserved lexemes, Shepherd reference |
 | [#470](https://github.com/Eaprime1/custos/pull/470) | [KAN-7](https://primalshadow.atlassian.net/browse/KAN-7) | `9377213` | present | Germ seed, module specs, consent boundaries, no live execution |
 
+## Observation ledger update — 2026-10-22 UTC
+
+These are **newer snapshots** than the initial scope table above; they supersede its
+soft-label column for operational decisions. The Shepherd requested that observation
+evidence and the review-bot resolution be logged. The checkbox in a source PR describes
+**document existence**, not completion or seal readiness.
+
+| Source PR | Latest observed head | Canonical observation | Human Shepherd marker | Source `observed` box | Current soft seal |
+|---|---|---|---|---|---|
+| [#468](https://github.com/Eaprime1/custos/pull/468) | `c7a5ad6` | [file](https://github.com/Eaprime1/custos/blob/fix/kan-4-codacy/turns/observations/202610212345_pr468_observation.md), **complete** | [present](https://github.com/Eaprime1/custos/pull/468#pullrequestreview-5606863377) | checked | withdrawn after head change |
+| [#476](https://github.com/Eaprime1/custos/pull/476) | `12ed811` | [file](https://github.com/Eaprime1/custos/blob/fix/kan-5-list-spacing-batch-1/turns/observations/202610212345_pr476_observation.md), **complete** | **not found** in inspected PR comments/reviews | unchecked pending requested confirmation | withdrawn after head change |
+| [#469](https://github.com/Eaprime1/custos/pull/469) | `0233443` | [file](https://github.com/Eaprime1/custos/blob/docs/kan-6-jira-pipeline/turns/observations/202610212345_pr469_observation.md), **open** | [present](https://github.com/Eaprime1/custos/pull/469#pullrequestreview-5606934358) | checked (file exists; not complete) | not set on this head |
+| [#470](https://github.com/Eaprime1/custos/pull/470) | `9377213` at previous inspection | Observation not checked in this ledger | not checked in this ledger | not evaluated here | previously present; refresh before joint review |
+
+**#469 bot correction:** [review nit](https://github.com/Eaprime1/custos/pull/469#discussion_r4342762625) about `1/3` vs `2/3` structure forming corrected in [`22fca4b`](https://github.com/Eaprime1/custos/commit/22fca4bf0a91da896385e2facebc4528f00d536b); [individual reply](https://github.com/Eaprime1/custos/pull/469#discussion_r4343311740), thread resolved. The [observation addendum](https://github.com/Eaprime1/custos/blob/docs/kan-6-jira-pipeline/turns/observations/202610212345_pr469_observation.md) explicitly retains `status: open`. [Contributor's response to oversight](https://github.com/Eaprime1/custos/pull/469#issuecomment-6329590112) reports readiness qualifications and that the Shepherd must refresh the head-specific soft seal.
+
+**#476 missing marker:** [evidence report](https://github.com/Eaprime1/custos/pull/476#issuecomment-6329590887) requests confirmation of the Shepherd observation comment; the canonical observation is already completed by the oversight reviewer. We did not invent an owner observation.
+
+**Operational effect:** filing observations advanced the source branch heads after earlier soft seals; do **not** regard any previous `ready-for-oversight` as current until a fresh owner-authored request succeeds on the current head. This draft carrier stays open and unsealed. Only populate its completed independent four-PR review after the entry conditions below are satisfied.
+
 ## Entry condition
 
 - [ ] All four PRs have owner-authored soft readiness records for **their current heads**.
