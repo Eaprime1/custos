@@ -31,6 +31,7 @@ Nothing in the Atelier is finished. That is the point.
 | Autographum | `autographum-seed.md` | Seed, Germ — a section of the Armarium for handwritten origins; not started, by the Shepherd's choice; a few are needed for the Primal launch | Shepherd review comment on PR #463, 202610172056 UTC |
 | Exemplar | `exemplar-seed.md` | Seed, Germ — a rare character and high-value lexeme; cautions: rarity, no absolutes | Shepherd review comment on PR #463, about 202610172117 UTC |
 | Matenadaran | `matenadaran-seed.md` | Seed, Germ — a preservation specialist idea, with the history and the Valthraman export found | Shepherd review comment on PR #463, about 202610172127 UTC |
+| Reality Layer (zero_prime_one) | `reality-layer/` | Seed, Germ — the protective parts of the Primoris material reduced to what each is in reality; first step is a scheduled soft pre-cue, no sensors | Conversation with the Shepherd, 202610210110 UTC |
 
 ### The Convergence Note
 
