@@ -31,6 +31,7 @@ Nothing in the Atelier is finished. That is the point.
 | Autographum | `autographum-seed.md` | Seed, Germ — a section of the Armarium for handwritten origins; not started, by the Shepherd's choice; a few are needed for the Primal launch | Shepherd review comment on PR #463, 202610172056 UTC |
 | Exemplar | `exemplar-seed.md` | Seed, Germ — a rare character and high-value lexeme; cautions: rarity, no absolutes | Shepherd review comment on PR #463, about 202610172117 UTC |
 | Matenadaran | `matenadaran-seed.md` | Seed, Germ — a preservation specialist idea, with the history and the Valthraman export found | Shepherd review comment on PR #463, about 202610172127 UTC |
+| Complexity Epic | `complexity-epic/` | Seed, Germ — a testable question (does reported complexity fall as knowledge grows?) with a paste-in packet other conversations can return; Act 1 not started | Shepherd's "Complexity theory" notes, filed 202610201533 UTC |
 
 ### The Convergence Note
 
