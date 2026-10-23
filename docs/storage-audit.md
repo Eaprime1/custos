@@ -34,6 +34,14 @@ Focus now: **mandelbrot (Ubuntu laptop)**. mulberry (Windows) and the others fol
 4. Repeat 1–3 on mulberry, then the Pixel 8 and any other active devices.
 5. Prevent it from recurring: one documented sync mode per device (stream, not mirror); Takeout downloads land in one known folder and are processed, not left behind.
 
+## Awaiting carbonization review: mandelbrot (Ubuntu laptop)
+Status: **waiting for the unified process** (Eric is bringing carbonizing and the related processes together; nearly finished).
+Ready as input when it lands:
+- duplicates: `~/unexusiam/fond/local/manifests/duplicates_claude_202610230056.md` (1,046 groups, ~10.8 GB in extra copies)
+- size map: `mandelbrot_sizes_202610230034.txt` (maw 79 GB, gdrive_today 45 GB, pryme/vetting 18 GB)
+- takeout/Drive scan: `takeout_scan_<ts>.tsv` (running)
+Nothing is to be deleted or moved until the process is applied.
+
 ## Open
-- [ ] Link / describe the carbonization process
+- [ ] Link the unified process (carbonizing + related) once Eric finishes it
 - [ ] Which devices count as active (mandelbrot, mulberry, Pixel 8, …)?
