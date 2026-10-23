@@ -31,7 +31,7 @@ Focus now: **mandelbrot (Ubuntu laptop)**. mulberry (Windows) and the others fol
 1. mandelbrot: read the takeout scan; list the Takeout archives and Drive downloads with size and date.
 2. For each Takeout/Drive copy, decide: is the content still in Drive? If yes, the local copy is a duplicate, so it goes to carbonization; if no, it is the only copy, so keep it and record it.
 3. Run the duplicate list through carbonization (define the steps here once Eric links the process).
-4. Repeat 1–3 on mulberry, then the Pixel 8 and any other active devices.
+4. Repeat 1–3 on mulberry (Windows) and the **Pixel 8a** (Termux; reachable from the phone through this branch on claude.ai/code).
 5. Prevent it from recurring: one documented sync mode per device (stream, not mirror); Takeout downloads land in one known folder and are processed, not left behind.
 
 ## Awaiting carbonization review: mandelbrot (Ubuntu laptop)
@@ -44,4 +44,4 @@ Nothing is to be deleted or moved until the process is applied.
 
 ## Open
 - [ ] Link the unified process (carbonizing + related) once Eric finishes it
-- [ ] Which devices count as active (mandelbrot, mulberry, Pixel 8, …)?
+- [x] Active devices: mandelbrot (Ubuntu), mulberry (Windows), Pixel 8a (phone). Each needs carbonization review.
