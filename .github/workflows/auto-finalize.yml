@@ -2,8 +2,12 @@
 #
 # Runs on check_suite completion and hourly.
 # Finds open bot-authored PRs (claude/ copilot/ dependabot/ prefixes or Bot user type)
-# that have been open > 1 hour, carry no `finalized` label,
-# and have all gates green — then finalizes them directly.
+# that are ready for review (never drafts), have been open > 1 hour, carry no
+# `finalized` label, and have all gates green — then finalizes them directly.
+#
+# A seal is held back while anything still needs work: a draft, an unresolved
+# review thread, a requested change, a failing or pending check, or missing
+# template sections (Intent / What Arrived / Resonance).
 #
 # Cannot use comment-trigger chain: GitHub prevents GITHUB_TOKEN-authored
 # issue_comment events from spawning new workflow runs. Full logic is inline.
@@ -73,6 +77,9 @@ jobs:
                 BOT_PREFIXES.some(pfx => branch.startsWith(pfx));
               if (!isBot) continue;
 
+              // A draft is still being worked on: nothing to seal until it is ready.
+              if (pr.draft) continue;
+
               // Age gate
               if (nowMs - new Date(pr.created_at).getTime() < AGE_MS) continue;
 
@@ -106,6 +113,19 @@ jobs:
                 afterCursor = rt.pageInfo.endCursor;
               }
               if (unresolved > 0) continue;
+
+              // ── Requested changes ─────────────────────────────────────────
+              // Each reviewer's latest decisive review counts; a later approval
+              // or a dismissal clears an earlier request. Plain comments don't count.
+              const reviews = await github.paginate(github.rest.pulls.listReviews, {
+                owner, repo, pull_number: prNum, per_page: 100,
+              });
+              const latest = new Map();
+              for (const r of reviews) {
+                if (!r.user || !['APPROVED', 'CHANGES_REQUESTED', 'DISMISSED'].includes(r.state)) continue;
+                latest.set(r.user.login, r.state);
+              }
+              if ([...latest.values()].includes('CHANGES_REQUESTED')) continue;
 
               // ── CI check runs ─────────────────────────────────────────────
               const allChecksRaw = await github.paginate(github.rest.checks.listForRef, {
@@ -303,10 +323,32 @@ jobs:
               ].join('\n');
 
               try {
+                // Committed to the PR's own head branch, not base — main is
+                // protected and requires a PR, and this bot runs on the
+                // GITHUB_TOKEN with no bypass available (personal-account
+                // repos can't grant actor-level bypass_pull_request_allowances).
+                // Writing to head means the journey doc rides into main inside
+                // this same PR's eventual merge, instead of needing a second,
+                // separate write to the protected branch.
+                //
+                // Fork guard: pr.head.ref is only a branch name, not a full
+                // ref. getContent/createOrUpdateFileContents above always
+                // target `owner, repo` (the base repository) — for a fork PR
+                // that silently reads/writes a same-named branch in the base
+                // repo instead of the fork, which is wrong at best and could
+                // clobber an unrelated branch at worst. Only proceed when the
+                // head actually lives in this repository.
+                const headInBaseRepo = pr.head.repo && pr.head.repo.full_name === `${owner}/${repo}`;
+                if (!headInBaseRepo) {
+                  await github.rest.issues.createComment({
+                    owner, repo, issue_number: prNum,
+                    body: `⚠️ **Journey document skipped** — this PR's head branch lives in \`${pr.head.repo ? pr.head.repo.full_name : '(deleted fork)'}\`, not this repository. Writing to \`pr.head.ref\` by branch name only is safe when the head is local; for a fork it would target the wrong repo. File the journey record manually after merge if wanted.`,
+                  });
+                } else {
                 let existingSha;
                 try {
                   const { data: existing } = await github.rest.repos.getContent({
-                    owner, repo, path: journeyPath, ref: pr.base.ref,
+                    owner, repo, path: journeyPath, ref: pr.head.ref,
                   });
                   existingSha = existing.sha;
                 } catch { /* new file */ }
@@ -316,14 +358,23 @@ jobs:
                   path: journeyPath,
                   message: `journey: PR #${prNum} auto-finalized [prima-clock ${primaClock}]`,
                   content: Buffer.from(journeyContent).toString('base64'),
-                  branch: pr.base.ref,
+                  branch: pr.head.ref,
                   ...(existingSha ? { sha: existingSha } : {}),
                 });
 
+                // Known limitation, accepted rather than worked around: a
+                // GITHUB_TOKEN-authored commit does not trigger new
+                // `pull_request` workflow runs, so this journey-doc commit
+                // changes the head SHA without re-running CI on it. Safe
+                // here because (a) the file is markdown only, no executable
+                // content, (b) branch protection on main sets no required
+                // status checks, and (c) merge is always a manual human
+                // decision in this repo, never automatic on finalize.
                 await github.rest.issues.createComment({
                   owner, repo, issue_number: prNum,
-                  body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.base.ref}/${journeyPath})\n\n*The record now lives in the system.*`,
+                  body: `📄 **Journey document:** [\`${journeyPath}\`](https://github.com/${owner}/${repo}/blob/${pr.head.ref}/${journeyPath}) — on this PR's branch; lands in \`${pr.base.ref}\` when the PR merges. Note: this commit (markdown only) does not re-trigger CI on the new head SHA — bot-authored commits don't fire \`pull_request\` workflow runs.\n\n*The record now lives in the system.*`,
                 });
+                }
               } catch (e) {
                 core.warning(`Journey doc commit failed for PR #${prNum}: ${e.message}`);
               }

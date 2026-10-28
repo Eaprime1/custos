@@ -25,16 +25,24 @@ Work arrives from many sources — navigo, remote repos, commissions, ideas. All
 ```
 prima.yaml          concept manifest and source of truth
 quests/             RPG-style quest arcs — real tasks, real outcomes
-quests/missions/    open missions and bounties for any contributor
+quests/missions/    open missions for any contributor (quest arc)
 missions/           Tabularium library operations — save points, workflows, Seneschal log
 world/              lore, factions, and the founding myth
 seeds/              bootstrap scripts and dotfiles for new devices
 device/             Pixel 8 device state — active work, manifests (pixel8 branch)
+docs/               working procedures and reference documents
 guides/             practical documentation written as world-native content
 tools/              THEE / YOD / EMBER triad and state tools
 intake/             the door where fragments arrive before they have names
 turns/              session memory — append only
 unexusi/            connection spec for the identity layer
+vault/              origin molds — passed formal custody, never directly edited
+branch-tracker/     active development map — branches and destination repos
+prima-clock/        custody event timestamp registry
+moav/               MOAV carrier packages (JSON) — formal transition records
+returns/            stream returns from external AI agents
+atelier/            nursery — concepts before they have names
+queue/              staging ground, including the Artesium Weir
 ```
 
 ## Getting started on a new device
@@ -54,16 +62,30 @@ bash tools/prime_check.sh
 bash tools/scan_lexeme.sh
 ```
 
-## Workflow — Missions and Bounties
+## Workflow — Missions and the Mission Board
 
-custos uses GitHub Issues as an open mission board. Any contributor — human or AI — can claim a mission.
+custos uses GitHub Issues as its mission board. Any contributor — human or AI — can work a mission.
 
-- **Missions**: structured tasks with clear deliverables and completion checks
-- **Bounties**: open challenges where the approach is part of the work
+- **Missions**: structured tasks with clear deliverables and deterministic completion checks
+- **Sparstone Trials**: open challenges where the approach is part of the work — first completer earns the Sparstone
 
 Browse [open issues](../../issues) and look for `mission` or `sparstone-trial` labels.
-custos has no bounties and pays no cash. Rewards are XP, badges and Sparstones.
-Why: see `docs/issue-system.md` §4. Missions also appear as quests in `quests/missions/` for use inside the terminal.
+custos pays no cash. Rewards are XP, badges, and Sparstones. See `docs/issue-system.md` §4.
+
+### The two-step for navigo contributors
+
+Before working a mission, a navigo checks in using two Latin cues in the issue thread:
+
+1. **`@claude disponi`** — availability check: is this mission open, in progress, or paused?
+2. **`@claude petitio`** — submit a brief plan (intent + approach + completion check) and wait for the Shepherd's nod
+
+Work begins on acceptance, not on submission. See `docs/mission-board.md` for the full procedure.
+
+## Multi-AI development
+
+custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each navigo is a paired team of one AI model and eaprime1. Work is commissioned — any navigo can pick up an open mission and open a PR.
+
+See `world/factions.md` for faction roles and `docs/mission-board.md` for the navigo workflow.
 
 ## GitHub Pages note 🃏
 
@@ -81,54 +103,17 @@ Work on custos is organized by device:
 
 The `pixel8` branch carries `device/` files that track what is active, installed, and in progress on the Pixel 8.
 
-## Multi-AI development
-
-custos is built with multiple AI systems contributing: Claude, ChatGPT, Gemini, Copilot, and others. Each contributor is part of a faction (see `world/factions.md`). Work is commissioned, not assigned — any model can pick up an open mission and open a PR.
-
 ## THE/UNEXUS Convergence Hub
 
-custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
+custos is the origin mold for a constellation of repos — the negative mold from which other repos emerge. The hub charter, custody markers, directory map, and known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
 
 ---
 
-## THE/UNEXUS Convergence Hub
-
-custos is also the convergence hub for THE/UNEXUS — the negative mold from which other repos emerge. The hub charter, custody markers, directory map (vault, branch-tracker, prima-clock, moav, returns, atelier), and the known repo map live in [docs/convergence-hub.md](docs/convergence-hub.md).
+*THEE opens. YOD marks. EMBER warms. custos keeps.*
 
 ---
-
-∰◊€π¿🌌∞
-
 
 **Established:** 202605271650
 **Motion State:** EXPANDING
 **Chain of Custody:** OPEN
 **Iteration:** 21 — Blackjack
-
-
----
-
-
-Custos (Latin: guardian, keeper) is the convergence hub for THE/UNEXUS.
-This is the negative mold. All repos emerge from branches here.
-
-
-## Structure
-
-
-| Directory | Purpose |
-|-----------|---------|
-| [/vault](./vault) | Origin molds — never directly edited |
-| [/branch-tracker](./branch-tracker) | Active development map |
-| [/prima-clock](./prima-clock) | Custody event timestamp registry |
-| [/moav](./moav) | MOAV carrier packages (JSON) |
-| [/returns](./returns) | Stream returns from external agents |
-| [/atelier](./atelier) | Nursery — concepts before they have names |
-| [/queue](./queue) | Staging ground — chain of custody, including the Artesium Weir |
-| [/seep-artois](./seep-artois) | The pool — ready-to-develop pages, drawn one at a time |
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). The PR template in `.github/PULL_REQUEST_TEMPLATE.md` is the contract for all contributions — intent, what arrived, resonance, and ethics check.
-
----
-
-*THEE opens. YOD marks. EMBER warms. custos keeps.*

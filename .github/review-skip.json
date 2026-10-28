@@ -1,0 +1,26 @@
+{
+  "note": "Files the Shepherd Considers ticks by rule, because they are not for human reading. Edit freely. A match is by prefix, suffix or exact path. The watched list is never skipped.",
+  "rules": [
+    { "prefix": "pr-journeys/", "reason": "journey document, written by the seal bot" },
+    { "exact": "turns/log.md", "reason": "append-only log" },
+    { "exact": "turns/review-surface.md", "reason": "append-only log" },
+    { "exact": "package-lock.json", "reason": "lockfile" },
+    { "suffix": ".lock", "reason": "lockfile" },
+    { "suffix": ".min.js", "reason": "generated" },
+    { "suffix": ".png", "reason": "binary image" },
+    { "suffix": ".jpg", "reason": "binary image" },
+    { "suffix": ".gif", "reason": "binary image" },
+    { "suffix": ".ico", "reason": "binary image" },
+    { "suffix": ".pdf", "reason": "binary document" }
+  ],
+  "watched": [
+    { "prefix": "vault/" },
+    { "prefix": "moav/" },
+    { "prefix": "prima-clock/" },
+    { "prefix": "branch-tracker/" },
+    { "prefix": "world/" },
+    { "prefix": "device/" },
+    { "prefix": ".github/workflows/" },
+    { "exact": ".github/CODEOWNERS" }
+  ]
+}

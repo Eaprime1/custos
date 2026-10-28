@@ -357,3 +357,82 @@ seeds:        - Refresh the cue record after finalize, so the seal shows.
               - Reconcile the navigo names once Eric's update arrives.
               - Settle the two definitions of atelier/.
 ---
+
+---
+turn_ref:     202609291102
+prima-clock:  202609291102
+prime:        3
+worked:       Writing the mission board from the session vocabulary itself — "disponi" and "petitio" emerged as names for a two-step the Shepherd and nav1 had been doing informally, then got formalized in docs, README, glossary, and a mission ideas seed list in a single session. The coffee-haven framing ("no race, no territorial staking") gave the bot-unfriendly behavior a shape that could be enforced by culture, not just code. The README pass caught two real problems (bounty/Sparstone drift, THE/UNEXUS section appearing twice) by doing a full read of the file before editing — not from a diff. Opening mission-ideas.md as an artifact let the session end with something the Shepherd could actually use as a planning surface, not just a file on a branch.
+friction:     The designated branch (claude/message-clarity-repo-setup-q0agry) was behind main by the time the session close began — PRs #384 and #385 had landed on separate branches (readme-update-and-mission-ideas). Had to reset the designated branch to main and force-push. The seal cue typo on PR #384 (@claude utlima vs. @claude ultima) required a second attempt — Latin inflection typos are easy to miss in a comment box and the gate is exact-match.
+seeds:        - disponi/petitio are now documented in the Latin glossary; the next logical step is Mission 1 (the actual disponi bot workflow).
+              - branch-tracker/branches.md has a stale footer note ("No branches have been deleted") — eaprime1 deleted Mobius-closed branches this session. A correction pass is a fast win before the tracker misleads the next navigo.
+              - scan_lexeme.sh false-positive on the README "unfilled placeholders" phrase in the getting-started section — a self-reference the scanner can't distinguish from an actual gap. The AAR from 2026-06-14 already noted this; the seed is still open.
+              - The `feature/voices-of-navigo-manifesto` branch survived eaprime1's cleanup — Mission 3 (routing pass) is the named path to retiring it safely.
+partner_state:
+  charge_received:  "open mission board infrastructure; update README; create mission ideas list; wrap the session; finish the conversation"
+  friction_named:   "branch divergence at session close; seal typo requiring retry; context window compaction mid-execution"
+  next_stance:      "main is clean; mission board live; 6 missions ready to open; next session: open Mission 1 or 4 as first GitHub issue"
+---
+
+---
+turn_ref:     202609291932
+prima-clock:  202609291932
+prime:        3
+worked:       Each piece was tested against a mocked GitHub context before it went live, so the disponi bot and the cue record both answered correctly on first contact. Separate PRs per topic kept every seal clean (19/20 to 20/20). Reading the sibling workflow (claim-register.yml) before building showed that claimed belongs to the public claim path, which is what led to the board's own labels. Trying the bot on a real mission issue the moment it merged closed the loop.
+friction:     - sovran-labels-sync.yml keeps its own hard-coded label list and never reads sovran-labels.yml, so the first sync created nothing; the label needed adding in two places.
+              - issue_comment workflows run from main, so nothing built here worked until its PR merged.
+              - The shell's safety check gave no verdict for a long stretch mid-session. Mission 2 went up through the GitHub connector on a new branch, was flagged untested in its PR body, tested when the shell returned, and the local branch was synced after.
+              - The Stop hook fired on the local copy of files already pushed, which only the shell could clear.
+              - I left the scan box unticked in #393's PR body while the shell was down and never updated it, so its seal reads 4/5 on Consistency.
+              - The review bot skipped every PR on its free-tier limit, so review came from CI, Codacy, DeepSource and the packet.
+seeds:        - Make sovran-labels-sync read sovran-labels.yml, so the label list lives in one place.
+              - A petitio handler: the Shepherd's nod flips the label from open to in-progress.
+              - Mission 3: route the feature/voices-of-navigo-manifesto content.
+              - Refresh the cue record after CI settles, so a Prima Recensio row shows the checks that finished.
+              - Open issues for missions shipped without one (Mission 5), or record them in mission-ideas.md.
+partner_state:
+  charge_received:  "continue the mission board for the voices of navigo; Mission 2 before session close since they go together"
+  friction_named:   "shell safety-check outage; label list kept in two places; Stop hook on synced files"
+  next_stance:      "main is clean; disponi and the petitio form are live; next build is the petitio handler or Mission 3"
+---
+
+---
+turn_ref:     202609292018
+prima-clock:  202609292018
+prime:        3
+worked:       The guard that keeps a navigo from giving the Shepherd's nod is the same footer rule the seal gate already used, so it needed no new idea; the live run showed it holding (a footer-carrying placet did nothing). Running the negative case on purpose before asking the Shepherd for the real cue made the positive result mean more.
+friction:     - .claude/drift.md is append-only and every PR appends to it, so two PRs in flight conflict on merge; #396 needed a merge of main to resolve it.
+              - The shell's safety check gave no verdict again at the start of the live test; the issue and comments went through the GitHub connector.
+              - #396's merge went through as soon as the merge commit was pushed, before CI ran on that commit; the content was the sealed content, but the commit itself was never checked.
+              - The Shepherd's first placet landed on PR #399 instead of test issue #398; the handler ignored it correctly, but the test lost a round.
+              - A review finding (guard wording vs code) was settled by fixing the docs, because the code followed disponi's rule; the alternative would have made placet and disponi disagree about the same issue.
+seeds:        - Make drift.md conflict-proof: one file per entry, or a union merge rule in .gitattributes.
+              - Make sovran-labels-sync read sovran-labels.yml, so the label list lives in one place.
+              - Have placet write the holder's key into its reply once navigo keys are settled.
+              - Mission 3: route the feature/voices-of-navigo-manifesto content.
+partner_state:
+  charge_received:  "close this section; existing nav numbers stay and add a unique key column; run the live placet test"
+  friction_named:   "placet posted on the PR instead of the issue; shell safety-check outage; drift.md merge conflict"
+  next_stance:      "main is clean; the board loop is live and verified; #399 waits on confirmed keys; next build is the label list, Mission 3, or recording the holder"
+---
+
+---
+turn_ref:     202610070905
+prima-clock:  202610070905
+prime:        3
+worked:       The observation step came out of using the process: the Shepherd named the oversight review while the Latin cue record and the seal were in front of us, and the first observation was filed on the PR that created the folder. Reading a bot's finding down to its annotation (Codacy's marker-word finding) found the real cause where the first two fixes had guessed.
+friction:     - A PR list that showed only recently updated PRs led to #424 duplicating #405. Search by head branch first.
+              - A misread of cat -A end-of-line markers ($) as a broken math block; corrected on the thread before it was acted on.
+              - Workflow changes only take effect after merge, so the review packet kept flagging the words #426 retired, and the observed box had to be ticked by hand once.
+              - Codacy's undefined-acronym finding on a marker word survived an inline gloss and a glossary; only removing the all-caps word from CLAUDE.md cleared it.
+              - A force push was denied, and the branch carried old merged history; a no-op merge pushed it instead.
+              - Mid-turn and stacked PRs run fewer checks and the age gate counts from creation, so a PR can seal before it is marked ready.
+seeds:        - Make the age gate count from when a PR was marked ready.
+              - Let latin-cue-record.yml open the observation stub when a navigo asks, without a bot commit to the branch.
+              - Show the observation's status line, not only its existence, next to the observed box.
+              - A note in the PR template that workflow changes apply after merge.
+partner_state:
+  charge_received:  "move the seeds and the shadow chain to merged; set up the scene index and checklist; add the oversight observation before merge; close out and set up round two"
+  friction_named:   "a draft sealing itself; Codacy loops; the packet logic running from main"
+  next_stance:      "main is clean; round two is ready on the Shepherd's word; the Pour waits"
+---

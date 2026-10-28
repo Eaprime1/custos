@@ -15,6 +15,14 @@ labels:
     color: "1d76db"
     description: "Owner opt-in: run the paid Claude review on this PR now"
 
+  - name: final-oversight
+    color: "5319e7"
+    description: "Owner opt-in: run the Final Oversight report on this PR (waits for the owner's approval)"
+
+  - name: ready-for-oversight
+    color: "0e8a16"
+    description: "Soft seal (probatio) given: ready for the oversight review"
+
   # ── Concordance ────────────────────────────────────────────────────────────
   - name: concordance
     color: "0075ca"
@@ -100,6 +108,15 @@ labels:
     color: "e99695"
     description: "Blocked on a Shepherd decision, device access, or an outside system"
 
+  # Mission board state (docs/mission-board.md). `claimed` stays the public claim tracker.
+  - name: in-progress
+    color: "0e8a16"
+    description: "Mission board: a petitio was accepted and a navigo is building"
+
+  - name: paused
+    color: "d4c5f9"
+    description: "Mission board: work stalled; open to a new petitio"
+
   # Modifiers
   - name: bot-friendly
     color: "5319e7"
@@ -108,5 +125,9 @@ labels:
   - name: anchor-review
     color: "d93f0b"
     description: "[ANCHOR REVIEW NEEDED] — a lore or custody claim lacks an anchor (guides/anchor-review.md)"
+
+  - name: voices-of-navigo
+    color: "c2e0c6"
+    description: "Mission seeded from a navigo session insight (docs/mission-board.md)"
 
 # ∰🌿-sovran_labels_v1

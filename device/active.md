@@ -23,6 +23,8 @@
 
 ## Recently Dispatched
 
+- 2026-10-07 (later): #429 and #430 merged: the caret cue plan, the shared cue parser with its 54-row offline test, and the Shepherd's answers to the plan
+- 2026-10-07: #425, #404, #405, #420 and #426 merged: auto-finalize draft fix, halide round-one seeds, the Shadow of Polaris nursery, the scanner change, the scene index and checklist, and the oversight observation step
 - custos concept identity filled in (`prima.yaml`, `unexusi/connect.yaml`, README, world/lore.md, world/factions.md)
 - Convergence hub structure stood up: `vault/`, `atelier/`, `moav/`, `prima-clock/`, `returns/`, `branch-tracker/`
 - Card/suit system formalized and confirmed (♣️K main / ♣️Q radix / ♣️J workers / ♥️A ֍custos֎ deploy / ♠️A ∰custos vault / 🔐J master)
@@ -36,6 +38,8 @@
 
 ## Open Questions (for next session)
 
+- [ ] Round two of the halide test: ready on the Shepherd's word (`atelier/halide/seeds/round-two/README.md`); the Pour waits
+- [ ] Age gate in `auto-finalize.yml`, and whether the seal requires an observation (`turns/CULTIVATION.md`)
 - [ ] Stream 6 (Grok) and Stream 7 (Perplexity) domain assignments — still "TBD" in `returns/README.md`
 - [ ] When/how to create the `∰custos` (♠️A vault) branch and its founding MOAV carrier
 - [ ] What `mandelbrot` and `mulberry` (♣️J Germ branches) are actually for
@@ -308,6 +312,55 @@
 - Open owner questions are listed in the journey's "Notes for Next
   Iteration". Process seeds are the last 8 rows of `queue/seed-weir/README.md`:
   7 OPEN, and 1 COMPOSTED because it was already settled.
+
+*Prime state: 3*
+*Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-10-06*
+## For the Next Conversation
+
+- Peer-review Run 0 is closed out: custos #407-#413 and pixelator #13-#17 are
+  merged. Pixelator now has finalize, cue record, review packet and witness
+  workflows; `auto-finalize.yml` is retired and bots never seal.
+- Cue stamps are UTC in both repos. `ultima probatio` seals on pixelator.
+- Still open for the Shepherd: the phone commit for `pixel` (the remote branch
+  is still the July commit), the license conversation, CP-7 corrections, CP-8
+  and H-6. The decisions list is in the Claude Docs note "Decisions waiting on
+  Eric".
+- The approved follow-ups are merged: custos #414-#416 and pixelator #18-#21
+  (mission and upgrade labels, now synced; README clone line; blank.yml and
+  terraform.yml retired; validator fixture tests; `tools/prima_clock.sh` in
+  both repos).
+- The phone commit has its own conversation. The branch is `pixel` in custos;
+  the Shepherd opens the test PR when the commit is ready.
+- Open for the Shepherd, none blocking: the turn-log schema says "device local"
+  without saying whose; pixelator README lines 4 and 85 still mention `devicehaven`; wire
+  the validator tests into CI; point CLAUDE.md and the closing checklist at
+  `prima_clock.sh`.
+- Run `bash termux_proc.sh` from your pixelator clone on the phone when closing, if wanted (the clone path is in `device/podiums.md`, for example `~/unexusi/pixelator`)
+  (see `turns/CLOSING.md`).
+
+*Prime state: 3*
+*Witnessed: true* 🃏
+
+---
+
+*Updated: 2026-10-07 (closing)*
+## For the Next Conversation
+
+- The standing plan is `docs/plans/202610070939-cue-sigil-and-living-observation-plan.md`.
+  Phases 0 and 1 are merged (#429, #430). Phase 2 is next, on the Shepherd's word:
+  `cue-router.yml`, the To column in the cue record, and the `awaiting:` and
+  `returned:` labels. One phase per PR.
+- Settle first in phase 2: the seal gate reads `@claude` anywhere in a comment, the
+  shared parser reads it only at line start. The gate does not read `^custos` cues yet.
+- Carried forward (`turns/observations/202610071021_pr430_observation.md`): the seal
+  does not require an observation; confirm that the `@claude` forms of finalize, ultima
+  probatio, check and concordance retire after one clean cycle.
+- Round two of the halide test and the Pour still wait on the Shepherd's word.
+- Run the parser test with `bash tools/test_cue_parser.sh` (54 of 54).
 
 *Prime state: 3*
 *Witnessed: true* 🃏

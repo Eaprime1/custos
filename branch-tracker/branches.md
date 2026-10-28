@@ -101,4 +101,4 @@ Repos this hub routes content to, or draws reference material from, outside the 
 
 *Note: PRs #354, #355, #358, #364 (and others in the #354–#370 range) are confirmed merged but their source branches were not traced in this pass. A future reconciliation pass should add them.*
 
-No branches have been deleted. This section supersedes the old "Departed Branches" framing, which implied removal — these branches haven't departed, they've closed.
+**Branch deletion note (202609291102):** eaprime1 deleted most Mobius-closed branches this session as a cleanup pass. Kept: `main`, `֍custos֎`, `pixel8`, `feature/voices-of-navigo-manifesto`. The rows above remain as custody records — the branches may be gone, but the content they carried and where it landed are still the record. The `feature/voices-of-navigo-manifesto` branch survived because its routing pass (Mission 3 in `docs/mission-ideas.md`) hasn't happened yet.

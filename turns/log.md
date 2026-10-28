@@ -537,3 +537,149 @@ contribution: 14 PRs merged across naught, nullus, maw, custos and radix.
 resonance:    sealed in Latin
 witnessed:    true
 ---
+
+---
+turn:         2026-09-29 10:30
+prima-clock:  202609291102
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1 · Sonnet 4.6)
+intent:       open the mission board as internal navigo infrastructure; bring README current; seed the mission ideas queue; close the session
+contribution: docs/mission-board.md — full disponi/petitio procedure, coffee-haven atmosphere, label schema, voices-of-navigo layer, seal flow connection (PR #384, 20/20).
+              README.md — structure table completed, bounty→Sparstone Trials, two-step navigo section added, hub duplication removed (PR #385, 20/20).
+              docs/mission-ideas.md — 6 ready-to-open missions + 3 candidates + .dotfolder answer seeded (PR #385).
+              docs/latin-workflow-glossary.md — disponi/petitio navigo check-in cues documented.
+              SESSION-CLOSE handoff written (turns/SESSION-CLOSE-202609291102.md).
+              .dotfolder consolidation question answered in-document: keep at root, tools expect standard paths.
+resonance:    laid the floor
+witnessed:    true
+---
+
+---
+turn:         2026-09-29 19:32
+prima-clock:  202609291932
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       continue the mission board for the voices of navigo: refresh, then build the first missions off the seed list
+contribution: 4 PRs merged, 3 missions opened and closed, the board's first live answers.
+              - #387 session open record; Mission 4 (voices-of-navigo label, in the yml and in the sync workflow's own list) and Mission 5 (disponi/petitio note in the mission template).
+              - #389 Mission 1: disponi.yml answers open / in progress / paused from the labels; in-progress and paused labels; anchor-review taken out of the board's label table; the board does not use claimed.
+              - #391 Prima Recensio: the cue record logs the first witness when a PR opens ready or is marked ready; a manual prima recensio comment still lands in the same log.
+              - #393 Mission 2: the open and paused disponi reply carries the petitio form.
+              Live checks: disponi answered "open" on #390 in 8 seconds; Prima Recensio logged itself on #391 and #393.
+              Closing record: turns/SESSION-CLOSE-202609291932.md.
+resonance:    steady
+witnessed:    true
+---
+
+---
+turn:         2026-09-29 20:18
+prima-clock:  202609292018
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       build the petitio handler (the Shepherd's accept step), draft the navigo registry, and run the mission board loop live.
+contribution: 2 PRs merged, 1 draft open, the loop verified end to end.
+              - #396 Mission 6: placet.yml flips a mission with a petitio to in-progress on the owner's plain-text cue; navigo (footer) comments and PRs are ignored.
+              - #397 first draft of docs/navigo-registry.md; #399 redraft with unique keys and the existing nav numbers kept (open, draft, green).
+              Live check on throwaway issue #398: disponi open, petitio, guarded placet ignored, Shepherd's placet accepted in 10 s, disponi in progress.
+              Closing record: turns/SESSION-CLOSE-202609292018.md.
+resonance:    assent
+witnessed:    true
+---
+
+---
+turn:         2026-10-06 01:59
+prima-clock:  202610060159
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       restructure the phone workflow through pixelator, then compare custos and pixelator as peers and write the process down.
+contribution: the gateway rule, the lexeme list and the peer-review process written down; three adoptions opened as drafts; the Shepherd's decisions recorded in the queue.
+              - pixelator #12 merged: pixelate/ROUTING.md, the routing ladder for the phone-side conversation.
+              - custos #406 merged: atelier/lexemes/distressed-lexeme-list.md.
+              - pixelator #13 (open): finalize-pr, latin-cue-record, review-packet and witness-pr ported from custos and adapted; review findings fixed, auto-finalize and the bot rule left for the Shepherd.
+              - custos #407 (open): docs/peer-review-process.md, tools/peer_inventory.sh, Run 0 record (25 findings), queue rows for the decisions.
+              - Drafts opened: custos #408 (validator fix), custos #409 (perspective-request template), pixelator #14 (scan_lexeme fix).
+              Decisions this turn: use pixelator's tracker script in session closing; start the intake mapping from pixelator's routing ladder; retire bounty and bring the lexeme form to pixelator; give pixelator a log and core documents; license is its own conversation; local time for the Shepherd's stamps, UTC for the seal and official records.
+              Not done: the phone commit for pixel (pending on the Shepherd), pixelator's issue forms, log and CLAUDE.md, the license check.
+resonance:    measured
+witnessed:    true
+---
+
+---
+turn:         2026-10-06 10:48
+prima-clock:  202610061048
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the peer-review adoptions, get pixelator's governance pipeline live, and close the open pull requests.
+contribution: every pull request from the peer-review run is merged or sealed; pixelator now has the same cue, packet, witness and seal workflows as custos.
+              - custos #407-#413 merged: the peer-review process and Run 0, the validator fix, the perspective template, the closing tracker paragraph, the intake-ladder draft, UTC cue stamps, and the queue update.
+              - pixelator #13-#17 merged: the four workflows (auto-finalize retired, bots never seal), the scan_lexeme and validator copies, the lexeme form with bounty removed, CLAUDE.md and the custody log.
+              - First live cues on pixelator (#14, #15, #16, #17) sealed, recovered earlier cues, and stamped in UTC.
+              Decisions this turn: auto-finalize is retired; the cue record is official, so UTC; a navigo merges only when the owner asks; `ultima probatio` is the seal cue on pixelator now.
+              Follow-ups the Shepherd approved: mission and upgrade labels, README clone line and retiring blank.yml and terraform.yml, validator fixture tests, and a shared stamp script. Opened as drafts after this entry.
+              Not done: the phone commit for pixel (still on the phone), the license conversation, CP-7 corrections, CP-8, H-6.
+resonance:    converged
+witnessed:    true
+---
+
+---
+turn:         2026-10-06 12:06
+prima-clock:  202610061206
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the session: take the approved follow-ups from draft to merged, and leave the handoff true.
+contribution: the seven follow-up pull requests are sealed and merged, and the review findings on them were fixed before sealing.
+              - custos #414-#416 and pixelator #18-#21 merged in order. Pixelator #18 added the mission and upgrade labels; the Shepherd ran the sync and the four labels now exist. #19 fixed the README clone line and retired blank.yml and terraform.yml. #20 and #21, and custos #415 and #416, added the validator fixture tests and tools/prima_clock.sh.
+              - Review findings fixed before sealing, all verified first: prima_clock.sh now rejects extra arguments and names the logs that use local time; the test script fails fast if its scratch directory cannot be made; the closing tip in device/active.md points at the registered pixelator clone.
+              - This entry also marks the README clone line and starter-workflow rows RESOLVED in the pixelator queue (open count 3 to 1), and updates the handoff block in device/active.md, which still described the follow-ups as drafts.
+              Decisions this turn: none new. Still the Shepherd's, none blocking: the phone commit (its own conversation, branch pixel), the license, CP-7 corrections, CP-8, H-6, the two other README devicehaven mentions, whose local time the turn log means, wiring the validator tests into CI, and pointing CLAUDE.md at prima_clock.sh.
+              Not done: the phone commit, and everything on that list.
+resonance:    settled
+witnessed:    true
+---
+
+---
+turn:         2026-10-07 09:05
+prima-clock:  202610070905
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       move the halide seeds work and the Shadow of Polaris nursery through to merged, fix the auto-finalize draft bug, and leave round two ready.
+contribution: five pull requests merged, a duplicate closed, and a new oversight step added before the seal.
+              - #425 merged: auto-finalize skips drafts and holds the seal while changes are requested. #404 merged: the halide test request, session_id.sh and the Shepherd Considers comment. #405 merged: round-one seeds, the review and the round-two guide (the duplicate #424 was closed). #420 merged: the Shadow of Polaris nursery from the nav5 conversation.
+              - #426 merged: the scanners now flag only shouted markers and phrases (replace moved to atelier/lexemes/reserved-lexemes.md, with a marker glossary); the Shadow of Polaris scene index and ready-for-review checklist; and the oversight observation: turns/observations/, an observed box below witnessed in the PR template, and latin-cue-record.yml showing and ticking it. The order is observation, then seal, then merge.
+              - Round two is ready: atelier/halide/seeds/round-two/README.md holds the launch sheet, the run in order, where returns land and the table for reading them.
+              Decisions this turn: the observation sits before the seal and changes neither the seal nor the merge; the observed box means the document exists, and its status line says whether the review is complete; a navigo opens the document, the workflow only ticks the box. The Pour waits for the Shepherd's word.
+              Not done: round two itself, the Pour, the age gate in auto-finalize (counts from PR creation, not from ready; in CULTIVATION), the display fix in the Shadow of Polaris README.
+resonance:    steadied
+witnessed:    true
+---
+
+---
+turn:         2026-10-07 10:30
+prima-clock:  202610071030
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       file the plan for the caret cue, build its shared parser, and write the observation before the merge.
+contribution: two pull requests merged and the next phase is queued.
+              - #429 merged: the plan for the caret cue, the cue router and the living observation.
+              - #430 merged: the shared cue parser (`.github/scripts/cue-parser.js`), a 54-row offline test (`bash tools/test_cue_parser.sh`), the Shepherd's four answers recorded in the plan, and the observation for the PR. Review findings fixed before the merge: DeepSource `console` use, Codacy's non-literal `readFileSync` (the test now takes the registry text from the environment), and the conversation ID bound widened to 3 to 12 characters to match `tools/session_id.sh`.
+              Decisions this turn: caret is case-insensitive; navigos are matched by name only; the dispatch ledger is a living comment archived on return; `^custos check` and `^custos concordance` are aliases while the `@claude` forms retire after one clean cycle (my reading, to confirm).
+              Not done: phase 2 onward, round two of the halide test and the Pour. The seal landed before the observation because the gate does not enforce order (open in CULTIVATION).
+resonance:    steadied
+witnessed:    true
+---
+
+---
+turn:         2026-10-16 15:42
+prima-clock:  202610161542
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the file review swap across custos and hodie, bring the Latin cue words and the seals to hodie, and tidy the cue parser in both directions.
+contribution: eight pull requests merged across the two repos, each sealed first and merged on the Shepherd's word with a merge commit.
+              - custos #458 (a must-pass File review row in final oversight, and a seal that needs a filed observation with `status: complete`), #459 (the file-review header fix) and #460 (the cue parser split into small functions, backticks written as \x60, same behavior). The observation gate refused the first seal cue on #459 until the observation was complete, then passed: its first live use.
+              - hodie #168 (the checklist and final oversight ported), #169 (the shared Latin vocabulary, the cue parser, and `ultima probatio` as a seal phrase), #170 (the soft-seal label and the cue record), #171 (security cleanup: SHA-256 for file identity, the Google installer downloaded before it runs, the git call resolved with shutil.which and its ref checked against an allow-list) and #172 (the cue record compares short heads).
+              - Review findings were fixed before each seal. Codacy gave only a count on two pull requests, so the details came from the Shepherd's paste; two fixes made before the paste did not hit the real finding.
+              Decisions this turn: SHA-256 replaces MD5 in hodie, so older catalogs will not match new scans; a `nosemgrep` marker sits on the one reviewed subprocess call in hodie's footer_witness.py; the observation for #460 records that the paid Claude review result was not seen; `'use strict'` was dropped from the custos parser on a guess and may not have been needed.
+              Not done: the check-in cues `disponi`, `petitio` and `placet` in hodie; an observation document in hodie; the `final-oversight` label in hodie, so its oversight has not run live; bringing hodie's parser in line with custos' two newest changes; the shared-parser and Codacy-detail ideas; the rest of hodie's Python Codacy backlog.
+resonance:    unhurried
+witnessed:    true
+---

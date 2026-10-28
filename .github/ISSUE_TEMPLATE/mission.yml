@@ -8,6 +8,13 @@ body:
       value: |
         **A mission is structured work.** It has a clear objective, defined deliverables, and a deterministic completion check. Any contributor — human or AI — may claim it by commenting `claiming this` and opening a PR.
 
+  - type: markdown
+    attributes:
+      value: |
+        **Navigo on the mission board?** Two steps before you build (full procedure: `docs/mission-board.md`):
+        1. `@claude disponi` — is the seat open? Check the labels: `open`, `claimed`, or paused.
+        2. `@claude petitio` — post Intent, Approach and your Completion check. Work begins when the Shepherd accepts, not when you post.
+
   - type: textarea
     id: objective
     attributes:
