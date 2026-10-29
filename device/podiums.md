@@ -94,6 +94,9 @@ status:          active
 notes:           Persistent local filesystem (unlike the ephemeral
                  custos-web-* podiums) — full repo access on the Mulberry
                  device, not a remote container.
+---
+
+---
 podium_id:       custos-web-youthful-goldberg
 name:            "Claude Code on the web — custos"
 type:            conversation
