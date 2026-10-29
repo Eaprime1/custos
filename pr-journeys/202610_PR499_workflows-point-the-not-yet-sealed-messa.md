@@ -1,7 +1,7 @@
 # PR Journey: #499 — workflows: point the not-yet-sealed message at ultima probatio
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202610291701  
+**prima-clock:** 202610291825  
 **Branch:** `fix-finalize-wording` → `main`  
 **Author:** @Eaprime1  
 **State:** FINALIZED  
@@ -23,7 +23,7 @@ The finalize/seal workflow's "not yet sealed" retry message still told people to
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202610291644 | @Eaprime1 |
-| Finalized | 202610291701 | @Eaprime1 |
+| Finalized | 202610291825 | @Eaprime1 |
 
 ## CI Record
 
@@ -31,44 +31,34 @@ The finalize/seal workflow's "not yet sealed" retry message still told people to
 |---|---|
 | final-oversight | ⏭ |
 | claude-review | ⏭ |
-| DeepSource: Lua | ⏭ |
-| DeepSource: Apex | ⏭ |
-| DeepSource: Dart | ⏭ |
-| DeepSource: Erlang | ⏭ |
-| DeepSource: Helm | ⏭ |
-| DeepSource: Perl | ⏭ |
+| DeepSource: Analysis | ⏭ |
 | Codacy Static Code Analysis | ✅ |
-| DeepSource: VB.NET | ⏭ |
-| DeepSource: PowerShell | ⏭ |
-| DeepSource: Objective-C | ⏭ |
-| DeepSource: Groovy | ⏭ |
-| DeepSource: Elixir | ⏭ |
 | final-oversight | ⏭ |
-| dependency-review | ✅ |
-| scan | ✅ |
-| injection-check | ✅ |
-| label | ✅ |
+| packet | ✅ |
 | custos-speaks | ✅ |
 | validate | ✅ |
-| scan | ✅ |
 | tests | ✅ |
-| packet | ✅ |
+| label | ✅ |
+| injection-check | ✅ |
+| scan | ✅ |
+| dependency-review | ✅ |
+| scan | ✅ |
 | GitGuardian Security Checks | ✅ |
 
 ## DeepSource Record
 
 **Passed:** 0  
 **Failed:** 0  
-**Skipped:** DeepSource: Lua, DeepSource: Apex, DeepSource: Dart, DeepSource: Erlang, DeepSource: Helm, DeepSource: Perl, DeepSource: VB.NET, DeepSource: PowerShell, DeepSource: Objective-C, DeepSource: Groovy, DeepSource: Elixir
+**Skipped:** DeepSource: Analysis
 
 ## Review Scores
 
 | Dimension | Score | Note |
 |---|---|---|
-| Correctness | 5/5 | 25 CI check(s) — all passed |
+| Correctness | 5/5 | 15 CI check(s) — all passed |
 | Consistency | 5/5 | Template complete · ethics 3/3 |
-| Scope | 5/5 | 2 file(s) changed |
-| Verification | 5/5 | 25 check run(s) completed |
+| Scope | 5/5 | 3 file(s) changed |
+| Verification | 5/5 | 15 check run(s) completed |
 | **Valuation** | **High** | 20/20 |
 
 ## Ethics Check
@@ -81,11 +71,17 @@ The finalize/seal workflow's "not yet sealed" retry message still told people to
 
 The bot's own voice matches the vocabulary it was actually built to understand, instead of presenting a retired term as the primary instruction.
 
+
+
+**witnessed:** true — 1 witness · sealed 202610291701 by @Eaprime1
+
+- @Eaprime1 · 202610291701 · sealed at finalize
+
 ## Witnesses
 
 - @Eaprime1 · 202610291701 · sealed at finalize
 
 ---
-**prima-clock:** 202610291701  
+**prima-clock:** 202610291825  
 **witnessed:** true — 1 witness, sealed 202610291701 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
