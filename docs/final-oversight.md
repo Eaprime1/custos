@@ -44,10 +44,28 @@ without waiting. Check it once after setup.
 ## How to use it
 
 1. Finish the oversight review and file the observation with `status: complete`.
-2. Add the `final-oversight` label to the PR.
+2. Call the seal (`ultima probatio` / `@claude finalize`). Once `finalize-pr.yml` actually
+   seals — every gate passed, not just the call made — it now applies the `final-oversight`
+   label itself (added 2026-10-29; see "Known gap" below). The label no longer needs to be
+   added by hand.
 3. Approve the waiting run. Read the comment it posts.
-4. If it is green, seal, then merge on the owner's word. If it is red, fix the item, and the
+4. If it is green, merge on the owner's word. If it is red, fix the item, and the
    new head waits for a new approval (the older waiting run is cancelled).
+
+## Known gap (2026-10-16 to 2026-10-29)
+
+The `final-oversight` label was designed as a manual step (the original "How to use it"
+step 2, above). In practice nobody ever added it — not on #468, #469, #470, #487 (the PRs
+listed in `Custos — The Oversight Opening`, 2026-10-27), and not on #476, #496, #497, #498,
+or #499, all handled in the same stretch this fix came from. The environment itself was
+configured correctly the whole time (required reviewer set 2026-10-16); the job simply
+never got queued, because its only trigger — the label — was never applied by anyone. Every
+one of those PRs' observations correctly logged `final-oversight: skipped, not an executed
+successful oversight review` rather than misreporting it as a pass, so nothing was
+silently approved — the gate just never ran. Fixed by applying the label automatically at
+the point `finalize-pr.yml` actually seals a PR (step 10b in that workflow), so the
+approval step still belongs to the owner, but reaching it no longer depends on a label
+nobody remembered to add.
 
 ## Safety
 
