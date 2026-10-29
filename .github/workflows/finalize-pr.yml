@@ -225,7 +225,7 @@ jobs:
                   '',
                   ...blockers.map(b => `- ⛔ ${b}`),
                   '',
-                  'When resolved, comment `@claude finalize` again.',
+                  'When resolved, comment `@claude ultima probatio` (or `@claude finalize`) again.',
                   '',
                   '---',
                   `*${IDENTITY} · ${SYMBOL}*`,
