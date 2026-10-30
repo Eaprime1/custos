@@ -182,3 +182,23 @@ notes:           Ubuntu 24.04, hostname `sauron`, worked from a TTY (no GUI
                  ~/repo/custos (June iteration), plus practice and older
                  iterations under ~/mandelbrot/ and ~/repo/.
 ---
+
+---
+podium_id:       mulberrytree-claude-code
+name:            "Claude Code CLI — mulberrytree (Mulberry)"
+type:            conversation
+platform:        claude-code-cli
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          mulberry
+conversation_id: ""
+role:            "First pinnacle-folder conversation on Mulberry. Opened from
+                 NEXUS-3. Works from C:\Users\eapri\mulberrytree, a non-repo
+                 folder of fresh clones; older content migrates via repos,
+                 never by hand."
+status:          active
+notes:           Windows 11 Pro, Dell Latitude 5420, hostname MULBERRY.
+                 Claude Code 2.1.286 installed via winget. Sibling pinnacles:
+                 unexusiam (Ubuntu laptop), primapixel (Pixel 8a). Device
+                 details live locally in mulberrytree/DEVICE.md (not
+                 committed).
+---
