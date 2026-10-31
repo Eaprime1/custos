@@ -15,4 +15,4 @@ A title is enough.
 
 ## Added later
 
-*(nothing yet)*
+(nothing yet)

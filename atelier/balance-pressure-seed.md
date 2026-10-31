@@ -23,4 +23,4 @@ This seed does not claim it does.
 
 ## Added later
 
-*(nothing yet)*
+(nothing yet)

@@ -32,4 +32,4 @@ Shepherd, and the server custos would be where those ideas start. See `.antigrav
 
 ## Added later
 
-*(nothing yet)*
+(nothing yet)

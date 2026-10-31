@@ -1,4 +1,3 @@
-'use strict';
 // Offline test table for .github/scripts/stamp-on-submit.js. No network, no GitHub.
 // Run: node tools/test_stamp_on_submit.js
 

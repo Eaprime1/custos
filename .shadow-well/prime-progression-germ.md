@@ -45,4 +45,4 @@ side, if wanted, is an Epic (see `.shepherd/notes.md`, candidate 3).
 
 ## Added later
 
-*(nothing yet)*
+(nothing yet)

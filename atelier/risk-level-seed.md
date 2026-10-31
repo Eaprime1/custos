@@ -27,4 +27,4 @@ His direction: ask the level they want, with a strict fail-to-safe default.
 
 ## Added later
 
-*(nothing yet)*
+(nothing yet)

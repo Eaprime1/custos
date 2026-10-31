@@ -37,18 +37,27 @@ const endsInsideFence = (body) => (String(body).match(FENCE_RE) || []).length % 
 
 const skip = (reason) => ({ action: 'skip', reason });
 
+const isOwner = ({ association, login, owner }) =>
+  association === 'OWNER' && String(login).toLowerCase() === String(owner).toLowerCase();
+const isBlank = ({ body }) => !body || !String(body).trim();
+
+// Checked in order; the first that holds is the reason to skip.
+const SKIP_RULES = [
+  ['bot', ({ type }) => type === 'Bot'],
+  ['not owner', (input) => !isOwner(input)],
+  ['empty', isBlank],
+  ['already stamped', ({ body }) => STAMP_RE.test(body)],
+  ['footer', ({ body }) => carriesFooter(body)],
+  ['open fence', ({ body }) => endsInsideFence(body)],
+  ['no time', ({ when }) => !primaClock(when)],
+];
+
 // input: { body, when, login, type, association, owner }. Returns { action: 'skip', reason } or { action: 'stamp', clock, body }.
 function decide(input) {
-  const { body, when, login, type, association, owner } = input;
-  if (type === 'Bot') return skip('bot');
-  const isOwner = association === 'OWNER' && String(login).toLowerCase() === String(owner).toLowerCase();
-  if (!isOwner) return skip('not owner');
-  if (!body || !String(body).trim()) return skip('empty');
-  if (STAMP_RE.test(body)) return skip('already stamped');
-  if (carriesFooter(body)) return skip('footer');
-  if (endsInsideFence(body)) return skip('open fence');
+  const rule = SKIP_RULES.find(([, holds]) => holds(input));
+  if (rule) return skip(rule[0]);
+  const { body, when } = input;
   const clock = primaClock(when);
-  if (!clock) return skip('no time');
   const eol = String(body).includes('\r\n') ? '\r\n' : '\n';
   const text = String(body).replace(/\s+$/, '');
   return { action: 'stamp', clock, body: `${text}${eol}${eol}prima-clock: ${clock} UTC (stamped on submit)` };
