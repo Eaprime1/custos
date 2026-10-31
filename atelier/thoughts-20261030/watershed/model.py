@@ -18,8 +18,10 @@ ITEMS = {
 }
 NEED = {"D": 15.0, "A": 800.0, "protein": 56.0}      # per person per day
 
-BASE = {"milk": 1.0, "egg": 0.7, "beef": 0.6, "bread": 2.5, "carrot": 0.5}      # servings per person per day
-OWN = {"milk": -0.4, "egg": -0.3, "beef": -0.7, "bread": -0.25, "carrot": -0.5}  # own-price elasticity
+# servings per person per day
+BASE = {"milk": 1.0, "egg": 0.7, "beef": 0.6, "bread": 2.5, "carrot": 0.5}
+# own-price elasticity
+OWN = {"milk": -0.4, "egg": -0.3, "beef": -0.7, "bread": -0.25, "carrot": -0.5}
 CROSS = {                                            # how item i reacts to the price of item j
     "egg":   {"milk": 0.15, "beef": 0.20, "bread": 0.05},
     "milk":  {"egg": 0.10, "beef": 0.05},
@@ -46,6 +48,8 @@ D_K = D_STATUS_BASE / ((intake("D", BASE) + OTHER["D"]) * D_TAU)
 
 
 def run(days, shock):
+    """Simulate `days` days. `shock(day, supply, other, a_scale)` may change that day's supply,
+    the non-food sources, or how much vitamin A each food carries. Returns (rows, totals)."""
     price = {i: 1.0 for i in ITEMS}
     status = D_STATUS_BASE
     reserve = A_RESERVE_DAYS * NEED["A"]
@@ -82,38 +86,45 @@ def run(days, shock):
 
 
 def show(label, rows, tot, marks):
+    """Print the chosen days of a run, then its totals."""
     print(f"\n== {label}")
-    print(f"{'day':>5} {'milk$':>7} {'egg$':>6} {'D in':>6} {'D status':>9} {'A reserve (days)':>17}")
+    print(f"{'day':>5} {'milk$':>7} {'egg$':>6} {'D in':>6} {'D status':>9} "
+          f"{'A reserve (days)':>17}")
     for d in marks:
         if d < len(rows):
             r = rows[d]
             print(f"{r[0]:>5} {r[1]:>7.2f} {r[2]:>6.2f} {r[3]:>6.1f} {r[4]:>9.1f} {r[5]:>17.0f}")
     print(f"   D status first below {D_LOW:.0f}: day {tot['d_low_day']}   "
           f"A reserve empty: day {tot['a_empty_day']}   "
-          f"unsold servings: {tot['unsold']:.1f}   protein over need (g): {tot['protein_extra']:.0f}")
+          f"unsold servings: {tot['unsold']:.1f}   "
+          f"protein over need (g): {tot['protein_extra']:.0f}")
 
 
-def no_shock(day, supply, other, a_scale):
-    pass
+def no_shock(_unused_day, _unused_supply, _unused_other, _unused_a_scale):
+    """Nothing changes."""
 
 
-def milk_off(day, supply, other, a_scale):
+def milk_off(day, supply, _unused_other, _unused_a_scale):
+    """Milk stops from day 30 and does not return."""
     if day >= 30:
         supply["milk"] = 0.0
 
 
-def milk_off_30_days(day, supply, other, a_scale):
+def milk_off_30_days(day, supply, _unused_other, _unused_a_scale):
+    """Milk is off for days 30 to 59, then returns."""
     if 30 <= day < 60:
         supply["milk"] = 0.0
 
 
-def all_vitamin_a_off(day, supply, other, a_scale):
+def all_vitamin_a_off(day, _unused_supply, other, a_scale):
+    """From day 30 no vitamin A from any food or any other source."""
     if day >= 30:
         other["A"] = 0.0
         a_scale.update({i: 0.0 for i in ITEMS})
 
 
-def milk_egg_a_off(day, supply, other, a_scale):
+def milk_egg_a_off(day, _unused_supply, _unused_other, a_scale):
+    """From day 30 the vitamin A in milk and eggs is gone (the foods themselves remain)."""
     if day >= 30:
         a_scale.update({"milk": 0.0, "egg": 0.0})
 
@@ -132,12 +143,21 @@ def glucose(drink_g, hours=48):
     return peak, area
 
 
-if __name__ == "__main__":
-    rows, tot = run(120, no_shock)                       # sanity: a balanced baseline stays put
-    assert abs(rows[-1][4] - D_STATUS_BASE) < 0.01, "baseline D status should hold"
-    assert abs(rows[-1][1] - 1.0) < 1e-6, "baseline prices should hold"
-    assert tot["unsold"] < 1e-6
+def check_baseline():
+    """A balanced baseline must stay put, or the model is drifting by itself."""
+    rows, tot = run(120, no_shock)
+    if abs(rows[-1][4] - D_STATUS_BASE) >= 0.01:
+        raise RuntimeError("baseline D status should hold")
+    if abs(rows[-1][1] - 1.0) >= 1e-6:
+        raise RuntimeError("baseline prices should hold")
+    if tot["unsold"] >= 1e-6:
+        raise RuntimeError("baseline should leave nothing unsold")
+    return rows, tot
 
+
+def main():
+    """Run the baseline check, every scenario, and the energy drink feed."""
+    rows, tot = check_baseline()
     marks = [0, 29, 30, 31, 40, 60, 90, 119]
     show("baseline: nothing changes", rows, tot, marks)
     show("milk stops on day 30 and does not return", *run(120, milk_off), marks)
@@ -148,9 +168,13 @@ if __name__ == "__main__":
     show("only the vitamin A in milk and eggs removed on day 30",
          *run(1300, milk_egg_a_off), long_marks)
 
-    p0, a0 = glucose(0)
-    p1, a1 = glucose(50)
+    peak0, area0 = glucose(0)
+    peak1, area1 = glucose(50)
     print("\n== energy drink feed (excess glucose units, 48 h; toy fast stream)")
-    print(f"   meals only                peak {p0:6.1f}   area {a0:7.1f}")
-    print(f"   meals + 2 x 50 g drinks   peak {p1:6.1f}   area {a1:7.1f}   "
-          f"(peak x{p1 / p0:.1f}, area x{a1 / a0:.2f})")
+    print(f"   meals only                peak {peak0:6.1f}   area {area0:7.1f}")
+    print(f"   meals + 2 x 50 g drinks   peak {peak1:6.1f}   area {area1:7.1f}   "
+          f"(peak x{peak1 / peak0:.1f}, area x{area1 / area0:.2f})")
+
+
+if __name__ == "__main__":
+    main()

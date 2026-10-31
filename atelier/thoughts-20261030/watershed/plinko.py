@@ -10,10 +10,11 @@ Run: python3 plinko.py [--flat] [seed-digits ...]
 A result is a suggestion for the Shepherd to weigh. It decides nothing.
 """
 import sys
+from itertools import islice
 from math import comb
 
 # left to right, in the order they were named in the thoughts of 20261030
-CONCEPTS = [
+CONCEPTS = (
     "hat narrator",
     "gear-shift notation (* marks)",
     "perpetual blackjack, the next iteration pair",
@@ -22,7 +23,7 @@ CONCEPTS = [
     "fuel and vehicle-value streams",
     "plinko consideration engine itself",
     "effluent ledger",
-]
+)
 CHIPS_TO_WIN = 3
 WIDTH = 64
 WARM_UP = 2 * WIDTH
@@ -56,33 +57,39 @@ def play(seed_digits, concepts=CONCEPTS, chips_to_win=CHIPS_TO_WIN, flat=False):
             slot = n
             while slot >= n:
                 slot = 0
-                for _ in range(width):
-                    slot = slot * 2 + next(bits)
+                for bit in islice(bits, width):
+                    slot = slot * 2 + bit
         else:
-            slot = sum(next(bits) for _ in range(rows))   # each peg: left (0) or right (1)
+            slot = sum(islice(bits, rows))               # each peg: left (0) or right (1)
         counts[slot] += 1
         dropped += 1
     return counts, dropped
 
 
 def slot_odds(n_slots):
+    """Chance one chip lands in each slot of a real plinko board."""
     rows = n_slots - 1
     return [comb(rows, k) / 2 ** rows for k in range(n_slots)]
 
 
-if __name__ == "__main__":
-    args = sys.argv[1:]
-    flat = "--flat" in args
-    seeds = [a for a in args if a != "--flat"] or ["20261030", "202610311130", "202610310526", "21", "3"]
-    if flat:
+def main(args):
+    """Print the board's odds, then play one game per seed."""
+    use_flat = "--flat" in args
+    seeds = [a for a in args if a != "--flat"]
+    seeds = seeds or ["20261030", "202610311130", "202610310526", "21", "3"]
+    if use_flat:
         print("Flat board: every slot equally likely")
     else:
         print("The board favours the middle: chance a single chip lands in each slot")
-        for name, p in zip(CONCEPTS, slot_odds(len(CONCEPTS))):
-            print(f"   {p * 100:5.1f}%  {name}")
+        for name, chance in zip(CONCEPTS, slot_odds(len(CONCEPTS))):
+            print(f"   {chance * 100:5.1f}%  {name}")
     print(f"\nFirst concept to hold {CHIPS_TO_WIN} chips wins.")
     for seed in seeds:
-        counts, dropped = play(seed, flat=flat)
-        win = counts.index(max(counts))
-        shown = " ".join(str(c) for c in counts)
-        print(f"   seed {seed:>13}: {dropped:>2} chips   slots [{shown}]   -> {CONCEPTS[win]}")
+        tally, chips = play(seed, flat=use_flat)
+        win = tally.index(max(tally))
+        shown = " ".join(str(c) for c in tally)
+        print(f"   seed {seed:>13}: {chips:>2} chips   slots [{shown}]   -> {CONCEPTS[win]}")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
