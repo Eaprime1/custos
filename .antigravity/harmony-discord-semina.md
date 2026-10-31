@@ -13,7 +13,7 @@ The Shepherd's words, verbatim, typos kept. First, on Discord and harmony (revie
 
 > discord is not a server.   however this is great idea.   start with a harmony server format.  Note: all servers must have a way for me to interact .. a simple UI at minimum.   I have what I think is a server that is running and restarts on its own.    It is likely something I have not finished.     the discord server would be discord from the harmony..  this is large build.      yes we can open an epic.    and we will tackle the PRs as a group later.
 
-Then, on who carries it:
+Then, on who carries it (the three question marks in stage 3 are his, kept as written):
 
 > yes.. I just realized .. discord is major social media thing.    hmmm   looks like latin is going help here.     this would be major build that all the manos of navigo could contribute to...  1/3 - voices of navigo   2/3 - manos of navigo  3/3 - ???open.   ..
 > for the harmony and discord ...    I think handing the working custos on this one to navigo_antigravity (I have not signed into our jira development with antigravity yet.)   it can go into a dotfolder for antigravity     .antigravity
@@ -57,7 +57,7 @@ Each is small and reversible. None is a build.
    `.shepherd/liminal-jira-202610310011.md`, and `.shadow-well/connector-experts-seed.md`.
 3. **A completion check for this handoff.** From the repo root:
    `test -f .antigravity/harmony-discord-semina.md && bash tools/scan_lexeme.sh .antigravity | tail -2`
-   It proves the file exists and the placeholder scan ran. It does not prove the work is done.
+   It proves the file exists and the lexeme scan ran. It does not prove the work is done.
 4. **The PR format:** Intent, What Arrived, Resonance, Ethics Check (the template is
    `.github/PULL_REQUEST_TEMPLATE.md`).
 
