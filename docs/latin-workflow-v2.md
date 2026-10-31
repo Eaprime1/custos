@@ -33,8 +33,14 @@ takes the label off, because a new head needs a new seal.
 *Emendare*: to amend, to improve. It is editing, not blame: nothing here implies a mistake. The Shepherd
 asks a contributor to amend what oversight flagged. It is an action, so every modifier applies to it.
 
-*Refice* (make again) is reserved for later. It would mean rework bigger than an amendment, still
-without fault. Two repair words, two sizes: `emenda` now, `refice` when the need shows up.
+*Refice* (make again) is rework bigger than an amendment, still without fault. With a plan, follow it;
+without one, write the plan first, then repair. Two repair words, two sizes: `emenda` and `refice`.
+The parser and the cue record read it (2026-10-31). Nothing else changes when it is called.
+
+*Semina* (sow) writes a handoff block so the work continues in a new conversation: clutch in, explore,
+clutch out. *Sustine* (hold back) is meant to set `held` so the final seal waits for the Shepherd's
+release. Today the parser and the cue record read both words and nothing more: `sustine` sets no label
+and the seal gate does not read `held`.
 
 | Call | Asks the contributor to |
 |---|---|
@@ -131,7 +137,7 @@ Docs: docs/latin-workflow-v2.md in custos.
 
 ## Decided by the Shepherd (202610160811)
 
-1. `emenda` is the repair word. `refice` is reserved for bigger rework, later.
+1. `emenda` is the repair word. `refice` is bigger rework (live in the parser since 2026-10-31).
 2. `omnes` is everyone. `cuncti` is the project as a whole.
 3. The soft `probatio` sets the `ready-for-oversight` label.
 4. `finalize` moves out of the main stream into a manual backup method.

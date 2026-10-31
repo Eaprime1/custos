@@ -20,7 +20,7 @@ How it works:
 | # | Thread | State | Where |
 |---|---|---|---|
 | 1 | Does the seal gate read `held`? | Answered 202610190754: no. The label exists; nothing reads it. | `sovran-labels.yml`, `finalize-pr.yml` |
-| 2 | `refice`, `semina`, `sustine` | Accepted by the Shepherd. Not live. | `docs/jira-pipeline.md` §7 |
+| 2 | `refice`, `semina`, `sustine` | Accepted. Parser and cue record read them (202610310011 UTC). They set nothing yet. | `cue-parser.js`, `latin-cue-record.yml` |
 | 3 | `probatio` starts the soft-seal scans | Decided in principle. Not built. | needs a workflow edit |
 | 4 | KAN-4 (Codacy 8) | Draft PR #468, Idling, waiting on the Shepherd to read 3 files | KAN-4 |
 | 5 | KAN-5 (Codacy 48) | Waiting for the Shepherd's go. Touches the same files as KAN-4, so after #468 merges. | KAN-5 |
@@ -48,9 +48,9 @@ How it works:
 | Word | State | Meaning |
 |---|---|---|
 | `recensio`, `probatio`, `renovata`, `extrema`, `emenda`, `novissimum`, `cursus`, `expeditus`, `ultima` | Live (glossary, v2) | As in `docs/latin-workflow-glossary.md` |
-| `refice` | Accepted, not live | Repair by plan. With a plan, follow it. Without one, write the plan, then repair. |
-| `semina` | Accepted, not live | Sow the seed. Write a handoff block so the work continues in a new conversation. Clutch in, explore, clutch out. |
-| `sustine` | Accepted, not live | Hold back. Sets `held`; the final seal waits for the Shepherd's release. The tenor of being held is part of the design. |
+| `refice` | Read by the parser | Repair by plan. With a plan, follow it. Without one, write the plan, then repair. |
+| `semina` | Read by the parser | Sow the seed. Write a handoff block so the work continues in a new conversation. Clutch in, explore, clutch out. |
+| `sustine` | Read by the parser; sets nothing | Hold back. Sets `held`; the final seal waits for the Shepherd's release. The tenor of being held is part of the design. |
 
 My Latin is a working reading; the Shepherd's ear decides. Making any of these live means:
 `cue-parser.js` and its test rows, the glossary and v2 doc, and (for `sustine`) the seal gate
@@ -126,7 +126,7 @@ mechanical, has a clear check, and the road from build to `ultima recensio` can 
 
 Still to build before the test means much, in order of value:
 
-1. `cue-parser.js` learns `refice`, `semina`, `sustine`, with test rows.
+1. ~~`cue-parser.js` learns `refice`, `semina`, `sustine`, with test rows.~~ Done 202610310011 UTC.
 2. The seal gate reads `held`.
 3. `probatio` dispatches `final-review.yml`.
 4. The station contract, written down.
@@ -135,3 +135,4 @@ Still to build before the test means much, in order of value:
 ## Log
 
 - 202610190754: page started. Threads 1 to 13 seeded from the conversation of 2026-10-19.
+- 202610310011 UTC: the Shepherd asked for build item 1. Parser, 8 test rows, cue record and quick reference updated. `sustine` still sets no label. Shepherd's note: three devices now (mulberry Windows, unexusiam Ubuntu, primapixel Pixel 8a); a Jira-first journey is opening.

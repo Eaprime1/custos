@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - Not a software project with a build pipeline
 - No compilation and no package manager. Small test scripts live in `tools/`:
-  - `test_cue_parser.sh` (72 rows, needs Node)
+  - `test_cue_parser.sh` (80 rows, needs Node)
   - `test_footer_guards.sh` (16 checks, needs Node and PyYAML)
   - `test_final_oversight.js` (60 checks, needs Node)
   - `test_probatio_label.js` (15 rows, needs Node)
