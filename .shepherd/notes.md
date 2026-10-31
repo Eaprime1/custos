@@ -55,7 +55,7 @@ How it works:
 |---|---|---|
 | `recensio`, `probatio`, `renovata`, `extrema`, `emenda`, `novissimum`, `cursus`, `expeditus`, `ultima` | Live (glossary, v2) | As in `docs/latin-workflow-glossary.md` |
 | `refice` | Read by the parser | Repair by plan. With a plan, follow it. Without one, write the plan, then repair. |
-| `semina` | Read by the parser | Sow the seed. Write a handoff block so the work continues in a new conversation. Clutch in, explore, clutch out. |
+| `semina` | Read by the parser | Sow the seed. Write a handoff block so the work continues in a new conversation. Clutch in (disengage, like a vehicle's clutch), explore, clutch out (re-engage). |
 | `sustine` | Read by the parser; sets nothing | Hold back. Sets `held`; the final seal waits for the Shepherd's release. The tenor of being held is part of the design. |
 
 My Latin is a working reading; the Shepherd's ear decides. Making any of these live means:

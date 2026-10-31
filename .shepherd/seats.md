@@ -29,21 +29,31 @@ that way.
 gathered from it. That waits for the phone upgrade. Nothing about it goes in this repo or any public one:
 this page records only that a private repo is planned.
 
+## What NEXUS-1 already settles (read 202610310211 UTC)
+
+The device conversations have been recording their own setup in Jira (NEXUS-1, "Custos Oversight Space",
+in the unexusi project). Read there, not copied here:
+
+- **mulberrytree** is a non-repo pinnacle folder; only fresh clones go inside it. This confirms my reading above.
+- **unexusiam** is the Ubuntu laptop's pinnacle folder, and `primehaven` lives inside it as one identity, not
+  a split GUI and terminal one (the Shepherd's guidance of 2026-10-29).
+- The unexusiam layout in use has four tiers: `fons/`, `culina/`, `fond/`, `usus/`. Fresh clones of mandelbrot
+  (in `fons/`) and custos (in `culina/`) are in place. Where mandelbrot belongs is open, because it is treated as
+  play from a first perspective and does not map cleanly onto those tiers.
+- Pinnacle folders are domos. A device's `device.md` belongs in its own pinnacle folder.
+- Raw addresses stay out of Jira and git.
+
 ## Does the unexusiam plan fit? (checked 202610310146 UTC, against the mandelbrot repo on GitHub)
 
 The Shepherd's words: in unexusiam the repos are `mandelbrot` and, as a change, "the not gui side
 terminals will start as part of primal."
 
-What I found in mandelbrot, and what I did not:
-
-- **Fits:** `terminals/` holds shell scripts only: `hello.sh` and six `aspect_0N_*.sh` files. That is the
-  non-GUI side. `domos/primal/` exists, with `prime/` and a file `pryme` in it.
-- **Fits:** mandelbrot's README says it was formerly PrimeHaven, which is the name this repo still gives the
-  Ubuntu laptop. So `primehaven` and `unexusiam` look like one seat under two names.
+- **Fits:** `terminals/` in mandelbrot holds shell scripts only: `hello.sh` and six `aspect_0N_*.sh` files. That
+  is the non-GUI side. `domos/primal/` exists, with `prime/` and a file `pryme` in it. NEXUS-1 says the
+  terminal side is `primehaven`, opened later.
+- **Fits:** mandelbrot's README says it was formerly PrimeHaven, the name this repo gives the Ubuntu laptop.
 - **Not found:** anything in `domos/primal/` or `terminals/` that starts the terminals. I do not know what
-  "start as part of primal" is meant to run, so I cannot say it fits. That needs the Shepherd's words.
-- **Not clear:** whether "the repos mandelbrot and (a change) …" names a second repo that the sentence
-  left out, or means the terminals are the change.
+  "start as part of primal" is meant to run, so I cannot say it fits.
 - **Small mismatch:** `terminals/CHEATSHEET.md` was written for Termux on the Pixel 8a. It lists
   `t1` to `t5`, with `t5` twice, and no `t6`, while `aspect_06_distribution.sh` exists.
 
@@ -55,7 +65,8 @@ Not started.
 
 ## Open
 
-1. Is the clone-inside-a-non-repo-folder reading of mulberrytree right?
+1. ~~Is the clone-inside-a-non-repo-folder reading of mulberrytree right?~~ Yes, per NEXUS-1.
 2. What does "start as part of primal" run, and from where?
 3. The second repo for unexusiam, if there is one.
-4. When to rename `primehaven` and `pixel8` in the repo.
+4. When to rename `primehaven` and `pixel8` in the repo, now that NEXUS-1 shows the device conversations
+   already use `mulberrytree`, `unexusiam` and `primapixel`.
