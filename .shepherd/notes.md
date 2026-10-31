@@ -136,3 +136,4 @@ Still to build before the test means much, in order of value:
 
 - 202610190754: page started. Threads 1 to 13 seeded from the conversation of 2026-10-19.
 - 202610310011 UTC: the Shepherd asked for build item 1. Parser, 8 test rows, cue record and quick reference updated. `sustine` still sets no label. Shepherd's note: three devices now (mulberry Windows, unexusiam Ubuntu, primapixel Pixel 8a); a Jira-first journey is opening.
+- 202610310011 UTC: liminal opened for the Jira-first journey: `.shepherd/liminal-jira-202610310011.md`.
