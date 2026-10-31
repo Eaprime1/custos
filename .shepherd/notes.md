@@ -32,7 +32,7 @@ How it works:
 | 11 | Roads ladder | Drafted below, waiting on the Shepherd | this page |
 | 12 | Connector matrix | Candidate 4 | below |
 | 13 | Conversation-branching methods | Needs the old methods pasted in | candidate 5 |
-| 14 | Seats and folders (mulberry, unexusiam, primapixel) | Plan filed 202610310146 UTC. Four questions open. | `seats.md` |
+| 14 | Seats and folders (mulberry, unexusiam, primapixel) | Plan filed 202610310146 UTC. Terminals and second repo answered 202610310250 UTC (`primal`). Rename timing open. | `seats.md` |
 | 15 | Harmony server format | Epic KAN-8 opened at the Shepherd's yes. Format and the unfinished server not yet described. | KAN-8 |
 | 16 | Official stamp on submit | Proposed on PR 471. Waiting on the Shepherd's choice. | PR 471 |
 | 17 | Connector experts | Recorded as candidate 6 | below |

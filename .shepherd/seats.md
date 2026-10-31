@@ -16,7 +16,7 @@ renamed yet.*
 | Seat | Machine | Folder plan |
 |---|---|---|
 | mulberry | Windows laptop | `~/mulberry` becomes the mulberry repo, once it is ready. A new `~/mulberrytree` holds a clean clone of mulberry. |
-| unexusiam | Ubuntu laptop (the name changed) | A folder `~/unexusiam`, a peer of `~/mulberrytree`. It holds the repos `mandelbrot` and one more (see below). |
+| unexusiam | Ubuntu laptop (the name changed) | A folder `~/unexusiam`, a peer of `~/mulberrytree`. It holds the repos `mandelbrot` and `primal`. |
 | primapixel | Pixel 8a phone | A new `~/primapixel`, the device domos. A clean clone of the repo `pixelator` goes into that structure. |
 
 **mulberrytree.** It is not a repo itself. Its domos are anchored to, and act as, The Mulberry Tree at
@@ -43,19 +43,25 @@ in the unexusi project). Read there, not copied here:
 - Pinnacle folders are domos. A device's `device.md` belongs in its own pinnacle folder.
 - Raw addresses stay out of Jira and git.
 
-## Does the unexusiam plan fit? (checked 202610310146 UTC, against the mandelbrot repo on GitHub)
+## The unexusiam repos, as the Shepherd answered (review comment, 202610310250 UTC)
 
-The Shepherd's words: in unexusiam the repos are `mandelbrot` and, as a change, "the not gui side
-terminals will start as part of primal."
+A clean clone of `eaprime1/primal` goes onto the Ubuntu laptop, in the unexusiam folder, beside mandelbrot. The
+prima terminals for the concepts will start in a terminal environment there. The reasoning: primal is meant to
+have a born-yesterday perspective, and a clean terminal is the closest he has found to a realistic one. The prime
+progression lets the primal repo grow, or guides its growth. Once a concept is launched it is part of the repo,
+so it is reachable wherever the repo is cloned or accessed.
 
-- **Fits:** `terminals/` in mandelbrot holds shell scripts only: `hello.sh` and six `aspect_0N_*.sh` files. That
-  is the non-GUI side. `domos/primal/` exists, with `prime/` and a file `pryme` in it. NEXUS-1 says the
-  terminal side is `primehaven`, opened later.
-- **Fits:** mandelbrot's README says it was formerly PrimeHaven, the name this repo gives the Ubuntu laptop.
-- **Not found:** anything in `domos/primal/` or `terminals/` that starts the terminals. I do not know what
-  "start as part of primal" is meant to run, so I cannot say it fits.
-- **Small mismatch:** `terminals/CHEATSHEET.md` was written for Termux on the Pixel 8a. It lists
-  `t1` to `t5`, with `t5` twice, and no `t6`, while `aspect_06_distribution.sh` exists.
+So the second repo is `primal`, and "start as part of primal" means those terminals belong to the primal repo.
+I have not looked at `eaprime1/primal`; it is not one of the repos this session was given.
+
+Earlier, on 202610310146 UTC, I read mandelbrot for a fit. Two of those findings still stand, and one was
+the wrong place to look:
+
+- mandelbrot's README says it was formerly PrimeHaven, the name this repo gives the Ubuntu laptop.
+- `terminals/CHEATSHEET.md` in mandelbrot was written for Termux on the Pixel 8a. It lists `t1` to `t5`, with
+  `t5` twice, and no `t6`, while `aspect_06_distribution.sh` exists. A small mismatch, not for this page to fix.
+- I had looked for what starts the terminals inside mandelbrot (`terminals/`, `domos/primal/`). The answer is a
+  separate repo, so that search was in the wrong place. What `domos/primal/` in mandelbrot is, I do not know.
 
 ## The repo still says the old names
 
@@ -66,7 +72,8 @@ Not started.
 ## Open
 
 1. ~~Is the clone-inside-a-non-repo-folder reading of mulberrytree right?~~ Yes, per NEXUS-1.
-2. What does "start as part of primal" run, and from where?
-3. The second repo for unexusiam, if there is one.
+2. ~~What does "start as part of primal" run, and from where?~~ Answered: the prima terminals start in a clean
+   terminal on the Ubuntu laptop, from the `primal` repo.
+3. ~~The second repo for unexusiam~~ It is `primal`.
 4. When to rename `primehaven` and `pixel8` in the repo, now that NEXUS-1 shows the device conversations
    already use `mulberrytree`, `unexusiam` and `primapixel`.
