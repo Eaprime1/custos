@@ -225,7 +225,7 @@ jobs:
                   '',
                   ...blockers.map(b => `- ⛔ ${b}`),
                   '',
-                  'When resolved, comment `@claude finalize` again.',
+                  'When resolved, comment `@claude ultima probatio` (or `@claude finalize`) again.',
                   '',
                   '---',
                   `*${IDENTITY} · ${SYMBOL}*`,
@@ -353,6 +353,17 @@ jobs:
                 await github.rest.issues.addLabels({ owner, repo, issue_number: prNum, labels: ['finalized'] });
               } catch (e2) { core.warning(`Label: ${e2.message}`); }
             }
+
+            // ── 10b. Queue final-oversight for the owner's approval ────────────
+            // Only reached once the seal above has actually passed every gate.
+            // Adding this label here (not at the ultima probatio call itself)
+            // is what makes final-oversight.yml's job start waiting in the
+            // "final-oversight" environment -- the owner's approval there is
+            // still a separate, required step; this only stops that waiting
+            // job from never being queued in the first place.
+            try {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: prNum, labels: ['final-oversight'] });
+            } catch (e3) { core.warning(`final-oversight label: ${e3.message}`); }
 
             // ── 11. Finalization comment ───────────────────────────────────────
             const rubricRows = Object.entries(scores)
