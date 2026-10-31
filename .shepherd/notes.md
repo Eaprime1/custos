@@ -35,7 +35,7 @@ How it works:
 | 14 | Seats and folders (mulberry, unexusiam, primapixel) | Plan filed 202610310146 UTC. Terminals and second repo answered 202610310250 UTC (`primal`). Rename timing open. | `seats.md` |
 | 15 | Harmony server format | Epic KAN-8 opened at the Shepherd's yes. Format and the unfinished server not yet described. | KAN-8 |
 | 16 | Official stamp on submit | Proposed on PR 471. Waiting on the Shepherd's choice. | PR 471 |
-| 17 | Connector experts | Recorded as candidate 6 | below |
+| 17 | Connector experts | Filed as a seed 202610310300 UTC | `.shadow-well/connector-experts-seed.md` |
 
 ## Decided
 
@@ -108,7 +108,8 @@ The Shepherd's five titles, tightened, with a view on each. None is a ticket yet
    `sustine`, fan-out is `^omnes`, the whole is `^cuncti`, shadow is the shadow-well.
 
 6. **Connector experts.** A skill set per connector, each a station that looks for opportunities as a PR
-   moves (Zapier first, as his example). More steps at the same time, not faster steps. See the liminal page.
+   moves (Zapier first, as his example). More steps at the same time, not faster steps. Filed as a seed:
+   `.shadow-well/connector-experts-seed.md`.
 
 The five-chapter story pattern (five content streams, a sixth to gather, a seventh to build)
 is the shape `returns/` already has: streams 1 to 5, a gather step in `queue/artesium-weir/`,
@@ -147,3 +148,4 @@ Still to build before the test means much, in order of value:
 - 202610310011 UTC: the Shepherd asked for build item 1. Parser, 8 test rows, cue record and quick reference updated. `sustine` still sets no label. Shepherd's note: three devices now (mulberry Windows, unexusiam Ubuntu, primapixel Pixel 8a); a Jira-first journey is opening.
 - 202610310011 UTC: liminal opened for the Jira-first journey: `.shepherd/liminal-jira-202610310011.md`.
 - 202610310146 UTC: the Shepherd's review comments on PR 471 read. Added threads 14 to 17, candidate 6, KAN-8.
+- 202610310300 UTC: connector experts moved to a seed in `.shadow-well/`, as the Shepherd asked. Liminal keeps a pointer.
