@@ -32,6 +32,10 @@ How it works:
 | 11 | Roads ladder | Drafted below, waiting on the Shepherd | this page |
 | 12 | Connector matrix | Candidate 4 | below |
 | 13 | Conversation-branching methods | Needs the old methods pasted in | candidate 5 |
+| 14 | Seats and folders (mulberry, unexusiam, primapixel) | Plan filed 202610310146 UTC. Four questions open. | `seats.md` |
+| 15 | Harmony server format | Epic KAN-8 opened at the Shepherd's yes. Format and the unfinished server not yet described. | KAN-8 |
+| 16 | Official stamp on submit | Proposed on PR 471. Waiting on the Shepherd's choice. | PR 471 |
+| 17 | Connector experts | Recorded as candidate 6 | below |
 
 ## Decided
 
@@ -40,6 +44,8 @@ How it works:
 - 2026-10-19: `ultima recensio` is the last step before oversight; then `probatio`.
 - 2026-10-19: `novissimum` is "end it now": only small tweaks, carry the rest forward by name.
   `cursus expeditus` stays as the glossary has it.
+- 2026-10-31: an Epic is opened for the harmony server format (KAN-8). Discord is not a server of the Shepherd's; it would
+  be one built from that format. Every server gets a way for him to interact, a simple UI at minimum.
 - 2026-10-19: the work is shifting from building to overseeing. Build the playground (a safe
   place to be as is), then oversee it.
 
@@ -101,6 +107,9 @@ The Shepherd's five titles, tightened, with a view on each. None is a ticket yet
    covers each, so there is one system and not five. Candidates: spawn is `semina`, hold is
    `sustine`, fan-out is `^omnes`, the whole is `^cuncti`, shadow is the shadow-well.
 
+6. **Connector experts.** A skill set per connector, each a station that looks for opportunities as a PR
+   moves (Zapier first, as his example). More steps at the same time, not faster steps. See the liminal page.
+
 The five-chapter story pattern (five content streams, a sixth to gather, a seventh to build)
 is the shape `returns/` already has: streams 1 to 5, a gather step in `queue/artesium-weir/`,
 and a commission to build.
@@ -137,3 +146,4 @@ Still to build before the test means much, in order of value:
 - 202610190754: page started. Threads 1 to 13 seeded from the conversation of 2026-10-19.
 - 202610310011 UTC: the Shepherd asked for build item 1. Parser, 8 test rows, cue record and quick reference updated. `sustine` still sets no label. Shepherd's note: three devices now (mulberry Windows, unexusiam Ubuntu, primapixel Pixel 8a); a Jira-first journey is opening.
 - 202610310011 UTC: liminal opened for the Jira-first journey: `.shepherd/liminal-jira-202610310011.md`.
+- 202610310146 UTC: the Shepherd's review comments on PR 471 read. Added threads 14 to 17, candidate 6, KAN-8.
