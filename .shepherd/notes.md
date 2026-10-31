@@ -35,6 +35,7 @@ How it works:
 | 14 | Seats and folders (mulberry, unexusiam, primapixel) | Plan filed 202610310146 UTC. Terminals and second repo answered 202610310250 UTC (`primal`). Rename timing open. | `seats.md` |
 | 15 | Harmony server format | Epic KAN-8 opened at the Shepherd's yes. Format and the unfinished server not yet described. | KAN-8 |
 | 16 | Official stamp on submit | Proposed on PR 471. Waiting on the Shepherd's choice. | PR 471 |
+| 18 | Harmony and Discord handoff | Semina written for the antigravity navigo 202610310315 UTC. Stages named: 1/3 voices of navigo, 2/3 manos of navigo, 3/3 open. | `.antigravity/` |
 | 17 | Connector experts | Filed as a seed 202610310300 UTC | `.shadow-well/connector-experts-seed.md` |
 
 ## Decided
@@ -46,6 +47,8 @@ How it works:
   `cursus expeditus` stays as the glossary has it.
 - 2026-10-31: an Epic is opened for the harmony server format (KAN-8). Discord is not a server of the Shepherd's; it would
   be one built from that format. Every server gets a way for him to interact, a simple UI at minimum.
+- 2026-10-31: the harmony and Discord working copy goes to the antigravity navigo, in `.antigravity/`. The Shepherd gave three stages
+  for the larger build: 1/3 voices of navigo, 2/3 manos of navigo, 3/3 open.
 - 2026-10-19: the work is shifting from building to overseeing. Build the playground (a safe
   place to be as is), then oversee it.
 
@@ -149,3 +152,4 @@ Still to build before the test means much, in order of value:
 - 202610310011 UTC: liminal opened for the Jira-first journey: `.shepherd/liminal-jira-202610310011.md`.
 - 202610310146 UTC: the Shepherd's review comments on PR 471 read. Added threads 14 to 17, candidate 6, KAN-8.
 - 202610310300 UTC: connector experts moved to a seed in `.shadow-well/`, as the Shepherd asked. Liminal keeps a pointer.
+- 202610310315 UTC: the Shepherd's note on the antigravity handoff read. `.antigravity/` created with a README and a semina.
