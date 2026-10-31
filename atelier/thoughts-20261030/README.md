@@ -14,7 +14,7 @@ He asked me to run with these some, set up what makes sense, and bring things ba
 | `hat-narrator-seed.md` | The hat, a narrator character, kept in his words with a reading | Seed |
 | `gear-notation-seed.md` | A reader's guide to his `*`, `*¿`, `clutch in` and gear-shift marks | Seed, a guess for him to correct |
 | `blackjack-seed.md` | Perpetual blackjack, the deck arithmetic, the repo hunt, the next iteration pair | Seed, with computed numbers |
-| `watershed/` | Staple foods as streams: a README, a toy model, a plinko board, and saved runs | Seed with a runnable toy |
+| `watershed/` | Staple foods as streams: a README, a toy model, a plinko board, and saved runs (Jira NEXUS-17) | Seed with a runnable toy |
 
 ## The simple-contribution method, recorded
 

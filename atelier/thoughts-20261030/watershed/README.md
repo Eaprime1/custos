@@ -1,7 +1,7 @@
 # Watershed (seed): staple foods as streams
 
 `prima-clock: 202610311240` (UTC)
-`plank germ` · seed with a runnable toy model, not developed · origin: the Shepherd, thoughts of 20261030, filed in chat `set-jmdfqh`
+`plank germ` · seed with a runnable toy model, not developed · origin: the Shepherd, thoughts of 20261030, filed in chat `set-jmdfqh` · Jira NEXUS-17
 
 *Grows by addition. New material goes under "Added later" with a stamp.*
 
