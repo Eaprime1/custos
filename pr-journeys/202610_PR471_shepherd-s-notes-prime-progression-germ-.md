@@ -1,10 +1,10 @@
 # PR Journey: #471 — Shepherd's notes, prime-progression germ, cue parser reads refice/semina/sustine, Jira-first liminal
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202610310652  
+**prima-clock:** 202610310706  
 **Branch:** `claude/confident-brown-hs74jt` → `main`  
 **Author:** @Eaprime1  
-**State:** FINALIZED (auto)  
+**State:** FINALIZED  
 
 ## Intent
 
@@ -24,16 +24,14 @@ None of the three words changes behaviour yet. `sustine` sets no `held` label, a
 
 ## Resonance
 
-*held
-
----*
+*held*
 
 ## The Arc
 
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202610190756 | @Eaprime1 |
-| Auto-Finalized | 202610310652 | github-actions[bot] |
+| Finalized | 202610310706 | @Eaprime1 |
 
 ## CI Record
 
@@ -51,16 +49,6 @@ None of the three words changes behaviour yet. `sustine` sets no `held` label, a
 | DeepSource: Objective-C | ⏭ |
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
-| final-oversight | ⏭ |
-| custos-speaks | ✅ |
-| tests | ✅ |
-| scan | ✅ |
-| dependency-review | ✅ |
-| label | ✅ |
-| scan | ✅ |
-| injection-check | ✅ |
-| validate | ✅ |
-| packet | ✅ |
 | GitGuardian Security Checks | ✅ |
 
 ## DeepSource Record
@@ -73,10 +61,10 @@ None of the three words changes behaviour yet. `sustine` sets no `held` label, a
 
 | Dimension | Score | Note |
 |---|---|---|
-| Correctness | 5/5 | 23 CI check(s) — all passed |
-| Consistency | 5/5 | Description complete · ethics 5/5 |
-| Scope | 3/5 | 25 file(s) changed |
-| Verification | 5/5 | 23 check run(s) completed |
+| Correctness | 5/5 | 13 CI check(s) — all passed |
+| Consistency | 5/5 | Template complete · ethics 5/5 |
+| Scope | 3/5 | 26 file(s) changed |
+| Verification | 5/5 | 13 check run(s) completed |
 | **Valuation** | **High** | 18/20 |
 
 ## Ethics Check
@@ -91,17 +79,11 @@ None of the three words changes behaviour yet. `sustine` sets no `held` label, a
 
 Does the seal gate start reading `held`, so `sustine` does something?
 
----
+## Witnesses
 
-**prime state:** 3  
-**witnessed:** false
-
----
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-https://claude.ai/code/session_01Sn76rReBqYr43Xp1nzqmqV
+- @Eaprime1 · 202610310706 · sealed at finalize
 
 ---
-**prima-clock:** 202610310652  
-**witnessed:** true  
+**prima-clock:** 202610310706  
+**witnessed:** true — 1 witness, sealed 202610310706 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
