@@ -18,7 +18,9 @@ ACTIONS (the work)
   novissimum    rear guard. Close or file loose ends.
   cursus        run the remaining stages in order.
   emenda        amend what oversight flagged. Editing, not blame.
-  (refice       rework, bigger than amending. Reserved for later.)
+  refice        rework, bigger than amending. With a plan, follow it. Without one, write it first.
+  semina        sow the seed. Write a handoff block so the work continues in a new conversation.
+  sustine       hold back. Read by the parser only; it sets nothing yet.
 
 MODIFIERS (the scope or tempo)
   prima         first. Orient, change nothing.

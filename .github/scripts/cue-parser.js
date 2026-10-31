@@ -17,7 +17,12 @@
 // 'custos' addresses the workflows. 'omnes' addresses every contributor at once.
 // 'cuncti' addresses the project as a whole: read it first, then add your own view.
 const DEFAULT_NAMES = ['claude', 'chatgpt', 'gemini', 'perplexity', 'unexusi', 'custos', 'omnes', 'cuncti'];
-const ACTIONS = ['recensio', 'probatio', 'lustratio', 'judicium', 'novissimum', 'cursus', 'emenda'];
+// refice, semina and sustine were accepted by the Shepherd on 2026-10-19. The parser reads them as
+// actions and nothing more: none of them sets a label or stops a seal yet (.shepherd/notes.md).
+const ACTIONS = [
+  'recensio', 'probatio', 'lustratio', 'judicium', 'novissimum', 'cursus', 'emenda',
+  'refice', 'semina', 'sustine',
+];
 // confirmanda and supplenda qualify emenda: the thing to amend is a claim to confirm, or a step the road lacks.
 const MODIFIERS = ['prima', 'ultima', 'suprema', 'extrema', 'renovata', 'expeditus', 'confirmanda', 'supplenda'];
 const VERBS = ['disponi', 'petitio', 'placet', 'finalize', 'check', 'concordance', 'sync-labels'];
