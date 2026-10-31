@@ -1,4 +1,3 @@
-'use strict';
 // Offline test table for .github/scripts/cue-parser.js. No network, no GitHub.
 // Run: bash tools/test_cue_parser.sh
 
