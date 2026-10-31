@@ -36,10 +36,19 @@ How it works:
 | 15 | Harmony server format | Epic KAN-8 opened at the Shepherd's yes. Format and the unfinished server not yet described. | KAN-8 |
 | 16 | Official stamp on submit | Built (option 1, append a UTC line). `stamp-on-submit.yml` + script + test. Comment stamping starts once it is on main. | PR 471 |
 | 18 | Harmony and Discord handoff | Semina written for the antigravity navigo 202610310315 UTC. Stages named: 1/3 voices of navigo, 2/3 manos of navigo, 3/3 open. | `.antigravity/` |
-| 17 | Connector experts | Filed as a seed 202610310300 UTC | `.shadow-well/connector-experts-seed.md` |
+| 17 | Connector experts | Filed as a seed 202610310300 UTC; moved to the atelier 202610310612 UTC | `atelier/connector-experts-seed.md` |
+| 19 | Server custos (queen) | Seed at 1/3 plank 202610310613 UTC; woven into KAN-8 | `atelier/server-custos-queen-seed.md` |
+| 20 | Content risk level | Seed 202610310613 UTC; levels not scoped | `atelier/risk-level-seed.md` |
+| 21 | Balance and pressure | Seed for a conversation 202610310613 UTC | `atelier/balance-pressure-seed.md` |
+| 22 | Conversation reference | Tracker seed; a title is enough | `.claude/conversations.md` |
+| 23 | System email | Seed placed with Navigo Perplexity | `.perplexity/system-email-seed.md` |
+| 24 | Mulberry repo plan for GitHub Copilot | Opportunity noted; the plan is not yet written | none yet |
+| 25 | Print option for pages | Deferred until the Latin lexeme update. For now the notes carry it | none |
 
 ## Decided
 
+- 2026-10-31: the atelier is the default workshop: seeds found in a domos go to its atelier unless the folder says otherwise.
+- 2026-10-31: undershepherd describes the AI side of a navigo, `navigo(shepherd)_gemini(undershepherd)`, as a partial descriptor only.
 - 2026-10-19: starter tickets KAN-1 to KAN-3 stay as examples. SAM1 stays as the practice board.
 - 2026-10-19: the repo label system is primary. Jira follows it.
 - 2026-10-19: `ultima recensio` is the last step before oversight; then `probatio`.
@@ -112,7 +121,7 @@ The Shepherd's five titles, tightened, with a view on each. None is a ticket yet
 
 6. **Connector experts.** A skill set per connector, each a station that looks for opportunities as a PR
    moves (Zapier first, as his example). More steps at the same time, not faster steps. Filed as a seed:
-   `.shadow-well/connector-experts-seed.md`.
+   `atelier/connector-experts-seed.md` (moved from `.shadow-well/` 202610310612 UTC).
 
 The five-chapter story pattern (five content streams, a sixth to gather, a seventh to build)
 is the shape `returns/` already has: streams 1 to 5, a gather step in `queue/artesium-weir/`,
@@ -154,3 +163,5 @@ Still to build before the test means much, in order of value:
 - 202610310300 UTC: connector experts moved to a seed in `.shadow-well/`, as the Shepherd asked. Liminal keeps a pointer.
 - 202610310315 UTC: the Shepherd's note on the antigravity handoff read. `.antigravity/` created with a README and a semina.
 - 202610310324 UTC: stamp-on-submit built after the Shepherd chose option 1; 22 checks pass; not merged.
+- 202610310612 UTC: four open review threads on PR 471 answered: Latin naming deferred to the 3/3 plank, Discord as the first harmony with navigo_gemini-notebook as a report hub, the connector experts seed moved to the atelier with an advisement left behind, and a reference convention noted (a conversation's title is enough).
+- 202610310613 UTC: seeds filed for the queen, content risk level, balance and pressure, a conversation tracker and a system email. Atelier made the default workshop.

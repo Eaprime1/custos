@@ -27,6 +27,11 @@ Then, on who carries it (the three question marks in stage 3 are his, kept as wr
 - It is a large build. The Shepherd said it is one that all the navigos' hands could contribute to.
 - He gave three stages: 1/3 voices of navigo, 2/3 manos of navigo, 3/3 open, left blank for now.
 - The Shepherd said the PRs will be tackled together, later.
+- **Discord is the first harmony.** The Shepherd said it fits, and that it is not a Discord (the social network)
+  server. There could be Discord reports and harmony reports.
+- **Report hubs.** `navigo_gemini-notebook` makes interactive reports, as other navigos do. The Shepherd named it
+  as one of the primary report hubs, the places reports are collected, and said "this would be the 1/3 plank".
+  That sits beside his earlier "1/3 voices of navigo" and the two may be one stage or two. Not settled; ask him.
 
 ## What is not known (nothing below is a finding)
 
@@ -37,9 +42,12 @@ Then, on who carries it (the three question marks in stage 3 are his, kept as wr
 - **What "manos" means here.** My reading, to be corrected: *manos* is "hands" (Latin *manus*, Spanish *manos*),
   so voices are what navigos say and hands are what they make. The Shepherd did not say this.
 - **What stage 3 is.** Left open by him.
+- **Latin naming.** The Shepherd said (202610310612 UTC, review comment) that *voices* is not Latin, and that the names
+  stay as they are for now: Latin is the language convergence point and the zero point, and the language
+  decisions belong at the 3/3 plank, when a full plank set exists. *Manos* stays unchanged until it is
+  verified. This page does not Latinize anything.
 - **How Latin "helps".** He said it will, and gave no detail. The workflow words in
   `docs/latin-workflow-v2.md` are the place to start looking, and the Shepherd is the one to ask.
-- **Whether Discord is the first harmony server or only one of several.**
 
 ## Suggested first moves
 
@@ -54,7 +62,7 @@ Each is small and reversible. None is a build.
 
 1. **The mission:** KAN-8, as above, and the Shepherd's words on this page.
 2. **Files to read first:** `prima.yaml`, `CLAUDE.md`, `docs/latin-workflow-v2.md`, `.shepherd/notes.md`,
-   `.shepherd/liminal-jira-202610310011.md`, and `.shadow-well/connector-experts-seed.md`.
+   `.shepherd/liminal-jira-202610310011.md`, and `atelier/connector-experts-seed.md`.
 3. **A completion check for this handoff.** From the repo root:
    `test -f .antigravity/harmony-discord-semina.md && bash tools/scan_lexeme.sh .antigravity | tail -2`
    It proves the file exists and the lexeme scan ran. It does not prove the work is done.
