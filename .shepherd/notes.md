@@ -35,8 +35,8 @@ How it works:
 | 14 | Seats and folders (mulberry, unexusiam, primapixel) | Plan filed 202610310146 UTC. Terminals and second repo answered 202610310250 UTC (`primal`). Rename timing open. | `seats.md` |
 | 15 | Harmony server format | Epic KAN-8 opened at the Shepherd's yes. Format and the unfinished server not yet described. | KAN-8 |
 | 16 | Official stamp on submit | Built (option 1, append a UTC line). `stamp-on-submit.yml` + script + test. Comment stamping starts once it is on main. | PR 471 |
-| 18 | Harmony and Discord handoff | Semina written for the antigravity navigo 202610310315 UTC. Stages named: 1/3 voices of navigo, 2/3 manos of navigo, 3/3 open. | `.antigravity/` |
 | 17 | Connector experts | Filed as a seed 202610310300 UTC; moved to the atelier 202610310612 UTC | `atelier/connector-experts-seed.md` |
+| 18 | Harmony and Discord handoff | Semina written for the antigravity navigo 202610310315 UTC. Stages named: 1/3 voices of navigo, 2/3 manos of navigo, 3/3 open. | `.antigravity/` |
 | 19 | Server custos (queen) | Seed at 1/3 plank 202610310613 UTC; woven into KAN-8 | `atelier/server-custos-queen-seed.md` |
 | 20 | Content risk level | Seed 202610310613 UTC; levels not scoped | `atelier/risk-level-seed.md` |
 | 21 | Balance and pressure | Seed for a conversation 202610310613 UTC | `atelier/balance-pressure-seed.md` |

@@ -39,7 +39,9 @@ The parser and the cue record read it (2026-10-31). Nothing else changes when it
 
 *Semina* (sow) writes a handoff block so the work continues in a new conversation: clutch in, explore,
 clutch out. The clutch is a vehicle's: clutch in disengages from the main stream, so you can explore
-without driving it; clutch out re-engages. *Sustine* (hold back) is meant to set `held` so the final seal waits for the Shepherd's
+without driving it; clutch out re-engages.
+
+*Sustine* (hold back) is meant to set `held` so the final seal waits for the Shepherd's
 release. Today the parser and the cue record read both words and nothing more: `sustine` sets no label
 and the seal gate does not read `held`.
 

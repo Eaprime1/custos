@@ -48,7 +48,7 @@ Marked as a reading so it can be corrected. Where the words above do not say, th
 Moved to `atelier/` at the Shepherd's word (202610310612 UTC, review comment on PR 471): the atelier is the workshop that
 exists in every domos, repo and project, and holds content that belongs to the repo but has no clear home. The
 old path keeps a short advisement. Still not named as a building project, and nothing here is built. The KAN side, if wanted, is an Epic or a child of KAN-7 (see `.shepherd/notes.md`,
-candidate 6). Nothing here is built.
+candidate 6).
 
 ## Added later
 
