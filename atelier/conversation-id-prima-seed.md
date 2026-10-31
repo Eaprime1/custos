@@ -115,4 +115,24 @@ Recommendation: the child Task now, the Epic when there is something to build.
 
 ## Added later
 
-(nothing yet)
+**202610310830 UTC, the Shepherd, chat `set-jmdfqh`.** Corrections and additions, in his words as plainly as I can keep them.
+
+- **The Quantum Runic ID is one of the earliest, well developed systems.** My search could not reach it. It is in one of
+  the projects, or in a conversation outside the projects. The note above ("a story one seat told itself") is
+  withdrawn as a reading; the question is where it lives, not whether it is real. Owner of the search: the Shepherd.
+- **Synergy Forge** holds much of the early complexity work, built across conversations through several reduction
+  passes (the conversations' only link then was the Shepherd, so there was a lot of duplicate content). It runs on a
+  Mindi AI platform set up by someone close to the Shepherd, to be asked to turn it back on. Most of its content was
+  exported to a shared folder; the Shepherd will check. Whether that content can move to a new Mindi AI setup is open.
+- **The Drive files named "finalization" and "unknown" are old conversation copies**, each saved before the
+  conversation was deleted. They are a treasure trove of early, close conversation. Not yet read.
+- **Naming history:** the Gemini notebook seat was called **NotebookLLM** until recently. Content found under that name
+  is from before "voices of navigo". Working label: Navigo NotebookLLM. When such content turns up, an Epic in
+  Jira (NEXUS) is created for it and the content is sent there.
+- **Many early conversations are still open.** Most conversations will reach the connectors. One that cannot can be
+  fed by another conversation in the same project.
+- **Handing over content is not offloading; it is a change of ownership.** The word he is reaching for is the
+  anchor: the domos where the concept is pinned (see the Shepherd's note in the chat; not built).
+- **Level 21: diverge.** This conversation continues as the all-things-Jira one. A second conversation takes what is
+  not directly Jira.
+- **The feeder** is built as a test, under NEXUS-1, as a kind of build or mission.
