@@ -1,0 +1,27 @@
+# python3 plinko.py   (run 202610311240 UTC)
+The board favours the middle: chance a single chip lands in each slot
+     0.8%  hat narrator
+     5.5%  gear-shift notation (* marks)
+    16.4%  perpetual blackjack, the next iteration pair
+    27.3%  one simple contribution per navigo (setup, prep, create)
+    27.3%  watershed model of indicator streams
+    16.4%  fuel and vehicle-value streams
+     5.5%  plinko consideration engine itself
+     0.8%  effluent ledger
+
+First concept to hold 3 chips wins.
+   seed      20261030: 10 chips   slots [0 2 1 2 2 3 0 0]   -> fuel and vehicle-value streams
+   seed  202610311130:  8 chips   slots [0 1 1 3 2 1 0 0]   -> one simple contribution per navigo (setup, prep, create)
+   seed  202610310526:  7 chips   slots [0 1 1 0 3 1 0 1]   -> watershed model of indicator streams
+   seed            21:  6 chips   slots [0 0 1 3 0 1 1 0]   -> one simple contribution per navigo (setup, prep, create)
+   seed             3:  7 chips   slots [0 0 1 2 3 1 0 0]   -> watershed model of indicator streams
+
+# python3 plinko.py --flat
+Flat board: every slot equally likely
+
+First concept to hold 3 chips wins.
+   seed      20261030:  8 chips   slots [1 3 0 1 1 0 2 0]   -> gear-shift notation (* marks)
+   seed  202610311130:  9 chips   slots [3 0 1 1 1 1 1 1]   -> hat narrator
+   seed  202610310526: 12 chips   slots [1 2 0 1 3 2 1 2]   -> watershed model of indicator streams
+   seed            21:  8 chips   slots [1 1 2 0 1 0 3 0]   -> plinko consideration engine itself
+   seed             3: 13 chips   slots [1 3 2 2 1 0 2 2]   -> gear-shift notation (* marks)

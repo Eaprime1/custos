@@ -1,0 +1,67 @@
+# python3 model.py   (run 202610311240 UTC)
+
+== baseline: nothing changes
+  day   milk$   egg$   D in  D status  A reserve (days)
+    0    1.00   1.00   15.0      30.0               200
+   29    1.00   1.00   15.0      30.0               200
+   30    1.00   1.00   15.0      30.0               200
+   31    1.00   1.00   15.0      30.0               200
+   40    1.00   1.00   15.0      30.0               200
+   60    1.00   1.00   15.0      30.0               200
+   90    1.00   1.00   15.0      30.0               200
+  119    1.00   1.00   15.0      30.0               200
+   D status first below 20: day None   A reserve empty: day None   unsold servings: 0.0   protein over need (g): 0
+
+== milk stops on day 30 and does not return
+  day   milk$   egg$   D in  D status  A reserve (days)
+    0    1.00   1.00   15.0      30.0               200
+   29    1.00   1.00   15.0      30.0               200
+   30   20.00   1.00   12.1      29.7               200
+   31   20.00   1.14   12.1      29.5               200
+   40   20.00   2.74   12.1      27.6               199
+   60   20.00   5.83   12.1      25.5               196
+   90   20.00   7.35   12.1      24.5               192
+  119   20.00   7.61   12.1      24.3               189
+   D status first below 20: day None   A reserve empty: day None   unsold servings: 0.0   protein over need (g): 0
+
+== milk is off for days 30 to 59, then returns
+  day   milk$   egg$   D in  D status  A reserve (days)
+    0    1.00   1.00   15.0      30.0               200
+   29    1.00   1.00   15.0      30.0               200
+   30   20.00   1.00   12.1      29.7               200
+   31   20.00   1.14   12.1      29.5               200
+   40   20.00   2.74   12.1      27.6               199
+   60   14.81   5.83   13.2      25.6               196
+   90    1.36   1.90   14.8      28.1               195
+  119    1.08   1.19   14.9      29.4               195
+   D status first below 20: day None   A reserve empty: day None   unsold servings: 18.7   protein over need (g): 0
+
+== ALL vitamin A removed on day 30 (every food and every other source)
+  day   milk$   egg$   D in  D status  A reserve (days)
+    0    1.00   1.00   15.0      30.0               200
+   29    1.00   1.00   15.0      30.0               200
+   30    1.00   1.00   15.0      30.0               199
+  130    1.00   1.00   15.0      30.0                99
+  230    1.00   1.00   15.0      30.0                 0
+  231    1.00   1.00   15.0      30.0                 0
+  600    1.00   1.00   15.0      30.0                 0
+ 1000    1.00   1.00   15.0      30.0                 0
+ 1299    1.00   1.00   15.0      30.0                 0
+   D status first below 20: day None   A reserve empty: day 229   unsold servings: 0.0   protein over need (g): 0
+
+== only the vitamin A in milk and eggs removed on day 30
+  day   milk$   egg$   D in  D status  A reserve (days)
+    0    1.00   1.00   15.0      30.0               200
+   29    1.00   1.00   15.0      30.0               200
+   30    1.00   1.00   15.0      30.0               200
+  130    1.00   1.00   15.0      30.0               181
+  230    1.00   1.00   15.0      30.0               162
+  231    1.00   1.00   15.0      30.0               161
+  600    1.00   1.00   15.0      30.0                91
+ 1000    1.00   1.00   15.0      30.0                15
+ 1299    1.00   1.00   15.0      30.0                 0
+   D status first below 20: day None   A reserve empty: day 1079   unsold servings: 0.0   protein over need (g): 0
+
+== energy drink feed (excess glucose units, 48 h; toy fast stream)
+   meals only                peak   40.3   area   592.8
+   meals + 2 x 50 g drinks   peak   73.5   area   892.6   (peak x1.8, area x1.51)
