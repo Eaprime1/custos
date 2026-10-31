@@ -32,6 +32,16 @@ MODIFIERS (the scope or tempo)
   confirmanda   with emenda: a claim needs confirming. Cite it or mark it unconfirmed.
   supplenda     with emenda: a step the road needs is missing. Supply it. Not a defect.
 
+MARKS (SIGNUM). Records, not calls. docs/signum.md
+  quill         provenance. Where it came from, who carried it.
+  claim mark    occupancy. This work is taken.
+  validation    named checks were run and passed.
+  witness       someone read it. Anyone who has read it may add one.
+                Skimming is a reference, not a witness.
+  integrity     the same bytes as when sealed (a hash).
+  reference     the document was intentionally referenced. Not built.
+  A mark never seals or merges. It says only what its witness did.
+
 COMMON CALLS
   ^omnes renovata               everyone refreshes their PR
   ^cuncti prima recensio        orient from the whole project first

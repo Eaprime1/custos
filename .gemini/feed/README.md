@@ -16,6 +16,7 @@ For voices that cannot write to GitHub, the Gemini notebooks first. The path is 
 ## Rules (proposal)
 
 - File name: `<prima-clock>_<cid>_<slug>.<ext>`. The cid ties the file to its conversation (`tools/session_id.sh`).
+- Notebook exports are saved as **`.md`** (the Shepherd's word, 202610311100 UTC or just after). Plain text keeps its bytes, so the hash can start at the drop.
 - A carried file is **never edited**. The sign-in card, the SHA-256 and any notes go in a sidecar `<same name>.receipt.md`.
 - The receipt says what kind of drop it was (a Shepherd export, or a test) and which courier did it.
 - A file stays here until the Shepherd routes it. When it moves, this folder keeps a pointer to the new anchor.

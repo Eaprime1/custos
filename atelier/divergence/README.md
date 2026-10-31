@@ -1,7 +1,7 @@
 # Divergence seeds
 
 `prima-clock: 202610310949` (UTC)
-`plank germ` · a name offered by the Shepherd as a question, held · origin: the Shepherd, chat `set-jmdfqh`, 2026-10-31
+`plank germ` · the name "divergence seed" confirmed by the Shepherd · origin: the Shepherd, chat `set-jmdfqh`, 2026-10-31
 
 *Grows by addition. New material goes under "Added later" with a stamp.*
 
@@ -9,7 +9,7 @@
 
 At level 21 one conversation became too wide. Instead of ending it or folding more into it, it diverges: new conversations start, each with one job. **They do not collapse back into the conversation they came from.** They keep a connection, and each lives on as its own thing.
 
-The Shepherd asked whether these are new seeds, and whether to call them **divergence seeds**. This folder uses the name as a working label. It is his to confirm or change.
+The Shepherd asked whether these are new seeds, and whether to call them **divergence seeds**. He confirmed the name: "divergence seed works" (202610311100 UTC or just after).
 
 ## What a divergence seed holds
 

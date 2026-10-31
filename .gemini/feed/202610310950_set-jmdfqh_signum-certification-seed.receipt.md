@@ -55,5 +55,18 @@ This says the bytes did not change on the way. It says nothing about whether the
 
 ## Carried forward
 
-- Owner: the Shepherd. Decide whether notebook exports are saved as `.md`/`.txt` (hash stable) or as Google Docs (easier, hash only from arrival).
+- Decided by the Shepherd, in the conversation, 202610311100 UTC or just after: notebook exports are saved as **`.md`**. The hash then stays stable from the drop.
 - Owner: Navigo Claude. After PR 502 merges, add a tracker row and an atelier row pointing at the carried seed, which stays here until the Shepherd routes it.
+
+## The Shepherd's review comments on the carried file
+
+His comments on #503 landed on lines 40 to 43 of the carried file. That file stays untouched so its hash stays true, so each comment is answered where it belongs:
+
+| Line | He said (short) | Where it went |
+|---|---|---|
+| 40 | Signum is excellent, make it official; add it to the Latin workflow lexeme and elsewhere | `docs/signum.md`, `docs/latin-workflow-glossary.md` (section "Marks (Signum)"), `docs/latin-lexemes.txt`, `CLAUDE.md` |
+| 41 | We need a full validation system built | Jira NEXUS-14; thread T14 in `.claude/threads.md`. Not built |
+| 42 | Quantum is an early, heavily used lexeme tied to the quantum runic compression language; may trace to the 1st iteration; add a thread | Thread T13 in `.claude/threads.md` |
+| 43 | Anyone can add a witness; reading is witnessing, skimming is a reference; his witness is required as the only human navigo | `docs/signum.md`, section "Witnessing". This replaces the open question "who may act as witness" in the carried file |
+
+The carried file's "Not known" list is therefore partly answered: the witness question is answered, the working name is Signum, and the Runic ID question is now thread T13.

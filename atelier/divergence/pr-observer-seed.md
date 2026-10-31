@@ -54,4 +54,11 @@ Both cids in `.claude/conversations.md`. An observation file names the conversat
 
 ## Added later
 
-(nothing yet)
+**202610311109 UTC, the Shepherd, review comment on #503.** His words, shortened only where marked:
+
+- The project is currently in **shadow**. When **primal** launches, a very large amount of the shadow content launches in primal's **31 cents flat spectrum**.
+- This spreads the launch out: primal breaks the trail and the rest of the shadow follows in its wake. Technically it all happens near simultaneously.
+- The "31 cents flat" jazz and music idea becomes a **spectrum**: a musical spectrum layer, or a first discordance that can learn how to harmonize. A **harmonization process**.
+- Primal is the first note in a very large symphony.
+
+Reading (mine, not his): this joins the Harmony Epic (KAN-8). For the observer it suggests that PRs are watched as a sequence that has to arrive in tune, not one by one. Nothing here is defined or built, and "31 cents flat" is his phrase, not yet grounded in the repo.
