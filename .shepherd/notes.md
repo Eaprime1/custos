@@ -34,7 +34,7 @@ How it works:
 | 13 | Conversation-branching methods | Needs the old methods pasted in | candidate 5 |
 | 14 | Seats and folders (mulberry, unexusiam, primapixel) | Plan filed 202610310146 UTC. Terminals and second repo answered 202610310250 UTC (`primal`). Rename timing open. | `seats.md` |
 | 15 | Harmony server format | Epic KAN-8 opened at the Shepherd's yes. Format and the unfinished server not yet described. | KAN-8 |
-| 16 | Official stamp on submit | Proposed on PR 471. Waiting on the Shepherd's choice. | PR 471 |
+| 16 | Official stamp on submit | Built (option 1, append a UTC line). `stamp-on-submit.yml` + script + test. Comment stamping starts once it is on main. | PR 471 |
 | 18 | Harmony and Discord handoff | Semina written for the antigravity navigo 202610310315 UTC. Stages named: 1/3 voices of navigo, 2/3 manos of navigo, 3/3 open. | `.antigravity/` |
 | 17 | Connector experts | Filed as a seed 202610310300 UTC | `.shadow-well/connector-experts-seed.md` |
 
@@ -153,3 +153,4 @@ Still to build before the test means much, in order of value:
 - 202610310146 UTC: the Shepherd's review comments on PR 471 read. Added threads 14 to 17, candidate 6, KAN-8.
 - 202610310300 UTC: connector experts moved to a seed in `.shadow-well/`, as the Shepherd asked. Liminal keeps a pointer.
 - 202610310315 UTC: the Shepherd's note on the antigravity handoff read. `.antigravity/` created with a README and a semina.
+- 202610310324 UTC: stamp-on-submit built after the Shepherd chose option 1; 22 checks pass; not merged.
