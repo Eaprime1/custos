@@ -12,7 +12,7 @@
 
 | Field | Example |
 |---|---|
-| Name | **Atrium: Finish the Conversation** (the Shepherd names it) |
+| Name | **Atrium** (proposed; the Shepherd names it) |
 | Summary | Close a long conversation so its seeds, its origin and its package each land in the right place. |
 | Description | Opens with `05-OPENING.md`. Links: custos#510, PRs #473 and #474, the Armarium rules (by name, not by link, since the repo is private). |
 | Lead | The Shepherd |

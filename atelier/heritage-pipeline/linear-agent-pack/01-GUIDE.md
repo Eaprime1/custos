@@ -1,7 +1,8 @@
 # Guide for the Linear navigo agent
 
 `suit: ♦️ Seed · plank: 1/3 Plank (proposed)`
-`Prima-clock: 202611011738` (UTC)
+`Prima-clock: 202611011824` (UTC)
+`annuit: given by the Shepherd (Eric Pace) at 202611011822 UTC, 10:22 Pacific 2026-11-01. "The go ahead to develop." It is not a seal, a merge or an undraft.`
 `status: guide. Rules marked "decided" come from the Shepherd's recorded decisions; everything else is a proposal.`
 
 ---
@@ -14,7 +15,10 @@ You are a navigo: a pair of one AI model and the Shepherd (eaprime1). You have t
 
 | Term | Plain meaning | Where it is written |
 |---|---|---|
-| Finish the Conversation | A five-stage procedure for closing a long conversation so its useful parts survive | PR #474 `finish-the-conversation/SOP.md` (not merged); the original is a PDF the Shepherd holds |
+| Finish the Conversation | The procedure's name: five stages for finishing a long conversation so the next thing can start. No longer the project's title; the project is the Atrium (proposed name) |
+| Atrium | The proposed project and seed family: where finished conversations pass through into the live system, then to a project archive that stays reachable (06-ATRIUM-SEEDS.md) |
+| Work / play / create | The Shepherd's three foci for systems: work = our today, raw processing or deep vetting; play = the journey; create = mostly hodie. atelier is the default when unsure |
+| Annuit | The Shepherd's own word for the go ahead to develop. Not defined in the repo. Not a seal | PR #474 `finish-the-conversation/SOP.md` (not merged); the original is a PDF the Shepherd holds |
 | Origin | The exact, untouched export of a conversation. It goes to the private Armarium, never to custos | `atelier/heritage-pipeline/ARMARIUM.md` |
 | Armarium | The private repo `eaprime1/armarium`. Origins and their hashes | its `RULES.md` |
 | Seed | A short idea picked out of a conversation. Picked by the Shepherd, never written by an assistant | `SEED-PICKER.md` |
@@ -25,7 +29,20 @@ You are a navigo: a pair of one AI model and the Shepherd (eaprime1). You have t
 
 **Suit names have two spellings.** `world/suit-and-plank.md` uses Seed, Carbonite, Aethereal, Pinnacle (states). Other repo text uses Diamond, Club, Heart, Spade (the card names) for the same four. They are the same suits. When you make labels, use the state names the file lists and put the card name and emoji in the label description. Linear does not allow emoji in label names.
 
-## 3. Mapping custos to Linear
+## 3. Work, play, create
+
+The Shepherd's frame (202611011822): each system holds one primary focus, and the synergy comes as PRs process and weave the three. He left the assignment to the navigo. Pick as proposed, not decided:
+
+| Focus | System | What lives there |
+|---|---|---|
+| work | Jira (KAN, NEXUS-1), the professional scope | Raw processing, deep vetting, scoped comments |
+| play | Linear (this project) | The journey; comments that extend a conversation and may hold anything |
+| create | hodie repo | Workshop pieces, the pinnacle of making |
+| default | atelier | Where stuff goes when unsure |
+
+Why this split: Jira came first and the liminal direction there is already professional and scoped; Linear's Voice of Navigo labels already read as perspectives and journey. PRs in custos are where the three weave, and they are processed to oversight-ready (PROBATIO is his). Change it if the workspace says otherwise, and say so.
+
+## 3a. Mapping custos to Linear
 
 Proposed. The status map matches `conventions.md`; the agent re-reads that file and uses it if it differs.
 
@@ -34,7 +51,7 @@ Proposed. The status map matches `conventions.md`; the agent re-reads that file 
 | A seed or a piece of work | An issue |
 | A body of work (this procedure) | A project |
 | A step inside it (floor, package, custody, engines, related seeds) | A project milestone |
-| Suit and Plank | One Suit label and one Plank label per seed issue (groups absent today; see section 6) |
+| Suit and Plank | One Suit label and one Plank label per seed issue (groups present at 202611011822; see section 6) |
 | Plank to status | Germ and 1/3 → Backlog. 2/3 → Todo or In Progress. 3/3 → In Review. Crystallized or routed onward → Done. Superseded → Duplicate. Abandoned → Canceled |
 | A custos issue or PR | An attachment (link) on the Linear issue; the Linear issue number goes back into the custos issue as a comment |
 | A Latin call | A comment starting with the call, with the Shepherd's name on the decision, not yours |
@@ -68,20 +85,24 @@ Proposed (adopt if the Shepherd agrees):
 - **No money.** custos has no bounties and no cash rewards. If any task asks for payment, stop and say so.
 - **Do not invent history.** The first run of this procedure found invented details in earlier turns (a mileage figure, a baptism, an efficiency range). Anything not anchored in a source is marked "proposed" or left out.
 
-## 6. Known mismatches in the workspace (found 202611011730 UTC, read only)
+## 6. Workspace state
 
-| What the repo says | What Linear shows |
+At 202611011730 UTC the Suit and Plank groups were absent. The Shepherd then set up the new format. Read-only check at 202611011822 UTC:
+
+| Item | Shows |
 |---|---|
-| Suit and Plank label groups created 2026-10-09 (`world/suit-and-plank.md`) | **Not found**, searched by name, archived included |
-| `conventions.md` lists two projects | **Four**: P-QRU-1 to P-QRU-4 |
-| Label groups: Suit, Plank | Present instead: **Voice of Navigo**, **Devin Playbooks**; and Bug, Improvement, Feature |
+| Suit group | Seed, Carbonite, Aethereal, Pinnacle (card name and emoji in the descriptions) |
+| Plank group | Germ, 1/3 Plank, 2/3 Plank, 3/3 Plank, Crystallized |
+| Other groups | Voice of Navigo (navigo_prime, _terminal, _chatgpt, _claude, _gemini, _synthesis), Devin Playbooks; plus Bug, Improvement, Feature |
+| Projects | Still four: P-QRU-1 to P-QRU-4. `conventions.md` still says two |
+| Statuses | Backlog, Todo, In Progress, In Review, Done, Canceled, Duplicate (unchanged) |
 
-Do not fix these in step 2. Report them, then ask: recreate the labels, or work without them?
+Use the labels. Report, do not fix, the `conventions.md` project count.
 
 ## 7. Decisions only the Shepherd can make (JUDICIUM list)
 
-1. **System of record.** The latest direction in `.shepherd/liminal-jira-202610310011.md` is Jira first (KAN project, NEXUS-1 oversight space), with the work growing outward from Jira. This request is for a project in Linear. Both can be true (Jira as the root, Linear as a working view), but the sources do not say so. Ask.
-2. **Suit and Plank labels.** Recreate, rename, or skip.
+1. **System of record.** Answered 202611011822: no preference; use the work / play / create split (section 3). Open only if the proposed pick is wrong.
+2. **Suit and Plank labels.** Answered: he set them up.
 3. **Layout.** custos PR #473 puts a conversation's output in `runs/<id>/`; PR #474 puts it in `finish-the-conversation/hopechest/<stamp>-<slug>/`. One must win.
 4. **Project name and its owner.**
 5. **Seed picks** for the Flywheel run (five candidates in PR #473 `seeds.json`; none selected).

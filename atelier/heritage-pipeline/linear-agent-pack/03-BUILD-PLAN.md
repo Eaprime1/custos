@@ -1,7 +1,8 @@
-# Build plan: Atrium, Finish the Conversation (and what is related)
+# Build plan: Atrium (and what is related)
 
 `suit: ♦️ Seed · plank: 1/3 Plank (proposed)`
-`Prima-clock: 202611011738` (UTC)
+`Prima-clock: 202611011824` (UTC)
+`annuit: given by the Shepherd (Eric Pace) at 202611011822 UTC, 10:22 Pacific 2026-11-01. "The go ahead to develop." It is not a seal, a merge or an undraft.`
 `status: proposed plan for the agent to refresh and the Shepherd to approve. Nothing is created in Linear from this file.`
 
 *Six milestones. Each lists its issues, who decides, and how you would know it is done. Sizes are rough and are not estimates of time. The agent re-checks every "exists" claim against the repos before using it.*
@@ -23,8 +24,8 @@ Goal: the agent knows the current state and the Shepherd has said yes to a shape
 | Issue | Decider | Check |
 |---|---|---|
 | Refresh the floor against `04-RENOVATA-REVIEW.md`; report differences only | Agent | A comment lists what changed, what is open, what was not checked |
-| Report the workspace mismatches (labels absent, four projects) and ask: recreate or skip | Shepherd | JUDICIUM answered |
-| Settle the system of record (Linear, Jira, or Jira as root with Linear as view) | Shepherd | JUDICIUM answered |
+| Confirm the Suit and Plank labels are present (answered: the Shepherd set them up) and report the `conventions.md` project-count drift | Agent | A comment lists what was found |
+| Confirm the work / play / create pick in 06-ATRIUM-SEEDS.md (the Shepherd delegated it) | Shepherd | A stated yes or change |
 | Name the project and its owner | Shepherd | Name stated |
 
 ## M1. One-conversation package (the Flywheel run as the worked example)

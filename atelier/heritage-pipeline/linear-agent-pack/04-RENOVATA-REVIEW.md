@@ -1,7 +1,8 @@
 # Renovata review: the floor under the Linear project
 
 `suit: ♦️ Seed · plank: 1/3 Plank (proposed)`
-`Prima-clock: 202611011738` (UTC; the Shepherd's anchor 202611010921 is Pacific, 202611011721 UTC)
+`Prima-clock: 202611011824` (UTC; Linear rows re-read at 202611011822)
+`annuit: given by the Shepherd (Eric Pace) at 202611011822 UTC, 10:22 Pacific 2026-11-01. "The go ahead to develop." It is not a seal, a merge or an undraft.`
 `status: a floor that was true when written. The agent refreshes it (RENOVATA) and reports differences only.`
 
 *Modeled on `atelier/hodie-shadow/202610152017_renovata-opening.md`: a table of what was checked and found, a short list of what was not checked, then four things named but not resolved.*
@@ -19,7 +20,7 @@ Pull request and issue state read through the REST API. Linear read through the 
 | PR #474 `hopechest/consummatio-colloquii` | open, draft. Carries `finish-the-conversation/SOP.md`, a `hopechest/README.md` and three templates. Read, including its bot and author comments. Not merged |
 | custos issue #510 | open. Nine seams, an overlap table with #474, a layout question. Edited 202611011735 after finding that its first version wrongly said the SOP had no home in the repo |
 | Armarium (private) | branch `hopechest/origins` pushed at `40e744a`, equal to `main`. Holds no origin. Nothing committed |
-| Linear workspace | Qrunexusiam, team QRU. Four projects (P-QRU-1 to P-QRU-4). Suit and Plank label groups **absent**. Present: `Voice of Navigo`, `Devin Playbooks`, Bug, Improvement, Feature |
+| Linear workspace | Qrunexusiam, team QRU. Four projects (P-QRU-1 to P-QRU-4), re-read 202611011822. Suit and Plank label groups **present** (changed since 202611011730: the Shepherd set up the new format). Also `Voice of Navigo`, `Devin Playbooks`, Bug, Improvement, Feature |
 | Linear statuses | Backlog, Todo, In Progress, In Review, Done, Canceled, Duplicate (as `conventions.md` lists them) |
 | Jira | KAN project and NEXUS-1 oversight space are the Shepherd's latest direction (`.shepherd/liminal-jira-202610310011.md`, checked by that session at 202610310011 UTC). **Not re-checked in this pack** |
 | Paths the pack cites | All confirmed present on `main` at `be1ed10`, except the PR #474 files, which exist only on that branch |
@@ -40,10 +41,10 @@ Pull request and issue state read through the REST API. Linear read through the 
 
 ## Four things named, not resolved
 
-1. **Which system holds the work.** Jira first (latest liminal direction) and a Linear project (this request) are both live. The sources do not say how they relate.
+1. **Which system holds the work.** Answered 202611011822: no preference; work / play / create split, with the pick delegated (06-ATRIUM-SEEDS.md). Open only to confirm the pick.
 2. **Two spellings of the same four suits.** State names (Seed, Carbonite, Aethereal, Pinnacle) in `world/suit-and-plank.md`; card names (Diamond, Club, Heart, Spade) elsewhere. Not a conflict, but the labels need one choice.
 3. **Two layouts for one job.** #473 and #474 both define where a finished conversation's package lives. Neither is merged.
-4. **Documentation drift in the Linear plugin docs.** `conventions.md` says two projects and says label groups exist; the workspace has four projects and no such groups. Which side is edited to match the other is open.
+4. **Documentation drift in the Linear plugin docs.** `conventions.md` says two projects; the workspace has four. The label groups now match. Which side is edited for the project count is open.
 
 ---
 

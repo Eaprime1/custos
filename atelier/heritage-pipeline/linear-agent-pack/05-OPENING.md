@@ -1,6 +1,7 @@
-# Opening: Atrium, Finish the Conversation
+# Opening: Atrium
 
-`prima-clock: 202611011738` (UTC; the Shepherd's anchor 202611010921 is Pacific)
+`prima-clock: 202611011824` (UTC)
+`annuit: given by the Shepherd (Eric Pace) at 202611011822 UTC, 10:22 Pacific 2026-11-01. "The go ahead to develop." It is not a seal, a merge or an undraft.`
 `suit: ♦️ Seed · plank: 1/3 Plank (proposed; the Shepherd names it)`
 `entity: eaprime1 + the Linear navigo agent · project name: proposed, the Shepherd names it`
 `chain of custody: OPEN`
@@ -11,9 +12,11 @@
 
 ## What this project is
 
-A place to finish conversations well. A long conversation holds more than anyone will reread: a few ideas worth keeping, an exact record that should be kept safely and left alone, and a short package for the public repo. This project carries that work, from the first real run (the "Flywheel Sacred Seed" thread) to a pattern the next conversation can follow.
+A place to finish conversations so the next thing can start. A long conversation holds more than anyone will reread: a few ideas worth keeping, an exact record that should be kept safely and left alone, and a short package for the public repo. This project carries that work, from the first real run (the "Flywheel Sacred Seed" thread) to a pattern the next conversation can follow.
 
-The work lives in three places that must not blur: the **origin** in the private Armarium, the **package** in `eaprime1/custos`, and the **tracking** here.
+The work lives in three places that must not blur: the **origin** in the private Armarium, the **package** in `eaprime1/custos`, and the **tracking** here. A finished conversation goes into the live system and then to a project archive where it can still be reached.
+
+The annuit was given by the Shepherd at 202611011822 UTC: the go ahead to develop.
 
 ---
 
@@ -28,7 +31,7 @@ Verified 202611011735 UTC. Replace with the agent's refresh.
 | PR #474 (another take on the procedure) | open, draft, not merged |
 | custos issue #510 | open: nine seams, one layout question |
 | Armarium `hopechest/origins` | exists at `40e744a`, empty |
-| Linear | four projects; Suit and Plank labels absent |
+| Linear | four projects; Suit and Plank labels present (set up by the Shepherd, 202611011822) |
 | Jira | not re-checked |
 
 Not checked: other open PRs, Jira, the issues inside the four existing Linear projects.
@@ -46,9 +49,9 @@ Not checked: other open PRs, Jira, the issues inside the four existing Linear pr
 
 ## Four things named, not resolved
 
-1. **Linear or Jira.** The latest liminal direction is Jira first. This project is in Linear. How they relate is for the Shepherd.
+1. **Work, play, create.** Proposed: Jira = work, Linear = play, hodie = create, atelier = default. The Shepherd delegated the pick; he confirms it.
 2. **One layout.** Two drafts file a finished conversation under different folders.
-3. **Suit and Plank labels.** Absent from Linear; the repo says they exist.
+3. **One Atrium seed or three.** Proposed: one parent with three children (06-ATRIUM-SEEDS.md).
 4. **The word "done".** The procedure tests completion with a score (TKP). The first run found the score passes anything with enough headings, so completion is, for now, the Shepherd's judgment on a pass or fail checklist.
 
 ---
