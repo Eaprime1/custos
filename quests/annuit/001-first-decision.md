@@ -44,10 +44,10 @@ interact as if it did; the passage from empty_vector to anti_vector is the trans
 test -f atelier/annuit-first-decision/annuit-draft.md \
   && test -f atelier/annuit-first-decision/info-request-202611010100.json \
   && python3 -c "import json;json.load(open('atelier/annuit-first-decision/info-request-202611010100.json'))" \
-  && grep -q "^- .*annuit given" quests/annuit/001-first-decision.md && echo "COMPLETE" || echo "NOT YET"
+  && grep -Eq "^- .*(annuit|ratihabitio) given" quests/annuit/001-first-decision.md && echo "COMPLETE" || echo "NOT YET"
 ```
 
-It reads `NOT YET` until a Log line records that the nod was given. That is intended.
+It reads `NOT YET` until a Log line records that the nod (`annuit` or `ratihabitio`) was given. That is intended.
 
 ## Reward
 
