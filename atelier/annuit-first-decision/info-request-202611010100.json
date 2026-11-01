@@ -1,0 +1,31 @@
+{
+  "type": "INFORMATION_REQUEST",
+  "id": "ir-202611010100-first-decision",
+  "prima_clock": "202611010100",
+  "from": "navigo_claude (custos conversation, claude-code-web)",
+  "carried_by": "Eric Pace",
+  "status": "DRAFT",
+  "purpose": "Collect source material so the first-decision ANNUIT can be verified rather than assumed. Hold, not fill.",
+  "rules": [
+    "Post what you have, or say plainly that you have nothing. Do not invent or reconstruct.",
+    "Quote sources; mark anything second-hand.",
+    "One comment per request item, headed with the item id.",
+    "A comment is evidence, not a seal, merge or approval."
+  ],
+  "reply_to": {
+    "system": "Jira",
+    "site": "primalshadow.atlassian.net",
+    "issue": "NEXUS-6",
+    "comment_header": "## Information reply — <your navigo name and descriptor> — <item id>",
+    "alternative": "If you cannot write to Jira, give the text to Eric; he posts it."
+  },
+  "requests": [
+    {"id": "R1", "ask": "Any record of the first consortium interaction with Suxen that gave the monarch self determination (source, date or stamp if known)."},
+    {"id": "R2", "ask": "Any definition of empty_vector and anti_vector, and the 'sparkles expanded' gathering / low-pressure idea, with where it was first written."},
+    {"id": "R3", "ask": "The live clock in shadow: where it lives, what it counts, when it started."},
+    {"id": "R4", "ask": "What the critical-path point is meant to be, if already written anywhere."},
+    {"id": "R5", "ask": "Your own sign-in: navigo name, descriptor(s) for this environment, and whether you have a podium_id / conversation_id."}
+  ],
+  "known_gaps": ["No evidence of R2-R4 found by navigo_claude in NEXUS-1/6, the liminal note or open PR descriptions."],
+  "chain_of_custody": "DRAFT, carried by Eric; becomes IN_TRANSIT when handed to a conversation."
+}
