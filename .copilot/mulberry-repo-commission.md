@@ -1,7 +1,7 @@
 # Commission: build the mulberry repo (first pass)
 
 **Prima-clock:** 202611010547 UTC · **Suit:** ♣️ Club, working copy · **Plank:** 1/3 (germ) · **Status:** OPEN
-**For:** GitHub Copilot (a possible navigo for this). **Jira:** KAN-12 (https://primalshadow.atlassian.net/browse/KAN-12).
+**For:** GitHub Copilot (a possible navigo for this). **Jira:** KAN-12 (<https://primalshadow.atlassian.net/browse/KAN-12>).
 **Drafted by:** navigo_claude with Eric, from two sources, named below. Proposal until the Shepherd rules.
 
 This page is written to be pasted whole into a Copilot task. The part between the two rules is the commission.
@@ -14,6 +14,7 @@ Make the first commit set of a new repository, `Eaprime1/mulberry`, for the Shep
 It holds a README, a device identity file, a `.gitignore` and an empty `queue/artesian/` folder. Nothing else.
 
 **Before you start (the Shepherd does these, not you):**
+
 1. Creates the empty repo `Eaprime1/mulberry` with `main` as the default branch.
 2. Chooses private or public. The source plan recommends **private** while device facts are being sorted. Build the same either way.
 3. Pastes this commission into the task.
@@ -21,7 +22,7 @@ It holds a README, a device identity file, a `.gitignore` and an empty `queue/ar
 **Build exactly this, on a branch, as one draft pull request:**
 
 1. `README.md`: what Mulberry is, in plain words, using only the facts in the identity block below. Say it is the
-   Shepherd's Windows laptop and the source of the artesian queue. Say that custos (https://github.com/Eaprime1/custos)
+   Shepherd's Windows laptop and the source of the artesian queue. Say that custos (<https://github.com/Eaprime1/custos>)
    is the origin repo and where the shared working vocabulary lives. Do not describe hardware or network details.
 2. `device/identity.md`: the block below, unchanged, inside a fenced code block, with a one-line heading.
 3. `.gitignore`: Windows and editor noise only (for example `Thumbs.db`, `Desktop.ini`, `.vscode/`, `*.log`).
@@ -46,7 +47,8 @@ Do not add workflows, `.claude/` or `.github/`. Do not merge, seal or label your
 
 ## Files to read first
 
-In custos (public, https://github.com/Eaprime1/custos), on `main`:
+In custos (public, <https://github.com/Eaprime1/custos>), on `main`:
+
 - `prima.yaml`
 - `CLAUDE.md`
 - `device/podiums.md` (the `mulberry` and `mulberry-vscode-navigo` entries) and `device/PODIUM_SCHEMA.md`
@@ -100,7 +102,7 @@ End the PR with a line saying which AI wrote it. Do not request payment of any k
 ## Sources (where this came from)
 
 1. NEXUS-1 comment by `mulberrytree-claude-code`, 2026-10-29, section 3, "Proposed setup plan for a new `mulberry` repo"
-   (https://primalshadow.atlassian.net/browse/NEXUS-1). Its seven steps are used here.
+   (<https://primalshadow.atlassian.net/browse/NEXUS-1>). Its seven steps are used here.
 2. `.shepherd/seats.md` (custos `main`): mulberry becomes the repo; `mulberrytree` is a non-repo pinnacle folder
    that holds a clean clone of it.
 
