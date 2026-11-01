@@ -25,5 +25,6 @@ quests/
 | Arc | Description | Quest Count |
 |---|---|---|
 | example | Template starter arc — replace with your first real arc | 1 |
+| annuit | The 22nd iteration's first decision; a quest log filled as content is found | 1 |
 
 Update this table as arcs are added.

@@ -64,6 +64,13 @@ CHECK-IN CUES (issues)
   petitio    my plan, waiting for the nod
   placet     the nod (owner)
 
+NAVIGO CHECK-IN (Jira NEXUS-6, v2.2)
+  annuit        the light nod. Eric's comment; the navigo's work may begin. Sets nothing.
+  ratihabitio   the full ratification, for larger developments. Not the default.
+  order         check-in comment (prima recensio) > oversight navigo affirms > annuit > work
+  note          placet is the same kind of nod on a GitHub mission issue. Overlap, undecided.
+  open          a word for "subscribe" (sequere / vigila / adsta). Judicium. Not in the parser.
+
 CUSTOS VERBS
   ^custos check          ^custos concordance
   ^custos sync-labels
