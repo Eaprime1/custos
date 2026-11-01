@@ -117,6 +117,20 @@ of this draft.
 - **Embedded hash and TKP.** Notes and suggestions are in `NOTES-hash-and-tkp.md` in this folder.
 - **The discrepancies in section 3** are filed as custos issue #510 (labels `upgrade`, `needs-shepherd`).
 
+## 10. Update 202611011825 (the Shepherd's message of 10:22 Pacific, 202611011822 UTC)
+
+- **Annuit.** The Shepherd (Eric Pace) gave the annuit for this work at 202611011822 UTC: "the go ahead to develop." It is
+  the go-ahead to develop. It is not a seal, a merge or an undraft; those stay his.
+- **Title.** "Finish" moves out of the title. The concept stands: finish a conversation to prepare what is next. The
+  conversation goes into the live system, then to a project archive where it can still be reached. The proposed name is
+  Atrium (he names it).
+- **Work, play, create.** Each system keeps one focus: work = our today, play = the journey, create = mostly hodie.
+  atelier is the default. His pick of which system holds which was delegated; the proposal is in the Linear pack
+  (PR #511, `06-ATRIUM-SEEDS.md`): Jira = work, Linear = play, hodie = create. One Atrium parent with three child seeds is
+  the lean; his question "the Atrium seed, or three" is open.
+- **Labels.** The Suit and Plank groups now exist in Linear (read 202611011822).
+- **Still open:** layout (#473 or #474), seed picks, the exact-bytes origin, hash option and TKP stance.
+
 ---
 
 **prima-clock:** 202610201544
