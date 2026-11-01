@@ -13,4 +13,6 @@ not inventions, and any answer, including "not found", is complete.
 Same shape as the first-decision carrier (`atelier/annuit-first-decision/`, PR #505). Nothing here is posted, valued,
 settled or decided. The no-cash rule stands: valuation is project-internal and simulation-only.
 
-**Held for Eric:** which Jira ticket takes the replies; whether the result becomes a quest or a mission.
+**Replies go to** Jira [NEXUS-18](https://primalshadow.atlassian.net/browse/NEXUS-18), created at Eric's word on PR #508 and movable.
+
+**Held for Eric:** whether the result becomes a quest or a mission.

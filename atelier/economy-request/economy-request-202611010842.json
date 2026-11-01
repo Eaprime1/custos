@@ -17,31 +17,76 @@
   "reply_to": {
     "system": "Jira",
     "site": "primalshadow.atlassian.net",
-    "issue": "not yet named",
+    "issue": "NEXUS-18",
     "comment_header": "## Information reply — <your navigo name and descriptor> — <item id>",
-    "note": "Eric names the ticket (candidates: NEXUS-5 backlog, or a new child under NEXUS-1). Until then, hand the text to Eric. Do not create tickets."
+    "note": "Created at Eric's word on PR #508 (https://primalshadow.atlassian.net/browse/NEXUS-18), as a child of NEXUS-1. It is movable; if it should live elsewhere or be a mission, Eric says so on the ticket. Do not create other tickets."
   },
   "already_in_the_repo": [
-    {"what": "Crystalline and Serious Play Economy seed (Navigo7, Gemini Notebook + Eric), with its ledger", "where": "atelier/marrowing-of-hope/navigo7/crystalline-and-serious-play-economy-seed.md and crystalline-economy-seed.json"},
-    {"what": "Crystalline Metric System, tokenomics and the Master Valuation Formula (section 6)", "where": "atelier/act-ii/Custos Architecture Content Expansion.md; it draws on the Apache Airavata Custos project, a name collision, so how much carries over is the Shepherd's call"},
-    {"what": "The Five Lakes Valuation System: card ranks, chip floor, currency anchors", "where": "valuation/README.md and tools/valuation_report.sh"},
-    {"what": "Peer Swap Rubric v0 (measures M1 to M8)", "where": "turns/observations/RUBRIC.md; scores backfilled onto the PR #497 to #500 observations in PR #501"},
-    {"what": "Rewards: no cash, no bounties; XP on the prime ladder, badges and Sparstones", "where": "docs/issue-system.md section 4 and CLAUDE.md"},
-    {"what": "Signum marks and the validation ladder, where Valuation is kept apart and simulation-only", "where": "Jira NEXUS-13 and NEXUS-14; docs/signum.md is on the branch of draft PR #503, not yet on main"}
+    {
+      "what": "Crystalline and Serious Play Economy seed (Navigo7, Gemini Notebook + Eric), with its ledger",
+      "where": "atelier/marrowing-of-hope/navigo7/crystalline-and-serious-play-economy-seed.md and crystalline-economy-seed.json"
+    },
+    {
+      "what": "Crystalline Metric System, tokenomics and the Master Valuation Formula (section 6)",
+      "where": "atelier/act-ii/Custos Architecture Content Expansion.md; it draws on the Apache Airavata Custos project, a name collision, so how much carries over is the Shepherd's call"
+    },
+    {
+      "what": "The Five Lakes Valuation System: card ranks, chip floor, currency anchors",
+      "where": "valuation/README.md and tools/valuation_report.sh"
+    },
+    {
+      "what": "Peer Swap Rubric v0 (measures M1 to M8)",
+      "where": "turns/observations/RUBRIC.md; scores backfilled onto the PR #497 to #500 observations in PR #501"
+    },
+    {
+      "what": "Rewards: no cash, no bounties; XP on the prime ladder, badges and Sparstones",
+      "where": "docs/issue-system.md section 4 and CLAUDE.md"
+    },
+    {
+      "what": "Signum marks and the validation ladder, where Valuation is kept apart and simulation-only",
+      "where": "Jira NEXUS-13 and NEXUS-14; docs/signum.md is on the branch of draft PR #503, not yet on main"
+    }
   ],
   "requests": [
-    {"id": "E1", "topic": "economy content", "ask": "Where is the current version of the Crystalline and Serious Play Economy, and has it changed since the 0.1.0-alpha seed? Name any later ledger, revision or conversation that holds it."},
-    {"id": "E2", "topic": "metrics", "ask": "What does the project measure, in what unit, and who or what computes it? Known so far: XP and the prime ladder, Five Lakes card ranks and chips, rubric measures M1 to M8. Anything else, with its definition and source?"},
-    {"id": "E3", "topic": "incentive", "ask": "What incentives exist today and what has been proposed (for example the Synergy Bonus and Experience Shards in the economy seed)? For each, say whether it is in use, proposed or only narrative. The no-cash rule holds."},
-    {"id": "E4", "topic": "rubric analyses", "ask": "Are there other rubrics (other repos, the peer swap, other navigo work) and any analysis of how scores have behaved over time? What was learned and what was changed because of it?"},
-    {"id": "E5", "topic": "valuation", "ask": "Which valuation system is the current one: the Master Valuation Formula, the Five Lakes ledger or something newer? Which parts are simulation-only? The Five Lakes README states a real-currency peg and the economy seed sets a Cub Scout uniform anchor value; what is their status? Report them as found."},
-    {"id": "E6", "topic": "evaluation", "ask": "Who evaluates, with what witness, and how does a score or valuation become a decision? How does this meet the Signum ladder and the rule that only the Shepherd seals, merges or approves?"},
-    {"id": "E7", "topic": "sign-in (optional)", "ask": "If this is your first reply, give your navigo name, your descriptor for this environment, and any podium_id or conversation_id you actually have. Do not invent one."}
+    {
+      "id": "E1",
+      "topic": "economy content",
+      "ask": "Where is the current version of the Crystalline and Serious Play Economy, and has it changed since the 0.1.0-alpha seed? Name any later ledger, revision or conversation that holds it."
+    },
+    {
+      "id": "E2",
+      "topic": "metrics",
+      "ask": "What does the project measure, in what unit, and who or what computes it? Known so far: XP and the prime ladder, Five Lakes card ranks and chips, rubric measures M1 to M8. Anything else, with its definition and source?"
+    },
+    {
+      "id": "E3",
+      "topic": "incentive",
+      "ask": "What incentives exist today and what has been proposed (for example the Synergy Bonus and Experience Shards in the economy seed)? For each, say whether it is in use, proposed or only narrative. The no-cash rule holds."
+    },
+    {
+      "id": "E4",
+      "topic": "rubric analyses",
+      "ask": "Are there other rubrics (other repos, the peer swap, other navigo work) and any analysis of how scores have behaved over time? What was learned and what was changed because of it?"
+    },
+    {
+      "id": "E5",
+      "topic": "valuation",
+      "ask": "Which valuation system is the current one: the Master Valuation Formula, the Five Lakes ledger or something newer? Which parts are simulation-only? The Five Lakes README states a real-currency peg and the economy seed sets a Cub Scout uniform anchor value; what is their status? Report them as found."
+    },
+    {
+      "id": "E6",
+      "topic": "evaluation",
+      "ask": "Who evaluates, with what witness, and how does a score or valuation become a decision? How does this meet the Signum ladder and the rule that only the Shepherd seals, merges or approves?"
+    },
+    {
+      "id": "E7",
+      "topic": "sign-in (optional)",
+      "ask": "If this is your first reply, give your navigo name, your descriptor for this environment, and any podium_id or conversation_id you actually have. Do not invent one."
+    }
   ],
   "known_gaps": [
     "From a quick search I found no single document that connects the economy seed, the Five Lakes valuation, the peer-swap rubric and the Sparstone rewards. That search was not exhaustive.",
-    "I have not read the Drive material for any of this.",
-    "The reply ticket is not named yet."
+    "I have not read the Drive material for any of this."
   ],
   "next": "When enough replies exist, a quest or mission is written from them. That is a separate step and a separate decision.",
   "chain_of_custody": "DRAFT, carried by Eric; becomes IN_TRANSIT when handed to a conversation."
