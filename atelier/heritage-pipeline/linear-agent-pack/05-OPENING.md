@@ -55,16 +55,16 @@ Not checked: other open PRs, Jira, the issues inside the four existing Linear pr
 
 ## The seed: what grows from the floor
 
-Six milestones, in `03-BUILD-PLAN.md`:
+Six milestones, M0 to M5, in `03-BUILD-PLAN.md`:
 
-1. **Floor.** Refresh, report, ask. Nothing built.
-2. **One-conversation package.** The Flywheel run taken through all five stages.
-3. **Reconcile the seams.** One line of decision per row of #510.
-4. **Armarium and custody.** The origin kept; the record truthful.
-5. **Engines and gate.** Brought in and tested, or left out on purpose.
-6. **Related seeds.** Seven hand-off topics held on a shelf.
+- **M0 Floor.** Refresh, report, ask. Nothing built.
+- **M1 One-conversation package.** The Flywheel run taken through all five stages.
+- **M2 Reconcile the seams.** One line of decision per row of #510.
+- **M3 Armarium and custody.** The origin kept; the record truthful.
+- **M4 Engines and gate.** Brought in and tested, or left out on purpose.
+- **M5 Related seeds.** Seven hand-off topics held on a shelf.
 
-First move, once the Shepherd says go: milestone 1, the floor, in a handful of issues.
+First move, once the Shepherd says go: milestone M0, the floor, in a handful of issues.
 
 ---
 
