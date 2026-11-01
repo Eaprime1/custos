@@ -2,7 +2,7 @@
 
 **Filed in custos:** 202611010342 UTC, atelier. A quest log is kept beside it: `quests/annuit/001-first-decision.md`.
 
-**For:** NEXUS-6 (as Eric's comment, his to post or to authorize me to post)
+**For:** NEXUS-6 (as Eric's own comment; a navigo never posts the nod)
 **Prima-clock:** 202611010100 UTC draft · **Weight:** ANNUIT (light nod), unless Eric escalates to RATIHABITIO
 **Why this one is named:** it is the pivotal point that sets the space for concept, time and everything after to develop.
 
@@ -23,7 +23,7 @@ Both affirmations together: the navigo's read (aligned / not aligned) and Eric's
 
 | Item | Read |
 |---|---|
-| Order: gather, collapse, publish | aligned (checked against #494, #495, liminal note) |
+| Order of work | per #494 (Order of work): zero-point publish, then the expansion (gather), then a second publish, then the collapse only on the Shepherd's call. #495 is the zero-point publish. The phrasing "gather, collapse, publish" is unconfirmed against these plans, pending a cited ruling. |
 | Monarch / chrysalis / clutch | fits the sequence; framing only, not documented in repo |
 | empty_vector → anti_vector, low-pressure effect | not found in what I read; carried as Eric's definition, not verified |
 | Shadow live clock, critical-path point | cannot confirm; evidence requested (see info-request JSON) |

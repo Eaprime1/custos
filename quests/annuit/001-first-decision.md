@@ -44,7 +44,7 @@ interact as if it did; the passage from empty_vector to anti_vector is the trans
 test -f atelier/annuit-first-decision/annuit-draft.md \
   && test -f atelier/annuit-first-decision/info-request-202611010100.json \
   && python3 -c "import json;json.load(open('atelier/annuit-first-decision/info-request-202611010100.json'))" \
-  && grep -Eq "^- .*(annuit|ratihabitio) given" quests/annuit/001-first-decision.md && echo "COMPLETE" || echo "NOT YET"
+  && grep -Eq "^- [0-9]{12} · (annuit|ratihabitio) given" quests/annuit/001-first-decision.md && echo "COMPLETE" || echo "NOT YET"
 ```
 
 It reads `NOT YET` until a Log line records that the nod (`annuit` or `ratihabitio`) was given. That is intended.
@@ -61,6 +61,7 @@ It reads `NOT YET` until a Log line records that the nod (`annuit` or `ratihabit
 ## Log
 
 Newest at the bottom. One line each: stamp UTC, what, source, first-hand or second-hand.
+The nod itself is recorded as `- YYYYMMDDHHMM · annuit given. Source: ...` (or `ratihabitio given`). The check reads only that form, so a line such as "No annuit given; waiting" does not count.
 
 - 202611010342 · Quest opened from the Shepherd's call at 202610311708 Pacific. Source: Shepherd's message, first-hand.
 - 202611010100 · navigo_claude's check-in posted on NEXUS-6, comment 10032. Source: Jira, first-hand.
