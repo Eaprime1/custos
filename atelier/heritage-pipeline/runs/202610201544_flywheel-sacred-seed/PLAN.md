@@ -108,6 +108,15 @@ The Right of No applies: if any part should be left out of every file, say so an
 Formal custody (a registry row and a MOAV carrier) waits for the Shepherd's word and is not part
 of this draft.
 
+## 9. Update 202611011732 (the Shepherd's message of 202611010921, read as Pacific)
+
+- **The Armarium is reachable from a conversation.** The private repo `Eaprime1/armarium` was attached with push
+  access. The branch `hopechest/origins` was created at `40e744a`, the same commit as `main`. It holds no origin:
+  there is still no exact-bytes export of this thread, and the privacy review is the Shepherd's. A pull request
+  cannot be opened from it until it has a commit of its own.
+- **Embedded hash and TKP.** Notes and suggestions are in `NOTES-hash-and-tkp.md` in this folder.
+- **The discrepancies in section 3** are filed as custos issue #510 (labels `upgrade`, `needs-shepherd`).
+
 ---
 
 **prima-clock:** 202610201544
