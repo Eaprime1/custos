@@ -1,0 +1,38 @@
+{
+  "carrier_id": "posthog_moav_intake_packet001",
+  "prima_clock": "202611032212",
+  "entity": "eaprime1 + Claude",
+  "suit": "♦️",
+  "iteration": "21 — Blackjack → 22 (novissimum)",
+  "event": "PostHog packet offered to custos as a seed, with a routing request",
+  "motion_state": "WITNESSED",
+  "chain_of_custody": "OPEN",
+  "transition": {
+    "from": "Claude Doc 'PostHog Packet: Novissimum Seed for the 22nd Iteration' (rev 34), conversation signed in as navigo_claude-custos_posthog",
+    "to": "custos/atelier/posthog/"
+  },
+  "delivered": {
+    "posthog_packet": {
+      "file": "atelier/posthog/posthog-packet.md",
+      "description": "Business-plan-style packet: routing request to custos (five questions), three perspectives (Navigo_Claude, Eric as human ad-hoc server, PostHog as contributor), the PostHog sign-in pattern (five fields, short form, internal-only note, relation to the Jira unexusi version), what PostHog can do, PostHog as a contributor, out-of-the-box ideas, proposed branch structure, five-phase plan with gates, caveats. Markdown export of the Doc; the embedded branch-structure diagram is rendered as a text tree.",
+      "internal_only": true
+    }
+  },
+  "proposed_not_decided": {
+    "suit": "♦️ and plank 1/3 are proposals; eaprime1 sets the real state",
+    "branch_name": "posthog (proposed by eaprime1); this carrier rides on claude/posthog-packet-seed until custos answers",
+    "location": "atelier/posthog/ used here only as a landing spot; whether PostHog work lives on a branch, in atelier/, or in its own repo is routing question 1 of the packet"
+  },
+  "notes": "Filed as a draft PR so the routing questions are answered in the PR process, as eaprime1 asked. The packet names Eric and Claude for internal tracking; this repo is public with permanent history, and the Voices of Navigo pattern keeps individual names out of public content, so the byline and sign-in section need an owner decision before merge. The sign-in section is a competing naming proposal against the existing Jira unexusi version, which was not read; naming is under review in this repo. The PostHog plugin skills and the connected PostHog command tool exist in the session but no command was run, so nothing here is known about the account's data. No prima-clock registry row and no branch-tracker row were added (both are Deck Master paths; Deck Master is not operating).",
+  "open_questions": [
+    "Where PostHog work should live: a branch on eaprime1/custos, atelier/posthog/, or its own repository (packet routing question 1)",
+    "Branch name: posthog, or the claude/-prefixed session branch",
+    "Whether the Voices of Navigo public/internal split means this packet should be rewritten without names before merge, or kept internal-only some other way",
+    "Which side wins where the PostHog sign-in version and the Jira unexusi version differ, and who runs that review",
+    "Whether a registry row and a branch-tracker row should be added on merge"
+  ],
+  "references": {
+    "prima_clock_registry_rows": [],
+    "related_carriers": ["custos_moav_intake_prenullus003"]
+  }
+}
