@@ -1,0 +1,62 @@
+{
+  "_metadata": {
+    "entity_name": "Linguistics",
+    "quantum_address": "11022300888",
+    "archetype": "The Symbol Weaver & Etymology Archaeologist",
+    "status": "seed_proposal",
+    "creation_timestamp": "2026-10-22T03:02:44-07:00",
+    "wikipedia_source": {
+      "article": "Linguistics",
+      "url": "https://en.wikipedia.org/wiki/Linguistics",
+      "revision_id": null,
+      "revision_pinned": false
+    },
+    "serendipity_bridge": {
+      "article": "Rosetta Stone",
+      "url": "https://en.wikipedia.org/wiki/Rosetta_Stone",
+      "analogy_only": true,
+      "synthesis_notes": "Shared labels and mappings can help different project domains interpret the same data consistently."
+    }
+  },
+  "core_essence": {
+    "foundation": "Systematic study of language, including its structure, meaning, and use in context.",
+    "philosophical_anchor": "Careful distinctions among symbols and meanings can improve clarity in collaboration.",
+    "functional_role": "A project-design metaphor for expressing intentions in structured notation and mapping concepts across a shared glossary."
+  },
+  "attribute_mappings": {
+    "syntax_architecture": {
+      "definition": "Patterns and rules governing how linguistic elements are arranged.",
+      "project_application": "Encourage consistent formatting, modular schemas, and clear hierarchy in documentation."
+    },
+    "semantic_precision": {
+      "definition": "The study of meaning and relations between signs and symbols.",
+      "project_application": "Define terms where ambiguity would change a decision."
+    },
+    "pragmatic_context": {
+      "definition": "How context influences the interpretation and use of language.",
+      "project_application": "Adapt communication to the user's goals, context, and preferences."
+    }
+  },
+  "cross_reference_links": [
+    {
+      "target_entity": "Mandelbrot Set",
+      "quantum_address": "88015500999∞",
+      "analogy_only": true,
+      "synergy": "A metaphor for recurring patterns in language."
+    },
+    {
+      "target_entity": "Quantum Entanglement",
+      "quantum_address": "99044100777",
+      "analogy_only": true,
+      "synergy": "A metaphor for concise communication across asynchronous work; no physical non-local transmission is implied."
+    }
+  ],
+  "adventure_quests": [
+    {
+      "quest_id": "QUEST_001_SEMANTIC_EXCAVATION",
+      "title": "The Lexicon Restoration Protocol",
+      "objective": "Identify ambiguous or overloaded project terms and propose clear definitions.",
+      "outcome": "A reviewed project glossary with explicit boundaries."
+    }
+  ]
+}
