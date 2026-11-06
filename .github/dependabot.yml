@@ -1,0 +1,19 @@
+# Keeps the SHA-pinned actions in .github/workflows/ current.
+# One grouped pull request a week at most, so updates arrive as a single
+# reviewable change rather than one PR per action. Dependabot updates the
+# SHA and the "# vX.Y.Z" comment together.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 1
+    groups:
+      actions:
+        patterns:
+          - "*"
+    labels:
+      - upgrade
+    commit-message:
+      prefix: "actions"
