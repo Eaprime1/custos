@@ -1,7 +1,7 @@
 # Custos — Latin Cue Record
 #
 # When the owner comments a Latin workflow call on a PR (docs/latin-workflow-glossary.md:
-# Recensio, Probatio, Lustratio, Judicium, Novissimum, Cursus, Emenda, or a bare
+# Recensio, Probatio, Lustratio, Judicium, Novissimum, Cursus, Emenda, Refice, Semina, Sustine, or a bare
 # Renovata, with or without a modifier such as Prima, Ultima or Renovata), this gathers the PR's state into
 # one comment, so the final review before merge has it in one place:
 #   - a log of every cue: when, which call, who, and the head commit at the time
@@ -65,6 +65,9 @@ jobs:
         contains(github.event.comment.body, 'novissimum') ||
         contains(github.event.comment.body, 'cursus') ||
         contains(github.event.comment.body, 'emenda') ||
+        contains(github.event.comment.body, 'refice') ||
+        contains(github.event.comment.body, 'semina') ||
+        contains(github.event.comment.body, 'sustine') ||
         contains(github.event.comment.body, 'renovata')))
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -102,7 +105,7 @@ jobs:
                 .replace(/```[\s\S]*?```/g, ' ')
                 .replace(/`[^`\n]*`/g, ' ')
                 .replace(/^[ \t]*>.*$/gm, ' ');
-              const ACTIONS = ['Recensio', 'Probatio', 'Lustratio', 'Judicium', 'Novissimum', 'Cursus', 'Emenda'];
+              const ACTIONS = ['Recensio', 'Probatio', 'Lustratio', 'Judicium', 'Novissimum', 'Cursus', 'Emenda', 'Refice', 'Semina', 'Sustine'];
               const MODS = ['Prima', 'Ultima', 'Suprema', 'Extrema', 'Renovata', 'Expeditus', 'Confirmanda', 'Supplenda'];
               const words = (text.match(/[A-Za-z]+/g) || []).map(w => w.toLowerCase());
               const cap = w => w[0].toUpperCase() + w.slice(1);
