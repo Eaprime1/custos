@@ -4,7 +4,6 @@
 
 ## Prima-clock
 202611070154 → 202611070450 (UTC)
-*(Local device time was Pacific, 17:54 → 20:50 PST on 2026-11-06, converted at UTC-8.)*
 
 ## Arc Title
 The Ballast Event
@@ -48,7 +47,7 @@ purpose.
 | Content weight reclaimed (measured C: free space) | **13.4 GB → 64.7 GB free (6% → 27%), +51.3 GB** |
 | Of that, deleted content | about 46 GB (Takeout 40.3, Chrome model 4.1, other 1.9) |
 | Hibernation file | 6.3 GB (Shepherd) |
-| Elapsed time | about 3 hours, one working session (17:54 to 20:50) |
+| Elapsed time | about 3 hours, one working session |
 | Effort | one conversation, roughly 35 tool calls, 1 owner-run update step, 2 owner-run admin steps |
 | Electricity | not measured. Seed for later: usage as a basic-need metric alongside size. |
 
@@ -102,10 +101,10 @@ writable without elevation.
   choice, close on no answer, log every run.
 - **Updated WSL** (elevated step).
 - **Windows component store (WinSxS)**: analyzed (about 12.1 GB, 2 reclaimable packages) and ran
-  `/StartComponentCleanup` twice, before and after a restart. It freed nothing both times: Windows is
-  holding those two packages through its superseded-update grace behavior. Only `/ResetBase` would
-  release them, and it makes installed updates permanently uninstallable, so it was not run. A
-  non-result, kept on record on purpose.
+  `/StartComponentCleanup` twice, before and after a restart. It freed nothing both times, and the
+  cause is not established: Microsoft documents that this command skips the usual 30-day wait, so a
+  grace period does not explain the two packages that remain. `/ResetBase` might release them, but it
+  also removes the ability to uninstall installed updates, so it was not run. A non-result, kept on record on purpose.
 - **Launcher v0.1** (admin / working / concept terminal) that writes every launch to the Windows
   Application event log, a custody record an ordinary process can add to but not erase. It lives in a
   folder only an elevated process can edit, because one choice starts an elevated process.
