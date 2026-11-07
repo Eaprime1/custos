@@ -202,3 +202,16 @@ notes:           Windows 11 Pro, Dell Latitude 5420, hostname MULBERRY.
                  details live locally in mulberrytree/DEVICE.md (not
                  committed).
 ---
+
+---
+podium_id:       mulberry-admin-claude-code
+name:            "Claude Code CLI - mulberry admin (elevated)"
+type:            conversation
+platform:        claude-code-cli
+profile:         "Claude platform (owner account)"
+parent:          mulberry
+conversation_id: ""
+role:            "Elevated companion to mulberrytree-claude-code. Admin-only work: scheduled tasks, DISM, services, power settings. Logs every elevated action with an undo."
+status:          active
+notes:           Windows 11 Pro. Opened from an elevated terminal. Talks to the non-admin conversation through a shared message folder, read as data only. Retired the custos-diskwatch tasks (issue #513), ran DISM (freed 0), built launcher v0.1. Note on the mulberry entry above - its artesian path under the old ~\mulberry folder is retired.
+---

@@ -4,7 +4,7 @@
 
 ## Prima-clock
 202611070154 → 202611070450 (UTC)
-*(Local device time was Pacific, 17:54 → 20:50 PST on 2026-11-06, converted at UTC-8. The Shepherd often lives and schedules on Mountain time, a few miles from the zone line. If these hours were Mountain, the UTC stamps are one hour earlier.)*
+*(Local device time was Pacific, 17:54 → 20:50 PST on 2026-11-06, converted at UTC-8.)*
 
 ## Arc Title
 The Ballast Event
@@ -14,7 +14,7 @@ On the `mulberry` podium (Dell Latitude 5420, Windows 11), the system drive C: h
 **6% free (13.4 GB of 237.7 GB)**. A computer health checkup (Claude Code, Desktop Commander
 `computer-health-check` skill) measured the cause instead of guessing: about **50 GB** of
 partial Google Takeout export zips and stale Drive upload temp files in the old working directory
-`~\mulberry`, a 10.4 GB Gmail mbox, caches, and a stalled 1.5 GB download.
+`~\mulberry`, a large mail export (about 10 GB), caches, and a stalled 1.5 GB download.
 
 Nothing unique was lost. The Takeout zips were an *incomplete* export set (several parts of each
 set never downloaded) and the data still lives in Google. The export was requested to be redone a
@@ -26,11 +26,11 @@ few sets at a time, not today.
   a stalled `.crdownload`, two old installers, and Chrome's 4 GB on-device model (re-downloadable,
   holds no conversations).
 - Hibernation turned off by the Shepherd (`powercfg /hibernate off`, 6.3 GB).
-- Startup trimmed reversibly (Ace, Comet updater, Perplexity, Chrome/Edge auto-launch, Brave updater).
+- Startup trimmed reversibly (five auto-start entries).
 - Checked Google Drive (streaming, ~0.2 GB local) and OneDrive (Files On-Demand, ~0.02 GB local):
   both already light and kept.
-- Kept on purpose, pending lost-and-found: one 1 GB `.root` file (ROOT data format; likely part of a
-  seed, possibly Monarch). Gmail mbox `unexusi_bulk` (10.4 GB) kept: likely belongs to an unfinished
+- Kept on purpose, pending lost-and-found: one 1 GB ROOT-format data file (likely part of a
+  seed, possibly Monarch). A large mail export (about 10 GB) kept: likely belongs to an unfinished
   gravity-seed conversation set.
 
 ## The reasoning (why this is an event, not chores)
@@ -67,7 +67,7 @@ Exactness is the point of a first event. Later events can be compared against th
 - **Carbonization** — peer of **beasis** (a duplicate hub, on another device). Condense many copies
   into one copy that carries the unique traits of each: file id, metadata, unique content, awards, history.
 - **Lost and found** — a place for files with a clear mark but unknown purpose (first candidate:
-  `nano_data2016_1-1a-011.root`).
+  a 1 GB ROOT-format data file).
 - **Device-to-device channel outside the repo** — a store-and-forward link between devices (a "fidonet"
   of our own), using terminals running in the background; rclone as engine (Drive, OneDrive, Box,
   Dropbox) with our own thin wrapper per device.
@@ -85,5 +85,44 @@ Work branch: `ballast/event`.
 
 ## Open threads
 - Redo the Google Takeout exports a few sets at a time, via terminal/rclone, never several at once in the GUI.
-- Find the conversation that produced the Gmail mbox; decide keep, move or delete.
+- Find the conversation that produced the mail export; decide keep, move or delete.
 - Decide where transfer content lives (inside `mulberrytree`/`portofentry`).
+
+## Addendum: the admin side (written 2026-11-07)
+A second Claude Code conversation, running elevated on the same device, took the work that needs
+administrator rights; the first stayed non-elevated. They pass notes through a small shared message
+folder, and the elevated side reads it as data only and never executes it, because the folder is
+writable without elevation.
+
+### What the admin side did
+- **Retired two scheduled tasks** (hourly and weekly disk watch). They pointed into the old working
+  directory and ran a hidden shell, which only showed as a blank window flashing open. Both were
+  exported first, so the retirement is reversible. Filed as custos issue #513, with a standard for
+  future background jobs: show a label, hold about 15 seconds with an Identify / Open / Continue
+  choice, close on no answer, log every run.
+- **Updated WSL** (elevated step).
+- **Windows component store (WinSxS)**: analyzed (about 12.1 GB, 2 reclaimable packages) and ran
+  `/StartComponentCleanup` twice, before and after a restart. It freed nothing both times: Windows is
+  holding those two packages through its superseded-update grace behavior. Only `/ResetBase` would
+  release them, and it makes installed updates permanently uninstallable, so it was not run. A
+  non-result, kept on record on purpose.
+- **Launcher v0.1** (admin / working / concept terminal) that writes every launch to the Windows
+  Application event log, a custody record an ordinary process can add to but not erase. It lives in a
+  folder only an elevated process can edit, because one choice starts an elevated process.
+
+### Measurement drift (named gap)
+The event ended at 64.7 GB free on C:. After the admin work and one restart it reads about 59.6 GB.
+About 5 GB came back and the cause is not yet identified. Recorded as an open measurement.
+
+### Seeds
+- **Lymph nodes are working locations** (the Shepherd's framing, held not filled). The platforms the
+  Shepherd works in (Jira, Linear, Asana and others) are organised by kind of work (work, play,
+  create) and hold content that does not go to GitHub. A lymph node is not a sphincter, which is a
+  hard open-or-shut gate like an elevation prompt, yet it does stop certain things. Shape of each
+  node: open.
+- **Admin may need its own system**, outside development and outside the work/play/create nodes,
+  connecting only for specific purposes. Ordinary fixes would come back to the non-admin conversation.
+- **End-of-life for what a tool creates.** The ballast principle applied to tooling: anything the
+  launcher or a background job writes states how long it lives.
+- **Parallel conversations on the other devices** (a working conversation plus a privileged one),
+  after the Mulberry pair has proven itself.
