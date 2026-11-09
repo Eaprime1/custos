@@ -17,6 +17,7 @@ Source: https://github.com/Eaprime1/custos/runs/79266436570
 Codacy scope is intentionally focused on files that can affect behavior or automation (workflows, scripts, and core config). Narrative and template-heavy paths are excluded to reduce non-actionable noise.
 
 Updated exclusions include:
+
 - `.github/ISSUE_TEMPLATE/**`
 - `.github/PULL_REQUEST_TEMPLATE.md`
 - `guides/**`
@@ -72,12 +73,14 @@ Workflow file: `.github/workflows/final-review.yml`
 Run it from the **Actions** tab using **Run workflow**.
 
 Inputs:
+
 - `target_ref` (optional): branch/tag/SHA to review
 - `strict_mode` (`true`/`false`):
   - `true`: fail if no Codacy check run is present on the target commit
   - `false`: allow missing Codacy check run
 
 Checks performed:
+
 1. `bash tools/prime_check.sh`
 2. `bash tools/scan_lexeme.sh`
 3. Codacy check-run gate on the selected commit (fails on blocking Codacy conclusions)
@@ -85,6 +88,7 @@ Checks performed:
 ## Merge readiness gate
 
 Recommended merge criteria:
+
 1. Final Review Gate workflow passes
 2. No blocking Codacy findings on the target commit
 3. Required repository checks are green
