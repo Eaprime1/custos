@@ -29,9 +29,11 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
-if [ -n "$SINCE" ] && ! [[ "$SINCE" =~ ^[0-9]{6}$ ]]; then
-  echo "--since wants six digits, YYYYMM" >&2
-  exit 2
+if [ -n "$SINCE" ]; then
+  case "$SINCE" in
+    [0-9][0-9][0-9][0-9][0-9][0-9]) ;;
+    *) echo "--since wants six digits, YYYYMM" >&2; exit 2 ;;
+  esac
 fi
 [ -d "$DIR" ] || { echo "No journeys folder at: $DIR" >&2; exit 1; }
 
