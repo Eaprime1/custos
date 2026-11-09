@@ -59,7 +59,7 @@ Owner direction from the #517 review: every code is at least three letters, beca
 | `emenda` | EME | `confirmanda` | CNF |
 | | | `supplenda` | SPL |
 
-The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. The owner confirms or replaces them.
+The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. The owner confirms them or picks others.
 
 **Hyphen call form (proposed).** Name, then modifier, then action:
 
