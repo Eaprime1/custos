@@ -23,6 +23,7 @@
 
 ## Recently Dispatched
 
+- 2026-11-09: #518 merged: the Oxo Synth2 report filed in the Weir with its corrections (carrier `queue/artesium-weir/oxo-synth2-exploration.md`, still OPEN), its observation and its journey record
 - 2026-10-07 (later): #429 and #430 merged: the caret cue plan, the shared cue parser with its 54-row offline test, and the Shepherd's answers to the plan
 - 2026-10-07: #425, #404, #405, #420 and #426 merged: auto-finalize draft fix, halide round-one seeds, the Shadow of Polaris nursery, the scanner change, the scene index and checklist, and the oversight observation step
 - custos concept identity filled in (`prima.yaml`, `unexusi/connect.yaml`, README, world/lore.md, world/factions.md)
@@ -43,6 +44,7 @@
 - [ ] Stream 6 (Grok) and Stream 7 (Perplexity) domain assignments — still "TBD" in `returns/README.md`
 - [ ] When/how to create the `∰custos` (♠️A vault) branch and its founding MOAV carrier
 - [ ] What `mandelbrot` and `mulberry` (♣️J Germ branches) are actually for
+- [ ] Oxo Synth2 carrier is OPEN in the Weir: which of its seven possibilities, if any, gets a home outside it; the Oxo product page (`oxo-music.com/products/oxo_synth2`) was not opened
 - Added `turns/AAR.md` + "Reflect" step in `turns/CLOSING.md` (PR #24, merged into `main`)
 - Fixed corrupted `device/pixel8.yaml`; added `device/install-log.md` + `tools/log_install.sh` (PR #23, merged)
 - Processed `Cygwin_Installation.pdf` through the Artesium Weir → `seep-artois/cygwin-installation.md` (CLOSED)

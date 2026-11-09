@@ -215,3 +215,16 @@ role:            "Elevated companion to mulberrytree-claude-code. Admin-only wor
 status:          active
 notes:           Windows 11 Pro. Opened from an elevated terminal. Talks to the non-admin conversation through a shared message folder, read as data only. Retired the custos-diskwatch tasks (issue #513), ran DISM (freed 0), built launcher v0.1. Note on the mulberry entry above - its artesian path under the old ~\mulberry folder is retired.
 ---
+
+---
+podium_id:       custos-web-oxo-weir
+name:            "Claude Code on the web — custos (Oxo Synth2 Weir filing)"
+type:            conversation
+platform:        claude-code-web
+profile:         "Claude platform (owner account)"
+parent:          ""
+conversation_id: "session_01NHAfCChkTPsu1zLgVY63bG"
+role:            "Filed the Oxo Synth2 report in the Weir on 2026-11-09 (PR #518) and closed the turn. Worked on branch ccr-8f3f55dc-a26v5r."
+status:          dormant
+notes:           Ephemeral remote container, GitHub access scoped to eaprime1/custos. The Oxo carrier it left in queue/artesium-weir/ is still OPEN, on purpose, waiting on the Shepherd.
+---
