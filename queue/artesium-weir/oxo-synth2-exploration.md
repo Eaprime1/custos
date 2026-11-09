@@ -96,6 +96,9 @@ decided, and none is claimed as the Shepherd's view.
 - No private details were noticed in the report. No personal names other than the developer's, as published.
 - The Shepherd's stamp 202611091233 is on the original's file name. This carrier's stamp is UTC, per
   `CLAUDE.md`.
+- `oxo-synth2-gemini-report-202611091233.original.md` carries no prima-clock stamp on purpose: adding one
+  would change the file and invalidate the SHA-256 above. The `prima-witness` advisory will keep
+  flagging it for that reason.
 
 ## Plan
 
