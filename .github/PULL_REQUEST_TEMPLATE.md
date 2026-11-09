@@ -41,3 +41,4 @@
 
 **prime state:** <!-- run: cat .prime -->  
 **witnessed:** false
+- [ ] **observed:** observation document filed in `turns/observations/` (ticked by the cue record once it is there)

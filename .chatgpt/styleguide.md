@@ -25,8 +25,8 @@ The Shepherd governs by declared protocol, not improvisation.
    - `witnessed: true` absent from a turn log entry → witnessing gap
    - Vault entry placed without custody review documentation → protocol violation
 
-3. **Placeholder hygiene** — flag any `TODO`, `FIXME`, `BROKEN`, `placeholder`, `REPLACE`,
-   `TBD`, `???`, `UNKNOWN`, `"My Prima Terminal"` in `.md`, `.sh`, `.yaml`, `.yml`, `.json`
+3. **Placeholder hygiene** — flag the shouted markers `TODO`, `FIXME`, `BROKEN`, `TBD`, `UNKNOWN`
+   (capitals) and the phrases `placeholder`, `fill this in`, `???`, `\"My Prima Terminal\"` in `.md`, `.sh`, `.yaml`, `.yml`, `.json`
 
 4. **Quest format** — every quest needs: YAML front matter with all required fields,
    deterministic Completion Check, all required sections

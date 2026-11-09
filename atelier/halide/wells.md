@@ -3,7 +3,7 @@
 `suit: ♦️ Diamond — idea-gathering, nothing built`
 `prima-clock: 202609300539`
 `revised: 202609301111`
-`plank: 1/3 — germ. Nothing here is canon.`
+`plank: 1/3 — three wells named, none built. Not canon.`
 
 A well is not a folder yet. It is a **behavior**: what it does to what falls in. Ten
 have been imagined. Following the Shepherd's "start with three, let it grow",

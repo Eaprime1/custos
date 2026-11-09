@@ -1,26 +1,120 @@
 name: Custos — Sovran Voice
 
+# One living comment per PR. It lists the files with links: the file as it
+# stands on the PR's head (to read it) and its diff (to comment on a line).
+# It is posted when the PR opens or becomes ready, and refreshed on each push.
+#
+# The list is a checklist (docs/file-review.md). Files for reading start unticked and
+# the Shepherd ticks them. Files not for reading are ticked by the rules in
+# .github/review-skip.json. A tick belongs to one version of a file, so a push that
+# changes the file clears it. The rules run from the base branch, so a PR cannot change
+# the rules that list its own files.
+
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, ready_for_review, synchronize]
+
+concurrency:
+  group: sovran-voice-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   custos-speaks:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       issues: write
       pull-requests: write
     steps:
+      - name: Check out the rules from the base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+
       - name: Custos considers the flock
         uses: actions/github-script@v7
         with:
           script: |
+            const crypto = require('crypto');
+            const fs = require('fs');
             const pr = context.payload.pull_request;
-            const filesChanged = pr.changed_files || '?';
+            const { owner, repo } = context.repo;
+            const MAX = 150;
+            const headRepo = pr.head.repo ? pr.head.repo.full_name : `${owner}/${repo}`;
+            // The checklist rules come from the base branch. Before they land there, the
+            // list stays a plain list.
+            const rulesPath = './.github/scripts/file-review.js';
+            const fr = fs.existsSync(rulesPath) ? require(rulesPath) : null;
+            const MARK = fr ? fr.MARK : '<!-- custos-shepherd-considers -->';
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: pr.number, per_page: 100
+            });
+            const listed = files.slice(0, MAX);
+
+            // File names come from the PR, so keep them from breaking the markdown.
+            const label = (p) => p.replace(/[`\r\n]/g, '');
+            const enc = (p) => p.split('/').map(encodeURIComponent).join('/')
+              .replace(/\(/g, '%28').replace(/\)/g, '%29');
+            const diffUrl = (p) =>
+              `${pr.html_url}/files#diff-${crypto.createHash('sha256').update(p).digest('hex')}`;
+            const linkFor = (f) => {
+              const name = '`' + label(f.filename) + '`';
+              if (f.status === 'removed') return `${name} — removed · [diff](${diffUrl(f.filename)})`;
+              const view = `https://github.com/${headRepo}/blob/${pr.head.sha}/${enc(f.filename)}`;
+              const was = f.status === 'renamed' && f.previous_filename
+                ? ` (was \`${label(f.previous_filename)}\`)` : '';
+              return `[${name}](${view})${was} · [diff](${diffUrl(f.filename)})`;
+            };
+            const more = files.length > MAX
+              ? [`- …and ${files.length - MAX} more: see [Files changed](${pr.html_url}/files)`] : [];
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: pr.number, per_page: 100
+            });
+            // Only this workflow's own marked comment counts, so a marker pasted or posted
+            // by another account or integration can't hijack it.
+            const mine = comments.find((c) =>
+              c.body && c.body.startsWith(MARK) && c.user && c.user.login === 'github-actions[bot]');
+
+            let docs;
+            if (fr) {
+              const built = fr.build({
+                files: listed, marks: fr.readMarks(mine ? mine.body : ''), linkFor,
+              });
+              docs = [
+                `<!--fr-head ${pr.head.sha} total=${files.length} shown=${listed.length}-->`,
+                '## 🌿 Custos — The Shepherd Considers',
+                '',
+                `*${files.length} file(s) entering the fold* · *read: ${built.done} of ${built.toRead}*`,
+                '',
+                '**Read these** (tick a box when you have read the file; a changed file clears its tick):',
+                '',
+                ...(built.read.length ? built.read : ['- none']),
+                ...more,
+                '',
+                '**Not for reading** (ticked by the rules in `.github/review-skip.json`):',
+                '',
+                ...(built.skipped.length ? built.skipped : ['- none']),
+              ];
+            } else {
+              docs = [
+                '## 🌿 Custos — The Shepherd Considers',
+                '',
+                `*${files.length} file(s) entering the fold*`,
+                '',
+                '**The documents** (open one to read it; use *diff* to comment on a line):',
+                '',
+                ...listed.map((f) => `- ${linkFor(f)}`),
+                ...more,
+              ];
+            }
+
             const body = [
-              '## 🌿 Custos — The Shepherd Considers',
+              MARK,
+              ...docs,
               '',
-              `*${filesChanged} file(s) entering the fold*`,
+              `[All files changed](${pr.html_url}/files)`,
               '',
               '> *Custos* watches what enters. Every change is something new to keep,',
               '> or a new way of keeping what is already here.',
@@ -34,11 +128,9 @@ jobs:
               '---',
               '*Custos · sovran shepherd · eaprime1 · ∰*'
             ].join('\n');
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: pr.number,
-              body
-            });
 
-# ∰🛠️🌿🔒-custos_sovran
+            if (mine) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: pr.number, body });
+            }

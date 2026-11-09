@@ -62,6 +62,15 @@ The `turns/CULTIVATION.md` flags an open design conflict: numbered navigo table 
 Once the disponi bot exists, run a live test session: Shepherd opens a small mission, navigo posts `@claude disponi`, bot responds, navigo posts petitio, Shepherd accepts, navigo builds and merges.
 **Note:** Depends on Missions 1 and 2.
 
+### 10. Finishing a routine (a type of mission)
+**What:** A routine that is set up and runs, but whose output has nowhere to land. Each mission decides where the output goes, makes it arrive there, and closes the loop so something is done with it. One mission per routine.
+**Instances:** the email management routine; the email idea-mining routine (management feeds the miner); the daily briefing routine. None has been taken past setup. They are the Shepherd's routines, and their prompts are not copied here.
+**Why a type:** the same questions apply to each: where does the output land, who reads it, and what happens next?
+**Link to the halide process:** a routine that gathers could be a dark feed, its output entering as seed documents (`atelier/halide/`). Not decided.
+**Completion check:** not yet writable; it needs the landing place first.
+**Label candidates:** `mission`
+**Note:** added 202610030033, from the Shepherd's words that the routines are intentional and their output is not landing.
+
 ---
 
 ## On the .dotfolder question

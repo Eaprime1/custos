@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
-# mulberry — Laptop HQ configuration
+# mulberry — Windows laptop HQ configuration
 # Source this after seeds/env_setup.sh, or let env_setup.sh source it automatically.
 
 export LOCATION_NAME="mulberry"
 export LOCATION_ROLE="hq"
 export LOCATION_DEVICE="laptop"
 
-# Confirmed this session — adjust if eaprime1's actual clone path differs.
-export CUSTOS_PATH="$HOME/unexusi/custos"
+# Detected by a Windows bash shell (Cygwin or MSYS/Git Bash), not by path.
+# No custos clone on mulberry has been confirmed yet -- device/podiums.md
+# records the path convention C:\Users\eapri\mulberry\ and names Cygwin as
+# a candidate podium. Until a clone path is confirmed, report whichever
+# clone sourced env_setup.sh (REPO_ROOT is set there before this loads).
+export CUSTOS_PATH="$REPO_ROOT"
 
-# custos's own convention: device/ (live state) only exists on the pixel8
-# branch, not main. Expected to be on main here -- but ACTIVE_BRANCH and
-# DEVICE_FOLDER_REACHABLE are checkout state, not location constants, so
-# they're derived live in seeds/env_setup.sh instead of hardcoded here.
+# ACTIVE_BRANCH and DEVICE_FOLDER_REACHABLE are checkout state, not location
+# constants, so they're derived live in seeds/env_setup.sh instead of
+# hardcoded here.
 
-# Full Claude Code CLI works natively here — no Termux ARM64 workaround needed.
+# Claude Code ships a native Windows build; not yet verified on mulberry.
 export CLAUDE_CODE_NATIVE=true

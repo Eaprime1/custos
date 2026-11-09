@@ -1,0 +1,84 @@
+name: Final Oversight
+
+# The last look before a merge, run only when the owner approves it.
+#
+# How it waits: the job runs in the "final-oversight" environment. That
+# environment must have the owner as a required reviewer (Settings,
+# Environments).
+# Until the owner approves, the job shows "Waiting" on the PR. See
+# docs/final-oversight.md.
+#
+# When it runs: a PR carries the `final-oversight` label. A new head waits
+# for a new approval, and the older waiting run is cancelled.
+#
+# What it does: reports. It posts one comment (updated in place) and a pass/fail
+# check. It never seals, never merges and never edits the PR.
+#
+# Which code it runs: the rules come from the BASE branch (trusted/), not
+# the PR, so a PR cannot loosen the gate that reviews it. The PR's own files are
+# read through the API and checked out read-only under pr/.
+
+on:
+  pull_request:
+    types: [labeled, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: read
+  statuses: read
+
+concurrency:
+  group: final-oversight-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  oversight:
+    name: final-oversight
+    if: >-
+      (github.event.action != 'labeled' ||
+      github.event.label.name == 'final-oversight') &&
+      contains(github.event.pull_request.labels.*.name, 'final-oversight') &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: final-oversight
+    steps:
+      - name: Trusted rules (base branch)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+
+      - name: The PR as it stands (read only)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          persist-credentials: false
+
+      - name: Stale claims (advisory)
+        env:
+          STALE_ROOT: ${{ github.workspace }}/pr
+        run: |
+          if [ -f trusted/tools/stale_claims.sh ]; then
+            bash trusted/tools/stale_claims.sh > stale.txt || true
+          else
+            echo "stale_claims.sh is not on the base branch" > stale.txt
+          fi
+
+      - name: Look, then report
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          script: |
+            const ws = process.env.GITHUB_WORKSPACE;
+            const base = `${ws}/trusted/.github/scripts`;
+            const fs = require('fs');
+            if (!fs.existsSync(`${base}/final-oversight-run.js`)) {
+              core.setFailed('The rules are not on the base branch yet.');
+              return;
+            }
+            const fo = require(`${base}/final-oversight.js`);
+            await require(`${base}/final-oversight-run.js`)(
+              { github, context, core, fo });

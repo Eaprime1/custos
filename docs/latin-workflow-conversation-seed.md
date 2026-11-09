@@ -43,10 +43,23 @@ SUPREMA LUSTRATIO — the brief for high command: a summary someone else can
   act on without this conversation.
 NOVISSIMUM — the rear guard. Close loose ends: file seeds and open questions,
   update state docs, leave nothing mid-flow. Say what's carried forward.
+EMENDA — amend what was flagged. Fix each flag and report one line per flag:
+  fixed (with the commit), not a defect (with the path you traced), or carried
+  forward (with an owner and a destination). EXPEDITUS EMENDA is small flags,
+  quickly. EXTREMA EMENDA is the root cause. ULTIMA EMENDA is the last round.
+RENOVATA — refresh. Re-read the work on its current state, update descriptions,
+  counts and open items, and say what changed. Not a full re-scan.
+PROBATIO — the soft seal. State whether the work is ready for oversight, or what
+  blocks it. The owner's cue sets the label; you do not seal.
 ULTIMA PROBATIO — the seal. Write the closing record (the turn log; a journey
   too if the session was substantial), confirm everything landed, then stop.
   After this, nothing in this conversation changes; new work opens a new
   conversation.
+
+A call may be addressed. "^omnes <call>" is for every contributor, each from its
+own seat. "^cuncti <call>" is for the project as a whole: read the whole first,
+then add your own view. "^<your name> <call>" is for you alone; answer "not mine"
+in one line if it names someone else.
 
 If a call is unclear, or I use a word that isn't one of these, say how you're
 reading it before acting.
@@ -66,6 +79,9 @@ reading it before acting.
 | **Lustratio** | Presentation polish | Tidy the record and the reading path | Clean descriptions and documents, folded noise |
 | **Suprema Lustratio** | Release notes, executive brief | A hand-off brief | A summary that works without the conversation |
 | **Novissimum** | Rear-guard cleanup | Loose ends filed | Seeds, open questions and state docs updated (`turns/CLOSING.md` steps 2–5) |
+| **Emenda** | Amend what oversight flagged | Repair the named flags | One line per flag: fixed, not a defect, or carried forward |
+| **Renovata** | Refresh on the current head | Refresh the picture | What changed since the last report |
+| **Probatio** | Soft seal: ready for oversight | State readiness | Ready, or what blocks it |
 | **Ultima Probatio** | Final sign-off; frozen | The conversation is sealed | Turn log written and merges confirmed (`turns/CLOSING.md` steps 3, 7). A journey only if the session is substantial enough for its own custody entry (`valuation/JOURNEY_SCHEMA.md`). An AAR if the turn taught something (optional step 8) |
 
 ## Adapting to the podium

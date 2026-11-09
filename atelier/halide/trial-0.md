@@ -3,7 +3,7 @@
 `suit: ♣️ Club — an active working event`
 `prima-clock: 202609300539`
 `status: OPEN`
-`plank: 1/3 — germ. Nothing here is canon.`
+`plank: 1/3 — ledger open, not yet tested. Not canon.`
 
 The first test of the Terminus process. It runs **one step**, the gathering, and not the whole line.
 

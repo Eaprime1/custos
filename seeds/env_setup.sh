@@ -12,15 +12,19 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-# Positive check for mulberry (this session's confirmed clone path) rather
-# than treating it as the default fallback -- an unrecognized host (a
-# contributor's machine, a CI runner) must land in the unknown branch below,
-# not silently load mulberry's machine-specific config.
+# Each check keys on something only one machine has -- never on a clone
+# path. Two devices keep custos at ~/unexusi/custos (primehaven and the
+# Pixel's Debian PRoot), and primehaven holds more than one clone, so a
+# path can't tell machines apart. An unrecognized host (a contributor's
+# machine, a CI runner) must land in the unknown branch below, not
+# silently load another machine's config.
 if [[ "${PREFIX:-}" = *com.termux* ]]; then
     ENV_NAME="pixel8"
 elif [[ -n "${CODESPACES:-}" ]]; then
     ENV_NAME="codespaces"
-elif [[ -d "$HOME/unexusi/custos" ]]; then
+elif [[ "$(uname -n)" = "sauron" && "${OSTYPE:-}" = linux-gnu* ]]; then
+    ENV_NAME="primehaven"
+elif [[ "${OSTYPE:-}" = cygwin* || "${OSTYPE:-}" = msys* ]]; then
     ENV_NAME="mulberry"
 else
     ENV_NAME="unknown"
