@@ -1,27 +1,47 @@
 ---
 name: work-eval
-description: Grade, value and evaluate finished work in custos (merged PRs, journeys, documents, tools, skills) as a retrospective. Use when the owner asks to review what has been completed, score or value past work, audit the quality of PR journeys, or check whether the existing auto-score means anything. Not for processing open PRs or sealing anything.
+description: Grade, value and evaluate finished work in custos (merged PRs, journeys, documents, tools, skills) as a retrospective. Use when the owner asks to review what has been completed, score or value past work, audit the quality of PR journeys, or check whether the existing auto-score means anything. Reads the observation scores (M1 to M8) where a PR has them. Not for processing open PRs or sealing anything.
 ---
 
 # Work Eval
 
-**Prima-clock:** 202611090500
+**Prima-clock:** 202611092118
 **Suit:** ♣️ Club, working copy
-**Pairs with:** the `latin-workflow` skill (stages), `valuation/five_lakes_valuation_bridge_202606112205.md` (document rubric), `tools/journey_scorecard.sh` (facts)
+**Pairs with:** the `latin-workflow` skill (stages), `turns/observations/RUBRIC.md` (the live oversight rubric), `valuation/five_lakes_valuation_bridge_202606112205.md` (document rubric), `tools/journey_scorecard.sh` (facts)
 
 This skill looks **backward**. It reviews work that is done and asks how good it was and where it belongs. It does not open, seal, merge or comment on PRs. Verdicts are advice to the owner. The Deck Master decides custody.
 
 ## Why a judgment layer
 
-The auto-score in `finalize-pr.yml` (Correctness, Consistency, Scope, Verification, out of 20) counts CI check runs and changed files. It cannot tell sound work from tidy work. As of 202611090500, 63 of the 91 journeys carry it. Of those, 40 score 20/20 and only 2 score below 18. The other 28 carry no auto-score at all (closures, superseded duplicates, older journeys). A scale that saturates tells you nothing, so treat it as a **floor**: a low score is a flag, a high score is not evidence of quality. Run `bash tools/journey_scorecard.sh` to see the current distribution before trusting any number.
+The auto-score in `finalize-pr.yml` (Correctness, Consistency, Scope, Verification, out of 20) counts CI check runs and changed files. It cannot tell sound work from tidy work. As of 202611092118, 97 of the 125 journeys carry it. Of those, 58 (60%) score 20/20 and only 3 score below 18. The other 28 carry no auto-score at all (closures, superseded duplicates, older journeys). A scale that saturates tells you nothing, so treat it as a **floor**: a low score is a flag, a high score is not evidence of quality. Run `bash tools/journey_scorecard.sh` to see the current distribution before trusting any number.
 
 ## Three layers
 
 | Layer | What | Who produces it | Trust |
 |---|---|---|---|
 | 1. Mechanical | The auto-score already in each journey | `finalize-pr.yml` | Floor only |
+| 1b. Observation | M1 to M8, each 0 to 3, filed before the seal (`turns/observations/`) | Oversight, with the Shepherd | Better than layer 1 for that PR. Built for peer swaps (see below) |
 | 2. Judgment | Six dimensions below, each scored with cited evidence | You, per unit of work | The real grade |
 | 3. Valuation | Five Lakes card (suit + rank) for documents | You propose, Deck Master decides | Placement, not quality |
+
+## Relation to the observation rubric
+
+Custos already grades PRs before the seal. The observation (`turns/observations/`, rubric `turns/observations/RUBRIC.md`, v0) scores M1 to M8, each 0 to 3, with the count behind each score, and the final-oversight run requires it. That is the live oversight system. This skill does not replace it.
+
+- **Where an observation exists, use it.** Read its Scores table as the layer 2 evidence for that PR, and quote the M-score with its count. Do not re-score what oversight already scored. As of 202611092118, 26 observations are filed and 13 carry scores.
+- **Where none exists** (the 28 journeys without an auto-score, PRs merged before observations began, documents, tools, skills), use the six dimensions below.
+- **A zero is not always bad.** RUBRIC.md was written for peer swaps. M2, M6 and M8 score 0 on a PR that is not a swap, which means "not measured".
+- **The overlap:**
+
+| Six dimensions | Nearest observation measure |
+|---|---|
+| Scope | M3 Scope held |
+| Evidence | M4 Live proof, and M1 Checkable |
+| Custody | M5 Seal order |
+| Loose ends | M6 Repair rate (partly) |
+| Intent, Reach | none |
+
+- **Open for the owner:** one rubric or two. Options: keep RUBRIC.md for oversight and use the six dimensions only as the retrospective fallback, or fold Intent, Reach and Custody into a RUBRIC v1. Until the owner rules, treat the six dimensions as a proposal and do not set them beside M1 to M8 as if they were the same scale.
 
 ## Layer 2: six dimensions, 0 to 3 each (total 18)
 
@@ -60,7 +80,7 @@ Use the five questions from the Five Lakes bridge document: clear title (+2), pr
 ## Procedure
 
 1. **Scope the batch.** One of: a date range, an arc, a repo, or "everything merged since the last eval". Say what is in and out.
-2. **Gather facts, do not judge yet.** `bash tools/journey_scorecard.sh` for the layer 1 table and saturation report. Add `--since YYYYMM` to narrow it.
+2. **Gather facts, do not judge yet.** `bash tools/journey_scorecard.sh` for the layer 1 table and saturation report. Add `--since YYYYMM` to narrow it. Then `ls turns/observations/` and note which PRs in the batch have an observation with scores.
 3. **Sample.** If the batch is large, grade every unit with a layer 1 flag, plus every unit that touched a watched path (`vault/`, `moav/`, `prima-clock/`, `branch-tracker/`, `world/`, `device/`, `.github/workflows/`), plus a random handful of the rest. State the sample rule.
 4. **Read the unit, not the summary.** Open the journey and check its claims against the merged diff and the files. A journey is a custody record written by the PR's own process, so it can overstate.
 5. **Score layer 2** with one cited evidence line per dimension.

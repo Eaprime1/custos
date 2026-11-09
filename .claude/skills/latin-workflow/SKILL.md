@@ -5,9 +5,9 @@ description: Read and answer the Latin workflow calls (recensio, probatio, lustr
 
 # Latin Workflow
 
-**Prima-clock:** 202611091441
+**Prima-clock:** 202611092118
 **Suit:** ♣️ Club, working copy
-**Source of truth:** `docs/latin-workflow-glossary.md` (PRs), `docs/latin-workflow-conversation-seed.md` (conversations). Hodie's port is `hodie/docs/latin-workflow.md`. This skill is a working summary. When it disagrees with those, they win.
+**Source of truth:** `docs/latin-workflow-v2.md` (cues, contributors and the road to merge; the most current), `docs/latin-workflow-glossary.md` (PRs), `docs/latin-workflow-conversation-seed.md` (conversations) and `docs/latin-lexemes.txt` (plain quick reference). `.github/scripts/cue-parser.js` is what the workflows actually read. Hodie's port is `hodie/docs/latin-workflow.md`. This skill is a working summary. When it disagrees with those, they win.
 
 A call names the **stage** of the work, so nobody needs a paragraph to say what kind of answer is wanted.
 
@@ -30,6 +30,11 @@ A call is an **action**, optionally with a **modifier**. A call requests a stage
 | `novissimum` | Rear guard. Close loose ends, or carry each forward with a named owner and destination. |
 | `cursus` | Run the remaining applicable stages in order and record each result. Not an automatic merge. |
 | `emenda` | Amend what oversight flagged. One line per flag (see below). |
+| `refice` | Rework, bigger than an amendment and still without fault. With a plan, follow it. Without one, write the plan first, then repair. |
+| `semina` | Sow. Write a handoff block so the work continues in a new conversation: clutch in (leave the main stream and explore), clutch out (rejoin it). |
+| `sustine` | Hold back. Meant to set `held` so the final seal waits for the Shepherd's release. Today the parser and the cue record read it and nothing more. |
+
+*Refice*, *semina* and *sustine* were accepted by the Shepherd on 2026-10-19 (comment in `cue-parser.js`; meanings in `docs/latin-workflow-v2.md`). The custos parser and cue record read them as actions. None of them changes a label or stops a seal yet.
 
 ### Modifiers
 
@@ -57,9 +62,11 @@ Owner direction from the #517 review: every code is at least three letters, beca
 | `novissimum` | NOV | `renovata` | REN |
 | `cursus` | CUR | `expeditus` | EXD (provisional) |
 | `emenda` | EME | `confirmanda` | CNF |
-| | | `supplenda` | SPL |
+| `refice` | REF | `supplenda` | SPL |
+| `semina` | SEM | | |
+| `sustine` | SUS | | |
 
-The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. The owner confirms them or picks others.
+The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. REF, SEM and SUS follow the first-three-letters rule and clash with nothing. The owner confirms them or picks others.
 
 **Hyphen call form (proposed).** Name, then modifier, then action:
 
@@ -73,6 +80,8 @@ The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniu
 Status: proposed. `cue-parser.js` reads `^name cue words` with spaces today, and no workflow reads the hyphen form, so for now it is vocabulary for the conversation. Not settled: the order of the `emenda` modifiers (`confirmanda`, `supplenda`) in hyphen form, and the owner's idea of `^^^` (a triple prime) as an attention flag.
 
 The older two-letter examples (`PR-REC`, `UL-PRO` and the rest) were inherited examples and were not installed as labels. They are superseded by the codes above.
+
+For `confirmanda` and `supplenda`, anything only the Shepherd can supply goes in an Ask. The shape, and the thread ids that go with it, are in v2.1 of `docs/latin-workflow-v2.md`.
 
 ### Proposed lexemes (awaiting the owner's ruling)
 
@@ -104,7 +113,7 @@ One line per flag, each one of:
 | `^cuncti cue words` | The project as a whole. Read it first, then add your own view |
 | `^custos` / `^hodie` | That repo's workflows |
 
-Names: `claude`, `chatgpt`, `gemini`, `perplexity`, `unexusi`, `custos`, `hodie`, `omnes`, `cuncti`.
+Names the custos parser reads: `claude`, `chatgpt`, `gemini`, `perplexity`, `unexusi`, `custos`, `omnes`, `cuncti`. Hodie's parser also reads `hodie`.
 If a call is addressed to someone else, answer "not mine" in one line.
 
 A cue counts only at the **start of a line**, outside quotes and code, from the **owner**, in a comment **without the Claude Code footer**. Rules: `.github/scripts/cue-parser.js`.
@@ -113,11 +122,11 @@ A cue counts only at the **start of a line**, outside quotes and code, from the 
 
 | Cue | Read by | Effect |
 |---|---|---|
-| `@claude finalize`, `@claude ultima probatio` | `finalize-pr.yml` | Seals the PR if the template, threads and CI pass. Owner only. |
-| `^name probatio` (hodie) | `probatio-label.yml` | Sets `ready-for-oversight`. A person's push takes it off. |
-| a call the recorder knows, or opening a PR ready | `latin-cue-record.yml` | Logs one row in a living comment: checks, threads, merge state. Calls no model. Custos reads recensio, probatio, lustratio, judicium, novissimum and cursus with the modifiers prima, ultima, suprema, extrema, renovata and expeditus. Hodie's `cue-parser.js` also reads `emenda`, `confirmanda` and `supplenda`. |
+| `@claude finalize`, `@claude ultima probatio` | `finalize-pr.yml` | Seals the PR if the template, threads, CI and the filed observation pass. Owner only. `ultima probatio` is the final seal; `finalize` is the manual backup (`.claude/manual-finalize.md`). |
+| `^name probatio` | `probatio-label.yml` (custos and hodie) | Sets `ready-for-oversight`. A person's push takes it off. Seals nothing. |
+| a call the recorder knows, or opening a PR ready | `latin-cue-record.yml` | Logs one row in a living comment: checks, threads, merge state, observation. Calls no model. Custos reads ten actions (recensio, probatio, lustratio, judicium, novissimum, cursus, emenda, refice, semina, sustine) and eight modifiers (prima, ultima, suprema, extrema, renovata, expeditus, confirmanda, supplenda). Hodie's `cue-parser.js` reads the first seven actions. |
 | `@claude placet` | placet workflow | Flips a mission to in-progress. Owner only. |
-| every other call | nothing | Words for the conversation. That includes `emenda` in custos and every proposed lexeme. |
+| every other call | nothing | Words for the conversation. `refice`, `semina` and `sustine` are logged and do nothing more. So is every proposed lexeme. |
 
 Neither a seal label nor a passing assessment merges. The owner asks for merge separately; `coniunctio` is the proposed call for that.
 
@@ -125,13 +134,16 @@ Neither a seal label nor a passing assessment merges. The owner asks for merge s
 
 ## The road of a PR
 
-1. Contributor opens the PR ready. First witness, logged as Prima Recensio.
-2. Contributor `recensio` / `ultima recensio`: reviews its own PR and fixes what it finds.
-3. Shepherd `probatio`: soft seal.
-4. Shepherd `@claude finalize` or `ultima probatio`: the seal. Owner only.
-5. Shepherd runs oversight (hodie: the `final-oversight` label, then the approval). Report only.
-6. Shepherd `emenda`: asks the contributor to repair a flag. A fix is a new head and needs a new seal.
-7. Shepherd says merge in the conversation.
+From `docs/latin-workflow-v2.md` and `turns/observations/README.md`:
+
+1. Contributor opens the PR ready. Prima Recensio is logged by the event, and the navigo opens the observation (`turns/observations/`, `status: open`).
+2. Contributor `recensio`: reviews its own PR and fixes what it finds.
+3. Contributor `ultima recensio`: every finding is fixed or carried forward by name.
+4. Shepherd `probatio`: the soft seal. It sets `ready-for-oversight`, and the contributor posts one readiness note on that head.
+5. Oversight: the observation, scored M1 to M8 and set to `status: complete`, and the final-oversight run (report only; hodie: the `final-oversight` label, then the approval).
+6. Shepherd `emenda`: asks the contributor to repair a flag, then back to step 3. A fix is a new head and needs a new seal.
+7. Shepherd `ultima probatio`: the final seal, on the owner's word only. `finalize` is the manual backup.
+8. Shepherd says merge in the conversation. Merge by merge commit, then one confirming comment.
 
 A contributor does not seal or merge on its own, and leaves a cue meant for another name to that contributor.
 
@@ -170,19 +182,21 @@ Other systems keep their own copies of this vocabulary, and more will be added. 
 
 1. **Define it.** One line of meaning, and the output a reader should expect. Decide whether it is an action, a modifier, an addressee name, or a check-in verb.
 2. **Check for clashes.** The word, its three-letter code, the verbs already in use (`disponi`, `petitio`, `placet`, `finalize`, `check`, `concordance`, `sync-labels`), and the conversation-ID prefixes (`exp`, `set`, `con`, `oth`).
-3. **Source of truth first.** Add it to `docs/latin-workflow-glossary.md` and `docs/latin-workflow-conversation-seed.md` (the seed block and its table). Stamp the change with `bash tools/prima_clock.sh` and add a reconciliation note if it changes an older statement.
+3. **Source of truth first.** Add it to `docs/latin-workflow-v2.md`, `docs/latin-workflow-glossary.md`, `docs/latin-workflow-conversation-seed.md` (the seed block and its table) and `docs/latin-lexemes.txt`. Stamp the change with `bash tools/prima_clock.sh` and add a reconciliation note if it changes an older statement.
 4. **Mirrors** (words only):
-   - `hodie/docs/latin-workflow.md` and `hodie/docs/latin-lexemes.txt`
+   - `hodie/docs/latin-workflow.md` and `hodie/docs/latin-lexemes.txt` (a separate swap)
    - `guides/navigo-session-kit/owner-cues.md` and the pointer in `.perplexity/latin-workflow-glossary.md`, which list the terms
    - any other system that keeps its own list: add its path here so the next change finds it
 5. **Only if a workflow must read it** (a separate PR, because workflow paths need Deck Master review):
+   - custos `.github/scripts/cue-parser.js` (`ACTIONS`, `MODIFIERS`, `VERBS`), with `scripts/test_cue_parser.js`
    - custos `.github/workflows/latin-cue-record.yml`: the `contains(...)` prefilter lines and the `ACTIONS` / `MODS` arrays
-   - hodie `.github/scripts/cue-parser.js` (`ACTIONS`, `MODIFIERS`, `VERBS`), with `scripts/test_cue_parser.js` and `scripts/test_latin_cue_record.js`
+   - `probatio-label.js` and `scripts/test_probatio_label.js`, if the word touches the soft seal
+   - hodie `.github/scripts/cue-parser.js` and its tests, as a separate swap
 6. **Update this skill:** the Actions or Modifiers table, the codes table, the live-versus-words table, the frontmatter description if it adds a trigger, and the `Prima-clock` line.
 7. **Check nothing was missed:** `grep -rIl -i '<word>' custos hodie fleet-commander armarium mandelbrot`, then `bash tools/scan_lexeme.sh`.
 8. **Keep it proposed until the owner rules.** List a new word under Proposed lexemes, as `coniunctio` is, and move it into the main tables only after the ruling.
 
-Known gap: the custos recorder does not read `emenda`, `confirmanda` or `supplenda`, while hodie's parser does.
+Drift to know about: custos's parser reads ten actions and hodie's reads seven (no `refice`, `semina` or `sustine`), and custos's names list has no `hodie`. Check both before saying a lexeme is live.
 
 ## Pairing
 
