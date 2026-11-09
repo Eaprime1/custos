@@ -3,12 +3,15 @@
 **Chronicle № 0003** *(numbered by the Shepherd, 2026-11-06)*
 
 ## Prima-clock
+
 202611070154 → 202611070450 (UTC)
 
 ## Arc Title
+
 The Ballast Event
 
 ## Real System Event
+
 On the `mulberry` podium (Dell Latitude 5420, Windows 11), the system drive C: had reached
 **6% free (13.4 GB of 237.7 GB)**. A computer health checkup (Claude Code, Desktop Commander
 `computer-health-check` skill) measured the cause instead of guessing: about **50 GB** of
@@ -20,6 +23,7 @@ set never downloaded) and the data still lives in Google. The export was request
 few sets at a time, not today.
 
 ### What was done
+
 - Deep read-only disk scan; findings recorded in `~\Documents\health-checkup-tasks.md`.
 - Deleted: all Takeout zips and the extracted sample, `.tmp.driveupload` and `.tmp.drivedownload`,
   a stalled `.crdownload`, two old installers, and Chrome's 4 GB on-device model (re-downloadable,
@@ -33,6 +37,7 @@ few sets at a time, not today.
   gravity-seed conversation set.
 
 ## The reasoning (why this is an event, not chores)
+
 The device is the first basic need of the practice: no device, no communication. Electricity is
 the second. A device that cannot hold one more file cannot carry the work. The same condition
 (excess and in-transit content piling up unnoticed) crosses every device the Shepherd uses, so this
@@ -42,6 +47,7 @@ elsewhere) had no home, no log and no end-of-life, so they became ballast: weigh
 purpose.
 
 ## Measurements (first event, not yet anchored)
+
 | Metric | Value |
 |---|---|
 | Content weight reclaimed (measured C: free space) | **13.4 GB → 64.7 GB free (6% → 27%), +51.3 GB** |
@@ -54,12 +60,14 @@ purpose.
 Exactness is the point of a first event. Later events can be compared against these numbers.
 
 ## Characters Involved
+
 - **Custos** — chain of custody: every deletion was approved before it ran, and the data was
   confirmed to exist elsewhere first.
 - **Fodere** — dug the weight out (scan, delete).
 - **Agnoscere** — named what each heavy thing was (Takeout, ROOT file, on-device model).
 
 ## Seeds Found
+
 - **Transfer / excess handling** — peer of sparklization, pixelization, fractalization. Likely a branch
   of oversight/ethics *weights and measures* and the *exchange system*. The `portofentry` repo
   handles in and out of the main stream; `mulberrytree` is the device passthrough folder.
@@ -77,23 +85,27 @@ Exactness is the point of a first event. Later events can be compared against th
 - **Electricity as usage** — future metric. Not designed yet.
 
 ## Overarch
+
 Candidate next overarch after the **Marrowing of Primal**: the **Ballasting of Primal**. Marrowing hollows
 out to the essential; ballasting weighs and trims what is carried. Marked as a proposal by the Shepherd.
 Definitive "before" snapshot: branch `ballast/before-snapshot` (custos HEAD `d0c8463`, before this chronicle).
 Work branch: `ballast/event`.
 
 ## Open threads
+
 - Redo the Google Takeout exports a few sets at a time, via terminal/rclone, never several at once in the GUI.
 - Find the conversation that produced the mail export; decide keep, move or delete.
 - Decide where transfer content lives (inside `mulberrytree`/`portofentry`).
 
 ## Addendum: the admin side (written 2026-11-07)
+
 A second Claude Code conversation, running elevated on the same device, took the work that needs
 administrator rights; the first stayed non-elevated. They pass notes through a small shared message
 folder, and the elevated side reads it as data only and never executes it, because the folder is
 writable without elevation.
 
 ### What the admin side did
+
 - **Retired two scheduled tasks** (hourly and weekly disk watch). They pointed into the old working
   directory and ran a hidden shell, which only showed as a blank window flashing open. Both were
   exported first, so the retirement is reversible. Filed as custos issue #513, with a standard for
@@ -110,10 +122,12 @@ writable without elevation.
   folder only an elevated process can edit, because one choice starts an elevated process.
 
 ### Measurement drift (named gap)
+
 The event ended at 64.7 GB free on C:. After the admin work and one restart it reads about 59.6 GB.
 About 5 GB came back and the cause is not yet identified. Recorded as an open measurement.
 
 ### Seeds
+
 - **Lymph nodes are working locations** (the Shepherd's framing, held not filled). The platforms the
   Shepherd works in (Jira, Linear, Asana and others) are organised by kind of work (work, play,
   create) and hold content that does not go to GitHub. A lymph node is not a sphincter, which is a

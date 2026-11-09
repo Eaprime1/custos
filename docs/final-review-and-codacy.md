@@ -23,6 +23,48 @@ Updated exclusions include:
 - `world/**`
 - `templates/**`
 
+## Markdown formatting Codacy flags most
+
+In Markdown PRs the usual findings are two markdownlint rules:
+
+- **MD022 blanks-around-headings**: one blank line above and below every heading.
+- **MD032 blanks-around-lists**: one blank line before and after every list.
+
+Why it matters beyond looks: some parsers (kramdown, for one) do not read a heading that has no blank line above it, and show it as plain text.
+
+```text
+## Good heading
+
+Text starts after a blank line.
+
+- a list also has a blank line above it
+- and below it
+
+## Next heading
+```
+
+Check a file before you push:
+
+```bash
+npx --yes markdownlint-cli@0.41.0 --disable MD013 MD033 MD041 MD036 -- path/to/file.md
+```
+
+Fix only these two rules automatically (nothing else in the file changes). Put this in a temporary file, for example `mdl-fix.json`:
+
+```json
+{ "default": false, "MD022": true, "MD032": true }
+```
+
+```bash
+npx --yes markdownlint-cli@0.41.0 --config mdl-fix.json --fix -- path/to/file.md
+```
+
+Notes:
+
+- Start new chronicles and conversation records from `dungeon-master/narrative-engine/chronicle-template.md` and `conversation-template.md`; both follow this rule.
+- Older documents predate it. Fix them when you next edit them, not in a bulk sweep, so history stays readable.
+- Paths listed under `exclude_paths` in `.codacy.yml` are not scanned, so the rule is advisory there.
+
 ## Final Review button (manual trigger)
 
 Workflow file: `.github/workflows/final-review.yml`

@@ -28,6 +28,7 @@ If an issue is defining what something *is* — a concept, a category, a routing
 - Ensure checks/tests pass before requesting review.
 - For final merge readiness, run **Custos — Final Review Gate** from Actions (manual trigger).
 - Review Codacy findings and resolve blocking issues before merge. See `docs/final-review-and-codacy.md`.
+- In Markdown, leave a blank line above and below every heading and list (Codacy's most common finding). The same doc has a one-line check and fix.
 - Reference the issue you're addressing: `Fixes #NNN` or `Closes #NNN`.
 - Nothing auto-merges. A PR sitting unreviewed isn't a rejection — it's in a queue.
 
