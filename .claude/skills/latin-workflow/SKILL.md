@@ -197,9 +197,9 @@ Other systems keep their own copies of this vocabulary, and more will be added. 
    - `guides/navigo-session-kit/owner-cues.md` and the pointer in `.perplexity/latin-workflow-glossary.md`, which list the terms
    - any other system that keeps its own list: add its path here so the next change finds it
 5. **Only if a workflow must read it** (a separate PR, because workflow paths need Deck Master review):
-   - custos `.github/scripts/cue-parser.js` (`ACTIONS`, `MODIFIERS`, `VERBS`), with `scripts/test_cue_parser.js`
+   - custos `.github/scripts/cue-parser.js` (`ACTIONS`, `MODIFIERS`, `VERBS`), with `tools/test_cue_parser.sh` (hodie keeps its tests under `scripts/`)
    - custos `.github/workflows/latin-cue-record.yml`: the `contains(...)` prefilter lines and the `ACTIONS` / `MODS` arrays
-   - `probatio-label.js` and `scripts/test_probatio_label.js`, if the word touches the soft seal
+   - `.github/scripts/probatio-label.js` and `tools/test_probatio_label.js`, if the word touches the soft seal
    - hodie `.github/scripts/cue-parser.js` and its tests, as a separate swap
 6. **Update this skill:** the Actions or Modifiers table, the codes table, the live-versus-words table, the frontmatter description if it adds a trigger, and the `Prima-clock` line.
 7. **Check nothing was missed:** `grep -rIl -i '<word>' custos hodie fleet-commander armarium mandelbrot`, then `bash tools/scan_lexeme.sh`.
