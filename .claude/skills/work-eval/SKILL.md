@@ -58,16 +58,19 @@ Every score needs a **cited piece of evidence** (file path, line, command output
 
 ### Reading the total
 
-| Result | Latin call it maps to |
-|---|---|
-| 15 to 18, no dimension at 0 or 1 | Ready for `probatio`. Nothing to amend. |
-| 11 to 14, or any dimension at 0 or 1 | `emenda`. List one flag per weak dimension. |
-| Evidence at 0 or 1 because a claim could not be checked | `emenda confirmanda`. |
-| Work is sound but a needed step is missing | `emenda supplenda`. Not a defect. |
-| The grade turns on a choice only the owner can make | `judicium`. Give options, do not decide. |
-| 0 to 10 | `judicium`: keep, rework or retire. |
+Read the rows top to bottom. The first row that matches is the verdict, and a unit gets exactly one. Count it once, under that row.
 
-A single 0 on **Evidence** or **Custody** caps the verdict at `emenda`, whatever the total.
+| # | If | Verdict (Latin call) |
+|---|---|---|
+| 1 | The grade turns on a choice only the owner can make | `judicium`. Give options, do not decide. |
+| 2 | The total is 0 to 10 | `judicium`: keep, rework or retire. List any evidence gaps inside it. |
+| 3 | Evidence or Custody is at 0 or 1 because a claim could not be checked | `emenda confirmanda` |
+| 4 | The work is sound but a needed step is missing | `emenda supplenda`. Not a defect. |
+| 5 | Evidence or Custody is at 0 or 1 for any other reason | `emenda`, one flag per weak dimension |
+| 6 | The total is 11 to 14, or any other dimension is at 0 or 1 | `emenda`, one flag per weak dimension |
+| 7 | The total is 15 to 18 and no dimension is at 0 or 1 | Ready for `probatio`. Nothing to amend. |
+
+Row 7 is the only way to reach `probatio`. A 0 or 1 on Evidence or Custody cannot reach it, so no separate cap is needed. Any total of 11 or below has some dimension at 0 or 1, and rows 1 and 2 catch every total of 10 or below before the `emenda` rows are read.
 
 ## Layer 3: valuation (documents only)
 

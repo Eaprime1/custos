@@ -116,7 +116,15 @@ One line per flag, each one of:
 Names the custos parser reads: `claude`, `chatgpt`, `gemini`, `perplexity`, `unexusi`, `custos`, `omnes`, `cuncti`. Hodie's parser also reads `hodie`.
 If a call is addressed to someone else, answer "not mine" in one line.
 
-A cue counts only at the **start of a line**, outside quotes and code, from the **owner**, in a comment **without the Claude Code footer**. Rules: `.github/scripts/cue-parser.js`.
+Three separate matchers read comments, and they do not share one rule:
+
+| Matcher | Reads | Position |
+|---|---|---|
+| Caret parser, `.github/scripts/cue-parser.js` (used by `probatio-label.yml`) | `^name cue words` from the owner, outside quotes and code, in a comment without the Claude Code footer | Start of a line only |
+| Cue record, `latin-cue-record.yml` (its own matcher) | Any whole-word action or modifier from the owner, outside code and quotes, in a comment without the footer | Anywhere in the prose |
+| Seal gate, `finalize-pr.yml` | `@claude finalize`, or `@claude` together with `ultima probatio`, outside code and quotes, in a comment without the footer | Anywhere in the prose |
+
+So the line-start rule does not protect against an accidental seal. The seal gate ignores the footer, code and quotes, but it does not care where in the comment the words sit. Describe the seal cue in words, and keep `@claude` away from those words.
 
 ## What is live and what is only words
 
@@ -140,10 +148,11 @@ From `docs/latin-workflow-v2.md` and `turns/observations/README.md`:
 2. Contributor `recensio`: reviews its own PR and fixes what it finds.
 3. Contributor `ultima recensio`: every finding is fixed or carried forward by name.
 4. Shepherd `probatio`: the soft seal. It sets `ready-for-oversight`, and the contributor posts one readiness note on that head.
-5. Oversight: the observation, scored M1 to M8 and set to `status: complete`, and the final-oversight run (report only; hodie: the `final-oversight` label, then the approval).
+5. Oversight review with the Shepherd. The navigo files the observation, scored M1 to M8, and sets it to `status: complete`. The seal asks for this, so it comes before the seal.
 6. Shepherd `emenda`: asks the contributor to repair a flag, then back to step 3. A fix is a new head and needs a new seal.
-7. Shepherd `ultima probatio`: the final seal, on the owner's word only. `finalize` is the manual backup.
-8. Shepherd says merge in the conversation. Merge by merge commit, then one confirming comment.
+7. Shepherd `ultima probatio`: the final seal, on the owner's word only. `finalize` is the manual backup. In custos the seal applies the `final-oversight` label itself.
+8. The owner approves the waiting final-oversight run. It is report only and checks the head after the seal: checks, threads, that the seal covers this head, the observation, and the file review. A red item means a fix, a new head, and a new seal and approval. In hodie the label is added by hand.
+9. Shepherd says merge in the conversation. Merge by merge commit, then one confirming comment.
 
 A contributor does not seal or merge on its own, and leaves a cue meant for another name to that contributor.
 
