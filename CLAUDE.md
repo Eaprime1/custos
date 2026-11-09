@@ -155,8 +155,9 @@ Branches and documents carry suit designations:
 Tracks player XP, level, quest completion, session timestamps across devices. Configures session lifecycle. `concept.slug: custos`.
 
 ### Skills (`.claude/skills/`)
+
 - `latin-workflow` — the Latin calls (recensio, probatio, judicium and the rest), what each asks for, what is live and what is only words, and the guardrail against typing a seal cue. Summary only: `docs/latin-workflow-glossary.md` wins on any disagreement.
-- `work-eval` — retrospective grading, valuation and eval of finished work. Looks backward, never seals or merges. The auto-score in pr-journeys is a floor; this skill adds a six-dimension judgment layer and a Five Lakes proposal for documents.
+- `work-eval` — retrospective grading, valuation and eval of finished work. It looks backward and leaves sealing and merging to the owner. The auto-score in pr-journeys is a floor; this skill adds a six-dimension judgment layer and a Five Lakes proposal for documents.
 
 ### THEE / YOD / EMBER Triad
 A listening practice for capturing fragments before they have names. Not a ticketing system.
