@@ -1,5 +1,7 @@
 # Eval: <scope>
 
+**Template prima-clock:** 202611090500 (the stamp of this template; stamp each eval you write from it)
+
 **Prima-clock:** <bash tools/prima_clock.sh>
 **Evaluator:** <navigo and owner>
 **Batch:** <what is in, what is out, and why>
