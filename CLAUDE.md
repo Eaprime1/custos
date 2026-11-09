@@ -272,6 +272,8 @@ The reasoning is in `docs/issue-system.md` §4.
 - "scan_lexeme run" in the PR template means it was run, not that it was clean.
 - Words with weight (`replace`, `unknown` in prose) are not scanned. The marker glossary and the reserved list are in `atelier/lexemes/reserved-lexemes.md`.
 
+**Signum (marks).** The official name for the records that say what was checked about a piece of work and by whom: Quill, Claim, Validation, Witness, Integrity and Reference marks. Vocabulary only; nothing is built. A mark is a record, not a cue, and never seals or merges. Anyone who has read a document may add a witness mark. See `docs/signum.md`.
+
 **Seal and merge.** Navigo comments post under the owner's login, so the login by itself doesn't show the owner's consent.
 
 - `finalize-pr.yml` seals a PR when the owner comments the seal cue. The seal asks for a filed observation with `status: complete` (not for a bot's finalize).

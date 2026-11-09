@@ -35,6 +35,21 @@ These are not stage actions or modifiers — they are the two-step check-in prot
 
 `placet` is the one cue that changes a label, and only on the owner's own word. These cues are issue-comment vocabulary, not PR-level workflow triggers. They live in the mission board procedure only; they do not finalize, seal, or merge anything.
 
+## Marks (Signum)
+
+Not a stage, an action or a modifier. **Signum** (a sign, a mark, a seal) is the name for the records that say what was checked about a piece of work and by whom. Official from the Shepherd's word on custos#503, 202610311021 UTC. Full page: [`signum.md`](signum.md).
+
+| Mark | Says |
+|---|---|
+| **Quill** | Provenance: where it came from and who carried it |
+| **Claim Mark** | Occupancy: this work is taken |
+| **Validation Mark** | Named checks were run and passed |
+| **Witness Mark** | Someone read it. Anyone who has read the document may add one, or a counter to one. Skimming is a reference, not a witness |
+| **Integrity Mark** | The same bytes as when sealed (a hash) |
+| **Reference Mark** | The document was intentionally referenced. Not built |
+
+A mark is a record, not a cue. No call sets one, and no mark seals, merges or approves anything. A mark may state only what its witness actually did.
+
 ## Actions
 
 | Action | Inspiration / sense | Custos stage |
