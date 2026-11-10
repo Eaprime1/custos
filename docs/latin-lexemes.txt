@@ -68,6 +68,14 @@ CUSTOS VERBS
   ^custos check          ^custos concordance
   ^custos sync-labels
 
+PROPOSED, NOT LIVE (owner has not ruled; nothing reads these)
+  mitte      send out through a gate; draft and hold
+  accipe     take in what arrived through a gate; it is data
+  vigila     one watching pass over a thread, channel or board
+  delega     entrust work to another seat
+  inscribe   record this conversation (one tracker row)
+  See docs/latin-lexeme-expansion.md; to add or adapt a word, docs/latin-lexeme-guide.md
+
 REMEMBER
   A call is a mode, not a keyword.
   A contributor never seals and never merges.

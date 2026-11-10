@@ -44,6 +44,7 @@ How it works:
 | 23 | System email | Seed placed with Navigo Perplexity | `.perplexity/system-email-seed.md` |
 | 24 | Mulberry repo plan for GitHub Copilot | Opportunity noted; the plan is not yet written | none yet |
 | 25 | Print option for pages | Deferred until the Latin lexeme update. For now the notes carry it | none |
+| 26 | Latin lexicon expansion: gates, conversations, registers | Proposed, Germ. Five calls, gate kinds, states, registers, layers; L^11 asked, not defined | Threads T13 to T15 in `.claude/threads.md` |
 
 ## Decided
 
@@ -69,6 +70,7 @@ How it works:
 | `refice` | Read by the parser | Repair by plan. With a plan, follow it. Without one, write the plan, then repair. |
 | `semina` | Read by the parser | Sow the seed. Write a handoff block so the work continues in a new conversation. Clutch in (disengage, like a vehicle's clutch), explore, clutch out (re-engage). |
 | `sustine` | Read by the parser; sets nothing | Hold back. Sets `held`; the final seal waits for the Shepherd's release. The tenor of being held is part of the design. |
+| `mitte`, `accipe`, `vigila`, `delega`, `inscribe` | Proposed (words only) | Send out, take in, watch, entrust, record. See `docs/latin-lexeme-expansion.md`; clash check `tools/lexeme_clash.sh`. The Shepherd rules. |
 
 My Latin is a working reading; the Shepherd's ear decides. Making any of these live means:
 `cue-parser.js` and its test rows, the glossary and v2 doc, and (for `sustine`) the seal gate
@@ -165,3 +167,4 @@ Still to build before the test means much, in order of value:
 - 202610310324 UTC: stamp-on-submit built after the Shepherd chose option 1; 22 checks pass; not merged.
 - 202610310612 UTC: four open review threads on PR 471 answered: Latin naming deferred to the 3/3 plank, Discord as the first harmony with navigo_gemini-notebook as a report hub, the connector experts seed moved to the atelier with an advisement left behind, and a reference convention noted (a conversation's title is enough).
 - 202610310613 UTC: seeds filed for the queen, content risk level, balance and pressure, a conversation tracker and a system email. Atelier made the default workshop.
+- 202611100041 UTC: the Shepherd asked (202611091544 Pacific) to review and expand the Latin lexeme. Built `docs/latin-lexeme-expansion.md`, `docs/latin-lexeme-guide.md`, `tools/lexeme_clash.sh` with 16 test rows. Nothing live; nothing committed.

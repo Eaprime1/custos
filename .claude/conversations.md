@@ -15,4 +15,6 @@ A title is enough.
 
 ## Added later
 
-(nothing yet)
+| Stamp (UTC) | Title | Where | Note |
+|---|---|---|---|
+| 202611100041 | Latin lexeme expansion | claude.ai/code session | apertus. Expansion page, guide, clash tool. Threads T13 to T15 |

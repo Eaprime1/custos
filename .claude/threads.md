@@ -1,6 +1,6 @@
 # Threads
 
-Prima-clock: 202610212355
+Prima-clock: 202611100041
 Kept by: nav1 (Claude with the Shepherd). A living register, not an append-only log. Format and rules: `docs/latin-workflow-v2.md`, section "Threads".
 
 A thread is an open question or stream that outlives one PR. The navigo posts a thread's note
@@ -20,3 +20,6 @@ and asks when the work reaches it, so the Shepherd is not holding the list. Ids 
 | T10 | Mission board and simple tracker | parked | Start with a sheet or a checklist. Asked when the inventory is next opened. |
 | T11 | Local model for simple lint fixes | parked | Whether opencode or ollama is worth setting up. Asked after T09. |
 | T12 | Port the new modifiers to hodie | open | Hodie's `cue-parser.js` has the old modifier list, so `confirmanda` and `supplenda` would be rejected there. Port after #488 merges. Owner: nav1, with the Shepherd's word. |
+| T13 | L^11 interrupt conduit | waiting on Shepherd | Is L^11 the `anything^11` rule on L-lexemes, and which L-words interrupt? May a germ note be filed from the Project docs? Asked at the next conversation about the lexicon. See `docs/latin-lexeme-expansion.md` section 7. |
+| T14 | Gates: Linear, Asana, practice and reality | waiting on Shepherd | Does "repo primary, Jira follows" (2026-10-19) extend to Linear and Asana? Does "later reality" mean the reality-layer seed (then `realitas` goes)? Is a harmony server a gate? Asked when a gate is first proposed as real. |
+| T15 | Latin lexicon expansion: rulings | waiting on Shepherd | Accept, swap or drop each proposed word; `limen` or `porta`; `domos` spelling; automation name; register, perspective or category axis; whether this is the Latin lexeme update (then notes thread 25, print option, is next). Asked at the owner's next review of `docs/latin-lexeme-expansion.md`. |
