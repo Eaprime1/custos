@@ -88,8 +88,18 @@ For `confirmanda` and `supplenda`, anything only the Shepherd can supply goes in
 | Lexeme | Code | Proposed meaning |
 |---|---|---|
 | `coniunctio` | CNJ | The merge call: merge when ready. Check the gates first (required checks, open threads, seal covers this head, file review). If any concern remains, stop and state it as a `judicium` (options, recommendation, what each choice changes) and wait. Merge only when no concern remains. |
+| `observatio` | OBS | The observation call: write the observation document for this PR, the history of what happened: what was seen, what was fixed, what is carried forward, the scores. The call names who writes it (`^claude observatio`); with no name, the oversight observer writes it. It files `turns/observations/<prima-clock>_pr<N>_observation.md`, `status: open` until the owner says it is complete. It does not seal or merge. |
 
 Proposed in answer to the owner's #517 review comment: "add a latin lexeme for the merge when ready (if there is a concern I want to address it before the merge)". *Coniunctio* is Latin for a joining. The word is the owner's to accept or swap for another. No workflow reads it. After the owner calls it, a navigo merges by the repo's merge method, which matches the rule that a navigo merges when the owner asks in the conversation. Until the owner rules, do not add it to the glossary or any recorder list.
+
+Proposed on the Shepherd's word on PR #520 (2026-11-12): "I do not see a latin lexeme for observation process ... if you don't find it, let's add it." None was found: the observation step has a document, a folder and a README, and the #517 observation carried the idea forward, but no word. *Observatio* is Latin for watching, and sits with *recensio*, *probatio* and *lustratio*. The word is the owner's to accept or swap.
+
+How it fits with the Shepherd's marker, as a proposal:
+- **`shepherd observed`** (or `shepherd observation`, which the observation log in #467 already reads) is the *Shepherd's* part: his own attestation, with his local time typed as `hh:mm`. It records that he has observed. It does not write the history.
+- **`^name observatio`** is the call that asks for the document, and it names the writer. That answers who writes it when the marker alone cannot say.
+- **Trigger, not built:** when the marker is seen and no document is filed, the cue record could say "observation requested, no document filed, waits on the navigo named in the call, default the oversight observer". It would not write the document. This needs a change to `latin-cue-record.yml` (and the log's marker list for `observed`). Not done; the owner rules first.
+
+No workflow, parser or recorder list reads `observatio` today.
 
 ### Answering `emenda`
 
