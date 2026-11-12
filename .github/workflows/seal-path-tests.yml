@@ -37,6 +37,9 @@ on:
       - 'tools/test_observation_log_workflow.js'
       - 'tools/observation_log_test_kit.js'
       - 'docs/navigo-registry.md'
+      - '.github/scripts/stamp-on-submit.js'
+      - '.github/workflows/stamp-on-submit.yml'
+      - 'tools/test_stamp_on_submit.js'
 
 permissions:
   contents: read
@@ -71,3 +74,5 @@ jobs:
 
       - name: Observation log
         run: bash tools/test_observation_log.sh
+      - name: Stamp on submit rules
+        run: node tools/test_stamp_on_submit.js

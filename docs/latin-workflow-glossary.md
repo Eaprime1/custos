@@ -18,6 +18,8 @@ A refinement of this vocabulary, with the road from contributor to merge, is in 
 | **Extrema** | Utmost care | Exhaustive audit or root-cause analysis when risk warrants it. |
 | **Renovata** | Renewed or refreshed | Refresh the relevant assessment after meaningful changes; inspect the delta and affected conclusions rather than repeat every deep scan by default. With *Recensio*: *Recensio renovata*. |
 | **Expeditus** | Unencumbered, prompt | Move through all applicable finish steps in a focused pass, without lowering evidence or safety standards. Record any deliberately omitted optional review and its reason, approver, substitute evidence and follow-up. |
+| **Confirmanda** | *Confirmare*, to confirm; "that must be confirmed" | With *Emenda*: a claim, concept or source cannot be checked from the repo. Confirm it or mark it unconfirmed; never fill it from memory. Added in [v2.1](latin-workflow-v2.md). |
+| **Supplenda** | *Supplere*, to supply; "that must be supplied" | With *Emenda*: the work is sound but a step the road requires is missing. Supply it or name who it waits on. Not a defect. Added in [v2.1](latin-workflow-v2.md). |
 
 *Renovata* is a modifier that can stand on its own as a request to refresh the current work. Here it describes review cadence; a separate document-transformation process called renovation, if adopted, belongs in its own design, not in the PR trigger. *Expeditus* likewise changes tempo, not authority.
 
