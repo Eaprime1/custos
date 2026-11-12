@@ -165,17 +165,19 @@ function mergeLog(oldBody, row) {
 const prNumberOf = (p) => (p.pull_request ? p.pull_request.number : undefined);
 
 // One small reader per event: what it calls the comment, its kind and its number.
-const reviewPart = (prefix, kind, p, c, posted) => c && {
-  c, kind, prNumber: prNumberOf(p), id: `${prefix}-${c.id}`, posted, head: c.commit_id,
+// Review events name the comment `review` or `comment`; both carry a commit_id.
+const reviewPart = (p, c, spec) => c && {
+  c, kind: spec.kind, prNumber: prNumberOf(p), id: `${spec.prefix}-${c.id}`,
+  posted: c[spec.postedKey], head: c.commit_id,
 };
 
 const fromReview = (p) => {
-  const part = reviewPart('review', 'review', p, p.review, p.review?.submitted_at);
+  const part = reviewPart(p, p.review, { kind: 'review', prefix: 'review', postedKey: 'submitted_at' });
   return part && { ...part, reviewId: p.review.id };
 };
 
 const fromReviewComment = (p) =>
-  reviewPart('rcomment', 'inline', p, p.comment, p.comment?.created_at);
+  reviewPart(p, p.comment, { kind: 'inline', prefix: 'rcomment', postedKey: 'created_at' });
 
 function fromPrComment(p) {
   const c = p.comment;
