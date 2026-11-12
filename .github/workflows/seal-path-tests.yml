@@ -31,6 +31,9 @@ on:
       - 'tools/test_seal_observation.sh'
       - 'tools/test_probatio_label.js'
       - 'docs/navigo-registry.md'
+      - '.github/scripts/stamp-on-submit.js'
+      - '.github/workflows/stamp-on-submit.yml'
+      - 'tools/test_stamp_on_submit.js'
 
 permissions:
   contents: read
@@ -62,3 +65,6 @@ jobs:
 
       - name: Final oversight rules
         run: node tools/test_final_oversight.js
+
+      - name: Stamp on submit rules
+        run: node tools/test_stamp_on_submit.js
