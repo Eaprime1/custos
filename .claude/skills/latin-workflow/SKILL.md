@@ -33,8 +33,11 @@ A call is an **action**, optionally with a **modifier**. A call requests a stage
 | `refice` | Rework, bigger than an amendment and still without fault. With a plan, follow it. Without one, write the plan first, then repair. |
 | `semina` | Sow. Write a handoff block so the work continues in a new conversation: clutch in (leave the main stream and explore), clutch out (rejoin it). |
 | `sustine` | Hold back. Meant to set `held` so the final seal waits for the Shepherd's release. Today the parser and the cue record read it and nothing more. |
+| `observatio` | The observation call. Write the observation document for this PR, the history of what happened: what was seen, what was fixed, what is carried forward, the scores. The call names who writes it (`^claude observatio`); with no name, the oversight observer writes it. File `turns/observations/<prima-clock>_pr<N>_observation.md`, `status: open` until the owner says it is complete. Does not seal or merge. |
 
 *Refice*, *semina* and *sustine* were accepted by the Shepherd on 2026-10-19 (comment in `cue-parser.js`; meanings in `docs/latin-workflow-v2.md`). The custos parser and cue record read them as actions. None of them changes a label or stops a seal yet.
+
+*Observatio* was accepted by the Shepherd on 2026-11-12 (comment on PR #521: "observatio is accepted"). No workflow, parser or recorder list reads it yet.
 
 ### Modifiers
 
@@ -65,6 +68,7 @@ Owner direction from the #517 review: every code is at least three letters, beca
 | `refice` | REF | `supplenda` | SPL |
 | `semina` | SEM | | |
 | `sustine` | SUS | | |
+| `observatio` | OBS | | |
 
 The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. REF, SEM and SUS follow the first-three-letters rule and clash with nothing. The owner confirms them or picks others.
 
@@ -88,18 +92,17 @@ For `confirmanda` and `supplenda`, anything only the Shepherd can supply goes in
 | Lexeme | Code | Proposed meaning |
 |---|---|---|
 | `coniunctio` | CNJ | The merge call: merge when ready. Check the gates first (required checks, open threads, seal covers this head, file review). If any concern remains, stop and state it as a `judicium` (options, recommendation, what each choice changes) and wait. Merge only when no concern remains. |
-| `observatio` | OBS | The observation call: write the observation document for this PR, the history of what happened: what was seen, what was fixed, what is carried forward, the scores. The call names who writes it (`^claude observatio`); with no name, the oversight observer writes it. It files `turns/observations/<prima-clock>_pr<N>_observation.md`, `status: open` until the owner says it is complete. It does not seal or merge. |
 
 Proposed in answer to the owner's #517 review comment: "add a latin lexeme for the merge when ready (if there is a concern I want to address it before the merge)". *Coniunctio* is Latin for a joining. The word is the owner's to accept or swap for another. No workflow reads it. After the owner calls it, a navigo merges by the repo's merge method, which matches the rule that a navigo merges when the owner asks in the conversation. Until the owner rules, do not add it to the glossary or any recorder list.
 
-Proposed on the Shepherd's word on PR #520 (2026-11-12): "I do not see a latin lexeme for observation process ... if you don't find it, let's add it." None was found: the observation step has a document, a folder and a README, and the #517 observation carried the idea forward, but no word. *Observatio* is Latin for watching, and sits with *recensio*, *probatio* and *lustratio*. The word is the owner's to accept or swap.
+Added on the Shepherd's word on PR #520 (2026-11-12): "I do not see a latin lexeme for observation process ... if you don't find it, let's add it." None was found: the observation step had a document, a folder and a README, but no word. *Observatio* is Latin for watching, and sits with *recensio*, *probatio* and *lustratio*. Accepted on PR #521; it now stands in the Actions table above.
 
-How it fits with the Shepherd's marker, as a proposal:
+How it fits with the Shepherd's marker:
 - **`shepherd observed`** (or `shepherd observation`, which the observation log in #467 already reads) is the *Shepherd's* part: his own attestation, with his local time typed as `hh:mm`. It records that he has observed. It does not write the history.
 - **`^name observatio`** is the call that asks for the document, and it names the writer. That answers who writes it when the marker alone cannot say.
-- **Trigger, not built:** when the marker is seen and no document is filed, the cue record could say "observation requested, no document filed, waits on the navigo named in the call, default the oversight observer". It would not write the document. This needs a change to `latin-cue-record.yml` (and the log's marker list for `observed`). Not done; the owner rules first.
+- **Trigger, proposed and not built:** when the marker is seen and no document is filed, the cue record could say "observation requested, no document filed, waits on the navigo named in the call, default the oversight observer". It would not write the document. This needs a change to `latin-cue-record.yml` (and the log's marker list for `observed`). Not done; the owner rules on that separately.
 
-No workflow, parser or recorder list reads `observatio` today.
+The Shepherd's own `shepherd observatio` note (as on #521, where he judged an observation document would be more clutter than content) is a decision about the document, not a call for one. The seal gate still asks for a filed observation, so a PR the Shepherd waives it for needs a short one marked `status: complete`, or a gate change in its own PR.
 
 ### Answering `emenda`
 
