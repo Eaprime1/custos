@@ -103,15 +103,21 @@ const KIND_LABEL = { review: 'review', comment: 'comment', inline: 'inline comme
 const safeWho = (by) => (/^[A-Za-z0-9_[\]-]+$/.test(String(by)) ? by : '?');
 const shortSha = (head) => (/^[0-9a-f]{7,40}$/i.test(String(head)) ? String(head).slice(0, 7) : '?');
 
+// The words of a row's last cell: the excerpt, its inline links, and an edit mark.
+function noteOf({ excerpt, inline, edited }) {
+  return (excerpt || '(no text)') + inlineNote(inline) + (edited ? ' \u00b7 edited' : '');
+}
+
 // One table row. The id (kind-number) is hidden at the end so an edit replaces its row.
 function buildRow(row) {
-  const { id, kind, url, posted, stamp, excerpt, inline = [], edited = false } = row;
+  const { id, kind, url, posted, stamp } = row;
   if (!ROW_ID_RE.test(String(id))) throw new Error(`bad row id: ${id}`);
   const label = KIND_LABEL[kind] || 'comment';
-  const note = (excerpt || '(no text)') + inlineNote(inline) + (edited ? ' \u00b7 edited' : '');
-  const line = `| ${utcStamp(posted)} | ${stamp || '\u2014'} | ${link(label, url)} | @${safeWho(row.by)} | ` +
-    `\`${shortSha(row.head)}\` | ${note} <!--obs:${id}--> |`;
-  return { id, line };
+  const cells = [
+    utcStamp(posted), stamp || '\u2014', link(label, url), `@${safeWho(row.by)}`,
+    `\`${shortSha(row.head)}\``, `${noteOf(row)} <!--obs:${id}-->`,
+  ];
+  return { id, line: `| ${cells.join(' | ')} |` };
 }
 
 // Rows already in a log comment, found by their hidden id. Anything else in the body
@@ -159,17 +165,17 @@ function mergeLog(oldBody, row) {
 const prNumberOf = (p) => (p.pull_request ? p.pull_request.number : undefined);
 
 // One small reader per event: what it calls the comment, its kind and its number.
-function fromReview(p) {
-  const c = p.review;
-  return c && { c, kind: 'review', prNumber: prNumberOf(p), id: `review-${c.id}`,
-    posted: c.submitted_at, head: c.commit_id, reviewId: c.id };
-}
+const reviewPart = (prefix, kind, p, c, posted) => c && {
+  c, kind, prNumber: prNumberOf(p), id: `${prefix}-${c.id}`, posted, head: c.commit_id,
+};
 
-function fromReviewComment(p) {
-  const c = p.comment;
-  return c && { c, kind: 'inline', prNumber: prNumberOf(p), id: `rcomment-${c.id}`,
-    posted: c.created_at, head: c.commit_id };
-}
+const fromReview = (p) => {
+  const part = reviewPart('review', 'review', p, p.review, p.review?.submitted_at);
+  return part && { ...part, reviewId: p.review.id };
+};
+
+const fromReviewComment = (p) =>
+  reviewPart('rcomment', 'inline', p, p.comment, p.comment?.created_at);
 
 function fromPrComment(p) {
   const c = p.comment;
