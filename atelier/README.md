@@ -33,6 +33,7 @@ the folder has instructions saying otherwise. It becomes a real folder only when
 | Server custos (queen) | `server-custos-queen-seed.md` | Seed at 1/3 plank. Nothing built | Shepherd, PR 471 |
 | Content risk level | `risk-level-seed.md` | Seed. Levels and default not scoped | Shepherd, PR 471 |
 | Balance and pressure | `balance-pressure-seed.md` | Seed for a conversation. Lexeme not grounded | Shepherd, PR 471 |
+| Conversation ID, prima version | `conversation-id-prima-seed.md` | Germ. Sources gathered, a proposal and a feeder sketch; nothing built | Shepherd, chat `set-jmdfqh`, 202610310800 UTC |
 | Hodie as Shadow | `hodie-shadow/` | Seed, Germ — opening refresh filed; open questions listed | Conversation `navigo-claude-hodie-custos`, 202610151306 Pacific |
 | Peer Swap | `peer-swap/` | Seed, Germ — process, mission, forms and intros for the custos/hodie repo-to-repo review | Conversation `navigo-claude-hodie-custos`, 202610152136 UTC |
 | Void-maker | `void-maker.md` | Named, not yet coined — Shepherd decision pending | Bounty #187 moderation cycle |
