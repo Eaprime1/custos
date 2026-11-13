@@ -13,6 +13,8 @@ This note describes the handoff between manual comments and the installed record
 
 For a PR, Eric can ask for a bounded Recensio and a later Probatio; Lustratio is optional when presentation or provenance needs it. Renovata requests a refresh after meaningful new work; Cursus expeditus requests the applicable finish steps in order, without waiving required checks. These are human workflow preferences, **not** a machine-enforced once-per-phase limit. A review receipt records what actually happened.
 
+Three more calls, ruled 2026-11-12 and 2026-11-13 and not read by any workflow: Coniunctio (merge when ready, gates first), Inspectio (the oversight observer's review) and Observatio (the record it leaves). See `docs/latin-workflow-v2.md` v2.3.
+
 ## Differences to test before expanding automation
 
 - There is no dedicated opt-in marker: prose containing an unquoted call can be recorded if the event prefilter and parser match.

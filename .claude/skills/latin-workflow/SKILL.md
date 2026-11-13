@@ -1,11 +1,11 @@
 ---
 name: latin-workflow
-description: Read and answer the Latin workflow calls (recensio, probatio, lustratio, judicium, novissimum, cursus, emenda, with modifiers like prima, ultima, extrema). Use when the owner writes a call, asks what a call means, asks which stage a piece of work is at, or wants to steer a conversation or PR by stage. Also use before posting any PR comment that contains a cue, when the owner asks for a merge call, and when adding, renaming or proposing a lexeme.
+description: Read and answer the Latin workflow calls (recensio, probatio, lustratio, judicium, novissimum, cursus, emenda, coniunctio, inspectio, observatio, with modifiers like prima, ultima, extrema). Use when the owner writes a call, asks what a call means, asks which stage a piece of work is at, or wants to steer a conversation or PR by stage. Also use before posting any PR comment that contains a cue, when the owner asks for a merge call, and when adding, renaming or proposing a lexeme.
 ---
 
 # Latin Workflow
 
-**Prima-clock:** 202611092118
+**Prima-clock:** 202611130516
 **Suit:** ♣️ Club, working copy
 **Source of truth:** `docs/latin-workflow-v2.md` (cues, contributors and the road to merge; the most current), `docs/latin-workflow-glossary.md` (PRs), `docs/latin-workflow-conversation-seed.md` (conversations) and `docs/latin-lexemes.txt` (plain quick reference). `.github/scripts/cue-parser.js` is what the workflows actually read. Hodie's port is `hodie/docs/latin-workflow.md`. This skill is a working summary. When it disagrees with those, they win.
 
@@ -33,8 +33,13 @@ A call is an **action**, optionally with a **modifier**. A call requests a stage
 | `refice` | Rework, bigger than an amendment and still without fault. With a plan, follow it. Without one, write the plan first, then repair. |
 | `semina` | Sow. Write a handoff block so the work continues in a new conversation: clutch in (leave the main stream and explore), clutch out (rejoin it). |
 | `sustine` | Hold back. Meant to set `held` so the final seal waits for the Shepherd's release. Today the parser and the cue record read it and nothing more. |
+| `coniunctio` | Merge when ready, the owner's call (ruled 2026-11-12). Check the gates first: required checks, open threads, the seal covers this head, the file review, and the `inspected` box. If any concern remains, stop and state it as a `judicium` (options, recommendation, what each choice changes) and wait. Merge only when no concern remains, by the repo's merge method, then one confirming comment. |
+| `inspectio` | The oversight observer's review (*inspicere*, to look into; ruled 2026-11-13). Re-check the claims, score M1 to M8, report flags or say *inspected*, and file the result: a document before the seal, or a PR comment when the PR is already sealed (a new file would be a new head). The observer ticks the `inspected` box. The observer never seals or merges. |
+| `observatio` | The observation, the record (ruled 2026-11-13). Write or update `turns/observations/<prima-clock>_pr<N>_observation.md`. *Inspectio* is the act of reviewing; *observatio* is the record it leaves. |
 
 *Refice*, *semina* and *sustine* were accepted by the Shepherd on 2026-10-19 (comment in `cue-parser.js`; meanings in `docs/latin-workflow-v2.md`). The custos parser and cue record read them as actions. None of them changes a label or stops a seal yet.
+
+*Coniunctio*, *inspectio* and *observatio* were ruled by the Shepherd in conversation (2026-11-12 and 2026-11-13). No workflow reads them yet; the `inspected` box and the label rename are open as T17. Until a workflow reads them they are words for the conversation, as the parser rejects any word it does not know.
 
 ### Modifiers
 
@@ -65,8 +70,11 @@ Owner direction from the #517 review: every code is at least three letters, beca
 | `refice` | REF | `supplenda` | SPL |
 | `semina` | SEM | | |
 | `sustine` | SUS | | |
+| `coniunctio` | CNJ | | |
+| `inspectio` | INS | | |
+| `observatio` | OBS | | |
 
-The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. REF, SEM and SUS follow the first-three-letters rule and clash with nothing. The owner confirms them or picks others.
+The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. REF, SEM, SUS, INS and OBS follow the first-three-letters rule and clash with nothing. The owner confirmed CNJ, INS and OBS with their words; EXD and CNF are still provisional.
 
 **Hyphen call form (proposed).** Name, then modifier, then action:
 
@@ -83,13 +91,9 @@ The older two-letter examples (`PR-REC`, `UL-PRO` and the rest) were inherited e
 
 For `confirmanda` and `supplenda`, anything only the Shepherd can supply goes in an Ask. The shape, and the thread ids that go with it, are in v2.1 of `docs/latin-workflow-v2.md`.
 
-### Proposed lexemes (awaiting the owner's ruling)
+### Proposed lexemes
 
-| Lexeme | Code | Proposed meaning |
-|---|---|---|
-| `coniunctio` | CNJ | The merge call: merge when ready. Check the gates first (required checks, open threads, seal covers this head, file review). If any concern remains, stop and state it as a `judicium` (options, recommendation, what each choice changes) and wait. Merge only when no concern remains. |
-
-Proposed in answer to the owner's #517 review comment: "add a latin lexeme for the merge when ready (if there is a concern I want to address it before the merge)". *Coniunctio* is Latin for a joining. The word is the owner's to accept or swap for another. No workflow reads it. After the owner calls it, a navigo merges by the repo's merge method, which matches the rule that a navigo merges when the owner asks in the conversation. Until the owner rules, do not add it to the glossary or any recorder list.
+None open. `coniunctio` was proposed in the #517 review and ruled on 2026-11-12. `inspectio` and `observatio` were ruled on 2026-11-13: *observatio* was first proposed in #521 as the call for the observation, and the Shepherd gave the review its own word, *inspectio*. A new word waits here until the owner rules.
 
 ### Answering `emenda`
 
@@ -134,9 +138,9 @@ So the line-start rule does not protect against an accidental seal. The seal gat
 | `^name probatio` | `probatio-label.yml` (custos and hodie) | Sets `ready-for-oversight`. A person's push takes it off. Seals nothing. |
 | a call the recorder knows, or opening a PR ready | `latin-cue-record.yml` | Logs one row in a living comment: checks, threads, merge state, observation. Calls no model. Custos reads ten actions (recensio, probatio, lustratio, judicium, novissimum, cursus, emenda, refice, semina, sustine) and eight modifiers (prima, ultima, suprema, extrema, renovata, expeditus, confirmanda, supplenda). Hodie's `cue-parser.js` reads the first seven actions. |
 | `@claude placet` | placet workflow | Flips a mission to in-progress. Owner only. |
-| every other call | nothing | Words for the conversation. `refice`, `semina` and `sustine` are logged and do nothing more. So is every proposed lexeme. |
+| every other call | nothing | Words for the conversation. `refice`, `semina` and `sustine` are logged and do nothing more. `coniunctio`, `inspectio` and `observatio` are not read by any workflow. So is every proposed lexeme. |
 
-Neither a seal label nor a passing assessment merges. The owner asks for merge separately; `coniunctio` is the proposed call for that.
+Neither a seal label nor a passing assessment merges. The owner asks for merge separately; `coniunctio` is the call for that.
 
 **Owner direction (not implemented):** `@claude` should return to its primary mission, calling Claude, and the seal should leave the `@claude finalize` wording for the Latin grammar. That touches `finalize-pr.yml` (and its file name, if a rename is practical), its tests, the docs that name it, and hodie's copy, so it needs its own PR and review. Until it lands, the cues in the table above remain live.
 
@@ -148,11 +152,11 @@ From `docs/latin-workflow-v2.md` and `turns/observations/README.md`:
 2. Contributor `recensio`: reviews its own PR and fixes what it finds.
 3. Contributor `ultima recensio`: every finding is fixed or carried forward by name.
 4. Shepherd `probatio`: the soft seal. It sets `ready-for-oversight`, and the contributor posts one readiness note on that head.
-5. Oversight review with the Shepherd. The navigo files the observation, scored M1 to M8, and sets it to `status: complete`. The seal asks for this, so it comes before the seal.
+5. Oversight observer review (`inspectio`) with the Shepherd. The observer re-checks the claims, scores M1 to M8 and files the observation (`observatio`) with `status: complete`. The seal asks for the file, so by default it comes before the seal. If the PR is already sealed, the review is a PR comment, because a new file would be a new head. The observer ticks the `inspected` box. Practice only; the box and label are T17.
 6. Shepherd `emenda`: asks the contributor to repair a flag, then back to step 3. A fix is a new head and needs a new seal.
 7. Shepherd `ultima probatio`: the final seal, on the owner's word only. `finalize` is the manual backup. In custos the seal applies the `final-oversight` label itself.
 8. The owner approves the waiting final-oversight run. It is report only and checks the head after the seal: checks, threads, that the seal covers this head, the observation, and the file review. A red item means a fix, a new head, and a new seal and approval. In hodie the label is added by hand.
-9. Shepherd says merge in the conversation. Merge by merge commit, then one confirming comment.
+9. Shepherd calls `coniunctio`, or says merge in the conversation. The navigo checks the gates first, including the `inspected` box. A concern becomes a `judicium`. With none, merge by merge commit, then one confirming comment.
 
 A contributor does not seal or merge on its own, and leaves a cue meant for another name to that contributor.
 
@@ -203,7 +207,7 @@ Other systems keep their own copies of this vocabulary, and more will be added. 
    - hodie `.github/scripts/cue-parser.js` and its tests, as a separate swap
 6. **Update this skill:** the Actions or Modifiers table, the codes table, the live-versus-words table, the frontmatter description if it adds a trigger, and the `Prima-clock` line.
 7. **Check nothing was missed:** `grep -rIl -i '<word>' custos hodie fleet-commander armarium mandelbrot`, then `bash tools/scan_lexeme.sh`.
-8. **Keep it proposed until the owner rules.** List a new word under Proposed lexemes, as `coniunctio` is, and move it into the main tables only after the ruling.
+8. **Keep it proposed until the owner rules.** List a new word under Proposed lexemes, as `coniunctio` was, and move it into the main tables only after the ruling.
 
 Drift to know about: custos's parser reads ten actions and hodie's reads seven (no `refice`, `semina` or `sustine`), and custos's names list has no `hodie`. Check both before saying a lexeme is live.
 
