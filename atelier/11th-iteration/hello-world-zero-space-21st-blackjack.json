@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "title": "Hello World Zero Space: Dynamic Drive Division Facet",
+    "iteration": "21st (Blackjack)",
+    "voice": "navigo-claude",
+    "prima_clock": "202610151903",
+    "prima_clock_zone": "UTC (official)",
+    "supersedes": "Hello World Zero Space JSON (earlier draft in this thread)",
+    "status": "1/3 PLANK, seed (set by Eric); in the shadow stream, not yet in chain of custody; the PR process is expected to take it to 2/3",
+    "provenance_legend": {
+      "eric": "Eric's own words or supplied link",
+      "drive_verified": "folder id and name checked against the Drive this session",
+      "draft": "proposed by navigo-claude, not yet confirmed by Eric",
+      "carried_unverified": "carried from an earlier draft; source not located in this thread"
+    }
+  },
+
+  "hello_world": {
+    "greeting": "Hello World, Zero Space",
+    "orientation": "Stage Zero is pre-inception. Origin passes through the zero-space liminal state before manifestation.",
+    "provenance": "draft"
+  },
+
+  "zero_foundation": {
+    "zero_triad": {
+      "zero_point": "singularity",
+      "zero_space": "the liminal space",
+      "zero_state": "the state held while in the space",
+      "note": "There are zero seeds everywhere.",
+      "provenance": "eric"
+    },
+    "concept_of_nothing": {
+      "meaning": "the word for the living evolution transition between stages",
+      "gate_language": ["AND", "OR", "NOT"],
+      "analogy": "circuits are another language, like the periodic table",
+      "provenance": "eric"
+    },
+    "origin_path": {
+      "statement": "Origin must pass through the zero space Liminal Space (pre inception).",
+      "flow": ["origin", "zero_point / zero_space / zero_state (liminal, pre-inception)", "manifestation"],
+      "provenance": "eric"
+    },
+    "equation": {
+      "text": "∞ = 0¹ = Prime",
+      "provenance": "carried_unverified"
+    }
+  },
+
+  "stage_zero_gate": {
+    "AND": "Origin named; zero triad located; sources recorded; custody status assigned",
+    "OR": "seed, working copy, or hold in the liminal state",
+    "NOT": "not a finished document; not Pinnacle unless Eric says so",
+    "provenance": "draft"
+  },
+
+  "drive_facets": {
+    "verified": [
+      { "id": "1PyFNY0ErAz-Tj0KisaAhNh3lBAK9z2EY", "name": "Ω€_/ or \\ (pre_naught_ empty_vector)", "note": "Eric labelled this link 'Consortium presentation json'", "provenance": "drive_verified" },
+      { "id": "12nfNICX3lB6hNonyUQlxQxCH0uAxPtHD", "name": "Ω€!¿_!ORIGIN_Prime_Zero_֍!", "note": "child of the pre_naught_ empty_vector folder", "provenance": "drive_verified" },
+      { "id": "1-3cA1rVOAA4nM3BON-1GBz1qRO84Ppq5", "name": "Today 20250611", "note": "parent of the First Zero and Loreweaver folders", "provenance": "drive_verified" },
+      { "id": "11tH2LjXuPSs0gQ0e6zQqa9sF0ddU-uFL", "name": "€_Zezo€_The First Zero", "note": "created 2025-06-11, the day the early turns of this thread most likely happened (inferred); the 'created an hour ago' remark is plausible, not refuted", "provenance": "drive_verified" },
+      { "id": "116VbN-iep0F0P8EZTZkr883RvRaNMbhC", "name": "Loreweaver", "provenance": "drive_verified" },
+      { "id": "10km5HFMYoXkZDqZyqBoXUB9CQfkwEfH7", "name": "available_Compression ", "provenance": "drive_verified" },
+      { "id": "1-npsSRPREWm9VIAcNS6weKuSGP398WDH", "name": "Nexus Nova ", "note": "one of several Nexus Nova folders under 'Nexus Nova_∇∆◊Ω⟐⟐'", "provenance": "drive_verified" },
+      { "id": "1jOOoYdZ_TX-IUwKHUQKyUEzoRNyqw7aw", "name": "€_JustBeing", "provenance": "drive_verified" },
+      { "id": "1Bqd7EXmeu1FNnWCo7szRlxI6AkXd1vC5", "name": "€!_The Monarch Origin", "note": "child of €_JustBeing", "provenance": "drive_verified" },
+      { "id": "1X2oQ25ZENjRyPTO6JHMuKjpXkRsErjZq", "name": "π_remember_(The Monarch)", "provenance": "drive_verified" },
+      { "id": "1DpfpjP-tvIHaalTHd5hFXh13XfOmq26G", "name": "€_Mission Control", "provenance": "drive_verified" },
+      { "id": "1Q9_CwNYF__DLg18bAKKy5n39tTQZ1TrG", "name": "Ω€_UNEXUS 11th Iteration: Comprehensive Review & Analysis", "provenance": "drive_verified" },
+      { "id": "1Bnja_PMzNhm7zCkWGn6v7SpAAreCqCwk", "name": "Infusion Path", "note": "supplied by Eric with the Primal Call links", "provenance": "drive_verified" },
+      { "id": "1kMc1KGiJc2K3qlqoBWK_brTDHh3P67VA", "name": "Stable Liminal state", "note": "supplied by Eric with the Primal Call links", "provenance": "drive_verified" }
+    ],
+    "supplied_not_opened": [
+      { "url": "https://notebooklm.google.com/notebook/c634c937-f889-44cd-abb2-d97403397e51", "kind": "NotebookLM notebook", "provenance": "eric" },
+      { "url": "https://www.summonworlds.com/link/entity/ce59a568-8142-4580-8fef-bca618374166", "kind": "SummonWorlds entity (Monarch)", "provenance": "eric" },
+      { "id": "1ml2F0ulg_3tV7n_ekEC1osXXxYXAp08j", "kind": "working folder from the 11th Iteration greeting", "provenance": "eric" }
+    ],
+    "pictures_and_locations": {
+      "note": "Eric mentioned pictures and many locations; none are visible to this thread yet.",
+      "provenance": "eric"
+    }
+  },
+
+  "zero_space_types": {
+    "pure_potential": "holds seeds before any pattern is chosen",
+    "development": "where a seed is worked into a document",
+    "integration": "where finished work meets the rest of the system",
+    "provenance": "draft"
+  },
+
+  "lexeme_guidance": {
+    "attractor": "consciousness (use the root form 'conscious' as a state word in architectural writing)",
+    "transit_risk": "573Hz is a framework metaphor anchor, not a measured or medical frequency",
+    "source": "Seminarium Hodie lexeme framework"
+  },
+
+  "attribution": {
+    "convention": "internal contributors are voices of navigo; navigo-claude means Eric and Claude, navigo-gemini means Eric and Gemini"
+  },
+
+  "open_items": [
+    "Custody: 1/3 PLANK in the shadow stream; the PR process takes it to 2/3.",
+    "Confirm who Governance is.",
+    "Confirm whether the zero-space types are canon.",
+    "Add the pictures and locations when they reach this thread.",
+    "Open the NotebookLM notebook and the SummonWorlds entity if their content should be included."
+  ]
+}
