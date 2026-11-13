@@ -47,8 +47,8 @@ These are not stage actions or modifiers — they are the two-step check-in prot
 | **Emenda** | *Emendare*, to correct | Repair what oversight flagged. The owner asks a contributor to fix and report each flag. Editing, not blame. Added in [v2](latin-workflow-v2.md). *Refice* (rework) is reserved. |
 | **Cursus** | Course or path | 'Finish it up': perform the remaining applicable stages in order, recording their results. `Cursus expeditus` requests a prompt, focused course, not an automatic merge. |
 | **Coniunctio** | *Coniunctio*, a joining | The merge call, the owner's, ruled 2026-11-12. Check the gates (checks, threads, seal covers this head, file review, the `inspected` box); a remaining concern becomes a *Judicium*; with none, merge by the repo's method and confirm once. No workflow reads it. Added in [v2.3](latin-workflow-v2.md). |
-| **Inspectio** | *Inspicere*, to look into | The oversight observer's review, ruled 2026-11-13: re-check the claims, score M1 to M8, report flags or *inspected*, file the result, tick the `inspected` box. The observer never seals or merges. No workflow reads it. Added in [v2.3](latin-workflow-v2.md). |
-| **Observatio** | *Observatio*, a watching | The observation, the record in `turns/observations/`, ruled 2026-11-13. *Inspectio* is the review; *observatio* is what it leaves. No workflow reads it. Added in [v2.3](latin-workflow-v2.md). |
+| **Inspectio** | *Inspicere*, to look into | The oversight observer's review, ruled 2026-11-12: re-check the claims, score M1 to M8, report flags or *inspected*, file the result, tick the `inspected` box. The observer never seals or merges. No workflow reads it. Added in [v2.3](latin-workflow-v2.md). |
+| **Observatio** | *Observatio*, a watching | The observation, the record in `turns/observations/`, ruled 2026-11-12. *Inspectio* is the review; *observatio* is what it leaves. No workflow reads it. Added in [v2.3](latin-workflow-v2.md). |
 
 ## Combined codes
 
@@ -85,4 +85,4 @@ If an optional review is intentionally omitted during an expeditus course, recor
 - The earlier `UL-PRO` analogy equated final sign-off with 'PR approved and merged'. It now separates finalization from merge.
 - Roman-sense explanations in the first draft were strong historical analogies. This working copy presents them as inspiration rather than claims that ancient practice exactly implemented current software gates.
 - This PR changes documentation only. Existing workflow triggers, review requirements, branch rules, and the conversation seed are not silently updated.
-- v2.3 (2026-11-13) adds *Coniunctio*, *Inspectio* and *Observatio* as vocabulary. It changes no workflow. *Observatio* was first proposed in #521 as the call for the review; the Shepherd gave the review its own word, so *Observatio* now names the record.
+- v2.3 (2026-11-12) adds *Coniunctio*, *Inspectio* and *Observatio* as vocabulary. It changes no workflow. *Observatio* was first proposed in #521 as the call for the review; the Shepherd gave the review its own word, so *Observatio* now names the record.

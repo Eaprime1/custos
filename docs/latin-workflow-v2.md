@@ -4,7 +4,7 @@
 **Suit:** ♦️ Diamond, 2/3 plank. Decisions made by the Shepherd on 202610160811; workflow side built.
 **Builds on:** [`latin-workflow-glossary.md`](latin-workflow-glossary.md), [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md)
 **Quick reference:** [`latin-lexemes.txt`](latin-lexemes.txt), plain text for Notepad
-**v2.3:** `coniunctio`, `inspectio` and `observatio`, ruled by the Shepherd 2026-11-12 and 2026-11-13 (see the end of this document).
+**v2.3:** `coniunctio`, `inspectio` and `observatio`, ruled by the Shepherd 2026-11-12 (see the end of this document).
 **v2.1:** drafted 202610212355 UTC from the Shepherd's words at the oversight of #468, #469, #470 and #476. Proposal until the Shepherd rules; the two modifiers are built (parser and cue record), the rest is practice.
 
 The existing system works. This refines it and adds four things: a repair word, two ways to reach
@@ -265,7 +265,7 @@ rejected would close this; it is a possible follow-up, not built.
 
 ## v2.3 — The merge word, the review word and the record word
 
-**Ruled:** `coniunctio` by the Shepherd on 2026-11-12; `inspectio` and `observatio` on 2026-11-13, in conversation with the oversight observer.
+**Ruled:** `coniunctio`, `inspectio` and `observatio` by the Shepherd on 2026-11-12, in conversation with the oversight observer and the development conversation.
 
 | Word | Code | Meaning |
 |---|---|---|

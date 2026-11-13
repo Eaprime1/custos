@@ -34,12 +34,16 @@ A call is an **action**, optionally with a **modifier**. A call requests a stage
 | `semina` | Sow. Write a handoff block so the work continues in a new conversation: clutch in (leave the main stream and explore), clutch out (rejoin it). |
 | `sustine` | Hold back. Meant to set `held` so the final seal waits for the Shepherd's release. Today the parser and the cue record read it and nothing more. |
 | `coniunctio` | Merge when ready, the owner's call (ruled 2026-11-12). Check the gates first: required checks, open threads, the seal covers this head, the file review, and the `inspected` box. If any concern remains, stop and state it as a `judicium` (options, recommendation, what each choice changes) and wait. Merge only when no concern remains, by the repo's merge method, then one confirming comment. |
-| `inspectio` | The oversight observer's review (*inspicere*, to look into; ruled 2026-11-13). Re-check the claims, score M1 to M8, report flags or say *inspected*, and file the result: a document before the seal, or a PR comment when the PR is already sealed (a new file would be a new head). The observer ticks the `inspected` box. The observer never seals or merges. |
-| `observatio` | The observation, the record (ruled 2026-11-13). Write or update `turns/observations/<prima-clock>_pr<N>_observation.md`. *Inspectio* is the act of reviewing; *observatio* is the record it leaves. |
+| `observatio` | The observation call. Write the observation document for this PR, the history of what happened: what was seen, what was fixed, what is carried forward, the scores. The call names who writes it (`^claude observatio`); with no name, the oversight observer writes it. File `turns/observations/<prima-clock>_pr<N>_observation.md`, `status: open` until the owner says it is complete. Does not seal or merge. |
+| `inspectio` | The oversight observer's review. Look into the PR on its current head as the oversight observer: checks, open threads, whether the seal covers this head, the observation, the file review, and a sample re-check of claims. Report to the Shepherd what holds and what does not, one line each. The `observatio` document records the result. Does not seal or merge. |
 
 *Refice*, *semina* and *sustine* were accepted by the Shepherd on 2026-10-19 (comment in `cue-parser.js`; meanings in `docs/latin-workflow-v2.md`). The custos parser and cue record read them as actions. None of them changes a label or stops a seal yet.
 
-*Coniunctio*, *inspectio* and *observatio* were ruled by the Shepherd in conversation (2026-11-12 and 2026-11-13). No workflow reads them yet; the `inspected` box and the label rename are open as T17. Until a workflow reads them they are words for the conversation, as the parser rejects any word it does not know.
+*Observatio* was accepted by the Shepherd on 2026-11-12 (comment on PR #521: "observatio is accepted"). No workflow, parser or recorder list reads it yet.
+
+*Inspectio* was accepted by the Shepherd on 2026-11-12 (in the conversation: "inspectio is the word"), after the call was asked for on PR #520: "we need a latin lexeme to call for this review added." `traditio`, the hand-over, was offered as the alternative and not chosen. It is not the same as `recensio` (the review everyone does) or `observatio` (the document). No workflow, parser or recorder list reads it yet.
+
+*Coniunctio* was ruled by the Shepherd on 2026-11-12 (in the conversation: "coniunctio for merge works"), after it was proposed in the #517 review. No workflow, parser or recorder list reads it yet. The `inspected` box and the label rename are open as T17.
 
 ### Modifiers
 
@@ -71,8 +75,8 @@ Owner direction from the #517 review: every code is at least three letters, beca
 | `semina` | SEM | | |
 | `sustine` | SUS | | |
 | `coniunctio` | CNJ | | |
-| `inspectio` | INS | | |
 | `observatio` | OBS | | |
+| `inspectio` | INS | | |
 
 The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. REF, SEM, SUS, INS and OBS follow the first-three-letters rule and clash with nothing. The owner confirmed CNJ, INS and OBS with their words; EXD and CNF are still provisional.
 
@@ -93,7 +97,16 @@ For `confirmanda` and `supplenda`, anything only the Shepherd can supply goes in
 
 ### Proposed lexemes
 
-None open. `coniunctio` was proposed in the #517 review and ruled on 2026-11-12. `inspectio` and `observatio` were ruled on 2026-11-13: *observatio* was first proposed in #521 as the call for the observation, and the Shepherd gave the review its own word, *inspectio*. A new word waits here until the owner rules.
+None open. `coniunctio` (proposed in the #517 review), `observatio` (#521) and `inspectio` (#522) were all accepted by the Shepherd on 2026-11-12. A new word waits here until the owner rules. The notes below on *observatio* come from #521 and are kept.
+
+Added on the Shepherd's word on PR #520 (2026-11-12): "I do not see a latin lexeme for observation process ... if you don't find it, let's add it." None was found: the observation step had a document, a folder and a README, but no word. *Observatio* is Latin for watching, and sits with *recensio*, *probatio* and *lustratio*. Accepted on PR #521; it now stands in the Actions table above.
+
+How it fits with the Shepherd's marker:
+- **`shepherd observed`** (or `shepherd observation`, which the observation log in #467 already reads) is the *Shepherd's* part: his own attestation, with his local time typed as `hh:mm`. It records that he has observed. It does not write the history.
+- **`^name observatio`** is the call that asks for the document, and it names the writer. That answers who writes it when the marker alone cannot say.
+- **Trigger, proposed and not built:** when the marker is seen and no document is filed, the cue record could say "observation requested, no document filed, waits on the navigo named in the call, default the oversight observer". It would not write the document. This needs a change to `latin-cue-record.yml` (and the log's marker list for `observed`). Not done; the owner rules on that separately.
+
+The Shepherd's own `shepherd observatio` note (as on #521, where he judged an observation document would be more clutter than content) is a decision about the document, not a call for one. The seal gate still asks for a filed observation, so a PR the Shepherd waives it for needs a short one marked `status: complete`, or a gate change in its own PR.
 
 ### Answering `emenda`
 
