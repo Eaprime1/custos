@@ -1,7 +1,7 @@
 # PR Journey: #505 — annuit and ratihabitio in the Latin lexeme, the order, a quest log, first-decision papers
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202611011012  
+**prima-clock:** 202611132212  
 **Branch:** `claude/annuit-first-decision` → `main`  
 **Author:** @Eaprime1  
 **State:** FINALIZED  
@@ -23,31 +23,49 @@ Docs only: v2.2 in `docs/latin-workflow-v2.md`, glossary rows, `docs/latin-lexem
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202611010459 | @Eaprime1 |
-| Finalized | 202611011012 | @Eaprime1 |
+| Finalized | 202611132212 | @Eaprime1 |
 
 ## CI Record
 
 | Check | Result |
 |---|---|
-| DeepSource: Analysis | ⏭ |
 | Codacy Static Code Analysis | ✅ |
+| DeepSource: Lua | ⏭ |
+| DeepSource: Apex | ⏭ |
+| DeepSource: Dart | ⏭ |
+| DeepSource: Erlang | ⏭ |
+| DeepSource: Helm | ⏭ |
+| DeepSource: Perl | ⏭ |
+| DeepSource: VB.NET | ⏭ |
+| DeepSource: PowerShell | ⏭ |
+| DeepSource: Objective-C | ⏭ |
+| DeepSource: Groovy | ⏭ |
+| DeepSource: Elixir | ⏭ |
+| final-oversight | ⏭ |
+| custos-speaks | ✅ |
+| dependency-review | ✅ |
+| label | ✅ |
+| validate | ✅ |
+| scan | ✅ |
+| scan | ✅ |
+| packet | ✅ |
 | GitGuardian Security Checks | ✅ |
 
 ## DeepSource Record
 
 **Passed:** 0  
 **Failed:** 0  
-**Skipped:** DeepSource: Analysis
+**Skipped:** DeepSource: Lua, DeepSource: Apex, DeepSource: Dart, DeepSource: Erlang, DeepSource: Helm, DeepSource: Perl, DeepSource: VB.NET, DeepSource: PowerShell, DeepSource: Objective-C, DeepSource: Groovy, DeepSource: Elixir
 
 ## Review Scores
 
 | Dimension | Score | Note |
 |---|---|---|
-| Correctness | 5/5 | 3 CI check(s) — all passed |
+| Correctness | 5/5 | 21 CI check(s) — all passed |
 | Consistency | 5/5 | Template complete · ethics 5/5 |
 | Scope | 4/5 | 12 file(s) changed |
-| Verification | 4/5 | 3 check run(s) completed |
-| **Valuation** | **High** | 18/20 |
+| Verification | 5/5 | 21 check run(s) completed |
+| **Valuation** | **High** | 19/20 |
 
 ## Ethics Check
 
@@ -66,6 +84,6 @@ Which Latin word means "subscribe", and should `annuit` and `placet` become one 
 - @Eaprime1 · 202611011012 · sealed at finalize
 
 ---
-**prima-clock:** 202611011012  
+**prima-clock:** 202611132212  
 **witnessed:** true — 1 witness, sealed 202611011012 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
