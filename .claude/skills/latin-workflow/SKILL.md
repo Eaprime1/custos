@@ -34,10 +34,13 @@ A call is an **action**, optionally with a **modifier**. A call requests a stage
 | `semina` | Sow. Write a handoff block so the work continues in a new conversation: clutch in (leave the main stream and explore), clutch out (rejoin it). |
 | `sustine` | Hold back. Meant to set `held` so the final seal waits for the Shepherd's release. Today the parser and the cue record read it and nothing more. |
 | `observatio` | The observation call. Write the observation document for this PR, the history of what happened: what was seen, what was fixed, what is carried forward, the scores. The call names who writes it (`^claude observatio`); with no name, the oversight observer writes it. File `turns/observations/<prima-clock>_pr<N>_observation.md`, `status: open` until the owner says it is complete. Does not seal or merge. |
+| `inspectio` | The oversight observer's review. Look into the PR on its current head as the oversight observer: checks, open threads, whether the seal covers this head, the observation, the file review, and a sample re-check of claims. Report to the Shepherd what holds and what does not, one line each. The `observatio` document records the result. Does not seal or merge. |
 
 *Refice*, *semina* and *sustine* were accepted by the Shepherd on 2026-10-19 (comment in `cue-parser.js`; meanings in `docs/latin-workflow-v2.md`). The custos parser and cue record read them as actions. None of them changes a label or stops a seal yet.
 
 *Observatio* was accepted by the Shepherd on 2026-11-12 (comment on PR #521: "observatio is accepted"). No workflow, parser or recorder list reads it yet.
+
+*Inspectio* was accepted by the Shepherd on 2026-11-12 (in the conversation: "inspectio is the word"), after the call was asked for on PR #520: "we need a latin lexeme to call for this review added." `traditio`, the hand-over, was offered as the alternative and not chosen. It is not the same as `recensio` (the review everyone does) or `observatio` (the document). No workflow, parser or recorder list reads it yet.
 
 ### Modifiers
 
@@ -69,6 +72,7 @@ Owner direction from the #517 review: every code is at least three letters, beca
 | `semina` | SEM | | |
 | `sustine` | SUS | | |
 | `observatio` | OBS | | |
+| `inspectio` | INS | | |
 
 The first three letters of `expeditus` would be EXP, and `confirmanda` or `coniunctio` would be CON. `cue-parser.js` already uses `exp-`, `set-`, `con-` and `oth-` as conversation-ID prefixes, so EXD, CNF and CNJ avoid the clash. REF, SEM and SUS follow the first-three-letters rule and clash with nothing. The owner confirms them or picks others.
 
@@ -161,7 +165,7 @@ From `docs/latin-workflow-v2.md` and `turns/observations/README.md`:
 2. Contributor `recensio`: reviews its own PR and fixes what it finds.
 3. Contributor `ultima recensio`: every finding is fixed or carried forward by name.
 4. Shepherd `probatio`: the soft seal. It sets `ready-for-oversight`, and the contributor posts one readiness note on that head.
-5. Oversight review with the Shepherd. The navigo files the observation, scored M1 to M8, and sets it to `status: complete`. The seal asks for this, so it comes before the seal.
+5. Oversight review with the Shepherd (`inspectio`). The navigo files the observation, scored M1 to M8, and sets it to `status: complete`. The seal asks for this, so it comes before the seal.
 6. Shepherd `emenda`: asks the contributor to repair a flag, then back to step 3. A fix is a new head and needs a new seal.
 7. Shepherd `ultima probatio`: the final seal, on the owner's word only. `finalize` is the manual backup. In custos the seal applies the `final-oversight` label itself.
 8. The owner approves the waiting final-oversight run. It is report only and checks the head after the seal: checks, threads, that the seal covers this head, the observation, and the file review. A red item means a fix, a new head, and a new seal and approval. In hodie the label is added by hand.
