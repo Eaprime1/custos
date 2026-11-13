@@ -23,6 +23,10 @@ const { check, eq, report } = makeChecker('checks');
 // want is { stamp, text } for an observation, or { reject: true } for anything else.
 const parseRows_ = [
   ['marker with stamp', 'shepherd observation 202610171254', OWNER, { stamp: '202610171254', text: '' }],
+  ['observed is a marker too', 'shepherd observed 202610171254', OWNER, { stamp: '202610171254', text: '' }],
+  ['observed with text', 'Shepherd Observed - rename it', OWNER, { stamp: null, text: 'rename it' }],
+  ['observed is a whole word', 'shepherd observedly 202610171254', OWNER, { reject: true }],
+  ['observed in code is quoted', 'see `shepherd observed`', OWNER, { reject: true }],
   ['marker without stamp', 'shepherd observation', OWNER, { stamp: null, text: '' }],
   ['case-insensitive', 'Shepherd Observation 202610171524', OWNER, { stamp: '202610171524', text: '' }],
   ['colon then text', 'shepherd observation 202610171524: check the podium', OWNER,
