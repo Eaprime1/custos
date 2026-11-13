@@ -207,7 +207,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
   - `scan-lexeme.yml` — placeholder scan
   - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards and the final-oversight rules, run when a seal-path file changes
   - `probatio-label.yml` — the soft seal: the owner's `^name probatio` sets the `ready-for-oversight` label, and a person's push takes it off
-  - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `final-oversight` label and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
+  - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `shepherds-arch` label (old name `final-oversight`, still accepted) and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
   - `workflow-lint.yml` — looks for `${{ }}` expressions pasted into `run:` scripts (expression injection) with `tools/check_workflow_injection.py`; adopted from hodie, runs when a workflow or the checker changes
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
