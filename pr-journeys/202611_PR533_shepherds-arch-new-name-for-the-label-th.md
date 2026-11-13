@@ -1,7 +1,7 @@
 # PR Journey: #533 — shepherds-arch: new name for the label that queues the oversight run
 
 **Repository:** Eaprime1/custos  
-**prima-clock:** 202611132104  
+**prima-clock:** 202611132106  
 **Branch:** `claude/jira-confluence-trial-expiry-4puccd` → `main`  
 **Author:** @Eaprime1  
 **State:** FINALIZED  
@@ -23,23 +23,17 @@ The workflow now accepts either label name, the seal step applies `shepherds-arc
 | Event | prima-clock | Actor |
 |---|---|---|
 | Opened | 202611132030 | @Eaprime1 |
-| Finalized | 202611132104 | @Eaprime1 |
+| Finalized | 202611132106 | @Eaprime1 |
 
 ## CI Record
 
 | Check | Result |
 |---|---|
-| check | ⏭ |
-| packet | ✅ |
-| packet | ✅ |
-| check | ⏭ |
-| check | ⏭ |
-| packet | ✅ |
+| Codacy Static Code Analysis | ✅ |
 | DeepSource: Lua | ⏭ |
 | DeepSource: Apex | ⏭ |
 | DeepSource: Dart | ⏭ |
 | DeepSource: Erlang | ⏭ |
-| Codacy Static Code Analysis | ✅ |
 | DeepSource: Helm | ⏭ |
 | DeepSource: Perl | ⏭ |
 | DeepSource: VB.NET | ⏭ |
@@ -48,16 +42,6 @@ The workflow now accepts either label name, the seal step applies `shepherds-arc
 | DeepSource: Groovy | ⏭ |
 | DeepSource: Elixir | ⏭ |
 | GitGuardian Security Checks | ✅ |
-| final-oversight | ⏭ |
-| label | ✅ |
-| custos-speaks | ✅ |
-| scan | ✅ |
-| validate | ✅ |
-| tests | ✅ |
-| scan | ✅ |
-| injection-check | ✅ |
-| dependency-review | ✅ |
-| packet | ✅ |
 
 ## DeepSource Record
 
@@ -69,10 +53,10 @@ The workflow now accepts either label name, the seal step applies `shepherds-arc
 
 | Dimension | Score | Note |
 |---|---|---|
-| Correctness | 5/5 | 29 CI check(s) — all passed |
+| Correctness | 5/5 | 13 CI check(s) — all passed |
 | Consistency | 5/5 | Template complete · ethics 5/5 |
-| Scope | 4/5 | 8 file(s) changed |
-| Verification | 5/5 | 29 check run(s) completed |
+| Scope | 4/5 | 9 file(s) changed |
+| Verification | 5/5 | 13 check run(s) completed |
 | **Valuation** | **High** | 19/20 |
 
 ## Ethics Check
@@ -92,6 +76,6 @@ When the environment is renamed, what should the oversight workflow, check and s
 - @Eaprime1 · 202611132038 · [comment](https://github.com/Eaprime1/custos/pull/533#issuecomment-6864328355)
 
 ---
-**prima-clock:** 202611132104  
+**prima-clock:** 202611132106  
 **witnessed:** true — 1 witness, sealed 202611132104 by @Eaprime1  
 *🌿 Custos — the shepherd closes the fold · ∰🌿*
