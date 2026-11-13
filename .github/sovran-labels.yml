@@ -15,9 +15,15 @@ labels:
     color: "1d76db"
     description: "Owner opt-in: run the paid Claude review on this PR now"
 
-  - name: final-oversight
+  - name: shepherds-arch
     color: "5319e7"
-    description: "Owner opt-in: run the Final Oversight report on this PR (waits for the owner's approval)"
+    description: "In the Shepherd's arch: run the oversight report on this PR (waits for the owner's approval)"
+
+  # Old name of shepherds-arch. The workflow still accepts it so nothing in flight
+  # breaks. Remove this entry once no open PR carries it.
+  - name: final-oversight
+    color: "ededed"
+    description: "Old name of shepherds-arch (still accepted for now)"
 
   - name: ready-for-oversight
     color: "0e8a16"

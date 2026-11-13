@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - `test_stamp_on_submit.js` (22 checks, needs Node)
   - `test_file_review.js` (30 rows, needs Node)
   - `test_seal_observation.sh` (9 rows, needs Node, Python 3 and PyYAML)
-  - `test_observation_log.sh` (98 checks on the rules, 29 on the workflow step; needs Node, Python 3 and PyYAML)
+  - `test_observation_log.sh` (102 checks on the rules, 29 on the workflow step; needs Node, Python 3 and PyYAML)
   - `test_check_workflow_injection.sh` (11 checks, needs Python 3)
   - `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
@@ -207,7 +207,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
   - `scan-lexeme.yml` — placeholder scan
   - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards and the final-oversight rules, run when a seal-path file changes
   - `probatio-label.yml` — the soft seal: the owner's `^name probatio` sets the `ready-for-oversight` label, and a person's push takes it off
-  - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `final-oversight` label and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
+  - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `shepherds-arch` label (old name `final-oversight`, still accepted) and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
   - `workflow-lint.yml` — looks for `${{ }}` expressions pasted into `run:` scripts (expression injection) with `tools/check_workflow_injection.py`; adopted from hodie, runs when a workflow or the checker changes
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
