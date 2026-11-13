@@ -167,7 +167,7 @@ From `docs/latin-workflow-v2.md` and `turns/observations/README.md`:
 4. Shepherd `probatio`: the soft seal. It sets `ready-for-oversight`, and the contributor posts one readiness note on that head.
 5. Oversight review with the Shepherd (`inspectio`). The navigo files the observation, scored M1 to M8, and sets it to `status: complete`. The seal asks for this, so it comes before the seal.
 6. Shepherd `emenda`: asks the contributor to repair a flag, then back to step 3. A fix is a new head and needs a new seal.
-7. Shepherd `ultima probatio`: the final seal, on the owner's word only. `finalize` is the manual backup. In custos the seal applies the `final-oversight` label itself.
+7. Shepherd `ultima probatio`: the final seal, on the owner's word only. `finalize` is the manual backup. In custos the seal applies the `shepherds-arch` label itself (it was `final-oversight` until 2026-11-13).
 8. The owner approves the waiting final-oversight run. It is report only and checks the head after the seal: checks, threads, that the seal covers this head, the observation, and the file review. A red item means a fix, a new head, and a new seal and approval. In hodie the label is added by hand.
 9. Shepherd says merge in the conversation. Merge by merge commit, then one confirming comment.
 
