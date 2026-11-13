@@ -436,3 +436,22 @@ partner_state:
   friction_named:   "a draft sealing itself; Codacy loops; the packet logic running from main"
   next_stance:      "main is clean; round two is ready on the Shepherd's word; the Pour waits"
 ---
+
+---
+turn_ref:     202611092212
+prima-clock:  202611092212
+prime:        3
+worked:       Checking a second-hand report against its source before filing it found two errors (a wrong "official page" link and a lineage claim the article never makes) and separated the report's own inferences from the article's facts. Keeping the unedited original beside the carrier, with its hash, made the "no stamp on purpose" answer easy to defend.
+friction:     - The Shepherd's first seal cue used the caret form without `@claude`. The cue record logged it, but `finalize-pr.yml` skipped it, so for a few minutes the PR looked sealed in one place and not in the other.
+              - Most wake-ups were bot comments edited in place (DeepSource, the Shepherd Considers list). They needed nothing but each got a reply from me.
+              - The cue record's observation line was computed on an older head and said "not filed yet" after the file was pushed.
+              - I said I was waiting on the paid Claude review after it had run on an earlier head and would not run on the new one without the `ai-review` label.
+              - The header of `finalize-pr.yml` says the journey record lands on the base branch; the bot's own comment and commit show it landed on the PR branch.
+seeds:        - Let the cue record say "cue seen, not a seal" when a seal cue lacks `@claude`.
+              - Correct the `finalize-pr.yml` header about where the journey record lands.
+              - If the Shepherd wants a Latin word for observation or witness, open it as a lexeme issue.
+partner_state:
+  charge_received:  "file the Oxo Synth2 report in the weir with the corrections, as an exploration; add the bullet; seal; merge; wrap up"
+  friction_named:   "the Shepherd Considers firing more than once; the seal cue spelling; whether a Latin lexeme exists for observation and witness"
+  next_stance:      "main holds the Oxo carrier, OPEN; which possibility gets a home is the Shepherd's call"
+---
