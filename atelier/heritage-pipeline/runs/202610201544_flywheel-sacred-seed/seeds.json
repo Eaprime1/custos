@@ -1,0 +1,76 @@
+{
+  "run_id": "202610201544_flywheel-sacred-seed",
+  "status": "candidates; none selected. The Shepherd picks one to three (SEED-PICKER step 4).",
+  "source_time_reference": "Thread headed 20250620 by the Shepherd as written; year unconfirmed. Individual message times were not recorded.",
+  "processing_time_utc": "202610201544",
+  "platform_origin": "Claude (claude.ai, Project: Hopechest)",
+  "verbatim_check": "pending: no origin file exists yet. verbatim stays \"pending\" until text[start:end] equals the quote byte for byte against the exact-bytes origin. Spacing below is as typed, including double spaces.",
+  "selection_note": "All five are the Shepherd's own conceptual lines. Passages describing his personal experience were left out on purpose (PLAN.md section 7).",
+  "seeds": [
+    {
+      "seed_name": "slick_flywheel_is_deadly",
+      "source_fragment": "Slick on a flywheel is deadly.  It reduces the friction of reality.",
+      "timestamp_utc": "202610201544",
+      "platform_origin": "Claude (claude.ai, Project: Hopechest)",
+      "speaker": "shepherd",
+      "canon": "unresolved",
+      "verbatim": "pending",
+      "selected": false,
+      "vibe_vector": ["friction", "reality", "momentum"],
+      "spark_potential": "The core claim of the thread: friction is what lets motion become work.",
+      "safety_aura": { "is_safe": true, "somatic_safe": true, "assessed_by": "assistant; the Shepherd to confirm" }
+    },
+    {
+      "seed_name": "fast_spinning_unstoppable_mass",
+      "source_fragment": "A flywheel without reality tension is just a fast spinning nearly unstoppable mass.",
+      "timestamp_utc": "202610201544",
+      "platform_origin": "Claude (claude.ai, Project: Hopechest)",
+      "speaker": "shepherd",
+      "canon": "unresolved",
+      "verbatim": "pending",
+      "selected": false,
+      "vibe_vector": ["momentum", "tension", "danger"],
+      "spark_potential": "Names the failure mode: all motion, no work.",
+      "safety_aura": { "is_safe": true, "somatic_safe": true, "assessed_by": "assistant; the Shepherd to confirm" }
+    },
+    {
+      "seed_name": "spinning_easy_productive_impossible",
+      "source_fragment": "so spinning is easy. Doing something productive is impossible.",
+      "timestamp_utc": "202610201544",
+      "platform_origin": "Claude (claude.ai, Project: Hopechest)",
+      "speaker": "shepherd",
+      "canon": "unresolved",
+      "verbatim": "pending",
+      "selected": false,
+      "vibe_vector": ["ease", "work", "traction"],
+      "spark_potential": "A one-line test for whether an exchange is doing work.",
+      "safety_aura": { "is_safe": true, "somatic_safe": true, "assessed_by": "assistant; the Shepherd to confirm" }
+    },
+    {
+      "seed_name": "wrong_system_deadly",
+      "source_fragment": "in the wrong system it's deadly",
+      "timestamp_utc": "202610201544",
+      "platform_origin": "Claude (claude.ai, Project: Hopechest)",
+      "speaker": "shepherd",
+      "canon": "unresolved",
+      "verbatim": "pending",
+      "selected": false,
+      "vibe_vector": ["context", "fit", "system"],
+      "spark_potential": "The same substance heals in one system and harms in another. Context decides.",
+      "safety_aura": { "is_safe": true, "somatic_safe": true, "assessed_by": "assistant; the Shepherd to confirm" }
+    },
+    {
+      "seed_name": "healthy_oils_needed_exchange",
+      "source_fragment": "healthy oils are a normal needed exchange between entities both physical and meta physical, and not physical",
+      "timestamp_utc": "202610201544",
+      "platform_origin": "Claude (claude.ai, Project: Hopechest)",
+      "speaker": "shepherd",
+      "canon": "unresolved",
+      "verbatim": "pending",
+      "selected": false,
+      "vibe_vector": ["exchange", "balance", "entities"],
+      "spark_potential": "The counterweight: not all smoothness is slime. Some oil is needed.",
+      "safety_aura": { "is_safe": true, "somatic_safe": true, "assessed_by": "assistant; the Shepherd to confirm" }
+    }
+  ]
+}
