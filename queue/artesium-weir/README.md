@@ -34,3 +34,5 @@ Nothing artesian is "in custody" until it has passed through the Weir.
 | Item | Status | Carrier |
 |---|---|---|
 | Cygwin Installation.pdf | CLOSED | [seep-artois/cygwin-installation.md](../../seep-artois/cygwin-installation.md) |
+| Valthraman (Gemini export) | OPEN | [valthraman-gemini-export.md](valthraman-gemini-export.md) |
+| Oxo Synth2 (Gemini report, checked against Synthtopia) | OPEN | [oxo-synth2-exploration.md](oxo-synth2-exploration.md) |

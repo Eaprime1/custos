@@ -21,3 +21,4 @@ This folder is the working context for nav5 sessions. It holds:
 ## Current Contents
 
 - `chatgpt-dm-stream-return.md` — ChatGPT / DM Stream Return: The Handshake as Relationship (prima-clock 202606252100); source document for nav5's granum-anchor-review bundle (PR #179)
+- `202610061728_polar-radian-compass-conversation-return.md` — provenance carrier and reconciliation workspace for Eric + ChatGPT's Compass conversation; links the current accessible reading to the fuller Act II architecture landed through PR #337

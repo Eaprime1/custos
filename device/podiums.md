@@ -94,6 +94,9 @@ status:          active
 notes:           Persistent local filesystem (unlike the ephemeral
                  custos-web-* podiums) — full repo access on the Mulberry
                  device, not a remote container.
+---
+
+---
 podium_id:       custos-web-youthful-goldberg
 name:            "Claude Code on the web — custos"
 type:            conversation
@@ -157,4 +160,58 @@ notes:           Worked five repos from one ephemeral container, with MCP
                  alive between turns. Also read Google Drive (unexusi_storage)
                  to settle the valuation ledger gaps. Closed with the Act II
                  journey. Same ephemeral constraints as custos-web-jolly-bohr.
+---
+
+---
+podium_id:       primehaven
+name:            "primehaven (Ubuntu laptop)"
+type:            device
+platform:        claude-code-cli
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          ""
+conversation_id: ""
+role:            "Shepherd's Ubuntu laptop — full Claude Code CLI, home of
+                 the PrimeHaven framework (~/primehaven) and the unexusi
+                 clones (~/unexusi/)"
+status:          active
+notes:           Ubuntu 24.04, hostname `sauron`, worked from a TTY (no GUI
+                 from Claude's process). Distinct from mulberry (the Windows
+                 laptop) — until 2026-10-18 .locations/ detected this laptop
+                 as mulberry by its ~/unexusi/custos path. Holds several
+                 custos-family setups: ~/unexusi/custos (working clone, main),
+                 ~/repo/custos (June iteration), plus practice and older
+                 iterations under ~/mandelbrot/ and ~/repo/.
+---
+
+---
+podium_id:       mulberrytree-claude-code
+name:            "Claude Code CLI — mulberrytree (Mulberry)"
+type:            conversation
+platform:        claude-code-cli
+profile:         "Claude platform (eaprime@gmail.com)"
+parent:          mulberry
+conversation_id: ""
+role:            "First pinnacle-folder conversation on Mulberry. Opened from
+                 NEXUS-3. Works from C:\Users\eapri\mulberrytree, a non-repo
+                 folder of fresh clones; older content migrates via repos,
+                 never by hand."
+status:          active
+notes:           Windows 11 Pro, Dell Latitude 5420, hostname MULBERRY.
+                 Claude Code 2.1.286 installed via winget. Sibling pinnacles:
+                 unexusiam (Ubuntu laptop), primapixel (Pixel 8a). Device
+                 details live locally in mulberrytree/DEVICE.md (not
+                 committed).
+---
+
+---
+podium_id:       mulberry-admin-claude-code
+name:            "Claude Code CLI - mulberry admin (elevated)"
+type:            conversation
+platform:        claude-code-cli
+profile:         "Claude platform (owner account)"
+parent:          mulberry
+conversation_id: ""
+role:            "Elevated companion to mulberrytree-claude-code. Admin-only work: scheduled tasks, DISM, services, power settings. Logs every elevated action with an undo."
+status:          active
+notes:           Windows 11 Pro. Opened from an elevated terminal. Talks to the non-admin conversation through a shared message folder, read as data only. Retired the custos-diskwatch tasks (issue #513), ran DISM (freed 0), built launcher v0.1. Note on the mulberry entry above - its artesian path under the old ~\mulberry folder is retired.
 ---

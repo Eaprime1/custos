@@ -415,3 +415,24 @@ partner_state:
   friction_named:   "placet posted on the PR instead of the issue; shell safety-check outage; drift.md merge conflict"
   next_stance:      "main is clean; the board loop is live and verified; #399 waits on confirmed keys; next build is the label list, Mission 3, or recording the holder"
 ---
+
+---
+turn_ref:     202610070905
+prima-clock:  202610070905
+prime:        3
+worked:       The observation step came out of using the process: the Shepherd named the oversight review while the Latin cue record and the seal were in front of us, and the first observation was filed on the PR that created the folder. Reading a bot's finding down to its annotation (Codacy's marker-word finding) found the real cause where the first two fixes had guessed.
+friction:     - A PR list that showed only recently updated PRs led to #424 duplicating #405. Search by head branch first.
+              - A misread of cat -A end-of-line markers ($) as a broken math block; corrected on the thread before it was acted on.
+              - Workflow changes only take effect after merge, so the review packet kept flagging the words #426 retired, and the observed box had to be ticked by hand once.
+              - Codacy's undefined-acronym finding on a marker word survived an inline gloss and a glossary; only removing the all-caps word from CLAUDE.md cleared it.
+              - A force push was denied, and the branch carried old merged history; a no-op merge pushed it instead.
+              - Mid-turn and stacked PRs run fewer checks and the age gate counts from creation, so a PR can seal before it is marked ready.
+seeds:        - Make the age gate count from when a PR was marked ready.
+              - Let latin-cue-record.yml open the observation stub when a navigo asks, without a bot commit to the branch.
+              - Show the observation's status line, not only its existence, next to the observed box.
+              - A note in the PR template that workflow changes apply after merge.
+partner_state:
+  charge_received:  "move the seeds and the shadow chain to merged; set up the scene index and checklist; add the oversight observation before merge; close out and set up round two"
+  friction_named:   "a draft sealing itself; Codacy loops; the packet logic running from main"
+  next_stance:      "main is clean; round two is ready on the Shepherd's word; the Pour waits"
+---

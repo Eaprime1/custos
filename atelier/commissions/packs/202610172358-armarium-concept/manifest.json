@@ -1,0 +1,63 @@
+{
+  "id": "202610172358-armarium-concept",
+  "kind": "commission-pack",
+  "prima_clock": "202610172358",
+  "from": {
+    "repo": "Eaprime1/custos",
+    "source_commit": "5c4197a",
+    "uncommitted_changes_in_sources": false
+  },
+  "to": {
+    "repo": "Eaprime1/armarium"
+  },
+  "files": [
+    {
+      "path": "atelier/heritage-pipeline/ARMARIUM.md",
+      "bytes": 20818,
+      "sha256": "a75b0df79c1889dc0858277936f21a5a44e20b4578c922807a9c4dde0fb957ef"
+    },
+    {
+      "path": "atelier/heritage-pipeline/SEED-PICKER.md",
+      "bytes": 3199,
+      "sha256": "8be25b95acf66bdc78d4ec350f5927cebe38f439e3e3174252eab7a8ba841bb1"
+    },
+    {
+      "path": "atelier/heritage-pipeline/DRAFT-202610131200.md",
+      "bytes": 14472,
+      "sha256": "64d16ac71531836a0bc7eb41dc492ddb215e41082399a31981d7e70a8d9df08f"
+    },
+    {
+      "path": "atelier/heritage-pipeline/COMMISSION-PACK.md",
+      "bytes": 6090,
+      "sha256": "f5428aaeb6887a849be24c616f981099b42e55c91196970ca638192ddca38728"
+    },
+    {
+      "path": "atelier/heritage-pipeline/armarium-bootstrap/.gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "atelier/heritage-pipeline/armarium-bootstrap/README.md",
+      "bytes": 2730,
+      "sha256": "c02a564b61f944aeb2c5a045b988cc2b7797cb5fbbb432385d4db88322efb095"
+    },
+    {
+      "path": "atelier/heritage-pipeline/armarium-bootstrap/tools/verify.sh",
+      "bytes": 762,
+      "sha256": "e94e54938403e8319ef4a78a953c9fa3aeadd25409d2ca6972fc98c0073d2458"
+    },
+    {
+      "path": "atelier/autographum-seed.md",
+      "bytes": 2431,
+      "sha256": "57d3ff619cf9001b8d8cfd22b2a8bcc9586b63e0d98ff83d84c8382cb52aca20"
+    }
+  ],
+  "shadow": {
+    "kept_in": "the same paths in the sending repo",
+    "record": "atelier/commissions/packs/202610172358-armarium-concept/ (manifest.json, files.sha256)",
+    "check": "bash tools/commission_pack.sh check 202610172358-armarium-concept"
+  },
+  "chain_of_custody": "OPEN",
+  "receipt": null,
+  "notes": "A commission pack is the carriage, not an origin. It is not a carbonite (a working copy) and not an aethereal (a living copy). The sender keeps a shadow: the originals stay in place, frozen at send time by the hashes here."
+}

@@ -636,3 +636,50 @@ contribution: the seven follow-up pull requests are sealed and merged, and the r
 resonance:    settled
 witnessed:    true
 ---
+
+---
+turn:         2026-10-07 09:05
+prima-clock:  202610070905
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       move the halide seeds work and the Shadow of Polaris nursery through to merged, fix the auto-finalize draft bug, and leave round two ready.
+contribution: five pull requests merged, a duplicate closed, and a new oversight step added before the seal.
+              - #425 merged: auto-finalize skips drafts and holds the seal while changes are requested. #404 merged: the halide test request, session_id.sh and the Shepherd Considers comment. #405 merged: round-one seeds, the review and the round-two guide (the duplicate #424 was closed). #420 merged: the Shadow of Polaris nursery from the nav5 conversation.
+              - #426 merged: the scanners now flag only shouted markers and phrases (replace moved to atelier/lexemes/reserved-lexemes.md, with a marker glossary); the Shadow of Polaris scene index and ready-for-review checklist; and the oversight observation: turns/observations/, an observed box below witnessed in the PR template, and latin-cue-record.yml showing and ticking it. The order is observation, then seal, then merge.
+              - Round two is ready: atelier/halide/seeds/round-two/README.md holds the launch sheet, the run in order, where returns land and the table for reading them.
+              Decisions this turn: the observation sits before the seal and changes neither the seal nor the merge; the observed box means the document exists, and its status line says whether the review is complete; a navigo opens the document, the workflow only ticks the box. The Pour waits for the Shepherd's word.
+              Not done: round two itself, the Pour, the age gate in auto-finalize (counts from PR creation, not from ready; in CULTIVATION), the display fix in the Shadow of Polaris README.
+resonance:    steadied
+witnessed:    true
+---
+
+---
+turn:         2026-10-07 10:30
+prima-clock:  202610071030
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       file the plan for the caret cue, build its shared parser, and write the observation before the merge.
+contribution: two pull requests merged and the next phase is queued.
+              - #429 merged: the plan for the caret cue, the cue router and the living observation.
+              - #430 merged: the shared cue parser (`.github/scripts/cue-parser.js`), a 54-row offline test (`bash tools/test_cue_parser.sh`), the Shepherd's four answers recorded in the plan, and the observation for the PR. Review findings fixed before the merge: DeepSource `console` use, Codacy's non-literal `readFileSync` (the test now takes the registry text from the environment), and the conversation ID bound widened to 3 to 12 characters to match `tools/session_id.sh`.
+              Decisions this turn: caret is case-insensitive; navigos are matched by name only; the dispatch ledger is a living comment archived on return; `^custos check` and `^custos concordance` are aliases while the `@claude` forms retire after one clean cycle (my reading, to confirm).
+              Not done: phase 2 onward, round two of the halide test and the Pour. The seal landed before the observation because the gate does not enforce order (open in CULTIVATION).
+resonance:    steadied
+witnessed:    true
+---
+
+---
+turn:         2026-10-16 15:42
+prima-clock:  202610161542
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       finish the file review swap across custos and hodie, bring the Latin cue words and the seals to hodie, and tidy the cue parser in both directions.
+contribution: eight pull requests merged across the two repos, each sealed first and merged on the Shepherd's word with a merge commit.
+              - custos #458 (a must-pass File review row in final oversight, and a seal that needs a filed observation with `status: complete`), #459 (the file-review header fix) and #460 (the cue parser split into small functions, backticks written as \x60, same behavior). The observation gate refused the first seal cue on #459 until the observation was complete, then passed: its first live use.
+              - hodie #168 (the checklist and final oversight ported), #169 (the shared Latin vocabulary, the cue parser, and `ultima probatio` as a seal phrase), #170 (the soft-seal label and the cue record), #171 (security cleanup: SHA-256 for file identity, the Google installer downloaded before it runs, the git call resolved with shutil.which and its ref checked against an allow-list) and #172 (the cue record compares short heads).
+              - Review findings were fixed before each seal. Codacy gave only a count on two pull requests, so the details came from the Shepherd's paste; two fixes made before the paste did not hit the real finding.
+              Decisions this turn: SHA-256 replaces MD5 in hodie, so older catalogs will not match new scans; a `nosemgrep` marker sits on the one reviewed subprocess call in hodie's footer_witness.py; the observation for #460 records that the paid Claude review result was not seen; `'use strict'` was dropped from the custos parser on a guess and may not have been needed.
+              Not done: the check-in cues `disponi`, `petitio` and `placet` in hodie; an observation document in hodie; the `final-oversight` label in hodie, so its oversight has not run live; bringing hodie's parser in line with custos' two newest changes; the shared-parser and Codacy-detail ideas; the rest of hodie's Python Codacy backlog.
+resonance:    unhurried
+witnessed:    true
+---

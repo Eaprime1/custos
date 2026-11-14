@@ -2,8 +2,12 @@
 #
 # Runs on check_suite completion and hourly.
 # Finds open bot-authored PRs (claude/ copilot/ dependabot/ prefixes or Bot user type)
-# that have been open > 1 hour, carry no `finalized` label,
-# and have all gates green — then finalizes them directly.
+# that are ready for review (never drafts), have been open > 1 hour, carry no
+# `finalized` label, and have all gates green — then finalizes them directly.
+#
+# A seal is held back while anything still needs work: a draft, an unresolved
+# review thread, a requested change, a failing or pending check, or missing
+# template sections (Intent / What Arrived / Resonance).
 #
 # Cannot use comment-trigger chain: GitHub prevents GITHUB_TOKEN-authored
 # issue_comment events from spawning new workflow runs. Full logic is inline.
@@ -73,6 +77,9 @@ jobs:
                 BOT_PREFIXES.some(pfx => branch.startsWith(pfx));
               if (!isBot) continue;
 
+              // A draft is still being worked on: nothing to seal until it is ready.
+              if (pr.draft) continue;
+
               // Age gate
               if (nowMs - new Date(pr.created_at).getTime() < AGE_MS) continue;
 
@@ -106,6 +113,19 @@ jobs:
                 afterCursor = rt.pageInfo.endCursor;
               }
               if (unresolved > 0) continue;
+
+              // ── Requested changes ─────────────────────────────────────────
+              // Each reviewer's latest decisive review counts; a later approval
+              // or a dismissal clears an earlier request. Plain comments don't count.
+              const reviews = await github.paginate(github.rest.pulls.listReviews, {
+                owner, repo, pull_number: prNum, per_page: 100,
+              });
+              const latest = new Map();
+              for (const r of reviews) {
+                if (!r.user || !['APPROVED', 'CHANGES_REQUESTED', 'DISMISSED'].includes(r.state)) continue;
+                latest.set(r.user.login, r.state);
+              }
+              if ([...latest.values()].includes('CHANGES_REQUESTED')) continue;
 
               // ── CI check runs ─────────────────────────────────────────────
               const allChecksRaw = await github.paginate(github.rest.checks.listForRef, {
