@@ -32,6 +32,14 @@ review job itself.
 
 ## Active Missions
 
+### Build the mulberry repo (first pass)
+
+**Status:** OPEN (commission drafted, not yet handed to Copilot)
+**What:** Make the first commit set of the new `Eaprime1/mulberry` repo: README, device identity, `.gitignore`, empty
+`queue/artesian/`. The full commission, written to be pasted whole into a Copilot task, is
+[`mulberry-repo-commission.md`](mulberry-repo-commission.md). Jira: KAN-12.
+**Done when:** the completion check in that file prints `COMPLETE` in the mulberry repo, and the draft PR there is open.
+
 ### Retire the `bounty` label
 
 **Status:** OPEN
