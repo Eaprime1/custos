@@ -35,7 +35,7 @@ report() {
   # report <pattern> <matches>
   if [[ -n "$2" ]]; then
     echo "  [$1]"
-    echo "$2" | sed 's/^/    /'
+    printf '    %s\n' "${2//$'\n'/$'\n'    }"
     echo ""
     FOUND=1
   fi
