@@ -1,0 +1,159 @@
+{
+  "kind": "semina handoff (clutch out)",
+  "prima_clock": "202611140123",
+  "clock_note": "UTC. Written by the custos conversation of 2026-11-13/14 (nav1, Claude) with the Shepherd. A record compiled from the PRs and the repo; not an independent review. Nothing here is sealed or ruled unless it says so.",
+  "load_this_way": "Paste this file, or point the new conversation at its path, and say 'read the handoff'. Then: read CLAUDE.md, the latin-workflow skill, and turns/observations/README.md. Treat every number below as 'as seen at the prima-clock above' and re-check it before acting.",
+  "repo": "eaprime1/custos",
+  "owner_roles": {
+    "Eaprime1": "the Shepherd and Deck Master. Only the Shepherd gives the seal cue, approves the oversight run, and says merge in the conversation.",
+    "this_conversation": "nav1 (Claude). Did the work below. Not independent of PRs #533 and #534."
+  },
+
+  "state_at_close": {
+    "merged": [
+      {"pr": 533, "what": "shepherds-arch: new name for the label that queues the oversight report", "merge_commit": "a57a463"},
+      {"pr": 530, "what": "Latin lexemes coniunctio, inspectio, observatio (v2.3)", "merge_commit": "c65162b", "merged_by": "the Shepherd"}
+    ],
+    "closed_unmerged": [
+      {"pr": 534, "what": "throwaway: carried shepherds-arch to see the run queue. The run queued, waited for the Shepherd's approval, ran, and failed on the two rows a never-sealed PR fails (no seal, no observation). That is the report working."}
+    ],
+    "sealed_and_green": [
+      {
+        "pr": 505,
+        "what": "annuit and ratihabitio in the Latin lexeme, quest log, first-decision papers",
+        "head_at_seal": "33fbe00 (the observation catch-up commit); the seal bot's journey commits follow it, head at last read aea8412",
+        "sealed": "202611132212",
+        "oversight_run": "success (run 43517365633, approved by the Shepherd). The seal step itself applied the shepherds-arch label from main's new code: first live proof.",
+        "mergeable_state": "clean at last read",
+        "waits_on": "the Shepherd: an inspectio on this head if wanted, then the merge word. coniunctio is a PROPOSED lexeme (no workflow reads it).",
+        "how_it_got_unstuck": "The loop: the seal gate refuses while final-oversight is red, and final-oversight is red while no seal covers the head. Fix used: take the shepherds-arch label OFF, push one new commit (the observation catch-up, 33fbe00), so the run is skipped on that head, then seal, then the seal puts the label back and the run is approved."
+      }
+    ],
+    "issue_filed": [
+      {"issue": 537, "title": "Complete label system overhaul", "labels": ["needs-shepherd"]}
+    ],
+    "outside_the_repo": {
+      "atlassian": "Trials ending. Confluence KAN space home page replaced; pages The Door, Submit, Links created. Jira KAN and NEXUS were exported to Box.",
+      "box_folder_id": "437327719065",
+      "box_problems": [
+        "03-jira-NEXUS-part1-NEXUS-1-to-5.md is a truncated, altered upload. The complete one has a new name. The Box tools cannot delete, so the Shepherd deletes the bad file.",
+        "NEXUS part 3 (NEXUS-18 to 27) is 537 bytes short, cause not found. Re-export from the live Jira tickets before the Jira trial ends."
+      ]
+    }
+  },
+
+  "open_issues_as_seen": [
+    {"n": 532, "note": "track-pr-failures: PR #505 failing checks. Same report as 529 and 531."},
+    {"n": 531, "note": "duplicate of 532"},
+    {"n": 529, "note": "duplicate of 532"},
+    {"n": 537, "note": "label system overhaul (new)"},
+    {"n": 513, "note": "Background jobs must identify themselves"},
+    {"n": 510, "note": "Finish the Conversation SOP vs the Atrium: nine seams. Carries shepherds-arch and needs-shepherd."},
+    {"n": 509, "note": "Pre-oversight read of #507; title starts with '##'"},
+    {"n": 443, "note": "Session: Navigo Claude cross-platform tracking"},
+    {"n": 325, "note": "XDA concept entity (claimed)"},
+    {"n": 235, "note": "title still says [bounty] (claimed)"},
+    {"n": 187, "note": "title still says [bounty] (claimed)"}
+  ],
+  "close_529_531_532_when": "PR #505 merges. They are one failure reported three times.",
+
+  "next_set": {
+    "goal": "Shepherd's words: 'par 3: a renovata and setup, fix stuff, reviews to request oversight observation. It might take more, should hopefully take less.'",
+    "request_oversight_observation_label": [
+      {
+        "pr": 468,
+        "title": "KAN-4: clear the Codacy High/Medium findings",
+        "files": 4,
+        "labels": ["prima witness", "request oversight observation"],
+        "observation": "turns/observations/202610212345_pr468_observation.md, status: complete",
+        "seen": "base ffa6206 is old main, mergeable_state 'unknown'. Will need a merge of main. Last updated 2026-10-22. Template: witnessed false.",
+        "author_voice": "navigo_claude, session 01JAChuvN1oxWXDVgVsbsYUz"
+      },
+      {
+        "pr": 469,
+        "title": "KAN-6: Jira pipeline guide, one label vocabulary",
+        "files": 3,
+        "labels": ["prima witness", "request oversight observation"],
+        "observation": "turns/observations/202610212345_pr469_observation.md, status: OPEN. The seal gate asks for status: complete, so this one cannot be sealed until the observation is completed.",
+        "seen": "base ffa6206, mergeable_state clean at last read. Updated 2026-11-13 (the Shepherd has touched it). Names a suit-list conflict and asks the Shepherd to decide which list is real.",
+        "author_voice": "navigo_claude, session 01JAChuvN1oxWXDVgVsbsYUz",
+        "overlap_to_watch": "docs/jira-pipeline.md maps labels. Issue #537 (label overhaul) covers the same ground. Read them together; do not build two label vocabularies."
+      }
+    ],
+    "carries_request_oversight_observation_and_is_the_current_one": [505],
+    "prima_witness_only": {
+      "meaning": "the Shepherd has looked at them, or was partway. Evaluate AFTER the request-oversight set is done.",
+      "prs": [508, 507, 503, 502, 489, 470, 442, 441],
+      "note_441": "also carries 'finalized'",
+      "how": "work-eval skill (retrospective) or the Latin road, the Shepherd's choice per PR"
+    },
+    "drafts_not_in_scope_unless_asked": [519, 516, 515, 512, 511, 506, 504, 495, 494, 491, 490, 487, 475, 474, 473, 472, 448, 447, 446],
+    "stance_from_the_shepherd": "Most of these are other navigo voices. If there is a significant issue, send it back for updates. Otherwise fix it and note it. They should be ready for their inspectio, but the Shepherd has not looked at them.",
+    "proposed_chain_not_built": [
+      "ultima probatio: this conversation checks the PR is ready for the seal (does NOT type the seal cue).",
+      "if clean: ultima inspectio (the oversight observer's review on the current head).",
+      "if good: put the coniunctio gate report to the Shepherd; the Shepherd confirms in the conversation; only then merge.",
+      "a lot of changes needed: hand the baton to the oversight observer conversation with the per-PR report below."
+    ],
+    "per_pr_report_template": {
+      "from": "which navigo voice wrote it (read the PR footer's session id and the observation's 'observer' line)",
+      "sections": ["what it is", "what holds", "what does not", "fixed here (with commit)", "sent back for (with reason)", "notes, ideas, things to consider", "carried forward with an owner"],
+      "optional_challenge": "A small wiki-page-build challenge for the author voice, in the Shepherd's idea. Not built; ask before adding it to a PR."
+    },
+    "first_move_suggested": "A renovata (re-read on the current state) of 468 and 469 only: head, base, checks, threads, observation status, and the merge state after a trial merge of main. Report, change nothing, then the Shepherd rules."
+  },
+
+  "lessons": {
+    "works": [
+      "The shepherds-arch label queues the oversight run and it waits for the Shepherd's approval (seen on #534).",
+      "The seal step applies shepherds-arch itself from main (seen on #505).",
+      "Label OFF before the push breaks the seal/oversight loop (seen on #505). Check the run is 'skipped' on the new head before sealing.",
+      "A short, honest observation with status: complete passes the observation gate (#533). It does not need to be long.",
+      "Copilot found a real mistake in #533 (the label sync list). Read bot findings; verify; fix.",
+      "A local trial merge (git merge --no-commit, then --abort) shows a conflict before anyone pushes (#505).",
+      "Waiting for the Shepherd's yes in the conversation before a merge was clean and cost one short exchange (#533)."
+    ],
+    "does_not_work_or_hurts": [
+      "The seal/oversight loop: the seal gate refuses on a red final-oversight, and final-oversight is red until a seal covers the head. Each merge of main into a sealed branch restarts it (#505). The loop is a seal-system upgrade mission, still not built.",
+      "Bot journey commits do not trigger workflows, so merge state can show 'unstable' with nothing red (#533).",
+      "Setting labels through the issue tool REPLACES the whole set. Read the current set first, then send the full list.",
+      "codereviewbot-ai posts 'Review skipped: rate limit' on nearly every PR (free plan: 2 reviews per 4 hours). Noise, not a finding.",
+      "track-pr-failures opens a new issue for the same failure each time (#529, #531, #532).",
+      "Every bot comment wakes the conversation. A long PR session spends many turns on comments that need no action.",
+      "An observation cannot be corrected after the seal without a new head, so a wrong word stays (the M5 wording on #533).",
+      "The environment is still named final-oversight, and a missing environment is created with no required reviewer. Never rename it in the workflow file alone.",
+      "My #533 description said the label sync would create the label. It would not (the sync keeps its own list). I wrote it without checking the sync file. Check the file before writing a claim."
+    ],
+    "add": [
+      "One source for the label list (the label file and the sync array are two copies).",
+      "A rule or check for a merge of main after the seal (the rubric has no row for it).",
+      "A parser or cue-record change so a workflow reads coniunctio, inspectio and observatio (T17).",
+      "An 'inspected' box in the PR template, ticked by the observer and never by the owner (T17).",
+      "Dedupe in track-pr-failures.",
+      "The missing labels in the sync list: ready-for-oversight, finalized, witnessed, prima witness, prima observation, request oversight observation."
+    ],
+    "change": [
+      "Rename the environment (new one first, with the Shepherd as reviewer, then the workflow line in a later PR).",
+      "Remove the legacy final-oversight label name from the label file, the sync array and the workflow once no open PR carries it.",
+      "Retitle #235 and #187 (still say [bounty]); fix the '##' title on #509.",
+      "Decide whether shepherds-arch on an issue (#510) means the same as on a PR."
+    ]
+  },
+
+  "guardrails_for_the_next_conversation": [
+    "Describe a seal cue in words. Never type the seal cue words in a PR comment.",
+    "A navigo's PR comments post under the owner's login. They carry the Claude Code footer so the seal gate skips them.",
+    "coniunctio is PROPOSED. Read it as 'merge when ready, stop and state any concern first'. Merge only after the Shepherd says so in the conversation.",
+    "Push only to the branch the session names. Check the seal covers the head before saying a PR is ready.",
+    "A fix after a seal is a new head: new seal, new oversight approval. Say so before pushing.",
+    "Report faithfully: name what was not re-read."
+  ],
+
+  "naming_to_settle": {
+    "arcus_pedum": "Latin names for the shepherd's arch and crook. No lexeme source yet. Shepherd rules.",
+    "request_call_seal": "The Shepherd's design: a request label, a call label, a crook seal on the document. Open in issue #537.",
+    "this_file": "The Shepherd called it the 'porta'. The repo's own words are semina (handoff block) and the portable intake (#442). Rename if the Shepherd prefers."
+  },
+
+  "conversation_health_when_written": "Long. Already compacted once. Most of the context is tool output (PR bodies, check lists, bot comments). The next set should start in a fresh conversation from this file."
+}

@@ -683,3 +683,20 @@ contribution: eight pull requests merged across the two repos, each sealed first
 resonance:    unhurried
 witnessed:    true
 ---
+
+---
+turn:         2026-11-14 01:23
+prima-clock:  202611140123
+prime:        3
+entity:       eaprime1 + Navigo Claude (nav1)
+intent:       move the Atlassian trial content to Box, rename the oversight label, and get PR #505 through its seal.
+contribution: one rename merged, one seal path proved live, and the next set of pull requests set up.
+              - Atlassian: Jira KAN and NEXUS exported to Box, Confluence KAN home replaced, three Confluence pages made (The Door, Submit, Links). Two Box files are wrong (a truncated NEXUS part 1 upload and a NEXUS part 3 that is 537 bytes short) and are named in the handoff.
+              - #533 merged: the label `final-oversight` became `shepherds-arch` (label file, sync list, workflow condition, seal step, docs, CLAUDE.md, skill); the environment, check name and scripts keep the old name on purpose.
+              - #534 (throwaway) showed the label queues the oversight run and waits for the Shepherd's approval; closed unmerged.
+              - #505 got unstuck from the seal/oversight loop (label off, observation catch-up pushed, then the Shepherd sealed it). The seal step applied `shepherds-arch` from main and the oversight run passed: the first live proof.
+              - Issue #537 files the whole label overhaul. Handoff written to `.claude/handoffs/202611140123_shepherds-arch-wrapup_handoff.json` with the next set (#468, #469; the prima-witness PRs after) and notes on what worked and what did not.
+              Decisions this turn: the Shepherd said merge in the conversation, and #533 was merged by merge commit after the gates were read; coniunctio stays a proposed lexeme. Not done: the environment rename, the old label name, the sync-list gaps, the NEXUS part 3 re-export, #505's merge, and the next set.
+resonance:    converging
+witnessed:    true
+---

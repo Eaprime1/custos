@@ -23,6 +23,7 @@
 
 ## Recently Dispatched
 
+- 2026-11-14: #533 merged (`shepherds-arch` replaces `final-oversight` as the label name), #530 merged (coniunctio, inspectio, observatio), #505 sealed and green awaiting the merge word, #534 closed, label overhaul filed as #537; handoff for the next set (#468, #469) in `.claude/handoffs/`
 - 2026-10-07 (later): #429 and #430 merged: the caret cue plan, the shared cue parser with its 54-row offline test, and the Shepherd's answers to the plan
 - 2026-10-07: #425, #404, #405, #420 and #426 merged: auto-finalize draft fix, halide round-one seeds, the Shadow of Polaris nursery, the scanner change, the scene index and checklist, and the oversight observation step
 - custos concept identity filled in (`prima.yaml`, `unexusi/connect.yaml`, README, world/lore.md, world/factions.md)
