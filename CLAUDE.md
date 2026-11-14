@@ -8,12 +8,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - Not a software project with a build pipeline
 - No compilation and no package manager. Small test scripts live in `tools/`:
-  - `test_cue_parser.sh` (72 rows, needs Node)
+  - `test_cue_parser.sh` (80 rows, needs Node)
   - `test_footer_guards.sh` (16 checks, needs Node and PyYAML)
   - `test_final_oversight.js` (60 checks, needs Node)
   - `test_probatio_label.js` (15 rows, needs Node)
+  - `test_stamp_on_submit.js` (22 checks, needs Node)
   - `test_file_review.js` (30 rows, needs Node)
   - `test_seal_observation.sh` (9 rows, needs Node, Python 3 and PyYAML)
+  - `test_observation_log.sh` (102 checks on the rules, 29 on the workflow step; needs Node, Python 3 and PyYAML)
   - `test_check_workflow_injection.sh` (11 checks, needs Python 3)
   - `test_validate_json_yaml.sh`
 - Deliverable: content and structure — quests, world lore, shell tools, device state, workflow configuration
@@ -48,6 +50,10 @@ bash tools/scan_lexeme.sh path/to/dir      # scan a specific subdirectory
 bash tools/scan_provenance.sh origin/main  # checks new .md files for a Prima-clock stamp (advisory)
 bash tools/stale_claims.sh               # lists backticked paths in CLAUDE.md and README.md the tree lacks (advisory, exits 0)
 python3 tools/check_workflow_injection.py --check .github/workflows   # ${{ }} inside run: scripts (exits 1 if found)
+
+# Retrospective eval of finished work (read-only; pairs with the work-eval skill)
+bash tools/journey_scorecard.sh            # auto-score distribution across pr-journeys/, flags, saturation
+bash tools/journey_scorecard.sh --since 202610 --csv   # narrow to YYYYMM on, or one CSV row per journey
 
 # Environment bootstrap (idempotent)
 bash seeds/bootstrap.sh                    # installs packages via pkg/apt-get, deploys dotfiles, creates ~/.prima-env
@@ -167,6 +173,11 @@ Branches and documents carry suit designations:
 ### Unexusi Layer (`unexusi/connect.yaml`)
 Tracks player XP, level, quest completion, session timestamps across devices. Configures session lifecycle. `concept.slug: custos`.
 
+### Skills (`.claude/skills/`)
+
+- `latin-workflow` — the Latin calls (recensio, probatio, judicium and the rest), what each asks for, what is live and what is only words, and the guardrail against typing a seal cue. Summary only: `docs/latin-workflow-glossary.md` wins on any disagreement.
+- `work-eval` — retrospective grading of finished work. It looks backward and leaves sealing and merging to the owner. It adds a judgment layer over the auto-score floor in pr-journeys, and a Five Lakes proposal for documents.
+
 ### THEE / YOD / EMBER Triad
 A listening practice for capturing fragments before they have names. Not a ticketing system.
 
@@ -196,7 +207,7 @@ Staging ground for what has crossed in from outside but hasn't found its place y
   - `scan-lexeme.yml` — placeholder scan
   - `seal-path-tests.yml` — offline tests for the cue parser and the footer guards and the final-oversight rules, run when a seal-path file changes
   - `probatio-label.yml` — the soft seal: the owner's `^name probatio` sets the `ready-for-oversight` label, and a person's push takes it off
-  - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `final-oversight` label and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
+  - `final-oversight.yml` — report-only last look before merge; runs only when a PR carries the `shepherds-arch` label (old name `final-oversight`, still accepted) and the owner approves the run in the `final-oversight` environment (see `docs/final-oversight.md`)
   - `workflow-lint.yml` — looks for `${{ }}` expressions pasted into `run:` scripts (expression injection) with `tools/check_workflow_injection.py`; adopted from hodie, runs when a workflow or the checker changes
   - `prima-witness.yml` — Prima-clock provenance scan on newly-added `.md` files. Advisory, ported/adapted from hodie's stricter `footer-witness.yml`. Unlike hodie's version, it's stateless: no bot commits, no accumulating state file.
   - `final-review.yml` / `finalize-pr.yml` — the "Custos — Final Review Gate" manual Action referenced in CONTRIBUTING.md
