@@ -9,6 +9,16 @@
       "characters": ["custos", "fodere", "agnoscere"],
       "kingdoms": ["custos"],
       "branches": ["claude/custos-chronicle-foundation-econho"]
+    },
+    {
+      "id": "0003",
+      "prima_clock": "202611070154",
+      "type": "ballast",
+      "title": "The Ballast Event",
+      "chronicle": "dungeon-master/chronicles/202611070154_the-ballast-event.md",
+      "characters": ["custos", "fodere", "agnoscere"],
+      "kingdoms": ["custos"],
+      "branches": ["ballast/event"]
     }
   ]
 }

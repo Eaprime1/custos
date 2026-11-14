@@ -21,6 +21,9 @@ ACTIONS (the work)
   refice        rework, bigger than amending. With a plan, follow it. Without one, write it first.
   semina        sow the seed. Write a handoff block so the work continues in a new conversation.
   sustine       hold back. Read by the parser only; it sets nothing yet.
+  inspectio     the oversight observer's review. Re-check, score M1 to M8, say inspected or flag.
+  observatio    the observation, the record in turns/observations/. Inspectio is the review; this is what it leaves.
+  coniunctio    merge when ready. Owner's call. Gates first; a concern becomes a judicium.
 
 MODIFIERS (the scope or tempo)
   prima         first. Orient, change nothing.
@@ -47,13 +50,13 @@ COMMON CALLS
   ^chatgpt supplenda emenda     supply the missing step, or say who it waits on
 
 THE ROAD
-  recensio  >  ultima recensio  >  probatio (label)  >  oversight
-  oversight finds flags  >  emenda  >  back to ultima recensio
-  oversight is clear  >  ultima probatio (owner)  >  merge
+  recensio  >  ultima recensio  >  probatio (label)  >  inspectio (observer review)
+  inspectio finds flags  >  emenda  >  back to ultima recensio
+  inspectio is clear (inspected box)  >  ultima probatio (owner)  >  coniunctio (merge)
 
 OWNER ONLY
   ultima probatio    final seal
-  merge              on the Shepherd's word
+  coniunctio         merge, on the Shepherd's word
 
 MANUAL BACKUP
   finalize + a handwritten ticket. When the words are in a mess.
@@ -67,6 +70,9 @@ CHECK-IN CUES (issues)
 CUSTOS VERBS
   ^custos check          ^custos concordance
   ^custos sync-labels
+
+NOT YET READ BY ANY WORKFLOW
+  inspectio  observatio  coniunctio  (words for the conversation; see T17)
 
 REMEMBER
   A call is a mode, not a keyword.

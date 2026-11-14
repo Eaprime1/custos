@@ -45,12 +45,25 @@ without waiting. Check it once after setup.
 
 1. Finish the oversight review and file the observation with `status: complete`.
 2. Call the seal (`ultima probatio` / `@claude finalize`). Once `finalize-pr.yml` actually
-   seals — every gate passed, not just the call made — it now applies the `final-oversight`
-   label itself (added 2026-10-29; see "Known gap" below). The label no longer needs to be
-   added by hand.
+   seals — every gate passed, not just the call made — it now applies the `shepherds-arch`
+   label itself (added 2026-10-29 as `final-oversight`; see "Known gap" below). The label no
+   longer needs to be added by hand.
 3. Approve the waiting run. Read the comment it posts.
 4. If it is green, merge on the owner's word. If it is red, fix the item, and the
    new head waits for a new approval (the older waiting run is cancelled).
+
+## The label's name
+
+The label that queues this run is `shepherds-arch`. It was `final-oversight` until
+2026-11-13, and the workflow still accepts the old name so that nothing in flight breaks.
+
+Only the label changed. These keep the old name on purpose, to be renamed one at a time:
+
+- the GitHub **environment** `final-oversight`. Renaming it on its own would drop the
+  owner's approval step, because GitHub creates a missing environment with no reviewer.
+  Create the new environment, add the owner as a required reviewer, then change the
+  `environment:` line in the workflow.
+- the workflow file, the job and check name, and the scripts.
 
 ## Known gap (2026-10-16 to 2026-10-29)
 

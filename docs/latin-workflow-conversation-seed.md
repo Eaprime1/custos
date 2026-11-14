@@ -56,6 +56,12 @@ ULTIMA PROBATIO — the seal. Write the closing record (the turn log; a journey
   After this, nothing in this conversation changes; new work opens a new
   conversation.
 
+INSPECTIO — the oversight observer's review. Re-check the claims, score them,
+  report flags or say inspected. You do not seal or merge.
+OBSERVATIO — the record. Write or update the observation the review leaves.
+CONIUNCTIO — merge when ready, the owner's call. Check the gates first. If any
+  concern remains, give a JUDICIUM and wait. Merge only when none remains.
+
 A call may be addressed. "^omnes <call>" is for every contributor, each from its
 own seat. "^cuncti <call>" is for the project as a whole: read the whole first,
 then add your own view. "^<your name> <call>" is for you alone; answer "not mine"
@@ -83,6 +89,9 @@ reading it before acting.
 | **Renovata** | Refresh on the current head | Refresh the picture | What changed since the last report |
 | **Probatio** | Soft seal: ready for oversight | State readiness | Ready, or what blocks it |
 | **Ultima Probatio** | Final sign-off; frozen | The conversation is sealed | Turn log written and merges confirmed (`turns/CLOSING.md` steps 3, 7). A journey only if the session is substantial enough for its own custody entry (`valuation/JOURNEY_SCHEMA.md`). An AAR if the turn taught something (optional step 8) |
+| **Inspectio** | The oversight observer's review | The observer's review of the work | Claims re-checked, scored, then *inspected* or flags |
+| **Observatio** | The observation document | The record of that review | The observation, filed |
+| **Coniunctio** | The merge call | Merge when ready, after the gates | Gates checked; a concern becomes a *Judicium*; then the merge |
 
 ## Adapting to the podium
 
