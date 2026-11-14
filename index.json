@@ -1,0 +1,62 @@
+{
+  "_system_metadata": {
+    "repository": "eaprime1/custos",
+    "package_id": "CUSTOS-WIKI-SEED-PACK-001",
+    "schema_label": "tJSON v1.2 (source label; formal schema not supplied)",
+    "created_at": "2026-10-22T03:02:44-07:00",
+    "status": "seed_proposal",
+    "source_revision_policy": "Article URLs are provided; exact oldid revisions were redacted in the source pack and are not pinned.",
+    "format": "JSON",
+    "implementation_status": "Data-only proposal; no live source-sync trigger or convergence automation is included."
+  },
+  "entity_registry": [
+    {
+      "entity_id": "mandelbrot",
+      "entity_name": "Mandelbrot Set",
+      "quantum_address": "88015500999∞",
+      "file_path": "entities/mandelbrot.json",
+      "primary_anchor": "https://en.wikipedia.org/wiki/Mandelbrot_set",
+      "revision_pinned": false,
+      "serendipity_bridge": "https://en.wikipedia.org/wiki/Rubber_duck_debugging"
+    },
+    {
+      "entity_id": "linguistics",
+      "entity_name": "Linguistics",
+      "quantum_address": "11022300888",
+      "file_path": "entities/linguistics.json",
+      "primary_anchor": "https://en.wikipedia.org/wiki/Linguistics",
+      "revision_pinned": false,
+      "serendipity_bridge": "https://en.wikipedia.org/wiki/Rosetta_Stone"
+    },
+    {
+      "entity_id": "quantum_entanglement",
+      "entity_name": "Quantum Entanglement",
+      "quantum_address": "99044100777",
+      "file_path": "entities/quantum_entanglement.json",
+      "primary_anchor": "https://en.wikipedia.org/wiki/Quantum_entanglement",
+      "revision_pinned": false,
+      "serendipity_bridge": "https://en.wikipedia.org/wiki/Voyager_Golden_Record"
+    },
+    {
+      "entity_id": "rubber_duck_debugging",
+      "entity_name": "Rubber Duck Debugging",
+      "quantum_address": "45067300089",
+      "file_path": "entities/rubber_duck_debugging.json",
+      "primary_anchor": "https://en.wikipedia.org/wiki/Rubber_duck_debugging",
+      "revision_pinned": false,
+      "serendipity_bridge": "https://en.wikipedia.org/wiki/Mandelbrot_set"
+    }
+  ],
+  "convergence_protocols": [
+    {
+      "protocol_id": "CONVERGENCE_001_RECURSIVE_ECHO",
+      "title": "The Recursive Echo Protocol",
+      "participating_entities": [
+        "88015500999∞",
+        "11022300888",
+        "45067300089"
+      ],
+      "mechanism": "Project metaphor: explaining a recursive idea in clear steps can help reveal gaps in assumptions and design. This does not guarantee a solution or substitute for testing."
+    }
+  ]
+}
