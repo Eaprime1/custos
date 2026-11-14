@@ -30,7 +30,16 @@ on:
       - 'tools/test_seal_observation.js'
       - 'tools/test_seal_observation.sh'
       - 'tools/test_probatio_label.js'
+      - '.github/scripts/observation-log.js'
+      - '.github/workflows/observation-log.yml'
+      - 'tools/test_observation_log.js'
+      - 'tools/test_observation_log.sh'
+      - 'tools/test_observation_log_workflow.js'
+      - 'tools/observation_log_test_kit.js'
       - 'docs/navigo-registry.md'
+      - '.github/scripts/stamp-on-submit.js'
+      - '.github/workflows/stamp-on-submit.yml'
+      - 'tools/test_stamp_on_submit.js'
 
 permissions:
   contents: read
@@ -62,3 +71,8 @@ jobs:
 
       - name: Final oversight rules
         run: node tools/test_final_oversight.js
+
+      - name: Observation log
+        run: bash tools/test_observation_log.sh
+      - name: Stamp on submit rules
+        run: node tools/test_stamp_on_submit.js

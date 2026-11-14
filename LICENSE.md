@@ -8,11 +8,13 @@ Suit: ♣️ Carbonite (working draft — not yet ♠️ Pinnacle)
 ## Plain-Language Summary
 
 You may:
+
 - **Read, share, and remix** this content
 - **Build on it** for your own creative or research purposes
 - **Adapt it** into new work
 
 You must:
+
 - **Give credit** to Eric Pace / THE/UNEXUS project, with a link back to the original source
 - **Share alike** — if you publish an adaptation, it must carry this same license
 - **Keep it noncommercial** — you may not sell this content, or work built substantially from it, without a separate commercial agreement (see below)
@@ -31,6 +33,7 @@ Full legal code: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 Human-readable deed: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 Under this license, you are free to share and adapt the material for any purpose except commercial use, provided you:
+
 1. Give appropriate credit, provide a link to the license, and indicate if changes were made
 2. Distribute your contributions under the same license as the original
 3. Do not use the material, or derivatives of it, for commercial purposes without separate written permission

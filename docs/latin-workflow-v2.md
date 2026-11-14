@@ -4,6 +4,7 @@
 **Suit:** ♦️ Diamond, 2/3 plank. Decisions made by the Shepherd on 202610160811; workflow side built.
 **Builds on:** [`latin-workflow-glossary.md`](latin-workflow-glossary.md), [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md)
 **Quick reference:** [`latin-lexemes.txt`](latin-lexemes.txt), plain text for Notepad
+**v2.3:** `coniunctio`, `inspectio` and `observatio`, ruled by the Shepherd 2026-11-12 (see the end of this document).
 **v2.1:** drafted 202610212355 UTC from the Shepherd's words at the oversight of #468, #469, #470 and #476. Proposal until the Shepherd rules; the two modifiers are built (parser and cue record), the rest is practice.
 
 The existing system works. This refines it and adds four things: a repair word, two ways to reach
@@ -19,9 +20,10 @@ contributors, a soft seal that sets a label, and a clear road from contributor w
 | 4 | Shepherd | `probatio` | The soft seal. Sets the `ready-for-oversight` label. The contributor states its readiness in a comment. |
 | 4a | Contributor | probatio note | One note to oversight after the label is set. See v2.1 below. |
 | 5 | Oversight | final oversight run | Report only. Lists flags. |
+| 5a | Oversight observer | `inspectio` | The review: re-check the claims, score M1 to M8, file the observation (`observatio`), tick the `inspected` box. A document before the seal, or a PR comment if the PR is already sealed. Practice only until T17. |
 | 6 | Shepherd | `emenda` | Asks contributors to repair the flags. Loops to step 3. |
 | 7 | Shepherd | `ultima probatio` | The final seal, on the owner's word only. If the words are in a mess, see the manual ticket. |
-| 8 | Shepherd | (says so in the conversation) | Merge by merge commit. |
+| 8 | Shepherd | `coniunctio` (or says so in the conversation) | Merge when ready, after the gates are checked. A concern becomes a `judicium` first. Merge by merge commit. |
 
 Steps 2 and 3 belong to the contributor. Step 6 sends a PR back. A person's push after the soft seal
 takes the label off, because a new head needs a new seal.
@@ -33,8 +35,17 @@ takes the label off, because a new head needs a new seal.
 *Emendare*: to amend, to improve. It is editing, not blame: nothing here implies a mistake. The Shepherd
 asks a contributor to amend what oversight flagged. It is an action, so every modifier applies to it.
 
-*Refice* (make again) is reserved for later. It would mean rework bigger than an amendment, still
-without fault. Two repair words, two sizes: `emenda` now, `refice` when the need shows up.
+*Refice* (make again) is rework bigger than an amendment, still without fault. With a plan, follow it;
+without one, write the plan first, then repair. Two repair words, two sizes: `emenda` and `refice`.
+The parser and the cue record read it (2026-10-31). Nothing else changes when it is called.
+
+*Semina* (sow) writes a handoff block so the work continues in a new conversation: clutch in, explore,
+clutch out. The clutch is a vehicle's: clutch in disengages from the main stream, so you can explore
+without driving it; clutch out re-engages.
+
+*Sustine* (hold back) is meant to set `held` so the final seal waits for the Shepherd's
+release. Today the parser and the cue record read both words and nothing more: `sustine` sets no label
+and the seal gate does not read `held`.
 
 | Call | Asks the contributor to |
 |---|---|
@@ -131,7 +142,7 @@ Docs: docs/latin-workflow-v2.md in custos.
 
 ## Decided by the Shepherd (202610160811)
 
-1. `emenda` is the repair word. `refice` is reserved for bigger rework, later.
+1. `emenda` is the repair word. `refice` is bigger rework (live in the parser since 2026-10-31).
 2. `omnes` is everyone. `cuncti` is the project as a whole.
 3. The soft `probatio` sets the `ready-for-oversight` label.
 4. `finalize` moves out of the main stream into a manual backup method.
@@ -252,3 +263,22 @@ rejected would close this; it is a possible follow-up, not built.
 | Thread register, Ask shape, probatio note, merge confirmation. | Practice only. No workflow reads them. |
 | `landed` box, rejected-cue notice. | Not built. |
 
+## v2.3 — The merge word, the review word and the record word
+
+**Ruled:** `coniunctio`, `inspectio` and `observatio` by the Shepherd on 2026-11-12, in conversation with the oversight observer and the development conversation.
+
+| Word | Code | Meaning |
+|---|---|---|
+| `coniunctio` | CNJ | The owner's merge call: merge when ready. Gates first (checks, threads, the seal covers this head, file review, the `inspected` box). A concern becomes a `judicium`. |
+| `inspectio` | INS | The oversight observer's review of a PR. It ends in *inspected* or in flags. The observer never seals or merges. |
+| `observatio` | OBS | The observation, the record the review leaves in `turns/observations/`. |
+
+The oversight observer is a conversation of its own that takes a PR from the Shepherd's ready-for-review tag through the merge (thread T13). The owner gives the merge word only after the review is complete and filed.
+
+### Open, not built (thread T17)
+
+| Piece | State |
+|---|---|
+| The label that requests the review (the Shepherd's wording: *request oversight observation*) | The old name `ready-for-oversight` is hard-coded in `probatio-label.js`, `sovran-labels.yml`, `CLAUDE.md` and several docs. A rename is a Deck Master workflow PR with its tests. |
+| An `inspected` box in the PR template | Exists in the body of #520 only. The Shepherd wants the observer or an action to tick it, never the owner, so a tick cannot stand in for the review. A workflow would tick it only on a complete observer record, untick it on a new push, and be read by the seal or merge gate. |
+| A parser or cue record that reads `inspectio`, `observatio` or `coniunctio` | Not built. The parser rejects unknown words, so they are words for the conversation. |

@@ -38,3 +38,25 @@ PR's head commit. A ticked box means the document **exists**. Read its `status:`
 `turns/observations/<prima-clock>_pr<N>_observation.md`, one per PR, append-only once
 `status: complete`. A later change gets a new section dated below the old ones.
 No private details or real-place names.
+
+## The observation log
+
+Prima-clock: 202610180502
+
+The Shepherd's observation comes as a review, a review comment or a PR comment whose
+text starts a line with `shepherd observation`, then optionally a 12-digit stamp:
+`shepherd observation 202610171524`. `observation-log.yml` records each one in a single
+living comment on the PR, when it is made: the time GitHub posted it (UTC), the stamp as
+typed, who, the commit, and the first words. A review's inline comments are counted and
+linked. An edit updates its row; a deletion leaves the row in place.
+
+- **Only the owner's own words count.** Quoted text, code, comments that carry the Claude
+  Code footer (a navigo writing under the owner's login), bots and anyone else are skipped.
+- **Two clocks, never converted.** The typed stamp has been local (Pacific) time and this
+  repo's records are UTC, so the row keeps both. Nothing converts one to the other. A
+  stamp that is not exactly 12 digits is not read as a stamp.
+- **A log, not the observation.** It does not write the observation, tick the observed
+  box or gate the seal. The navigo still files the observation; the log is what it is
+  written from. Archiving the living comment at merge is Phase 3 of
+  `docs/plans/202610070939-cue-sigil-and-living-observation-plan.md` and is not built.
+- **Tests:** `bash tools/test_observation_log.sh`, offline.
