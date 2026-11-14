@@ -4,12 +4,15 @@ name: Final Oversight
 #
 # How it waits: the job runs in the "final-oversight" environment. That
 # environment must have the owner as a required reviewer (Settings,
-# Environments).
+# Environments). Do NOT change the environment name below on its own: GitHub
+# creates a missing environment with no reviewer and the job would run without
+# waiting. Create the new environment with the reviewer first, then change it.
 # Until the owner approves, the job shows "Waiting" on the PR. See
 # docs/final-oversight.md.
 #
-# When it runs: a PR carries the `final-oversight` label. A new head waits
-# for a new approval, and the older waiting run is cancelled.
+# When it runs: a PR carries the `shepherds-arch` label (named `final-oversight`
+# until 2026-11-13; the old name is still accepted). A new head waits for a new
+# approval, and the older waiting run is cancelled.
 #
 # What it does: reports. It posts one comment (updated in place) and a pass/fail
 # check. It never seals, never merges and never edits the PR.
@@ -37,8 +40,10 @@ jobs:
     name: final-oversight
     if: >-
       (github.event.action != 'labeled' ||
+      github.event.label.name == 'shepherds-arch' ||
       github.event.label.name == 'final-oversight') &&
-      contains(github.event.pull_request.labels.*.name, 'final-oversight') &&
+      (contains(github.event.pull_request.labels.*.name, 'shepherds-arch') ||
+      contains(github.event.pull_request.labels.*.name, 'final-oversight')) &&
       github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 10
