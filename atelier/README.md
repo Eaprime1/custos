@@ -41,6 +41,7 @@ the folder has instructions saying otherwise. It becomes a real folder only when
 | Autographum | `autographum-seed.md` | Seed, Germ — a section of the Armarium for handwritten origins; not started, by the Shepherd's choice; a few are needed for the Primal launch | Shepherd review comment on PR #463, 202610172056 UTC |
 | Exemplar | `exemplar-seed.md` | Seed, Germ — a rare character and high-value lexeme; cautions: rarity, no absolutes | Shepherd review comment on PR #463, about 202610172117 UTC |
 | Matenadaran | `matenadaran-seed.md` | Seed, Germ — a preservation specialist idea, with the history and the Valthraman export found | Shepherd review comment on PR #463, about 202610172127 UTC |
+| The Machine | `the-machine/` | Seed, Germ — a Rube Goldberg test course of small real modules with warning labels and a bookended intensity curve; three specs, none run | Shepherd seed 2026-10-18, KAN-7 |
 
 ### The Convergence Note
 
