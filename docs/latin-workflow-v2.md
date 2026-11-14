@@ -4,6 +4,7 @@
 **Suit:** ♦️ Diamond, 2/3 plank. Decisions made by the Shepherd on 202610160811; workflow side built.
 **Builds on:** [`latin-workflow-glossary.md`](latin-workflow-glossary.md), [`latin-workflow-conversation-seed.md`](latin-workflow-conversation-seed.md)
 **Quick reference:** [`latin-lexemes.txt`](latin-lexemes.txt), plain text for Notepad
+**v2.2:** annuit, ratihabitio and the order, drafted 202611010342 UTC (see the end of this document).
 **v2.3:** `coniunctio`, `inspectio` and `observatio`, ruled by the Shepherd 2026-11-12 (see the end of this document).
 **v2.1:** drafted 202610212355 UTC from the Shepherd's words at the oversight of #468, #469, #470 and #476. Proposal until the Shepherd rules; the two modifiers are built (parser and cue record), the rest is practice.
 
@@ -263,6 +264,64 @@ rejected would close this; it is a possible follow-up, not built.
 | Thread register, Ask shape, probatio note, merge confirmation. | Practice only. No workflow reads them. |
 | `landed` box, rejected-cue notice. | Not built. |
 
+## v2.2 — The nod before the work: `annuit`, `ratihabitio` and the order
+
+**Drafted:** 202611010342 UTC from the Shepherd's words (202610311708 Pacific): "lets add annuit to our latin lexeme
+and update, and set the order." Proposal until the Shepherd rules. Nothing below is read by the cue parser or
+any workflow; these are Jira-side words and practice.
+
+### The two nods
+
+NEXUS-6 already defines them for a navigo's check-in. This section files them with the rest of the vocabulary.
+
+| Word | Weight | Use |
+|---|---|---|
+| `annuit` | Light | The ordinary check-in nod. Eric's comment on the check-in. |
+| `ratihabitio` | Full | Larger or official developments that need careful vetting first. Reserved, not the default. |
+
+Both are the Shepherd's own comment, so they carry his project-perspective read together with the navigo's
+affirmation. Neither seals, merges, sets a label or approves a PR. A navigo never posts either.
+
+### Same job as `placet`?
+
+Close, and the overlap is named, not resolved. `placet` is the nod on a GitHub mission issue that holds a
+`petitio`; it flips a label. `annuit` is the nod on a Jira check-in; it flips nothing. Both are the owner saying
+"begin." Whether to unify them is a JUDICIUM for the Shepherd.
+
+### The order
+
+| Step | Who | What happens |
+|---|---|---|
+| 1 | Navigo | Posts a check-in comment on NEXUS-6 and calls `prima recensio`: what it read, notes, gaps. No work before this. |
+| 2 | Oversight navigo | Replies: an affirmation to begin, or "address this first," naming what. |
+| 3 | Shepherd | `annuit` (or `ratihabitio`). Work may begin. |
+| 4 | Navigo | Works. Each reviewed item is logged as a child Task under NEXUS-1. |
+| 5 | | Each PR then takes the road of a PR (top of this document). |
+
+A navigo that works in several environments signs in once, with a descriptor per environment
+(for example `navigo_gemini-browser`, `navigo_gemini-notebook-radix`, `navigo_gemini`). More descriptors are
+added as comments on the same check-in.
+
+### A word for "subscribe" (JUDICIUM, undecided)
+
+The Shepherd asked for a Latin call that makes a conversation subscribe to a PR; conversations that cannot subscribe
+get the carried line (see "Reaching a contributor that is not subscribed"). Candidates, all project coinages:
+
+| Word | Sense | Fit |
+|---|---|---|
+| `sequere` | follow | Closest to what a subscription is. **Recommended.** |
+| `vigila` | keep watch | Fits the guardian theme; reads as more active than a subscription. |
+| `adsta` | stand by | Fits "wait for the PR"; says nothing about events. |
+
+A cue needs a parser change to be read (the parser rejects unknown words), so this stays practice until chosen.
+
+### What is built
+
+| Piece | State |
+|---|---|
+| Glossary rows and `latin-lexemes.txt` entries for `annuit` and `ratihabitio`. | Added. |
+| The order above. | Practice. Matches NEXUS-6. |
+| Parser or cue record reading either word; a subscribe word. | Not built. |
 ## v2.3 — The merge word, the review word and the record word
 
 **Ruled:** `coniunctio`, `inspectio` and `observatio` by the Shepherd on 2026-11-12, in conversation with the oversight observer and the development conversation.
